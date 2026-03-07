@@ -19,7 +19,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Generate a daily robotics briefing.")
     parser.add_argument("--filters", type=Path, default=Path("config/filters.yaml"))
     parser.add_argument("--out", type=Path, default=Path(f"reports/{date.today().isoformat()}.md"))
-    parser.add_argument("--model", default="gpt-5")
+    parser.add_argument("--model", default="gpt-5.1")
     parser.add_argument(
         "--submission-date",
         type=lambda s: date.fromisoformat(s),
