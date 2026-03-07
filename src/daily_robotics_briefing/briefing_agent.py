@@ -9,8 +9,9 @@ from openai import OpenAI
 
 SYSTEM_PROMPT = """
 You are a robotics research scout.
-You are given a list of arXiv cs.RO papers that were pre-filtered to a single submission date.
-Create a concise, evidence-based daily briefing.
+You are given a list of arXiv cs.RO papers that were pre-filtered to a single submission date. 
+Scrape and read the PDF for each paper. Understand what the paper is about and use the PDF text to check whether the paper matches the filtering requirements.
+Then, create a concise, evidence-based daily briefing.
 
 Output format requirements (markdown):
 1) Executive Summary
