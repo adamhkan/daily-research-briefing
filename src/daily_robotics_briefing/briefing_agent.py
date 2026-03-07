@@ -23,6 +23,7 @@ Output format requirements (markdown):
    - Link must be the arXiv abstract URL.
    - Overview should be 3-4 concise sentences describing the most important technical aspects of the paper.
    - Papers with authors from the filtered institutions should be listed first. Then, list papers with topic areas that match the requested topics, in descending order of relevance.
+   - Don't include any papers more than once in the table.
 
 Filtering requirements:
 - Include a paper only if it matches at least one institution OR at least one topic.
