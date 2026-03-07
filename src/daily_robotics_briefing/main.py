@@ -37,7 +37,8 @@ def main() -> None:
     max_papers_for_llm = int(cfg.get("max_papers_for_llm", 120))
 
     papers = fetch_csro_recent(max_papers=max_papers, submission_date=submission_date)
-    papers_for_llm = [p.to_dict() for p in papers[:max_papers_for_llm]]
+    all_papers = [paper.to_dict() for paper in papers]
+    papers_for_llm = all_papers[:max_papers_for_llm]
 
     briefing = create_daily_briefing(
         papers=papers_for_llm,
@@ -51,6 +52,7 @@ def main() -> None:
     output = (
         f"# Daily Robotics Briefing\n\n"
         f"Submission date covered: **{submission_date.isoformat()}**\n"
+        f"Papers fetched: **{len(all_papers)}**\n"
         f"Papers analyzed: **{len(papers_for_llm)}**\n\n"
         f"{briefing.strip()}\n"
     )
