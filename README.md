@@ -4,16 +4,17 @@ This repository contains an AI agent that runs on GitHub Actions and produces a 
 
 ## What this agent does
 
-1. Fetches up to 2,000 recent papers from https://arxiv.org/list/cs.RO/recent?skip=0&show=2000.
-2. Collects title, authors, abstract, subjects, and links.
-3. Applies your custom filters:
+1. Fetches papers from https://arxiv.org/list/cs.RO/recent?skip=0&show=2000.
+2. Selects only papers submitted on the day before the run date ("yesterday" by default).
+3. Collects title, authors, abstract, subjects, and links.
+4. Applies your custom filters:
    - institution allow-list (e.g., MIT, CMU, ETH Zurich)
    - topic keywords (e.g., manipulation, legged locomotion, SLAM)
-4. Calls the OpenAI Responses API in agent-like mode (with web search enabled) to synthesize:
+5. Calls the OpenAI Responses API in agent-like mode (with web search enabled) to synthesize:
    - papers matching your institutions/topics
    - key findings and trends
    - a compact "what to read first" section
-5. Saves the output as a markdown report under `reports/`.
+6. Saves the output as a markdown report under `reports/`.
 
 ## Repository structure
 
@@ -26,7 +27,7 @@ reports/
   .gitkeep
 src/daily_robotics_briefing/
   __init__.py
-  collector.py                  # arXiv ingestion + lightweight enrichment
+  collector.py                  # arXiv ingestion + date filtering + enrichment
   briefing_agent.py             # OpenAI agent prompt + summary generation
   main.py                       # CLI entrypoint orchestrating the job
 requirements.txt
@@ -54,9 +55,18 @@ cp config/filters.example.yaml config/filters.yaml
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python -m daily_robotics_briefing.main \
+PYTHONPATH=src python -m daily_robotics_briefing.main \
   --filters config/filters.yaml \
   --out reports/manual-run.md
+```
+
+Use a specific day (backfill) with:
+
+```bash
+PYTHONPATH=src python -m daily_robotics_briefing.main \
+  --filters config/filters.yaml \
+  --submission-date 2026-03-06 \
+  --out reports/2026-03-07-backfill.md
 ```
 
 ## Notes on institution filtering

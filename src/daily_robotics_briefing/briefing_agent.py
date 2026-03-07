@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 import json
+from datetime import date
 from typing import Any
 
 from openai import OpenAI
 
 SYSTEM_PROMPT = """
 You are a robotics research scout.
-You are given a large list of recent arXiv cs.RO papers.
+You are given a list of arXiv cs.RO papers that were already pre-filtered to a single submission date.
 Create a concise but insightful daily briefing.
 
 Requirements:
@@ -24,6 +25,7 @@ Requirements:
    - Recommended Reading Queue (top 10)
 4) Be specific and evidence-based; cite arXiv links inline.
 5) If no clear matches exist, say so and list closest relevant papers.
+6) Do not include papers outside the provided submission date.
 """.strip()
 
 
@@ -31,11 +33,13 @@ def create_daily_briefing(
     papers: list[dict[str, Any]],
     institutions: list[str],
     topics: list[str],
+    submission_date: date,
     model: str = "gpt-4.1",
 ) -> str:
     client = OpenAI()
 
     payload = {
+        "submission_date": submission_date.isoformat(),
         "institutions": institutions,
         "topics": topics,
         "paper_count": len(papers),
@@ -50,7 +54,8 @@ def create_daily_briefing(
                 "role": "user",
                 "content": (
                     "Build today's robotics briefing from the following JSON dataset. "
-                    "Treat this as a full scan of recent cs.RO papers.\n\n"
+                    "This dataset only contains cs.RO papers for one submission date; "
+                    "do not reference papers outside this set.\n\n"
                     f"{json.dumps(payload)}"
                 ),
             },
