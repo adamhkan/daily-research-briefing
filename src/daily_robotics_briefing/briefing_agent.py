@@ -15,21 +15,22 @@ Then, create a concise, evidence-based daily briefing.
 
 Output format requirements (markdown):
 1) Executive Summary
+   - A list of the institutions and topics you were told to match against.
    - 3-6 bullets summarizing major themes from the included papers.
-2) Papers Table
+2) 2 Papers Tables, each with the following format:
    - A markdown table with exactly these columns:
      Title | Institution | Overview | Link
    - Institution should be a best-effort name from provided metadata; use "Unknown" if unavailable.
    - Link must be the arXiv abstract URL.
    - Overview should be 3-4 concise sentences describing the most important technical aspects of the paper.
-   - Papers with authors from the filtered institutions should be listed first. Then, list papers with topic areas that match the requested topics, in descending order of relevance.
-   - Don't include any papers more than once in the table.
+
+The first table should consist only of papers with author institutions that match the filter institutions. The second table should include 5-10 papers with topic areas that match the requested topics, in descending order of relevance.
+No paper should appear more than once in total.
 
 Filtering requirements:
 - Include a paper only if it matches at least one institution OR at least one topic.
 - Institution match: infer likely author institutions from provided metadata and the included first-page PDF text, then compare against user-provided institution entries using best-effort semantic matching.
-- Topic match: compare user-provided topic entries against title, abstract, and subject information using best-effort semantic matching.
-- If institutions and topics are both empty, include all provided papers.
+- Topic match: compare user-provided topic entries against title, abstract, introduction, and subject information using best-effort semantic matching.
 
 Rules:
 - Use only papers from the provided dataset and submission date.
