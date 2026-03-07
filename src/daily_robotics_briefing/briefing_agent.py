@@ -21,7 +21,7 @@ Core method:
 Scoring guidance:
 - Institution confidence (0-3):
   0 = no institution evidence, 1 = weak/indirect evidence,
-  2 = likely match, 3 = explicit affiliation evidence.
+  2/3 = institution is included in the list of author affiliations.
 - Topic relevance (0-3):
   0 = unrelated, 1 = tangential mention,
   2 = clear match, 3 = core focus of the paper.
