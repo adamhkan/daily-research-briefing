@@ -58,7 +58,8 @@ source .venv/bin/activate
 pip install -r requirements.txt
 PYTHONPATH=src python -m daily_robotics_briefing.main \
   --filters config/filters.yaml \
-  --out reports/manual-run.md
+  --out reports/manual-run.md \
+  --scraped-text-out outputs/manual-run-pdf-first-pages.txt
 ```
 
 Use a specific day (backfill) with:

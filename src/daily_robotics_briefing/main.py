@@ -26,6 +26,12 @@ def main() -> None:
         default=None,
         help="Submission date to summarize (YYYY-MM-DD). Defaults to yesterday.",
     )
+    parser.add_argument(
+        "--scraped-text-out",
+        type=Path,
+        default=None,
+        help="Optional path to save first-page PDF text scraped for each paper.",
+    )
     args = parser.parse_args()
 
     submission_date = args.submission_date or (date.today() - timedelta(days=1))
@@ -59,6 +65,7 @@ def main() -> None:
     )
     args.out.write_text(output, encoding="utf-8")
     print(f"Wrote briefing: {args.out}")
+    print(f"Wrote scraped PDF first-page text: {scraped_text_out}")
 
 
 if __name__ == "__main__":
