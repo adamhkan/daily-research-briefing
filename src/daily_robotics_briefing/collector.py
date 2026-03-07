@@ -2,10 +2,12 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass
 from datetime import date, datetime, timedelta
+from io import BytesIO
 from typing import Any
 
 import requests
 from bs4 import BeautifulSoup
+from pypdf import PdfReader
 
 ARXIV_URL = "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
 
@@ -19,6 +21,7 @@ class Paper:
     abstract: str
     abs_url: str
     pdf_url: str
+    pdf_first_page_text: str = ""
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -108,6 +111,7 @@ def fetch_csro_recent(
     for arxiv_id, abs_url, pdf_url in paper_refs:
         try:
             p = _fetch_abs_page(arxiv_id, abs_url, pdf_url, timeout=timeout)
+            p.pdf_first_page_text = _fetch_pdf_first_page_text(pdf_url=pdf_url, timeout=timeout)
             papers.append(p)
         except requests.RequestException:
             continue
@@ -140,3 +144,20 @@ def _fetch_abs_page(arxiv_id: str, abs_url: str, pdf_url: str, timeout: int) -> 
         abs_url=abs_url,
         pdf_url=pdf_url,
     )
+
+
+def _fetch_pdf_first_page_text(pdf_url: str, timeout: int) -> str:
+    """Download a PDF and extract text from the first page only."""
+    try:
+        resp = requests.get(pdf_url, timeout=timeout)
+        resp.raise_for_status()
+    except requests.RequestException:
+        return ""
+
+    try:
+        reader = PdfReader(BytesIO(resp.content))
+        if not reader.pages:
+            return ""
+        return _clean(reader.pages[0].extract_text() or "")
+    except Exception:
+        return ""

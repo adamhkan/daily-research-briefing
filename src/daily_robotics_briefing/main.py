@@ -37,6 +37,7 @@ def main() -> None:
     max_papers_for_llm = int(cfg.get("max_papers_for_llm", 120))
 
     papers = fetch_csro_recent(max_papers=max_papers, submission_date=submission_date)
+
     all_papers = [paper.to_dict() for paper in papers]
     papers_for_llm = all_papers[:max_papers_for_llm]
 
