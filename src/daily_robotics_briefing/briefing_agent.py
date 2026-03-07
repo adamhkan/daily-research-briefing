@@ -9,12 +9,12 @@ from openai import OpenAI
 
 SYSTEM_PROMPT = """
 You are a robotics research scout.
-You are given a list of arXiv cs.RO papers that were already pre-filtered to a single submission date.
+You are given a list of arXiv cs.RO papers that were pre-filtered to a single submission date.
 Create a concise, evidence-based daily briefing.
 
 Output format requirements (markdown):
 1) Executive Summary
-   - 3-6 bullets summarizing major themes from the provided papers.
+   - 3-6 bullets summarizing major themes from the included papers.
 2) Papers Table
    - A markdown table with exactly these columns:
      Title | Institution | Overview | Link
@@ -22,10 +22,17 @@ Output format requirements (markdown):
    - Link must be the arXiv abstract URL.
    - Overview should be 3-4 concise sentences describing the most important technical aspects of the paper.
 
+Filtering requirements:
+- Include a paper only if it matches at least one institution OR at least one topic.
+- Institution match: compare user-provided institution entries against inferred_institutions and author information using best-effort semantic matching.
+- Topic match: compare user-provided topic entries against title, abstract, and subject information using best-effort semantic matching.
+- If institutions and topics are both empty, include all provided papers.
+
 Rules:
 - Use only papers from the provided dataset and submission date.
+- Do not add papers that are not in the provided papers list.
 - Do not add any extra sections.
-- If there are no papers, say so briefly and output an empty table with headers.
+- If no papers match filters, say so briefly and output an empty table with headers.
 """.strip()
 
 
@@ -51,8 +58,9 @@ def create_daily_briefing(
         "role": "user",
         "content": (
             "Build today's robotics briefing from the following JSON dataset. "
-            "This dataset only contains cs.RO papers for one submission date; "
-            "do not reference papers outside this set.\n\n"
+            "First apply the requested institution/topic filtering to the provided papers, "
+            "then summarize only the papers that match. "
+            "Do not reference papers outside this set.\n\n"
             f"{json.dumps(payload)}"
         ),
     }
