@@ -1,12 +1,38 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, asdict
+import io
+import re
 from typing import Any
 
 import requests
 from bs4 import BeautifulSoup
+from pypdf import PdfReader
 
 ARXIV_URL = "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+INSTITUTION_KEYWORDS = (
+    "university",
+    "universitat",
+    "universität",
+    "institute",
+    "laboratory",
+    "laboratories",
+    "college",
+    "school",
+    "center",
+    "centre",
+    "research",
+    "academy",
+    "hospital",
+    "technologies",
+    "google",
+    "deepmind",
+    "openai",
+    "microsoft",
+    "amazon",
+    "nvidia",
+    "meta",
+)
 
 
 @dataclass
@@ -78,7 +104,7 @@ def _fetch_abs_page(arxiv_id: str, abs_url: str, pdf_url: str, timeout: int) -> 
     authors = [_clean(x) for x in authors_text.split(",") if _clean(x)]
     subjects = _clean(subjects_node.get_text(" ", strip=True) if subjects_node else "")
 
-    institutions = infer_institutions_from_openalex(title)
+    institutions = infer_institutions(title=title, pdf_url=pdf_url)
 
     return Paper(
         arxiv_id=arxiv_id,
@@ -116,3 +142,65 @@ def infer_institutions_from_openalex(title: str, timeout: int = 20) -> list[str]
                     institutions.add(name)
 
     return sorted(institutions)
+
+
+def infer_institutions(title: str, pdf_url: str, timeout: int = 20) -> list[str]:
+    """Infer affiliations with OpenAlex first, then PDF-text fallback."""
+    institutions = infer_institutions_from_openalex(title=title, timeout=timeout)
+    if institutions:
+        return institutions
+    return infer_institutions_from_pdf(pdf_url=pdf_url, timeout=timeout)
+
+
+def infer_institutions_from_pdf(pdf_url: str, timeout: int = 30, max_pages: int = 2) -> list[str]:
+    """Best-effort extraction of institution names from first PDF pages."""
+    if not pdf_url:
+        return []
+
+    try:
+        response = requests.get(pdf_url, timeout=timeout)
+        response.raise_for_status()
+        reader = PdfReader(io.BytesIO(response.content))
+    except Exception:
+        return []
+
+    text_parts: list[str] = []
+    for page in reader.pages[:max_pages]:
+        page_text = page.extract_text()
+        if page_text:
+            text_parts.append(page_text)
+
+    if not text_parts:
+        return []
+
+    return sorted(_extract_institutions_from_text("\n".join(text_parts)))
+
+
+def _extract_institutions_from_text(text: str) -> set[str]:
+    institutions: set[str] = set()
+
+    pattern = re.compile(
+        r"([A-Z][A-Za-z0-9&\-\.,'() ]{2,120}?"
+        r"(?:University|Universität|Universitat|Institute|Laborator(?:y|ies)|"
+        r"College|School|Center|Centre|Research|Academy|Hospital|Technologies|"
+        r"Google|DeepMind|OpenAI|Microsoft|Amazon|NVIDIA|Meta))"
+    )
+
+    for line in text.splitlines():
+        clean_line = _clean(line)
+        if not clean_line:
+            continue
+
+        line_lower = clean_line.lower()
+        if not any(keyword in line_lower for keyword in INSTITUTION_KEYWORDS):
+            continue
+        if "@" in clean_line:
+            continue
+
+        for match in pattern.findall(clean_line):
+            candidate = _clean(match.strip(" ,;.:"))
+            if len(candidate) < 5:
+                continue
+            institutions.add(candidate)
+
+    return institutions
