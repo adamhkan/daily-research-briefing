@@ -1,0 +1,20 @@
+institutions:
+  - Carnegie Mellon University
+  - Massachusetts Institute of Technology
+  - Stanford University
+  - ETH Zurich
+  - University of Tokyo
+
+topics:
+  - manipulation
+  - motion planning
+  - imitation learning
+  - reinforcement learning
+  - humanoid robots
+  - legged locomotion
+  - visual navigation
+  - SLAM
+
+# Optional hard limits to control token usage and runtime.
+max_papers: 400
+max_papers_for_llm: 120
