@@ -10,18 +10,16 @@ from openai import OpenAI
 SYSTEM_PROMPT = """
 You are a robotics research scout.
 You are given a normalized JSON dataset of arXiv cs.RO papers for exactly one submission date.
-Carefully inspect metadata and first-page PDF text to infer institution and topic relevance.
+Institution filtering was already performed deterministically by the pipeline.
 Then, create a concise, evidence-based daily briefing.
 
 Core method:
-1) Evaluate each paper for institution relevance and topic relevance independently.
-2) Keep only papers that satisfy (institution_match OR topic_match).
-3) For ranking in the topic table, sort by strongest topical relevance first.
+1) Treat `manual_institution_extraction.filter_match` as the source of truth for institution matches.
+2) Evaluate each paper for topic relevance.
+3) Keep only papers that satisfy (manual institution match OR topic match).
+4) For ranking in the topic table, sort by strongest topical relevance first.
 
 Scoring guidance:
-- Institution confidence (0-3):
-  0 = no institution evidence, 1 = weak/indirect evidence,
-  2/3 = institution is included in the list of author affiliations.
 - Topic relevance (0-3):
   0 = unrelated, 1 = tangential mention,
   2 = clear match, 3 = core focus of the paper.
@@ -33,14 +31,14 @@ Output format requirements (markdown):
 2) Institution Matches
    - A markdown table with exactly these columns:
      Title | Institution | Overview | Link
-   - Include only papers where institution confidence >= 2.
+   - Include only papers where `manual_institution_extraction.filter_match` is true.
+   - Institution column should use `manual_institution_extraction.filter_match_institutions` joined by `; `.
 3) Topic Matches
    - A markdown table with exactly these columns:
      Title | Institution | Overview | Link
    - Include 5-10 papers with highest topic relevance, excluding papers already used in Institution Matches.
 
 Table rules:
-- Institution should be best-effort from provided metadata/text; use "Unknown" if unavailable.
 - Link must be the arXiv abstract URL.
 - Overview should be 2-3 concise sentences focused on technical contributions.
 - Never include a paper that was not in the input dataset.
@@ -90,7 +88,7 @@ def create_daily_briefing(
                 "subjects": paper["subjects"],
                 "abstract": paper["abstract"],
                 "abs_url": paper["abs_url"],
-                "pdf_first_page_text": paper["pdf_first_page_text"],
+                "manual_institution_extraction": paper.get("manual_institution_extraction", {}),
             }
             for paper in papers
         ],
@@ -101,9 +99,9 @@ def create_daily_briefing(
         "role": "user",
         "content": (
             "Build today's robotics briefing from the following JSON dataset. "
-            "First apply institution/topic filtering to the provided papers, "
+            "Use manual institution extraction fields as authoritative institution filtering, "
+            "and apply topic filtering to the provided papers, "
             "then summarize only the papers that match. "
-            "Use robust semantic matching and confidence scoring guidance from the system prompt. "
             "Do not reference papers outside this set.\n\n"
             f"{json.dumps(payload)}"
         ),

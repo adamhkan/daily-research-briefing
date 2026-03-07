@@ -7,10 +7,8 @@ This repository contains an AI agent that runs on GitHub Actions and produces a 
 1. Fetches papers from https://arxiv.org/list/cs.RO/recent?skip=0&show=2000.
 2. Selects only papers submitted on the day before the run date ("yesterday" by default).
 3. Collects title, authors, abstract, subjects, links, and first-page PDF text (locally scraped).
-4. Applies your custom filters:
-   - institution allow-list (e.g., MIT, CMU, ETH Zurich)
-   - topic keywords (e.g., manipulation, legged locomotion, SLAM)
-5. Calls the OpenAI API (default model: `gpt-5.1`) and asks it to keep only papers that match your institution/topic filters before summarization, using the pre-scraped first-page PDF text in the payload.
+4. Applies deterministic institution extraction on first-page PDF text to map author affiliations from your institution allow-list (including aliases).
+5. Calls the OpenAI API (default model: `gpt-5.1`) with paper metadata and abstracts only (not first-page PDF text) to perform topic relevance filtering and summarization, while using the deterministic institution filtering output from step 4.
 6. Synthesizes:
    - only the filter-matched papers
    - key findings and trends
@@ -58,8 +56,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 PYTHONPATH=src python -m daily_robotics_briefing.main \
   --filters config/filters.yaml \
-  --out reports/manual-run.md \
-  --scraped-text-out outputs/manual-run-pdf-first-pages.txt
+  --out reports/manual-run.md
 ```
 
 Use a specific day (backfill) with:
@@ -73,7 +70,7 @@ PYTHONPATH=src python -m daily_robotics_briefing.main \
 
 ## Notes on institution filtering
 
-arXiv metadata often does not include author affiliation. Institution matching is done by the LLM from provided metadata plus locally scraped first-page PDF text, which often contains author affiliations.
+arXiv metadata often does not include author affiliation. This project now performs institution extraction deterministically from first-page PDF text. It parses affiliation lines, matches configured aliases to canonical institution names, records paper-level and author-level institutions, and forwards only structured institution results plus metadata/abstracts to the LLM for reporting.
 
 ## Example output sections
 

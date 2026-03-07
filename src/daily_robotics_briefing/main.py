@@ -3,16 +3,23 @@ from __future__ import annotations
 import argparse
 from datetime import date, timedelta
 from pathlib import Path
+from typing import Any
 
 import yaml
 
 from .briefing_agent import create_daily_briefing
 from .collector import fetch_csro_recent
+from .institution_filter import build_institution_specs, extract_institutions_for_paper
 
 
 def load_filters(path: Path) -> dict:
     with path.open("r", encoding="utf-8") as f:
         return yaml.safe_load(f) or {}
+
+
+def _canonical_names(institution_entries: list[Any]) -> list[str]:
+    specs = build_institution_specs(institution_entries)
+    return [spec.canonical for spec in specs]
 
 
 def main() -> None:
@@ -31,7 +38,9 @@ def main() -> None:
     submission_date = args.submission_date or (date.today() - timedelta(days=1))
 
     cfg = load_filters(args.filters)
-    institutions = cfg.get("institutions", [])
+    institution_entries = cfg.get("institutions", [])
+    institution_specs = build_institution_specs(institution_entries)
+    institutions = _canonical_names(institution_entries)
     topics = cfg.get("topics", [])
     max_papers = int(cfg.get("max_papers", 400))
     max_papers_for_llm = int(cfg.get("max_papers_for_llm", 120))
@@ -45,7 +54,16 @@ def main() -> None:
         )
         return
 
-    all_papers = [paper.to_dict() for paper in papers]
+    all_papers = []
+    for paper in papers:
+        record = paper.to_dict()
+        institution_result = extract_institutions_for_paper(
+            author_names=record["authors"],
+            pdf_first_page_text=record["pdf_first_page_text"],
+            institution_specs=institution_specs,
+        )
+        record["manual_institution_extraction"] = institution_result.to_dict()
+        all_papers.append(record)
     papers_for_llm = all_papers[:max_papers_for_llm]
 
     briefing = create_daily_briefing(
