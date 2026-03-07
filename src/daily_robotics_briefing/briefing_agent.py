@@ -10,7 +10,7 @@ from openai import OpenAI
 SYSTEM_PROMPT = """
 You are a robotics research scout.
 You are given a list of arXiv cs.RO papers that were pre-filtered to a single submission date. 
-Scrape and read the PDF for each paper. Understand what the paper is about and use the PDF text to check whether the paper matches the filtering requirements.
+Use the provided first-page PDF text for each paper to understand what the paper is about and to check whether the paper matches the filtering requirements.
 Then, create a concise, evidence-based daily briefing.
 
 Output format requirements (markdown):
@@ -27,7 +27,7 @@ Output format requirements (markdown):
 
 Filtering requirements:
 - Include a paper only if it matches at least one institution OR at least one topic.
-- Institution match: infer likely author institutions from the provided paper PDF and compare against user-provided institution entries using best-effort semantic matching. Author institutions are often listed on the first page of the PDF.
+- Institution match: infer likely author institutions from provided metadata and the included first-page PDF text, then compare against user-provided institution entries using best-effort semantic matching.
 - Topic match: compare user-provided topic entries against title, abstract, and subject information using best-effort semantic matching.
 - If institutions and topics are both empty, include all provided papers.
 
@@ -73,8 +73,6 @@ def create_daily_briefing(
             model=model,
             input=[system_message, user_message],
             reasoning={"effort": "high"},
-            # "Agent mode" style capability: allow model to use web search when needed.
-            tools=[{"type": "web_search_preview"}],
         )
         return response.output_text
 

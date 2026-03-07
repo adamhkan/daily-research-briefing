@@ -26,6 +26,12 @@ def main() -> None:
         default=None,
         help="Submission date to summarize (YYYY-MM-DD). Defaults to yesterday.",
     )
+    parser.add_argument(
+        "--scraped-text-out",
+        type=Path,
+        default=None,
+        help="Optional path to save first-page PDF text scraped for each paper.",
+    )
     args = parser.parse_args()
 
     submission_date = args.submission_date or (date.today() - timedelta(days=1))
@@ -37,6 +43,19 @@ def main() -> None:
     max_papers_for_llm = int(cfg.get("max_papers_for_llm", 120))
 
     papers = fetch_csro_recent(max_papers=max_papers, submission_date=submission_date)
+
+    scraped_text_out = args.scraped_text_out or Path(
+        f"outputs/{submission_date.isoformat()}-pdf-first-pages.txt"
+    )
+    scraped_text_out.parent.mkdir(parents=True, exist_ok=True)
+    scraped_dump = []
+    for paper in papers:
+        scraped_dump.append(f"=== {paper.arxiv_id} | {paper.title} ===")
+        scraped_dump.append(f"PDF: {paper.pdf_url}")
+        scraped_dump.append(paper.pdf_first_page_text or "<NO_TEXT_EXTRACTED>")
+        scraped_dump.append("")
+    scraped_text_out.write_text("\n".join(scraped_dump), encoding="utf-8")
+
     all_papers = [paper.to_dict() for paper in papers]
     papers_for_llm = all_papers[:max_papers_for_llm]
 
@@ -58,6 +77,7 @@ def main() -> None:
     )
     args.out.write_text(output, encoding="utf-8")
     print(f"Wrote briefing: {args.out}")
+    print(f"Wrote scraped PDF first-page text: {scraped_text_out}")
 
 
 if __name__ == "__main__":
