@@ -64,30 +64,53 @@ def _parse_arxiv_list_header_date(header_text: str) -> date | None:
         return None
 
 
+def _extract_ref_from_dt(dt: Any) -> tuple[str, str, str] | None:
+    id_link = dt.select_one("a[title='Abstract']")
+    if not id_link:
+        return None
+
+    arxiv_id = id_link.get_text(strip=True)
+    abs_path = id_link.get("href", "")
+    abs_url = f"https://arxiv.org{abs_path}"
+    pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
+    return arxiv_id, abs_url, pdf_url
+
+
 def _collect_abs_urls_for_date(list_page_html: str, target_date: date) -> list[tuple[str, str, str]]:
     """Return (arxiv_id, abs_url, pdf_url) tuples from the exact date section."""
     soup = BeautifulSoup(list_page_html, "html.parser")
     paper_refs: list[tuple[str, str, str]] = []
+    seen_ids: set[str] = set()
 
     for h3 in soup.select("h3"):
         parsed = _parse_arxiv_list_header_date(h3.get_text(" ", strip=True))
         if parsed != target_date:
             continue
 
+        # Older arXiv layout: entries were grouped under a <dl> sibling.
         dl = h3.find_next_sibling("dl")
-        if dl is None:
+        if dl is not None:
+            for dt in dl.select("dt"):
+                ref = _extract_ref_from_dt(dt)
+                if not ref or ref[0] in seen_ids:
+                    continue
+                seen_ids.add(ref[0])
+                paper_refs.append(ref)
             continue
 
-        for dt in dl.select("dt"):
-            id_link = dt.select_one("a[title='Abstract']")
-            if not id_link:
-                continue
-
-            arxiv_id = id_link.get_text(strip=True)
-            abs_path = id_link.get("href", "")
-            abs_url = f"https://arxiv.org{abs_path}"
-            pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
-            paper_refs.append((arxiv_id, abs_url, pdf_url))
+        # Current arXiv layout: entries appear as direct dt/dd siblings after <h3>
+        # until the next <h3> date header.
+        node = h3.next_sibling
+        while node is not None:
+            node_name = getattr(node, "name", None)
+            if node_name == "h3":
+                break
+            if node_name == "dt":
+                ref = _extract_ref_from_dt(node)
+                if ref and ref[0] not in seen_ids:
+                    seen_ids.add(ref[0])
+                    paper_refs.append(ref)
+            node = node.next_sibling
 
     return paper_refs
 

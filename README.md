@@ -76,8 +76,4 @@ arXiv metadata often does not include author affiliation. The code uses a best-e
 ## Example output sections
 
 - Executive summary
-- Institution-specific highlights
-- Topic-specific highlights
-- Notable papers (5–15)
-- Emerging trends
-- Suggested reading order
+- Papers table (`Title | Institution | Link | Overview`)
