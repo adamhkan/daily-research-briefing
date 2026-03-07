@@ -10,7 +10,7 @@ from openai import OpenAI
 SYSTEM_PROMPT = """
 You are a robotics research scout.
 You are given a list of arXiv cs.RO papers that were pre-filtered to a single submission date. 
-Use the provided first-page PDF text for each paper to understand what the paper is about and to check whether the paper matches the filtering requirements.
+Carefully read the provided first-page PDF text for each paper to understand what the paper is about and to check whether the paper matches the filtering requirements.
 Then, create a concise, evidence-based daily briefing.
 
 Output format requirements (markdown):
