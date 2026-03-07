@@ -10,7 +10,7 @@ This repository contains an AI agent that runs on GitHub Actions and produces a 
 4. Applies your custom filters:
    - institution allow-list (e.g., MIT, CMU, ETH Zurich)
    - topic keywords (e.g., manipulation, legged locomotion, SLAM)
-5. Calls the OpenAI Responses API in agent-like mode (with web search enabled) to synthesize:
+5. Calls the OpenAI API (default model: `gpt-5`) in agent-like mode (with web search enabled when supported) to synthesize:
    - papers matching your institutions/topics
    - key findings and trends
    - a compact "what to read first" section

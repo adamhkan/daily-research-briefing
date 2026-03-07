@@ -35,7 +35,7 @@ def create_daily_briefing(
     institutions: list[str],
     topics: list[str],
     submission_date: date,
-    model: str = "gpt-4.1",
+    model: str = "gpt-5",
 ) -> str:
     client = OpenAI(http_client=httpx.Client())
 
@@ -47,22 +47,30 @@ def create_daily_briefing(
         "papers": papers,
     }
 
-    response = client.responses.create(
-        model=model,
-        input=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {
-                "role": "user",
-                "content": (
-                    "Build today's robotics briefing from the following JSON dataset. "
-                    "This dataset only contains cs.RO papers for one submission date; "
-                    "do not reference papers outside this set.\n\n"
-                    f"{json.dumps(payload)}"
-                ),
-            },
-        ],
-        # "Agent mode" style capability: allow model to use web search when needed.
-        tools=[{"type": "web_search_preview"}],
-    )
+    system_message = {"role": "system", "content": SYSTEM_PROMPT}
+    user_message = {
+        "role": "user",
+        "content": (
+            "Build today's robotics briefing from the following JSON dataset. "
+            "This dataset only contains cs.RO papers for one submission date; "
+            "do not reference papers outside this set.\n\n"
+            f"{json.dumps(payload)}"
+        ),
+    }
 
-    return response.output_text
+    if hasattr(client, "responses"):
+        response = client.responses.create(
+            model=model,
+            input=[system_message, user_message],
+            # "Agent mode" style capability: allow model to use web search when needed.
+            tools=[{"type": "web_search_preview"}],
+        )
+        return response.output_text
+
+    # Compatibility path for older OpenAI Python SDK versions that do not
+    # implement the Responses API yet.
+    response = client.chat.completions.create(
+        model=model,
+        messages=[system_message, user_message],
+    )
+    return response.choices[0].message.content or ""
