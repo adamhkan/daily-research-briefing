@@ -35,7 +35,7 @@ def create_daily_briefing(
     institutions: list[str],
     topics: list[str],
     submission_date: date,
-    model: str = "gpt-5",
+    model: str = "gpt-5.1",
 ) -> str:
     client = OpenAI(http_client=httpx.Client())
 
