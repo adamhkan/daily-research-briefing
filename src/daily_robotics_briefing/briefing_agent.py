@@ -20,7 +20,7 @@ Output format requirements (markdown):
      Title | Institution | Overview | Link
    - Institution should be a best-effort name from provided metadata; use "Unknown" if unavailable.
    - Link must be the arXiv abstract URL.
-   - Overview should be 1-2 concise sentences about why the paper matters.
+   - Overview should be 3-4 concise sentences describing the most important technical aspects of the paper.
 
 Rules:
 - Use only papers from the provided dataset and submission date.
