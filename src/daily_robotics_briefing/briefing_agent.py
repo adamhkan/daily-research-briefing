@@ -22,6 +22,7 @@ Output format requirements (markdown):
    - Institution should be a best-effort name from provided metadata; use "Unknown" if unavailable.
    - Link must be the arXiv abstract URL.
    - Overview should be 3-4 concise sentences describing the most important technical aspects of the paper.
+   - Papers with authors from the filtered institutions should be listed first. Then, list papers with topic areas that match the requested topics, in descending order of relevance.
 
 Filtering requirements:
 - Include a paper only if it matches at least one institution OR at least one topic.
@@ -70,6 +71,7 @@ def create_daily_briefing(
         response = client.responses.create(
             model=model,
             input=[system_message, user_message],
+            reasoning={"effort": "high"},
             # "Agent mode" style capability: allow model to use web search when needed.
             tools=[{"type": "web_search_preview"}],
         )
