@@ -38,6 +38,13 @@ def main() -> None:
 
     papers = fetch_csro_recent(max_papers=max_papers, submission_date=submission_date)
 
+    if not papers:
+        print(
+            "No papers found for submission date "
+            f"{submission_date.isoformat()}; skipping briefing generation."
+        )
+        return
+
     all_papers = [paper.to_dict() for paper in papers]
     papers_for_llm = all_papers[:max_papers_for_llm]
 
