@@ -17,7 +17,7 @@ Output format requirements (markdown):
    - 3-6 bullets summarizing major themes from the provided papers.
 2) Papers Table
    - A markdown table with exactly these columns:
-     Title | Institution | Link | Overview
+     Title | Institution | Overview | Link
    - Institution should be a best-effort name from provided metadata; use "Unknown" if unavailable.
    - Link must be the arXiv abstract URL.
    - Overview should be 1-2 concise sentences about why the paper matters.
