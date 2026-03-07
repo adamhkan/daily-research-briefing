@@ -72,7 +72,7 @@ PYTHONPATH=src python -m daily_robotics_briefing.main \
 
 ## Notes on institution filtering
 
-arXiv metadata often does not include author affiliation. The code uses a best-effort OpenAlex title lookup first, then falls back to extracting likely affiliation strings from the first pages of the paper PDF when OpenAlex has no match. You can disable or extend these resolvers depending on your quality/speed tradeoff.
+arXiv metadata often does not include author affiliation. Institution matching is done by the LLM from the provided paper metadata (and optional web search tool support, when available), rather than via local OpenAlex/PDF affiliation scraping.
 
 ## Example output sections
 
