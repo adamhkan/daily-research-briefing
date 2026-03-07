@@ -24,7 +24,7 @@ Output format requirements (markdown):
 
 Filtering requirements:
 - Include a paper only if it matches at least one institution OR at least one topic.
-- Institution match: compare user-provided institution entries against inferred_institutions and author information using best-effort semantic matching.
+- Institution match: infer likely author institutions from the provided paper metadata and compare against user-provided institution entries using best-effort semantic matching.
 - Topic match: compare user-provided topic entries against title, abstract, and subject information using best-effort semantic matching.
 - If institutions and topics are both empty, include all provided papers.
 
@@ -69,6 +69,7 @@ def create_daily_briefing(
         response = client.responses.create(
             model=model,
             input=[system_message, user_message],
+            reasoning={"effort": "high"},
             # "Agent mode" style capability: allow model to use web search when needed.
             tools=[{"type": "web_search_preview"}],
         )

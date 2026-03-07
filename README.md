@@ -10,7 +10,7 @@ This repository contains an AI agent that runs on GitHub Actions and produces a 
 4. Applies your custom filters:
    - institution allow-list (e.g., MIT, CMU, ETH Zurich)
    - topic keywords (e.g., manipulation, legged locomotion, SLAM)
-5. Calls the OpenAI API (default model: `gpt-5.1`) in agent-like mode (with web search enabled when supported) and asks it to keep only papers that match your institution/topic filters before summarization.
+5. Calls the OpenAI API (default model: `gpt-5.1`) with explicit high reasoning effort in agent-like mode (with web search enabled when supported) and asks it to keep only papers that match your institution/topic filters before summarization.
 6. Synthesizes:
    - only the filter-matched papers
    - key findings and trends
@@ -72,7 +72,7 @@ PYTHONPATH=src python -m daily_robotics_briefing.main \
 
 ## Notes on institution filtering
 
-arXiv metadata often does not include author affiliation. The code uses a best-effort OpenAlex title lookup first, then falls back to extracting likely affiliation strings from the first pages of the paper PDF when OpenAlex has no match. You can disable or extend these resolvers depending on your quality/speed tradeoff.
+arXiv metadata often does not include author affiliation. Institution matching is done by the LLM from the provided paper metadata (and optional web search tool support, when available), rather than via local OpenAlex/PDF affiliation scraping.
 
 ## Example output sections
 
