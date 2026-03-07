@@ -54,31 +54,61 @@ def _clean(text: str) -> str:
     return " ".join(text.split())
 
 
-def fetch_csro_recent(max_papers: int = 400, timeout: int = 30) -> list[Paper]:
-    """Scrape arXiv recent cs.RO list and fetch abstract pages.
+def _parse_arxiv_list_header_date(header_text: str) -> date | None:
+    """Parse arXiv list header dates like 'Fri, 6 Mar 2026 (showing 123 of 123 entries)'."""
+    date_part = " ".join(header_text.split("(", 1)[0].split())
+    try:
+        return datetime.strptime(date_part, "%a, %d %b %Y").date()
+    except ValueError:
+        return None
 
-    This intentionally reads from the exact URL requested by the user and then
-    follows each abstract page for cleaner abstract/title extraction.
-    """
-    resp = requests.get(ARXIV_URL, timeout=timeout)
-    resp.raise_for_status()
-    soup = BeautifulSoup(resp.text, "html.parser")
 
-    dts = soup.select("dl > dt")
-    dds = soup.select("dl > dd")
-    pairs = list(zip(dts, dds))[:max_papers]
+def _collect_abs_urls_for_date(list_page_html: str, target_date: date) -> list[tuple[str, str, str]]:
+    """Return (arxiv_id, abs_url, pdf_url) tuples from the exact date section."""
+    soup = BeautifulSoup(list_page_html, "html.parser")
+    paper_refs: list[tuple[str, str, str]] = []
 
-    papers: list[Paper] = []
-    for dt, _ in pairs:
-        id_link = dt.select_one("a[title='Abstract']")
-        if not id_link:
+    for h3 in soup.select("h3"):
+        parsed = _parse_arxiv_list_header_date(h3.get_text(" ", strip=True))
+        if parsed != target_date:
             continue
 
-        arxiv_id = id_link.get_text(strip=True)
-        abs_path = id_link.get("href", "")
-        abs_url = f"https://arxiv.org{abs_path}"
-        pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
+        dl = h3.find_next_sibling("dl")
+        if dl is None:
+            continue
 
+        for dt in dl.select("dt"):
+            id_link = dt.select_one("a[title='Abstract']")
+            if not id_link:
+                continue
+
+            arxiv_id = id_link.get_text(strip=True)
+            abs_path = id_link.get("href", "")
+            abs_url = f"https://arxiv.org{abs_path}"
+            pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
+            paper_refs.append((arxiv_id, abs_url, pdf_url))
+
+    return paper_refs
+
+
+def fetch_csro_recent(
+    max_papers: int = 400,
+    timeout: int = 30,
+    submission_date: date | None = None,
+) -> list[Paper]:
+    """Scrape arXiv cs.RO and fetch papers submitted on the chosen day.
+
+    By default this targets yesterday's date, which matches the daily-briefing
+    requirement to only summarize papers submitted the day before execution.
+    """
+    target_date = submission_date or (date.today() - timedelta(days=1))
+
+    resp = requests.get(ARXIV_URL, timeout=timeout)
+    resp.raise_for_status()
+    paper_refs = _collect_abs_urls_for_date(resp.text, target_date=target_date)[:max_papers]
+
+    papers: list[Paper] = []
+    for arxiv_id, abs_url, pdf_url in paper_refs:
         try:
             p = _fetch_abs_page(arxiv_id, abs_url, pdf_url, timeout=timeout)
             papers.append(p)
