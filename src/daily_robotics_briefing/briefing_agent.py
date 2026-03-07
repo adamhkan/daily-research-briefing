@@ -4,6 +4,7 @@ import json
 from datetime import date
 from typing import Any
 
+import httpx
 from openai import OpenAI
 
 SYSTEM_PROMPT = """
@@ -36,7 +37,7 @@ def create_daily_briefing(
     submission_date: date,
     model: str = "gpt-4.1",
 ) -> str:
-    client = OpenAI()
+    client = OpenAI(http_client=httpx.Client())
 
     payload = {
         "submission_date": submission_date.isoformat(),
