@@ -45,7 +45,7 @@ def main() -> None:
     papers = fetch_csro_recent(max_papers=max_papers, submission_date=submission_date)
 
     scraped_text_out = args.scraped_text_out or Path(
-        f"reports/{submission_date.isoformat()}-pdf-first-pages.txt"
+        f"outputs/{submission_date.isoformat()}-pdf-first-pages.txt"
     )
     scraped_text_out.parent.mkdir(parents=True, exist_ok=True)
     scraped_dump = []

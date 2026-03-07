@@ -59,7 +59,7 @@ pip install -r requirements.txt
 PYTHONPATH=src python -m daily_robotics_briefing.main \
   --filters config/filters.yaml \
   --out reports/manual-run.md \
-  --scraped-text-out reports/manual-run-pdf-first-pages.txt
+  --scraped-text-out outputs/manual-run-pdf-first-pages.txt
 ```
 
 Use a specific day (backfill) with:
