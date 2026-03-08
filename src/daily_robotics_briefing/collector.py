@@ -6,6 +6,8 @@ from io import BytesIO
 from typing import Any
 
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from bs4 import BeautifulSoup
 from pypdf import PdfReader
 
@@ -13,6 +15,20 @@ from .time_utils import eastern_today
 
 ARXIV_URL = "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
 
+
+def _build_session() -> requests.Session:
+    session = requests.Session()
+    retry = Retry(
+        total=2,
+        backoff_factor=0.4,
+        status_forcelist=(429, 500, 502, 503, 504),
+        allowed_methods=("GET",),
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    session.headers.update({"User-Agent": "daily-robotics-briefing/1.0"})
+    return session
 
 @dataclass
 class Paper:
@@ -70,7 +86,8 @@ def _extract_ref_from_dt(dt: Any) -> tuple[str, str, str] | None:
     arxiv_id = id_link.get_text(strip=True)
     abs_path = id_link.get("href", "")
     abs_url = f"https://arxiv.org{abs_path}"
-    pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
+    canonical_id = abs_path.rsplit("/", 1)[-1].strip()
+    pdf_url = f"https://arxiv.org/pdf/{canonical_id}.pdf" if canonical_id else f"https://arxiv.org/pdf/{arxiv_id}.pdf"
     return arxiv_id, abs_url, pdf_url
 
 
@@ -125,15 +142,16 @@ def fetch_csro_recent(
     """
     target_date = submission_date or (eastern_today() - timedelta(days=1))
 
-    resp = requests.get(ARXIV_URL, timeout=timeout)
+    session = _build_session()
+    resp = session.get(ARXIV_URL, timeout=timeout)
     resp.raise_for_status()
     paper_refs = _collect_abs_urls_for_date(resp.text, target_date=target_date)[:max_papers]
 
     papers: list[Paper] = []
     for arxiv_id, abs_url, pdf_url in paper_refs:
         try:
-            p = _fetch_abs_page(arxiv_id, abs_url, pdf_url, timeout=timeout)
-            p.pdf_first_page_text = _fetch_pdf_first_page_text(pdf_url=pdf_url, timeout=timeout)
+            p = _fetch_abs_page(arxiv_id, abs_url, pdf_url, timeout=timeout, session=session)
+            p.pdf_first_page_text = _fetch_pdf_first_page_text(pdf_url=pdf_url, timeout=timeout, session=session)
             papers.append(p)
         except requests.RequestException:
             continue
@@ -141,8 +159,9 @@ def fetch_csro_recent(
     return papers
 
 
-def _fetch_abs_page(arxiv_id: str, abs_url: str, pdf_url: str, timeout: int) -> Paper:
-    resp = requests.get(abs_url, timeout=timeout)
+def _fetch_abs_page(arxiv_id: str, abs_url: str, pdf_url: str, timeout: int, session: requests.Session | None = None) -> Paper:
+    http = session or _build_session()
+    resp = http.get(abs_url, timeout=timeout)
     resp.raise_for_status()
     soup = BeautifulSoup(resp.text, "html.parser")
 
@@ -167,16 +186,17 @@ def _fetch_abs_page(arxiv_id: str, abs_url: str, pdf_url: str, timeout: int) -> 
     )
 
 
-def _fetch_pdf_first_page_text(pdf_url: str, timeout: int) -> str:
+def _fetch_pdf_first_page_text(pdf_url: str, timeout: int, session: requests.Session | None = None) -> str:
     """Download a PDF and extract text from the first page only."""
     try:
-        resp = requests.get(pdf_url, timeout=timeout)
+        http = session or _build_session()
+        resp = http.get(pdf_url, timeout=timeout)
         resp.raise_for_status()
     except requests.RequestException:
         return ""
 
     try:
-        reader = PdfReader(BytesIO(resp.content))
+        reader = PdfReader(BytesIO(resp.content), strict=False)
         if not reader.pages:
             return ""
         raw_text = reader.pages[0].extract_text() or ""
