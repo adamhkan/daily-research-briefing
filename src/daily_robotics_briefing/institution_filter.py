@@ -22,6 +22,11 @@ AFFILIATION_KEYWORDS = (
     "academy",
     "faculty",
     "hospital",
+    "company",
+    "technologies",
+    "technology",
+    "research",
+    "robotics",
 )
 
 SECTION_BREAK_KEYWORDS = (
@@ -39,6 +44,18 @@ NON_AFFILIATION_LINE_HINTS = (
     "arxiv",
     "code is available",
     "project page",
+    "equal contribution",
+    "corresponding author",
+    "project lead",
+)
+
+COMPANY_SUFFIX_HINTS = (
+    " inc",
+    " ltd",
+    " llc",
+    " corp",
+    " gmbh",
+    " plc",
 )
 
 SECTION_BREAK_PREFIXES = (
@@ -85,6 +102,7 @@ class AuthorInstitutionRecord:
 class InstitutionExtractionResult:
     authors: list[AuthorInstitutionRecord]
     paper_level_institutions: list[str]
+    paper_level_detected_institutions: list[str]
     unmapped_raw_institutions: list[str]
     filter_match: bool
     filter_match_institutions: list[str]
@@ -108,6 +126,7 @@ class InstitutionExtractionResult:
                 for author in self.authors
             ],
             "paper_level_institutions": self.paper_level_institutions,
+            "paper_level_detected_institutions": self.paper_level_detected_institutions,
             "unmapped_raw_institutions": self.unmapped_raw_institutions,
             "filter_match": self.filter_match,
             "filter_match_institutions": self.filter_match_institutions,
@@ -222,7 +241,32 @@ def _looks_like_institution(line: str) -> bool:
         return False
     if "@" in line:
         return True
+    if any(normalized.endswith(suffix.strip()) or suffix.strip() in normalized for suffix in COMPANY_SUFFIX_HINTS):
+        return True
     return any(keyword in normalized for keyword in AFFILIATION_KEYWORDS)
+
+
+def _cleanup_affiliation_fragment(text: str) -> str:
+    cleaned = re.sub(r"\S+@\S+", "", text)
+    cleaned = re.sub(r"\bhttps?://\S+\b", "", cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip(" ,;|·")
+    return cleaned
+
+
+def _split_affiliation_fragments(body: str) -> list[str]:
+    body = _cleanup_affiliation_fragment(body)
+    if not body:
+        return []
+
+    parts = re.split(r"\s*[;|]\s*", body)
+    fragments: list[str] = []
+    for part in parts:
+        subparts = re.split(r"\s*,\s*(?=(?:[0-9]{1,2}|[a-z]|\*|†|‡)?\s*[A-Z])", part)
+        for subpart in subparts:
+            candidate = _cleanup_affiliation_fragment(subpart)
+            if candidate:
+                fragments.append(candidate)
+    return fragments or [body]
 
 
 def _split_pdf_lines(pdf_first_page_text: str) -> list[str]:
@@ -263,10 +307,11 @@ def _parse_institutions(lines: list[str], specs: list[InstitutionSpec]) -> list[
     parsed: list[ParsedInstitution] = []
     for line in _candidate_affiliation_lines(lines):
         for markers, body in _expand_compact_markers(line):
-            matched = _match_institution(body, specs)
-            if not matched and not _looks_like_institution(body):
-                continue
-            parsed.append(ParsedInstitution(raw=body, markers=markers, matched=matched))
+            for fragment in _split_affiliation_fragments(body):
+                matched = _match_institution(fragment, specs)
+                if not matched and not _looks_like_institution(fragment):
+                    continue
+                parsed.append(ParsedInstitution(raw=fragment, markers=markers, matched=matched))
     return parsed
 
 
@@ -325,8 +370,10 @@ def extract_institutions_for_paper(
     parsed_authors = _parse_author_markers(lines)
 
     paper_level: set[str] = set()
+    paper_level_detected: set[str] = set()
     unmapped: set[str] = set()
     for inst in parsed_institutions:
+        paper_level_detected.add(inst.raw)
         if inst.matched:
             paper_level.add(inst.matched.canonical)
         else:
@@ -375,6 +422,7 @@ def extract_institutions_for_paper(
     return InstitutionExtractionResult(
         authors=author_records,
         paper_level_institutions=sorted(paper_level),
+        paper_level_detected_institutions=sorted(paper_level_detected),
         unmapped_raw_institutions=sorted(unmapped),
         filter_match=bool(filter_matches),
         filter_match_institutions=filter_matches,
