@@ -31,6 +31,26 @@ def _clean(text: str) -> str:
     return " ".join(text.split())
 
 
+def _extract_abstract_text(soup: BeautifulSoup) -> str:
+    """Extract abstract text from an arXiv abstract page.
+
+    arXiv pages primarily expose the abstract in `blockquote.abstract`, but we
+    keep fallbacks for layout drift and metadata variants.
+    """
+    abstract_node = soup.select_one("blockquote.abstract")
+    if abstract_node:
+        text = abstract_node.get_text(" ", strip=True)
+        return _clean(text.replace("Abstract:", "", 1))
+
+    # Fallback: some pages include an OpenGraph description in metadata.
+    og_description = soup.select_one("meta[property='og:description']")
+    if og_description and og_description.get("content"):
+        content = str(og_description.get("content"))
+        return _clean(content.replace("Abstract:", "", 1))
+
+    return ""
+
+
 def _parse_arxiv_list_header_date(header_text: str) -> date | None:
     """Parse arXiv list header dates like 'Fri, 6 Mar 2026 (showing 123 of 123 entries)'."""
     date_part = " ".join(header_text.split("(", 1)[0].split())
@@ -126,11 +146,10 @@ def _fetch_abs_page(arxiv_id: str, abs_url: str, pdf_url: str, timeout: int) -> 
 
     title_node = soup.select_one("h1.title")
     authors_node = soup.select_one("div.authors")
-    abstract_node = soup.select_one("blockquote.abstract")
     subjects_node = soup.select_one("span.primary-subject")
 
     title = _clean((title_node.get_text(" ", strip=True) if title_node else "").replace("Title:", ""))
-    abstract = _clean((abstract_node.get_text(" ", strip=True) if abstract_node else "").replace("Abstract:", ""))
+    abstract = _extract_abstract_text(soup)
     authors_text = (authors_node.get_text(" ", strip=True) if authors_node else "").replace("Authors:", "")
     authors = [_clean(x) for x in authors_text.split(",") if _clean(x)]
     subjects = _clean(subjects_node.get_text(" ", strip=True) if subjects_node else "")
@@ -158,6 +177,9 @@ def _fetch_pdf_first_page_text(pdf_url: str, timeout: int) -> str:
         reader = PdfReader(BytesIO(resp.content))
         if not reader.pages:
             return ""
-        return _clean(reader.pages[0].extract_text() or "")
+        raw_text = reader.pages[0].extract_text() or ""
+        lines = [" ".join(line.split()) for line in raw_text.splitlines()]
+        lines = [line for line in lines if line]
+        return "\n".join(lines)
     except Exception:
         return ""

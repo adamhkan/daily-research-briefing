@@ -1,9 +1,39 @@
 institutions:
-  - Carnegie Mellon University
-  - Massachusetts Institute of Technology
-  - Stanford University
-  - ETH Zurich
-  - University of Tokyo
+  - canonical: Carnegie Mellon University
+    aliases:
+      - CMU
+      - Carnegie Mellon
+      - Robotics Institute, Carnegie Mellon University
+      - School of Computer Science, Carnegie Mellon University
+      - Carnegie Mellon University, Pittsburgh
+  - canonical: Massachusetts Institute of Technology
+    aliases:
+      - MIT
+      - M.I.T.
+      - Massachusetts Inst. of Technology
+      - CSAIL, MIT
+      - Computer Science and Artificial Intelligence Laboratory, MIT
+  - canonical: Stanford University
+    aliases:
+      - Stanford
+      - Stanford Univ.
+      - Stanford AI Lab
+      - SAIL, Stanford
+      - Stanford University, Department of Computer Science
+  - canonical: ETH Zurich
+    aliases:
+      - ETH Zürich
+      - ETHZ
+      - ETH
+      - Eidgenössische Technische Hochschule Zürich
+      - Swiss Federal Institute of Technology Zurich
+  - canonical: University of Tokyo
+    aliases:
+      - The University of Tokyo
+      - UTokyo
+      - Univ. of Tokyo
+      - Tokyo University
+      - JSK Lab, The University of Tokyo
 
 topics:
   - manipulation
