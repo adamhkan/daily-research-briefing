@@ -5530,7 +5530,7 @@
       {
         "paper_id": "arXiv:2603.05312",
         "title": "UltraDexGrasp: Learning Universal Dexterous Grasping for Bimanual Robots with Synthetic Data",
-        "institution": "Chinese University of Hong Kong; e Chinese University of Hong Kong",
+        "institution": "Peking University; The Chinese University of Hong Kong; The University of Hong Kong; Zhejiang University",
         "overview": "Introduces an optimization- and planning-based pipeline for generating 20M frames of bimanual dexterous grasp trajectories across multiple strategies, forming the UltraDexGrasp-20M dataset. A point-cloud-based grasp policy trained purely in simulation achieves 81.2% success in zero-shot real-world dexterous grasping on novel objects.",
         "link": "https://arxiv.org/abs/2603.05312"
       },
