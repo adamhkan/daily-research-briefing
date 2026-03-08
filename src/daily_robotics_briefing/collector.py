@@ -187,7 +187,7 @@ def _fetch_abs_page(arxiv_id: str, abs_url: str, pdf_url: str, timeout: int, ses
 
 
 def _fetch_pdf_first_page_text(pdf_url: str, timeout: int, session: requests.Session | None = None) -> str:
-    """Download a PDF and extract text from the first page only."""
+    """Download a PDF and extract text from the first two pages (header-focused)."""
     try:
         http = session or _build_session()
         resp = http.get(pdf_url, timeout=timeout)
@@ -199,9 +199,13 @@ def _fetch_pdf_first_page_text(pdf_url: str, timeout: int, session: requests.Ses
         reader = PdfReader(BytesIO(resp.content), strict=False)
         if not reader.pages:
             return ""
-        raw_text = reader.pages[0].extract_text() or ""
-        lines = [" ".join(line.split()) for line in raw_text.splitlines()]
-        lines = [line for line in lines if line]
+        selected_pages = reader.pages[:2]
+        lines: list[str] = []
+        for page in selected_pages:
+            raw_text = page.extract_text() or ""
+            page_lines = [" ".join(line.split()) for line in raw_text.splitlines()]
+            page_lines = [line for line in page_lines if line]
+            lines.extend(page_lines[:45])
         return "\n".join(lines)
     except Exception:
         return ""

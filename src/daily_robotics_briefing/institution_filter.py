@@ -25,6 +25,10 @@ AFFILIATION_KEYWORDS = (
     "company",
     "technologies",
     "technology",
+    "technological",
+    "universitat",
+    "universite",
+    "universidad",
 )
 
 STRONG_AFFILIATION_KEYWORDS = (
@@ -68,6 +72,7 @@ NON_AFFILIATION_LINE_HINTS = (
     "project lead",
     "abstract",
     "keywords",
+    "index terms",
 )
 
 NON_AFFILIATION_FRAGMENT_HINTS = (
@@ -325,9 +330,16 @@ def _looks_like_institution(line: str) -> bool:
         return False
     if "@" in line:
         return True
-    if any(_contains_word(normalized, suffix.strip()) for suffix in COMPANY_SUFFIX_HINTS):
+    if _has_company_suffix(normalized):
         return True
     return _contains_any_word(normalized, AFFILIATION_KEYWORDS)
+
+
+def _has_company_suffix(normalized: str) -> bool:
+    tokens = normalized.split()
+    if len(tokens) < 2:
+        return False
+    return tokens[-1] in {"inc", "ltd", "llc", "corp", "gmbh", "plc", "corporation", "company"}
 
 
 def _is_generic_institution_phrase(normalized: str) -> bool:
@@ -346,7 +358,7 @@ def _has_strong_affiliation_signal(text: str) -> bool:
         if _is_generic_institution_phrase(normalized):
             return False
         return True
-    if any(_contains_word(normalized, suffix.strip()) for suffix in COMPANY_SUFFIX_HINTS):
+    if _has_company_suffix(normalized):
         return True
     return _contains_any_word(normalized, COMPANY_KEYWORDS)
 
@@ -359,13 +371,25 @@ def _has_narrative_signal(text: str) -> bool:
     return any(hint in f" {normalized} " for hint in narrative_hints)
 
 
+
+
+def _strip_leading_author_tokens(text: str) -> str:
+    cleaned = text.strip()
+    cleaned = re.sub(r"^(?:[A-Z][A-Za-z'’\-]+\s+){1,4}(?=[0-9]\b)", "", cleaned)
+    cleaned = re.sub(r"^(?:[0-9]{1,2}|[a-z]|\*|†|‡)\s*", "", cleaned, flags=re.IGNORECASE)
+    return cleaned.strip(" ,;|·")
+
 def _cleanup_affiliation_fragment(text: str) -> str:
     cleaned = re.sub(r"\S+@\S+", "", text)
     cleaned = re.sub(r"\bhttps?://\S+\b", "", cleaned)
+    cleaned = re.sub(r"(?<=[0-9])(?=[A-Z])", " ", cleaned)
     cleaned = re.sub(r"\s+", " ", cleaned).strip(" ,;|·")
     cleaned = re.sub(r"^(and|coauthor|authors?)\s+", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"^author'?s version\.?$", "", cleaned, flags=re.IGNORECASE)
-    return cleaned
+    cleaned = _strip_leading_author_tokens(cleaned)
+    cleaned = re.sub(r"^(?:i+\.?\s*)?introduction\s*", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"project page.*$", "", cleaned, flags=re.IGNORECASE)
+    return cleaned.strip(" ,;|·")
 
 
 def _split_affiliation_fragments(body: str) -> list[str]:
@@ -392,17 +416,37 @@ def _split_pdf_lines(pdf_first_page_text: str) -> list[str]:
 def _candidate_affiliation_lines(lines: list[str]) -> list[str]:
     candidates: list[str] = []
     saw_abstract = False
-    for idx, line in enumerate(lines[:40]):
+    for idx, line in enumerate(lines[:80]):
         normalized = normalize_text(line)
         if normalized in SECTION_BREAK_KEYWORDS or normalized.startswith(SECTION_BREAK_PREFIXES):
             saw_abstract = True
-            if len(candidates) >= 2:
-                break
-        if saw_abstract:
+        if saw_abstract and idx > 45:
             break
+        if saw_abstract and not (
+            re.search(r"\b([0-9]{1,2}|[a-z]|\*|†|‡)\s*[\.:]?\s*[A-Z]", line)
+            or "authors are with" in normalized
+            or "author is with" in normalized
+            or "affiliation" in normalized
+            or "department of" in normalized
+        ):
+            continue
         candidates.append(line)
     return candidates
 
+
+
+
+def _extract_marker_keyword_chunks(line: str) -> list[tuple[set[str], str]]:
+    chunks: list[tuple[set[str], str]] = []
+    pattern = re.compile(
+        r"(?:^|\s)([0-9]{1,2}|[a-z]|\*|†|‡)\s*([A-Z].{2,120}?\b(?:University|Institute|College|School|Laboratory|Lab|Academy|Hospital|Inc\.?|Ltd\.?|Corp\.?|GmbH|Technology|Technological)\b.{0,80}?)(?=(?:\s+[0-9]{1,2}\s*[A-Z])|$)",
+        flags=re.IGNORECASE,
+    )
+    for marker, body in pattern.findall(line):
+        cleaned = _cleanup_affiliation_fragment(body)
+        if cleaned:
+            chunks.append(({marker.lower()}, cleaned))
+    return chunks
 
 def _expand_compact_markers(line: str) -> list[tuple[set[str], str]]:
     marker_pattern = re.compile(r"(?<!\w)([0-9]{1,2}|[a-z]|\*|†|‡)(?=[A-Z])")
@@ -455,6 +499,24 @@ def _extract_explicit_affiliation_entities(lines: list[str], specs: list[Institu
     return extracted
 
 
+
+
+def _extract_author_with_affiliations(lines: list[str], specs: list[InstitutionSpec]) -> list[ParsedInstitution]:
+    extracted: list[ParsedInstitution] = []
+    for line in lines[:45]:
+        normalized = normalize_text(line)
+        if "authors are with" not in normalized and "author is with" not in normalized:
+            continue
+        body = re.split(r"authors?\s+are\s+with|author\s+is\s+with", line, flags=re.IGNORECASE)
+        if len(body) < 2:
+            continue
+        for fragment in _split_affiliation_fragments(body[-1]):
+            matched = _match_institution(fragment, specs)
+            if not matched and not _looks_like_institution(fragment):
+                continue
+            extracted.append(ParsedInstitution(raw=fragment, markers=set(), matched=matched))
+    return extracted
+
 def _extract_affiliation_line_windows(lines: list[str], specs: list[InstitutionSpec]) -> list[ParsedInstitution]:
     extracted: list[ParsedInstitution] = []
     header_lines = _candidate_affiliation_lines(lines)
@@ -479,7 +541,9 @@ def _extract_affiliation_line_windows(lines: list[str], specs: list[InstitutionS
 def _parse_institutions(lines: list[str], specs: list[InstitutionSpec]) -> list[ParsedInstitution]:
     parsed: list[ParsedInstitution] = []
     for line in _candidate_affiliation_lines(lines):
-        for markers, body in _expand_compact_markers(line):
+        expanded_parts = _expand_compact_markers(line)
+        expanded_parts.extend(_extract_marker_keyword_chunks(line))
+        for markers, body in expanded_parts:
             for fragment in _split_affiliation_fragments(body):
                 matched = _match_institution(fragment, specs)
                 if not matched and not _looks_like_institution(fragment):
@@ -489,20 +553,27 @@ def _parse_institutions(lines: list[str], specs: list[InstitutionSpec]) -> list[
     parsed.extend(_extract_inline_marker_affiliations(lines, specs))
     parsed.extend(_extract_explicit_affiliation_entities(lines, specs))
     parsed.extend(_extract_affiliation_line_windows(lines, specs))
+    parsed.extend(_extract_author_with_affiliations(lines, specs))
     filtered = [item for item in parsed if _is_high_quality_institution_candidate(item)]
     return _dedupe_parsed_institutions(filtered)
 
 
 def _is_high_quality_institution_candidate(item: ParsedInstitution) -> bool:
-    if item.matched:
-        return True
     raw = item.raw
+    normalized = normalize_text(raw)
+    if not normalized:
+        return False
+    if any(token in normalized for token in ("introduction", "project page", "code is available", "index terms", "as a result", "this work", "framework")):
+        return False
+    if len(normalized.split()) > 14:
+        return False
+    if item.matched and not _has_narrative_signal(raw):
+        return True
+    if raw and raw[0].islower():
+        return False
     if not _has_strong_affiliation_signal(raw):
         return False
     if _has_narrative_signal(raw):
-        return False
-    normalized = normalize_text(raw)
-    if len(normalized.split()) > 14:
         return False
     return True
 
@@ -618,7 +689,7 @@ def extract_institutions_for_paper(
             paper_level.add(inst.matched.canonical)
         else:
             unmapped.add(inst.raw)
-            if _has_strong_affiliation_signal(inst.raw) and not _has_narrative_signal(inst.raw):
+            if _has_strong_affiliation_signal(inst.raw) and _contains_any_word(normalize_text(inst.raw), STRONG_AFFILIATION_KEYWORDS + COMPANY_KEYWORDS) and not _has_narrative_signal(inst.raw):
                 paper_level.add(inst.raw)
 
     author_records: list[AuthorInstitutionRecord] = []
