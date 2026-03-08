@@ -62,7 +62,7 @@ def main() -> None:
     canonical_from_config = _canonical_names(institution_entries)
     combined_entries: list[object] = [*institution_entries, *COMMON_ROBOTICS_INSTITUTIONS]
     institution_specs = build_institution_specs(combined_entries)
-    institutions = sorted(dict.fromkeys([*canonical_from_config, *COMMON_ROBOTICS_INSTITUTIONS]))
+    institutions = canonical_from_config
     configured_institution_set = set(canonical_from_config)
     topics = cfg.get("topics", [])
     max_papers = int(cfg.get("max_papers", 400))
