@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import date, datetime
 from zoneinfo import ZoneInfo
 
-US_EASTERN_TIMEZONE = ZoneInfo("America/Los_Angeles")
+US_EASTERN_TIMEZONE = ZoneInfo("America/New_York")
 
 
 def eastern_today() -> date:
