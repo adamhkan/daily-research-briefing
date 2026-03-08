@@ -54,7 +54,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add reports/*.md reports/*.json reports/*.html reports/index.html reports/.nojekyll 2>/dev/null || true
+          git add reports 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No report changes"
           else

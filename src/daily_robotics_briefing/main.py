@@ -28,16 +28,17 @@ def _canonical_names(institution_entries: list[Any]) -> list[str]:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate a daily robotics briefing.")
     parser.add_argument("--filters", type=Path, default=Path("config/filters.yaml"))
-    parser.add_argument("--out", type=Path, default=Path(f"reports/{eastern_today().isoformat()}.md"))
+    default_report_dir = Path("reports") / eastern_today().isoformat()
+    parser.add_argument("--out", type=Path, default=default_report_dir / f"{eastern_today().isoformat()}.md")
     parser.add_argument(
         "--out-json",
         type=Path,
-        default=Path(f"reports/{eastern_today().isoformat()}.json"),
+        default=default_report_dir / f"{eastern_today().isoformat()}.json",
     )
     parser.add_argument(
         "--out-html",
         type=Path,
-        default=Path(f"reports/{eastern_today().isoformat()}.html"),
+        default=default_report_dir / f"{eastern_today().isoformat()}.html",
     )
     parser.add_argument(
         "--dashboard-out",
@@ -119,7 +120,7 @@ def main() -> None:
     args.out.write_text(markdown_output, encoding="utf-8")
     args.out_json.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     args.out_html.write_text(html_output, encoding="utf-8")
-    build_dashboard(args.out_html.parent, args.dashboard_out)
+    build_dashboard(args.dashboard_out.parent, args.dashboard_out)
     print(f"Wrote markdown briefing: {args.out}")
     print(f"Wrote structured briefing: {args.out_json}")
     print(f"Wrote HTML briefing: {args.out_html}")

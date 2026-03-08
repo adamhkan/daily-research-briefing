@@ -14,9 +14,9 @@ This repository contains an AI agent that runs on GitHub Actions and produces a 
    - key findings and trends
    - a compact "what to read first" section
 7. Saves outputs under `reports/` as:
-   - structured JSON (`YYYY-MM-DD.json`)
-   - markdown report (`YYYY-MM-DD.md`)
-   - HTML digest (`YYYY-MM-DD.html`)
+   - structured JSON (`YYYY-MM-DD/YYYY-MM-DD.json`)
+   - markdown report (`YYYY-MM-DD/YYYY-MM-DD.md`)
+   - HTML digest (`YYYY-MM-DD/YYYY-MM-DD.html`)
    - dashboard index (`index.html`)
    - each daily report records the exact institution/topic filters used that day
 8. Publishes `reports/` to GitHub Pages so the dashboard is browsable from your repo site URL.
