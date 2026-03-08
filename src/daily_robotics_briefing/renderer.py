@@ -273,8 +273,8 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
 
   <section class=\"search-card\">
     <h2>Search papers</h2>
-    <p class=\"search-help\">Searches papers matched by institution/topic filters across all days. Matches prioritize <strong>title and abstract</strong>, with overview text as secondary context.</p>
-    <input id=\"paper-search\" type=\"search\" placeholder=\"Try: motion planning, dexterous hand, Stanford...\" autocomplete=\"off\" />
+    <p class=\"search-help\">Searches ArXiv robotics papers. Matches prioritize <strong>title and abstract</strong>, with overview text as secondary context.</p>
+    <input id=\"paper-search\" type=\"search\" placeholder=\"Try: motion planning, dexterous hand...\" autocomplete=\"off\" />
     <p id=\"search-status\" class=\"search-help muted\">Type at least 2 characters to search.</p>
     <div id=\"search-results\"></div>
   </section>
