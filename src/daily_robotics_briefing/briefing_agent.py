@@ -61,7 +61,7 @@ Return JSON only with shape:
 Rules:
 - Include only provided selected papers.
 - Institution section: only papers with institution_match=true.
-- Topic section: highest topic relevance first; exclude papers already listed in institution section.
+- Topic section: highest topic relevance first; exclude papers already listed in institution section. There should be no duplicate papers throughout both sections.
 - Keep executive_summary to 3-6 bullets.
 - JSON only.
 """.strip()
