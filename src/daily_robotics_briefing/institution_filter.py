@@ -49,6 +49,17 @@ NON_AFFILIATION_LINE_HINTS = (
     "project lead",
 )
 
+NON_AFFILIATION_FRAGMENT_HINTS = (
+    "proposed",
+    "results",
+    "benchmark",
+    "trajectory",
+    "collision",
+    "policy",
+    "framework",
+    "task",
+)
+
 COMPANY_SUFFIX_HINTS = (
     " inc",
     " ltd",
@@ -74,6 +85,23 @@ ACRONYM_STOPWORDS = {
     "of",
     "the",
     "to",
+}
+
+ACRONYM_ALLOWLIST = {
+    "mit",
+    "cmu",
+    "epfl",
+    "eth",
+    "kaist",
+    "postech",
+    "ntu",
+    "nus",
+    "hkust",
+    "sjtu",
+    "ucsd",
+    "ucla",
+    "uiuc",
+    "nvidia",
 }
 
 
@@ -158,7 +186,7 @@ def build_institution_specs(entries: list[object]) -> list[InstitutionSpec]:
         if isinstance(entry, str):
             canonical = entry.strip()
             if canonical:
-                specs.append(InstitutionSpec(canonical=canonical, aliases=[canonical]))
+                specs.append(InstitutionSpec(canonical=canonical, aliases=sorted(_expand_aliases([canonical]))))
             continue
 
         if not isinstance(entry, dict):
@@ -189,7 +217,7 @@ def _match_institution(raw_affiliation: str, specs: list[InstitutionSpec]) -> Ma
                 continue
             text_padded = f" {text} "
             alias_padded = f" {alias_norm} "
-            if alias_padded in text_padded or text_padded in alias_padded:
+            if alias_padded in text_padded or (text_padded in alias_padded and text in ACRONYM_ALLOWLIST):
                 return MatchedInstitution(
                     canonical=spec.canonical,
                     raw=raw_affiliation,
@@ -205,7 +233,7 @@ def _match_institution(raw_affiliation: str, specs: list[InstitutionSpec]) -> Ma
                     confidence=round(overlap, 2),
                 )
             ratio = SequenceMatcher(None, alias_norm, text).ratio()
-            if ratio >= 0.9 and (best_fuzzy is None or ratio > best_fuzzy[0]):
+            if ratio >= 0.92 and (best_fuzzy is None or ratio > best_fuzzy[0]):
                 best_fuzzy = (ratio, spec.canonical)
 
     if best_fuzzy:
@@ -229,15 +257,50 @@ def _extract_marker_prefix(line: str) -> tuple[set[str], str]:
     return {marker}, match.group(2).strip()
 
 
+def _is_title_like_fragment(normalized: str) -> bool:
+    if len(normalized.split()) < 4:
+        return False
+    return (
+        " for " in f" {normalized} "
+        or " via " in f" {normalized} "
+        or " with " in f" {normalized} "
+        or " through " in f" {normalized} "
+    ) and not any(keyword in normalized for keyword in AFFILIATION_KEYWORDS)
+
+
 def _looks_like_institution(line: str) -> bool:
     normalized = normalize_text(line)
     if not normalized:
         return False
-    if len(normalized.split()) > 14:
+    if len(normalized.split()) > 16:
         return False
     if any(hint in normalized for hint in NON_AFFILIATION_LINE_HINTS):
         return False
+    if any(hint in normalized for hint in NON_AFFILIATION_FRAGMENT_HINTS) and not any(
+        keyword in normalized for keyword in AFFILIATION_KEYWORDS
+    ):
+        return False
+    strong_keywords = (
+        "university",
+        "institute",
+        "college",
+        "school",
+        "laboratory",
+        "academy",
+        "research",
+        "company",
+        "inc",
+        "ltd",
+        "corp",
+        "gmbh",
+    )
+    if "robotics" in normalized and not any(keyword in normalized for keyword in strong_keywords):
+        return False
     if normalized.startswith("fig ") or normalized.startswith("figure "):
+        return False
+    if _is_title_like_fragment(normalized):
+        return False
+    if normalized.endswith(":"):
         return False
     if "@" in line:
         return True
@@ -250,6 +313,7 @@ def _cleanup_affiliation_fragment(text: str) -> str:
     cleaned = re.sub(r"\S+@\S+", "", text)
     cleaned = re.sub(r"\bhttps?://\S+\b", "", cleaned)
     cleaned = re.sub(r"\s+", " ", cleaned).strip(" ,;|·")
+    cleaned = re.sub(r"^and\s+", "", cleaned, flags=re.IGNORECASE)
     return cleaned
 
 
@@ -276,9 +340,14 @@ def _split_pdf_lines(pdf_first_page_text: str) -> list[str]:
 
 def _candidate_affiliation_lines(lines: list[str]) -> list[str]:
     candidates: list[str] = []
-    for line in lines[:45]:
+    saw_abstract = False
+    for idx, line in enumerate(lines[:90]):
         normalized = normalize_text(line)
         if normalized in SECTION_BREAK_KEYWORDS or normalized.startswith(SECTION_BREAK_PREFIXES):
+            saw_abstract = True
+            if len(candidates) >= 3:
+                break
+        if saw_abstract and idx > 24 and len(candidates) >= 6:
             break
         candidates.append(line)
     return candidates
@@ -303,6 +372,20 @@ def _expand_compact_markers(line: str) -> list[tuple[set[str], str]]:
     return expanded or [(_extract_marker_prefix(line))]
 
 
+def _extract_inline_marker_affiliations(lines: list[str], specs: list[InstitutionSpec]) -> list[ParsedInstitution]:
+    extracted: list[ParsedInstitution] = []
+    for line in lines[:30]:
+        for marker, body in re.findall(r"(?:^|\s)([0-9]{1,2}|[a-z]|\*|†|‡)\s+([^0-9\*†‡]+?)(?=(?:\s+[0-9]{1,2}\s+)|$)", line):
+            fragment = _cleanup_affiliation_fragment(body)
+            if not fragment:
+                continue
+            matched = _match_institution(fragment, specs)
+            if not matched and not _looks_like_institution(fragment):
+                continue
+            extracted.append(ParsedInstitution(raw=fragment, markers={marker.lower()}, matched=matched))
+    return extracted
+
+
 def _parse_institutions(lines: list[str], specs: list[InstitutionSpec]) -> list[ParsedInstitution]:
     parsed: list[ParsedInstitution] = []
     for line in _candidate_affiliation_lines(lines):
@@ -312,7 +395,21 @@ def _parse_institutions(lines: list[str], specs: list[InstitutionSpec]) -> list[
                 if not matched and not _looks_like_institution(fragment):
                     continue
                 parsed.append(ParsedInstitution(raw=fragment, markers=markers, matched=matched))
-    return parsed
+
+    parsed.extend(_extract_inline_marker_affiliations(lines, specs))
+    return _dedupe_parsed_institutions(parsed)
+
+
+def _dedupe_parsed_institutions(items: list[ParsedInstitution]) -> list[ParsedInstitution]:
+    deduped: list[ParsedInstitution] = []
+    seen: set[tuple[str, str]] = set()
+    for item in items:
+        key = (normalize_text(item.raw), item.matched.canonical if item.matched else "")
+        if not key[0] or key in seen:
+            continue
+        seen.add(key)
+        deduped.append(item)
+    return deduped
 
 
 def _parse_author_markers(lines: list[str]) -> list[ParsedAuthor]:
@@ -360,6 +457,41 @@ def _markers_for_author_from_header(author_name: str, lines: list[str]) -> set[s
     return {m.strip().lower() for m in match.group(1).split(",")}
 
 
+def _merge_paper_level_fallbacks(
+    parsed_institutions: list[ParsedInstitution],
+    lines: list[str],
+    specs: list[InstitutionSpec],
+) -> list[ParsedInstitution]:
+    if parsed_institutions:
+        return parsed_institutions
+
+    text = "\n".join(lines[:35])
+    fallback: list[ParsedInstitution] = []
+    for spec in specs:
+        for alias in spec.aliases:
+            alias_norm = normalize_text(alias)
+            if not alias_norm:
+                continue
+            if len(alias_norm.split()) == 1 and alias_norm not in ACRONYM_ALLOWLIST:
+                continue
+            if f" {alias_norm} " not in f" {normalize_text(text)} ":
+                continue
+            fallback.append(
+                ParsedInstitution(
+                    raw=alias,
+                    markers=set(),
+                    matched=MatchedInstitution(
+                        canonical=spec.canonical,
+                        raw=alias,
+                        match_method="page_alias_scan",
+                        confidence=0.72,
+                    ),
+                )
+            )
+            break
+    return _dedupe_parsed_institutions(fallback)
+
+
 def extract_institutions_for_paper(
     author_names: list[str],
     pdf_first_page_text: str,
@@ -367,6 +499,7 @@ def extract_institutions_for_paper(
 ) -> InstitutionExtractionResult:
     lines = _split_pdf_lines(pdf_first_page_text)
     parsed_institutions = _parse_institutions(lines, institution_specs)
+    parsed_institutions = _merge_paper_level_fallbacks(parsed_institutions, lines, institution_specs)
     parsed_authors = _parse_author_markers(lines)
 
     paper_level: set[str] = set()
@@ -398,7 +531,6 @@ def extract_institutions_for_paper(
                     matched_for_author.append(inst.matched)
 
         if not matched_for_author and not raw_for_author and len(paper_level) == 1:
-            # Conservative fallback: only assign when there is exactly one known paper-level institution.
             matched_for_author = [
                 MatchedInstitution(
                     canonical=canonical,
@@ -430,9 +562,23 @@ def extract_institutions_for_paper(
 
 
 def _token_overlap(alias_norm: str, text_norm: str) -> float:
-    alias_tokens = {token for token in alias_norm.split() if len(token) > 2}
+    generic_tokens = {
+        "university",
+        "institute",
+        "college",
+        "school",
+        "department",
+        "laboratory",
+        "lab",
+        "center",
+        "centre",
+        "technology",
+        "technologies",
+        "research",
+    }
+    alias_tokens = {token for token in alias_norm.split() if len(token) > 2 and token not in generic_tokens}
     text_tokens = {token for token in text_norm.split() if len(token) > 2}
-    if not alias_tokens:
+    if len(alias_tokens) < 2:
         return 0.0
     return len(alias_tokens.intersection(text_tokens)) / len(alias_tokens)
 
