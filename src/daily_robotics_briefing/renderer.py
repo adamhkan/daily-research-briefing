@@ -224,6 +224,12 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
             if not (paper_id and title and (abstract or overview)):
                 continue
 
+            institution_tags = paper.get("matched_institutions", [])
+            if isinstance(institution_tags, list):
+                normalized_institution_tags = [str(tag).strip() for tag in institution_tags if str(tag).strip()]
+            else:
+                normalized_institution_tags = []
+
             search_index.append(
                 {
                     "paper_id": paper_id,
@@ -231,6 +237,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
                     "title": title,
                     "abstract": abstract,
                     "overview": overview,
+                    "institution_tags": normalized_institution_tags,
                     "institution_match": institution_match,
                     "topic_match": topic_match,
                     "topic_relevance": topic_relevance,
@@ -275,8 +282,8 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
 
   <section class=\"search-card\">
     <h2>Search papers</h2>
-    <p class=\"search-help\">Searches ArXiv robotics papers. Matches prioritize <strong>title and abstract</strong>, with overview text as secondary context.</p>
-    <input id=\"paper-search\" type=\"search\" placeholder=\"Try: motion planning, dexterous hand...\" autocomplete=\"off\" />
+    <p class=\"search-help\">Searches ArXiv robotics papers. Matches prioritize <strong>title and abstract</strong>, while still matching <strong>institution tags</strong> and overview text.</p>
+    <input id=\"paper-search\" type=\"search\" placeholder=\"Try: motion planning, Carnegie Mellon...\" autocomplete=\"off\" />
     <p id=\"search-status\" class=\"search-help muted\">Type at least 2 characters to search.</p>
     <div id=\"search-results\"></div>
   </section>
@@ -306,17 +313,20 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
       const title = normalize(paper.title || '');
       const abstract = normalize(paper.abstract || '');
       const overview = normalize(paper.overview || '');
-      return terms.every((term) => title.includes(term) || abstract.includes(term) || overview.includes(term));
+      const institutionTags = (paper.institution_tags || []).map((tag) => normalize(tag)).join(' ');
+      return terms.every((term) => title.includes(term) || abstract.includes(term) || overview.includes(term) || institutionTags.includes(term));
     };
 
     const scorePaper = (paper, terms) => {
       const title = normalize(paper.title || '');
       const abstract = normalize(paper.abstract || '');
       const overview = normalize(paper.overview || '');
+      const institutionTags = (paper.institution_tags || []).map((tag) => normalize(tag)).join(' ');
       let score = 0;
       for (const term of terms) {
         if (title.includes(term)) score += 5;
         if (abstract.includes(term)) score += 4;
+        if (institutionTags.includes(term)) score += 3;
         if (overview.includes(term)) score += 2;
       }
       score += Number(paper.topic_relevance || 0);
