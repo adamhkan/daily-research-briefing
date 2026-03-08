@@ -10,6 +10,7 @@ import yaml
 
 from .briefing_agent import create_daily_briefing
 from .collector import fetch_csro_recent
+from .common_robotics_institutions import COMMON_ROBOTICS_INSTITUTIONS
 from .institution_filter import build_institution_specs, extract_institutions_for_paper
 from .renderer import build_dashboard, render_html, render_markdown
 from .time_utils import eastern_today
@@ -58,8 +59,10 @@ def main() -> None:
 
     cfg = load_filters(args.filters)
     institution_entries = cfg.get("institutions", [])
-    institution_specs = build_institution_specs(institution_entries)
-    institutions = _canonical_names(institution_entries)
+    canonical_from_config = _canonical_names(institution_entries)
+    combined_entries: list[object] = [*institution_entries, *COMMON_ROBOTICS_INSTITUTIONS]
+    institution_specs = build_institution_specs(combined_entries)
+    institutions = sorted(dict.fromkeys([*canonical_from_config, *COMMON_ROBOTICS_INSTITUTIONS]))
     topics = cfg.get("topics", [])
     max_papers = int(cfg.get("max_papers", 400))
     max_papers_for_llm = int(cfg.get("max_papers_for_llm", 120))
