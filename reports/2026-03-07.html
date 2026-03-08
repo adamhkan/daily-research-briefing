@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-03-06</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 2rem; color: #1f2937; }
+    .stats { display: flex; gap: 1rem; margin-bottom: 1rem; }
+    .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem 1rem; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+    th, td { border: 1px solid #e2e8f0; text-align: left; padding: 0.5rem; vertical-align: top; }
+    th { background: #f1f5f9; }
+  </style>
+</head>
+<body>
+  <h1>Daily Robotics Briefing</h1>
+  <p><strong>Submission date covered:</strong> 2026-03-06</p>
+  <div class="stats">
+    <div class="card">Papers fetched: <strong>66</strong></div>
+    <div class="card">Papers analyzed: <strong>66</strong></div>
+  </div>
+
+  <h2>Executive Summary</h2>
+  <ul><li>Dexterous and long-horizon manipulation see multiple advances: sim-to-real tactile distillation, large-scale bimanual grasping, and improved diffusion/memory architectures for language-conditioned control.</li><li>Motion planning progresses on several fronts, from GPU-accelerated dynamics-aware whole-body planning to multi-goal RRT*, graph-informed sampling, and distributionally robust collision avoidance.</li><li>Humanoid and mobile manipulation gain new whole-body VLA frameworks, omnidirectional 3D perception, and risk-aware RL for safer operation in unstructured environments.</li><li>Vision-language(-action) systems are pushed toward more robust, interpretable, and adaptive behavior via tri-system control, complexity-aware routing, feature-level steering, and neuro-symbolic skill expansion.</li><li>Digital twins and simulation methods (for manipulation, medical insertion, textiles sorting) increasingly integrate differentiable physics and perception for contact-aware planning and closed-loop control.</li></ul>
+
+  <h2>Institution Matches</h2>
+  <table>
+    <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+    <tbody><tr><td>PTLD: Sim-to-real Privileged Tactile Latent Distillation for Dexterous Manipulation</td><td>Carnegie Mellon University; UC Berkeley</td><td>Introduces PTLD, a sim-to-real framework that avoids tactile simulation by using privileged real-world tactile sensing to train a latent estimator, which in turn augments proprioceptive policies learned in simulation. Demonstrated large performance gains on in-hand rotation and reorientation tasks, highlighting the value of distilling tactile feedback into dexterous manipulation policies.</td><td><a href="https://arxiv.org/abs/2603.04531">Link</a></td></tr>
+<tr><td>Observing and Controlling Features in Vision-Language-Action Models</td><td>Stanford University</td><td>Analyzes internal representations of VLA models, defining feature observability and controllability and demonstrating that linear probes and minimal interventions can reliably steer behavior. Shows that VLAs like π0.5 and OpenVLA have interpretable structure that can be manipulated online to align robot actions with user preferences without fine-tuning.</td><td><a href="https://arxiv.org/abs/2603.05487">Link</a></td></tr></tbody>
+  </table>
+
+  <h2>Topic Matches</h2>
+  <table>
+    <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+    <tbody><tr><td>Risk-Aware Reinforcement Learning for Mobile Manipulation</td><td></td><td>Presents a distributional RL framework for mobile manipulators that learns a family of risk-aware whole-body visuomotor policies with adjustable risk sensitivity. A privileged teacher with a distributional critic is distilled into egocentric depth-based students, yielding better worst-case performance and reactive risk-aware behavior in unmapped environments.</td><td><a href="https://arxiv.org/abs/2603.04579">Link</a></td></tr>
+<tr><td>cuRoboV2: Dynamics-Aware Motion Generation with Depth-Fused Distance Fields for High-DoF Robots</td><td></td><td>Proposes a unified GPU-native stack for motion generation that combines smooth, torque-limited B-spline trajectory optimization, fast dense TSDF/ESDF perception, and scalable whole-body kinematics/dynamics for high-DoF robots. Achieves large speedups and near-perfect collision-free performance across manipulators and humanoids, enabling feasible, reactive whole-body motion planning.</td><td><a href="https://arxiv.org/abs/2603.05493">Link</a></td></tr>
+<tr><td>Omni-Manip: Beyond-FOV Large-Workspace Humanoid Manipulation with Omnidirectional 3D Perception</td><td></td><td>Introduces a LiDAR-driven 360° visuomotor policy for humanoid manipulation that encodes panoramic point clouds via a time-aware attention pooling mechanism. The system reduces the need for base repositioning and improves robustness in large, cluttered workspaces compared to egocentric RGB-D baselines.</td><td><a href="https://arxiv.org/abs/2603.05355">Link</a></td></tr>
+<tr><td>PhysiFlow: Physics-Aware Humanoid Whole-Body VLA via Multi-Brain Latent Flow Matching and Robust Tracking</td><td></td><td>Proposes a multi-brain VLA framework that couples semantic intent with physics-aware whole-body control for humanoids. The method targets efficient VLA inference and stable full-body coordination in dynamic tasks, demonstrating reliable vision-language-guided whole-body behaviors.</td><td><a href="https://arxiv.org/abs/2603.05410">Link</a></td></tr>
+<tr><td>UltraDexGrasp: Learning Universal Dexterous Grasping for Bimanual Robots with Synthetic Data</td><td></td><td>Develops UltraDexGrasp, a synthetic data pipeline combining optimization-based grasp synthesis and planning-based demonstrations to build a 20M-frame dataset for bimanual dexterous grasping. A point-cloud policy trained solely on this data transfers zero-shot to the real world, achieving over 80% success on diverse unseen objects with multiple grasp strategies.</td><td><a href="https://arxiv.org/abs/2603.05312">Link</a></td></tr>
+<tr><td>Many-RRT*: Robust Joint-Space Trajectory Planning for Serial Manipulators</td><td></td><td>Extends RRT*-Connect to plan simultaneously toward multiple IK solutions, treating multi-goal end-effector poses as parallel targets in joint space. This multi-tree scheme avoids committing to suboptimal IK branches, significantly improving success rates and trajectory quality for high-DoF manipulators without extra runtime.</td><td><a href="https://arxiv.org/abs/2603.04547">Link</a></td></tr>
+<tr><td>GAIDE: Graph-based Attention Masking for Spatial- and Embodiment-aware Motion Planning</td><td></td><td>Introduces GAIDE, a transformer-based neural informed sampler that encodes both workspace structure and robot embodiment as a graph and uses attention masking to guide sampling. Integrated into sampling-based planners, it improves planning efficiency and success in high-dimensional manipulator configuration spaces.</td><td><a href="https://arxiv.org/abs/2603.04463">Link</a></td></tr>
+<tr><td>Direct Contact-Tolerant Motion Planning With Vision Language Models</td><td></td><td>Proposes a direct contact-tolerant planner that uses a VLM to segment contact-tolerable regions in images, propagates them to 3D point clouds, and plans via a learned perception-to-control mapping. Demonstrated in simulation and on a car-like robot, the method outperforms baselines for navigation in cluttered, movable environments.</td><td><a href="https://arxiv.org/abs/2603.05017">Link</a></td></tr>
+<tr><td>U-OBCA: Uncertainty-Aware Optimization-Based Collision Avoidance via Wasserstein Distributionally Robust Chance Constraints</td><td></td><td>Extends Optimization-Based Collision Avoidance to handle uncertainty via distributionally robust chance constraints over full polygonal robot/obstacle shapes, avoiding simplistic geometric inflation. The resulting nonlinear constraints can be solved efficiently, reducing conservatism and improving navigation efficiency in narrow, cluttered environments.</td><td><a href="https://arxiv.org/abs/2603.04914">Link</a></td></tr>
+<tr><td>Curve-Induced Dynamical Systems on Riemannian Manifolds and Lie Groups</td><td></td><td>Introduces CDSM, a framework that constructs stable dynamical systems along curves defined on manifolds and Lie groups such as SE(3) and SPD(n). Validated on S2 and robotic platforms, it enables real-time, geometry-consistent motion generation for manipulators and mobile manipulators with provable stability and low path deviation.</td><td><a href="https://arxiv.org/abs/2603.05268">Link</a></td></tr></tbody>
+  </table>
+</body>
+</html>
