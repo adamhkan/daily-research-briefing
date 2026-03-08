@@ -101,12 +101,16 @@ def main() -> None:
     args.dashboard_out.parent.mkdir(parents=True, exist_ok=True)
     markdown_output = render_markdown(
         briefing=result["briefing"],
+        matched_institutions=[str(x) for x in result.get("filters", {}).get("institutions", [])],
+        matched_topics=[str(x) for x in result.get("filters", {}).get("topics", [])],
         submission_date=submission_date,
         papers_fetched=len(all_papers),
         papers_analyzed=len(papers_for_llm),
     )
     html_output = render_html(
         briefing=result["briefing"],
+        matched_institutions=[str(x) for x in result.get("filters", {}).get("institutions", [])],
+        matched_topics=[str(x) for x in result.get("filters", {}).get("topics", [])],
         submission_date=submission_date,
         papers_fetched=len(all_papers),
         papers_analyzed=len(papers_for_llm),

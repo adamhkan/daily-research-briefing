@@ -6,7 +6,7 @@ from pathlib import Path
 import json
 
 
-def _table_rows(rows: list[dict[str, str]]) -> str:
+def _institution_table_rows(rows: list[dict[str, str]]) -> str:
     if not rows:
         return "| _No matches_ |  |  |  |"
     lines = []
@@ -22,8 +22,25 @@ def _table_rows(rows: list[dict[str, str]]) -> str:
     return "\n".join(lines)
 
 
+def _topic_table_rows(rows: list[dict[str, str]]) -> str:
+    if not rows:
+        return "| _No matches_ |  |  |"
+    lines = []
+    for row in rows:
+        lines.append(
+            "| {title} | {overview} | {link} |".format(
+                title=row.get("title", "").replace("|", "\\|"),
+                overview=row.get("overview", "").replace("|", "\\|"),
+                link=row.get("link", "").replace("|", "\\|"),
+            )
+        )
+    return "\n".join(lines)
+
+
 def render_markdown(
     briefing: dict,
+    matched_institutions: list[str],
+    matched_topics: list[str],
     submission_date: date,
     papers_fetched: int,
     papers_analyzed: int,
@@ -33,22 +50,27 @@ def render_markdown(
     topic_rows = briefing.get("topic_matches", [])
 
     summary_block = "\n".join(f"- {line}" for line in summary) or "- No papers matched the filters today."
+    institution_filters = "; ".join(matched_institutions) if matched_institutions else "(none)"
+    topic_filters = "; ".join(matched_topics) if matched_topics else "(none)"
 
     return (
         "# Daily Robotics Briefing\n\n"
         f"Submission date covered: **{submission_date.isoformat()}**\n"
         f"Papers fetched: **{papers_fetched}**\n"
         f"Papers analyzed: **{papers_analyzed}**\n\n"
+        "## Filters Used\n\n"
+        f"- Institution filters: {institution_filters}\n"
+        f"- Topic filters: {topic_filters}\n\n"
         "## Executive Summary\n\n"
         f"{summary_block}\n\n"
         "## Institution Matches\n\n"
         "| Title | Institution | Overview | Link |\n"
         "| --- | --- | --- | --- |\n"
-        f"{_table_rows(institution_rows)}\n\n"
+        f"{_institution_table_rows(institution_rows)}\n\n"
         "## Topic Matches\n\n"
-        "| Title | Institution | Overview | Link |\n"
-        "| --- | --- | --- | --- |\n"
-        f"{_table_rows(topic_rows)}\n"
+        "| Title | Overview | Link |\n"
+        "| --- | --- | --- |\n"
+        f"{_topic_table_rows(topic_rows)}\n"
     )
 
 
@@ -69,16 +91,38 @@ def _render_html_rows(rows: list[dict[str, str]]) -> str:
     return "\n".join(rendered)
 
 
+def _render_topic_html_rows(rows: list[dict[str, str]]) -> str:
+    if not rows:
+        return '<tr><td colspan="3"><em>No matches</em></td></tr>'
+
+    rendered = []
+    for row in rows:
+        rendered.append(
+            "<tr>"
+            f"<td>{escape(str(row.get('title', '')))}</td>"
+            f"<td>{escape(str(row.get('overview', '')))}</td>"
+            f"<td><a href=\"{escape(str(row.get('link', '')))}\">Link</a></td>"
+            "</tr>"
+        )
+    return "\n".join(rendered)
+
+
 def render_html(
     briefing: dict,
+    matched_institutions: list[str],
+    matched_topics: list[str],
     submission_date: date,
     papers_fetched: int,
     papers_analyzed: int,
 ) -> str:
     summary = briefing.get("executive_summary", [])
     summary_html = "".join(f"<li>{escape(str(line))}</li>" for line in summary) or "<li>No papers matched.</li>"
+    institution_filters = matched_institutions or ["(none)"]
+    topic_filters = matched_topics or ["(none)"]
+    institution_filter_html = "".join(f"<li>{escape(item)}</li>" for item in institution_filters)
+    topic_filter_html = "".join(f"<li>{escape(item)}</li>" for item in topic_filters)
     institution_html = _render_html_rows(briefing.get("institution_matches", []))
-    topic_html = _render_html_rows(briefing.get("topic_matches", []))
+    topic_html = _render_topic_html_rows(briefing.get("topic_matches", []))
 
     return f"""<!doctype html>
 <html lang=\"en\">
@@ -106,6 +150,12 @@ def render_html(
   <h2>Executive Summary</h2>
   <ul>{summary_html}</ul>
 
+  <h2>Filters Used</h2>
+  <h3>Institution filters</h3>
+  <ul>{institution_filter_html}</ul>
+  <h3>Topic filters</h3>
+  <ul>{topic_filter_html}</ul>
+
   <h2>Institution Matches</h2>
   <table>
     <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
@@ -114,7 +164,7 @@ def render_html(
 
   <h2>Topic Matches</h2>
   <table>
-    <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+    <thead><tr><th>Title</th><th>Overview</th><th>Link</th></tr></thead>
     <tbody>{topic_html}</tbody>
   </table>
 </body>

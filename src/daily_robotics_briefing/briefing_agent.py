@@ -51,7 +51,6 @@ Return JSON only with shape:
     {
       "paper_id": "...",
       "title": "...",
-      "institution": "...",
       "overview": "2-3 concise sentences",
       "link": "https://arxiv.org/abs/..."
     }
