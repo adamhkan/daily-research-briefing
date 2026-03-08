@@ -15,12 +15,27 @@ AFFILIATION_KEYWORDS = (
     "lab",
     "centre",
     "center",
-    "research",
     "robotics",
     "inc",
     "ltd",
     "corp",
     "gmbh",
+    "academy",
+    "faculty",
+    "hospital",
+)
+
+SECTION_BREAK_KEYWORDS = (
+    "abstract",
+    "introduction",
+    "preprint",
+)
+
+NON_AFFILIATION_LINE_HINTS = (
+    "figure",
+    "dataset",
+    "algorithm",
+    "experiment",
 )
 
 
@@ -42,6 +57,7 @@ class MatchedInstitution:
 class AuthorInstitutionRecord:
     name: str
     institutions: list[MatchedInstitution]
+    raw_institutions: list[str]
 
 
 @dataclass
@@ -66,6 +82,7 @@ class InstitutionExtractionResult:
                         }
                         for inst in author.institutions
                     ],
+                    "raw_institutions": author.raw_institutions,
                 }
                 for author in self.authors
             ],
@@ -114,7 +131,7 @@ def build_institution_specs(entries: list[object]) -> list[InstitutionSpec]:
         aliases = [canonical]
         if isinstance(aliases_raw, list):
             aliases.extend(str(a).strip() for a in aliases_raw if str(a).strip())
-        specs.append(InstitutionSpec(canonical=canonical, aliases=sorted(set(aliases))))
+        specs.append(InstitutionSpec(canonical=canonical, aliases=sorted(_expand_aliases(aliases))))
 
     return specs
 
@@ -138,6 +155,14 @@ def _match_institution(raw_affiliation: str, specs: list[InstitutionSpec]) -> Ma
                     raw=raw_affiliation,
                     match_method="exact_alias",
                     confidence=0.98,
+                )
+            overlap = _token_overlap(alias_norm, text)
+            if overlap >= 0.9 and len(alias_norm.split()) >= 2:
+                return MatchedInstitution(
+                    canonical=spec.canonical,
+                    raw=raw_affiliation,
+                    match_method="token_overlap",
+                    confidence=round(overlap, 2),
                 )
             ratio = SequenceMatcher(None, alias_norm, text).ratio()
             if ratio >= 0.9 and (best_fuzzy is None or ratio > best_fuzzy[0]):
@@ -168,7 +193,11 @@ def _looks_like_institution(line: str) -> bool:
     normalized = normalize_text(line)
     if not normalized:
         return False
-    return any(keyword in normalized for keyword in AFFILIATION_KEYWORDS) or "@" in line
+    if any(hint in normalized for hint in NON_AFFILIATION_LINE_HINTS):
+        return False
+    if "@" in line:
+        return True
+    return any(keyword in normalized for keyword in AFFILIATION_KEYWORDS)
 
 
 def _split_pdf_lines(pdf_first_page_text: str) -> list[str]:
@@ -176,14 +205,43 @@ def _split_pdf_lines(pdf_first_page_text: str) -> list[str]:
     return [ln for ln in lines if ln]
 
 
+def _candidate_affiliation_lines(lines: list[str]) -> list[str]:
+    candidates: list[str] = []
+    for line in lines[:45]:
+        normalized = normalize_text(line)
+        if normalized in SECTION_BREAK_KEYWORDS:
+            break
+        candidates.append(line)
+    return candidates
+
+
+def _expand_compact_markers(line: str) -> list[tuple[set[str], str]]:
+    marker_pattern = re.compile(r"(?<!\w)([0-9]{1,2}|[a-z]|\*|†|‡)(?=[A-Z])")
+    matches = list(marker_pattern.finditer(line))
+    if not matches:
+        marker, body = _extract_marker_prefix(line)
+        return [(marker, body)]
+
+    expanded: list[tuple[set[str], str]] = []
+    for idx, match in enumerate(matches):
+        start = match.end()
+        end = matches[idx + 1].start() if idx + 1 < len(matches) else len(line)
+        marker = match.group(1).lower()
+        body = line[start:end].strip(" ,;|")
+        if body:
+            expanded.append(({marker}, body))
+
+    return expanded or [(_extract_marker_prefix(line))]
+
+
 def _parse_institutions(lines: list[str], specs: list[InstitutionSpec]) -> list[ParsedInstitution]:
     parsed: list[ParsedInstitution] = []
-    for line in lines:
-        markers, body = _extract_marker_prefix(line)
-        matched = _match_institution(body, specs)
-        if not matched and not _looks_like_institution(line):
-            continue
-        parsed.append(ParsedInstitution(raw=body, markers=markers, matched=matched))
+    for line in _candidate_affiliation_lines(lines):
+        for markers, body in _expand_compact_markers(line):
+            matched = _match_institution(body, specs)
+            if not matched and not _looks_like_institution(body):
+                continue
+            parsed.append(ParsedInstitution(raw=body, markers=markers, matched=matched))
     return parsed
 
 
@@ -253,6 +311,7 @@ def extract_institutions_for_paper(
     for author_name in author_names:
         parsed_author = _match_author_name(author_name, parsed_authors)
         matched_for_author: list[MatchedInstitution] = []
+        raw_for_author: set[str] = set()
 
         author_markers = parsed_author.markers if parsed_author else set()
         if not author_markers:
@@ -260,11 +319,14 @@ def extract_institutions_for_paper(
 
         if author_markers:
             for inst in parsed_institutions:
-                if inst.matched and author_markers.intersection(inst.markers):
+                if not author_markers.intersection(inst.markers):
+                    continue
+                raw_for_author.add(inst.raw)
+                if inst.matched:
                     matched_for_author.append(inst.matched)
 
-        if not matched_for_author:
-            # Fallback: assign known paper-level institutions if explicit author markers are missing.
+        if not matched_for_author and not raw_for_author and len(paper_level) == 1:
+            # Conservative fallback: only assign when there is exactly one known paper-level institution.
             matched_for_author = [
                 MatchedInstitution(
                     canonical=canonical,
@@ -274,11 +336,13 @@ def extract_institutions_for_paper(
                 )
                 for canonical in sorted(paper_level)
             ]
+            raw_for_author.update(paper_level)
 
         author_records.append(
             AuthorInstitutionRecord(
                 name=author_name,
                 institutions=matched_for_author,
+                raw_institutions=sorted(raw_for_author),
             )
         )
 
@@ -290,3 +354,24 @@ def extract_institutions_for_paper(
         filter_match=bool(filter_matches),
         filter_match_institutions=filter_matches,
     )
+
+
+def _token_overlap(alias_norm: str, text_norm: str) -> float:
+    alias_tokens = {token for token in alias_norm.split() if len(token) > 2}
+    text_tokens = {token for token in text_norm.split() if len(token) > 2}
+    if not alias_tokens:
+        return 0.0
+    return len(alias_tokens.intersection(text_tokens)) / len(alias_tokens)
+
+
+def _expand_aliases(aliases: list[str]) -> set[str]:
+    expanded: set[str] = {alias for alias in aliases if alias}
+    for alias in list(expanded):
+        words = [word for word in re.split(r"[\s\-]+", alias) if word]
+        acronym = "".join(word[0] for word in words if word[0].isalnum())
+        if len(acronym) >= 3:
+            expanded.add(acronym)
+        if alias.startswith("UC "):
+            expanded.add(alias.replace("UC ", "University of California ", 1))
+            expanded.add(alias.replace("UC ", "University of California, ", 1))
+    return expanded

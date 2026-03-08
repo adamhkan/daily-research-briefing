@@ -51,6 +51,7 @@ Return JSON only with shape:
     {
       "paper_id": "...",
       "title": "...",
+      "institution": "...",
       "overview": "2-3 concise sentences",
       "link": "https://arxiv.org/abs/..."
     }
@@ -135,6 +136,31 @@ def _clean_match_rows(rows: Any) -> list[dict[str, str]]:
             }
         )
     return cleaned
+
+
+def _paper_institution_label(paper: dict[str, Any]) -> str:
+    matched = paper.get("matched_institutions", [])
+    if isinstance(matched, list) and matched:
+        names = [str(name).strip() for name in matched if str(name).strip()]
+        if names:
+            return "; ".join(sorted(dict.fromkeys(names)))
+
+    extraction = paper.get("manual_institution_extraction", {})
+    if isinstance(extraction, dict):
+        raw_from_authors: list[str] = []
+        authors = extraction.get("authors", [])
+        if isinstance(authors, list):
+            for author in authors:
+                if not isinstance(author, dict):
+                    continue
+                raw = author.get("raw_institutions", [])
+                if isinstance(raw, list):
+                    raw_from_authors.extend(str(item).strip() for item in raw if str(item).strip())
+        if raw_from_authors:
+            unique = list(dict.fromkeys(raw_from_authors))
+            return "; ".join(unique[:3])
+
+    return ""
 
 
 def create_daily_briefing(
@@ -227,6 +253,7 @@ def create_daily_briefing(
                 "matched_institutions": paper["matched_institutions"],
                 "topic_relevance": paper["topic_relevance"],
                 "topic_rationale": paper["topic_rationale"],
+                "institution": _paper_institution_label(paper),
             }
             for paper in selected
         ],
@@ -242,6 +269,13 @@ def create_daily_briefing(
     summary_json = _parse_json_response(stage2_text)
     topic_rows = _clean_match_rows(summary_json.get("topic_matches", []))[:max_topic_matches]
     institution_rows = _clean_match_rows(summary_json.get("institution_matches", []))
+
+    institutions_by_id = {paper["arxiv_id"]: _paper_institution_label(paper) for paper in selected}
+    for row in topic_rows:
+        if row.get("institution", "").strip():
+            continue
+        paper_id = row.get("paper_id", "").strip()
+        row["institution"] = institutions_by_id.get(paper_id, "")
     summary_rows = summary_json.get("executive_summary", [])
     if not isinstance(summary_rows, list):
         summary_rows = []

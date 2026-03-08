@@ -24,12 +24,13 @@ def _institution_table_rows(rows: list[dict[str, str]]) -> str:
 
 def _topic_table_rows(rows: list[dict[str, str]]) -> str:
     if not rows:
-        return "| _No matches_ |  |  |"
+        return "| _No matches_ |  |  |  |"
     lines = []
     for row in rows:
         lines.append(
-            "| {title} | {overview} | {link} |".format(
+            "| {title} | {institution} | {overview} | {link} |".format(
                 title=row.get("title", "").replace("|", "\\|"),
+                institution=row.get("institution", "").replace("|", "\\|"),
                 overview=row.get("overview", "").replace("|", "\\|"),
                 link=row.get("link", "").replace("|", "\\|"),
             )
@@ -68,8 +69,8 @@ def render_markdown(
         "| --- | --- | --- | --- |\n"
         f"{_institution_table_rows(institution_rows)}\n\n"
         "## Topic Matches\n\n"
-        "| Title | Overview | Link |\n"
-        "| --- | --- | --- |\n"
+        "| Title | Institution | Overview | Link |\n"
+        "| --- | --- | --- | --- |\n"
         f"{_topic_table_rows(topic_rows)}\n"
     )
 
@@ -93,13 +94,14 @@ def _render_html_rows(rows: list[dict[str, str]]) -> str:
 
 def _render_topic_html_rows(rows: list[dict[str, str]]) -> str:
     if not rows:
-        return '<tr><td colspan="3"><em>No matches</em></td></tr>'
+        return '<tr><td colspan="4"><em>No matches</em></td></tr>'
 
     rendered = []
     for row in rows:
         rendered.append(
             "<tr>"
             f"<td>{escape(str(row.get('title', '')))}</td>"
+            f"<td>{escape(str(row.get('institution', '')))}</td>"
             f"<td>{escape(str(row.get('overview', '')))}</td>"
             f"<td><a href=\"{escape(str(row.get('link', '')))}\">Link</a></td>"
             "</tr>"
@@ -164,7 +166,7 @@ def render_html(
 
   <h2>Topic Matches</h2>
   <table>
-    <thead><tr><th>Title</th><th>Overview</th><th>Link</th></tr></thead>
+    <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
     <tbody>{topic_html}</tbody>
   </table>
 </body>
