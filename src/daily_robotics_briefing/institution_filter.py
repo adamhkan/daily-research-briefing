@@ -25,8 +25,27 @@ AFFILIATION_KEYWORDS = (
     "company",
     "technologies",
     "technology",
-    "research",
-    "robotics",
+)
+
+STRONG_AFFILIATION_KEYWORDS = (
+    "university",
+    "institute",
+    "college",
+    "school",
+    "laboratory",
+    "academy",
+    "hospital",
+    "faculty",
+)
+
+COMPANY_KEYWORDS = (
+    "inc",
+    "ltd",
+    "corp",
+    "gmbh",
+    "llc",
+    "corporation",
+    "company",
 )
 
 SECTION_BREAK_KEYWORDS = (
@@ -47,6 +66,8 @@ NON_AFFILIATION_LINE_HINTS = (
     "equal contribution",
     "corresponding author",
     "project lead",
+    "abstract",
+    "keywords",
 )
 
 NON_AFFILIATION_FRAGMENT_HINTS = (
@@ -174,6 +195,14 @@ class ParsedAuthor:
     markers: set[str]
 
 
+def _contains_word(text: str, word: str) -> bool:
+    return bool(re.search(rf"\b{re.escape(word)}\b", text))
+
+
+def _contains_any_word(text: str, words: tuple[str, ...]) -> bool:
+    return any(_contains_word(text, word) for word in words)
+
+
 def normalize_text(value: str) -> str:
     normalized = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
     normalized = re.sub(r"[^a-z0-9\s]", " ", normalized.lower())
@@ -214,6 +243,8 @@ def _match_institution(raw_affiliation: str, specs: list[InstitutionSpec]) -> Ma
         for alias in spec.aliases:
             alias_norm = normalize_text(alias)
             if not alias_norm:
+                continue
+            if len(alias_norm.split()) == 1 and len(alias_norm) <= 3 and alias_norm not in ACRONYM_ALLOWLIST:
                 continue
             text_padded = f" {text} "
             alias_padded = f" {alias_norm} "
@@ -276,25 +307,13 @@ def _looks_like_institution(line: str) -> bool:
         return False
     if any(hint in normalized for hint in NON_AFFILIATION_LINE_HINTS):
         return False
-    if any(hint in normalized for hint in NON_AFFILIATION_FRAGMENT_HINTS) and not any(
-        keyword in normalized for keyword in AFFILIATION_KEYWORDS
+    if any(hint in normalized for hint in NON_AFFILIATION_FRAGMENT_HINTS) and not _contains_any_word(
+        normalized, AFFILIATION_KEYWORDS
     ):
         return False
-    strong_keywords = (
-        "university",
-        "institute",
-        "college",
-        "school",
-        "laboratory",
-        "academy",
-        "research",
-        "company",
-        "inc",
-        "ltd",
-        "corp",
-        "gmbh",
-    )
-    if "robotics" in normalized and not any(keyword in normalized for keyword in strong_keywords):
+    if _contains_word(normalized, "robotics") and not _contains_any_word(
+        normalized, STRONG_AFFILIATION_KEYWORDS + COMPANY_KEYWORDS
+    ):
         return False
     if normalized.startswith("fig ") or normalized.startswith("figure "):
         return False
@@ -302,18 +321,50 @@ def _looks_like_institution(line: str) -> bool:
         return False
     if normalized.endswith(":"):
         return False
+    if "." in line and not _contains_any_word(normalized, AFFILIATION_KEYWORDS):
+        return False
     if "@" in line:
         return True
-    if any(normalized.endswith(suffix.strip()) or suffix.strip() in normalized for suffix in COMPANY_SUFFIX_HINTS):
+    if any(_contains_word(normalized, suffix.strip()) for suffix in COMPANY_SUFFIX_HINTS):
         return True
-    return any(keyword in normalized for keyword in AFFILIATION_KEYWORDS)
+    return _contains_any_word(normalized, AFFILIATION_KEYWORDS)
+
+
+def _is_generic_institution_phrase(normalized: str) -> bool:
+    tokens = normalized.split()
+    if len(tokens) <= 2 and any(token in STRONG_AFFILIATION_KEYWORDS for token in tokens):
+        return True
+    weak = {"the", "of", "for", "and", "at", "in", "on", "artificial", "intelligence"}
+    return bool(tokens) and all(token in weak or token in STRONG_AFFILIATION_KEYWORDS for token in tokens)
+
+
+def _has_strong_affiliation_signal(text: str) -> bool:
+    normalized = normalize_text(text)
+    if not normalized:
+        return False
+    if _contains_any_word(normalized, STRONG_AFFILIATION_KEYWORDS):
+        if _is_generic_institution_phrase(normalized):
+            return False
+        return True
+    if any(_contains_word(normalized, suffix.strip()) for suffix in COMPANY_SUFFIX_HINTS):
+        return True
+    return _contains_any_word(normalized, COMPANY_KEYWORDS)
+
+
+def _has_narrative_signal(text: str) -> bool:
+    normalized = normalize_text(text)
+    if not normalized:
+        return False
+    narrative_hints = (" we ", " this ", " propose ", " presents ", " introduce ", " framework ", " benchmark ")
+    return any(hint in f" {normalized} " for hint in narrative_hints)
 
 
 def _cleanup_affiliation_fragment(text: str) -> str:
     cleaned = re.sub(r"\S+@\S+", "", text)
     cleaned = re.sub(r"\bhttps?://\S+\b", "", cleaned)
     cleaned = re.sub(r"\s+", " ", cleaned).strip(" ,;|·")
-    cleaned = re.sub(r"^and\s+", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"^(and|coauthor|authors?)\s+", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"^author'?s version\.?$", "", cleaned, flags=re.IGNORECASE)
     return cleaned
 
 
@@ -325,7 +376,7 @@ def _split_affiliation_fragments(body: str) -> list[str]:
     parts = re.split(r"\s*[;|]\s*", body)
     fragments: list[str] = []
     for part in parts:
-        subparts = re.split(r"\s*,\s*(?=(?:[0-9]{1,2}|[a-z]|\*|†|‡)?\s*[A-Z])", part)
+        subparts = re.split(r"\s*,\s*(?=(?:[0-9]{1,2}|[a-z]|\*|†|‡)\s*[A-Z])", part)
         for subpart in subparts:
             candidate = _cleanup_affiliation_fragment(subpart)
             if candidate:
@@ -341,13 +392,13 @@ def _split_pdf_lines(pdf_first_page_text: str) -> list[str]:
 def _candidate_affiliation_lines(lines: list[str]) -> list[str]:
     candidates: list[str] = []
     saw_abstract = False
-    for idx, line in enumerate(lines[:90]):
+    for idx, line in enumerate(lines[:40]):
         normalized = normalize_text(line)
         if normalized in SECTION_BREAK_KEYWORDS or normalized.startswith(SECTION_BREAK_PREFIXES):
             saw_abstract = True
-            if len(candidates) >= 3:
+            if len(candidates) >= 2:
                 break
-        if saw_abstract and idx > 24 and len(candidates) >= 6:
+        if saw_abstract:
             break
         candidates.append(line)
     return candidates
@@ -386,6 +437,45 @@ def _extract_inline_marker_affiliations(lines: list[str], specs: list[Institutio
     return extracted
 
 
+
+
+def _extract_explicit_affiliation_entities(lines: list[str], specs: list[InstitutionSpec]) -> list[ParsedInstitution]:
+    extracted: list[ParsedInstitution] = []
+    pattern = re.compile(
+        r"([A-Z][A-Za-z&'\-\. ]{2,80}\b(?:University|Institute|College|School|Laboratory|Lab|Academy|Hospital|Corporation|Corp\.?|Inc\.?|Ltd\.?|GmbH))",
+        flags=re.IGNORECASE,
+    )
+    for line in lines[:25]:
+        for candidate in pattern.findall(line):
+            fragment = _cleanup_affiliation_fragment(candidate)
+            if not fragment:
+                continue
+            matched = _match_institution(fragment, specs)
+            extracted.append(ParsedInstitution(raw=fragment, markers=set(), matched=matched))
+    return extracted
+
+
+def _extract_affiliation_line_windows(lines: list[str], specs: list[InstitutionSpec]) -> list[ParsedInstitution]:
+    extracted: list[ParsedInstitution] = []
+    header_lines = _candidate_affiliation_lines(lines)
+    for idx in range(max(0, len(header_lines) - 1)):
+        first = _cleanup_affiliation_fragment(header_lines[idx])
+        second = _cleanup_affiliation_fragment(header_lines[idx + 1])
+        if not first or not second:
+            continue
+        combo = _cleanup_affiliation_fragment(f"{first} {second}")
+        if len(combo.split()) > 18:
+            continue
+        if not _has_strong_affiliation_signal(combo):
+            continue
+        if _has_narrative_signal(combo):
+            continue
+        matched = _match_institution(combo, specs)
+        if not matched and not _looks_like_institution(combo):
+            continue
+        extracted.append(ParsedInstitution(raw=combo, markers=set(), matched=matched))
+    return extracted
+
 def _parse_institutions(lines: list[str], specs: list[InstitutionSpec]) -> list[ParsedInstitution]:
     parsed: list[ParsedInstitution] = []
     for line in _candidate_affiliation_lines(lines):
@@ -397,7 +487,24 @@ def _parse_institutions(lines: list[str], specs: list[InstitutionSpec]) -> list[
                 parsed.append(ParsedInstitution(raw=fragment, markers=markers, matched=matched))
 
     parsed.extend(_extract_inline_marker_affiliations(lines, specs))
-    return _dedupe_parsed_institutions(parsed)
+    parsed.extend(_extract_explicit_affiliation_entities(lines, specs))
+    parsed.extend(_extract_affiliation_line_windows(lines, specs))
+    filtered = [item for item in parsed if _is_high_quality_institution_candidate(item)]
+    return _dedupe_parsed_institutions(filtered)
+
+
+def _is_high_quality_institution_candidate(item: ParsedInstitution) -> bool:
+    if item.matched:
+        return True
+    raw = item.raw
+    if not _has_strong_affiliation_signal(raw):
+        return False
+    if _has_narrative_signal(raw):
+        return False
+    normalized = normalize_text(raw)
+    if len(normalized.split()) > 14:
+        return False
+    return True
 
 
 def _dedupe_parsed_institutions(items: list[ParsedInstitution]) -> list[ParsedInstitution]:
@@ -511,6 +618,8 @@ def extract_institutions_for_paper(
             paper_level.add(inst.matched.canonical)
         else:
             unmapped.add(inst.raw)
+            if _has_strong_affiliation_signal(inst.raw) and not _has_narrative_signal(inst.raw):
+                paper_level.add(inst.raw)
 
     author_records: list[AuthorInstitutionRecord] = []
     for author_name in author_names:
@@ -592,8 +701,8 @@ def _expand_aliases(aliases: list[str]) -> set[str]:
             for word in words
             if word[0].isalnum() and normalize_text(word) not in ACRONYM_STOPWORDS
         )
-        if len(acronym) >= 3:
-            expanded.add(acronym)
+        if len(acronym) >= 4 or acronym.lower() in ACRONYM_ALLOWLIST:
+            expanded.add(acronym.upper() if acronym.lower() in ACRONYM_ALLOWLIST else acronym)
         if alias.startswith("UC "):
             expanded.add(alias.replace("UC ", "University of California ", 1))
             expanded.add(alias.replace("UC ", "University of California, ", 1))
