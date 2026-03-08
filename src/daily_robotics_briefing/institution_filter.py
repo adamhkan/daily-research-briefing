@@ -130,7 +130,9 @@ def _match_institution(raw_affiliation: str, specs: list[InstitutionSpec]) -> Ma
             alias_norm = normalize_text(alias)
             if not alias_norm:
                 continue
-            if alias_norm in text or text in alias_norm:
+            text_padded = f" {text} "
+            alias_padded = f" {alias_norm} "
+            if alias_padded in text_padded or text_padded in alias_padded:
                 return MatchedInstitution(
                     canonical=spec.canonical,
                     raw=raw_affiliation,

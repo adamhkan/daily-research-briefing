@@ -1,12 +1,39 @@
 institutions:
-  - Carnegie Mellon University
-  - Massachusetts Institute of Technology
-  - Stanford University
-  - ETH Zurich
-  - UC Berkeley
-  - New York University
-  - UC San Diego
-
+  - canonical: Carnegie Mellon University
+    aliases:
+      # Keep aliases explicit to avoid broad/ambiguous acronym-only matches.
+      - Carnegie Mellon University
+      - Carnegie Mellon
+      - CMU
+  - canonical: Massachusetts Institute of Technology
+    aliases:
+      - Massachusetts Institute of Technology
+      - MIT
+  - canonical: Stanford University
+    aliases:
+      - Stanford University
+      - Stanford
+      - Stanford Artificial Intelligence Laboratory
+  - canonical: ETH Zurich
+    aliases:
+      - ETH Zurich
+      - ETH Zürich
+      - Swiss Federal Institute of Technology Zurich
+      - Eidgenössische Technische Hochschule Zürich
+  - canonical: UC Berkeley
+    aliases:
+      - University of California, Berkeley
+      - UC Berkeley
+      - Berkeley
+  - canonical: New York University
+    aliases:
+      - New York University
+      - NYU
+  - canonical: UC San Diego
+    aliases:
+      - University of California, San Diego
+      - UC San Diego
+      - UCSD
 topics:
   - mobile manipulation
   - motion planning
