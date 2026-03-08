@@ -15,7 +15,6 @@ AFFILIATION_KEYWORDS = (
     "lab",
     "centre",
     "center",
-    "robotics",
     "inc",
     "ltd",
     "corp",
@@ -36,7 +35,29 @@ NON_AFFILIATION_LINE_HINTS = (
     "dataset",
     "algorithm",
     "experiment",
+    "copyright",
+    "arxiv",
+    "code is available",
+    "project page",
 )
+
+SECTION_BREAK_PREFIXES = (
+    "abstract",
+    "introduction",
+    "1 introduction",
+    "i introduction",
+    "preprint",
+)
+
+ACRONYM_STOPWORDS = {
+    "and",
+    "at",
+    "for",
+    "in",
+    "of",
+    "the",
+    "to",
+}
 
 
 @dataclass(frozen=True)
@@ -193,7 +214,11 @@ def _looks_like_institution(line: str) -> bool:
     normalized = normalize_text(line)
     if not normalized:
         return False
+    if len(normalized.split()) > 14:
+        return False
     if any(hint in normalized for hint in NON_AFFILIATION_LINE_HINTS):
+        return False
+    if normalized.startswith("fig ") or normalized.startswith("figure "):
         return False
     if "@" in line:
         return True
@@ -209,7 +234,7 @@ def _candidate_affiliation_lines(lines: list[str]) -> list[str]:
     candidates: list[str] = []
     for line in lines[:45]:
         normalized = normalize_text(line)
-        if normalized in SECTION_BREAK_KEYWORDS:
+        if normalized in SECTION_BREAK_KEYWORDS or normalized.startswith(SECTION_BREAK_PREFIXES):
             break
         candidates.append(line)
     return candidates
@@ -368,7 +393,11 @@ def _expand_aliases(aliases: list[str]) -> set[str]:
     expanded: set[str] = {alias for alias in aliases if alias}
     for alias in list(expanded):
         words = [word for word in re.split(r"[\s\-]+", alias) if word]
-        acronym = "".join(word[0] for word in words if word[0].isalnum())
+        acronym = "".join(
+            word[0]
+            for word in words
+            if word[0].isalnum() and normalize_text(word) not in ACRONYM_STOPWORDS
+        )
         if len(acronym) >= 3:
             expanded.add(acronym)
         if alias.startswith("UC "):
