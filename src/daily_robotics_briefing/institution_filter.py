@@ -635,26 +635,28 @@ def _markers_for_author_from_header(author_name: str, lines: list[str]) -> set[s
     return {m.strip().lower() for m in match.group(1).split(",")}
 
 
-def _merge_paper_level_fallbacks(
-    parsed_institutions: list[ParsedInstitution],
+def _scan_known_institutions_in_text(
     lines: list[str],
     specs: list[InstitutionSpec],
 ) -> list[ParsedInstitution]:
-    if parsed_institutions:
-        return parsed_institutions
+    # Scan the first two PDF pages for any configured/common institution alias.
+    # A hit is treated as a paper-level affiliation signal by design.
+    scan_text = normalize_text("\n".join(lines[:90]))
+    if not scan_text:
+        return []
 
-    text = "\n".join(lines[:35])
-    fallback: list[ParsedInstitution] = []
+    scanned: list[ParsedInstitution] = []
+    padded_scan = f" {scan_text} "
     for spec in specs:
         for alias in spec.aliases:
             alias_norm = normalize_text(alias)
             if not alias_norm:
                 continue
-            if len(alias_norm.split()) == 1 and alias_norm not in ACRONYM_ALLOWLIST:
+            if len(alias_norm.split()) == 1 and len(alias_norm) <= 3 and alias_norm not in ACRONYM_ALLOWLIST:
                 continue
-            if f" {alias_norm} " not in f" {normalize_text(text)} ":
+            if f" {alias_norm} " not in padded_scan:
                 continue
-            fallback.append(
+            scanned.append(
                 ParsedInstitution(
                     raw=alias,
                     markers=set(),
@@ -667,7 +669,8 @@ def _merge_paper_level_fallbacks(
                 )
             )
             break
-    return _dedupe_parsed_institutions(fallback)
+
+    return _dedupe_parsed_institutions(scanned)
 
 
 def extract_institutions_for_paper(
@@ -677,7 +680,8 @@ def extract_institutions_for_paper(
 ) -> InstitutionExtractionResult:
     lines = _split_pdf_lines(pdf_first_page_text)
     parsed_institutions = _parse_institutions(lines, institution_specs)
-    parsed_institutions = _merge_paper_level_fallbacks(parsed_institutions, lines, institution_specs)
+    parsed_institutions.extend(_scan_known_institutions_in_text(lines, institution_specs))
+    parsed_institutions = _dedupe_parsed_institutions(parsed_institutions)
     parsed_authors = _parse_author_markers(lines)
 
     paper_level: set[str] = set()
