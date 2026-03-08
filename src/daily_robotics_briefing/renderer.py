@@ -175,13 +175,14 @@ def render_html(
 def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
     reports_dir.mkdir(parents=True, exist_ok=True)
     entries: list[tuple[str, str]] = []
-    for json_path in sorted(reports_dir.glob("*.json"), reverse=True):
+    for json_path in sorted(reports_dir.glob("**/*.json"), reverse=True):
         try:
             payload = json.loads(json_path.read_text(encoding="utf-8"))
         except Exception:
             continue
         submission_date = payload.get("submission_date", json_path.stem)
-        html_name = f"{json_path.stem}.html"
+        html_relative_path = json_path.with_suffix(".html").relative_to(dashboard_out.parent)
+        html_name = html_relative_path.as_posix()
         entries.append((submission_date, html_name))
 
     rows = "\n".join(
