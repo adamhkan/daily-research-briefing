@@ -5,7 +5,7 @@ This repository contains an AI agent that runs on GitHub Actions and produces a 
 ## What this agent does
 
 1. Fetches papers from https://arxiv.org/list/cs.RO/recent?skip=0&show=2000.
-2. Selects only papers submitted on the day before the run date ("yesterday" by default).
+2. Selects only papers submitted on the day before the run date in US Eastern time (EST/EDT, "yesterday" by default).
 3. Collects title, authors, abstract, subjects, links, and first-page PDF text (locally scraped).
 4. Applies deterministic institution extraction on first-page PDF text to map author affiliations from your institution allow-list (including aliases).
 5. Calls the OpenAI API (default model: `gpt-5.1`) with paper metadata and abstracts only (not first-page PDF text) to perform topic relevance filtering and summarization, while using the deterministic institution filtering output from step 4.

@@ -9,6 +9,8 @@ import requests
 from bs4 import BeautifulSoup
 from pypdf import PdfReader
 
+from .time_utils import eastern_today
+
 ARXIV_URL = "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
 
 
@@ -121,7 +123,7 @@ def fetch_csro_recent(
     By default this targets yesterday's date, which matches the daily-briefing
     requirement to only summarize papers submitted the day before execution.
     """
-    target_date = submission_date or (date.today() - timedelta(days=1))
+    target_date = submission_date or (eastern_today() - timedelta(days=1))
 
     resp = requests.get(ARXIV_URL, timeout=timeout)
     resp.raise_for_status()

@@ -10,6 +10,7 @@ import yaml
 from .briefing_agent import create_daily_briefing
 from .collector import fetch_csro_recent
 from .institution_filter import build_institution_specs, extract_institutions_for_paper
+from .time_utils import eastern_today
 
 
 def load_filters(path: Path) -> dict:
@@ -25,7 +26,7 @@ def _canonical_names(institution_entries: list[Any]) -> list[str]:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate a daily robotics briefing.")
     parser.add_argument("--filters", type=Path, default=Path("config/filters.yaml"))
-    parser.add_argument("--out", type=Path, default=Path(f"reports/{date.today().isoformat()}.md"))
+    parser.add_argument("--out", type=Path, default=Path(f"reports/{eastern_today().isoformat()}.md"))
     parser.add_argument("--model", default="gpt-5.1")
     parser.add_argument(
         "--submission-date",
@@ -35,7 +36,7 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    submission_date = args.submission_date or (date.today() - timedelta(days=1))
+    submission_date = args.submission_date or (eastern_today() - timedelta(days=1))
 
     cfg = load_filters(args.filters)
     institution_entries = cfg.get("institutions", [])
