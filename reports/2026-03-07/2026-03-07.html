@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-03-06</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 2rem; color: #1f2937; }
+    .stats { display: flex; gap: 1rem; margin-bottom: 1rem; }
+    .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem 1rem; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+    th, td { border: 1px solid #e2e8f0; text-align: left; padding: 0.5rem; vertical-align: top; }
+    th { background: #f1f5f9; }
+  </style>
+</head>
+<body>
+  <h1>Daily Robotics Briefing</h1>
+  <p><strong>Submission date covered:</strong> 2026-03-06</p>
+  <div class="stats">
+    <div class="card">Papers fetched: <strong>66</strong></div>
+    <div class="card">Papers analyzed: <strong>66</strong></div>
+  </div>
+
+  <h2>Executive Summary</h2>
+  <ul><li>Dexterous manipulation advances include sim-to-real tactile latent distillation and massive synthetic datasets for bimanual grasping, significantly boosting in-hand and universal grasp performance.</li><li>GPU-native and geometry-aware motion generation methods (cuRoboV2, GAIDE, Many-RRT*) improve planning speed, success, and optimality for high-DoF manipulators and humanoids.</li><li>Whole-body and mobile manipulation see progress in risk-aware visuomotor policies, omnidirectional 3D perception for large-workspace humanoid tasks, and physics-aware VLA frameworks.</li><li>New frameworks for long-horizon, language-conditioned, and memory-intensive manipulation (HD-ExpIt, VPWEM, SeedPolicy, SkillsCrafter, Critic-in-the-loop) improve robustness and horizon scaling.</li><li>Uncertainty- and risk-sensitive planning/control methods emerge for contact-tolerant navigation, collision avoidance, waypoint prediction, and medical insertion, enhancing safety under uncertainty.</li><li>Digital twin systems and interpretable VLA interventions (GaussTwin, feature-controllability in VLAs) support real-time adaptation, closed-loop planning, and alignment of robot behavior with user goals.</li></ul>
+
+  <h2>Filters Used</h2>
+  <h3>Institution filters</h3>
+  <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+  <h3>Topic filters</h3>
+  <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+
+  <h2>Institution Matches</h2>
+  <table>
+    <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+    <tbody><tr><td>PTLD: Sim-to-real Privileged Tactile Latent Distillation for Dexterous Manipulation</td><td>Carnegie Mellon University; UC Berkeley</td><td>Introduces PTLD, a sim-to-real framework that learns tactile dexterous manipulation without tactile simulation by distilling privileged real-world tactile sensing into a tactile state estimator. Combining this estimator with proprioception substantially improves in-hand rotation and reorientation success over proprioception-only policies.</td><td><a href="https://arxiv.org/abs/2603.04531">Link</a></td></tr>
+<tr><td>Observing and Controlling Features in Vision-Language-Action Models</td><td>Stanford University</td><td>Analyzes internal representations in VLAs by defining feature-observability and feature-controllability, enabling linear classifiers and minimal interventions to probe and steer behavior. Demonstrates that targeted internal control can reliably adjust robot actions for π₀.₅ and OpenVLA without fine-tuning, supporting real-time alignment with user preferences.</td><td><a href="https://arxiv.org/abs/2603.05487">Link</a></td></tr></tbody>
+  </table>
+
+  <h2>Topic Matches</h2>
+  <table>
+    <thead><tr><th>Title</th><th>Overview</th><th>Link</th></tr></thead>
+    <tbody><tr><td>Risk-Aware Reinforcement Learning for Mobile Manipulation</td><td>Presents a distributional RL framework for learning whole-body, depth-conditioned visuomotor policies with tunable risk sensitivity in mobile manipulation. A privileged teacher is trained with distortion risk metrics and then distilled into depth-based student policies, yielding better worst-case performance and reactive behavior in unmapped environments.</td><td><a href="https://arxiv.org/abs/2603.04579">Link</a></td></tr>
+<tr><td>cuRoboV2: Dynamics-Aware Motion Generation with Depth-Fused Distance Fields for High-DoF Robots</td><td>Proposes a unified GPU-native stack for motion generation combining B-spline trajectory optimization with torque limits, fast TSDF/ESDF perception, and scalable whole-body dynamics for manipulators and humanoids. Achieves large speedups, near-perfect collision-free IK, and higher success on high-DoF tasks compared to prior planners.</td><td><a href="https://arxiv.org/abs/2603.05493">Link</a></td></tr>
+<tr><td>PhysiFlow: Physics-Aware Humanoid Whole-Body VLA via Multi-Brain Latent Flow Matching and Robust Tracking</td><td>Introduces a multi-brain VLA framework that couples semantic intent from vision-language inputs with physics-aware whole-body control for humanoids. Experiments show improved stability and coordination in dynamic limb tasks under language and visual guidance.</td><td><a href="https://arxiv.org/abs/2603.05410">Link</a></td></tr>
+<tr><td>UltraDexGrasp: Learning Universal Dexterous Grasping for Bimanual Robots with Synthetic Data</td><td>Builds a synthetic data pipeline combining optimization-based grasp synthesis and planning-based demonstrations to create a 20M-frame bimanual dexterous grasp dataset. A point-cloud policy trained only on this data transfers zero-shot to the real world, achieving over 80% success on diverse objects.</td><td><a href="https://arxiv.org/abs/2603.05312">Link</a></td></tr>
+<tr><td>Iterative On-Policy Refinement of Hierarchical Diffusion Policies for Language-Conditioned Manipulation</td><td>Proposes HD-ExpIt, which iteratively refines hierarchical diffusion policies by using environment feedback to discover successful behaviors and distill them back into the planner and controller. This implicitly grounds high-level subgoals in low-level capability and reaches state-of-the-art results on CALVIN for long-horizon language-conditioned manipulation.</td><td><a href="https://arxiv.org/abs/2603.05291">Link</a></td></tr>
+<tr><td>Direct Contact-Tolerant Motion Planning With Vision Language Models</td><td>Develops a direct contact-tolerant planner that uses VLMs to reason about contact-tolerable regions, projecting image-space masks into a contact-aware point cloud and optimizing a perception-to-control objective. Demonstrated on a car-like platform, it improves navigation efficiency and robustness in cluttered, movable environments.</td><td><a href="https://arxiv.org/abs/2603.05017">Link</a></td></tr>
+<tr><td>Many-RRT*: Robust Joint-Space Trajectory Planning for Serial Manipulators</td><td>Extends RRT*-Connect to plan simultaneously toward multiple IK-derived joint goals, addressing kinematic redundancy and goal ambiguity in joint space. Parallel goal trees yield substantially higher success and lower-cost trajectories without added runtime, especially in cluttered scenes.</td><td><a href="https://arxiv.org/abs/2603.04547">Link</a></td></tr>
+<tr><td>GAIDE: Graph-based Attention Masking for Spatial- and Embodiment-aware Motion Planning</td><td>Introduces GAIDE, a transformer-based informed sampler that encodes obstacles and robot embodiment as a graph and uses attention masking to bias sampling. Compared to uniform and prior learned samplers, it improves efficiency and success for sampling-based manipulator planners in high-dimensional spaces.</td><td><a href="https://arxiv.org/abs/2603.04463">Link</a></td></tr>
+<tr><td>Omni-Manip: Beyond-FOV Large-Workspace Humanoid Manipulation with Omnidirectional 3D Perception</td><td>Proposes an end-to-end LiDAR-driven visuomotor policy that uses 360° panoramic point clouds and time-aware attention pooling to control humanoid manipulation over a large workspace. Reduces the need for base motion and outperforms egocentric depth-based baselines in cluttered, extended-reach tasks.</td><td><a href="https://arxiv.org/abs/2603.05355">Link</a></td></tr>
+<tr><td>Curve-Induced Dynamical Systems on Riemannian Manifolds and Lie Groups</td><td>Proposes CDSM, a framework that constructs stable dynamical systems along curves defined on manifolds such as SE(3) and SPD(n), combining tangential and normal components. Demonstrated on manipulators and a mobile manipulator, it enables real-time generation of geometry-consistent motions in structured spaces.</td><td><a href="https://arxiv.org/abs/2603.05268">Link</a></td></tr></tbody>
+  </table>
+</body>
+</html>
