@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from datetime import date, timedelta
 from pathlib import Path
 from typing import Any
@@ -10,6 +11,7 @@ import yaml
 from .briefing_agent import create_daily_briefing
 from .collector import fetch_csro_recent
 from .institution_filter import build_institution_specs, extract_institutions_for_paper
+from .renderer import build_dashboard, render_html, render_markdown
 from .time_utils import eastern_today
 
 
@@ -27,6 +29,21 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Generate a daily robotics briefing.")
     parser.add_argument("--filters", type=Path, default=Path("config/filters.yaml"))
     parser.add_argument("--out", type=Path, default=Path(f"reports/{eastern_today().isoformat()}.md"))
+    parser.add_argument(
+        "--out-json",
+        type=Path,
+        default=Path(f"reports/{eastern_today().isoformat()}.json"),
+    )
+    parser.add_argument(
+        "--out-html",
+        type=Path,
+        default=Path(f"reports/{eastern_today().isoformat()}.html"),
+    )
+    parser.add_argument(
+        "--dashboard-out",
+        type=Path,
+        default=Path("reports/index.html"),
+    )
     parser.add_argument("--model", default="gpt-5.1")
     parser.add_argument(
         "--submission-date",
@@ -45,6 +62,7 @@ def main() -> None:
     topics = cfg.get("topics", [])
     max_papers = int(cfg.get("max_papers", 400))
     max_papers_for_llm = int(cfg.get("max_papers_for_llm", 120))
+    max_topic_matches = int(cfg.get("max_topic_matches", 10))
 
     papers = fetch_csro_recent(max_papers=max_papers, submission_date=submission_date)
 
@@ -64,27 +82,44 @@ def main() -> None:
             institution_specs=institution_specs,
         )
         record["manual_institution_extraction"] = institution_result.to_dict()
+        record["abstract_for_prompt"] = " ".join(record["abstract"].split())[:500]
         all_papers.append(record)
     papers_for_llm = all_papers[:max_papers_for_llm]
 
-    briefing = create_daily_briefing(
+    result = create_daily_briefing(
         papers=papers_for_llm,
         institutions=institutions,
         topics=topics,
         submission_date=submission_date,
         model=args.model,
+        max_topic_matches=max_topic_matches,
     )
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    output = (
-        f"# Daily Robotics Briefing\n\n"
-        f"Submission date covered: **{submission_date.isoformat()}**\n"
-        f"Papers fetched: **{len(all_papers)}**\n"
-        f"Papers analyzed: **{len(papers_for_llm)}**\n\n"
-        f"{briefing.strip()}\n"
+    args.out_json.parent.mkdir(parents=True, exist_ok=True)
+    args.out_html.parent.mkdir(parents=True, exist_ok=True)
+    args.dashboard_out.parent.mkdir(parents=True, exist_ok=True)
+    markdown_output = render_markdown(
+        briefing=result["briefing"],
+        submission_date=submission_date,
+        papers_fetched=len(all_papers),
+        papers_analyzed=len(papers_for_llm),
     )
-    args.out.write_text(output, encoding="utf-8")
-    print(f"Wrote briefing: {args.out}")
+    html_output = render_html(
+        briefing=result["briefing"],
+        submission_date=submission_date,
+        papers_fetched=len(all_papers),
+        papers_analyzed=len(papers_for_llm),
+    )
+
+    args.out.write_text(markdown_output, encoding="utf-8")
+    args.out_json.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    args.out_html.write_text(html_output, encoding="utf-8")
+    build_dashboard(args.out_html.parent, args.dashboard_out)
+    print(f"Wrote markdown briefing: {args.out}")
+    print(f"Wrote structured briefing: {args.out_json}")
+    print(f"Wrote HTML briefing: {args.out_html}")
+    print(f"Wrote dashboard index: {args.dashboard_out}")
 
 if __name__ == "__main__":
     main()
