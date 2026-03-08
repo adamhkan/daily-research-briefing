@@ -7,45 +7,62 @@ from typing import Any
 import httpx
 from openai import OpenAI
 
-SYSTEM_PROMPT = """
-You are a robotics research scout.
-You are given a normalized JSON dataset of arXiv cs.RO papers for exactly one submission date.
-Institution filtering was already performed deterministically by the pipeline.
-Then, create a concise, evidence-based daily briefing.
+CLASSIFICATION_PROMPT = """
+You are a robotics-paper triage classifier.
+You are given papers for one date and normalized institution/topic filters.
+Institution matching was already computed deterministically.
 
-Core method:
-1) Treat `manual_institution_extraction.filter_match` as the source of truth for institution matches.
-2) Evaluate each paper for topic relevance.
-3) Keep only papers that satisfy (manual institution match OR topic match).
-4) For ranking in the topic table, sort by strongest topical relevance first.
+Return JSON only with shape:
+{
+  "papers": [
+    {
+      "paper_id": "...",
+      "topic_relevance": 0,
+      "topic_match": false,
+      "rationale": "short justification"
+    }
+  ]
+}
 
-Scoring guidance:
-- Topic relevance (0-3):
-  0 = unrelated, 1 = tangential mention,
-  2 = clear match, 3 = core focus of the paper.
+Rules:
+- Score topic relevance 0-3.
+- topic_match=true when relevance >=2.
+- Do not invent paper ids.
+- Keep rationale <= 25 words.
+- No markdown, no prose, JSON only.
+""".strip()
 
-Output format requirements (markdown):
-1) Executive Summary
-   - List the institution filters and topic filters exactly as provided.
-   - 3-6 bullets summarizing major themes from included papers.
-2) Institution Matches
-   - A markdown table with exactly these columns:
-     Title | Institution | Overview | Link
-   - Include only papers where `manual_institution_extraction.filter_match` is true.
-   - Institution column should use `manual_institution_extraction.filter_match_institutions` joined by `; `.
-3) Topic Matches
-   - A markdown table with exactly these columns:
-     Title | Institution | Overview | Link
-   - Include 5-10 papers with highest topic relevance, excluding papers already used in Institution Matches.
+SUMMARY_PROMPT = """
+You are a robotics research editor. Build a concise daily briefing from selected papers.
 
-Table rules:
-- Link must be the arXiv abstract URL.
-- Overview should be 2-3 concise sentences focused on technical contributions.
-- Never include a paper that was not in the input dataset.
-- Never include the same paper twice.
+Return JSON only with shape:
+{
+  "executive_summary": ["bullet", "bullet"],
+  "institution_matches": [
+    {
+      "paper_id": "...",
+      "title": "...",
+      "institution": "...",
+      "overview": "2-3 concise sentences",
+      "link": "https://arxiv.org/abs/..."
+    }
+  ],
+  "topic_matches": [
+    {
+      "paper_id": "...",
+      "title": "...",
+      "overview": "2-3 concise sentences",
+      "link": "https://arxiv.org/abs/..."
+    }
+  ]
+}
 
-If no papers match filters, briefly state that in Executive Summary and still output both empty tables with headers.
-Do not add any extra sections.
+Rules:
+- Include only provided selected papers.
+- Institution section: only papers with institution_match=true.
+- Topic section: highest topic relevance first; exclude papers already listed in institution section.
+- Keep executive_summary to 3-6 bullets.
+- JSON only.
 """.strip()
 
 
@@ -64,61 +81,182 @@ def _normalize_filter_entries(entries: list[str]) -> list[dict[str, str]]:
     return normalized
 
 
+def _parse_json_response(text: str) -> dict[str, Any]:
+    raw = text.strip()
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        start = raw.find("{")
+        end = raw.rfind("}")
+        if start != -1 and end != -1 and end > start:
+            return json.loads(raw[start : end + 1])
+        raise
+
+
+def _responses_create(
+    client: OpenAI,
+    model: str,
+    system_prompt: str,
+    payload: dict[str, Any],
+    effort: str,
+) -> str:
+    system_message = {"role": "system", "content": system_prompt}
+    user_message = {"role": "user", "content": json.dumps(payload)}
+
+    if hasattr(client, "responses"):
+        response = client.responses.create(
+            model=model,
+            input=[system_message, user_message],
+            reasoning={"effort": effort},
+        )
+        return response.output_text
+
+    response = client.chat.completions.create(
+        model=model,
+        messages=[system_message, user_message],
+    )
+    return response.choices[0].message.content or "{}"
+
+
+def _clean_match_rows(rows: Any) -> list[dict[str, str]]:
+    cleaned: list[dict[str, str]] = []
+    if not isinstance(rows, list):
+        return cleaned
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        cleaned.append(
+            {
+                "paper_id": str(row.get("paper_id", "")),
+                "title": str(row.get("title", "")),
+                "institution": str(row.get("institution", "")),
+                "overview": str(row.get("overview", "")),
+                "link": str(row.get("link", "")),
+            }
+        )
+    return cleaned
+
+
 def create_daily_briefing(
     papers: list[dict[str, Any]],
     institutions: list[str],
     topics: list[str],
     submission_date: date,
     model: str = "gpt-5.1",
-) -> str:
+    max_topic_matches: int = 10,
+) -> dict[str, Any]:
     client = OpenAI(http_client=httpx.Client())
 
-    payload = {
+    filters = {
+        "institutions": _normalize_filter_entries(institutions),
+        "topics": _normalize_filter_entries(topics),
+    }
+
+    stage1_payload = {
         "submission_date": submission_date.isoformat(),
-        "filters": {
-            "institutions": _normalize_filter_entries(institutions),
-            "topics": _normalize_filter_entries(topics),
-        },
+        "filters": filters,
         "paper_count": len(papers),
         "papers": [
             {
                 "paper_id": paper["arxiv_id"],
                 "title": paper["title"],
-                "authors": paper["authors"],
                 "subjects": paper["subjects"],
-                "abstract": paper["abstract"],
+                "abstract": paper.get("abstract_for_prompt", paper["abstract"]),
                 "abs_url": paper["abs_url"],
-                "manual_institution_extraction": paper.get("manual_institution_extraction", {}),
+                "institution_match": bool(
+                    paper.get("manual_institution_extraction", {}).get("filter_match", False)
+                ),
+                "matched_institutions": paper.get("manual_institution_extraction", {}).get(
+                    "filter_match_institutions", []
+                ),
             }
             for paper in papers
         ],
     }
 
-    system_message = {"role": "system", "content": SYSTEM_PROMPT}
-    user_message = {
-        "role": "user",
-        "content": (
-            "Build today's robotics briefing from the following JSON dataset. "
-            "Use manual institution extraction fields as authoritative institution filtering, "
-            "and apply topic filtering to the provided papers, "
-            "then summarize only the papers that match. "
-            "Do not reference papers outside this set.\n\n"
-            f"{json.dumps(payload)}"
-        ),
+    stage1_text = _responses_create(
+        client=client,
+        model=model,
+        system_prompt=CLASSIFICATION_PROMPT,
+        payload=stage1_payload,
+        effort="low",
+    )
+    stage1_json = _parse_json_response(stage1_text)
+    scored_by_id = {
+        row.get("paper_id", ""): row for row in stage1_json.get("papers", []) if isinstance(row, dict)
     }
 
-    if hasattr(client, "responses"):
-        response = client.responses.create(
-            model=model,
-            input=[system_message, user_message],
-            reasoning={"effort": "high"},
+    enriched: list[dict[str, Any]] = []
+    for paper in papers:
+        pid = paper["arxiv_id"]
+        score_row = scored_by_id.get(pid, {})
+        topic_relevance = int(score_row.get("topic_relevance", 0) or 0)
+        topic_match = bool(score_row.get("topic_match", topic_relevance >= 2))
+        institution_match = bool(
+            paper.get("manual_institution_extraction", {}).get("filter_match", False)
         )
-        return response.output_text
+        enriched.append(
+            {
+                **paper,
+                "topic_relevance": max(0, min(3, topic_relevance)),
+                "topic_match": topic_match,
+                "topic_rationale": str(score_row.get("rationale", "")).strip(),
+                "institution_match": institution_match,
+                "matched_institutions": paper.get("manual_institution_extraction", {}).get(
+                    "filter_match_institutions", []
+                ),
+            }
+        )
 
-    # Compatibility path for older OpenAI Python SDK versions that do not
-    # implement the Responses API yet.
-    response = client.chat.completions.create(
+    selected = [p for p in enriched if p["institution_match"] or p["topic_match"]]
+    selected.sort(key=lambda p: (p["topic_relevance"], p["institution_match"]), reverse=True)
+
+    stage2_payload = {
+        "submission_date": submission_date.isoformat(),
+        "filters": filters,
+        "max_topic_matches": max_topic_matches,
+        "selected_paper_count": len(selected),
+        "selected_papers": [
+            {
+                "paper_id": paper["arxiv_id"],
+                "title": paper["title"],
+                "subjects": paper["subjects"],
+                "abstract": paper["abstract"],
+                "abs_url": paper["abs_url"],
+                "institution_match": paper["institution_match"],
+                "matched_institutions": paper["matched_institutions"],
+                "topic_relevance": paper["topic_relevance"],
+                "topic_rationale": paper["topic_rationale"],
+            }
+            for paper in selected
+        ],
+    }
+
+    stage2_text = _responses_create(
+        client=client,
         model=model,
-        messages=[system_message, user_message],
+        system_prompt=SUMMARY_PROMPT,
+        payload=stage2_payload,
+        effort="medium",
     )
-    return response.choices[0].message.content or ""
+    summary_json = _parse_json_response(stage2_text)
+    topic_rows = _clean_match_rows(summary_json.get("topic_matches", []))[:max_topic_matches]
+    institution_rows = _clean_match_rows(summary_json.get("institution_matches", []))
+    summary_rows = summary_json.get("executive_summary", [])
+    if not isinstance(summary_rows, list):
+        summary_rows = []
+    return {
+        "submission_date": submission_date.isoformat(),
+        "filters": {
+            "institutions": institutions,
+            "topics": topics,
+        },
+        "paper_count": len(papers),
+        "selected_paper_count": len(selected),
+        "papers": enriched,
+        "briefing": {
+            "executive_summary": [str(line) for line in summary_rows],
+            "institution_matches": institution_rows,
+            "topic_matches": topic_rows,
+        },
+    }

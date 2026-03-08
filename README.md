@@ -8,12 +8,18 @@ This repository contains an AI agent that runs on GitHub Actions and produces a 
 2. Selects only papers submitted on the day before the run date in US Eastern time (EST/EDT, "yesterday" by default).
 3. Collects title, authors, abstract, subjects, links, and first-page PDF text (locally scraped).
 4. Applies deterministic institution extraction on first-page PDF text to map author affiliations from your institution allow-list (including aliases).
-5. Calls the OpenAI API (default model: `gpt-5.1`) with paper metadata and abstracts only (not first-page PDF text) to perform topic relevance filtering and summarization, while using the deterministic institution filtering output from step 4.
+5. Calls the OpenAI API (default model: `gpt-5.1`) in two stages: first to classify topic relevance with structured JSON output, then to synthesize the final briefing from selected papers.
 6. Synthesizes:
    - only the filter-matched papers
    - key findings and trends
    - a compact "what to read first" section
-7. Saves the output as a markdown report under `reports/`.
+7. Saves outputs under `reports/` as:
+   - structured JSON (`YYYY-MM-DD.json`)
+   - markdown report (`YYYY-MM-DD.md`)
+   - HTML digest (`YYYY-MM-DD.html`)
+   - dashboard index (`index.html`)
+   - each daily report records the exact institution/topic filters used that day
+8. Publishes `reports/` to GitHub Pages so the dashboard is browsable from your repo site URL.
 
 ## Repository structure
 
@@ -67,6 +73,12 @@ PYTHONPATH=src python -m daily_robotics_briefing.main \
   --submission-date 2026-03-06 \
   --out reports/2026-03-07-backfill.md
 ```
+
+### 4) Enable GitHub Pages (one-time)
+
+In repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**.
+
+The daily workflow uploads `reports/` as the Pages artifact, so `reports/index.html` becomes the site homepage for each deployment.
 
 ## Notes on institution filtering
 
