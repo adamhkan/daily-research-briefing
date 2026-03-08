@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from datetime import date
 from typing import Any
 
@@ -139,14 +140,45 @@ def _clean_match_rows(rows: Any) -> list[dict[str, str]]:
 
 
 def _paper_institution_label(paper: dict[str, Any]) -> str:
+    def _clean_name(value: Any) -> str:
+        name = str(value).strip()
+        if not name:
+            return ""
+        # Common PDF extraction artifact: a stray leading lowercase marker
+        # (e.g., "e Chinese University of Hong Kong").
+        name = re.sub(r"^[a-z]\s+(?=[A-Z])", "", name)
+        return name
+
+    def _unique_join(values: list[Any], limit: int | None = None) -> str:
+        cleaned = [_clean_name(value) for value in values]
+        cleaned = [value for value in cleaned if value]
+        if not cleaned:
+            return ""
+        unique = list(dict.fromkeys(cleaned))
+        if limit is not None:
+            unique = unique[:limit]
+        return "; ".join(unique)
+
     matched = paper.get("matched_institutions", [])
     if isinstance(matched, list) and matched:
-        names = [str(name).strip() for name in matched if str(name).strip()]
-        if names:
-            return "; ".join(sorted(dict.fromkeys(names)))
+        value = _unique_join(sorted(matched))
+        if value:
+            return value
 
     extraction = paper.get("manual_institution_extraction", {})
     if isinstance(extraction, dict):
+        paper_level = extraction.get("paper_level_institutions", [])
+        if isinstance(paper_level, list) and paper_level:
+            value = _unique_join(paper_level)
+            if value:
+                return value
+
+        detected = extraction.get("paper_level_detected_institutions", [])
+        if isinstance(detected, list) and detected:
+            value = _unique_join(detected, limit=3)
+            if value:
+                return value
+
         raw_from_authors: list[str] = []
         authors = extraction.get("authors", [])
         if isinstance(authors, list):
@@ -157,8 +189,9 @@ def _paper_institution_label(paper: dict[str, Any]) -> str:
                 if isinstance(raw, list):
                     raw_from_authors.extend(str(item).strip() for item in raw if str(item).strip())
         if raw_from_authors:
-            unique = list(dict.fromkeys(raw_from_authors))
-            return "; ".join(unique[:3])
+            value = _unique_join(raw_from_authors, limit=3)
+            if value:
+                return value
 
     return ""
 

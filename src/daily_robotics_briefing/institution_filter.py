@@ -387,6 +387,7 @@ def _cleanup_affiliation_fragment(text: str) -> str:
     cleaned = re.sub(r"^(and|coauthor|authors?)\s+", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"^author'?s version\.?$", "", cleaned, flags=re.IGNORECASE)
     cleaned = _strip_leading_author_tokens(cleaned)
+    cleaned = re.sub(r"^[a-z]\s+(?=[A-Z])", "", cleaned)
     cleaned = re.sub(r"^(?:i+\.?\s*)?introduction\s*", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"project page.*$", "", cleaned, flags=re.IGNORECASE)
     return cleaned.strip(" ,;|·")
@@ -486,7 +487,7 @@ def _extract_inline_marker_affiliations(lines: list[str], specs: list[Institutio
 def _extract_explicit_affiliation_entities(lines: list[str], specs: list[InstitutionSpec]) -> list[ParsedInstitution]:
     extracted: list[ParsedInstitution] = []
     pattern = re.compile(
-        r"([A-Z][A-Za-z&'\-\. ]{2,80}\b(?:University|Institute|College|School|Laboratory|Lab|Academy|Hospital|Corporation|Corp\.?|Inc\.?|Ltd\.?|GmbH))",
+        r"([A-Z][A-Za-z&'\-\. ]{2,80}\b(?:University|Institute|College|School|Laboratory|Lab|Academy|Hospital|Center|Centre|Corporation|Corp\.?|Inc\.?|Ltd\.?|GmbH))",
         flags=re.IGNORECASE,
     )
     for line in lines[:25]:
