@@ -4,19 +4,15 @@ institutions:
       # Keep aliases explicit to avoid broad/ambiguous acronym-only matches.
       - Carnegie Mellon University
       - Carnegie Mellon
-      - Robotics Institute, Carnegie Mellon University
-      - School of Computer Science, Carnegie Mellon University
+      - CMU
   - canonical: Massachusetts Institute of Technology
     aliases:
       - Massachusetts Institute of Technology
       - MIT
-      - CSAIL, Massachusetts Institute of Technology
-      - Computer Science and Artificial Intelligence Laboratory, MIT
   - canonical: Stanford University
     aliases:
       - Stanford University
       - Stanford
-      - Stanford Robotics Lab
       - Stanford Artificial Intelligence Laboratory
   - canonical: ETH Zurich
     aliases:
@@ -29,20 +25,15 @@ institutions:
       - University of California, Berkeley
       - UC Berkeley
       - Berkeley
-      - EECS, UC Berkeley
   - canonical: New York University
     aliases:
       - New York University
       - NYU
-      - NYU Tandon School of Engineering
-      - Courant Institute of Mathematical Sciences, New York University
   - canonical: UC San Diego
     aliases:
       - University of California, San Diego
       - UC San Diego
       - UCSD
-      - Jacobs School of Engineering, UC San Diego
-
 topics:
   - mobile manipulation
   - motion planning
