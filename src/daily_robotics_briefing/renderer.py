@@ -127,48 +127,89 @@ def render_html(
     topic_html = _render_topic_html_rows(briefing.get("topic_matches", []))
 
     return f"""<!doctype html>
-<html lang=\"en\">
+<html lang="en">
 <head>
-  <meta charset=\"utf-8\" />
-  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Daily Robotics Briefing - {submission_date.isoformat()}</title>
   <style>
-    body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 2rem; color: #1f2937; }}
-    .stats {{ display: flex; gap: 1rem; margin-bottom: 1rem; }}
-    .card {{ background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem 1rem; }}
-    table {{ width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }}
-    th, td {{ border: 1px solid #e2e8f0; text-align: left; padding: 0.5rem; vertical-align: top; }}
-    th {{ background: #f1f5f9; }}
+    :root {{
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }}
+    * {{ box-sizing: border-box; }}
+    body {{
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }}
+    main {{ max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }}
+    .hero {{ margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }}
+    h1, h2, h3 {{ font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }}
+    h1 {{ margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }}
+    h2 {{ margin: 0; font-size: 1.35rem; }}
+    h3 {{ margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }}
+    p {{ margin: 0.45rem 0; color: var(--ink-soft); }}
+    .stats {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }}
+    .card {{ background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }}
+    .card strong {{ color: #2b3850; }}
+    .section {{ background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }}
+    ul {{ margin: 0.55rem 0 0; padding-left: 1.2rem; }}
+    table {{ width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }}
+    th, td {{ border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }}
+    th {{ background: var(--accent-soft); color: #22304a; font-weight: 600; }}
+    tbody tr:nth-child(even) {{ background: #fcfbf8; }}
+    a {{ color: #3d5f89; }}
   </style>
 </head>
 <body>
-  <h1>Daily Robotics Briefing</h1>
-  <p><strong>Submission date covered:</strong> {submission_date.isoformat()}</p>
-  <div class=\"stats\">
-    <div class=\"card\">Papers fetched: <strong>{papers_fetched}</strong></div>
-    <div class=\"card\">Papers analyzed: <strong>{papers_analyzed}</strong></div>
-  </div>
+  <main>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> {submission_date.isoformat()}</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>{papers_fetched}</strong></div>
+        <div class="card">Papers analyzed: <strong>{papers_analyzed}</strong></div>
+      </div>
+    </section>
 
-  <h2>Executive Summary</h2>
-  <ul>{summary_html}</ul>
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul>{summary_html}</ul>
+    </section>
 
-  <h2>Filters Used</h2>
-  <h3>Institution filters</h3>
-  <ul>{institution_filter_html}</ul>
-  <h3>Topic filters</h3>
-  <ul>{topic_filter_html}</ul>
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul>{institution_filter_html}</ul>
+      <h3>Topic filters</h3>
+      <ul>{topic_filter_html}</ul>
+    </section>
 
-  <h2>Institution Matches</h2>
-  <table>
-    <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
-    <tbody>{institution_html}</tbody>
-  </table>
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody>{institution_html}</tbody>
+      </table>
+    </section>
 
-  <h2>Topic Matches</h2>
-  <table>
-    <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
-    <tbody>{topic_html}</tbody>
-  </table>
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody>{topic_html}</tbody>
+      </table>
+    </section>
+  </main>
 </body>
 </html>
 """
@@ -256,36 +297,60 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
     search_index_json = json.dumps(search_index, ensure_ascii=False).replace("</", "<\\/")
 
     dashboard_html = """<!doctype html>
-<html lang=\"en\">
+<html lang="en">
 <head>
-  <meta charset=\"utf-8\" />
-  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Daily Robotics Briefing Dashboard</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 2rem; color: #1f2937; }
-    .search-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1rem; margin-bottom: 1rem; }
-    #paper-search { width: 100%; max-width: 840px; box-sizing: border-box; border: 1px solid #cbd5e1; border-radius: 8px; padding: 0.75rem; font-size: 1rem; }
-    .search-help { margin: 0.5rem 0 0; color: #475569; font-size: 0.95rem; }
+    :root {
+      color-scheme: light;
+      --bg: #f6f4f0;
+      --panel: #fffdf9;
+      --panel-2: #f4efe7;
+      --ink: #263248;
+      --ink-soft: #5d677a;
+      --line: #ddd4c6;
+      --accent-soft: #dbe4f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf7 0%, var(--bg) 45%, #f1ede5 100%);
+    }
+    main { max-width: 1140px; margin: 0 auto; padding: 2.4rem 1.2rem 3rem; }
+    h1, h2 { font-family: 'Merriweather', Georgia, serif; line-height: 1.3; color: #202c41; }
+    h1 { margin-bottom: 0.25rem; font-size: clamp(1.6rem, 2.4vw, 2.2rem); }
+    p { margin-top: 0.25rem; color: var(--ink-soft); }
+    .search-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.15rem; margin: 1.2rem 0; }
+    #paper-search { width: 100%; max-width: 840px; border: 1px solid #c8c0b3; border-radius: 9px; padding: 0.72rem; font-size: 1rem; background: #fffefc; color: var(--ink); }
+    .search-help { margin: 0.45rem 0 0; color: var(--ink-soft); font-size: 0.95rem; }
     #search-results { margin: 1rem 0 1.5rem; display: grid; gap: 0.75rem; }
-    .result-item { border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.75rem 0.9rem; background: #ffffff; }
-    .result-meta { color: #475569; font-size: 0.9rem; margin-top: 0.3rem; }
-    .muted { color: #64748b; }
-    mark { background: #fef08a; padding: 0; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { border: 1px solid #e2e8f0; text-align: left; padding: 0.5rem; }
-    th { background: #f1f5f9; }
+    .result-item { border: 1px solid var(--line); border-radius: 11px; padding: 0.78rem 0.9rem; background: var(--panel-2); }
+    .result-item p { margin-bottom: 0.2rem; }
+    .result-meta { color: var(--ink-soft); font-size: 0.9rem; margin-top: 0.3rem; }
+    .muted { color: #707a8d; }
+    a { color: #3d5f89; }
+    table { width: 100%; border-collapse: collapse; border: 1px solid var(--line); background: var(--panel); border-radius: 12px; overflow: hidden; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.56rem; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
   </style>
 </head>
 <body>
+  <main>
   <h1>Daily Robotics Briefing Dashboard</h1>
   <p>Select a date to view the digest.</p>
 
-  <section class=\"search-card\">
+  <section class="search-card">
     <h2>Search papers</h2>
-    <p class=\"search-help\">Searches ArXiv robotics papers. Matches prioritize <strong>title and abstract</strong>, while still matching <strong>institution tags</strong> and overview text.</p>
-    <input id=\"paper-search\" type=\"search\" placeholder=\"Try: motion planning, Carnegie Mellon...\" autocomplete=\"off\" />
-    <p id=\"search-status\" class=\"search-help muted\">Type at least 2 characters to search.</p>
-    <div id=\"search-results\"></div>
+    <p class="search-help">Searches ArXiv robotics papers. Matches prioritize <strong>title and abstract</strong>, while still matching <strong>institution tags</strong> and overview text.</p>
+    <input id="paper-search" type="search" placeholder="Try: motion planning, Carnegie Mellon..." autocomplete="off" />
+    <p id="search-status" class="search-help muted">Type at least 2 characters to search.</p>
+    <div id="search-results"></div>
   </section>
 
   <table>
@@ -293,7 +358,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
     <tbody>__ROWS__</tbody>
   </table>
 
-  <script id=\"search-index\" type=\"application/json\">__SEARCH_INDEX_JSON__</script>
+  <script id="search-index" type="application/json">__SEARCH_INDEX_JSON__</script>
   <script>
     const indexEl = document.getElementById('search-index');
     const allPapers = JSON.parse(indexEl.textContent || '[]');
@@ -306,7 +371,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
-      .replace(/\"/g, '&quot;')
+      .replace(/"/g, '&quot;')
       .replace(/'/g, '&#39;');
 
     const matchPaper = (paper, terms) => {
@@ -378,6 +443,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
 
     inputEl.addEventListener('input', runSearch);
   </script>
+  </main>
 </body>
 </html>
 """

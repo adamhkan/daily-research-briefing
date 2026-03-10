@@ -5,43 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Daily Robotics Briefing - 2026-03-06</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 2rem; color: #1f2937; }
-    .stats { display: flex; gap: 1rem; margin-bottom: 1rem; }
-    .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem 1rem; }
-    table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
-    th, td { border: 1px solid #e2e8f0; text-align: left; padding: 0.5rem; vertical-align: top; }
-    th { background: #f1f5f9; }
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
   </style>
 </head>
 <body>
-  <h1>Daily Robotics Briefing</h1>
-  <p><strong>Submission date covered:</strong> 2026-03-06</p>
-  <div class="stats">
-    <div class="card">Papers fetched: <strong>66</strong></div>
-    <div class="card">Papers analyzed: <strong>66</strong></div>
-  </div>
+  <main>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-03-06</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>0</strong></div>
+        <div class="card">Papers analyzed: <strong>0</strong></div>
+      </div>
+    </section>
 
-  <h2>Executive Summary</h2>
-  <ul><li>Memory, horizon scaling, and interpretability for VLA-based manipulation see significant advances, including new long-horizon benchmarks, memory architectures, and feature-level control.</li><li>Dexterous and bimanual manipulation progresses via sim-to-real tactile distillation, large synthetic grasp datasets, and improved visuomotor pretraining and augmentation.</li><li>Motion planning and control see stronger performance and scalability, from GPU-accelerated dynamics-aware generation to improved sampling-based planners and informed neural samplers.</li><li>Whole-body and mobile manipulation are tackled with risk-aware policies, omnidirectional humanoid manipulation, and physics-aware VLA frameworks.</li><li>New human-in-the-loop and rapid iteration tools (coding agents, smartphone-based data collection, neuro-symbolic skill expansion) streamline policy improvement without heavy retraining.</li><li>Safety, robustness, and uncertainty handling are emphasized across manipulation and navigation through risk-aware RL, shared autonomy, adversarial robustness, and evidential waypoint prediction.</li></ul>
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Memory, horizon scaling, and interpretability for VLA-based manipulation see significant advances, including new long-horizon benchmarks, memory architectures, and feature-level control.</li><li>Dexterous and bimanual manipulation progresses via sim-to-real tactile distillation, large synthetic grasp datasets, and improved visuomotor pretraining and augmentation.</li><li>Motion planning and control see stronger performance and scalability, from GPU-accelerated dynamics-aware generation to improved sampling-based planners and informed neural samplers.</li><li>Whole-body and mobile manipulation are tackled with risk-aware policies, omnidirectional humanoid manipulation, and physics-aware VLA frameworks.</li><li>New human-in-the-loop and rapid iteration tools (coding agents, smartphone-based data collection, neuro-symbolic skill expansion) streamline policy improvement without heavy retraining.</li><li>Safety, robustness, and uncertainty handling are emphasized across manipulation and navigation through risk-aware RL, shared autonomy, adversarial robustness, and evidential waypoint prediction.</li></ul>
+    </section>
 
-  <h2>Filters Used</h2>
-  <h3>Institution filters</h3>
-  <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
-  <h3>Topic filters</h3>
-  <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>(none)</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>(none)</li></ul>
+    </section>
 
-  <h2>Institution Matches</h2>
-  <table>
-    <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
-    <tbody><tr><td>RoboMME: Benchmarking and Understanding Memory for Robotic Generalist Policies</td><td>Stanford University</td><td>Introduces RoboMME, a standardized benchmark of 16 manipulation tasks designed to probe temporal, spatial, object, and procedural memory in vision-language-action (VLA) models. Builds 14 memory-augmented variants on the π0.5 backbone, showing that optimal memory representations are highly task-dependent and enabling systematic comparison of long-horizon, history-dependent policies.</td><td><a href="https://arxiv.org/abs/2603.04639">Link</a></td></tr>
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>RoboMME: Benchmarking and Understanding Memory for Robotic Generalist Policies</td><td>Stanford University</td><td>Introduces RoboMME, a standardized benchmark of 16 manipulation tasks designed to probe temporal, spatial, object, and procedural memory in vision-language-action (VLA) models. Builds 14 memory-augmented variants on the π0.5 backbone, showing that optimal memory representations are highly task-dependent and enabling systematic comparison of long-horizon, history-dependent policies.</td><td><a href="https://arxiv.org/abs/2603.04639">Link</a></td></tr>
 <tr><td>PTLD: Sim-to-real Privileged Tactile Latent Distillation for Dexterous Manipulation</td><td>Carnegie Mellon University; UC Berkeley; University of Washington</td><td>Proposes PTLD, a sim-to-real framework that avoids simulating tactile sensors by first learning privileged real-world tactile policies and then distilling them into a tactile state estimator. Augmenting proprioceptive sim-trained policies with this estimator substantially improves in-hand rotation and reorientation performance, highlighting a practical route to tactile dexterous skills.</td><td><a href="https://arxiv.org/abs/2603.04531">Link</a></td></tr>
 <tr><td>Observing and Controlling Features in Vision-Language-Action Models</td><td>Stanford University</td><td>Applies mechanistic interpretability concepts to VLAs by defining feature-observability and feature-controllability in their internal representations. Demonstrates that linear probes and minimal optimal-control-based interventions can steer π0.5 and OpenVLA behaviors online without fine-tuning, enabling real-time preference alignment and behavior correction in robotic control.</td><td><a href="https://arxiv.org/abs/2603.05487">Link</a></td></tr></tbody>
-  </table>
+      </table>
+    </section>
 
-  <h2>Topic Matches</h2>
-  <table>
-    <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
-    <tbody><tr><td>cuRoboV2: Dynamics-Aware Motion Generation with Depth-Fused Distance Fields for High-DoF Robots</td><td>NVIDIA</td><td>Presents a unified GPU-native motion generation stack combining B-spline trajectory optimization with torque limits, fast dense TSDF/ESDF perception, and scalable whole-body kinematics and dynamics. Achieves large speedups and near-perfect success rates from manipulators to 48-DoF humanoids, enabling collision-aware, dynamics-feasible motions suitable for both manipulation and locomotion.</td><td><a href="https://arxiv.org/abs/2603.05493">Link</a></td></tr>
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>cuRoboV2: Dynamics-Aware Motion Generation with Depth-Fused Distance Fields for High-DoF Robots</td><td>NVIDIA</td><td>Presents a unified GPU-native motion generation stack combining B-spline trajectory optimization with torque limits, fast dense TSDF/ESDF perception, and scalable whole-body kinematics and dynamics. Achieves large speedups and near-perfect success rates from manipulators to 48-DoF humanoids, enabling collision-aware, dynamics-feasible motions suitable for both manipulation and locomotion.</td><td><a href="https://arxiv.org/abs/2603.05493">Link</a></td></tr>
 <tr><td>PhysiFlow: Physics-Aware Humanoid Whole-Body VLA via Multi-Brain Latent Flow Matching and Robust Tracking</td><td>Shanghai Jiao Tong University</td><td>Introduces a physics-aware, multi-brain VLA framework that links semantic intent to whole-body humanoid control. The system couples latent flow matching with robust tracking to produce stable, vision-language-guided full-body coordinated behaviors on humanoid robots.</td><td><a href="https://arxiv.org/abs/2603.05410">Link</a></td></tr>
 <tr><td>Omni-Manip: Beyond-FOV Large-Workspace Humanoid Manipulation with Omnidirectional 3D Perception</td><td></td><td>Proposes Omni-Manip, a LiDAR-centric 360° visuomotor policy for humanoid manipulation in large workspaces where base motion is constrained. A time-aware attention pooling mechanism encodes panoramic point clouds over time, enabling robust full-body manipulation across wide areas and clutter compared to narrow-FOV RGB-D baselines.</td><td><a href="https://arxiv.org/abs/2603.05355">Link</a></td></tr>
 <tr><td>UltraDexGrasp: Learning Universal Dexterous Grasping for Bimanual Robots with Synthetic Data</td><td>Peking University; The Chinese University of Hong Kong; The University of Hong Kong; Zhejiang University</td><td>Develops UltraDexGrasp, a pipeline that synthesizes diverse, physically plausible bimanual dexterous grasps via optimization and planning, yielding a 20M-frame dataset over 1,000 objects. A simple point-cloud-based policy trained solely on this synthetic data transfers zero-shot to real bimanual grasping with over 81% success on unseen objects.</td><td><a href="https://arxiv.org/abs/2603.05312">Link</a></td></tr>
@@ -51,6 +90,8 @@
 <tr><td>SeedPolicy: Horizon Scaling via Self-Evolving Diffusion Policy for Robot Manipulation</td><td>Dexmal Inc.; Sichuan University</td><td>Extends diffusion policies for long-horizon manipulation with Self-Evolving Gated Attention (SEGA), a recurrent temporal module that compresses long observation histories into a fixed latent state. The resulting SeedPolicy scales to longer horizons with moderate overhead and substantially outperforms standard diffusion policies and other IL baselines on 50 RoboTwin 2.0 tasks.</td><td><a href="https://arxiv.org/abs/2603.05117">Link</a></td></tr>
 <tr><td>Direct Contact-Tolerant Motion Planning With Vision Language Models</td><td></td><td>Presents a direct contact-tolerant planner that leverages VLM reasoning to segment environment points into contact-tolerant versus forbidden regions, forming a contact-aware point cloud. A learned navigation module then optimizes control under these constraints, enabling efficient, robust navigation through clutter with movable obstacles in both simulation and real robots.</td><td><a href="https://arxiv.org/abs/2603.05017">Link</a></td></tr>
 <tr><td>VPWEM: Non-Markovian Visuomotor Policy with Working and Episodic Memory</td><td></td><td>Proposes VPWEM, a visuomotor policy architecture that combines a short-term working memory window with a learned episodic memory compressor to handle long, non-Markovian manipulation tasks. Integrated with diffusion policies, it maintains near-constant per-step compute while improving performance on memory-intensive benchmarks like MIKASA and MoMaRT.</td><td><a href="https://arxiv.org/abs/2603.04910">Link</a></td></tr></tbody>
-  </table>
+      </table>
+    </section>
+  </main>
 </body>
 </html>
