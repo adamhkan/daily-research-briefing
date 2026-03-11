@@ -516,6 +516,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#39;');
 
+
     const matchPaper = (paper, terms) => {
       const title = normalize(paper.title || '');
       const abstract = normalize(paper.abstract || '');

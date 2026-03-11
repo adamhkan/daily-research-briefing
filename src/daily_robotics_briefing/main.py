@@ -26,6 +26,17 @@ def _canonical_names(institution_entries: list[Any]) -> list[str]:
     return [spec.canonical for spec in specs]
 
 
+def _normalize_string_list(values: Any) -> list[str]:
+    if not isinstance(values, list):
+        return []
+    normalized: list[str] = []
+    for value in values:
+        text = str(value).strip()
+        if text:
+            normalized.append(text)
+    return normalized
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate a daily robotics briefing.")
     parser.add_argument("--filters", type=Path, default=Path("config/filters.yaml"))
@@ -64,7 +75,7 @@ def main() -> None:
     institution_specs = build_institution_specs(combined_entries)
     institutions = canonical_from_config
     configured_institution_set = set(canonical_from_config)
-    topics = cfg.get("topics", [])
+    topics = _normalize_string_list(cfg.get("topics", []))
     max_papers = int(cfg.get("max_papers", 400))
     max_papers_for_llm = int(cfg.get("max_papers_for_llm", 120))
     max_topic_matches = int(cfg.get("max_topic_matches", 10))
@@ -109,6 +120,10 @@ def main() -> None:
         model=args.model,
         max_topic_matches=max_topic_matches,
     )
+    result["filters"] = {
+        "institutions": institutions,
+        "topics": topics,
+    }
     result["papers_fetched"] = len(all_papers)
     result["papers_analyzed"] = len(papers_for_llm)
 
