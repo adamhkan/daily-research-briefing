@@ -83,7 +83,7 @@ def main() -> None:
         record = paper.to_dict()
         institution_result = extract_institutions_for_paper(
             author_names=record["authors"],
-            pdf_first_page_text=record["pdf_first_page_text"],
+            source_text=record.get("html_author_notes_text", ""),
             institution_specs=institution_specs,
         )
         extraction_dict = institution_result.to_dict()
@@ -109,6 +109,8 @@ def main() -> None:
         model=args.model,
         max_topic_matches=max_topic_matches,
     )
+    result["papers_fetched"] = len(all_papers)
+    result["papers_analyzed"] = len(papers_for_llm)
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out_json.parent.mkdir(parents=True, exist_ok=True)
@@ -119,16 +121,16 @@ def main() -> None:
         matched_institutions=[str(x) for x in result.get("filters", {}).get("institutions", [])],
         matched_topics=[str(x) for x in result.get("filters", {}).get("topics", [])],
         submission_date=submission_date,
-        papers_fetched=len(all_papers),
-        papers_analyzed=len(papers_for_llm),
+        papers_fetched=int(result.get("papers_fetched", 0)),
+        papers_analyzed=int(result.get("papers_analyzed", 0)),
     )
     html_output = render_html(
         briefing=result["briefing"],
         matched_institutions=[str(x) for x in result.get("filters", {}).get("institutions", [])],
         matched_topics=[str(x) for x in result.get("filters", {}).get("topics", [])],
         submission_date=submission_date,
-        papers_fetched=len(all_papers),
-        papers_analyzed=len(papers_for_llm),
+        papers_fetched=int(result.get("papers_fetched", 0)),
+        papers_analyzed=int(result.get("papers_analyzed", 0)),
     )
 
     args.out.write_text(markdown_output, encoding="utf-8")

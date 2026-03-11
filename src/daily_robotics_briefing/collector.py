@@ -2,14 +2,13 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass
 from datetime import date, datetime, timedelta
-from io import BytesIO
 from typing import Any
+from urllib.parse import urljoin
 
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from bs4 import BeautifulSoup
-from pypdf import PdfReader
 
 from .time_utils import eastern_today
 
@@ -39,7 +38,9 @@ class Paper:
     abstract: str
     abs_url: str
     pdf_url: str
-    pdf_first_page_text: str = ""
+    html_url: str = ""
+    html_author_notes_text: str = ""
+    html_author_institutions: list[str] | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -67,6 +68,74 @@ def _extract_abstract_text(soup: BeautifulSoup) -> str:
         return _clean(content.replace("Abstract:", "", 1))
 
     return ""
+
+
+def _extract_html_url(soup: BeautifulSoup, abs_url: str) -> str:
+    html_link = soup.select_one("a[href*='/html/']")
+    if not html_link:
+        return ""
+    href = str(html_link.get("href") or "").strip()
+    if not href:
+        return ""
+    return urljoin(abs_url, href)
+
+
+def _looks_like_affiliation_note(line: str) -> bool:
+    lowered = line.lower()
+    if "@" in line or "corresponding author" in lowered or "equal contribution" in lowered:
+        return False
+    institution_markers = (
+        "university",
+        "institute",
+        "school",
+        "college",
+        "laboratory",
+        "lab",
+        "academy",
+        "center",
+        "centre",
+        "hospital",
+        "corporation",
+        "corp",
+        "inc",
+        "ltd",
+    )
+    return any(marker in lowered for marker in institution_markers)
+
+
+def _parse_author_institutions_from_notes(notes_text: str) -> list[str]:
+    lines = [" ".join(line.split()) for line in notes_text.splitlines()]
+    cleaned_lines = [line.lstrip("*†‡0123456789. ").strip(" ;,.") for line in lines if line.strip()]
+    unique: list[str] = []
+    seen: set[str] = set()
+    for line in cleaned_lines:
+        if not _looks_like_affiliation_note(line):
+            continue
+        key = line.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        unique.append(line)
+    return unique
+
+
+def _fetch_html_author_metadata(html_url: str, timeout: int, session: requests.Session | None = None) -> tuple[str, list[str]]:
+    if not html_url:
+        return "", []
+    try:
+        http = session or _build_session()
+        resp = http.get(html_url, timeout=timeout)
+        resp.raise_for_status()
+    except requests.RequestException:
+        return "", []
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+    notes_node = soup.select_one(".ltx_author_notes")
+    if not notes_node:
+        return "", []
+
+    notes_text = notes_node.get_text("\n", strip=True)
+    return notes_text, _parse_author_institutions_from_notes(notes_text)
 
 
 def _parse_arxiv_list_header_date(header_text: str) -> date | None:
@@ -151,7 +220,13 @@ def fetch_csro_recent(
     for arxiv_id, abs_url, pdf_url in paper_refs:
         try:
             p = _fetch_abs_page(arxiv_id, abs_url, pdf_url, timeout=timeout, session=session)
-            p.pdf_first_page_text = _fetch_pdf_first_page_text(pdf_url=pdf_url, timeout=timeout, session=session)
+            notes_text, institutions = _fetch_html_author_metadata(
+                html_url=p.html_url,
+                timeout=timeout,
+                session=session,
+            )
+            p.html_author_notes_text = notes_text
+            p.html_author_institutions = institutions
             papers.append(p)
         except requests.RequestException:
             continue
@@ -174,6 +249,7 @@ def _fetch_abs_page(arxiv_id: str, abs_url: str, pdf_url: str, timeout: int, ses
     authors_text = (authors_node.get_text(" ", strip=True) if authors_node else "").replace("Authors:", "")
     authors = [_clean(x) for x in authors_text.split(",") if _clean(x)]
     subjects = _clean(subjects_node.get_text(" ", strip=True) if subjects_node else "")
+    html_url = _extract_html_url(soup, abs_url=abs_url)
 
     return Paper(
         arxiv_id=arxiv_id,
@@ -183,29 +259,6 @@ def _fetch_abs_page(arxiv_id: str, abs_url: str, pdf_url: str, timeout: int, ses
         abstract=abstract,
         abs_url=abs_url,
         pdf_url=pdf_url,
+        html_url=html_url,
+        html_author_institutions=[],
     )
-
-
-def _fetch_pdf_first_page_text(pdf_url: str, timeout: int, session: requests.Session | None = None) -> str:
-    """Download a PDF and extract text from the first two pages (header-focused)."""
-    try:
-        http = session or _build_session()
-        resp = http.get(pdf_url, timeout=timeout)
-        resp.raise_for_status()
-    except requests.RequestException:
-        return ""
-
-    try:
-        reader = PdfReader(BytesIO(resp.content), strict=False)
-        if not reader.pages:
-            return ""
-        selected_pages = reader.pages[:2]
-        lines: list[str] = []
-        for page in selected_pages:
-            raw_text = page.extract_text() or ""
-            page_lines = [" ".join(line.split()) for line in raw_text.splitlines()]
-            page_lines = [line for line in page_lines if line]
-            lines.extend(page_lines[:45])
-        return "\n".join(lines)
-    except Exception:
-        return ""
