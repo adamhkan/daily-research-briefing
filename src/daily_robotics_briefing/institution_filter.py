@@ -249,6 +249,7 @@ def _match_institution(raw_affiliation: str, specs: list[InstitutionSpec]) -> Ma
             alias_norm = normalize_text(alias)
             if not alias_norm:
                 continue
+            is_acronym_alias = _is_acronym_alias(alias, alias_norm)
             if len(alias_norm.split()) == 1 and len(alias_norm) <= 3 and alias_norm not in ACRONYM_ALLOWLIST:
                 continue
             text_padded = f" {text} "
@@ -260,6 +261,10 @@ def _match_institution(raw_affiliation: str, specs: list[InstitutionSpec]) -> Ma
                     match_method="exact_alias",
                     confidence=0.98,
                 )
+            if is_acronym_alias:
+                # Acronym aliases (e.g., "MIT") must match as exact standalone
+                # tokens only; never use fuzzy/token-overlap matching for them.
+                continue
             overlap = _token_overlap(alias_norm, text)
             if overlap >= 0.9 and len(alias_norm.split()) >= 2:
                 return MatchedInstitution(
@@ -766,6 +771,18 @@ def _token_overlap(alias_norm: str, text_norm: str) -> float:
     if len(alias_tokens) < 2:
         return 0.0
     return len(alias_tokens.intersection(text_tokens)) / len(alias_tokens)
+
+
+def _is_acronym_alias(alias: str, alias_norm: str) -> bool:
+    if len(alias_norm.split()) != 1:
+        return False
+    token = alias_norm.strip()
+    if not token:
+        return False
+    stripped = re.sub(r"[^A-Za-z0-9]", "", alias)
+    if 2 <= len(stripped) <= 6 and stripped.isupper():
+        return True
+    return token in ACRONYM_ALLOWLIST
 
 
 def _expand_aliases(aliases: list[str]) -> set[str]:
