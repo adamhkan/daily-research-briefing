@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-03-10</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-03-10</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>161</strong></div>
+        <div class="card">Papers analyzed: <strong>120</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Two institution-aligned works from CMU and Stanford focus on pretraining from casual human videos (3PoinTr) and test-time-scaled in-context imitation with VLMs (SAIL), both improving data efficiency and generalization for manipulation.</li><li>Multiple papers push dexterous and bimanual manipulation via symmetry-equivariant policies (EquiBim), triadic interaction-aware diffusion (RoTri-Diff), tactile-force-aware control (TacDexGrasp, Multifingered force-aware control), and human-like VLA-based dexterous skills (MoDE-VLA).</li><li>Hierarchical and graph-based planners for mobile manipulation and loco-manipulation (MoMaStage, MetaWorld-X, ACLM, Two-Stage Path Following) tackle long-horizon tasks, compositional whole-body skills, and distributed MPC for collaborative payload transport.</li><li>New VLA-centric frameworks (AtomicVLA, AtomVLA, SaiVLA-0, TempoFit, Seed2Scale, LoRA-SP) emphasize scalable skill libraries, temporal memory, adaptive capacity, and self-evolving data engines for long-horizon and multi-task manipulation.</li><li>Contact-rich and force-sensitive manipulation sees advances in phase-scheduled visual-force control (PhaForce), tactile-guided disassembly (CONTACT), compliance-focused grasping (TacDexGrasp), and pose-centered affordance learning from human interaction (RoboPCA).</li><li>Robustness and safety in embodied systems are strengthened through uncertainty-aware interventions (TRIAGE), world-model-based failure detection (Foundational World Models...), real-time executability feedback during demo collection (FeasibleCap), and task-aware observation interfaces (Choose What to Observe).</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>3PoinTr: 3D Point Tracks for Robot Manipulation Pretraining from Casual Videos</td><td>Carnegie Mellon University</td><td>Introduces 3PoinTr, which pretrains manipulation policies from unconstrained human videos by predicting 3D point tracks as an embodiment-agnostic intermediate representation. A Perceiver IO-based architecture distills these tracks into compact features, enabling robust spatial generalization and strong performance with as few as 20 robot demonstrations, outperforming prior human-video pretraining methods.</td><td><a href="https://arxiv.org/abs/2603.08485">Link</a></td></tr>
+<tr><td>SAIL: Test-Time Scaling for In-Context Imitation Learning with VLM</td><td>Stanford University</td><td>SAIL reframes imitation learning as iterative trajectory refinement using Monte Carlo Tree Search guided by a VLM-based scoring mechanism and an archive of successful demonstrations. By scaling compute at test time, the framework progressively improves generated trajectories, reaching up to 95% success on challenging manipulation tasks without policy retraining.</td><td><a href="https://arxiv.org/abs/2603.08269">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>MoMaStage: Skill-State Graph Guided Planning and Closed-Loop Execution for Long-Horizon Indoor Mobile Manipulation</td><td></td><td>MoMaStage couples a hierarchical skill library with a topology-aware Skill-State Graph to plan long-horizon indoor mobile manipulation without explicit mapping. A VLM is grounded into this graph for logically consistent task decomposition, while closed-loop execution with semantic replanning counters cascading errors in dynamic environments.</td><td><a href="https://arxiv.org/abs/2603.08383">Link</a></td></tr>
+<tr><td>Two-Stage Path Following for Mobile Manipulators via Dimensionality-Reduced Graph Search and Numerical Optimization</td><td></td><td>Proposes a two-stage configuration planner that reduces 8-DoF mobile manipulator planning to 2-DoF base optimization under a yaw-fixed assumption. It first performs Dijkstra-based search on an IRM-discretized task-space graph, then refines feasible base regions via convexification and L-BFGS, achieving sub-millimeter accuracy in simulation and robust hardware performance.</td><td><a href="https://arxiv.org/abs/2603.07003">Link</a></td></tr>
+<tr><td>Low-Cost Teleoperation Extension for Mobile Manipulators</td><td></td><td>Describes an open-source teleoperation framework for mobile bimanual manipulators using commodity hardware: smartphone-based head tracking, leader arms, and foot pedals. User studies show improved task performance and reduced cognitive load versus keyboard control, enabling intuitive whole-body mobile manipulation without expensive VR systems.</td><td><a href="https://arxiv.org/abs/2603.07672">Link</a></td></tr>
+<tr><td>ACLM: ADMM-Based Distributed Model Predictive Control for Collaborative Loco-Manipulation</td><td></td><td>ACLM formulates collaborative payload transport by quadruped manipulators as a distributed MPC problem solved via ADMM. By decomposing the global optimal control problem into per-robot subproblems coupled through payload-induced consensus constraints, it achieves real-time, scalable planning with wrench-aware whole-body tracking in simulation with up to four robots.</td><td><a href="https://arxiv.org/abs/2603.07095">Link</a></td></tr>
+<tr><td>MetaWorld-X: Hierarchical World Modeling via VLM-Orchestrated Experts for Humanoid Loco-Manipulation</td><td>University of Alberta</td><td>MetaWorld-X decomposes humanoid loco-manipulation into a set of imitation-constrained expert policies trained under human motion priors for natural whole-body behaviors. A VLM-supervised Intelligent Routing Mechanism composes these experts based on task semantics, yielding more stable, human-like motions and improved compositional generalization in multi-stage tasks.</td><td><a href="https://arxiv.org/abs/2603.08572">Link</a></td></tr>
+<tr><td>Multifingered force-aware control for humanoid robots</td><td>Istituto Italiano di Tecnologia; Meta AI</td><td>Presents a model-based controller for humanoids with multi-fingered hands that redistributes contact forces across torso, arm, wrist, and fingers using estimated tactile forces. By minimizing the distance between the contact polygon’s Center of Pressure and its centroid, the method stabilizes grasps on objects with varying mass distributions, achieving high success in single- and multi-object balancing tasks.</td><td><a href="https://arxiv.org/abs/2603.08142">Link</a></td></tr>
+<tr><td>Towards Human-Like Manipulation through RL-Augmented Teleoperation and Mixture-of-Dexterous-Experts VLA</td><td></td><td>Combines IMCopilot, a library of RL-trained in-hand manipulation skills for shared-autonomy teleoperation, with MoDE-VLA, a Mixture-of-Dexterous-Experts VLA that fuses force and tactile inputs via residual injection. The framework both simplifies data collection and enables contact-aware dexterous policies, doubling success rates over baselines on complex bimanual in-hand tasks.</td><td><a href="https://arxiv.org/abs/2603.08122">Link</a></td></tr>
+<tr><td>EquiBim: Learning Symmetry-Equivariant Policy for Bimanual Manipulation</td><td></td><td>EquiBim enforces bilateral equivariance between observations and actions in dual-arm imitation learning by modeling symmetry as a group action across both spaces. The model-agnostic framework integrates with point-cloud and image-based policies in joint or end-effector space, yielding more robust and consistent bimanual behaviors under distribution shifts on both simulated and real dual-arm platforms.</td><td><a href="https://arxiv.org/abs/2603.08541">Link</a></td></tr>
+<tr><td>RoTri-Diff: A Spatial Robot-Object Triadic Interaction-Guided Diffusion Model for Bimanual Manipulation</td><td>National University of Singapore</td><td>RoTri-Diff introduces a triadic representation encoding relative 6D poses between two arms and the object to capture continuous geometric constraints in bimanual tasks. A hierarchical diffusion policy conditioned on this representation generates coordinated, collision-free trajectories, outperforming state-of-the-art baselines on RLBench2 and real-world bimanual manipulation tasks.</td><td><a href="https://arxiv.org/abs/2603.07165">Link</a></td></tr>
+<tr><td>TacDexGrasp: Compliant and Robust Dexterous Grasping with Tactile Feedback</td><td></td><td>TacDexGrasp uses tactile sensing and an SOCP-based controller to distribute forces across multi-finger contacts while constraining the tangential-to-normal force ratio below the friction limit at each fingertip. This friction-aware control implicitly prevents both translational and rotational slip without explicit torque modeling, achieving robust and compliant grasps on diverse real objects.</td><td><a href="https://arxiv.org/abs/2603.07040">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
