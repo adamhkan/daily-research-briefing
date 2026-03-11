@@ -5,7 +5,7 @@ from __future__ import annotations
 COMMON_ROBOTICS_INSTITUTIONS: list[object] = [
     {"canonical": "Carnegie Mellon University", "aliases": ["CMU", "Carnegie Mellon", "RI at CMU"]},
     {"canonical": "Massachusetts Institute of Technology", "aliases": ["MIT", "M.I.T."]},
-    {"canonical": "Stanford University", "aliases": ["Stanford", "SAIL"]},
+    {"canonical": "Stanford University", "aliases": ["Stanford"]},
     {"canonical": "University of California, Berkeley", "aliases": ["UC Berkeley", "UCB", "Berkeley"]},
     {"canonical": "University of California, San Diego", "aliases": ["UC San Diego", "UCSD"]},
     {"canonical": "University of California, Los Angeles", "aliases": ["UCLA", "UC Los Angeles"]},
