@@ -398,7 +398,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
   <p>Select a date to view the digest.</p>
 
   <section class="calendar-card">
-    <h2>Browse briefings by calendar</h2>
+    <h2>Browse Daily Briefings</h2>
     <div id="calendar-empty" class="calendar-empty" hidden>No briefings available yet.</div>
     <div id="calendar" hidden>
       <div class="calendar-header">
