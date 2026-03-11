@@ -19,7 +19,7 @@
     ]
   },
   "paper_count": 120,
-  "selected_paper_count": 43,
+  "selected_paper_count": 47,
   "papers": [
     {
       "arxiv_id": "arXiv:2603.08668",
@@ -110,7 +110,7 @@
       "abstract_for_prompt": "Accurate pre-contact grasp force selection is critical for safe and reliable robotic manipulation. Adaptive controllers regulate force after contact but still require a reasonable initial estimate. Starting a grasp with too little force requires reactive adjustment, while starting a grasp with too high a force risks damaging fragile objects. This trade-off is particularly challenging for compliant grippers, whose contact mechanics are difficult to model analytically. We propose Exp-Force, an exp",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Robotic grasping, pre-contact force selection and compliant grippers fall under dextrous manipulation and whole-body hand control.",
+      "topic_rationale": "Robotic grasping with compliant grippers; closely related to dextrous manipulation and grasp-force planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -177,7 +177,7 @@
       "abstract_for_prompt": "Humanoid robots remain vulnerable to falls and unrecoverable failure states, limiting their practical utility in unstructured environments. While reinforcement learning has demonstrated stand-up behaviors, existing approaches treat recovery as a pure task-reward problem without an explicit representation of the balance state. We present a unified RL policy that addresses this limitation by embedding classical balance metrics: capture point, center-of-mass state, and centroidal momentum, as privi",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Humanoid balance control and recovery via RL is closely related to whole-body control and motion planning for stability.",
+      "topic_rationale": "Humanoid balance and recovery control; involves whole-body control for loco-manipulation contexts.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -289,7 +289,7 @@
       "abstract_for_prompt": "Musculoskeletal robots provide superior advantages in flexibility and dexterity, positioning them as a promising frontier towards embodied intelligence. However, current research is largely confined to relative simple tasks, restricting the exploration of their full potential in multi-segment coordination. Furthermore, efficient learning remains a challenge, primarily due to the high-dimensional action space and inherent overactuated structures. To address these challenges, we propose Diff-Muscl",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Musculoskeletal table tennis focuses on dynamic hitting, not on mobile manipulation or explicit motion planning methods.",
+      "topic_rationale": "Musculoskeletal robot table tennis focuses on locomotion/arm swing, not manipulation planning or mobile manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -343,7 +343,7 @@
       "abstract_for_prompt": "Intelligent agents must reason over both continuous dynamics and discrete representations to generate effective plans in complex environments. Previous studies have shown that symbolic abstractions can emerge from neural effect predictors trained with a robot's unsupervised exploration. However, these methods rely on deterministic symbolic domains, lack mechanisms to verify the generated symbolic plans, and operate only at the abstract level, often failing to capture the continuous dynamics of t",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Symbolic bilevel planning and abstractions are general planning, not specifically motion planning for robot embodiment.",
+      "topic_rationale": "High-level bilevel planning with symbolic abstractions; not specific to motion planning for manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -439,7 +439,7 @@
       "abstract_for_prompt": "Learning natural, stable, and compositionally generalizable whole-body control policies for humanoid robots performing simultaneous locomotion and manipulation (loco-manipulation) remains a fundamental challenge in robotics. Existing reinforcement learning approaches typically rely on a single monolithic policy to acquire multiple skills, which often leads to cross-skill gradient interference and motion pattern conflicts in high-degree-of-freedom systems. As a result, generated behaviors frequen",
       "topic_relevance": 3,
       "topic_match": true,
-      "topic_rationale": "Humanoid loco-manipulation with whole-body control policies directly targets whole-body control and mobile manipulation.",
+      "topic_rationale": "Hierarchical world modeling for humanoid loco-manipulation; directly about whole-body control and planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -532,7 +532,7 @@
       "abstract_for_prompt": "Robotic disassembly involves contact-rich interactions in which successful manipulation depends not only on geometric alignment but also on force-dependent state transitions. While vision-based policies perform well in structured settings, their reliability often degrades in tight-tolerance, contact-dominated, or deformable scenarios. In this work, we systematically investigate the role of tactile sensing in robotic disassembly through both simulation and real-world experiments. We construct fiv",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Contact-rich robot disassembly with tactile sensing involves advanced manipulation and force control, overlapping dextrous manipulation.",
+      "topic_rationale": "Tactile learning for contact-rich robotic disassembly; mid-level relevance to dextrous/contact manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -620,7 +620,7 @@
       "abstract_for_prompt": "Action-conditioned video prediction models (often referred to as world models) have shown strong potential for robotics applications, but existing approaches are often slow and struggle to capture physically consistent interactions over long horizons, limiting their usefulness for scalable robot policy training and evaluation. We present Interactive World Simulator, a framework for building interactive world models from a moderate-sized robot interaction dataset. Our approach leverages consisten",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Interactive world models for policy training are generic; no specific focus on motion planning or mobile manipulation.",
+      "topic_rationale": "World models for policy training; generic robotics, not specific to manipulation or motion planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -699,7 +699,7 @@
       "abstract_for_prompt": "Object co-occurrences provide a key cue for finding objects successfully and efficiently in unfamiliar environments. Typically, one looks for cups in kitchens and views fridges as evidence of being in a kitchen. Such priors have also been exploited in artificial agents, but they are typically learned from explicitly labeled data or queried from language models. It is still unclear whether these relations can be learned implicitly from unlabeled observations alone. In this work, we address this p",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Robotic search using probabilistic feature fields concerns semantic search, not manipulation or motion planning control.",
+      "topic_rationale": "Robotic search using object co-occurrence; focuses on scene understanding, not manipulation or motion planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -823,9 +823,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Robotic imitation learning has achieved impressive success in learning complex manipulation behaviors from demonstrations. However, many existing robot learning methods do not explicitly account for the physical symmetries of robotic systems, often resulting in asymmetric or inconsistent behaviors under symmetric observations. This limitation is particularly pronounced in dual-arm manipulation, where bilateral symmetry is inherent to both the robot morphology and the structure of many tasks. In ",
-      "topic_relevance": 2,
+      "topic_relevance": 3,
       "topic_match": true,
-      "topic_rationale": "Bimanual manipulation policies and symmetry for dual arms lie within dextrous manipulation topics.",
+      "topic_rationale": "Symmetry-equivariant policy for bimanual manipulation; directly about dextrous manipulation and control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -881,9 +881,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "As a robot's operational environment and tasks to perform within it grow in complexity, the explicit specification and balancing of optimization objectives to achieve a preferred behavior profile moves increasingly farther out of reach. These systems benefit strongly by being able to align their behavior to reflect human preferences and respond to corrections, but manually encoding this feedback is infeasible. Active preference learning (APL) learns human reward functions by presenting trajector",
-      "topic_relevance": 0,
+      "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Active preference learning for reward design is task-agnostic, not specifically about manipulation or motion planning.",
+      "topic_rationale": "Active preference learning for trajectories; generic, not focused on manipulation, whole-body, or mobile manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -983,7 +983,7 @@
       "abstract_for_prompt": "Vision-Language-Action (VLA) models demonstrate remarkable potential for generalizable robotic manipulation. The execution of complex multi-step behaviors in VLA models can be improved by robust instruction grounding, a critical component for effective control. However, current paradigms predominantly rely on coarse, high-level task instructions during supervised fine-tuning. This instruction grounding gap leaves models without explicit intermediate guidance, leading to severe compounding errors",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "VLA models for robotic manipulation and multi-step behaviors clearly focus on manipulation policy improvement.",
+      "topic_rationale": "VLA models for complex multi-step robotic manipulation; relevant to manipulation control and sequencing.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -1035,7 +1035,7 @@
       "abstract_for_prompt": "A significant challenge in service robots is the semantic understanding of their surrounding areas. Traditional approaches addressed this problem by segmenting the floor plan into regions corresponding to full rooms that are assigned labels consistent with human perception, e.g. office or kitchen. However, different areas inside the same room can be used in different ways: Could the table and the chair in my kitchen become my office? What is the category of that area now? office or kitchen? To a",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Semantic classification of indoor places relates to mapping and understanding, not manipulation or motion planning.",
+      "topic_rationale": "Semantic classification of indoor places; navigation semantics, no manipulation or motion planning focus.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -1105,9 +1105,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Autonomous robot-assisted surgery demands reliable, high-precision platforms that strictly adhere to the safety and kinematic constraints of minimally invasive procedures. Existing research platforms, primarily based on the da Vinci Research Kit, suffer from cable-driven mechanical limitations that degrade state-space consistency and hinder the downstream training of reliable autonomous policies. We present an open-source, robot-agnostic Remote Center of Motion (RCM) controller based on a closed",
-      "topic_relevance": 1,
-      "topic_match": false,
-      "topic_rationale": "Autonomous laparoscopic surgery platform is robotics control, but not centered on manipulation planning algorithms.",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Autonomous laparoscopic surgery platform; involves constrained tool motion planning and control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -1151,9 +1151,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Data-efficient training of robust robot policies is the key to unlocking automation in a wide array of novel tasks. Current systems require large volumes of demonstrations to achieve robustness, which is impractical in many applications. Learning policies directly from human videos is a promising alternative that removes teleoperation costs, but it shifts the challenge toward overcoming the embodiment gap (differences in kinematics and strategies between robots and humans), often requiring restr",
-      "topic_relevance": 2,
+      "topic_relevance": 3,
       "topic_match": true,
-      "topic_rationale": "Pretraining for robot manipulation from human videos directly concerns manipulation skill learning.",
+      "topic_rationale": "Pretraining for robot manipulation from casual videos; directly about manipulation policy learning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -1233,7 +1233,7 @@
       "abstract_for_prompt": "Robotic systems operating in unstructured environments must operate under significant uncertainty arising from intermittent contacts, frictional variability, and unmodeled compliance. While recent model-free approaches have demonstrated impressive performance, many deployment settings still require predictive models that support planning, constraint handling, and online adaptation. Analytical rigid-body models provide strong physical structure but often fail to capture complex interaction effect",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Dynamics modeling framework targets contact uncertainty but is generic, not specifically motion planning or manipulation.",
+      "topic_rationale": "Stochastic dynamics modeling; generic robotics, not specific to manipulation or motion planning topics.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -1311,7 +1311,7 @@
       "abstract_for_prompt": "Imitation learning enables robots to acquire manipulation skills from demonstrations, yet deploying a policy across tasks with heterogeneous dynamics remains challenging, as models tend to average over distinct behavioral modes present in the demonstrations. Mixture-of-Experts (MoE) architectures address this by activating specialized subnetworks, but requires meaningful skill decompositions for expert routing. We introduce Latent-Aligned Routing for Mixture of Experts (LAR-MoE), a two-stage fra",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Imitation learning with MoE for multiple manipulation tasks fits dextrous manipulation skill learning.",
+      "topic_rationale": "Imitation learning with MoE for manipulation tasks; relevant to dextrous or general manipulation control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -1467,7 +1467,7 @@
       "abstract_for_prompt": "Zero-shot open-vocabulary object navigation has progressed rapidly with the emergence of large Vision-Language Models (VLMs) and Large Language Models (LLMs), now widely used as high-level decision-makers instead of end-to-end policies. Although effective, such systems often rely on iterative large-model queries at inference time, introducing latency and computational overhead that limit real-time deployment. To address this problem, we repurpose ray frontiers (R2F), a recently proposed frontier",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Object navigation using ray frontiers addresses navigation, not manipulation or motion planning for manipulators.",
+      "topic_rationale": "Object navigation without LLMs; navigation planning, not manipulation or whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -1525,7 +1525,7 @@
       "abstract_for_prompt": "Robust single-vessel tracking from fixed coastal platforms is hindered by modality-specific degradations: cameras suffer from illumination and visual clutter, while LiDAR performance drops with range and intermittent returns. We present a heterogeneous multi-sensor fusion particle-filter tracker that incorporates an information-gain (entropy-reduction) adaptive sensing policy to select the most informative configuration at each fusion time bin. The approach is validated in a real maritime deploy",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Single-vessel tracking with sensor selection is tracking and estimation, unrelated to manipulation or robot motion planning.",
+      "topic_rationale": "Vessel tracking with sensor selection; unrelated to manipulation or motion planning topics.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -1601,7 +1601,7 @@
       "abstract_for_prompt": "The Forêt Montmorency (FoMo) dataset is a comprehensive multi-season data collection, recorded over the span of one year in a boreal forest. Featuring a unique combination of on- and off-pavement environments with significant environmental changes, the dataset challenges established odometry and SLAM pipelines. Some highlights of the data include the accumulation of snow exceeding 1 m, significant vegetation growth in front of sensors, and operations at the traction limits of the platform. In to",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Navigation dataset for SLAM and odometry; no focus on manipulation or planning algorithms.",
+      "topic_rationale": "Navigation dataset for forest environments; mapping/SLAM focus without manipulation aspects.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -1721,9 +1721,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Tactile perception is indispensable for robots to implement various manipulations dexterously, especially in contact-rich scenarios. However, alongside the development of deep learning techniques, it meanwhile suffers from training data scarcity and a time-consuming learning process in practical applications since the collection of a large amount of tactile data is costly and sometimes even impossible. Hence, we propose an automatic feature optimization-enabled prototypical network to realize me",
-      "topic_relevance": 1,
-      "topic_match": false,
-      "topic_rationale": "Tactile recognition for shapes and materials supports manipulation but is perception, not manipulation/control focus.",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Tactile recognition supporting dexterous manipulation in contact-rich tasks; closely related to dextrous manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -1789,7 +1789,7 @@
       "abstract_for_prompt": "Self-driving laboratories (SDLs) are rapidly transforming research in chemistry and materials science to accelerate new discoveries. Mobile robot chemists (MRCs) play a pivotal role by autonomously navigating the lab to transport samples, effectively connecting synthesis, analysis, and characterisation equipment. The instruments within an SDL are typically designed or retrofitted to be accessed by both human and robotic chemists, ensuring operational flexibility and integration between manual an",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Mobile robot chemists navigation and human-aware behavior; manipulation or motion planning are secondary.",
+      "topic_rationale": "Human-aware behavior in self-driving labs; mobile robots but mainly navigation/logistics, not manipulation planning depth.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -1847,7 +1847,7 @@
       "abstract_for_prompt": "Recent progress in 3D hand--object interaction (HOI) generation has primarily focused on single--hand grasp synthesis, while bimanual manipulation remains significantly more challenging. Long--horizon planning instability, fine--grained joint articulation, and complex cross--hand coordination make coherent bimanual generation difficult, especially under multimodal conditions. Existing approaches often struggle to simultaneously ensure temporal consistency, physical plausibility, and semantic ali",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Bimanual hand-object interaction generation mainly for animation/HOI, not robot dextrous manipulation control.",
+      "topic_rationale": "3D hand-object interaction generation; more graphics/animation than robotic control or planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -1923,7 +1923,7 @@
       "abstract_for_prompt": "Indoor mobile manipulation (MoMA) enables robots to translate natural language instructions into physical actions, yet long-horizon execution remains challenging due to cascading errors and limited generalization across diverse environments. Learning-based approaches often fail to maintain logical consistency over extended horizons, while methods relying on explicit scene representations impose rigid structural assumptions that reduce adaptability in dynamic settings. To address these limitation",
       "topic_relevance": 3,
       "topic_match": true,
-      "topic_rationale": "Explicitly addresses long-horizon indoor mobile manipulation planning and execution.",
+      "topic_rationale": "Long-horizon indoor mobile manipulation with planning and execution; directly about MoMA.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -2017,7 +2017,7 @@
       "abstract_for_prompt": "We present a communication-free method for safe multi-robot coordination in complex environments such as forests with dense canopy cover, where GNSS is unavailable. Our approach relies on an onboard anisotropic 3D LiDAR sensor used for SLAM as well as for detecting obstacles and neighboring robots. We develop a novel perception-aware 3D navigation framework that enables robots to safely and effectively progress toward a goal region despite limited sensor field-of-view. The approach is evaluated ",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Multi-UAV navigation and coordination; no arm manipulation or dextrous control.",
+      "topic_rationale": "Multi-UAV coordination and navigation; focuses on aerial navigation, not manipulation or whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -2105,7 +2105,7 @@
       "abstract_for_prompt": "Contact-rich manipulation requires not only vision-dominant task semantics but also closed-loop reactions to force/torque (F/T) transients. Yet, generative visuomotor policies are typically constrained to low-frequency updates due to inference latency and action chunking, underutilizing F/T for control-rate feedback. Furthermore, existing force-aware methods often inject force continuously and indiscriminately, lacking an explicit mechanism to schedule when / how much / where to apply force acro",
       "topic_relevance": 3,
       "topic_match": true,
-      "topic_rationale": "Contact-rich manipulation with visual-force policy learning, including planning and fast correction.",
+      "topic_rationale": "Visual-force policy for contact-rich manipulation; strong relevance to dextrous/contact manipulation and planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -2163,7 +2163,7 @@
       "abstract_for_prompt": "Efficient monitoring of sparse benthic phenomena, such as coral colonies, presents a great challenge for Autonomous Underwater Vehicles. Traditional exhaustive coverage strategies are energy-inefficient, while recent adaptive sampling approaches rely on costly vertical maneuvers. To address these limitations, we propose HIMoS (Hierarchical Informative Multi-Modal Search), a fixed-altitude framework for sparse coral search-and-sample missions. The system integrates a heterogeneous sensor suite wi",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Underwater sparse target search and sampling discusses planning, but not manipulation or mobile manipulation robots.",
+      "topic_rationale": "Underwater sparse target search and sampling; informative planning, but not manipulation-focused.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -2299,9 +2299,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Robot-assisted endoluminal procedures are increasingly used for early cancer intervention. However, the intricate, narrow and tortuous pathways within the luminal anatomy pose substantial difficulties for robot navigation. Vision-based navigation offers a promising solution, but existing localization approaches are error-prone due to tissue deformation, in vivo artifacts and a lack of distinctive landmarks for consistent localization. This paper presents a novel EndoSERV localization method to a",
-      "topic_relevance": 0,
+      "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Endoluminal navigation system is localization/path estimation, not manipulation or motion planning research.",
+      "topic_rationale": "Endoluminal navigation system; motion planning of a scope but not manipulation or whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -2359,7 +2359,7 @@
       "abstract_for_prompt": "Asymmetric 3D pursuit-evasion in cluttered voxel environments is difficult under communication latency, partial observability, and nonholonomic maneuver limits. While many MARL methods rely on richer inter-agent coupling or centralized signals, these dependencies can become fragility sources when communication is delayed or noisy. Building on an inherited path-guided decentralized pursuit scaffold, we study a robustness-oriented question: can representational parsimony improve communication-free",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "3D pursuit-evasion control focuses on multi-agent navigation, not on manipulation or motion planning for arms.",
+      "topic_rationale": "3D pursuit-evasion; multi-robot navigation, no manipulation or whole-body control aspects.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -2452,9 +2452,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "In-context imitation learning allows robots to acquire skills from demonstrations, yet one-shot trajectory generation remains fragile under environmental variation. We propose SAIL, a framework that reframes robot imitation as an iterative refinement problem capable of scaling with test-time compute. SAIL utilizes Monte Carlo Tree Search, where each node is a complete trajectory and edges correspond to trajectory refinements. The process is guided by three core components: an automated archive o",
-      "topic_relevance": 2,
-      "topic_match": true,
-      "topic_rationale": "In-context imitation learning for robot trajectories, relevant to manipulation policy generation.",
+      "topic_relevance": 1,
+      "topic_match": false,
+      "topic_rationale": "In-context imitation with VLM; generic, some relevance to manipulation but not specifically dextrous or mobile.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -2572,7 +2572,7 @@
       "abstract_for_prompt": "Existing data generation methods suffer from exploration limits, embodiment gaps, and low signal-to-noise ratios, leading to performance degradation during self-iteration. To address these challenges, we propose Seed2Scale, a self-evolving data engine that overcomes the data bottleneck through a heterogeneous synergy of \"small-model collection, large-model evaluation, and target-model learning\". Starting with as few as four seed demonstrations, the engine employs the lightweight Vision-Language-",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Data engine for embodied AI is infrastructure; manipulation is an application but not the core technical focus.",
+      "topic_rationale": "Data engine for embodied AI; manipulation included but focus is data, not specific planning/control topics.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -2745,7 +2745,7 @@
       "abstract_for_prompt": "Tactile sensation is essential for contact-rich manipulation tasks. It provides direct feedback on object geometry, surface properties, and interaction forces, enhancing perception and enabling fine-grained control. An inherent limitation of tactile sensors is that readings are available only when an object is touched. This precludes their use during planning and the initial execution phase of a task. Predicting tactile information from visual information can bridge this gap. A common approach i",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Visuo-tactile prediction for contact-rich manipulation tasks contributes to dextrous manipulation sensing.",
+      "topic_rationale": "Predicting tactile from vision for manipulation; supports dextrous and contact-rich manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -2797,7 +2797,7 @@
       "abstract_for_prompt": "This paper introduces a general Lie group framework for modeling continuum soft robots, employing Cosserat rod theory combined with cumulative parameterization on the Lie group SE(3). This novel approach addresses limitations present in current strain-based and configuration-based methods by providing geometric local control and eliminating unit quaternion constraints. The paper derives unified analytical expressions for kinematics, statics, and dynamics, including recursive Jacobian computation",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Soft robot modeling framework; relevant to control but not specifically manipulation or planning methods.",
+      "topic_rationale": "Modeling continuum soft robots; dynamics/kinematics, not directly motion planning or manipulation tasks.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -2849,7 +2849,7 @@
       "abstract_for_prompt": "In this paper, we address force-aware control and force distribution in robotic platforms with multi-fingered hands. Given a target goal and force estimates from tactile sensors, we design a controller that adapts the motion of the torso, arm, wrist, and fingers, redistributing forces to maintain stable contact with objects of varying mass distribution or unstable contacts. To estimate forces, we collect a dataset of tactile signals and ground-truth force measurements using five Xela magnetic se",
       "topic_relevance": 3,
       "topic_match": true,
-      "topic_rationale": "Multifingered force-aware control on humanoids directly addresses dextrous manipulation and whole-body force distribution.",
+      "topic_rationale": "Multifingered force-aware control on humanoids; strongly relevant to dextrous manipulation and whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -2937,7 +2937,7 @@
       "abstract_for_prompt": "As social robots take on increasingly complex roles like game masters (GMs) in multi-party games, the expectation that physicality universally enhances user experience remains debated. This study challenges the \"one-size-fits-all\" view of tangible interaction by identifying a critical boundary condition: users' Negative Attitudes towards Robots (NARS). In a between-subjects experiment (N = 67), a custom-built robot GM facilitated a multi-party murder mystery game (MMG) by delivering clues either",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Multi-party game interaction and attitudes, not about manipulation or motion planning.",
+      "topic_rationale": "User study on murder mystery game interactions; HRI, no manipulation or motion planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -3017,9 +3017,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Understanding and localizing objects in complex 3D environments from natural language descriptions, known as 3D Visual Grounding (3DVG), is a foundational challenge in embodied AI, with broad implications for robotics, augmented reality, and human-machine interaction. Large-scale pre-trained foundation models have driven significant progress on this front, enabling open-vocabulary 3DVG that allows systems to locate arbitrary objects in a given scene. However, their reliance on pre-trained models",
-      "topic_relevance": 1,
+      "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "3D visual grounding for objects; may support manipulation but isn’t about control or planning.",
+      "topic_rationale": "3D visual grounding; perception for embodied agents, but not manipulation or planning focused.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -3089,7 +3089,7 @@
       "abstract_for_prompt": "Most uncertainty-aware robotic systems collapse prediction uncertainty into a single scalar score and use it to trigger uniform corrective responses. This aggregation obscures whether uncertainty arises from corrupted observations or from mismatch between the learned model and the true system dynamics. As a result, corrective actions may be applied to the wrong component of the closed loop, degrading performance relative to leaving the policy unchanged. We introduce a lightweight post hoc framew",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Robotic manipulation and adaptive perception using uncertainty-aware interventions on manipulation policies.",
+      "topic_rationale": "Uncertainty-aware framework for robotic manipulation and perception; relevant to manipulation control robustness.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -3141,7 +3141,7 @@
       "abstract_for_prompt": "We revisit Vision-Language-Action through a neuroscience-inspired triad. Biologically, the Cerebrum provides stable high-level multimodal priors and remains frozen; the Pons Adapter integrates these cortical features with real-time proprioceptive inputs and compiles intent into execution-ready tokens; and the Cerebellum (ParaCAT) performs fast, parallel categorical decoding for online control, with hysteresis/EMA/temperature/entropy for stability. A fixed-ratio schedule and two-stage feature cac",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Vision-language-action architecture targeting robot control and manipulation, including execution-level policies.",
+      "topic_rationale": "VLA architecture for control; applied to manipulation tasks, moderate relevance to manipulation control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -3246,7 +3246,7 @@
       "abstract_for_prompt": "While Vision-Language-Action (VLA) models have demonstrated remarkable success in robotic manipulation, their application has largely been confined to low-degree-of-freedom end-effectors performing simple, vision-guided pick-and-place tasks. Extending these models to human-like, bimanual dexterous manipulation-specifically contact-rich in-hand operations-introduces critical challenges in high-fidelity data acquisition, multi-skill learning, and multimodal sensory fusion. In this paper, we propos",
       "topic_relevance": 3,
       "topic_match": true,
-      "topic_rationale": "Focuses on human-like bimanual dexterous manipulation and multi-skill VLA control.",
+      "topic_rationale": "Human-like bimanual dexterous manipulation with VLA; directly about dextrous and whole-hand manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -3319,7 +3319,7 @@
       "abstract_for_prompt": "Generalizing decentralized multi-robot cooperative transport across objects with diverse shapes and physical properties remains a fundamental challenge. Under decentralized execution, two key challenges arise: object-dependent representation learning under partial observability and coordination learning in multi-agent reinforcement learning (MARL) under non-stationarity. A typical approach jointly optimizes object-dependent representations and coordinated policies in an end-to-end manner while r",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Decentralized cooperative transport emphasizes coordination, not arm motion planning or mobile manipulation planning.",
+      "topic_rationale": "Multi-robot cooperative transport; manipulation but not mobile manipulation or dextrous hand control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -3399,9 +3399,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Human-robot collaboration aims to extend human ability through cooperation with robots. This technology is currently helping people with physical disabilities, has transformed the manufacturing process of companies, improved surgical performance, and will likely revolutionize the daily lives of everyone in the future. Being able to enhance the performance of both sides, such that human-robot collaboration outperforms a single robot/human, remains an open issue. For safer and more effective colla",
-      "topic_relevance": 1,
-      "topic_match": false,
-      "topic_rationale": "Vision-based control for redundant robots in HRC; whole-body aspects but not core planning methodology.",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Vision-based control of redundant robots for collaboration; multi-DoF motion control akin to whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -3453,7 +3453,7 @@
       "abstract_for_prompt": "Programming robots by demonstration (PbD) is an intuitive concept, but scaling it to real-world variability remains a challenge for most current teaching frameworks. Conditional task graphs are very expressive and can be defined incrementally, which fits very well with the PbD idea. However, acting using conditional task graphs requires reliable perception-grounded online branch selection. In this paper, we present See & Switch, an interactive teaching-and-execution framework that represents tas",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "PbD with conditional task graphs; relevant to task-level branching, not low-level motion planning details.",
+      "topic_rationale": "Programming by demonstration with branching; generic manipulation but no emphasis on dextrous or MoMA.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -3515,9 +3515,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Generating human grasping poses that accurately reflect both object geometry and user-specified interaction semantics is essential for natural hand-object interactions in AR/VR and embodied AI. However, existing semantic grasping approaches struggle with the large modality gap between 3D object representations and textual instructions, and often lack explicit spatial or semantic constraints, leading to physically invalid or semantically inconsistent grasps. In this work, we present AffordGrasp, ",
-      "topic_relevance": 1,
-      "topic_match": false,
-      "topic_rationale": "Human grasp synthesis for AR/VR, not focused on robotic dextrous manipulation control.",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Semantic human grasp synthesis; relevant to dextrous grasp planning and affordance-based manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -3660,7 +3660,7 @@
       "abstract_for_prompt": "Autonomous drone racing in complex environments requires agile, high-speed flight while maintaining reliable obstacle avoidance. Differentiable-physics-based policy learning has recently demonstrated high sample efficiency and remarkable performance across various tasks, including agile drone flight and quadruped locomotion. However, applying such methods to drone racing remains difficult, as key objective like gate traversal are inherently hard to express as smooth, differentiable losses. To ad",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Drone racing control via differentiable policy; planar planning but not manipulation or whole-body motion.",
+      "topic_rationale": "Drone racing control; aerial navigation/control, not manipulation or whole-body.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -3740,9 +3740,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Locomotion under reduced gravity is commonly realized through jumping, yet continuous pronking in lunar gravity remains challenging due to prolonged flight phases and sparse ground contact. The extended aerial duration increases landing impact sensitivity and makes stable attitude regulation over rough planetary terrain difficult. Existing approaches primarily address single jumps on flat surfaces and lack both continuous-terrain solutions and realistic hardware validation. This work presents a ",
-      "topic_relevance": 1,
+      "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Quadrupedal jumping under low gravity concerns locomotion, not manipulation or motion planning for manipulators.",
+      "topic_rationale": "Quadruped jumping under low gravity; locomotion control, not manipulation or mobile manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -3787,7 +3787,7 @@
       "abstract_for_prompt": "This work introduces the Drag-Aware Aerodynamic Manipulability (DAAM), a geometric framework for control allocation in redundant multirotors. By equipping the propeller spin-rate space with a Riemannian metric based on the remaining symmetric acceleration capacity of each motor, the formulation explicitly accounts for motor torque limits and aerodynamic drag. Mapping this metric through the nonlinear thrust law to the generalized force space yields a state-dependent manipulability volume. The lo",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Aerodynamic manipulability for multirotors relates to control allocation, not manipulation or motion planning.",
+      "topic_rationale": "Aerodynamic manipulability for multirotors; concerns thrust allocation, not manipulation or motion planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -3875,7 +3875,7 @@
       "abstract_for_prompt": "Hierarchical multi-robot exploration commonly decouples frontier allocation from local navigation, which can make the system brittle in dense and dynamic environments. Because the allocator lacks direct awareness of execution difficulty, robots may cluster at bottlenecks, trigger oscillatory replanning, and generate redundant coverage. We propose VORL-EXPLORE, a hybrid learning and planning framework that addresses this limitation through execution fidelity, a shared estimate of local navigabili",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Multi-robot exploration planning without manipulation arms or mobile manipulation content.",
+      "topic_rationale": "Multi-robot exploration; navigation/frontier allocation, no manipulation or whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -3952,7 +3952,7 @@
       "abstract_for_prompt": "Underwater robots are widely deployed for ocean exploration and manipulation. Underactuated mechanisms are particularly advantageous in aquatic environments, as reducing actuator count lowers the risk of motor leakage while introducing inherent mechanical compliance. However, accurate modeling of underwater underactuated and soft robotic systems remains challenging because it requires identifying a high-dimensional set of internal structural and external hydrodynamic parameters. In this work, we",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Underwater underactuated mechanism modeling; no explicit manipulation or motion planning focus.",
+      "topic_rationale": "Modeling underwater underactuated/soft mechanisms; modeling focus, not manipulation planning or control.",
       "institution_match": true,
       "matched_institutions": [
         "Massachusetts Institute of Technology"
@@ -4016,7 +4016,7 @@
       "abstract_for_prompt": "Humanoid robots, characterized by numerous degrees of freedom and a high center of gravity, are inherently unstable. Safe omnidirectional locomotion on stairs requires both omnidirectional terrain perception and reliable foothold selection. Existing methods often rely on forward-facing depth cameras, which create blind zones that restrict omnidirectional mobility. Furthermore, sparse post-contact unsafe stepping penalties lead to low learning efficiency and suboptimal strategies. To realize safe",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Humanoid stair locomotion using LiDAR mapping; locomotion control but not mobile manipulation.",
+      "topic_rationale": "Humanoid locomotion on stairs; focuses on locomotion, not manipulation or whole-body loco-manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -4102,9 +4102,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Accurate intraoperative navigation is essential for robot-assisted endoluminal intervention, but remains difficult because of limited endoscopic field of view and dynamic artifacts. Existing navigation platforms often rely on external localization technologies, such as electromagnetic tracking or shape sensing, which increase hardware complexity and remain vulnerable to intraoperative anatomical mismatch. We present a vision-only autonomy framework that performs long-horizon bronchoscopic naviga",
-      "topic_relevance": 0,
+      "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Vision-only bronchoscopy navigation; path following not robotic manipulation or planning for manipulators.",
+      "topic_rationale": "Vision-only bronchoscopy navigation; motion planning of scopes, but not manipulation/whole-body.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -4216,7 +4216,7 @@
       "abstract_for_prompt": "Vision-language models (VLMs) have emerged as a promising direction for end-to-end autonomous driving (AD) by jointly modeling visual observations, driving context, and language-based reasoning. However, existing VLM-based systems face a trade-off between high-level reasoning and motion planning: large models offer strong semantic understanding but are costly to adapt for precise control, whereas small VLM models can be fine-tuned efficiently but often exhibit weaker reasoning. We propose NaviDr",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Autonomous driving reasoning and planning, unrelated to manipulation or whole-body control.",
+      "topic_rationale": "Autonomous driving with VLM; road vehicle planning, unrelated to manipulation or whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -4316,7 +4316,7 @@
       "abstract_for_prompt": "Research on robotic manipulation has developed a diverse set of policy paradigms, including vision-language-action (VLA) models, vision-action (VA) policies, and code-based compositional approaches. Concrete policies typically attain high success rates on specific task distributions but lim-ited generalization beyond it. Rather than proposing an other monolithic policy, we propose to leverage the complementary strengths of existing approaches through intelligent policy routing. We introduce Robo",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Routes among multiple manipulation policies for robotic tasks, directly related to manipulation control.",
+      "topic_rationale": "Routing among robotic manipulation policies; explicitly targets manipulation task execution.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -4368,7 +4368,7 @@
       "abstract_for_prompt": "Human-robot interaction combines robotics, cognitive science, and human factors to study collaborative systems. This paper introduces a method for identifying influential robot actions using transfer entropy, a statistic that measures directed information transfer between time series. TE is effective for capturing complex, nonlinear interactions. We apply this method to analyze how robot actions affect human behavior during a conversation with a remotely controlled robot avatar. By focusing on t",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Human-robot conversation analysis, not manipulation, motion planning, or whole-body control.",
+      "topic_rationale": "Analyzing influential actions in HRI; does not address manipulation, motion planning or whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -4555,7 +4555,7 @@
       "abstract_for_prompt": "Visuomotor policies learned from demonstrations often overfit to nuisance visual factors in raw RGB observations, resulting in brittle behavior under appearance shifts such as background changes and object recoloring. We propose a task-aware observation interface that canonicalizes visual input into a shared representation, improving robustness to out-of-distribution (OOD) appearance changes without modifying or fine-tuning the policy. Given an RGB image and an open-vocabulary specification of t",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Task-aware semantic-geometric observation design for visuomotor policies for manipulation.",
+      "topic_rationale": "Task-aware visual representations for visuomotor policies; relevant to manipulation robustness.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -4697,9 +4697,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Robust grasping in cluttered, unstructured environments remains challenging for mobile legged manipulators due to occlusions that lead to partial observations, unreliable depth estimates, and the need for collision-free, execution-feasible approaches. In this paper we present an end-to-end pipeline for language-guided grasping that bridges open-vocabulary target selection to safe grasp execution on a real robot. Given a natural-language command, the system grounds the target in RGB using open-vo",
-      "topic_relevance": 3,
+      "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Legged mobile manipulator grasp pipeline, combining perception with grasp and motion execution.",
+      "topic_rationale": "Language-guided grasping for mobile legged manipulators; directly about mobile manipulation and grasping.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -4751,7 +4751,7 @@
       "abstract_for_prompt": "This paper bridges some of the gap between optimal planning and reinforcement learning (RL), both of which share roots in dynamic programming applied to sequential decision making or optimal control. Whereas planning typically favors deterministic models, goal termination, and cost minimization, RL tends to favor stochastic models, infinite-horizon discounting, and reward maximization in addition to learning-related parameters such as the learning rate and greediness factor. A derandomized versi",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Conceptual relation between RL and dynamic programming, theory rather than manipulation or motion planning applications.",
+      "topic_rationale": "Theoretical relation RL and DP; generic control theory, not specific to manipulation or motion planning applications.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -4791,7 +4791,7 @@
       "abstract_for_prompt": "Aerial manipulation (AM) expands UAV capabilities beyond passive observation to contact-based operations at high altitudes and in otherwise inaccessible environments. Although recent advances show promise, most AM systems are developed in controlled settings that overlook key aerodynamic effects. Simplified thrust models are often insufficient to capture the nonlinear wind disturbances and proximity-induced flow variations present in real-world environments near infrastructure, while high-fideli",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Aerial manipulation under wind and near-wall environments is manipulation-focused, though not mobile ground manipulation.",
+      "topic_rationale": "Aerial manipulation under wind and wall effects; involves manipulation motion/control planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -4867,7 +4867,7 @@
       "abstract_for_prompt": "Human-AI joint planning in Unmanned Aerial Vehicles (UAVs) typically relies on control handover when facing environmental uncertainties, which is often inefficient and cognitively demanding for non-expert operators. To address this, we propose a novel framework that shifts the collaboration paradigm from control takeover to active information elicitation. We introduce the Minimal Information Neuro-Symbolic Tree (MINT), a reasoning mechanism that explicitly structures knowledge gaps regarding obs",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "LLM-based planning for drone missions, not manipulation or arm motion planning.",
+      "topic_rationale": "LLM-based active elicitation for drone planning; mission planning, not manipulation or whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -4961,7 +4961,7 @@
       "abstract_for_prompt": "Effective human-robot collaboration in open-world environments requires joint planning under uncertain conditions. However, existing approaches often treat humans as passive supervisors, preventing autonomous agents from becoming human-like teammates that can actively model teammate behaviors, reason about knowledge gaps, query, and elicit responses through communication to resolve uncertainties. To address these limitations, we propose a unified human-robot joint planning system designed to tac",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Human-robot joint planning under uncertainty; no specific manipulation or motion planning algorithm focus.",
+      "topic_rationale": "Human-machine joint planning; generic framework without specific focus on manipulation or locomotion planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -5036,7 +5036,7 @@
       "abstract_for_prompt": "Robotic bin packing is widely deployed in warehouse automation, with current systems achieving robust performance through heuristic and learning-based strategies. These systems must balance compact placement with rapid execution, where selecting alternative items or reorienting them can improve space utilization but introduce additional time. We propose a selection-based formulation that explicitly reasons over this trade-off: at each step, the robot evaluates multiple candidate actions, weighin",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Online 3D bin packing directly involves motion planning for packing by robots.",
+      "topic_rationale": "Robotic 3D bin packing; manipulation motion planning and placement in constrained spaces.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -5101,9 +5101,9 @@
         ]
       },
       "abstract_for_prompt": "This paper investigates whether a single, unified cost function can explain and predict human reaching movements, in contrast with existing approaches that rely on subject- or posture-specific optimization criteria. Using the Minimal Observation Inverse Reinforcement Learning (MO-IRL) algorithm, together with a seven-dimensional set of candidate cost terms, we efficiently estimate time-varying cost weights for a standard planar reaching task. MO-IRL provides orders-of-magnitude faster convergenc",
-      "topic_relevance": 0,
+      "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Human motion intent via inverse RL; not about robot manipulation or planning.",
+      "topic_rationale": "Human motion IRL; may inspire planning, but not directly about robotic manipulation or whole-body control.",
       "institution_match": true,
       "matched_institutions": [
         "New York University"
@@ -5163,7 +5163,7 @@
       "abstract_for_prompt": "For robots to navigate safely and efficiently on soft, granular terrains, it is crucial to gather information about the terrain's mechanical properties, which directly affect locomotion performance. Recent research has developed robotic legs that can accurately sense ground reaction forces during locomotion. However, existing tests of granular property estimation often rely on specific foot trajectories, such as vertical penetration or horizontal shear, limiting their applicability during natura",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Learning terrain properties from robot interaction, focused on locomotion on granular media.",
+      "topic_rationale": "Learning granular properties using robot interactions; locomotion/terrain, not manipulation or motion planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -5320,7 +5320,7 @@
       "abstract_for_prompt": "Multi-legged elongate robots hold promise for maneuvering through complex environments. Prior work has demonstrated that reliable locomotion can be achieved using open-loop body undulation and foot placement on rugose terrain. However, robust navigation through confined spaces remains challenging when body-environment contact is extensive and terrain rheology varies rapidly. To address this challenge, we develop a pair of tactile antennae for multi-legged robots that enable real-time sensing of ",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Tactile antennae for multi-legged robots focused on navigation, not manipulation or motion planning.",
+      "topic_rationale": "Tactile antennae for multilegged robot navigation; sensing for locomotion, not manipulation topics.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -5402,7 +5402,7 @@
       "abstract_for_prompt": "Robotic systems operating in real-world environments inevitably encounter unobserved dynamics shifts during continuous execution, including changes in actuation, mass distribution, or contact conditions. When such shifts occur mid-episode, even locally stabilizing learned policies can experience substantial transient performance degradation. While input-to-state stability guarantees bounded state deviation, it does not ensure rapid restoration of task-level performance. We address inference-time",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Residual control for dynamics shifts is generic control, not specifically manipulation or planning.",
+      "topic_rationale": "Residual control for dynamics shifts; generic control concept, not specific to manipulation or whole-body.",
       "institution_match": true,
       "matched_institutions": [
         "Massachusetts Institute of Technology"
@@ -5517,7 +5517,7 @@
       "abstract_for_prompt": "Precise object placement remains underexplored in aerial manipulation, where most systems rely on predefined target coordinates and focus primarily on grasping and control. Specifying exact placement poses, however, is cumbersome in real-world settings, where users naturally communicate goals through language. In this work, we present AeroPlace-Flow, a training-free framework for language-grounded aerial object placement that unifies visual foresight with explicit 3D geometric reasoning and obje",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Language-grounded aerial object placement deals with manipulation planning and execution.",
+      "topic_rationale": "Language-grounded aerial object placement; aerial manipulation with explicit placement reasoning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -5606,7 +5606,7 @@
       "abstract_for_prompt": "Efficient multi-UAV exploration under limited communication is severely bottlenecked by inadequate task representation and allocation. Previous task representations either impose heavy communication requirements for coordination or lack the flexibility to handle complex environments, often leading to inefficient traversal. Furthermore, short-horizon allocation strategies neglect spatiotemporal contiguity, causing non-contiguous assignments and frequent cross-region detours. To address this, we p",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Multi-UAV exploration task allocation, not manipulation or mobile manipulation control.",
+      "topic_rationale": "Decentralized multi-UAV exploration; no manipulator or whole-body control aspects.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -5660,7 +5660,7 @@
       "abstract_for_prompt": "Understanding spatial affordances -- comprising the contact regions of object interaction and the corresponding contact poses -- is essential for robots to effectively manipulate objects and accomplish diverse tasks. However, existing spatial affordance prediction methods mainly focus on locating the contact regions while delegating the pose to independent pose estimation approaches, which can lead to task failures due to inconsistencies between predicted contact regions and candidate poses. In ",
       "topic_relevance": 3,
       "topic_match": true,
-      "topic_rationale": "Pose-centered affordance learning for robot manipulation directly addresses dextrous manipulation and grasping.",
+      "topic_rationale": "Pose-centered affordance learning for robot manipulation; strong relevance to dextrous manipulation planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -5762,7 +5762,7 @@
       "abstract_for_prompt": "End-to-end (E2E) driving has become a cornerstone of both industry deployment and academic research, offering a single learnable pipeline that maps multi-sensor inputs to actions while avoiding hand-engineered modules. However, the reliability of such pipelines strongly depends on how well they handle uncertainty: sensors are noisy, semantics can be ambiguous, and interaction with other road users is inherently stochastic. Uncertainty also appears in multiple forms: classification vs. localizati",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "End-to-end driving uncertainty modeling; not robotics manipulation or motion planning for robots.",
+      "topic_rationale": "End-to-end driving uncertainty; autonomous driving, not manipulation or whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -5822,7 +5822,7 @@
       "abstract_for_prompt": "Teleoperation of mobile bimanual manipulators requires simultaneous control of high-dimensional systems, often necessitating expensive specialized equipment. We present an open-source teleoperation framework that enables intuitive whole body control using readily available commodity hardware. Our system combines smartphone-based head tracking for camera control, leader arms for bilateral manipulation, and foot pedals for hands-free base navigation. Using a standard smartphone with IMU and displa",
       "topic_relevance": 3,
       "topic_match": true,
-      "topic_rationale": "Teleoperation framework for mobile bimanual manipulators with whole-body control.",
+      "topic_rationale": "Teleoperation framework for mobile manipulators; directly addresses whole-body mobile manipulation control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -5908,7 +5908,7 @@
       "abstract_for_prompt": "Imitation learning has shown strong potential for automating complex robotic manipulation. In medical robotics, ultrasound-guided needle insertion demands precise bimanual coordination, as clinicians must simultaneously manipulate an ultrasound probe to maintain an optimal acoustic view while steering an interventional needle. Automating this asymmetric workflow -- and reliably transferring expert strategies to robots -- remains highly challenging. In this paper, we present the Dual-Arm Interven",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Dual-arm robotic ultrasound-guided interventions involve coordinated bimanual manipulation.",
+      "topic_rationale": "Dual-arm robotic ultrasound-guided interventions; coordinated bimanual manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -5960,7 +5960,7 @@
       "abstract_for_prompt": "Off-world multi-robot exploration is challenged by sparse targets, limited sensing, hazardous terrain, and restricted communication. Many scientifically valuable clues are visually ambiguous and often require close-range observations, making efficient and safe informative path planning essential. Existing methods often rely on predefined areas of interest (AOIs), which may be incomplete or biased, and typically handle terrain risk only through soft penalties, which are insufficient for avoiding ",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Multi-robot off-world exploration with coverage planning; no manipulation or mobile manipulation.",
+      "topic_rationale": "Multi-robot off-world exploration; focuses on exploration, not manipulation or whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -6060,7 +6060,7 @@
       "abstract_for_prompt": "Recent advances in Visual-Language-Action (VLA) models have shown promising potential for robotic manipulation tasks. However, real-world robotic tasks often involve long-horizon, multi-step problem-solving and require generalization for continual skill acquisition, extending beyond single actions or skills. These challenges present significant barriers for existing VLA models, which use monolithic action decoders trained on aggregated data, resulting in poor scalability. To address these challe",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Atomic skill learning explicitly for robot manipulation using VLA models.",
+      "topic_rationale": "Atomic skill learning for robots via VLA; focused on manipulation skill decomposition.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -6146,9 +6146,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Pretrained Vision-Language-Action (VLA) policies have achieved strong single-step manipulation, but their inference remains largely memoryless, which is brittle in non-Markovian long-horizon settings with occlusion, state aliasing, and subtle post-action changes. Prior approaches inject history either by stacking frames, which scales visual tokens and latency while adding near-duplicate pixels, or by learning additional temporal interfaces that require (re-)training and may break the original si",
-      "topic_relevance": 3,
+      "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Long-horizon VLA manipulation with temporal memory, focused on manipulation control.",
+      "topic_rationale": "Temporal memory for long-horizon VLA manipulation; directly targets long-horizon manipulation control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -6234,9 +6234,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Autonomous collision-free navigation in cluttered environments requires safe decision-making under partial observability with both static structure and dynamic obstacles. We present \\textbf{PanoDP}, a communication-free learning framework that combines four-view panoramic depth perception with differentiable-physics-based training signals. PanoDP encodes panoramic depth using a lightweight CNN and optimizes policies with dense differentiable collision and motion-feasibility terms, improving trai",
-      "topic_relevance": 0,
+      "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Navigation with panoramic depth and differentiable physics; no manipulation or mobile manipulation.",
+      "topic_rationale": "Navigation with panoramic depth; collision-free mobile navigation, not mobile manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -6298,7 +6298,7 @@
       "abstract_for_prompt": "Data-driven joint-moment predictors offer a scalable alternative to laboratory-based inverse-dynamics pipelines for biomechanics estimation and exoskeleton control. Meanwhile, physics-based reinforcement learning (RL) enables simulation-trained controllers to learn dynamics-aware assistance strategies without extensive human experimentation. However, quantitative verification of simulation-trained exoskeleton torque predictors, and their impact on human joint power injection, remains limited. Th",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Exoskeleton assistance learning targets human joint moments, not robot manipulation or planning.",
+      "topic_rationale": "Exoskeleton control focused on biomechanics; no manipulation or motion planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -6374,7 +6374,7 @@
       "abstract_for_prompt": "The prevailing paradigm of perceptive humanoid locomotion relies heavily on active depth sensors. However, this depth-centric approach fundamentally discards the rich semantic and dense appearance cues of the visual world, severing low-level control from the high-level reasoning essential for general embodied intelligence. While monocular RGB offers a ubiquitous, information-dense alternative, end-to-end reinforcement learning from raw 2D pixels suffers from extreme sample inefficiency and catas",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Humanoid locomotion using 3D geometric priors; locomotion only, no manipulation.",
+      "topic_rationale": "Humanoid locomotion from RGB; locomotion planning/control, not manipulation or loco-manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -6451,7 +6451,7 @@
       "abstract_for_prompt": "Effective exoskeleton assistance requires co-adaptation: as the device alters joint dynamics, the user reorganizes neuromuscular coordination, creating a non-stationary learning problem. Most learning-based approaches do not explicitly account for the sequential nature of human motor adaptation, leading to training instability and poorly timed assistance. We propose Staged Multi-Agent Training (SMAT), a four-stage curriculum designed to mirror how users naturally acclimate to a wearable device. ",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Exoskeleton co-adaptive control for human walking, unrelated to robot manipulation planning.",
+      "topic_rationale": "Exoskeleton co-adaptation training; human-assist devices, not manipulation or whole-body robot control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -6497,7 +6497,7 @@
       "abstract_for_prompt": "Modern canine applications span medical and service roles, while robotic legged dogs serve as autonomous platforms for high-risk industrial inspection, disaster response, and search and rescue operations. For both, accurate positioning remains a significant challenge due to the cumulative drift inherent in inertial sensing. To bridge this gap, we propose three algorithms for accurate positioning using only inertial sensors, collectively referred to as dog dead reckoning (DDR). To evaluate our ap",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Dog dead reckoning focuses on inertial positioning, not manipulation or motion planning.",
+      "topic_rationale": "Dead reckoning for dogs/robot dogs; localization, not manipulation or motion planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -6549,7 +6549,7 @@
       "abstract_for_prompt": "Gripper-in-hand data collection decouples demonstration acquisition from robot hardware, but whether a trajectory is executable on the target robot remains unknown until a separate replay-and-validate stage. Failed demonstrations therefore inflate the effective cost per usable trajectory through repeated collection, diagnosis, and validation. Existing collection-time feedback systems mitigate this issue but rely on head-worn AR/VR displays, robot-in-the-loop hardware, or learned dynamics models;",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Guidance for in-the-wild robot demonstration collection specifically for manipulation capabilities.",
+      "topic_rationale": "Embodiment-constrained demo collection for manipulators; relevant to manipulation and whole-body feasibility.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -6613,7 +6613,7 @@
       "abstract_for_prompt": "Event cameras offer high temporal resolution and low latency, making them ideal sensors for high-speed robotic applications where conventional cameras suffer from image degradations such as motion blur. In addition, their low power consumption can enhance endurance, which is critical for resource-constrained platforms. Motivated by these properties, we present a novel approach that enables a quadrotor to fly through cluttered environments at high speed by perceiving the environment with a single",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Event-based quadrotor flight imitation addresses navigation, not manipulation or motion planning for arms.",
+      "topic_rationale": "Event-based quadrotor flight; high-speed navigation, not manipulation or whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -6665,7 +6665,7 @@
       "abstract_for_prompt": "Accurate reconstruction of arbitrary-shaped long slender continuum bodies, such as guidewires, catheters and other soft continuum manipulators, is essential for accurate mechanical simulation. However, existing image-based reconstruction approaches often suffer from limited accuracy because they often underutilize camera geometry, or lack generality as they rely on rigid geometric assumptions that may fail for continuum robots with complex and highly deformable shapes. To address these limitatio",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Continuum reconstruction of catheters/soft robots is modeling, not manipulation or planning.",
+      "topic_rationale": "Continuum reconstruction for catheters; shape sensing, not motion planning for manipulation tasks.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -6729,7 +6729,7 @@
       "abstract_for_prompt": "In-context imitation learning enables robots to adapt to new tasks from a small number of demonstrations without additional training. However, existing approaches typically condition only on state-action trajectories and lack explicit representations of task intent. This limitation hinders performance in complex and ambiguous task settings where the same actions may be consistent with different objectives. To address this, we present In-Context Imitation Learning with Visual Reasoning (ICLR), a ",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "In-context imitation learning with visual reasoning for robot tasks, including manipulation trajectories.",
+      "topic_rationale": "In-context imitation with visual reasoning for manipulation; directly manipulator task execution.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -6858,7 +6858,7 @@
       "abstract_for_prompt": "Interaction is one of the core abilities of humanoid robots. However, most existing frameworks focus on non-interactive whole-body control, which limits their practical applicability. In this work, we develop InterReal, a unified physics-based imitation learning framework for Real-world human-object Interaction (HOI) control. InterReal enables humanoid robots to track HOI reference motions, facilitating the learning of fine-grained interactive skills and their deployment in real-world settings. ",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Physics-based imitation for humanoid human-object interaction skills, closely tied to whole-body manipulation control.",
+      "topic_rationale": "Humanoid human-object interaction control; whole-body manipulation and contact-rich control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -6922,7 +6922,7 @@
       "abstract_for_prompt": "Modern Vision--Language--Action models often suffer from critical instruction-following failures in high-density manipulation environments, where task-irrelevant visual clutter dilutes attention, corrupts grounding, and substantially degrades performance in complex long-horizon scenarios. To overcome the representation bottleneck of monolithic end-to-end architectures, we propose HSC-VLA, a hierarchical framework that decouples high-level visual-semantic reasoning from low-level, high-frequency ",
       "topic_relevance": 3,
       "topic_match": true,
-      "topic_rationale": "Hierarchical VLA for bimanual manipulation in dense clutter, with explicit scene clearing strategies.",
+      "topic_rationale": "Hierarchical scene-clearing for robust bimanual manipulation; strong manipulation and planning focus.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -6980,7 +6980,7 @@
       "abstract_for_prompt": "Safe autonomous navigation requires reliable estimation of environmental traversability. Traditional methods have relied on semantic or geometry-based approaches with human-defined thresholds, but these methods often yield unreliable predictions due to the inherent subjectivity of human supervision. While self-supervised approaches enable robots to learn from their own experience, they still face a fundamental challenge: the positive-only learning problem. To address these limitations, recent st",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Traversability estimation for navigation; does not address manipulation or motion planning for manipulators.",
+      "topic_rationale": "Traversability estimation; navigation safety, not manipulation or whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -7029,9 +7029,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Modern robotic systems rely on hierarchical control, where a high-level \"Brain\" (Python) directs a lower-level \"Spine\" (C++ real-time controller). Despite its necessity, this hierarchy makes it difficult for the Brain to completely rewrite the Spine's immutable control logic, consequently inhibiting fundamental adaptation for different tasks and environments. Conventional approaches require complex middleware, proprietary hardware, or sacrifice real-time performance. We present LITHE (Linux Isol",
-      "topic_relevance": 0,
+      "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Software framework for hot-swapping control laws; generic robotics, not specific to manipulation or planning.",
+      "topic_rationale": "Software architecture for hot-swapping control laws; generic control infrastructure, not specific to manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -7123,7 +7123,7 @@
       "abstract_for_prompt": "Micro-scale continuum robots face significant limitations in achieving three-dimensional contact force perception, primarily due to structural miniaturization, nonlinear mechanical, and sensor integration. To overcome these limitations, this paper introduces a novel proprioception method for cable-driven continuum robots based on proximal-integrated force sensing (i.e., cable tension and six-axis force/torque (F/T) sensor), inspired by the tendon-joint collaborative sensing mechanism of the fing",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Continuum robot proprioception via force sensing; supports manipulation but not about planning/control algorithms.",
+      "topic_rationale": "Proprioception for continuum robots; sensing; no explicit manipulation planning/control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -7211,7 +7211,7 @@
       "abstract_for_prompt": "Centipede-like robots offer unique locomotion advantages due to their small cross-sectional area for accessing confined spaces, and their redundant legs enhance robustness in cluttered environments such as search-and-rescue and pipe inspection. However, elongated robots are particularly vulnerable to tipping over when climbing large obstacles, making reliable self-righting essential for field deployment. Self-righting strategies for elongate, multi-legged systems remain poorly understood. In thi",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Self-righting for limbless and multi-legged robots, focusing on locomotion modes, not manipulation.",
+      "topic_rationale": "Self-righting for limbless/multi-legged robots; locomotion recovery, not manipulation or whole-body manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -7352,7 +7352,7 @@
       "abstract_for_prompt": "Vision language action models (VLAs) are increasingly used for Physical AI, but deploying a pre-trained VLA model to unseen environments, embodiments, or tasks still requires adaptation. Parameter-efficient fine-tuning (PEFT), especially LoRA, is common for VLA policies, yet the exposed capacity knob, the rank, does not transfer uniformly: robotics transfer exhibits a higher and task-varying intrinsic rank than language fine-tuning. Small ranks suffice for LLMs (e.g., $r \\in \\{4, 8\\}$), while sp",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Capacity allocation for VLA fine-tuning; robotics-agnostic, albeit applicable to manipulation policies.",
+      "topic_rationale": "Fine-tuning capacity for VLA; generic VLA adaptation including manipulation, but method-level only.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -7434,7 +7434,7 @@
       "abstract_for_prompt": "Many real-world walking scenarios contain obstacles and unsafe ground patches (e.g., slippery or cluttered areas), leaving a disconnected set of admissible footholds that can be modeled as stepping-stone-like regions. We propose an onboard, perceptive mixed-integer model predictive control framework that jointly plans foot placement and step duration using step-to-step Divergent Component of Motion (DCM) dynamics. Ego-centric depth images are fused into a probabilistic local heightmap, from whic",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Humanoid perceptive footstep planning is locomotion, not manipulation or mobile manipulation.",
+      "topic_rationale": "Humanoid footstep planning; locomotion on stepping stones, not manipulation or loco-manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -7506,7 +7506,7 @@
       "abstract_for_prompt": "Autonomous underwater robots are increasingly deployed for environmental monitoring, infrastructure inspection, subsea resource exploration, and long-horizon exploration. Yet, despite rapid advances in learning-based planning and control, reliable autonomy in real ocean environments remains fundamentally constrained by tightly coupled physical limits. Hydrodynamic uncertainty, partial observability, bandwidth-limited communication, and energy scarcity are not independent challenges; they interac",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Perspective paper on underwater robotics constraints; not manipulation or planning specific.",
+      "topic_rationale": "Survey on underwater embodied intelligence; broad constraints, not specific manipulation/motion-planning contributions.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -7566,7 +7566,7 @@
       "abstract_for_prompt": "We propose DistGP: a multi-robot learning method for collaborative learning of a global function using only local experience and computation. We utilise a sparse Gaussian process (GP) model with a factorisation that mirrors the multi-robot structure of the task, and admits distributed training via Gaussian belief propagation (GBP). Our loopy model outperforms Tree-Structured GPs \\cite{bui2014tree} and can be trained online and in settings with dynamic connectivity. We show that such distributed,",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Distributed GP mapping for multi-robot learning, not manipulation or particular motion planning.",
+      "topic_rationale": "Distributed GP mapping; multi-robot mapping, no manipulation or whole-body aspects.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -7648,7 +7648,7 @@
       "abstract_for_prompt": "Grasping objects with diverse mechanical properties, such as heavy, slippery, or fragile items, remains a significant challenge in robotics. Conventional rigid grippers typically rely on increasing the normal forces to secure an object, however, this can cause damage to fragile objects due to excessive force. To address this limitation, we propose a soft rigid hybrid gripper finger that combines rigid structural shells with soft, inflatable silicone pockets, which could be integrated into a conv",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Hybrid gripper design with tunable friction directly addresses robotic grasping and dextrous manipulation hardware.",
+      "topic_rationale": "Hybrid soft-rigid gripper design; directly supports dextrous and robust grasping.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -7742,7 +7742,7 @@
       "abstract_for_prompt": "Data-efficient learning remains a central challenge in autonomous driving due to the high cost and safety risks of large-scale real-world interaction. Although world-model-based reinforcement learning enables policy optimization through latent imagination, existing approaches often lack explicit mechanisms to encode spatial and kinematic structure essential for driving tasks. In this work, we build upon the Recurrent State-Space Model (RSSM) and propose a kinematics-aware latent world model fram",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Kinematics-aware world models for autonomous driving; unrelated to manipulation or mobile manipulation.",
+      "topic_rationale": "Latent world models for autonomous driving; not about manipulators or mobile manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -7854,7 +7854,7 @@
       "abstract_for_prompt": "Autonomous drone racing requires the tight coupling of perception, planning, and control under extreme agility. However, recent approaches typically rely on precomputed spatial reference trajectories or explicit 6-DoF gate pose estimation, rendering them brittle to spatial perturbations, unmodeled track changes, and sensor noise. Conversely, end-to-end learning policies frequently overfit to specific track layouts and struggle with zero-shot generalization. To address these fundamental limitatio",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Drone racing via MPPI and neural SDFs, addressing agile navigation not manipulation.",
+      "topic_rationale": "Drone racing via MPPI and neural SDF; aerial navigation, no manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -7959,9 +7959,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Bimanual manipulation is a fundamental robotic skill that requires continuous and precise coordination between two arms. While imitation learning (IL) is the dominant paradigm for acquiring this capability, existing approaches, whether robot-centric or object-centric, often overlook the dynamic geometric relationship among the two arms and the manipulated object. This limitation frequently leads to inter-arm collisions, unstable grasps, and degraded performance in complex tasks. To address this,",
-      "topic_relevance": 2,
+      "topic_relevance": 3,
       "topic_match": true,
-      "topic_rationale": "Diffusion model for bimanual robot manipulation with triadic interaction modeling.",
+      "topic_rationale": "Diffusion model for bimanual manipulation with robot-object-robot interactions; strong dextrous manipulation focus.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -7995,7 +7995,7 @@
       "abstract_for_prompt": "This tutorial presents a control-oriented introduction to aided inertial navigation systems using a Lie-group formulation centered on the extended Special Euclidean group SE_2(3). The focus is on developing a clear and implementation-oriented geometric framework for fusing inertial measurements with aiding information, while making the role of invariance and symmetry explicit. Recent extensions, including higher-order state representations, synchronous observer designs, and equivariant filtering",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Tutorial on aided inertial navigation; no manipulation or motion planning focus.",
+      "topic_rationale": "Tutorial on aided inertial navigation; estimation, no manipulation or motion planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -8059,7 +8059,7 @@
       "abstract_for_prompt": "Thermal expansion is a significant source of positioning error in high-precision hexapod robots (Gough-Stewart platforms). Any variation in the temperature of the hexapod's parts induces expansion, which alters their kinematic model and reduces the robot's accuracy and repeatability. These variations may arise from internal heat sources (such as motors, encoders, and electronics) or from environmental changes. In this study, a method is proposed to anticipate and therefore correct the thermal dr",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Thermal drift compensation for hexapod actuators; precision positioning, not manipulation or motion planning.",
+      "topic_rationale": "Thermal drift compensation for hexapod actuators; precision positioning, not manipulation planning/control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -8135,7 +8135,7 @@
       "abstract_for_prompt": "Knotting plastic bags is a common task in daily life, yet it is challenging for robots due to the bags' infinite degrees of freedom and complex physical dynamics. Existing methods often struggle in generalization to unseen bag instances or deformations. To address this, we present DexKnot, a framework that combines keypoint affordance with diffusion policy to learn a generalizable bag-knotting policy. Our approach learns a shape-agnostic representation of bags from keypoint correspondence data c",
       "topic_relevance": 3,
       "topic_match": true,
-      "topic_rationale": "Dexterous bag-knotting manipulation using keypoint affordances and diffusion policies fits dextrous manipulation.",
+      "topic_rationale": "Generalizable policy for dexterous bag-knotting; advanced dextrous manipulation and planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -8206,7 +8206,7 @@
       "abstract_for_prompt": "Trajectory optimization is a central component of fast and efficient autonomous racing. However practical optimization pipelines remain highly sensitive to initialization and may converge slowly or to suboptimal local solutions when seeded with heuristic trajectories such as the centerline or minimum-curvature paths. To address this limitation, we leverage expert driving behavior as a initialization prior and propose a learning-informed initialization strategy based on real-world Formula 1 telem",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Trajectory optimization for car racing; vehicle planning, not robotic mobile manipulation or arms.",
+      "topic_rationale": "Trajectory optimization for car racing; ground vehicle planning, not manipulation or whole-body.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -8240,7 +8240,7 @@
       "abstract_for_prompt": "Reinforcement learning has achieved remarkable success in robot learning. However, under challenging exploration and contact-rich dynamics, early-stage training is frequently dominated by premature terminations such as collisions and falls. As a result, learning is overwhelmed by short-horizon, low-return trajectories, which hinder convergence and limit long-horizon exploration. To alleviate this issue, we propose a technique called Failure Episodic Memory Alert (FEMA). FEMA explicitly stores sh",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "RL with episodic memory for general control; no explicit manipulation or motion planning emphasis.",
+      "topic_rationale": "RL training improvement via episodic memory; generic RL, not scoped to manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -8299,7 +8299,7 @@
       "abstract_for_prompt": "Accurate human motion prediction with well-calibrated uncertainty is critical for safe human-robot collaboration (HRC), where robots must anticipate and react to human movements in real time. We propose a structured multitask variational Gaussian Process (GP) framework for full-body human motion prediction that captures temporal correlations and leverages joint-dimension-level factorization for scalability, while using a continuous 6D rotation representation to preserve kinematic consistency. Ev",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Human motion prediction for HRC safety; supportive but not manipulation or planning focused.",
+      "topic_rationale": "Human motion prediction with GPs; safety for HRC but not manipulation-specific.",
       "institution_match": true,
       "matched_institutions": [
         "Massachusetts Institute of Technology"
@@ -8409,9 +8409,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Collaborative transportation of heavy payloads via loco-manipulation is a challenging yet essential capability for legged robots operating in complex, unstructured environments. Centralized planning methods, e.g., holistic trajectory optimization, capture dynamic coupling among robots and payloads but scale poorly with system size, limiting real-time applicability. In contrast, hierarchical and fully decentralized approaches often neglect force and dynamic interactions, leading to conservative b",
-      "topic_relevance": 1,
-      "topic_match": false,
-      "topic_rationale": "Distributed MPC for loco-manipulation cooperative payload transport; manipulation but more force sharing, not planning details.",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Distributed MPC for collaborative loco-manipulation; involves whole-body and payload manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -8526,9 +8526,9 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Vision-and-Language Navigation (VLN) increasingly relies on large vision-language models, but their inference cost conflicts with real-time deployment. Token caching is a promising training-free strategy that avoids redundant computation by reusing stable visual tokens across frames. However, existing methods assume a static camera and fixed semantic focus, assumptions that VLN fundamentally violates. We identify two failure modes: (1) visual dynamics, where viewpoint shift displaces token posit",
-      "topic_relevance": 0,
+      "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Token caching for VLN; navigation, not manipulation or motion planning.",
+      "topic_rationale": "Token caching for VLN; navigation perception efficiency, not manipulation or motion planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -8586,7 +8586,7 @@
       "abstract_for_prompt": "We present Artoo, a learned acoustic communication system for robots that replaces hand-designed signal processing with end-to-end co-trained neural networks. Our system pairs a lightweight text-to-speech (TTS) transmitter (1.18M parameters) with a conformer-based automatic speech recognition (ASR) receiver (938K parameters), jointly optimized through a differentiable channel. Unlike human speech, robot-to-robot communication is paralinguistics-free: the system need not preserve timbre, prosody,",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Robot-robot acoustic communication system; unrelated to manipulation or motion planning.",
+      "topic_rationale": "Acoustic communication between robots; unrelated to manipulation or motion planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -8656,7 +8656,7 @@
       "abstract_for_prompt": "Accurate facial expression imitation on human-face robots is crucial for achieving natural human-robot interaction. Most existing methods have achieved photorealistic expression imitation through mapping 2D facial landmarks to a robot's actuator commands. Their imitation of landmark trajectories is susceptible to interference from facial morphology, which would lead to a performance drop. In this paper, we propose a morphology-independent expression imitation method that decouples expressions fr",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Facial expression imitation on social robots; not manipulation or motion planning.",
+      "topic_rationale": "Facial expression imitation on robots; HRI, not manipulation or motion planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -8757,7 +8757,7 @@
       "abstract_for_prompt": "Tactile Walking Surface Indicators (TWSIs) are safety-critical landmarks that blind and low-vision (BLV) pedestrians use to locate crossings and hazard zones. From our observation sessions with BLV guide dog handlers, trainers, and an O&M specialist, we confirmed the critical importance of reliable and accurate TWSI segmentation for navigation assistance of BLV individuals. Achieving such reliability requires large-scale annotated data. However, TWSIs are severely underrepresented in existing ur",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Dataset for BLV navigation indicators; perception for navigation, not manipulation.",
+      "topic_rationale": "Dataset for tactile walking surface indicators; navigation aid, not manipulation or whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -8869,7 +8869,7 @@
       "abstract_for_prompt": "Multi-fingered hands offer great potential for compliant and robust grasping of unknown objects, yet their high-dimensional force control presents a significant challenge. This work addresses two key problems: (1) distributing forces across multiple contacts to counteract an object's weight, and (2) preventing rotational slip caused by gravitational torque when a grasp is distant from the object's center of mass. We address these challenges via tactile feedback and a Second-Order Cone Programmin",
       "topic_relevance": 3,
       "topic_match": true,
-      "topic_rationale": "Compliant robust dexterous grasping with tactile feedback and optimization-based force distribution.",
+      "topic_rationale": "Dexterous grasping with tactile feedback and SOCP; core dextrous manipulation control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -8962,7 +8962,7 @@
       "abstract_for_prompt": "The paradigm of robot-assisted surgery is shifting toward data-driven autonomy, where policies learned via Reinforcement Learning (RL) or Imitation Learning (IL) enable the execution of complex tasks. However, these ``black-box\" policies often lack formal safety guarantees, a critical requirement for clinical deployment. In this paper, we propose the Safety-guaranteed Surgical Policy (SSP) framework to bridge the gap between data-driven generality and formal safety. We utilize Neural Ordinary Di",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Safety-guaranteed surgical policy via constraints; control but not manipulation-specific planning or dexterity.",
+      "topic_rationale": "Safety-guaranteed surgical policy; includes tool motion but focus is safety constraints, moderate manipulation link.",
       "institution_match": true,
       "matched_institutions": [
         "Massachusetts Institute of Technology"
@@ -9060,7 +9060,7 @@
       "abstract_for_prompt": "Efficient path following for mobile manipulators is often hindered by high-dimensional configuration spaces and kinematic constraints. This paper presents a robust two-stage configuration planning framework that decouples the 8-DoF planning problem into a tractable 2-DoF base optimization under a yaw-fixed base planning assumption. In the first stage, the proposed approach utilizes IRM to discretize the task-space path into a multi-layer graph, where an initial feasible path is extracted via a D",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "Path following for mobile manipulators explicitly decouples base and arm planning.",
+      "topic_rationale": "Path following for mobile manipulators via graph search and optimization; directly about mobile manipulation planning.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -9164,7 +9164,7 @@
       "abstract_for_prompt": "Deploying visuomotor robots at scale is challenging due to the potential for anomalous failures to degrade performance, cause damage, or endanger human life. Bimanual manipulators are no exception; these robots have vast state spaces comprised of high-dimensional images and proprioceptive signals. Explicitly defining failure modes within such state spaces is infeasible. In this work, we overcome these challenges by training a probabilistic, history informed, world model within the compressed lat",
       "topic_relevance": 2,
       "topic_match": true,
-      "topic_rationale": "World models for detecting bimanual manipulation failures directly pertain to manipulation monitoring.",
+      "topic_rationale": "World models detecting failures in bimanual manipulators; manipulation monitoring and safety.",
       "institution_match": true,
       "matched_institutions": [
         "Stanford University"
@@ -9270,7 +9270,7 @@
       "abstract_for_prompt": "Soft robots are compliant but often cannot support loads or hold their shape, while rigid robots provide structural strength but are less adaptable. Existing variable-stiffness systems usually operate at the scale of whole segments or patches, which limits precise control over stiffness distribution and virtual joint placement. This paper presents the Variable Stiffness Lattice Skin (VSL-Skin), the first system to enable individually addressable voxel-level morphological control with centimeter-",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Variable-stiffness skin hardware; could benefit manipulation but not directly control/planning focused.",
+      "topic_rationale": "Variable stiffness skin; hardware-level morphology, not focused on manipulation planning/control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -9329,7 +9329,7 @@
       "abstract_for_prompt": "Collaborative aerial transportation of tethered payloads is fundamentally limited by space, power, and weight constraints. Conventional approaches rely on static equilibrium conditions, where each vehicle tilts to generate the forces that ensure they maintain a formation geometry that avoids aerodynamic interactions and collision. This horizontal thrust component represents a significant energy penalty compared to the ideal case in which each vehicle produces purely vertical thrust to lift the p",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Collaborative aerial transport energy-efficiency; no manipulators, only multirotor formation.",
+      "topic_rationale": "Collaborative aerial transport energy efficiency; aerial formation control, not manipulation planning.",
       "institution_match": true,
       "matched_institutions": [
         "UC Berkeley"
@@ -9382,7 +9382,7 @@
       "abstract_for_prompt": "This tutorial provides a critical review of the practical application of Control Barrier Functions (CBFs) in robotic safety. While the theoretical foundations of CBFs are well-established, I identify a recurring gap between the mathematical assumption of a safe controller's existence and its constructive realization in systems with input constraints. I highlight the distinction between candidate and valid CBFs by analyzing the interplay of system dynamics, actuation limits, and class-K functions",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Tutorial on CBF safety; generic control theory, not specific to manipulation or motion planning.",
+      "topic_rationale": "Tutorial on control barrier functions; generic safety control, no direct manipulation or planning content.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -9422,7 +9422,7 @@
       "abstract_for_prompt": "Signal Temporal Logic (STL) is expressive formal language that specifies spatio-temporal requirements in robotics. Its quantitative robustness semantics can be easily integrated with optimization-based control frameworks. However, STL specifications may become conflicting in real-world applications, where safety rules, traffic regulations, and task objectives can be cannot be satisfied together. In these situations, traditional STL-constrained Model Predictive Control (MPC) becomes infeasible an",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Feasibility restoration for STL specs; formal methods, not targeted at manipulation or planning tasks.",
+      "topic_rationale": "Feasibility restoration for STL constraints; temporal logic control, not specifically manipulation/whole-body.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -9462,7 +9462,7 @@
       "abstract_for_prompt": "Locomotion on granular slopes such as sand dunes remains a fundamental challenge for legged robots due to reduced shear strength and gravity-induced anisotropic yielding of granular media. Using a hexapedal robot on a tiltable granular bed, we systematically measure locomotion speed together with slope-dependent normal and shear granular resistive forces. While normal penetration resistance remains nearly unchanged with inclination, shear resistance decreases substantially as slope angle increas",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Legged locomotion on granular slopes; no arms or manipulation planning content.",
+      "topic_rationale": "Legged locomotion on granular slopes; locomotion risk analysis, no manipulation or whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -9543,7 +9543,7 @@
       "abstract_for_prompt": "Indoor traversability segmentation aims to identify safe, navigable free space for autonomous agents, which is critical for robotic navigation. Pure vision-based models often fail to detect thin obstacles, such as chair legs, which can pose serious safety risks. We propose a multi-modal segmentation framework that leverages RGB images and sparse 1D laser depth information to capture geometric interactions and improve the detection of challenging obstacles. To reduce the reliance on large labeled",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Indoor traversability segmentation framework; navigation-focussed, not manipulation or motion planning.",
+      "topic_rationale": "Indoor traversability segmentation; perception for navigation, not manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -9589,7 +9589,7 @@
       "abstract_for_prompt": "In classical Informative Path Planning (C-IPP), robots are typically modeled as mobile sensors that acquire digital measurements such as images or radiation levels. In this model - since making a measurement leaves the robot's physical state unchanged - traversal costs are determined solely by the path taken. This is a natural assumption for many missions, but does not extend to settings involving physical sample collection, where each collected sample adds mass and increases the energy cost of ",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Informative path planning with load-aware costs; sampling missions, not manipulator path planning.",
+      "topic_rationale": "Informative path planning with load; navigation and sampling, not manipulation planning/control.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -9637,7 +9637,7 @@
       "abstract_for_prompt": "Safe navigation of autonomous robots remains one of the core challenges in the field, especially in dynamic and uncertain environments. One of the prevalent approaches is safety filtering based on control barrier functions (CBFs), which are easy to deploy but difficult to design. Motivated by the shortcomings of existing learning- and model-based methods, we propose a simple yet effective neural CBF design method for safe robot navigation in dynamic environments. We employ the idea of a composit",
       "topic_relevance": 0,
       "topic_match": false,
-      "topic_rationale": "Neural CBF for safe robot navigation in dynamic environments, not manipulation or whole-body control.",
+      "topic_rationale": "Neural CBF for safe navigation; mobile navigation, not manipulation or mobile manipulation.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -9752,7 +9752,7 @@
       "abstract_for_prompt": "Most existing robotic surgery systems adopt a human-in-the-loop paradigm, often with the surgeon directly teleoperating the robotic system. Adding intelligence to these robots would enable higher-level control, such as supervised autonomy or even full autonomy. However, artificial intelligence (AI) requires large amounts of training data, which is currently lacking. This work proposes SurgSync, a multi-modal data collection framework with offline and online synchronization to support training an",
       "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Surgical robotics data collection framework; supports autonomy but not manipulation/planning methods.",
+      "topic_rationale": "Surgical data collection framework; supports future manipulation work but itself is dataset/infrastructure.",
       "institution_match": false,
       "matched_institutions": []
     },
@@ -9810,69 +9810,70 @@
         "filter_match_institutions": []
       },
       "abstract_for_prompt": "Deploying autonomous agents in real world environments is challenging, particularly for navigation, where systems must adapt to situations they have not encountered before. Traditional learning approaches require substantial amounts of data, constant tuning, and, sometimes, starting over for each new task. That makes them hard to scale and not very flexible. Recent breakthroughs in foundation models, such as large language models and vision language models, enable systems to attempt new navigati",
-      "topic_relevance": 0,
+      "topic_relevance": 1,
       "topic_match": false,
-      "topic_rationale": "Visual navigation with topological memory; no manipulation or motion planning for manipulators.",
+      "topic_rationale": "Zero-shot visual navigation with topological memory; navigation only, no manipulation or whole-body control.",
       "institution_match": false,
       "matched_institutions": []
     }
   ],
   "briefing": {
     "executive_summary": [
-      "Stanford introduces a compact world-model-based runtime monitor that reliably detects failures in complex bimanual manipulation, outperforming larger anomaly detectors.",
-      "MIT contributes residual control for fast dynamics-shift recovery and a formally safe control barrier–based framework for surgical robot policies, both improving reliability under uncertainty.",
-      "MIT also presents a scalable probabilistic human motion predictor and an underwater robot modeling framework, targeting safer and more accurate interaction in challenging environments.",
-      "NYU demonstrates that a single, time-varying optimality principle can explain human reaching via efficient inverse RL, informing future human-robot interaction models.",
-      "UC Berkeley shows that rotating equilibria can cut power consumption by up to 20% for multi-UAV collaborative payload transport via centrifugal-force-based load sharing."
+      "Strong focus on dexterous and bimanual manipulation: several works introduce symmetry-aware policies, tactile and force-aware control, and diffusion-based planners for complex contact-rich tasks.",
+      "Vision-Language-Action (VLA) and related architectures continue to mature, with new frameworks for atomic skill libraries, long-horizon memory, subtask-aware post-training, and hierarchy for cluttered or long-horizon scenes.",
+      "Mobile and aerial manipulation see advances in long-horizon MoMA planning, robust grasping under occlusion, and language-conditioned aerial placement with explicit geometric reasoning.",
+      "Tactile and visuo-tactile perception are leveraged both for grasp stability and for challenging disassembly or shape/material recognition, emphasizing the importance of force-field and predictive tactile representations.",
+      "Safety, monitoring, and robustness are addressed via failure-detecting world models, uncertainty decomposition, safety-guaranteed surgical control, and residual adaptation to dynamics shifts.",
+      "Institution-matched work from Stanford, MIT, NYU, and UC Berkeley spans failure detection for bimanual manipulators, safe surgical policies, residual control under dynamics shifts, human motion intent inference, and energy-efficient collaborative aerial transport."
     ],
     "institution_matches": [
       {
         "paper_id": "arXiv:2603.06987",
         "title": "Foundational World Models Accurately Detect Bimanual Manipulator Failures",
         "institution": "Stanford University",
-        "overview": "Trains a probabilistic, history-aware world model in the latent space of a vision foundation tokenizer to monitor bimanual manipulation. Uncertainty estimates act as non-conformity scores in a conformal prediction framework, enabling runtime failure detection that outperforms standard anomaly and OOD baselines with ~1/20th of the trainable parameters.",
+        "overview": "Trains a probabilistic world model in the latent space of a vision foundation tokenizer and uses its uncertainty as a non-conformity score within a conformal prediction framework to detect anomalous failures of bimanual manipulators. Demonstrates superior failure detection on simulated and real bimanual datasets with far fewer parameters than competing learning-based methods, enabling practical runtime monitoring for safe deployment.",
         "link": "https://arxiv.org/abs/2603.06987"
+      },
+      {
+        "paper_id": "arXiv:2603.07797",
+        "title": "Toward Global Intent Inference for Human Motion by Inverse Reinforcement Learning",
+        "institution": "New York University",
+        "overview": "Uses Minimal Observation Inverse Reinforcement Learning to infer time-varying cost weights explaining human reaching motions from a compact set of candidate terms. Shows that a single subject- and posture-independent time-varying cost function can accurately predict trajectories, suggesting a unified optimality principle for human reaching that can inform robot motion planning and collaboration.",
+        "link": "https://arxiv.org/abs/2603.07797"
       },
       {
         "paper_id": "arXiv:2603.07775",
         "title": "Residual Control for Fast Recovery from Dynamics Shifts",
         "institution": "Massachusetts Institute of Technology",
-        "overview": "Proposes a stability-aligned residual control architecture that layers a bounded adaptive residual on top of a frozen nominal RL controller to handle unobserved dynamics shifts. A Stability Alignment Gate constrains magnitude and direction of corrections, yielding large reductions in recovery time on multiple robot platforms without retraining.",
+        "overview": "Proposes a stability-aligned residual control architecture that leaves a nominal RL policy frozen and adds a bounded residual channel regulated by a Stability Alignment Gate. Across quadruped, biped, humanoid, and wheeled platforms, the method markedly shortens recovery time from mid-episode dynamics shifts (e.g., actuator degradation or mass changes) while preserving near-nominal steady-state behavior.",
         "link": "https://arxiv.org/abs/2603.07775"
       },
       {
         "paper_id": "arXiv:2603.07032",
         "title": "SSP: Safety-guaranteed Surgical Policy via Joint Optimization of Behavioral and Spatial Constraints",
         "institution": "Massachusetts Institute of Technology",
-        "overview": "Introduces SSP, which learns a Neural ODE–based dynamics model from demonstrations and uses it to construct robust control barrier functions that wrap around RL/IL/CLF surgical policies. The controller minimally modifies actions to satisfy behavioral and spatial safety constraints, achieving near-zero violations while preserving task success on SurRoL and dVRK.",
+        "overview": "Introduces the SSP framework, which learns an uncertainty-aware Neural ODE dynamics model from demonstrations and uses it to build a robust Control Barrier Function safety filter around black-box surgical policies. The controller enforces both behavioral and spatial constraints, achieving near-zero constraint violations on simulated and physical dVRK tasks while maintaining high task success.",
         "link": "https://arxiv.org/abs/2603.07032"
       },
       {
         "paper_id": "arXiv:2603.07939",
         "title": "Unified Structural-Hydrodynamic Modeling of Underwater Underactuated Mechanisms and Soft Robots",
         "institution": "Massachusetts Institute of Technology",
-        "overview": "Presents a trajectory-driven global optimization framework, inspired by CMA-ES, to jointly identify structural and distributed hydrodynamic parameters of underwater underactuated and soft robots. The learned models reproduce real motion with under 5% normalized end-effector error and transfer from mechanisms to an octopus-inspired soft arm and full robot without retuning.",
+        "overview": "Presents a trajectory-driven global optimization framework, inspired by CMA-ES, to jointly identify structural and hydrodynamic parameters for underwater multibody and soft robotic systems. Achieves low end-effector error on underactuated mechanisms and transfers a single identified model to an octopus-inspired soft arm and multi-arm swimmer without retuning, indicating strong modeling fidelity and scalability.",
         "link": "https://arxiv.org/abs/2603.07939"
       },
       {
         "paper_id": "arXiv:2603.07096",
         "title": "Towards Scalable Probabilistic Human Motion Prediction with Gaussian Processes for Safe Human-Robot Collaboration",
         "institution": "Massachusetts Institute of Technology",
-        "overview": "Develops a multitask variational Gaussian Process model with joint-dimension factorization and 6D rotation representation for full-body motion prediction. The approach yields competitive accuracy, well-calibrated uncertainty, and low parameter count, supporting real-time, uncertainty-aware planning and collision avoidance in human-robot collaboration.",
+        "overview": "Develops a structured multitask variational Gaussian Process model for full-body human motion prediction with calibrated uncertainty and kinematically consistent 6D rotations. On Human3.6M, it delivers competitive accuracy with well-behaved confidence intervals using far fewer parameters than deep baselines, making it attractive for real-time, safety-critical HRC applications.",
         "link": "https://arxiv.org/abs/2603.07096"
-      },
-      {
-        "paper_id": "arXiv:2603.07797",
-        "title": "Toward Global Intent Inference for Human Motion by Inverse Reinforcement Learning",
-        "institution": "New York University",
-        "overview": "Uses the Minimal Observation IRL algorithm with a structured cost basis to infer time-varying cost weights explaining planar human reaching. Shows that a subject- and posture-agnostic, time-varying cost—dominated by joint-acceleration regulation—can reconstruct trajectories with substantially lower error than fixed-weight models.",
-        "link": "https://arxiv.org/abs/2603.07797"
       },
       {
         "paper_id": "arXiv:2603.06955",
         "title": "Energy-Efficient Collaborative Transport of Tether-Suspended Payloads via Rotating Equilibrium",
         "institution": "UC Berkeley",
-        "overview": "Proposes operating multi-UAV tethered payload systems in a steady rotating equilibrium so centrifugal forces provide horizontal tether tension, allowing each vehicle to produce primarily vertical thrust. This configuration broadens feasible tether layouts and reduces power consumption by up to 20% compared to static lifting.",
+        "overview": "Analyzes collaborative aerial transport of tethered payloads and proposes operating at a rotating equilibrium where centrifugal forces provide horizontal tension, allowing each quadrotor to use purely vertical thrust. Demonstrates up to 20% power savings relative to static lifting, broadening the feasible design space for energy-efficient multi-UAV payload transport.",
         "link": "https://arxiv.org/abs/2603.06955"
       }
     ],
@@ -9881,71 +9882,71 @@
         "paper_id": "arXiv:2603.08572",
         "title": "MetaWorld-X: Hierarchical World Modeling via VLM-Orchestrated Experts for Humanoid Loco-Manipulation",
         "institution": "University of Alberta; University of Science and Technology of China",
-        "overview": "Introduces a hierarchical world-model framework that decomposes humanoid loco-manipulation into specialized expert policies trained with imitation-constrained RL using human motion priors. A VLM-supervised routing mechanism semantically composes these experts, improving naturalness, stability, and compositional generalization in whole-body control.",
+        "overview": "Proposes MetaWorld-X, a hierarchical world model for humanoid loco-manipulation that decomposes control into specialized expert policies trained with human-motion priors. A VLM-supervised routing mechanism composes experts based on task semantics, yielding more natural, stable whole-body behaviors and better generalization to multi-stage loco-manipulation tasks.",
         "link": "https://arxiv.org/abs/2603.08572"
       },
       {
         "paper_id": "arXiv:2603.08383",
         "title": "MoMaStage: Skill-State Graph Guided Planning and Closed-Loop Execution for Long-Horizon Indoor Mobile Manipulation",
         "institution": "",
-        "overview": "Proposes a VLM-grounded framework that uses a hierarchical skill library and a topology-aware Skill-State Graph to plan long-horizon mobile manipulation without explicit mapping. Closed-loop execution with proprioceptive monitoring triggers graph-constrained semantic replanning, yielding higher planning and task success in diverse indoor environments.",
+        "overview": "Introduces MoMaStage, which grounds a VLM in a hierarchical skill library and topology-aware Skill-State Graph to plan long-horizon indoor mobile manipulation without explicit mapping. A closed-loop execution layer monitors proprioception and triggers graph-constrained replanning, improving logical consistency and robustness in complex multi-stage MoMA tasks.",
         "link": "https://arxiv.org/abs/2603.08383"
       },
       {
-        "paper_id": "arXiv:2603.08342",
-        "title": "PhaForce: Phase-Scheduled Visual-Force Policy Learning with Slow Planning and Fast Correction for Contact-Rich Manipulation",
-        "institution": "",
-        "overview": "Presents a phase-scheduled policy that separates low-rate diffusion-based visual-force planning from high-rate residual corrections guided by a contact-aware phase predictor. The method leverages structured force scheduling to regulate interaction forces, achieving large gains in success and contact quality on real contact-rich tasks.",
-        "link": "https://arxiv.org/abs/2603.08342"
-      },
-      {
-        "paper_id": "arXiv:2603.08142",
-        "title": "Multifingered force-aware control for humanoid robots",
-        "institution": "",
-        "overview": "Designs a model-based controller that adapts torso, arm, wrist, and multifingered hand motions based on tactilely estimated forces to maintain stable object contact. By minimizing the distance between the contact polygon center of pressure and the fingertip centroid, the approach robustly redistributes forces across varying objects on a humanoid platform.",
-        "link": "https://arxiv.org/abs/2603.08142"
-      },
-      {
-        "paper_id": "arXiv:2603.08122",
-        "title": "Towards Human-Like Manipulation through RL-Augmented Teleoperation and Mixture-of-Dexterous-Experts VLA",
-        "institution": "National University of Singapore; Shanghai Jiao Tong University",
-        "overview": "Introduces IMCopilot, RL-trained atomic skills for shared-autonomy teleoperation and as low-level primitives, and MoDE-VLA, a mixture-of-experts VLA that fuses force and tactile inputs via residual injection. The system targets human-like bimanual in-hand manipulation, doubling success rates on complex dexterous tasks over VLA baselines.",
-        "link": "https://arxiv.org/abs/2603.08122"
-      },
-      {
-        "paper_id": "arXiv:2603.07866",
-        "title": "Viewpoint-Agnostic Grasp Pipeline using VLM and Partial Observations",
-        "institution": "Tohoku University",
-        "overview": "Develops a language-guided grasping pipeline for legged mobile manipulators that couples open-vocabulary RGB grounding with depth compensation and two-stage point cloud completion to cope with occlusions. It generates and filters 6-DoF grasps using safety heuristics for reachability and clearance, achieving robust performance in cluttered real-world scenes.",
-        "link": "https://arxiv.org/abs/2603.07866"
+        "paper_id": "arXiv:2603.07003",
+        "title": "Two-Stage Path Following for Mobile Manipulators via Dimensionality-Reduced Graph Search and Numerical Optimization",
+        "institution": "Authors are with College of Mechanical and Vehicle Engineering, ChongQing University",
+        "overview": "Presents a two-stage configuration planning method that reduces an 8-DoF mobile manipulator path-following problem to a 2-DoF base optimization under a yaw-fixed assumption. A discrete IRM-based graph search followed by continuous L-BFGS refinement achieves sub-millimeter accuracy and robust physical performance while respecting reachability constraints.",
+        "link": "https://arxiv.org/abs/2603.07003"
       },
       {
         "paper_id": "arXiv:2603.07691",
         "title": "RoboPCA: Pose-centered Affordance Learning from Human Demonstrations for Robot Manipulation",
         "institution": "Chinese Academy of Sciences; University of Chinese Academy of Sciences",
-        "overview": "Proposes a pose-centered affordance predictor that jointly outputs contact regions and corresponding poses from RGB-D and instructions. A Human2Afford pipeline extracts 3D context and infers pose-centered labels from human demonstrations, enabling diffusion-based policies that better align grasp poses with task-relevant contact geometry.",
+        "overview": "Proposes RoboPCA, a pose-centered affordance predictor that jointly estimates contact regions and poses from RGB-D and language, avoiding inconsistencies between region and pose predictions. A Human2Afford pipeline extracts 3D scene context and maps human hand interactions to robot end-effector orientations, yielding strong generalization across tasks, categories, and sim-to-real.",
         "link": "https://arxiv.org/abs/2603.07691"
+      },
+      {
+        "paper_id": "arXiv:2603.07866",
+        "title": "Viewpoint-Agnostic Grasp Pipeline using VLM and Partial Observations",
+        "institution": "Tohoku University",
+        "overview": "Builds a language-guided grasping pipeline for mobile legged manipulators that combines open-vocabulary detection, robust point cloud completion under occlusion, and collision-filtered 6-DoF grasp synthesis. On a quadruped with an arm, the method achieves 90% grasp success in clutter, far surpassing a view-dependent baseline.",
+        "link": "https://arxiv.org/abs/2603.07866"
       },
       {
         "paper_id": "arXiv:2603.07672",
         "title": "Low-Cost Teleoperation Extension for Mobile Manipulators",
         "institution": "",
-        "overview": "Presents an open-source teleoperation system for whole-body control of mobile bimanual manipulators using commodity hardware: smartphone-based head tracking, leader arms, and foot pedals. User studies show improved task performance and reduced cognitive load over keyboard control while avoiding expensive VR equipment.",
+        "overview": "Describes an open-source teleoperation framework for mobile bimanual manipulators using commodity hardware: smartphone-based head tracking, leader arms, and foot pedals. User studies show improved task performance and reduced cognitive load versus keyboard-based control while enabling intuitive whole-body teleoperation.",
         "link": "https://arxiv.org/abs/2603.07672"
       },
       {
-        "paper_id": "arXiv:2603.07647",
-        "title": "TempoFit: Plug-and-Play Layer-Wise Temporal KV Memory for Long-Horizon Vision-Language-Action Manipulation",
-        "institution": "",
-        "overview": "Introduces a training-free retrofit that reuses intermediate layer key/value states as a temporal memory for frozen VLA policies, with a fixed recency bias and norm-preserving residual injection. This adds history without extra tokens or parameters, improving long-horizon manipulation success on LIBERO-LONG, CALVIN, and real tasks at near-real-time latency.",
-        "link": "https://arxiv.org/abs/2603.07647"
+        "paper_id": "arXiv:2603.07165",
+        "title": "RoTri-Diff: A Spatial Robot-Object Triadic Interaction-Guided Diffusion Model for Bimanual Manipulation",
+        "institution": "Hong Kong University of Science and Technology; National University of Singapore",
+        "overview": "Introduces the RoTri representation capturing the triadic 6D pose relationships among two arms and an object, and RoTri-Diff, a diffusion-based IL framework that enforces these geometric constraints. The approach reduces inter-arm collisions and improves stability, outperforming baselines on RLBench2 and real bimanual tasks.",
+        "link": "https://arxiv.org/abs/2603.07165"
       },
       {
-        "paper_id": "arXiv:2603.07484",
-        "title": "HSC-VLA: Hierarchical Scene-Clearing for Robust Bimanual Manipulation in Dense Clutter",
+        "paper_id": "arXiv:2603.08541",
+        "title": "EquiBim: Learning Symmetry-Equivariant Policy for Bimanual Manipulation",
+        "institution": "Purdue University",
+        "overview": "Formulates bilateral symmetry in dual-arm systems as group actions on observation and action spaces and enforces equivariance during imitation learning. The model-agnostic EquiBim framework improves performance and robustness across various sensing and action parameterizations in simulation and real bimanual manipulation.",
+        "link": "https://arxiv.org/abs/2603.08541"
+      },
+      {
+        "paper_id": "arXiv:2603.08142",
+        "title": "Multifingered force-aware control for humanoid robots",
         "institution": "",
-        "overview": "Proposes a hierarchical VLA architecture with a high-level module that plans and generates scene-clearing masks to suppress clutter, and a low-level diffusion policy that executes bimanual manipulation on filtered observations. In dense supermarket-shelf setups, it dramatically outperforms monolithic VLAs on cluttered, long-horizon tasks.",
-        "link": "https://arxiv.org/abs/2603.07484"
+        "overview": "Presents a model-based controller for humanoids with multifingered hands that uses learned tactile-force estimators to redistribute contact forces and keep the Center of Pressure close to the fingertip contact polygon centroid. Demonstrated on object balancing tasks, the approach attains over 80% success using estimated forces rather than raw tactile signals.",
+        "link": "https://arxiv.org/abs/2603.08142"
+      },
+      {
+        "paper_id": "arXiv:2603.07040",
+        "title": "TacDexGrasp: Compliant and Robust Dexterous Grasping with Tactile Feedback",
+        "institution": "Peking University",
+        "overview": "Develops a SOCP-based controller for multi-finger grasping that uses tactile feedback to constrain the tangential-to-normal force ratio at each contact below an estimated friction bound. Without explicit torque modeling, the method prevents both translational and rotational slip, showing robust real-world performance on diverse objects.",
+        "link": "https://arxiv.org/abs/2603.07040"
       }
     ]
   },
