@@ -219,15 +219,7 @@ def create_daily_briefing(
             {
                 "paper_id": paper["arxiv_id"],
                 "title": paper["title"],
-                "subjects": paper["subjects"],
                 "abstract": paper.get("abstract_for_prompt", paper["abstract"]),
-                "abs_url": paper["abs_url"],
-                "institution_match": bool(
-                    paper.get("manual_institution_extraction", {}).get("filter_match", False)
-                ),
-                "matched_institutions": paper.get("manual_institution_extraction", {}).get(
-                    "filter_match_institutions", []
-                ),
             }
             for paper in papers
         ],
