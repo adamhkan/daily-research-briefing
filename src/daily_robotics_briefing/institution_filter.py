@@ -409,8 +409,8 @@ def _split_affiliation_fragments(body: str) -> list[str]:
     return fragments or [body]
 
 
-def _split_pdf_lines(pdf_first_page_text: str) -> list[str]:
-    lines = [ln.strip() for ln in pdf_first_page_text.splitlines()]
+def _split_source_lines(source_text: str) -> list[str]:
+    lines = [ln.strip() for ln in source_text.splitlines()]
     return [ln for ln in lines if ln]
 
 
@@ -676,10 +676,10 @@ def _scan_known_institutions_in_text(
 
 def extract_institutions_for_paper(
     author_names: list[str],
-    pdf_first_page_text: str,
+    source_text: str,
     institution_specs: list[InstitutionSpec],
 ) -> InstitutionExtractionResult:
-    lines = _split_pdf_lines(pdf_first_page_text)
+    lines = _split_source_lines(source_text)
     parsed_institutions = _parse_institutions(lines, institution_specs)
     parsed_institutions.extend(_scan_known_institutions_in_text(lines, institution_specs))
     parsed_institutions = _dedupe_parsed_institutions(parsed_institutions)
