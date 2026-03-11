@@ -19,10 +19,7 @@ This repository contains an AI agent that runs on GitHub Actions and produces a 
    - HTML digest (`YYYY-MM-DD/YYYY-MM-DD.html`)
    - dashboard index (`index.html`)
    - each daily report records the exact institution/topic filters used that day
-   - weekly digest HTML (`weekly/YYYY-MM-DD_to_YYYY-MM-DD.html`) ranking notable papers by priority score
 8. Publishes `reports/` to GitHub Pages so the dashboard is browsable from your repo site URL.
-9. Adds decision cards per selected paper (claim, evidence, maturity, risk flags, and read-priority score) and uses them in dashboard search/filtering.
-10. Supports repo-backed read/unread paper state via `reports/state/user_actions.json`.
 
 ## Repository structure
 
@@ -75,13 +72,6 @@ PYTHONPATH=src python -m daily_robotics_briefing.main \
   --filters config/filters.yaml \
   --submission-date 2026-03-06 \
   --out reports/2026-03-07-backfill.md
-```
-
-Update read/unread state (repo-backed actions file) with:
-
-```bash
-PYTHONPATH=src python -m daily_robotics_briefing.main \
-  --mark-read 2603.00001 2603.00002
 ```
 
 ### 4) Enable GitHub Pages (one-time)

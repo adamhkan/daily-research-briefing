@@ -4,7 +4,6 @@ from datetime import date
 from html import escape
 from pathlib import Path
 import json
-import re
 
 
 def _institution_table_rows(rows: list[dict[str, str]]) -> str:
@@ -78,34 +77,33 @@ def render_markdown(
 
 def _render_html_rows(rows: list[dict[str, str]]) -> str:
     if not rows:
-        return '<tr><td colspan="7"><em>No matches</em></td></tr>'
+        return '<tr><td colspan="4"><em>No matches</em></td></tr>'
 
     rendered = []
     for row in rows:
-        decision_card = row.get("decision_card", {})
-        if not isinstance(decision_card, dict):
-            decision_card = {}
-        risk_flags = decision_card.get("risk_flags", [])
-        if isinstance(risk_flags, list):
-            risk_display = ", ".join(str(flag) for flag in risk_flags if str(flag).strip())
-        else:
-            risk_display = ""
-        details_block = (
-            "<details><summary>Details</summary>"
-            f"<div><strong>Core claim:</strong> {escape(str(decision_card.get('core_claim', '')))}</div>"
-            f"<div><strong>Priority reason:</strong> {escape(str(decision_card.get('priority_reason', '')))}</div>"
-            f"<div><strong>Risk note:</strong> {escape(str(decision_card.get('risk_note', '')))}</div>"
-            "</details>"
-        )
         rendered.append(
             "<tr>"
             f"<td>{escape(str(row.get('title', '')))}</td>"
             f"<td>{escape(str(row.get('institution', '')))}</td>"
             f"<td>{escape(str(row.get('overview', '')))}</td>"
-            f"<td>{escape(str(decision_card.get('read_priority_score', '')))}</td>"
-            f"<td>{escape(str(decision_card.get('evidence_strength', '')))} · {escape(str(decision_card.get('maturity_level', '')))}</td>"
-            f"<td>{escape(risk_display)}</td>"
-            f"<td><a href=\"{escape(str(row.get('link', '')))}\">Link</a>{details_block}</td>"
+            f"<td><a href=\"{escape(str(row.get('link', '')))}\">Link</a></td>"
+            "</tr>"
+        )
+    return "\n".join(rendered)
+
+
+def _render_topic_html_rows(rows: list[dict[str, str]]) -> str:
+    if not rows:
+        return '<tr><td colspan="4"><em>No matches</em></td></tr>'
+
+    rendered = []
+    for row in rows:
+        rendered.append(
+            "<tr>"
+            f"<td>{escape(str(row.get('title', '')))}</td>"
+            f"<td>{escape(str(row.get('institution', '')))}</td>"
+            f"<td>{escape(str(row.get('overview', '')))}</td>"
+            f"<td><a href=\"{escape(str(row.get('link', '')))}\">Link</a></td>"
             "</tr>"
         )
     return "\n".join(rendered)
@@ -126,7 +124,7 @@ def render_html(
     institution_filter_html = "".join(f"<li>{escape(item)}</li>" for item in institution_filters)
     topic_filter_html = "".join(f"<li>{escape(item)}</li>" for item in topic_filters)
     institution_html = _render_html_rows(briefing.get("institution_matches", []))
-    topic_html = _render_html_rows(briefing.get("topic_matches", []))
+    topic_html = _render_topic_html_rows(briefing.get("topic_matches", []))
 
     return f"""<!doctype html>
 <html lang="en">
@@ -199,7 +197,7 @@ def render_html(
     <section class="section">
       <h2>Institution Matches</h2>
       <table>
-        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Score</th><th>Evidence · Maturity</th><th>Risk flags</th><th>Link & details</th></tr></thead>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
         <tbody>{institution_html}</tbody>
       </table>
     </section>
@@ -207,7 +205,7 @@ def render_html(
     <section class="section">
       <h2>Topic Matches</h2>
       <table>
-        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Score</th><th>Evidence · Maturity</th><th>Risk flags</th><th>Link & details</th></tr></thead>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
         <tbody>{topic_html}</tbody>
       </table>
     </section>
@@ -219,32 +217,10 @@ def render_html(
 
 def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
     reports_dir.mkdir(parents=True, exist_ok=True)
+    entries: list[tuple[str, str]] = []
     briefing_index: dict[str, str] = {}
     search_index: list[dict[str, str | int | bool]] = []
-    actions_path = reports_dir / "state" / "user_actions.json"
-    actions_by_paper: dict[str, dict[str, bool]] = {}
-    if actions_path.exists():
-        try:
-            actions_payload = json.loads(actions_path.read_text(encoding="utf-8"))
-            papers_obj = actions_payload.get("papers", {})
-            if isinstance(papers_obj, dict):
-                actions_by_paper = {
-                    str(pid): {"read": bool(state.get("read", False))}
-                    for pid, state in papers_obj.items()
-                    if isinstance(state, dict)
-                }
-        except Exception:
-            actions_by_paper = {}
-
-    weekly_links: list[tuple[str, str]] = []
-    for weekly_html in sorted((reports_dir / "weekly").glob("*.html"), reverse=True):
-        weekly_links.append((weekly_html.stem, weekly_html.relative_to(dashboard_out.parent).as_posix()))
-
     for json_path in sorted(reports_dir.glob("**/*.json"), reverse=True):
-        if json_path == actions_path:
-            continue
-        if not re.match(r"\d{4}-\d{2}-\d{2}$", json_path.stem):
-            continue
         try:
             payload = json.loads(json_path.read_text(encoding="utf-8"))
         except Exception:
@@ -252,6 +228,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
         submission_date = str(payload.get("submission_date", json_path.stem))
         html_relative_path = json_path.with_suffix(".html").relative_to(dashboard_out.parent)
         html_name = html_relative_path.as_posix()
+        entries.append((submission_date, html_name))
         briefing_index[submission_date] = html_name
 
         overview_by_paper_id: dict[str, str] = {}
@@ -286,9 +263,6 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
             overview = overview_by_paper_id.get(paper_id, "")
             link = str(paper.get("abs_url", "")).strip()
             topic_relevance = int(paper.get("topic_relevance", 0) or 0)
-            decision_card = paper.get("decision_card", {})
-            if not isinstance(decision_card, dict):
-                decision_card = {}
 
             if not (paper_id and title and (abstract or overview)):
                 continue
@@ -310,12 +284,6 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
                     "institution_match": institution_match,
                     "topic_match": topic_match,
                     "topic_relevance": topic_relevance,
-                    "read_priority_score": int(decision_card.get("read_priority_score", 0) or 0),
-                    "evidence_strength": str(decision_card.get("evidence_strength", "")),
-                    "maturity_level": str(decision_card.get("maturity_level", "")),
-                    "core_claim": str(decision_card.get("core_claim", "")),
-                    "risk_flags": " ".join(str(x) for x in decision_card.get("risk_flags", []) if str(x).strip()),
-                    "is_read": bool(actions_by_paper.get(paper_id, {}).get("read", False)),
                     "abs_url": link,
                     "briefing_path": html_name,
                 }
@@ -323,7 +291,6 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
 
     search_index_json = json.dumps(search_index, ensure_ascii=False).replace("</", "<\/")
     briefing_index_json = json.dumps(briefing_index, ensure_ascii=False).replace("</", "<\/")
-    weekly_links_json = json.dumps(weekly_links, ensure_ascii=False).replace("</", "<\/")
 
     dashboard_html = """<!doctype html>
 <html lang="en">
@@ -358,7 +325,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
     h1, h2 { font-family: 'Merriweather', Georgia, serif; line-height: 1.3; color: #202c41; }
     h1 { margin-bottom: 0.25rem; font-size: clamp(1.6rem, 2.4vw, 2.2rem); }
     p { margin-top: 0.25rem; color: var(--ink-soft); }
-    .calendar-card, .search-card, .weekly-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.15rem; margin: 1.2rem 0; }
+    .calendar-card, .search-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.15rem; margin: 1.2rem 0; }
     .calendar-header { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.9rem; }
     .calendar-title { margin: 0; font-size: 1.1rem; }
     .calendar-nav-btn {
@@ -422,7 +389,6 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
     .result-item p { margin-bottom: 0.2rem; }
     .result-meta { color: var(--ink-soft); font-size: 0.9rem; margin-top: 0.3rem; }
     .muted { color: #707a8d; }
-    .inline-controls { display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap; margin-top: 0.5rem; }
     a { color: #3d5f89; }
   </style>
 </head>
@@ -447,35 +413,19 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
     </div>
   </section>
 
-  <section class="weekly-card">
-    <h2>Weekly Digests</h2>
-    <ul id="weekly-links"><li class="muted">No weekly digests yet.</li></ul>
-  </section>
-
   <section class="search-card">
     <h2>Search papers</h2>
-    <p class="search-help">Searches ArXiv robotics papers. Matches prioritize <strong>title and abstract</strong>, while still matching <strong>institution tags</strong>, decision-card fields, and overview text.</p>
+    <p class="search-help">Searches ArXiv robotics papers. Matches prioritize <strong>title and abstract</strong>, while still matching <strong>institution tags</strong> and overview text.</p>
     <input id="paper-search" type="search" placeholder="Try: motion planning, Carnegie Mellon..." autocomplete="off" />
-    <div class="inline-controls">
-      <label>Min score <input id="min-score" type="number" min="0" max="100" value="0" /></label>
-      <label><input id="unread-only" type="checkbox" /> Unread only</label>
-    </div>
     <p id="search-status" class="search-help muted">Type at least 2 characters to search.</p>
     <div id="search-results"></div>
   </section>
 
   <script id="briefing-index" type="application/json">__BRIEFING_INDEX_JSON__</script>
   <script id="search-index" type="application/json">__SEARCH_INDEX_JSON__</script>
-  <script id="weekly-index" type="application/json">__WEEKLY_INDEX_JSON__</script>
   <script>
     const briefingIndexEl = document.getElementById('briefing-index');
     const briefingByDate = JSON.parse(briefingIndexEl.textContent || '{}');
-    const weeklyIndexEl = document.getElementById('weekly-index');
-    const weeklyLinks = JSON.parse(weeklyIndexEl.textContent || '[]');
-    const weeklyLinksEl = document.getElementById('weekly-links');
-    if (weeklyLinks.length) {
-      weeklyLinksEl.innerHTML = weeklyLinks.map(([label, href]) => `<li><a href="${href}">${label.replaceAll('_', ' ')}</a></li>`).join('');
-    }
     const availableDates = Object.keys(briefingByDate).sort();
     const monthEl = document.getElementById('calendar-month');
     const gridEl = document.getElementById('calendar-grid');
@@ -555,8 +505,6 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
     const indexEl = document.getElementById('search-index');
     const allPapers = JSON.parse(indexEl.textContent || '[]');
     const inputEl = document.getElementById('paper-search');
-    const minScoreEl = document.getElementById('min-score');
-    const unreadOnlyEl = document.getElementById('unread-only');
     const resultsEl = document.getElementById('search-results');
     const statusEl = document.getElementById('search-status');
 
@@ -573,11 +521,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
       const abstract = normalize(paper.abstract || '');
       const overview = normalize(paper.overview || '');
       const institutionTags = (paper.institution_tags || []).map((tag) => normalize(tag)).join(' ');
-      const coreClaim = normalize(paper.core_claim || '');
-      const riskFlags = normalize(paper.risk_flags || '');
-      const evidence = normalize(paper.evidence_strength || '');
-      const maturity = normalize(paper.maturity_level || '');
-      return terms.every((term) => title.includes(term) || abstract.includes(term) || overview.includes(term) || institutionTags.includes(term) || coreClaim.includes(term) || riskFlags.includes(term) || evidence.includes(term) || maturity.includes(term));
+      return terms.every((term) => title.includes(term) || abstract.includes(term) || overview.includes(term) || institutionTags.includes(term));
     };
 
     const scorePaper = (paper, terms) => {
@@ -593,7 +537,6 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
         if (overview.includes(term)) score += 2;
       }
       score += Number(paper.topic_relevance || 0);
-      score += Number(paper.read_priority_score || 0) / 10;
       return score;
     };
 
@@ -615,7 +558,6 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
           <article class="result-item">
             <div><a href="${escapeHtml(paper.abs_url || '#')}" target="_blank" rel="noopener noreferrer">${escapeHtml(paper.title || '(untitled)')}</a></div>
             <div class="result-meta">${escapeHtml(paper.submission_date || '')} · ${escapeHtml(tags)}</div>
-            <div class="result-meta">Priority ${escapeHtml(String(paper.read_priority_score || 0))} · ${escapeHtml(String(paper.evidence_strength || ''))} · ${escapeHtml(String(paper.maturity_level || ''))} · ${paper.is_read ? 'read' : 'unread'}</div>
             <p>${escapeHtml(snippet)}</p>
             <div class="result-meta"><a href="${escapeHtml(paper.briefing_path || '#')}">Open daily briefing</a></div>
           </article>
@@ -632,12 +574,8 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
       }
 
       const terms = query.split(' ').filter(Boolean);
-      const minScore = Number(minScoreEl.value || 0);
-      const unreadOnly = unreadOnlyEl.checked;
       const matches = allPapers
         .filter((paper) => matchPaper(paper, terms))
-        .filter((paper) => Number(paper.read_priority_score || 0) >= minScore)
-        .filter((paper) => !unreadOnly || !paper.is_read)
         .map((paper) => ({ ...paper, _score: scorePaper(paper, terms) }))
         .sort((a, b) => (b._score - a._score) || String(b.submission_date).localeCompare(String(a.submission_date)));
 
@@ -646,16 +584,12 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
     };
 
     inputEl.addEventListener('input', runSearch);
-    minScoreEl.addEventListener('input', runSearch);
-    unreadOnlyEl.addEventListener('change', runSearch);
   </script>
   </main>
 </body>
 </html>
 """
-    dashboard_html = (
-        dashboard_html.replace("__SEARCH_INDEX_JSON__", search_index_json)
-        .replace("__BRIEFING_INDEX_JSON__", briefing_index_json)
-        .replace("__WEEKLY_INDEX_JSON__", weekly_links_json)
+    dashboard_html = dashboard_html.replace("__SEARCH_INDEX_JSON__", search_index_json).replace(
+        "__BRIEFING_INDEX_JSON__", briefing_index_json
     )
     dashboard_out.write_text(dashboard_html, encoding="utf-8")
