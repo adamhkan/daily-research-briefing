@@ -7,7 +7,6 @@ on:
       - main
     paths:
       - "reports/**"
-      - "src/**"
       - ".github/workflows/deploy-website.yml"
 
 permissions:
