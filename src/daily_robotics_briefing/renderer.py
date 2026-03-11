@@ -218,16 +218,18 @@ def render_html(
 def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
     reports_dir.mkdir(parents=True, exist_ok=True)
     entries: list[tuple[str, str]] = []
+    briefing_index: dict[str, str] = {}
     search_index: list[dict[str, str | int | bool]] = []
     for json_path in sorted(reports_dir.glob("**/*.json"), reverse=True):
         try:
             payload = json.loads(json_path.read_text(encoding="utf-8"))
         except Exception:
             continue
-        submission_date = payload.get("submission_date", json_path.stem)
+        submission_date = str(payload.get("submission_date", json_path.stem))
         html_relative_path = json_path.with_suffix(".html").relative_to(dashboard_out.parent)
         html_name = html_relative_path.as_posix()
         entries.append((submission_date, html_name))
+        briefing_index[submission_date] = html_name
 
         overview_by_paper_id: dict[str, str] = {}
         briefing = payload.get("briefing", {})
@@ -287,14 +289,8 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
                 }
             )
 
-    rows = "\n".join(
-        f"<tr><td>{escape(date_label)}</td><td><a href=\"{escape(path)}\">Open briefing</a></td></tr>"
-        for date_label, path in entries
-    )
-    if not rows:
-        rows = '<tr><td colspan="2"><em>No briefings available.</em></td></tr>'
-
-    search_index_json = json.dumps(search_index, ensure_ascii=False).replace("</", "<\\/")
+    search_index_json = json.dumps(search_index, ensure_ascii=False).replace("</", "<\/")
+    briefing_index_json = json.dumps(briefing_index, ensure_ascii=False).replace("</", "<\/")
 
     dashboard_html = """<!doctype html>
 <html lang="en">
@@ -312,6 +308,10 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
       --ink-soft: #5d677a;
       --line: #ddd4c6;
       --accent-soft: #dbe4f0;
+      --calendar-active: #2b6cb0;
+      --calendar-active-soft: #e6f0ff;
+      --calendar-inactive: #9ca3af;
+      --calendar-inactive-soft: #f3f4f6;
     }
     * { box-sizing: border-box; }
     body {
@@ -325,7 +325,63 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
     h1, h2 { font-family: 'Merriweather', Georgia, serif; line-height: 1.3; color: #202c41; }
     h1 { margin-bottom: 0.25rem; font-size: clamp(1.6rem, 2.4vw, 2.2rem); }
     p { margin-top: 0.25rem; color: var(--ink-soft); }
-    .search-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.15rem; margin: 1.2rem 0; }
+    .calendar-card, .search-card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.15rem; margin: 1.2rem 0; }
+    .calendar-header { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.9rem; }
+    .calendar-title { margin: 0; font-size: 1.1rem; }
+    .calendar-nav-btn {
+      border: 1px solid #b6c4d7;
+      background: #f9fbff;
+      color: #23416b;
+      border-radius: 999px;
+      width: 2.1rem;
+      height: 2.1rem;
+      cursor: pointer;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    .calendar-nav-btn:hover { background: #eef4ff; }
+    .calendar-nav-btn:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    .calendar-weekdays, .calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.38rem; }
+    .weekday {
+      text-align: center;
+      font-size: 0.84rem;
+      color: var(--ink-soft);
+      font-weight: 600;
+      padding: 0.25rem 0;
+    }
+    .calendar-cell {
+      min-height: 2.35rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+    }
+    .calendar-day {
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      padding: 0.4rem 0;
+      font-weight: 600;
+    }
+    .calendar-day--available {
+      color: var(--calendar-active);
+      background: var(--calendar-active-soft);
+      border-color: #b8d2f0;
+    }
+    .calendar-day--available:hover { background: #d8e9ff; }
+    .calendar-day--unavailable {
+      color: var(--calendar-inactive);
+      background: var(--calendar-inactive-soft);
+    }
+    .calendar-day--outside { background: transparent; color: transparent; }
+    .calendar-day--today { box-shadow: inset 0 0 0 2px #7aa7df; }
+    .calendar-empty { color: var(--ink-soft); margin: 0.2rem 0 0.4rem; }
     #paper-search { width: 100%; max-width: 840px; border: 1px solid #c8c0b3; border-radius: 9px; padding: 0.72rem; font-size: 1rem; background: #fffefc; color: var(--ink); }
     .search-help { margin: 0.45rem 0 0; color: var(--ink-soft); font-size: 0.95rem; }
     #search-results { margin: 1rem 0 1.5rem; display: grid; gap: 0.75rem; }
@@ -334,16 +390,28 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
     .result-meta { color: var(--ink-soft); font-size: 0.9rem; margin-top: 0.3rem; }
     .muted { color: #707a8d; }
     a { color: #3d5f89; }
-    table { width: 100%; border-collapse: collapse; border: 1px solid var(--line); background: var(--panel); border-radius: 12px; overflow: hidden; }
-    th, td { border: 1px solid var(--line); text-align: left; padding: 0.56rem; }
-    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
-    tbody tr:nth-child(even) { background: #fcfbf8; }
   </style>
 </head>
 <body>
   <main>
   <h1>Daily Robotics Briefing Dashboard</h1>
   <p>Select a date to view the digest.</p>
+
+  <section class="calendar-card">
+    <h2>Browse briefings by calendar</h2>
+    <div id="calendar-empty" class="calendar-empty" hidden>No briefings available yet.</div>
+    <div id="calendar" hidden>
+      <div class="calendar-header">
+        <button id="calendar-prev" class="calendar-nav-btn" type="button" aria-label="Previous month">&#x2039;</button>
+        <h3 id="calendar-month" class="calendar-title"></h3>
+        <button id="calendar-next" class="calendar-nav-btn" type="button" aria-label="Next month">&#x203A;</button>
+      </div>
+      <div class="calendar-weekdays" aria-hidden="true">
+        <div class="weekday">Sun</div><div class="weekday">Mon</div><div class="weekday">Tue</div><div class="weekday">Wed</div><div class="weekday">Thu</div><div class="weekday">Fri</div><div class="weekday">Sat</div>
+      </div>
+      <div id="calendar-grid" class="calendar-grid" role="grid" aria-label="Briefing calendar"></div>
+    </div>
+  </section>
 
   <section class="search-card">
     <h2>Search papers</h2>
@@ -353,13 +421,87 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
     <div id="search-results"></div>
   </section>
 
-  <table>
-    <thead><tr><th>Submission date</th><th>Digest</th></tr></thead>
-    <tbody>__ROWS__</tbody>
-  </table>
-
+  <script id="briefing-index" type="application/json">__BRIEFING_INDEX_JSON__</script>
   <script id="search-index" type="application/json">__SEARCH_INDEX_JSON__</script>
   <script>
+    const briefingIndexEl = document.getElementById('briefing-index');
+    const briefingByDate = JSON.parse(briefingIndexEl.textContent || '{}');
+    const availableDates = Object.keys(briefingByDate).sort();
+    const monthEl = document.getElementById('calendar-month');
+    const gridEl = document.getElementById('calendar-grid');
+    const prevEl = document.getElementById('calendar-prev');
+    const nextEl = document.getElementById('calendar-next');
+    const calendarEmptyEl = document.getElementById('calendar-empty');
+    const calendarEl = document.getElementById('calendar');
+
+    const toIsoDate = (value) => {
+      const year = value.getFullYear();
+      const month = String(value.getMonth() + 1).padStart(2, '0');
+      const day = String(value.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    };
+
+    const latestDate = availableDates.length ? availableDates[availableDates.length - 1] : null;
+    const initialDate = latestDate ? new Date(`${latestDate}T00:00:00`) : new Date();
+    let currentYear = initialDate.getFullYear();
+    let currentMonth = initialDate.getMonth();
+
+    const renderCalendar = () => {
+      const monthName = new Date(currentYear, currentMonth, 1).toLocaleDateString(undefined, { month: 'long', year: 'numeric' });
+      monthEl.textContent = monthName;
+      const firstWeekday = new Date(currentYear, currentMonth, 1).getDay();
+      const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+      const totalCells = 42;
+      const todayIso = toIsoDate(new Date());
+      const cells = [];
+
+      for (let i = 0; i < totalCells; i += 1) {
+        const dayNumber = i - firstWeekday + 1;
+        if (dayNumber < 1 || dayNumber > daysInMonth) {
+          cells.push('<div class="calendar-cell"><span class="calendar-day calendar-day--outside">&nbsp;</span></div>');
+          continue;
+        }
+
+        const iso = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(dayNumber).padStart(2, '0')}`;
+        const href = briefingByDate[iso];
+        const todayClass = iso === todayIso ? ' calendar-day--today' : '';
+        if (href) {
+          cells.push(`<div class="calendar-cell"><a class="calendar-day calendar-day--available${todayClass}" href="${href}" aria-label="Open briefing for ${iso}">${dayNumber}</a></div>`);
+        } else {
+          cells.push(`<div class="calendar-cell"><span class="calendar-day calendar-day--unavailable${todayClass}" title="No briefing">${dayNumber}</span></div>`);
+        }
+      }
+
+      gridEl.innerHTML = cells.join('');
+    };
+
+    if (!availableDates.length) {
+      calendarEmptyEl.hidden = false;
+      calendarEl.hidden = true;
+    } else {
+      calendarEmptyEl.hidden = true;
+      calendarEl.hidden = false;
+      renderCalendar();
+    }
+
+    prevEl.addEventListener('click', () => {
+      currentMonth -= 1;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear -= 1;
+      }
+      renderCalendar();
+    });
+
+    nextEl.addEventListener('click', () => {
+      currentMonth += 1;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear += 1;
+      }
+      renderCalendar();
+    });
+
     const indexEl = document.getElementById('search-index');
     const allPapers = JSON.parse(indexEl.textContent || '[]');
     const inputEl = document.getElementById('paper-search');
@@ -398,7 +540,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
       return score;
     };
 
-    const renderResults = (papers, terms) => {
+    const renderResults = (papers) => {
       if (!papers.length) {
         resultsEl.innerHTML = '<p class="muted">No matching papers found.</p>';
         return;
@@ -438,7 +580,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
         .sort((a, b) => (b._score - a._score) || String(b.submission_date).localeCompare(String(a.submission_date)));
 
       statusEl.textContent = `Found ${matches.length} matching paper${matches.length === 1 ? '' : 's'}.`;
-      renderResults(matches, terms);
+      renderResults(matches);
     };
 
     inputEl.addEventListener('input', runSearch);
@@ -447,5 +589,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
 </body>
 </html>
 """
-    dashboard_html = dashboard_html.replace("__ROWS__", rows).replace("__SEARCH_INDEX_JSON__", search_index_json)
+    dashboard_html = dashboard_html.replace("__SEARCH_INDEX_JSON__", search_index_json).replace(
+        "__BRIEFING_INDEX_JSON__", briefing_index_json
+    )
     dashboard_out.write_text(dashboard_html, encoding="utf-8")
