@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-03-11</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-03-11</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>77</strong></div>
+        <div class="card">Papers analyzed: <strong>77</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Humanoid and whole-body control advances emphasize trajectory optimization, egocentric video learning, and force-adaptive RL to support more natural and robust interaction during locomotion and bimanual tasks.</li><li>New frameworks in VLA-based manipulation (neuro-symbolic reasoning, memory, LoRA experts, progress-aware planning) substantially improve long-horizon, multi-task, and data-efficient manipulation performance.</li><li>Risk-bounded and ergodic motion planning methods provide provably safe manipulator trajectories under uncertainty and SE(3)-aware surface coverage with strong real-world validation.</li><li>Sensor and hardware innovations—including dual-modal visuo-tactile sensing, efficient visuotactile calibration, and characterization/control of commercial dexterous hands—enhance contact-rich manipulation capabilities.</li><li>Data-centric robot learning progresses via influence-function-based demo selection, portable teleoperation for in-the-wild data, and autonomous play-driven world models for contact-rich interactions.</li><li>Low-cost mobile manipulation and modular task-and-motion planning systems lower deployment barriers, while scene cloning and visual prompt editing improve zero-shot adaptation to new environments.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Stein Variational Ergodic Surface Coverage with SE(3) Constraints</td><td>UC Berkeley</td><td>Introduces an SE(3)-aware Stein Variational Gradient Descent method for ergodic trajectory generation over 3D point-cloud surfaces. The approach reformulates coverage as a manifold sampling problem with SE(3)-specific updates and preconditioning, yielding better local optima and coverage quality for surface manipulation and drawing tasks in both simulation and real-robot experiments.</td><td><a href="https://arxiv.org/abs/2603.09458">Link</a></td></tr>
+<tr><td>Quality over Quantity: Demonstration Curation via Influence Functions for Data-Centric Robot Learning</td><td>New York University; UC Berkeley</td><td>Proposes QoQ, an influence-function-based method to score and select high-quality demonstration samples for robot learning. By aggregating influence across state-action pairs and trajectories, the framework systematically curates data that most improves validation performance, consistently outperforming prior heuristic selection strategies in both simulated and real manipulation settings.</td><td><a href="https://arxiv.org/abs/2603.09056">Link</a></td></tr>
+<tr><td>Improving through Interaction: Searching Behavioral Representation Spaces with CMA-ES-IG</td><td>Massachusetts Institute of Technology</td><td>Introduces CMA-ES-IG, an evolutionary strategy that selects robot behaviors for user ranking by explicitly trading off informativeness and user experience. The method scales to high-dimensional preference spaces, remains robust to noisy feedback, and is preferred by non-expert users compared to existing preference-learning query strategies.</td><td><a href="https://arxiv.org/abs/2603.09011">Link</a></td></tr>
+<tr><td>Robust Spatiotemporal Motion Planning for Multi-Agent Autonomous Racing via Topological Gap Identification and Accelerated MPC</td><td>ETH Zurich</td><td>Presents a racing framework that identifies topological gaps in predicted opponent occupancies and plans overtakes via a fast Linear Time-Varying MPC with a Pseudo-Transient Continuation solver. The system achieves markedly faster maneuvers and higher overtaking success rates on F1TENTH compared to prior planners while respecting kinematic constraints.</td><td><a href="https://arxiv.org/abs/2603.09188">Link</a></td></tr>
+<tr><td>Fly, Track, Land: Infrastructure-less Magnetic Localization for Heterogeneous UAV-UGV Teaming</td><td>ETH Zurich</td><td>Demonstrates a compact magneto-inductive localization system that enables a UAV to hover, track, and land on a moving quadruped UGV with centimeter-level accuracy. A single receive coil and embedded estimation pipeline provide short-range 6-DoF relative pose at 20 Hz, validated in dynamic docking experiments without external infrastructure.</td><td><a href="https://arxiv.org/abs/2603.08926">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Kinodynamic Motion Retargeting for Humanoid Locomotion via Multi-Contact Whole-Body Trajectory Optimization</td><td>Georgia Institute of Technology</td><td>KDMR formulates motion retargeting from human MoCap + ground reaction forces as a multi-contact whole-body trajectory optimization enforcing rigid-body dynamics and contact complementarity. It produces dynamically feasible humanoid locomotion with accurate heel-toe contact patterns, improving policy convergence and stability for downstream imitation learning.</td><td><a href="https://arxiv.org/abs/2603.09956">Link</a></td></tr>
+<tr><td>Emerging Extrinsic Dexterity in Cluttered Scenes via Dynamics-aware Policy Learning</td><td></td><td>DAPL learns extrinsically dexterous non-prehensile manipulation by explicitly modeling contact-induced multi-object dynamics in clutter. A learned world model conditions RL, enabling policies to exploit environmental contacts without hand-crafted heuristics and achieving over 25% higher success than baselines in unseen cluttered scenes and 50% success in real-world deployments.</td><td><a href="https://arxiv.org/abs/2603.09882">Link</a></td></tr>
+<tr><td>ReTac-ACT: A State-Gated Vision-Tactile Fusion Transformer for Precision Assembly</td><td></td><td>ReTac-ACT is a visuo-tactile imitation learning policy that uses bidirectional cross-attention, proprioception-gated modality weighting, and a tactile reconstruction objective to handle last-millimeter, occluded assembly. On the NIST M1 peg-in-hole benchmark it reaches 90% success, maintaining 80% at 0.1 mm clearance, substantially outperforming vision-only policies.</td><td><a href="https://arxiv.org/abs/2603.09565">Link</a></td></tr>
+<tr><td>Trajectory Optimization for Self-Wrap-Aware Cable-Towed Planar Object Manipulation under Implicit Tension Constraints</td><td>Stony Brook University; Technical University of Munich</td><td>Formulates cable-towed planar object manipulation with self-wrapping as a routing-aware trajectory optimization problem with implicit taut/slack tension constraints. A hierarchy of relaxations, especially the Implicit-Mode Relaxation, induces beneficial self-wrap behaviors and torque redirection, outperforming explicit routing decisions in towing tasks.</td><td><a href="https://arxiv.org/abs/2603.09557">Link</a></td></tr>
+<tr><td>From Flow to One Step: Real-Time Multi-Modal Trajectory Policies via Implicit Maximum Likelihood Estimation-based Distribution Distillation</td><td>(Technical Aspects of Multimodal Systems), Department of Informatics, University of Hamburg, Hamburg, Germany.; MS (Technical Aspects of Multimodal Systems), Department of Informatics, University of Hamburg, Hamburg, Germany.; Technical University of Munich</td><td>Distills a multi-modal Conditional Flow Matching expert policy into a single-step student using Implicit Maximum Likelihood Estimation with a set-level Chamfer objective. The resulting policy preserves diverse trajectory modes while enabling high-frequency real-time receding-horizon control from multi-view RGB-D, point clouds, and proprioception.</td><td><a href="https://arxiv.org/abs/2603.09415">Link</a></td></tr>
+<tr><td>See, Plan, Rewind: Progress-Aware Vision-Language-Action Models for Robust Robotic Manipulation</td><td></td><td>SPR augments VLA manipulation with explicit progress tracking via language-grounded spatial subgoals, repeatedly Seeing, Planning, and Rewinding when progress stalls. This milestone-driven closed-loop control yields improved robustness and state-of-the-art performance on LIBERO and LIBERO-Plus without extra training data or auxiliary models.</td><td><a href="https://arxiv.org/abs/2603.09292">Link</a></td></tr>
+<tr><td>ZeroWBC: Learning Natural Visuomotor Humanoid Control Directly from Human Egocentric Video</td><td></td><td>ZeroWBC learns humanoid whole-body visuomotor control by fine-tuning a VLM to predict future human motions from egocentric video and text, then retargeting these to a humanoid and tracking them with a general motion controller. On the Unitree G1 it achieves more natural, versatile behaviors (e.g., sitting, kicking) without teleoperation data.</td><td><a href="https://arxiv.org/abs/2603.09170">Link</a></td></tr>
+<tr><td>DexHiL: A Human-in-the-Loop Framework for Vision-Language-Action Model Post-Training in Dexterous Manipulation</td><td></td><td>DexHiL integrates human teleoperation corrections into VLA-driven arm–hand control, with an intervention-aware sampler emphasizing corrected segments for post-training. Real-robot experiments show around 25% average success gains over offline fine-tuning baselines in dexterous tasks, boosting reliability and adaptability.</td><td><a href="https://arxiv.org/abs/2603.09121">Link</a></td></tr>
+<tr><td>Provably Safe Trajectory Generation for Manipulators Under Motion and Environmental Uncertainties</td><td>Hong Kong University of Science and Technology; Professor Emeritus in the Department of Electronic Engineering at The Chinese University; The Chinese University of Hong Kong; The University of Hong Kong</td><td>Combines a deep stochastic Koopman operator model for manipulator state distributions with a hierarchical safety verifier using parallel simulations and sum-of-squares programming. Embedded in an MPPI controller, the framework certifies collision risk under non-Gaussian uncertainties and generates safe, efficient trajectories validated on collaborative manipulation scenarios.</td><td><a href="https://arxiv.org/abs/2603.09083">Link</a></td></tr>
+<tr><td>Cutting the Cord: System Architecture for Low-Cost, GPU-Accelerated Bimanual Mobile Manipulation</td><td></td><td>Details a sub-$1300 bimanual mobile manipulator built on XLeRobot with an optimized mechanical structure, isolated power topology, and Jetson Orin Nano onboard compute. The platform supports teleoperation, autonomous SLAM, and vision-based manipulation untethered, targeting affordable research and education in mobile manipulation.</td><td><a href="https://arxiv.org/abs/2603.09051">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
