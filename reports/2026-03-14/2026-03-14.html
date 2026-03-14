@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-03-13</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-03-13</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>58</strong></div>
+        <div class="card">Papers analyzed: <strong>58</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Strong focus on dexterous and whole-body manipulation: new frameworks span bimanual piano playing, humanoid loco-manipulation, and concurrent prehensile/nonprehensile tasks.</li><li>Motion planning advances include ADMM-based continuous trajectory optimization, tensor-compressed configuration-space exploration, and a robust reduced-space trajectory optimizer.</li><li>Humanoid and hand hardware/teleop pipelines (SPARK, HumDex, CRAFT, vision-based hand shadowing) lower the barrier for collecting high-quality whole-body and hand manipulation data.</li><li>Foundation and agentic VLA models (Ψ₀, HumDex’s IL, SaPaVe, RoboClaw, SELF-VLA, SVLL) target long-horizon, active, and contact-rich manipulation with improved data efficiency and robustness.</li><li>Reliability and safety around learned policies are addressed via deployment-time mechanisms, anomaly detection, load distribution theory, and data-grounded generalization analysis.</li><li>Autonomous data engines (RADAR, RoboClaw) and evaluation tools (RADAR analysis, ActiveManip-Bench, LIBERO-Anomaly-10) emphasize scalable, closed-loop data generation and benchmarking.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>HandelBot: Real-World Piano Playing via Fast Adaptation of Dexterous Robot Policies</td><td>Stanford University</td><td>Introduces a two-stage adaptation pipeline that refines a simulation-trained dexterous bimanual hand policy for millimeter-precision piano playing. Structured spatial refinement and residual RL enable successful execution of five songs with only ~30 minutes of real data, achieving 1.8× better hardware performance than direct sim-to-real transfer.</td><td><a href="https://arxiv.org/abs/2603.12243">Link</a></td></tr>
+<tr><td>SPARK: Skeleton-Parameter Aligned Retargeting on Humanoid Robots with Kinodynamic Trajectory Optimization</td><td>UC Berkeley</td><td>Proposes a URDF-based skeleton alignment scheme plus staged kinodynamic trajectory optimization to retarget human motion onto diverse humanoids. The method reduces IK error and tuning effort while producing dynamically feasible motion and torque profiles suitable as references for learning-based humanoid controllers.</td><td><a href="https://arxiv.org/abs/2603.11480">Link</a></td></tr>
+<tr><td>ADMM-based Continuous Trajectory Optimization in Graphs of Convex Sets</td><td>Massachusetts Institute of Technology</td><td>Develops an ADMM-based solver that represents trajectories as polynomials and couples them with a spatio-temporal allocation graph derived from a mixed-integer formulation. By jointly optimizing discrete spatial choices and continuous time, it finds higher-quality trajectories in non-convex environments and converges reliably from naive initializations.</td><td><a href="https://arxiv.org/abs/2603.11335">Link</a></td></tr>
+<tr><td>Grounding Robot Generalization in Training Data via Retrieval-Augmented VLMs</td><td>Stanford University</td><td>Introduces RADAR, a retrieval-augmented VLM pipeline for characterizing how evaluation tasks relate to a policy’s training distribution. By retrieving similar training episodes and using VLM analysis, it classifies the type of generalization required and provides interpretable diagnostics for robot manipulation benchmarks.</td><td><a href="https://arxiv.org/abs/2603.11426">Link</a></td></tr>
+<tr><td>Vision-Based Hand Shadowing for Robotic Manipulation via Inverse Kinematics</td><td>UC Berkeley</td><td>Presents a low-cost egocentric RGB-D teleoperation pipeline that tracks human hands with MediaPipe, lifts to 3D, and solves IK in PyBullet to control a 6-DOF manipulator and gripper. Achieves 90% success on structured pick-and-place and compares against several VLA policies, while revealing limitations under occlusion in clutter.</td><td><a href="https://arxiv.org/abs/2603.11383">Link</a></td></tr>
+<tr><td>Real-time Rendering-based Surgical Instrument Tracking via Evolutionary Optimization</td><td>UC San Diego</td><td>Combines CMA-ES with batch rendering to jointly estimate pose and joint angles of articulated surgical tools from images. The evolutionary rendering-in-the-loop approach improves robustness and runtime over prior vision-based trackers, supporting both mono- and bi-manual tracking in surgical settings.</td><td><a href="https://arxiv.org/abs/2603.11404">Link</a></td></tr>
+<tr><td>ResWM: Residual-Action World Model for Visual RL</td><td>UC San Diego</td><td>Introduces a Dreamer-style world model that plans over residual (incremental) actions instead of absolute commands, coupled with an observation-difference encoder. This residual formulation stabilizes optimization, improves sample efficiency and returns on DeepMind Control, and yields smoother, more energy-efficient control trajectories for robotics.</td><td><a href="https://arxiv.org/abs/2603.11110">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>$\Psi_0$: An Open Foundation Model Towards Universal Humanoid Loco-Manipulation</td><td></td><td>Proposes Ψ₀, a staged foundation model that first pre-trains a VLM backbone on egocentric human manipulation videos, then post-trains a flow-based action head on humanoid data for precise joint control. With ~800 hours of human video and 30 hours of robot data, it surpasses baselines trained on &gt;10× data by over 40% on real-world humanoid loco-manipulation tasks.</td><td><a href="https://arxiv.org/abs/2603.12263">Link</a></td></tr>
+<tr><td>HumDex:Humanoid Dexterous Manipulation Made Easy</td><td></td><td>Introduces HumDex, a portable IMU-based teleoperation system for humanoid whole-body dexterous manipulation, including a learning-based hand retargeting module. A two-stage imitation learning pipeline pre-trains on human motion then fine-tunes on robot data, improving generalization in complex whole-body manipulation with low data collection cost.</td><td><a href="https://arxiv.org/abs/2603.12260">Link</a></td></tr>
+<tr><td>Coupling Tensor Trains with Graph of Convex Sets: Effective Compression, Exploration, and Planning in the C-Space</td><td>Northeastern University; Technical University of Munich</td><td>TANGO combines Tensor Train decomposition to compactly approximate feasible configuration space with a GCS-like graph for trajectory optimization. This hybrid representation enables efficient discovery of task-relevant regions and generation of high-quality, geometry-aware motion plans in high-dimensional systems.</td><td><a href="https://arxiv.org/abs/2603.11658">Link</a></td></tr>
+<tr><td>Concurrent Prehensile and Nonprehensile Manipulation: A Practical Approach to Multi-Stage Dexterous Tasks</td><td>University of Southern California</td><td>Presents DexMulti, which decomposes long-horizon concurrent dexterous tasks into object-centric skills and uses a retrieve-align-execute paradigm guided by geometry and pose uncertainty. On three multi-stage tasks with Allegro and LEAP hands, it attains 66% average success with only 3–4 demos per object, outperforming diffusion-policy baselines by 2–3×.</td><td><a href="https://arxiv.org/abs/2603.11655">Link</a></td></tr>
+<tr><td>DRAFTO: Decoupled Reduced-space and Adaptive Feasibility-repair Trajectory Optimization for Robotic Manipulators</td><td>Texas A&amp;M University</td><td>Introduces DRAFTO, which parameterizes trajectories via basis functions and applies reduced-space Gauss-Newton optimization combined with QP-based initialization and feasibility repair. A non-monotone acceptance policy with hinge-squared penalties yields globally reliable, efficient motion plans that outperform CHOMP, TrajOpt, GPMP2, FACTO, and standard sampling planners across benchmarks.</td><td><a href="https://arxiv.org/abs/2603.11074">Link</a></td></tr>
+<tr><td>SaPaVe: Towards Active Perception and Manipulation in Vision-Language-Action Models for Robotics</td><td></td><td>SaPaVe decouples camera and manipulation actions in a VLA framework, first learning semantic camera control from a 200k-sample ActiveViewPose dataset, then jointly training for active manipulation. With a 3D geometry-aware module and the new ActiveManip-Bench, it substantially improves robustness to viewpoint changes, beating GR00T N1 and π₀ in simulation and real-world tasks.</td><td><a href="https://arxiv.org/abs/2603.12193">Link</a></td></tr>
+<tr><td>CRAFT: A Tendon-Driven Hand with Hybrid Hard-Soft Compliance</td><td></td><td>Describes the CRAFT anthropomorphic hand, which places soft, rolling-contact joints between rigid links to localize compliance where impacts occur while maintaining structural strength. A 15-motor tendon drive yields lightweight fingers capable of all 33 Feix grasps, improved handling of fragile/low-friction objects, and teleoperation-ready, sub-$600 open-source hardware.</td><td><a href="https://arxiv.org/abs/2603.12120">Link</a></td></tr>
+<tr><td>RADAR: Closed-Loop Robotic Data Generation via Semantic Planning and Autonomous Causal Environment Reset</td><td>Harbin Institute of Technology; POSTECH</td><td>Proposes a fully autonomous four-module engine that uses a VLM for task generation and evaluation, a GNN policy for execution, and an FSM for causal environment resetting. Guided by a few 3D human demos, RADAR achieves up to 90% success on complex simulated tasks and robust real-world contact-rich skills without human resets, enabling scalable closed-loop data collection.</td><td><a href="https://arxiv.org/abs/2603.11811">Link</a></td></tr>
+<tr><td>Learn Structure, Adapt on the Fly: Multi-Scale Residual Learning and Online Adaptation for Aerial Manipulators</td><td>University of Manchester</td><td>Introduces a Factorized Dynamics Transformer that treats physical variables as tokens to capture cross-variable coupling and multi-scale temporal dynamics in aerial manipulators. A lightweight Latent Residual Adapter performs fast online adaptation via RLS, yielding more accurate residual modeling and better closed-loop tracking under unseen payloads and configurations.</td><td><a href="https://arxiv.org/abs/2603.11638">Link</a></td></tr>
+<tr><td>RoboClaw: An Agentic Framework for Scalable Long-Horizon Robotic Tasks</td><td></td><td>RoboClaw unifies data collection, learning, and execution under a single VLM-driven agent that uses Entangled Action Pairs to couple forward skills with recovery behaviors for self-resetting. This agentic design supports continuous on-policy data acquisition and robust composition of primitives, boosting long-horizon manipulation success by 25% and halving human time compared to conventional pipelines.</td><td><a href="https://arxiv.org/abs/2603.11558">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
