@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-03-17</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-03-17</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>147</strong></div>
+        <div class="card">Papers analyzed: <strong>147</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Mobile and whole-body manipulation see advances from lightweight VLAs (AnoleVLA), real-time 3D-aware policies (R3DP), and humanoid loco‑manipulation/RL fine‑tuning (REFINE-DP).</li><li>Dexterous and contact-rich manipulation is a major focus, spanning new grasp synthesis/learning (DGS-Net, GraspADMM), visuo‑tactile policies (TransDex, TacFiLM), and hybrid force/tactile control frameworks (ForceVLA2, M2-ResiPolicy, HapticVLA).</li><li>Mixture-of-experts and geometry/action-latent abstractions (MoE-ACT, OPFA, KoopmanFlow) improve multi-task, cross-embodiment, and spectrally decoupled control for complex manipulation.</li><li>Model-based and optimization-centric motion planning progresses via task-oriented MPC (ToMPC), STL-guided variational trajectory optimization (STL-SVPIO), and fast generative MPC alternatives to diffusion (KDP, IMLE, IMLE-MPC).</li><li>Benchmarks and datasets expand coverage to non-prehensile, dynamic, long-horizon, and collaborative industrial manipulation (DOMINO, RoCo, LDHP, GroundedPlanBench, Dream2Fix).</li><li>Institutional highlights: CMU, MIT, ETH Zurich, and NYU contribute on dual-arm agricultural mobile manipulation, underwater opti-acoustic fusion, microgravity RPO simulation, transformer LQR controllers, and egocentric HOI world models.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Vision-guided Autonomous Dual-arm Extraction Robot for Bell Pepper Harvesting</td><td>Carnegie Mellon University</td><td>VADER is a dual-arm mobile manipulation system for outdoor bell pepper harvesting that coordinates a gripping arm and a cutting arm via a dedicated planning framework and robust perception. Field trials show &gt;60% harvest success with &lt;100s cycle time, complemented by a teleoperation fail-safe and a hierarchical indoor/outdoor pepper dataset to support coarse-to-fine detection and pose estimation.</td><td><a href="https://arxiv.org/abs/2603.13987">Link</a></td></tr>
+<tr><td>Path-conditioned Reinforcement Learning-based Local Planning for Long-Range Navigation</td><td>ETH Zurich</td><td>This work proposes an RL-based local navigation policy conditioned on global path observations, using path information implicitly without explicit path-following rewards. The policy exploits high-quality paths when available for efficiency yet remains robust when guidance is degraded or absent, improving long-range navigation with uncertain global plans.</td><td><a href="https://arxiv.org/abs/2603.13888">Link</a></td></tr>
+<tr><td>SmallSatSim: A High-Fidelity Simulation and Training Toolkit for Microgravity Robotic Close Proximity Operations</td><td>ETH Zurich</td><td>SmallSatSim is a MuJoCo-based, GPU-accelerated simulation toolkit for microgravity rendezvous and close-proximity operations, including free-flying manipulation and failure-aware control. It provides high-fidelity dynamics, built-in controllers, configurable fault models, and parallelized training support to accelerate research in autonomous agile small-satellite operations.</td><td><a href="https://arxiv.org/abs/2603.14598">Link</a></td></tr>
+<tr><td>Sonar-MASt3R: Real-Time Opti-Acoustic Fusion in Turbid, Unstructured Environments</td><td>Massachusetts Institute of Technology</td><td>Sonar-MASt3R fuses optical camera data with sonar-based 3D reconstructions using dense MASt3R correspondences to achieve real-time, dense 3D perception in turbid underwater conditions. Experiments with an eye-in-hand setup across a wide turbidity range show substantially improved robustness over prior opti-acoustic fusion approaches for underwater intervention tasks.</td><td><a href="https://arxiv.org/abs/2603.13585">Link</a></td></tr>
+<tr><td>Transformers As Generalizable Optimal Controllers</td><td>Carnegie Mellon University</td><td>A single transformer policy is trained on LQR-generated trajectories from heterogeneous MIMO LTI systems using a shared padded representation, learning to output near-optimal feedback without explicit plant matrices. The controller exhibits small empirical sub-optimality, stabilizes under moderate parameter changes, and benefits from light fine-tuning on unseen systems.</td><td><a href="https://arxiv.org/abs/2603.14910">Link</a></td></tr>
+<tr><td>Egocentric World Model for Photorealistic Hand-Object Interaction Synthesis</td><td>New York University</td><td>EgoHOI is an egocentric world model that synthesizes photorealistic, contact-consistent hand–object interaction videos driven purely by action signals, without future state conditioning. By distilling 3D geometric and kinematic priors into physics-informed embeddings, it produces physically plausible egocentric rollouts and outperforms strong video-generation baselines on the HOT3D dataset.</td><td><a href="https://arxiv.org/abs/2603.13615">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>AnoleVLA: Lightweight Vision-Language-Action Model with Deep State Space Models for Mobile Manipulation</td><td></td><td>AnoleVLA replaces heavy transformer backbones in VLAs with deep state space models to efficiently process visual and language sequences for language-guided manipulation. The lightweight architecture achieves roughly 3× faster inference and 21-point higher real-world task success than a representative large VLA, targeting deployment on resource-constrained mobile manipulators.</td><td><a href="https://arxiv.org/abs/2603.15046">Link</a></td></tr>
+<tr><td>MoE-ACT: Scaling Multi-Task Bimanual Manipulation with Sparse Language-Conditioned Mixture-of-Experts Transformers</td><td>Hong Kong University of Science and Technology; The University of Hong Kong</td><td>MoE-ACT augments Action Chunking Transformers with sparse Mixture-of-Experts layers and FiLM-based language conditioning to decouple multi-task bimanual manipulation policies in latent space. Multi-scale cross-attention provides rich visual features, yielding a 33% average success improvement over vanilla ACT in both simulation and real dual-arm experiments.</td><td><a href="https://arxiv.org/abs/2603.15265">Link</a></td></tr>
+<tr><td>End-to-End Dexterous Grasp Learning from Single-View Point Clouds via a Multi-Object Scene Dataset</td><td>Harbin Institute of Technology</td><td>DGS-Net is an end-to-end network that predicts dense dexterous grasp configurations from single-view point clouds in cluttered multi-object scenes. A two-stage data generation pipeline plus explicit modeling of grasp offsets and pre-grasp poses yields a 78.98% real-robot grasp success rate and lower penetration than existing methods.</td><td><a href="https://arxiv.org/abs/2603.15410">Link</a></td></tr>
+<tr><td>HapticVLA: Contact-Rich Manipulation via Vision-Language-Action Model without Inference-Time Tactile Sensing</td><td>Intelligent Space Robotics Laboratory, Skolkovo Institute of Science and Technology, Moscow, Russia.</td><td>HapticVLA trains a flow-matching action expert with safety-aware tactile rewards and then distills a compact tactile token into a VLA that uses only vision and state at inference. The resulting model enforces force-aware, contact-safe behavior in real manipulation tasks, achieving 86.7% mean success and outperforming even VLAs that use tactile feedback online.</td><td><a href="https://arxiv.org/abs/2603.15257">Link</a></td></tr>
+<tr><td>ForceVLA2: Unleashing Hybrid Force-Position Control with Force Awareness for Contact-Rich Manipulation</td><td></td><td>ForceVLA2 extends VLAs with hybrid force–position control by introducing force-based prompts and a cross-scale MoE action expert that fuses semantic concepts with real-time force signals. On a new 1,000-trajectory dataset over five contact-rich tasks, it outperforms pi0/pi0.5 by up to 48% and mitigates overload and unstable contact failures.</td><td><a href="https://arxiv.org/abs/2603.15169">Link</a></td></tr>
+<tr><td>Master Micro Residual Correction with Adaptive Tactile Fusion and Force-Mixed Control for Contact-Rich Manipulation</td><td>Nanyang Technological University; Tsinghua University</td><td>M2-ResiPolicy is a two-timescale master–micro residual controller that combines a diffusion-based high-level policy with a 60 Hz GRU corrector using wrench feedback. An adaptive fusion module balances visual and tactile cues, and a force-mixed PBIC layer regulates contact forces, yielding a 93% damage-free success rate in fragile and precision tasks.</td><td><a href="https://arxiv.org/abs/2603.15152">Link</a></td></tr>
+<tr><td>Tactile Modality Fusion for Vision-Language-Action Models</td><td></td><td>TacFiLM introduces a lightweight post-training finetuning scheme that conditions intermediate visual features on pretrained tactile embeddings via FiLM, avoiding heavy token concatenation. On insertion tasks, augmenting VLAs with TacFiLM consistently improves success, insertion quality, completion time, and force stability on both in- and out-of-distribution evaluations.</td><td><a href="https://arxiv.org/abs/2603.14604">Link</a></td></tr>
+<tr><td>TransDex: Pre-training Visuo-Tactile Policy with Point Cloud Reconstruction for Dexterous Manipulation of Transparent Objects</td><td></td><td>TransDex pre-trains a transformer to reconstruct object point clouds from noisy, masked interaction observations, then uses this representation for a visuo-tactile dexterous control policy. The approach handles depth noise and self-occlusion with transparent objects, outperforming baselines in real-world dexterous manipulation experiments and showing good generalization.</td><td><a href="https://arxiv.org/abs/2603.13869">Link</a></td></tr>
+<tr><td>GraspADMM: Improving Dexterous Grasp Synthesis via ADMM Optimization</td><td>Peking University</td><td>GraspADMM formulates grasp refinement with ADMM to decouple target contact points on the object from realized contacts on the hand, alternating between optimizing grasp stability metrics and enforcing collision-free reachability. It substantially boosts grasp success (≈15% absolute in type-unaware, ≈100% relative in type-aware settings) while preserving physical plausibility even under low friction.</td><td><a href="https://arxiv.org/abs/2603.13832">Link</a></td></tr>
+<tr><td>LDHP: Library-Driven Hierarchical Planning for Non-prehensile Dexterous Manipulation</td><td>. Zhao is with Jilin University; Hong Kong University of Science and Technology; The University of Hong Kong</td><td>LDHP is a hierarchical library-driven planner for non-prehensile manipulation that separates object pose planning (MoveObject primitives) from grasp feasibility (AdjustGrasp primitives) with quasi-static mechanics checks. It guarantees executability via collision and contact reasoning and transfers across tasks like zero-mobility lifting and slot insertion in real-robot tests.</td><td><a href="https://arxiv.org/abs/2603.13844">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
