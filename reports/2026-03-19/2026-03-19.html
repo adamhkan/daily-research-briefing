@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-03-18</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-03-18</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>69</strong></div>
+        <div class="card">Papers analyzed: <strong>69</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Zero-shot and sim-to-real manipulation saw major advances, with large-scale simulated data and new frameworks (MolmoB0T, ExpertGen, SimDist) enabling strong real-robot performance without real-world fine-tuning or heavy reward engineering.</li><li>Dexterous and 6-DoF grasping progressed via morphology-aligned cross-hand policies, contact-aware data augmentation, and depth-free metric 3D reconstruction from sparse RGB (DexGrasp-Zero, FSG/AutoWS, MG-Grasp).</li><li>Core motion and coverage planning advanced with ultrafast kinodynamic sampling through differential flatness, flow-based MILP inspection planning, and LLM-aligned geometric waypoint generation for narrow passages.</li><li>Whole-body and compliant control expanded from soft continuum manipulators and amphibious salamander robots to humanoid compliance-constrained RL, pushing dynamic precision and stability in complex bodies.</li><li>Foundation-style manipulation models matured: VLM/VLA-based planners gained better physical grounding, velocity-aware tracking, sound-centric sensing, shortcut video-action foresight, and VLM-driven reward shaping.</li><li>ETH Zurich, CMU, and MIT contributed notable work on quadrupedal assistance for mobility-impaired users, resource-aware LLM reasoning in embodied agents, and robust LiDAR-inertial odometry and BCI-driven exoskeleton control.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Beyond Cybathlon: On-demand Quadrupedal Assistance for People with Limited Mobility</td><td>ETH Zurich</td><td>Introduces an on-demand quadrupedal assistance robot that combines autonomous pick-and-place and semantic, collision-aware navigation with a mouth-level joystick for shared teleoperation. The system supports a broad range of daily living tasks for wheelchair users, including dexterous manipulation, reducing cognitive load through higher autonomy while preserving user control.</td><td><a href="https://arxiv.org/abs/2603.16772">Link</a></td></tr>
+<tr><td>When Should a Robot Think? Resource-Aware Reasoning via Reinforcement Learning for Embodied Robotic Decision-Making</td><td>Carnegie Mellon University; Massachusetts Institute of Technology</td><td>Proposes RARRL, a hierarchical RL framework that learns when and how to invoke large-model reasoning in embodied agents given latency and compute constraints. By orchestrating reasoning calls instead of low-level control, it improves task success, reduces execution delays, and increases robustness compared to fixed or heuristic reasoning schedules.</td><td><a href="https://arxiv.org/abs/2603.16673">Link</a></td></tr>
+<tr><td>Real-Time Decoding of Movement Onset and Offset for Brain-Controlled Rehabilitation Exoskeleton</td><td>Massachusetts Institute of Technology</td><td>Demonstrates online EEG-based initiation and termination of assistance in an upper-limb exoskeleton, enabling users to start and stop robot-aided reaches via motor imagery. Introduces a class-agnostic fixation-based recentering method that improves decoding separability and reduces bias, moving toward intention-driven, neuroplasticity-targeted rehab control.</td><td><a href="https://arxiv.org/abs/2603.16825">Link</a></td></tr>
+<tr><td>GenZ-LIO: Generalizable LiDAR-Inertial Odometry Beyond Indoor--Outdoor Boundaries</td><td>Massachusetts Institute of Technology</td><td>Presents GenZ-LIO, a LiDAR-inertial odometry system that adapts voxel resolution via PID-inspired feedback to handle sharp indoor–outdoor scale changes. A hybrid point-to-plane/point-to-point update with voxel-pruned correspondence search yields robust, efficient odometry across confined, open, and transitional environments.</td><td><a href="https://arxiv.org/abs/2603.16273">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>MolmoB0T: Large-Scale Simulation Enables Zero-Shot Manipulation</td><td></td><td>Introduces MolmoBot-Engine and a 1.8M-trajectory synthetic dataset to train vision-language manipulation policies that transfer zero-shot from sim to real for both tabletop and mobile manipulators. On Franka and RB-Y1 platforms, the best model achieves strong unseen-object performance without any real-world fine-tuning, outperforming prior π0 variants.</td><td><a href="https://arxiv.org/abs/2603.16861">Link</a></td></tr>
+<tr><td>DexGrasp-Zero: A Morphology-Aligned Policy for Zero-Shot Cross-Embodiment Dexterous Grasping</td><td></td><td>Proposes a morphology-aligned graph representation and MAGCN policy that encode diverse hand structures with physics-aware node features for dexterous grasping. Trained jointly on four robotic hands, the policy zero-shot transfers to unseen hands in simulation and real-world platforms, achieving high success on novel objects.</td><td><a href="https://arxiv.org/abs/2603.16806">Link</a></td></tr>
+<tr><td>Dexterous grasp data augmentation based on grasp synthesis with fingertip workspace cloud and contact-aware sampling</td><td></td><td>Presents a teleoperation-driven framework with AutoWS fingertip workspace clouds and a contact-aware sampling-based grasp generator (FSG) to massively augment dexterous grasp datasets. The method avoids inverse kinematics, supports arbitrary hand structures, and generates valid, human-like grasps in real time over YCB objects.</td><td><a href="https://arxiv.org/abs/2603.16609">Link</a></td></tr>
+<tr><td>Scalable Inspection Planning via Flow-based Mixed Integer Linear Programming</td><td></td><td>Reformulates graph inspection planning as a network-flow-based MILP, enabling a specialized Branch-and-Cut solver that scales to tens of thousands of vertices and thousands of inspection points. Across medical, infrastructure, and synthetic benchmarks, it yields tighter lower bounds and smaller optimality gaps than prior formulations.</td><td><a href="https://arxiv.org/abs/2603.16593">Link</a></td></tr>
+<tr><td>Coverage First Next Best View for Inspection of Cluttered Pipe Networks Using Mobile Manipulators</td><td>University of Manchester; University of Tokyo</td><td>Develops a next-best-view coverage planner that trades off exploration and exploitation for inspecting cluttered, confined pipe networks with a mobile manipulator. Extends vector-field inequalities with chance constraints to handle geometric uncertainty, demonstrating full coverage and collision avoidance in real-world experiments.</td><td><a href="https://arxiv.org/abs/2603.16471">Link</a></td></tr>
+<tr><td>MG-Grasp: Metric-Scale Geometric 6-DoF Grasping Framework with Sparse RGB Observations</td><td>Hong Kong University of Science and Technology; Tsinghua University</td><td>Introduces a depth-free 6-DoF grasping pipeline that reconstructs metric-scale, multi-view-consistent dense point clouds from sparse RGB using a 3D foundation model. Builds high-quality grasps on these reconstructions, achieving state-of-the-art performance among RGB-only methods on GraspNet-1Billion and real-robot tests.</td><td><a href="https://arxiv.org/abs/2603.16270">Link</a></td></tr>
+<tr><td>Ultrafast Sampling-based Kinodynamic Planning via Differential Flatness</td><td>Rice University</td><td>Proposes AkinoPDF, which uses differential flatness to move kinodynamic planning into a flat-output space where two-point BVPs and dynamics integration admit analytical solutions. Trajectories are checked and generated in parallel via SIMD, yielding microsecond–millisecond planning times for manipulators and mobile robots in cluttered and dynamic scenes.</td><td><a href="https://arxiv.org/abs/2603.16059">Link</a></td></tr>
+<tr><td>Geometry-Aligned LLM Fine-Tuning for Sequential Narrow-Opening Planning</td><td>George Mason University</td><td>Fine-tunes an LLM with failure-driven LoRA and GRPO against a geometry-based verifier to output fixed-length waypoint sequences for traversing multiple narrow openings. The resulting planner exhibits long-horizon geometric reasoning and outperforms baselines on both in-distribution and out-of-distribution narrow-passage scenarios.</td><td><a href="https://arxiv.org/abs/2603.16028">Link</a></td></tr>
+<tr><td>Emergent Dexterity via Diverse Resets and Large-Scale Reinforcement Learning</td><td></td><td>Introduces a sim framework that programmatically generates diverse reset states to expose RL agents to rich contact interactions underlying dexterous manipulation. Using a single reward and fixed hyperparameters, it scales on-policy RL to long-horizon, contact-rich tasks and distills robust visuomotor policies that transfer zero-shot to real hardware.</td><td><a href="https://arxiv.org/abs/2603.15789">Link</a></td></tr>
+<tr><td>Learning Whole-Body Control for a Salamander Robot</td><td>EPFL</td><td>Applies reinforcement learning to synthesize unified joint-level whole-body controllers for an amphibious, highly articulated salamander robot. Using real-to-sim matching and sim-to-real transfer, the learned policy achieves stable walking on varied terrains and supports simulated gait transitions between walking and swimming.</td><td><a href="https://arxiv.org/abs/2603.16683">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
