@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-03-20</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-03-20</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>60</strong></div>
+        <div class="card">Papers analyzed: <strong>60</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Deformable-object and contact-rich manipulation see strong advances via rapid dynamics adaptation (RAPiD), large visuo-tactile world models (OmniVTA), and unified visual–tactile imitation learning for tracing soft objects.</li><li>New motion-planning and safety frameworks span configuration-space neural distance fields (CSSDF-Net) and graph-of-constraints MPC for multi-agent task and motion planning.</li><li>Multiple works target scalable, robust manipulation policies: uncertainty-aware planning over intuitive physics (ManiDreams), memory-augmented visuomotor control (MemoAct), and autoregressive multi-skill assembly (ATG-MoE).</li><li>Simulation and data generation pipelines are being automated and scaled using 3D world generative models (V-Dreamer, scaling sim-to-real RL for VLAs) and measurement studies of mobile manipulation compute/offloading trade-offs.</li><li>Whole-body and legged control methods progress with distributed safety-critical MPC for multi-robot quadrupeds, dynamics-grounded policy architectures, perceptive humanoid locomotion, and optimal co-design for quadrupedal skating.</li><li>Institution-aligned work includes Stanford’s high-DOF deformable object mobile manipulation via rapid dynamics embedding and University of Washington’s low-cost, tapered continuum robots for compliant inspection and manipulation.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Rapid Adaptation of Particle Dynamics for Generalized Deformable Object Mobile Manipulation</td><td>Stanford University</td><td>Introduces RAPiD, a two-phase rapid motor adaptation framework that extends dynamics-conditioned policies from rigid to deformable object mobile manipulation by leveraging ground-truth particle positions in simulation. A learned embedding of deformable dynamics is inferred from vision and actions, enabling a 22-DoF mobile manipulator to achieve 80%+ success across diverse real-world deformable-object tasks despite varying material properties and shapes.</td><td><a href="https://arxiv.org/abs/2603.18246">Link</a></td></tr>
+<tr><td>Tendon-Actuated Robots with a Tapered, Flexible Polymer Backbone: Design, Fabrication, and Modeling</td><td>University of Washington</td><td>Presents a low-cost, 3D-printed tendon-actuated continuum robot with a tapered TPU backbone and integrated base electronics for direct tendon tension sensing and control. A Cosserat-rod-based kinetostatic model explicitly captures spatially varying stiffness, achieving centimeter-level shape prediction and enabling analysis of how taper geometry affects workspace and manipulability for compliant inspection and manipulation.</td><td><a href="https://arxiv.org/abs/2603.19124">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>CSSDF-Net: Safe Motion Planning Based on Neural Implicit Representations of Configuration Space Distance Field</td><td>Shanghai Jiao Tong University</td><td>Proposes CSSDF-Net, a neural implicit signed distance field defined directly in configuration space, providing differentiable distance and gradient queries for manipulators. A spatial-hashing data pipeline supports zero-shot generalization to new environments, and integration into trajectory optimization and MPC yields safe motion plans with unified treatment of self- and environment-collisions in static and dynamic scenes.</td><td><a href="https://arxiv.org/abs/2603.18669">Link</a></td></tr>
+<tr><td>Graph-of-Constraints Model Predictive Control for Reactive Multi-agent Task and Motion Planning</td><td>Purdue University</td><td>Introduces GoC-MPC, which encodes partially ordered multi-agent tasks as a graph of geometric constraints over 3D keypoints and solves them within an MPC loop. The method supports dynamic agent assignment and online disturbance recovery from visual observations alone, achieving higher success, faster planning, and shorter paths than recent multi-agent TAMP baselines on complex manipulation tasks.</td><td><a href="https://arxiv.org/abs/2603.18400">Link</a></td></tr>
+<tr><td>ATG-MoE: Autoregressive trajectory generation with mixture-of-experts for assembly skill learning</td><td></td><td>Presents ATG-MoE, an end-to-end autoregressive trajectory generator that maps RGB-D, language instructions, and proprioception to manipulation trajectories via a mixture-of-experts architecture. Trained on eight industrial assembly skills, it achieves &gt;96% grasp and &gt;91% overall success in simulation and transfers to real setups, while enabling unified multi-skill learning and strong positional generalization.</td><td><a href="https://arxiv.org/abs/2603.19029">Link</a></td></tr>
+<tr><td>OmniVTA: Visuo-Tactile World Modeling for Contact-Rich Robotic Manipulation</td><td></td><td>Builds OmniViTac, a 21k+ trajectory visuo-tactile-action dataset over 86 tasks, and OmniVTA, a world-model-based framework that jointly encodes tactile and visual signals. A two-stream predictive model and 60 Hz reflexive controller enable accurate short-horizon contact prediction and closed-loop correction, yielding strong real-robot performance and generalization on diverse contact-rich tasks.</td><td><a href="https://arxiv.org/abs/2603.19201">Link</a></td></tr>
+<tr><td>ViTac-Tracing: Visual-Tactile Imitation Learning of Deformable Object Tracing</td><td>Imperial College London; Perception Laboratory, Department of Engineering, King’s College London, Strand, London</td><td>Proposes a unified visual–tactile imitation learning policy for tracing 1D and 2D deformable objects, combining a contact-centric weighted loss for local corrections with a global task-progress loss. Implemented on a low-cost teleoperation platform with integrated tactile sensing, the method attains 80% success on seen and 65% on unseen deformable objects, improving robustness without object-specific modeling.</td><td><a href="https://arxiv.org/abs/2603.18784">Link</a></td></tr>
+<tr><td>Robotic Agentic Platform for Intelligent Electric Vehicle Disassembly</td><td>University of Colorado Boulder</td><td>RAPID is a gantry-based robotic system for EV battery disassembly that combines RGB-D perception, open-vocabulary detection, and automated nut-running tools for large battery packs. It compares one-shot and servoing-based fastener removal strategies and introduces structured tool APIs for LLM agents, showing reliable one-shot disassembly and highlighting the importance of well-designed robot interfaces for agentic control.</td><td><a href="https://arxiv.org/abs/2603.18520">Link</a></td></tr>
+<tr><td>MemoAct: Atkinson-Shiffrin-Inspired Memory-Augmented Visuomotor Policy for Robotic Manipulation</td><td></td><td>MemoAct adopts a hierarchical memory design inspired by the Atkinson–Shiffrin model, combining lossless short-term memory for precise state tracking with compressed long-term memory for extended horizons. Evaluated on the MemoryRTBench suite and real robots, it consistently outperforms Markovian and other history-aware baselines on memory-dependent manipulation tasks.</td><td><a href="https://arxiv.org/abs/2603.18494">Link</a></td></tr>
+<tr><td>ManiDreams: An Open-Source Library for Robust Object Manipulation via Uncertainty-aware Task-specific Intuitive Physics</td><td>Rice University; University of Cambridge</td><td>ManiDreams is a modular framework that wraps existing manipulation policies in a sample–predict–constrain loop using distributional state representations and backend-agnostic dynamics models. By explicitly propagating perceptual, parametric, and structural uncertainties during planning, it improves robustness on ManiSkill benchmarks and real-world pushing, picking, and catching without retraining base policies.</td><td><a href="https://arxiv.org/abs/2603.18336">Link</a></td></tr>
+<tr><td>Contact Status Recognition and Slip Detection with a Bio-inspired Tactile Hand</td><td></td><td>Demonstrates slip detection via contact status recognition on a five-fingered bio-inspired tactile hand with 24 embedded sensing channels. Using wavelet-based feature extraction and classification, the method reaches 96.39% accuracy across varied speeds and materials and maintains &gt;91% on unseen materials, enabling reliable, material-agnostic slip onset detection for delicate grasping.</td><td><a href="https://arxiv.org/abs/2603.18370">Link</a></td></tr>
+<tr><td>Offload or Overload: A Platform Measurement Study of Mobile Robotic Manipulation Workloads</td><td></td><td>Provides a quantitative study of modern mobile manipulation workloads across onboard, edge, and cloud GPUs, showing that full stacks overwhelm small GPUs and significantly reduce battery life on larger ones. The work characterizes latency–accuracy–bandwidth trade-offs for offloading and identifies challenges and opportunities for shared compute across robot fleets, informing design of future inference systems for mobile manipulators.</td><td><a href="https://arxiv.org/abs/2603.18284">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
