@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-03-26</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-03-26</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>45</strong></div>
+        <div class="card">Papers analyzed: <strong>45</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Soft, sensorless musculoskeletal hands and text-driven whole-body humanoid control highlight new hardware and control paradigms for safe, compliant interaction.</li><li>Generalist neural motion planning and knowledge- or language-guided planners advance long-horizon, clutter-robust manipulation in both tabletop and 3D warehouse-like settings.</li><li>New control-theoretic tools (CBFs for singularity avoidance, parallel differential IK) and reachability learning target safer, more efficient manipulation and harvesting.</li><li>VLA-focused work (3D-Mix, SOMA, TAG, event-driven assistance, episodic memory) improves robustness, spatial grounding, and long-horizon reliability in foundation-model policies.</li><li>Large-scale trajectory generation and time-optimal spline planning demonstrate scalable motion planning for swarms and mobile robots with continuous safety guarantees.</li><li>Learning-guided multi-agent path finding from MIT offers higher-throughput warehouse navigation through RL-informed priority assignment.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>A Sensorless, Inherently Compliant Anthropomorphic Musculoskeletal Hand Driven by Electrohydraulic Actuators</td><td>ETH Zurich</td><td>Presents an anthropomorphic, tendon-driven musculoskeletal hand actuated by remote Peano-HASEL electrohydraulic modules, prioritizing intrinsic compliance and safety over payload. A pulley-based tendon routing amplifies limited actuator stroke, and self-sensing via current monitoring enables contact-aware, closed-loop grasping without external force or position sensors, successfully manipulating fragile objects.</td><td><a href="https://arxiv.org/abs/2603.24357">Link</a></td></tr>
+<tr><td>Toward Generalist Neural Motion Planners for Robotic Manipulators: Challenges and Opportunities</td><td>New York University</td><td>Reviews the state of neural motion planners for robotic manipulators, analyzing how learned planners address high-dimensional, multi-modal planning and where they fail to generalize to out-of-distribution scenarios. The paper outlines open challenges and a roadmap toward truly generalist neural motion planners that can serve as low-level modules in broader manipulation frameworks.</td><td><a href="https://arxiv.org/abs/2603.24318">Link</a></td></tr>
+<tr><td>Learning-guided Prioritized Planning for Lifelong Multi-Agent Path Finding in Warehouse Automation</td><td>Massachusetts Institute of Technology</td><td>Introduces RL-RH-PP, which augments classical prioritized planning for warehouse multi-robot navigation with a learned, attention-based priority assignment policy. Framed as a POMDP, the learned policy improves long-horizon throughput by proactively decongesting traffic and generalizes across robot densities, horizons, and layouts.</td><td><a href="https://arxiv.org/abs/2603.23838">Link</a></td></tr>
+<tr><td>Evidence of an Emergent &quot;Self&quot; in Continual Robot Learning</td><td>New York University</td><td>Proposes an operational definition of a robot &quot;self&quot; as the most invariant subnetwork within a continually adapting policy. Empirical comparisons show that robots undergoing continual learning develop a significantly more stable subnetwork than those trained on a fixed task, suggesting an emergent internal structure analogous to selfhood.</td><td><a href="https://arxiv.org/abs/2603.24350">Link</a></td></tr>
+<tr><td>CoordLight: Learning Decentralized Coordination for Network-Wide Traffic Signal Control</td><td>Massachusetts Institute of Technology</td><td>Presents CoordLight, a MARL framework for large-scale adaptive traffic signal control using queue-based state encoding and an attention-driven Neighbor-aware Policy Optimization algorithm. The method yields coordinated, decentralized control across up to 196 intersections, outperforming prior approaches on real-world traffic datasets.</td><td><a href="https://arxiv.org/abs/2603.24366">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>SafeFlow: Real-Time Text-Driven Humanoid Whole-Body Control via Physics-Guided Rectified Flow and Selective Safety Gating</td><td></td><td>SafeFlow combines a physics-guided rectified flow motion generator with a three-stage safety gate to turn free-form text prompts into physically feasible humanoid whole-body trajectories. On the Unitree G1, it improves success rate, physical compliance, and inference speed over prior diffusion-based controllers while filtering unsafe or out-of-distribution commands.</td><td><a href="https://arxiv.org/abs/2603.23983">Link</a></td></tr>
+<tr><td>Grounding Vision and Language to 3D Masks for Long-Horizon Box Rearrangement</td><td></td><td>Proposes RAMP-3D, which uses a 3D vision-language model to ground language into paired 3D masks specifying what to pick and where to place, effectively turning long-horizon box rearrangement into reactive mask prediction. The system achieves high success on warehouse-style rearrangement with up to 30 objects, outperforming 2D VLM baselines without explicit symbolic planning.</td><td><a href="https://arxiv.org/abs/2603.23676">Link</a></td></tr>
+<tr><td>Knowledge-Guided Manipulation Using Multi-Task Reinforcement Learning</td><td>Mohamed bin Zayed University of Artificial Intelligence</td><td>Introduces KG-M3PO, which augments egocentric vision with an online 3D scene graph and dynamic relational edges to provide structured world knowledge for multi-task manipulation RL. A graph neural encoder and unified latent space over visual, proprioceptive, linguistic, and graph inputs yield better sample efficiency, success rates, and generalization under occlusion and partial observability.</td><td><a href="https://arxiv.org/abs/2603.24083">Link</a></td></tr>
+<tr><td>Chameleon: Episodic Memory for Long-Horizon Robotic Manipulation</td><td>Nanyang Technological University; National Taiwan University</td><td>Chameleon implements geometry-grounded multimodal episodic memory with a differentiable stack to retain disambiguating context for manipulation tasks suffering from perceptual aliasing. On the Camo-Dataset of real UR5e tasks, it improves reliability and long-horizon performance over standard memory and retrieval baselines.</td><td><a href="https://arxiv.org/abs/2603.24576">Link</a></td></tr>
+<tr><td>Event-Driven Proactive Assistive Manipulation with Grounded Vision-Language Planning</td><td>University of Osaka</td><td>Shifts collaborative manipulation assistance from instruction-driven to event-driven by triggering robot planning on detected human-induced state transitions. Using pre/post visual snapshots and a grounded VLM planner over discrete action primitives, the system proactively completes solvable tabletop tasks and appropriately refrains on unsolvable scenes.</td><td><a href="https://arxiv.org/abs/2603.23950">Link</a></td></tr>
+<tr><td>Learning What Can Be Picked: Active Reachability Estimation for Efficient Robotic Fruit Harvesting</td><td></td><td>Formulates reachability as a binary prediction problem learned from RGB-D observations, replacing repeated IK or motion planning checks in fruit harvesting. Active learning strategies select informative samples, achieving higher reachability accuracy with fewer labels and enabling fast, task-level decisions about which fruits to target.</td><td><a href="https://arxiv.org/abs/2603.23679">Link</a></td></tr>
+<tr><td>Task-Space Singularity Avoidance for Control Affine Systems Using Control Barrier Functions</td><td>Johns Hopkins University; University of Maryland, College Park</td><td>Develops a control barrier function framework that treats task-space singularities as unsafe regions derived from the eigenvalues of the input-output mapping. The method enforces a safety margin from rank-deficient configurations, enabling smooth trajectory tracking for manipulators and other control-affine systems while greatly reducing control spikes.</td><td><a href="https://arxiv.org/abs/2603.23753">Link</a></td></tr>
+<tr><td>MIRROR: Visual Motion Imitation via Real-time Retargeting and Teleoperation with Parallel Differential Inverse Kinematics</td><td>California Institute of Technology; Technology Innovation Institute</td><td>MIRROR introduces a GPU-parallel continuation-based differential IK scheme that evaluates multiple constrained QPs in parallel with self-collision-avoiding CBFs and Lyapunov-based selection to escape local minima. Coupled with visual skeletal pose estimation, it enables safe, responsive upper-body humanoid teleoperation on THEMIS in real-world tasks.</td><td><a href="https://arxiv.org/abs/2603.23995">Link</a></td></tr>
+<tr><td>Accelerated Spline-Based Time-Optimal Motion Planning with Continuous Safety Guarantees for Non-Differentially Flat Systems</td><td>KU Leuven</td><td>Proposes decoupling separating hyperplane computation from spline-based optimal control to enforce continuous-time collision avoidance without including hyperplane parameters as decision variables. The resulting planner retains strong safety guarantees while reducing computation time by up to ~60% in cluttered environments for non-differentially flat mobile robots.</td><td><a href="https://arxiv.org/abs/2603.24133">Link</a></td></tr>
+<tr><td>Enhancing Drone Light Shows Performances: Optimal Allocation and Trajectories for Swarm Drone Formations</td><td></td><td>Introduces UATG, a unified framework that jointly solves drone-to-waypoint assignment and dynamically feasible, collision-free trajectory generation for large-scale light-show swarms. It computes transitions for over 1000 drones in about one second on a laptop, enabling rapid, visually smooth formation changes with guaranteed collision avoidance.</td><td><a href="https://arxiv.org/abs/2603.24401">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
