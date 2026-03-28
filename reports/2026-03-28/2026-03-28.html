@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-03-27</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-03-27</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>42</strong></div>
+        <div class="card">Papers analyzed: <strong>42</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>ETH Zurich presents UMBRELLA, an uncertainty-aware multi-robot coordination framework using LTL tasks and conformal prediction to cut makespan and variance in dynamic environments.</li><li>Multiple works advance motion planning and control with learning-based representations, including connectivity-aware constrained planning and fast one-step diffusion over movement primitives.</li><li>Vision-Language-Action (VLA) models continue to mature, with several papers improving long-horizon manipulation, robustness via 3D scene flow, and sensing via thermal cues.</li><li>New methods target mobile and aerial manipulation: minimum-energy whole-body control for redundant mobile manipulators and physics-guided transfer of VLA policies to aerial pick-and-place.</li><li>Embodied and musculoskeletal control progresses with MuscleMimic, enabling scalable, physiologically realistic full-body motor learning on GPUs.</li><li>Human-in-the-loop manipulation and teleoperation benefit from AR visualizations of impedance control and language-conditioned optical-flow trajectory generation.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>UMBRELLA: Uncertainty-aware Multi-robot Reactive Coordination under Dynamic Temporal Logic Tasks</td><td>ETH Zurich</td><td>UMBRELLA coordinates multi-robot teams under dynamic Linear Temporal Logic tasks using Monte Carlo Tree Search with conformal-prediction-based uncertainty handling. By optimizing Conditional Value at Risk of mission makespan and replanning in a receding horizon, it maintains spatial–temporal constraints while cutting average makespan and variance (23% and 71%) versus static baselines in simulation and hardware.</td><td><a href="https://arxiv.org/abs/2603.25395">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Connectivity-Aware Representations for Constrained Motion Planning via Multi-Scale Contrastive Learning</td><td>Kwangwoon University; Seoul National University</td><td>This work learns a connectivity-aware latent representation of robot joint configurations for constrained motion planning, explicitly targeting issues with essentially mutually disconnected components and redundancy-induced self-motion manifolds. Multi-scale manifold learning and contrastive clustering guide the selection of start/goal configurations, yielding 1.9× higher success and 0.43× planning time compared to baselines on manipulation tasks.</td><td><a href="https://arxiv.org/abs/2603.25298">Link</a></td></tr>
+<tr><td>A Minimum-Energy Control Approach for Redundant Mobile Manipulators in Physical Human-Robot Interaction Applications</td><td></td><td>The paper proposes a whole-body control methodology for a redundant mobile manipulator that minimizes total kinetic energy during physically interactive tasks. Experiments on a peg-in-hole scenario show reduced stored kinetic energy and improved task performance versus a benchmark controller, supporting safer and more efficient mobile manipulation in human-robot interaction contexts.</td><td><a href="https://arxiv.org/abs/2603.25259">Link</a></td></tr>
+<tr><td>Characterization of Constraints in Flexible Unknown Environments</td><td></td><td>An online path planning algorithm is introduced for manipulating flexibly constrained objects in unknown environments, using real-time force and pose sensing to explore and characterize constraint stiffness. By estimating global stiffness behavior and recognizing simple mechanical constraints (e.g., flexible hinges) on the fly, the method enables safe simultaneous exploration and manipulation, with potential applications in surgical organ retraction.</td><td><a href="https://arxiv.org/abs/2603.24813">Link</a></td></tr>
+<tr><td>Towards Embodied AI with MuscleMimic: Unlocking full-body musculoskeletal motor learning at scale</td><td>EPFL</td><td>MuscleMimic provides validated upper-body and full-body musculoskeletal humanoid models with 126 and 416 muscles, plus a motion-retargeting pipeline from SMPL mocap to muscle actuation. Using massively parallel GPU simulation and imitation learning, it trains generalist policies that reproduce diverse human movements with strong biomechanical fidelity, lowering the barrier to large-scale neuromuscular control research.</td><td><a href="https://arxiv.org/abs/2603.25544">Link</a></td></tr>
+<tr><td>LILAC: Language-Conditioned Object-Centric Optical Flow for Open-Loop Trajectory Generation</td><td>DDI Research Inc.</td><td>LILAC is a flow-based Vision-Language-Action model that predicts object-centric 2D optical flow from an RGB image and natural-language instruction, then lifts it to 6-DoF manipulator trajectories. A semantic alignment loss and prompt-conditioned cross-modal adapter improve instruction–flow consistency, yielding better flow quality and higher real-world manipulation success under free-form language than prior approaches.</td><td><a href="https://arxiv.org/abs/2603.25481">Link</a></td></tr>
+<tr><td>Temporally Decoupled Diffusion Planning for Autonomous Driving</td><td></td><td>This work introduces a Temporally Decoupled Diffusion Model that assigns different noise levels to trajectory segments, treating highly noised regions as unknowns and leveraging low-noise context for reconstruction. With a specialized adaptive layer normalization and asymmetric temporal guidance, it improves diffusion-based motion planning performance on nuPlan, especially on hard scenarios, and illustrates a general strategy for temporally structured planning.</td><td><a href="https://arxiv.org/abs/2603.25462">Link</a></td></tr>
+<tr><td>Visualizing Impedance Control in Augmented Reality for Teleoperation: Design and User Evaluation</td><td>Eindhoven University of Technology</td><td>The authors overlay an augmented-reality visualization of impedance controller target poses and end-effector displacements during dual-arm teleoperation with VR controllers. User studies on box manipulation show that making controller forces visually explicit cuts completion time by 24% in lift tasks, suggesting AR feedback can partially replace expensive haptic hardware for contact-rich manipulation.</td><td><a href="https://arxiv.org/abs/2603.25418">Link</a></td></tr>
+<tr><td>MMaDA-VLA: Large Diffusion Vision-Language-Action Model with Unified Multi-Modal Instruction and Generation</td><td></td><td>MMaDA-VLA is a large diffusion-based VLA model that embeds language, images, and continuous robot controls into a shared discrete token space and trains via masked-token denoising. By jointly generating future goal observations and action chunks through iterative denoising, it improves long-horizon consistency for manipulation and achieves 98% average success on LIBERO and strong performance on CALVIN.</td><td><a href="https://arxiv.org/abs/2603.25406">Link</a></td></tr>
+<tr><td>ThermoAct:Thermal-Aware Vision-Language-Action Models for Robotic Perception and Decision-Making</td><td></td><td>ThermoAct augments Vision-Language-Action policies with thermal sensing to better perceive object and environmental properties relevant to safety in human-robot collaboration. A VLM-based planner decomposes natural-language commands into sub-tasks, while fused visual–thermal cues improve both task success and proactive safety compared to purely vision-based baselines in real-world experiments.</td><td><a href="https://arxiv.org/abs/2603.25044">Link</a></td></tr>
+<tr><td>$\pi$, But Make It Fly: Physics-Guided Transfer of VLA Models to Aerial Manipulation</td><td></td><td>AirVLA studies how manipulation-pretrained VLA models can be adapted to aerial pick-and-place despite very different dynamics. It introduces Payload-Aware Guidance, an inference-time modification of the policy’s flow-matching sampler with payload constraints, and uses Gaussian Splatting to synthesize navigation data, doubling pick-and-place success (23%→50%) and enabling 100% navigation success in some tasks.</td><td><a href="https://arxiv.org/abs/2603.25038">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
