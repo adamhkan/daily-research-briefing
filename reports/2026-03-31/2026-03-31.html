@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-03-30</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-03-30</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>29</strong></div>
+        <div class="card">Papers analyzed: <strong>29</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Dexterous manipulation hardware and sensing advance with a new open-source tendon-driven hand (Ruka-v2) and an 800 Hz data glove (T-800) enabling richer teleoperation and learning data.</li><li>Multiple works push unified or longer-horizon motion generation, including diffusion-based in-image navigation + pre-grasp planning and emergent neuro-symbolic automaton policies from visuomotor data.</li><li>Task-oriented and bimanual manipulation benefit from geometry-centric grasp planning and online adaptation via natural language feedback for dual-arm skills.</li><li>VLA-based manipulation pipelines are refined with new training (VLA-OPD, DFM-VLA) and deployment (Realtime-VLA V2) strategies for higher robustness, sample efficiency, and control-rate execution.</li><li>Mobile and whole-body manipulation see progress in legged cart pushing, UAV-mounted manipulators under disturbance, and fast, controllable humanoid running with perception-integrated autonomy.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td colspan="4"><em>No matches</em></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Ruka-v2: Tendon Driven Open-Source Dexterous Hand with Wrist and Abduction for Robot Learning</td><td></td><td>Introduces Ruka-v2, an open-source, tendon-driven humanoid hand adding a 2-DOF wrist and finger ab/adduction to improve human-like dexterity for confined and fine-grained manipulation. Teleoperation user studies show large gains in task speed and success over the prior design, and the platform is demonstrated on a range of bimanual teleoperation and autonomous learning tasks with full CAD, control, and build resources released.</td><td><a href="https://arxiv.org/abs/2603.26660">Link</a></td></tr>
+<tr><td>Partial Motion Imitation for Learning Cart Pushing with Legged Manipulators</td><td>Georgia Institute of Technology</td><td>Proposes a partial imitation learning scheme for loco-manipulation, transferring only lower-body motion style from a robust locomotion policy to a cart-pushing policy for legged robots. Using a partial adversarial motion prior, the method yields more stable and accurate cart pushing across varied terrains and transfers across simulators, highlighting effective whole-body mobile manipulation.</td><td><a href="https://arxiv.org/abs/2603.26659">Link</a></td></tr>
+<tr><td>Generalizable task-oriented object grasping through LLM-guided ontology and similarity-based planning</td><td></td><td>Presents a geometry-centric pipeline for task-oriented grasping that avoids brittle semantic recognition, using an LLM-built object-part-task ontology combined with point-cloud-based part identification. A similarity-based planner transfers grasp strategies from known objects to novel ones, achieving accurate functional part selection and robust task-oriented grasps on unseen categories.</td><td><a href="https://arxiv.org/abs/2603.26412">Link</a></td></tr>
+<tr><td>DiffusionAnything: End-to-End In-context Diffusion Learning for Unified Navigation and Pre-Grasp Motion</td><td>Intelligent Space Robotics Laboratory, Center for Digital Engineering, Skolkovo Institute of Science and Technology.</td><td>Introduces an RGB-only diffusion policy that jointly handles meter-scale navigation and centimeter-scale pre-grasp motion in image space using multi-scale FiLM modulation and trajectory-aligned depth prediction. With about 5 minutes of self-supervised data per task, the system achieves goal-directed navigation and pre-grasp behaviors with strong zero-shot generalization and onboard-suitable compute and memory footprints.</td><td><a href="https://arxiv.org/abs/2603.26322">Link</a></td></tr>
+<tr><td>Meta-Adaptive Beam Search Planning for Transformer-Based Reinforcement Learning Control of UAVs with Overhead Manipulators under Flight Disturbances</td><td></td><td>Develops a transformer-based DDQN framework with an adaptive beam-search planner for aerial manipulators, performing short-horizon lookahead using the critic to anticipate end-effector motion under base disturbances. On a 3-DoF UAV-mounted arm, the method improves reward, halves mean tracking error, and maintains low tip tracking error under drift relative to DDQN and transformer-only baselines.</td><td><a href="https://arxiv.org/abs/2603.26612">Link</a></td></tr>
+<tr><td>Adapt as You Say: Online Interactive Bimanual Skill Adaptation via Human Language Feedback</td><td>-Stone Robotics Institute; Istituto Italiano di Tecnologia; The Chinese University of Hong Kong; University of California, Los Angeles</td><td>BiSAIL enables zero-shot online adaptation of offline-learned bimanual skills through human language feedback, using a hierarchical reason-then-modulate scheme. It infers high-level adaptation objectives from multimodal task cues and verbally provided corrections, then modulates a diffusion-based bimanual motion generator, significantly improving adaptability and cross-robot transfer across six tasks and two dual-arm platforms.</td><td><a href="https://arxiv.org/abs/2603.26466">Link</a></td></tr>
+<tr><td>T-800: An 800 Hz Data Glove for Precise Hand Gesture Tracking</td><td>Chinese Academy of Sciences; Peking University; Tsinghua University; University of Chinese Academy of Sciences</td><td>Introduces T-800, a high-bandwidth data glove with 18 IMUs and synchronized 800 Hz tracking to capture fast, contact-rich hand motions without occlusion. Experiments show substantial high-frequency content in human dexterity and demonstrate accurate kinematic retargeting to robotic hands, providing rich data for future dexterous manipulation policy learning.</td><td><a href="https://arxiv.org/abs/2603.26403">Link</a></td></tr>
+<tr><td>Realtime-VLA V2: Learning to Run VLAs Fast, Smooth, and Accurate</td><td></td><td>Details a practical stack for deploying VLA-driven manipulation at high control rates, covering calibration, planning and control, and learning-based selection of execution speed. The system achieves task execution speeds comparable to casual human operation and near hardware limits on a lightweight arm, with unaccelerated logs validating real-time performance.</td><td><a href="https://arxiv.org/abs/2603.26360">Link</a></td></tr>
+<tr><td>DFM-VLA: Iterative Action Refinement for Robot Manipulation via Discrete Flow Matching</td><td></td><td>Proposes DFM-VLA, which uses discrete flow matching to iteratively refine tokenized action sequences for manipulation, enabling correction of early token errors. With a velocity-field-based decoder and a two-stage refinement-plus-validation scheme, it outperforms autoregressive, discrete diffusion, and continuous diffusion baselines on CALVIN, LIBERO, and real-robot tasks while keeping inference efficient.</td><td><a href="https://arxiv.org/abs/2603.26320">Link</a></td></tr>
+<tr><td>Emergent Neural Automaton Policies: Learning Symbolic Structure from Visuomotor Trajectories</td><td></td><td>ENAP infers a Mealy state machine from visuomotor demonstrations via adaptive clustering and an L*-style algorithm, yielding an interpretable high-level planner over latent task modes. A low-level residual policy then handles continuous control, leading to improved sample efficiency and performance on complex, long-horizon manipulation tasks compared to end-to-end VLA baselines.</td><td><a href="https://arxiv.org/abs/2603.25903">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
