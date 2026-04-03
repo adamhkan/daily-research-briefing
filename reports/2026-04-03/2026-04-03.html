@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-02</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-02</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>44</strong></div>
+        <div class="card">Papers analyzed: <strong>44</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Humanoid whole-body loco-manipulation and navigation see rapid advances, with diffusion priors, policy switching, and human-data-driven navigation validated on Unitree G1 platforms.</li><li>New motion planning frameworks tackle uncertainty, unknown dynamics, and geometry-aware safety using task-kinodynamic sampling, hierarchical reachability, behavioral diffusion, and MILP-MPC with CBFs.</li><li>Dense, generalizable rewards from vision-language models and improved data efficiency via multi-camera imitation scale reinforcement learning for long-horizon manipulation and mobile manipulation.</li><li>Dexterous and soft manipulation benefit from force-aware retargeting from VR, new underactuated hand hardware with integrated wrist, and tactile-transformer perception for multi-fingered hands.</li><li>Multi-agent and multi-robot coordination progresses with certificate-driven closed-loop MAPF and MAPPO-based task/path planning for heterogeneous teams, emphasizing scalability and guarantees.</li><li>Human-intent-aware navigation interfaces and reachability-aware time scaling improve path tracking and route specification in cluttered environments.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>DreamControl-v2: Simpler and Scalable Autonomous Humanoid Skills via Trainable Guided Diffusion Priors</td><td>UC Berkeley</td><td>Proposes training a guided diffusion prior directly in the humanoid’s motion space, unifying human and robot datasets into a shared embodiment space. Scaling reference-trajectory generation yields more robust RL policies for autonomous loco-manipulation, demonstrated in simulation and on a Unitree G1 humanoid.</td><td><a href="https://arxiv.org/abs/2604.00202">Link</a></td></tr>
+<tr><td>Certificate-Driven Closed-Loop Multi-Agent Path Finding with Inheritable Factorization</td><td>Massachusetts Institute of Technology</td><td>Introduces certificate trajectories and fleet budgets to filter closed-loop MAPF updates, ensuring completeness while maintaining a conflict-free fallback plan. The resulting CDCBS algorithm improves solution quality and decomposability over ACCBS, particularly in dense warehouse-style instances.</td><td><a href="https://arxiv.org/abs/2604.00428">Link</a></td></tr>
+<tr><td>Learning Humanoid Navigation from Human Data</td><td>Stanford University</td><td>EgoNav learns humanoid navigation purely from 5 hours of human walking data via a diffusion model over future trajectories conditioned on rich 360° visual memory. Deployed zero-shot on a Unitree G1, it exhibits emergent behaviors like waiting for doors and navigating crowds without robot-specific training.</td><td><a href="https://arxiv.org/abs/2604.00416">Link</a></td></tr>
+<tr><td>Collaborative Task and Path Planning for Heterogeneous Robotic Teams using Multi-Agent PPO</td><td>ETH Zurich</td><td>Applies MAPPO to jointly handle target allocation, scheduling, and path planning for heterogeneous robot teams in planetary exploration scenarios. The learned planner approximates exhaustive-search optimal solutions while enabling real-time replanning under changing mission conditions.</td><td><a href="https://arxiv.org/abs/2604.01213">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>BAT: Balancing Agility and Stability via Online Policy Switching for Long-Horizon Whole-Body Humanoid Control</td><td>Georgia Institute of Technology; Samsung Research</td><td>Proposes BAT, an online policy-switching framework that selects between two complementary whole-body RL controllers to trade off agility and stability. A hierarchical RL-based switching policy and an option-aware VQ-VAE are fused to achieve robust long-horizon loco-manipulation on the Unitree G1.</td><td><a href="https://arxiv.org/abs/2604.01064">Link</a></td></tr>
+<tr><td>Functional Force-Aware Retargeting from Virtual Human Demos to Soft Robot Policies</td><td></td><td>SoftAct uses VR-collected demonstrations with dense contact and force data to teach soft robot hands functional, human-like manipulation. A two-stage, force-aware retargeting pipeline maps human contact forces to robot fingers and refines fingertip targets online, yielding large gains in tracking accuracy and zero-shot task success.</td><td><a href="https://arxiv.org/abs/2604.01224">Link</a></td></tr>
+<tr><td>Deep Reinforcement Learning for Robotic Manipulation under Distribution Shift with Bounded Extremum Seeking</td><td>218 CNA000001 and the Los Alamos National Laboratory LDRD; University of New Mexico</td><td>Combines DDPG policies with bounded extremum seeking to enhance robustness of manipulation under distribution shifts in goals, friction, and dynamics. Evaluations on pushing and pick-and-place show improved performance in time-varying and spatially nonuniform conditions compared to RL alone.</td><td><a href="https://arxiv.org/abs/2604.01142">Link</a></td></tr>
+<tr><td>SoftHand Model-W: A 3D-Printed, Anthropomorphic, Underactuated Robot Hand with Integrated Wrist and Carpal Tunnel</td><td>University of Bristol</td><td>Introduces SoftHand Model-W, an underactuated anthropomorphic hand with a tendon-driven 2-DOF wrist and carpal-tunnel-style tendon routing for remote actuation. Experiments on cube stacking and disc rotation show that wrist actuation reduces arm reconfiguration and enables otherwise infeasible pick-and-place motions.</td><td><a href="https://arxiv.org/abs/2604.00738">Link</a></td></tr>
+<tr><td>Multi-Camera View Scaling for Data-Efficient Robot Imitation Learning</td><td></td><td>Proposes leveraging synchronized multi-camera views to generate multiple pseudo-demonstrations per expert trajectory, increasing visual diversity without extra human effort. The framework improves viewpoint invariance and, with multiview action aggregation, significantly boosts data efficiency and generalization in real and simulated manipulation.</td><td><a href="https://arxiv.org/abs/2604.00557">Link</a></td></tr>
+<tr><td>Sampling-based Task and Kinodynamic Motion Planning under Semantic Uncertainty</td><td>University of Colorado Boulder; Virginia Tech</td><td>Models integrated task and kinodynamic motion planning with semantic label uncertainty as a Partially Observable Stochastic Hybrid System. An anytime algorithm couples decision-making with sampling-based planning, with proofs of soundness and asymptotic optimality and empirical gains over baselines in uncertain environments.</td><td><a href="https://arxiv.org/abs/2604.00401">Link</a></td></tr>
+<tr><td>Hierarchical Motion Planning and Control under Unknown Nonlinear Dynamics via Predicted Reachability</td><td>University of Illinois Urbana-Champaign</td><td>Presents a hierarchical framework that learns piecewise-affine models online over adaptive state partitions and uses reach control theory to certify transitions. The resulting weighted graph supports online graph search with provable time-to-reach bounds and relaxed conditions for underactuated systems, balancing exploration and exploitation.</td><td><a href="https://arxiv.org/abs/2604.00320">Link</a></td></tr>
+<tr><td>Generalizable Dense Reward for Long-Horizon Robotic Tasks</td><td></td><td>VLLR constructs dense rewards by combining LLM-derived subtask decompositions, VLM-based progress estimation, and intrinsic self-certainty signals for PPO finetuning. On CHORES mobile manipulation tasks, it substantially boosts success rates and sample efficiency over pretrained foundation policies without manual reward design.</td><td><a href="https://arxiv.org/abs/2604.00055">Link</a></td></tr>
+<tr><td>Behavioral Score Diffusion: Model-Free Trajectory Planning via Kernel-Based Score Estimation from Data</td><td>University of Texas at Austin</td><td>Introduces BSD, a training-free, model-free diffusion planner that estimates scores nonparametrically from trajectory libraries using kernel-weighted regression. The multi-scale denoising process recovers near model-based performance across several robotic systems using only 1,000 prior trajectories, outperforming nearest-neighbor baselines.</td><td><a href="https://arxiv.org/abs/2604.00391">Link</a></td></tr>
+<tr><td>Long-Horizon Geometry-Aware Navigation among Polytopes via MILP-MPC and Minkowski-Based CBFs</td><td>King Abdullah University of Science and Technology; University of Maryland, College Park</td><td>Combines a high-level MILP-in-the-loop MPC planner with low-level control barrier functions defined over Minkowski-difference distances to obstacles. This hierarchy generates long-horizon guidance while enforcing exact robot geometry, mitigating local minima typical of purely reactive CBF navigation in complex environments.</td><td><a href="https://arxiv.org/abs/2604.00162">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
