@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-03</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-03</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>47</strong></div>
+        <div class="card">Papers analyzed: <strong>47</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Strong emphasis on end-to-end and VLA-style policies for mobile and contact-rich manipulation, focusing on multimodality, feasible action sets, and robust fine-tuning.</li><li>Multiple works tighten the gap between high-level planning and low-level control, addressing curvature, singularities, and redundancy in manipulators and continuum robots.</li><li>Whole-body and morphology-aware control methods emerge to handle complex multi-contact interactions and mobile platforms with rich skill libraries.</li><li>Vision–tactile fusion and dense affordance prediction are pushed toward more explicit, safety-aware and task-conditioned spatial reasoning, particularly in surgical and cluttered scenes.</li><li>Foundational advances in robust and non-stationary control (on Lie groups and under time-varying dynamics) underpin more reliable deployment in changing real-world conditions.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Model-Based Reinforcement Learning for Control under Time-Varying Dynamics</td><td>ETH Zurich</td><td>Studies continual model-based RL when system dynamics evolve over time, using Gaussian process models under a variation-budget assumption. Shows that maintaining calibrated uncertainty in non-stationary environments requires limiting the influence of stale data, and proposes an optimistic RL algorithm with adaptive buffers that improves control performance on non-stationary continuous control benchmarks.</td><td><a href="https://arxiv.org/abs/2604.02260">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>AnchorVLA: Anchored Diffusion for Efficient End-to-End Mobile Manipulation</td><td>University of Queensland</td><td>Introduces AnchorVLA, a diffusion-based vision-language-action policy that samples actions locally around anchor trajectories using a truncated diffusion schedule, preserving multimodal behaviors while reducing inference latency. A residual correction module provides high-rate closed-loop adjustments to counteract drift from action chunking, yielding more robust mobile manipulation under disturbances and distribution shifts.</td><td><a href="https://arxiv.org/abs/2604.01567">Link</a></td></tr>
+<tr><td>Bridging Discrete Planning and Continuous Execution for Redundant Robot</td><td>Hong Kong University of Science and Technology</td><td>Proposes a framework that refines voxel-grid RL plans via step-normalized 26-neighbor actions and geometric tie-breaking, then executes them through a task-priority damped least-squares IK layer with trust-region clipping. On a 7-DoF arm, it boosts success in dense environments, reduces path length, and substantially lowers joint accelerations while keeping sub-millimeter end-effector error.</td><td><a href="https://arxiv.org/abs/2604.02021">Link</a></td></tr>
+<tr><td>Smooth Feedback Motion Planning with Reduced Curvature</td><td>Faculty of Information Technology and Electrical Engineering, University of Oulu, Oulu, Finland</td><td>Develops a feedback motion planning method over simplicial decompositions that aligns local vector fields to reduce path bending and constructs a maximal star-shaped simplex chain around the goal. Experiments show large reductions in curvature and LQR control effort, while maintaining robustness and efficiency compared with sampling- and optimization-based planners in low-dimensional spaces.</td><td><a href="https://arxiv.org/abs/2604.01614">Link</a></td></tr>
+<tr><td>MorphoGuard: A Morphology-Based Whole-Body Interactive Motion Controller</td><td></td><td>Presents MorphoGuard, a morphology-constrained whole-body control network that explicitly manages arbitrary multi-contact configurations along a single kinematic chain. Trained on a dual-arm physical and simulation platform, it enables robots to manipulate multiple objects simultaneously with around 1 cm contact point error, supporting complex whole-body interactive tasks.</td><td><a href="https://arxiv.org/abs/2604.01517">Link</a></td></tr>
+<tr><td>Learning When to See and When to Feel: Adaptive Vision-Torque Fusion for Contact-Aware Manipulation</td><td>Purdue University; She is with the Edwardson School; Texas A&amp;M University</td><td>Compares several strategies for integrating vision and force/torque sensing within diffusion-based manipulation policies and proposes an adaptive scheme that selectively uses F/T signals during contact phases. The resulting contact-aware fusion improves success rates by 14% over the best baseline on contact-rich, force-sensitive manipulation tasks.</td><td><a href="https://arxiv.org/abs/2604.01414">Link</a></td></tr>
+<tr><td>AffordTissue: Dense Affordance Prediction for Tool-Action Specific Tissue Interaction</td><td></td><td>Introduces AffordTissue, a multimodal DiT-based framework that predicts dense tool-action-specific affordance heatmaps on tissue during cholecystectomy, conditioned on temporal vision and language. On a new benchmark of 15,638 clips, it significantly outperforms vision-language baselines, enabling explicit spatial reasoning for safe surgical automation and policy guidance.</td><td><a href="https://arxiv.org/abs/2604.01371">Link</a></td></tr>
+<tr><td>A virtual-variable-length method for robust inverse kinematics of multi-segment continuum robots</td><td></td><td>Proposes the Virtual-Variable-Length method that temporarily augments continuum segments with fictitious axial degrees of freedom during iterative IK solving to avoid deadlocks and speed convergence. Across over 1.8 million randomized trials, it achieves up to 20% higher convergence rates and 40–80% fewer iterations than standard Jacobian and damped least-squares solvers.</td><td><a href="https://arxiv.org/abs/2604.02256">Link</a></td></tr>
+<tr><td>Cross-Modal Visuo-Tactile Object Perception</td><td></td><td>Introduces the Cross-Modal Latent Filter, a Bayesian latent state-space model that supports bidirectional priors and temporal fusion between visual and tactile inputs to estimate physical object properties. Real-robot experiments show more efficient and robust estimation under uncertainty, with human-like cross-modal coupling phenomena emerging from the learned representations.</td><td><a href="https://arxiv.org/abs/2604.02108">Link</a></td></tr>
+<tr><td>Posterior Optimization with Clipped Objective for Bridging Efficiency and Stability in Generative Policy Learning</td><td>Chinese Academy of Sciences; Peking University; University of Chinese Academy of Sciences</td><td>Proposes POCO, an offline-to-online RL framework that casts policy improvement for generative trajectory policies as posterior inference via an EM procedure with a clipped objective. By anchoring exploration to pre-trained priors, POCO stabilizes fine-tuning of large VLA models, prevents policy collapse, and achieves near-97% success on contact-rich real-world manipulation tasks.</td><td><a href="https://arxiv.org/abs/2604.01860">Link</a></td></tr>
+<tr><td>OpenGo: An OpenClaw-Based Robotic Dog with Real-Time Skill Switching</td><td></td><td>Presents OpenGo, a Unitree Go2-based platform that organizes a library of embodied skills, performs autonomous skill validation, and dispatches behaviors based on task prompts or language instructions. A self-learning loop fine-tunes skills using task performance and human feedback, enabling real-time skill switching and natural-language interaction for a quadruped robot.</td><td><a href="https://arxiv.org/abs/2604.01708">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
