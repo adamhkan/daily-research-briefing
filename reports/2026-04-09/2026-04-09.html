@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-08</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-08</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>53</strong></div>
+        <div class="card">Papers analyzed: <strong>53</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Mobile manipulation sees two notable advances: a unified framework for efficient yet reliable continuous operation, and ExpressMM for socially expressive, interruptible mobile-manipulator behaviors.</li><li>Dexterous and contact-rich manipulation progresses via BiCoord’s long-horizon bimanual benchmark, GraspSense’s force-map-aware grasp planning, and instrumentation-guided gentle button pressing.</li><li>New learning and control methods target robustness and efficiency in manipulation: closed-loop referring-aware visuomotor policies, hierarchical multi-frequency policies (HiPolicy), and VLA training with explicit language–action grounding.</li><li>Motion planning and control are strengthened by learning-guided force-feedback MPC for deburring, evolutionary motion parameterization for soft scooping, and multi-agent CoEnv for compositional sim–real collaboration.</li><li>Navigation and localization advances span few-step visual navigation, precise last-meter image-goal navigation, underwater AUV planning and control (plus a UUV survey), and 3DGS-based UAV visual localization.</li><li>Whole-body and adaptive robot capabilities are enhanced via differentiable invariant sets for legged limit cycles, probabilistic finite-step invariants for hybrid systems, and MIT’s ZipFold modular shape- and stiffness-changing actuators.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>ZipFold: Modular Actuators for Scaleable Adaptive Robots</td><td>Massachusetts Institute of Technology</td><td>Introduces ZipFold, a compact, 3D-printed modular actuator that can reversibly transition between flexible and quasi-rigid beam configurations through compound folding and zipping. By combining modules, robots can achieve scalable shape and stiffness transformations, demonstrated on a four-module adaptive walking robot, enabling reconfigurable morphologies without bespoke mechanisms.</td><td><a href="https://arxiv.org/abs/2604.05260">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Synergizing Efficiency and Reliability for Continuous Mobile Manipulation</td><td>Hong Kong University of Science and Technology; University of Science and Technology of China</td><td>Proposes a unified framework for continuous mobile manipulation that balances long-horizon efficiency with robustness under uncertainty. A reliability-aware trajectory planner embeds execution reliability into spatiotemporal optimization and is paired with a phase-dependent switching controller, yielding higher task success (26.67%–81.67% gains) and efficiency across diverse end-effector constraints.</td><td><a href="https://arxiv.org/abs/2604.05430">Link</a></td></tr>
+<tr><td>ExpressMM: Expressive Mobile Manipulation Behaviors in Human-Robot Interactions</td><td></td><td>ExpressMM integrates a high-level language-guided planner with a low-level vision-language-action policy to generate expressive, intent-communicating behaviors for mobile manipulators. It supports interruptible HRI, allowing users to redirect actions mid-task, and user studies show improved interpretability, perceived safety, and usefulness in collaborative assembly.</td><td><a href="https://arxiv.org/abs/2604.05320">Link</a></td></tr>
+<tr><td>BiCoord: A Bimanual Manipulation Benchmark towards Long-Horizon Spatial-Temporal Coordination</td><td>Beihang University</td><td>Introduces BiCoord, a benchmark of long-horizon, tightly coordinated bimanual tasks requiring continuous inter-arm dependency and dynamic role exchange. New temporal, spatial, and spatio-temporal metrics expose that strong baselines (DP, RDT, Pi0, OpenVLA-OFT) struggle on such coupled tasks, highlighting open challenges in cooperative dexterous manipulation.</td><td><a href="https://arxiv.org/abs/2604.05831">Link</a></td></tr>
+<tr><td>GraspSense: Physically Grounded Grasp and Grip Planning for a Dexterous Robotic Hand via Language-Guided Perception and Force Maps</td><td>Intelligent Space Robotics Laboratory</td><td>Presents a grasp-and-grip planning pipeline that computes per-surface admissible force maps from reconstructed object geometry, enabling selection of grasps that avoid mechanically weak regions. A finger-wise impedance controller scales stiffness based on local admissible forces, yielding safer grasps on delicate cups and reframing dexterous manipulation as a joint grasp–force planning problem.</td><td><a href="https://arxiv.org/abs/2604.05697">Link</a></td></tr>
+<tr><td>Learning-Guided Force-Feedback Model Predictive Control with Obstacle Avoidance for Robotic Deburring</td><td>INRIA; LAAS-CNRS</td><td>Combines force-feedback MPC with diffusion-based motion priors to handle contact-rich industrial deburring with collision constraints. The diffusion model provides robust motion initialization across instances, while MPC enforces precise force tracking, torque feasibility, and obstacle avoidance, enabling stable insertion and circular deburring in challenging configurations.</td><td><a href="https://arxiv.org/abs/2604.06133">Link</a></td></tr>
+<tr><td>Simulation-Driven Evolutionary Motion Parameterization for Contact-Rich Granular Scooping with a Soft Conical Robotic Hand</td><td>MRON SINIC X Corporation</td><td>Develops a physics-based simulation of a deformable soft conical hand that morphs from flat sheets to adaptive conical structures for granular scooping. An evolutionary strategy optimizes scooping trajectories within this model, producing motions that generalize across containers and tasks, validated in both simulation and real-robot trials.</td><td><a href="https://arxiv.org/abs/2604.05531">Link</a></td></tr>
+<tr><td>You&#x27;re Pushing My Buttons: Instrumented Learning of Gentle Button Presses</td><td></td><td>Investigates training-time instrumentation to learn gentler button-pressing policies using audio from a microphone fingertip and privileged button-state supervision. The learned audio encoder provides a contact-event representation used at inference with vision and audio only, maintaining success rates while consistently reducing contact forces.</td><td><a href="https://arxiv.org/abs/2604.05954">Link</a></td></tr>
+<tr><td>Referring-Aware Visuomotor Policy Learning for Closed-Loop Manipulation</td><td></td><td>Introduces ReV, a closed-loop visuomotor policy that integrates sparse human- or planner-provided referring points to steer trajectories in real time. Dual diffusion heads generate global action anchors and locally interpolate them, enabling on-the-fly replanning from perturbed demonstrations without additional data or fine-tuning, improving success in dynamic scenes.</td><td><a href="https://arxiv.org/abs/2604.05544">Link</a></td></tr>
+<tr><td>HiPolicy: Hierarchical Multi-Frequency Action Chunking for Policy Learning</td><td>Beihang University; CS, School of CS, PKU; School of CS, PKU; Xi&#x27;an Jiaotong University</td><td>Proposes HiPolicy, which predicts action chunks at multiple temporal frequencies to jointly capture long-horizon plans and fine-grained reactive control. An entropy-guided execution strategy adaptively balances reliance on coarse vs. fine actions, and plugging HiPolicy into existing generative policies yields higher performance and execution efficiency on simulated and real manipulation tasks.</td><td><a href="https://arxiv.org/abs/2604.06067">Link</a></td></tr>
+<tr><td>A1: A Fully Transparent Open-Source, Adaptive and Efficient Truncated Vision-Language-Action Model</td><td></td><td>A1 is an open-source VLA framework optimized for low-latency manipulation control on commodity hardware via adaptive inference. By monitoring action consistency across VLM layers to terminate early and using inter-layer truncated flow matching to cut denoising iterations, it achieves state-of-the-art success on simulation and real robots while reducing per-episode latency by up to 72%.</td><td><a href="https://arxiv.org/abs/2604.05672">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
