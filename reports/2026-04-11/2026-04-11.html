@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-10</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-10</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>51</strong></div>
+        <div class="card">Papers analyzed: <strong>51</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Whole-body and dexterous manipulation see strong advances, from robust loco-manipulation on legged and humanoid robots to language-grounded, functional dexterous grasping.</li><li>New sensing and sim-to-real pipelines target manipulation reliability and data efficiency, including acoustic slip estimation and physics-aligned simulation for deformables.</li><li>Mobile manipulation and motion planning safety are emphasized via stability-aware mobile manipulation, competence-aware whole-body tracking, and safe trajectory planning in dynamic unknown environments.</li><li>Human- and video-centric data sources are leveraged more deeply, with egocentric datasets, smart-glasses teleoperation, and video-generative value models for RL.</li><li>Control and planning at scale are enabled by GPU-accelerated robust nonlinear MPC and planner-guided RL under partial observability.</li><li>Institution-aligned work explores low-cost in-hand slip sensing and efficient LLM-based motion planning for autonomous driving via on-policy distillation.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>A-SLIP: Acoustic Sensing for Continuous In-hand Slip Estimation</td><td>Carnegie Mellon University</td><td>Introduces A-SLIP, a multi-channel acoustic slip sensing system integrated into a parallel-jaw gripper that infers slip presence, direction, and magnitude from contact-induced vibrations. A lightweight CNN on multi-microphone audio significantly improves slip detection accuracy and directional estimation, enabling reliable, low-cost, real-time feedback for in-hand manipulation control.</td><td><a href="https://arxiv.org/abs/2604.08528">Link</a></td></tr>
+<tr><td>Karma Mechanisms for Decentralised, Cooperative Multi Agent Path Finding</td><td>ETH Zurich</td><td>Proposes a decentralized coordination framework for multi-agent path finding based on non-tradeable &#x27;karma&#x27; credits that encode agents’ past cooperation. By using bilateral negotiations and karma-regulated conflict resolution, the method balances replanning effort and service times across agents while preserving overall efficiency in warehouse-style scenarios.</td><td><a href="https://arxiv.org/abs/2604.07970">Link</a></td></tr>
+<tr><td>On-Policy Distillation of Language Models for Autonomous Vehicle Motion Planning</td><td>Stanford University; UC San Diego</td><td>Builds on GPT-Driver to distill a large LLM-based driving planner into a 5× smaller model using on-policy generalized knowledge distillation. The student is trained on its own rollouts with dense token-level feedback from the teacher, achieving near-teacher performance on nuScenes and outperforming a dense-feedback RL baseline for resource-constrained deployment.</td><td><a href="https://arxiv.org/abs/2604.07944">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Sumo: Dynamic and Generalizable Whole-Body Loco-Manipulation</td><td></td><td>Presents a sim-to-real framework enabling legged and humanoid robots to perform dynamic whole-body loco-manipulation with heavy, large objects. A pre-trained whole-body policy is steered at test time by a sample-based planner, allowing task- and object-level generalization via cost shaping, with real-world demonstrations on Spot and simulated humanoids.</td><td><a href="https://arxiv.org/abs/2604.08508">Link</a></td></tr>
+<tr><td>EMMa: End-Effector Stability-Oriented Mobile Manipulation for Tracked Rescue Robots</td><td></td><td>Introduces a motion generation framework for tracked mobile manipulators that jointly optimizes base and arm trajectories to prioritize end-effector stability in rescue scenarios. A coordinated path optimization model with compact constraints plus a feedforward–feedback control scheme yields improved task success and smoother end-effector motion in complex terrain.</td><td><a href="https://arxiv.org/abs/2604.08292">Link</a></td></tr>
+<tr><td>HEX: Humanoid-Aligned Experts for Cross-Embodiment Whole-Body Manipulation</td><td></td><td>Proposes HEX, a state-centric framework for controlling full-sized humanoids via a humanoid-aligned universal state representation and a Mixture-of-Experts proprioceptive predictor. By fusing temporal visual-language context with learned whole-body dynamics, HEX achieves state-of-the-art manipulation performance and generalization, especially in fast and long-horizon tasks.</td><td><a href="https://arxiv.org/abs/2604.07993">Link</a></td></tr>
+<tr><td>Grasp as You Dream: Imitating Functional Grasping from Generated Human Demonstrations</td><td>KTH Royal Institute of Technology; TH Royal Institute</td><td>GraspDreamer leverages video generative models trained on internet-scale human data to synthesize functional grasp demonstrations, avoiding costly robot data collection. These demonstrations are combined with robot-specific action optimization to yield zero-shot functional grasping with strong data efficiency and generalization across robot hands and downstream manipulation tasks.</td><td><a href="https://arxiv.org/abs/2604.07517">Link</a></td></tr>
+<tr><td>CMP: Robust Whole-Body Tracking for Loco-Manipulation via Competence Manifold Projection</td><td></td><td>Introduces Competence Manifold Projection to shield learned whole-body loco-manipulation policies from out-of-distribution commands and sensor noise. By estimating a one-step safety manifold in an isomorphic latent space, the method projects infeasible intents back into safe regions, dramatically improving survival rates while preserving tracking performance.</td><td><a href="https://arxiv.org/abs/2604.07457">Link</a></td></tr>
+<tr><td>BLaDA: Bridging Language to Functional Dexterous Actions within 3DGS Fields</td><td>. Li are with the School</td><td>BLaDA is a modular, interpretable pipeline that maps open-vocabulary language instructions to functional dexterous manipulation in 3D Gaussian Splatting scenes. It parses language into structured constraints, localizes functional regions via a novel TriLocation module, and converts them into wrist and finger commands, yielding superior affordance grounding and manipulation success.</td><td><a href="https://arxiv.org/abs/2604.08410">Link</a></td></tr>
+<tr><td>SIM1: Physics-Aligned Simulator as Zero-Shot Data Scaler in Deformable Worlds</td><td></td><td>Proposes SIM1, a real-to-sim-to-real engine that builds metric-consistent digital twins and calibrated deformable dynamics from limited demonstrations, then scales data via diffusion-based trajectory generation. Policies trained purely on this synthetic data achieve near-real-data performance with strong zero-shot and generalization gains in deformable object manipulation.</td><td><a href="https://arxiv.org/abs/2604.08544">Link</a></td></tr>
+<tr><td>ActiveGlasses: Learning Manipulation with Active Vision from Ego-centric Human Demonstration</td><td></td><td>ActiveGlasses uses a stereo camera on smart glasses to collect egocentric human demonstrations and then mounts the same camera on a robot arm to mimic human active vision. An object-centric point-cloud policy jointly predicts manipulation and head motions, enabling zero-shot transfer and robust performance on occlusion-heavy tasks across multiple robot platforms.</td><td><a href="https://arxiv.org/abs/2604.08534">Link</a></td></tr>
+<tr><td>ViVa: A Video-Generative Value Model for Robot Reinforcement Learning</td><td></td><td>ViVa repurposes a pretrained video generator to jointly predict future proprioception and a scalar value, grounding RL value estimates in anticipated spatiotemporal dynamics. Integrated into the RECAP framework for real-world assembly, it yields more accurate progress signals and better generalization to novel objects than static vision-language value baselines.</td><td><a href="https://arxiv.org/abs/2604.08168">Link</a></td></tr>
+<tr><td>Safe Large-Scale Robust Nonlinear MPC in Milliseconds via Reachability-Constrained System Level Synthesis on the GPU</td><td></td><td>GPU-SLS is a GPU-parallelized nonlinear MPC framework that co-optimizes nominal trajectories, tracking controllers, and closed-loop reachable sets under uncertainty. Using a custom GPU QP solver within a system level synthesis formulation, it delivers millisecond-scale, safety-certified control for high-dimensional robots such as quadrupeds and humanoids.</td><td><a href="https://arxiv.org/abs/2604.07644">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
