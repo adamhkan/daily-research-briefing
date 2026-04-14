@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-13</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-13</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>37</strong></div>
+        <div class="card">Papers analyzed: <strong>37</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>New standardized benchmarks and datasets are emerging for dexterous hands (POMDAR) and assembly-focused spatial reasoning (AssemBench), aiming to make manipulation research more comparable and data-rich.</li><li>Foundational advances in motion and impedance control target portability and safety, from unified low-level planners for collaborative arms to robust adaptive impedance for contact-rich mobile manipulation.</li><li>Multi-modal perception methods are pushing beyond vision-only pipelines, using touch, proprioception, and diffusion priors for 3D reconstruction under severe occlusion and sparse contact.</li><li>Risk-aware whole-body control and design frameworks are maturing, with differentiable safety-constrained locomotion control for quadrupeds and latent-space optimization for humanoid kinematics.</li><li>Agentic data generation pipelines and assembly-specialized multimodal LLMs are being proposed to bridge high-level reasoning with physically feasible low-level manipulation and assembly execution.</li><li>Personalized control for wearable robotics is advanced via musculoskeletal simulation and RL, pointing toward scalable exoskeleton assistance without extensive in-person tuning.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>A Benchmark of Dexterity for Anthropomorphic Robotic Hands</td><td>ETH Zurich</td><td>Introduces POMDAR, a taxonomy-grounded benchmark that defines dexterity as throughput over structured grasping and manipulation tasks, implemented in both simulation and hardware. The benchmark uses mechanical scaffolding to constrain motion and suppress compensatory strategies, yielding reproducible, quantitative evaluation across anthropomorphic hand designs.</td><td><a href="https://arxiv.org/abs/2604.09294">Link</a></td></tr>
+<tr><td>Musculoskeletal Motion Imitation for Learning Personalized Exoskeleton Control Policy in Impaired Gait</td><td>Carnegie Mellon University</td><td>Presents a device-agnostic framework that combines physiologically realistic musculoskeletal simulation with reinforcement learning to learn personalized lower-limb exoskeleton controllers. The learned policies generate human-consistent assistive torques, reduce metabolic cost, and adapt to impaired gait patterns without task-specific tuning or extensive clinical data collection.</td><td><a href="https://arxiv.org/abs/2604.09431">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>One Interface, Many Robots: Unified Real-Time Low-Level Motion Planning for Collaborative Arms</td><td></td><td>Proposes a minimal, hardware-agnostic interface for real-time end-effector trajectory control of collaborative arms, built on an n-th order polynomial interpolator and QP-based constraint handling. Demonstrations in drawing, dynamic object grasping, and teleoperated dexterous manipulation show smooth, interruptible trajectories that transfer across heterogeneous manipulators.</td><td><a href="https://arxiv.org/abs/2604.08787">Link</a></td></tr>
+<tr><td>Robust Adaptive Backstepping Impedance Control of Robots in Unknown Environments</td><td></td><td>Develops a robust adaptive backstepping impedance controller that handles coupled robot dynamics, external disturbances, and unmodeled effects without requiring known dynamic parameters. Simulations on a mobile manipulator and experiments on a Franka Panda show safer contact-rich interaction and accurate trajectory/force tracking versus PD control.</td><td><a href="https://arxiv.org/abs/2604.09323">Link</a></td></tr>
+<tr><td>Task-Aware Bimanual Affordance Prediction via VLM-Guided Semantic-Geometric Reasoning</td><td>German Research Center for Artificial Intelligence</td><td>Frames bimanual manipulation as a joint affordance localization and arm allocation problem, fusing multi-view RGB-D with a VLM to select task-relevant contact regions and assign arms accordingly. Real dual-arm experiments across nine tasks show higher task success than geometric or purely semantic baselines for coordinated bimanual actions.</td><td><a href="https://arxiv.org/abs/2604.08726">Link</a></td></tr>
+<tr><td>A Benchmark of Dexterity for Anthropomorphic Robotic Hands</td><td>ETH Zurich</td><td>POMDAR offers a standardized dexterity benchmark spanning vertical/horizontal manipulation, continuous rotation, and grasping, with mechanical fixtures to eliminate compensatory whole-arm strategies. A unified scoring metric combining correctness and execution time enables objective comparison of anthropomorphic hand designs in both simulation and real setups.</td><td><a href="https://arxiv.org/abs/2604.09294">Link</a></td></tr>
+<tr><td>AssemLM: Spatial Reasoning Multimodal Large Language Models for Robotic Assembly</td><td></td><td>Introduces AssemLM, a multimodal LLM that ingests assembly manuals, point clouds, and text to predict task-critical 6D assembly poses, supported by a specialized point-cloud encoder for fine-grained 3D geometry. The accompanying AssemBench dataset (900K+ samples) enables assessment of 3D spatial reasoning, and real-robot tests show multi-step assembly execution.</td><td><a href="https://arxiv.org/abs/2604.08983">Link</a></td></tr>
+<tr><td>TouchAnything: Diffusion-Guided 3D Reconstruction from Sparse Robot Touches</td><td></td><td>Uses a pretrained 2D visual diffusion model as a semantic and geometric prior to reconstruct object shape from sparse tactile contacts and a coarse class label. By optimizing shapes under tactile consistency and diffusion guidance, the method achieves accurate, category-agnostic 3D reconstructions from few touches, outperforming prior tactile reconstruction approaches.</td><td><a href="https://arxiv.org/abs/2604.08945">Link</a></td></tr>
+<tr><td>Physically Grounded 3D Generative Reconstruction under Hand Occlusion using Proprioception and Multi-Contact Touch</td><td></td><td>Proposes a multimodal structure-VAE and flow-matching diffusion pipeline to reconstruct metric-scale SDFs of objects heavily occluded by a manipulating hand. Conditioning on RGB, visibility masks, hand pose latents, and tactile contacts, plus physics-based interpenetration penalties, yields more accurate and physically plausible reconstructions that transfer to real humanoid manipulation.</td><td><a href="https://arxiv.org/abs/2604.09100">Link</a></td></tr>
+<tr><td>SafeMind: A Risk-Aware Differentiable Control Framework for Adaptive and Safe Quadruped Locomotion</td><td>Chinese Academy of Sciences; The University of Hong Kong; University of Chinese Academy of Sciences; University of Hong Kong, Pokfulam, Hong Kong, China; University of Hong Kong, Pokfulam, Hong Kong, China libaba, Beijing, China</td><td>SafeMind unifies probabilistic control barrier functions with differentiable QP control, semantic context conditioning, and meta-adaptive risk tuning for quadruped locomotion. Deployed on Unitree A1 and ANYmal C, it cuts safety violations by up to 10× and energy use by up to 15% versus CBF, MPC, and RL baselines while maintaining 200 Hz real-time operation.</td><td><a href="https://arxiv.org/abs/2604.09474">Link</a></td></tr>
+<tr><td>LEGO: Latent-space Exploration for Geometry-aware Optimization of Humanoid Kinematic Design</td><td></td><td>Learns a geometry-preserving latent space of humanoid upper-body kinematic designs from existing mechanisms using screw-theoretic axis representation and isometric manifold learning. Design optimization in this latent space, guided directly by human motion data via retargeting and Procrustes analysis, yields novel kinematic structures aligned with task motion without hand-crafted cost functions.</td><td><a href="https://arxiv.org/abs/2604.08636">Link</a></td></tr>
+<tr><td>V-CAGE: Vision-Closed-Loop Agentic Generation Engine for Robotic Manipulation</td><td></td><td>Presents V-CAGE, an agentic framework that uses foundation models for semantic scene layout planning, inpainting-guided object placement, and VLM-based visual critics to synthesize physically feasible manipulation trajectories. A perceptually driven compression scheme enables large-scale storage-efficient video datasets, supporting scalable training of Vision-Language-Action models.</td><td><a href="https://arxiv.org/abs/2604.09036">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
