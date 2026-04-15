@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-14</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-14</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>83</strong></div>
+        <div class="card">Papers analyzed: <strong>83</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Institution highlights include CMU’s TAX-DPD for high-precision placement, UC Berkeley’s fast convex-set distance for planning, UW’s GPU-accelerated contact-implicit locomotion optimization, NYU’s safe human-to-humanoid imitation via CBFs, and UCSD’s OL–CL gap analysis in autonomous driving.</li><li>Motion planning advances feature BTIT* for faster kinodynamic optimal planning and COSMIK-MPPI for constraint-satisfying MPC in human–robot shared workspaces.</li><li>Manipulation and control papers emphasize affordance-aware data generation (AffordSim, AffordGen), precise placement (AnySlot, TAX-DPD), dexterous in-hand reorientation (ViserDex), and contact-rich control with multimodal sensing (OmniUMI).</li><li>Whole-body and humanoid control is tackled via safe imitation (Safe Human-to-Humanoid CBF-QP), language-annotated whole-body motion generation (CLAW), and advanced state estimation on Lie groups (NANO-L) for legged robots.</li><li>Learning frameworks trend toward richer world and action models (AIM, GWM, ProGAL-VLA, ScoRe-Flow), better human-to-robot transfer (WARPED, LIDEA), and device-efficient deployment of manipulation policies (DC-QFA).</li><li>Foundational methods for dexterous and micro-manipulation (ViserDex, micro-dexterity survey, HO-Flow, continuum grasp kinematics, Point2Pose) point to increasingly perception-rich, geometry-aware manipulation stacks.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Disentangled Point Diffusion for Precise Object Placement</td><td>Carnegie Mellon University</td><td>TAX-DPD introduces a hierarchical placement framework that first predicts a dense scene-level Gaussian-mixture prior over candidate placements, then refines object pose via a disentangled point-cloud diffusion that separately reasons over object geometry and placement frame. It achieves state-of-the-art precision and generalization in both rigid and deformable (cloth hanging) placement tasks, outperforming SE(3)-diffusion approaches.</td><td><a href="https://arxiv.org/abs/2604.11793">Link</a></td></tr>
+<tr><td>A Ray Intersection Algorithm for Fast Growth Distance Computation Between Convex Sets</td><td>UC Berkeley</td><td>This work defines growth distance as a unified metric for intersection and separation between convex sets and reduces its computation to a ray–Minkowski-difference intersection problem. An iterative polyhedral approximation algorithm yields monotone convergence with strong primal/dual feasibility guarantees and state-of-the-art performance in benchmarks, with demonstrated applications to motion planning and rigid-body simulation.</td><td><a href="https://arxiv.org/abs/2604.10058">Link</a></td></tr>
+<tr><td>GPU-Accelerated Continuous-Time Successive Convexification for Contact-Implicit Legged Locomotion</td><td>University of Washington</td><td>The authors extend continuous-time successive convexification to contact-implicit trajectory optimization via integral cross-complementarity constraints, avoiding missed contacts between time nodes while allowing mode changes. A JAX-based GPU implementation with homotopy on complementarity achieves order-of-magnitude speedups and lower-energy solutions versus existing SCP methods, validated on HalfCheetah locomotion tasks.</td><td><a href="https://arxiv.org/abs/2604.09993">Link</a></td></tr>
+<tr><td>Safe Human-to-Humanoid Motion Imitation Using Control Barrier Functions</td><td>New York University</td><td>This paper presents a vision-based pipeline that maps single-camera human skeleton keypoints to humanoid joint commands and enforces safety via a Control Barrier Function quadratic program layer. The CBF-QP filters imitation motions in real time to avoid both self-collisions and human–robot collisions, with simulations demonstrating collision-aware whole-body imitation.</td><td><a href="https://arxiv.org/abs/2604.11447">Link</a></td></tr>
+<tr><td>BridgeSim: Unveiling the OL-CL Gap in End-to-End Autonomous Driving</td><td>UC San Diego</td><td>Analyzing open-loop vs. closed-loop performance, the authors identify observational domain shift and objective mismatch as key causes of deployment failure in end-to-end driving policies. They propose a test-time adaptation framework that calibrates perception, reduces Q-value bias, and enforces temporal consistency, substantially improving closed-loop robustness over OL-optimized baselines.</td><td><a href="https://arxiv.org/abs/2604.10856">Link</a></td></tr>
+<tr><td>PRoID: Predicted Rate of Information Delivery in Multi-Robot Exploration and Relaying</td><td>Carnegie Mellon University</td><td>PRoID introduces a relay criterion for multi-robot exploration that uses learned map prediction to estimate future information gain along each robot’s path and compares it to immediate return. Its failure-aware variant PRoID-Safe incorporates survival probabilities, leading to better information delivery under time and failure constraints than fixed-schedule relaying in real-world floorplan simulations.</td><td><a href="https://arxiv.org/abs/2604.10433">Link</a></td></tr>
+<tr><td>Towards Multi-Source Domain Generalization for Sleep Staging with Noisy Labels</td><td>ETH Zurich</td><td>The work introduces NL-DGSS, a benchmark for multi-source domain-generalized sleep staging under label noise, and shows that standard noisy-label methods degrade when domain shift is present. FF-TRUST, a multimodal framework with joint time–frequency early-learning regularization and confidence-diversity constraints, achieves state-of-the-art robustness across multiple public datasets and noise regimes.</td><td><a href="https://arxiv.org/abs/2604.10009">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Optimal Kinodynamic Motion Planning Through Anytime Bidirectional Heuristic Search with Tight Termination Condition</td><td></td><td>BTIT* is a kinodynamic sampling-based planner that couples an anytime bidirectional heuristic search with informed trees while enforcing a meet-in-the-middle property and MM-optimality. Efficient tight termination conditions enable early stopping and significantly improve time-to-first-solution and convergence versus non-lazy informed batch planners on 4D and 10D benchmarks.</td><td><a href="https://arxiv.org/abs/2604.11587">Link</a></td></tr>
+<tr><td>COSMIK-MPPI: Scaling Constrained Model Predictive Control to Collision Avoidance in Close-Proximity Dynamic Human Environments</td><td>Czech Technical University in Prague; LAAS-CNRS; University of Trento</td><td>COSMIK-MPPI integrates Model Predictive Path Integral control with a constraints-as-terminations formulation and markerless human motion estimation to guarantee collision avoidance for torque-controlled manipulators. It achieves 100% task success and reliable constraint satisfaction at ~22 ms control cycles, outperforming gradient-based MPC and vanilla MPPI in human–robot interaction tasks.</td><td><a href="https://arxiv.org/abs/2604.10358">Link</a></td></tr>
+<tr><td>ViserDex: Visual Sim-to-Real for Robust Dexterous In-hand Reorientation</td><td></td><td>ViserDex leverages 3D Gaussian Splatting for domain-randomized visual data generation, enabling robust monocular RGB pose estimation for in-hand object reorientation. Coupled with curriculum RL and teacher–student distillation, it enables a multi-fingered hand with an onboard camera to reorient diverse objects reliably under challenging lighting.</td><td><a href="https://arxiv.org/abs/2604.11138">Link</a></td></tr>
+<tr><td>AffordSim: A Scalable Data Generator and Benchmark for Affordance-Aware Robotic Manipulation</td><td></td><td>AffordSim combines an open-vocabulary 3D affordance detector with Isaac Sim to generate large-scale, affordance-aware manipulation trajectories across multiple robot arms. The benchmark reveals strong performance on basic grasping but poor success on affordance-critical tasks like pouring and mug hanging, underscoring the need for semantically grounded data.</td><td><a href="https://arxiv.org/abs/2604.11674">Link</a></td></tr>
+<tr><td>CLASP: Closed-loop Asynchronous Spatial Perception for Open-vocabulary Desktop Object Grasping</td><td></td><td>CLASP introduces a closed-loop, VLM-driven grasping system with a dual-pathway perception module that separates semantic intent from geometric grounding to reduce spatial hallucinations. An asynchronous evaluator compares pre- and post-execution states via text feedback, enabling robust error correction and achieving 87% success with strong generalization in cluttered scenes.</td><td><a href="https://arxiv.org/abs/2604.11320">Link</a></td></tr>
+<tr><td>OmniUMI: Towards Physically Grounded Robot Learning via Human-Aligned Multimodal Interaction</td><td></td><td>OmniUMI provides a handheld, shared-embodiment interface that synchronously gathers RGB-D, trajectories, tactile sensing, grasp force, and external wrenches for contact-rich tasks. Extending diffusion policies with these modalities and deploying via impedance control yields strong performance on force-sensitive tasks like wiping and selective release.</td><td><a href="https://arxiv.org/abs/2604.10647">Link</a></td></tr>
+<tr><td>AffordGen: Generating Diverse Demonstrations for Generalizable Object Manipulation with Afford Correspondence</td><td></td><td>AffordGen uses 3D generative models and vision foundation models to establish semantic keypoint correspondences across large mesh collections, synthesizing new affordance-aligned manipulation trajectories. Policies trained on this enriched dataset achieve higher success and zero-shot generalization to unseen objects with improved data efficiency.</td><td><a href="https://arxiv.org/abs/2604.10579">Link</a></td></tr>
+<tr><td>AnySlot: Goal-Conditioned Vision-Language-Action Policies for Zero-Shot Slot-Level Placement</td><td></td><td>AnySlot introduces a hierarchical VLA framework that first turns language into an explicit scene-marker image specifying the target slot, then executes it via a goal-conditioned policy. On the SlotBench benchmark, this decomposition dramatically improves zero-shot, sub-centimeter placement accuracy over monolithic VLA baselines.</td><td><a href="https://arxiv.org/abs/2604.10432">Link</a></td></tr>
+<tr><td>MoRI: Mixture of RL and IL Experts for Long-Horizon Manipulation Tasks</td><td>University of Science and Technology of China; University of Tokyo</td><td>MoRI dynamically switches between imitation and reinforcement learning experts using action-variance as a signal, handling coarse and fine-grained manipulation phases separately. With offline pretraining and IL-regularized RL fine-tuning, it achieves ~97.5% success on four real long-horizon tasks while reducing human intervention and convergence time relative to standard RL.</td><td><a href="https://arxiv.org/abs/2604.10165">Link</a></td></tr>
+<tr><td>LIDEA: Human-to-Robot Imitation Learning via Implicit Feature Distillation and Explicit Geometry Alignment</td><td></td><td>LIDEA aligns human and robot data via a dual-stage transitive distillation pipeline in latent feature space and a 3D embodiment-agnostic geometric alignment for interaction geometry. Experiments show that human videos can replace up to 80% of robot demonstrations while improving out-of-distribution robustness in manipulation tasks.</td><td><a href="https://arxiv.org/abs/2604.10677">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
