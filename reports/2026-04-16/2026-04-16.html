@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-15</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-15</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>48</strong></div>
+        <div class="card">Papers analyzed: <strong>48</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>New frameworks for whole-body mobile manipulation (AutoMoMa, WHOLE-MoMa, FastGrasp) emphasize scalable trajectory generation, data-efficient offline RL, and fast, impact-robust grasping with tactile feedback.</li><li>Humanoid and dexterous manipulation advances (HTD, XRZero-G0, VGA) highlight touch-centered multimodal policies, large-scale robot-free VR demonstrations, and 3D vision-geometry backbones that outperform vision-language models.</li><li>Legged loco-manipulation for cooperative transport (PAINT) shows that proprioceptive intent estimation can replace explicit force sensing and generalize across terrains, partners, and robot embodiments.</li><li>New motion-planning and control methods (UGE-MPC, Marble, RL-based dynamics refinement) tackle exploration, contact-rich LCQPs, and bridging first-order hybrid plans to physically feasible execution.</li><li>Continuum and long-horizon manipulation work (reconfigurable TDCM actuation, screw-theoretic lab skills, nanoparticle synthesis automation) focuses on model-free shape control and re-usable, constraint-aware skills from single demonstrations.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>PAINT: Partner-Agnostic Intent-Aware Cooperative Transport with Legged Robots</td><td>ETH Zurich</td><td>Introduces PAINT, a hierarchical learning framework enabling legged robots to cooperatively transport payloads by inferring partner intent purely from proprioceptive signals. A high-level intent estimator is decoupled from a terrain-robust locomotion backbone, yielding compliant, partner-agnostic transport that scales to multi-robot settings and different robot embodiments without external force sensing.</td><td><a href="https://arxiv.org/abs/2604.12852">Link</a></td></tr>
+<tr><td>Dynamic Multi-Robot Task Allocation under Uncertainty and Communication Constraints: A Game-Theoretic Approach</td><td>UC Berkeley</td><td>Proposes Iterative Best Response (IBR), a decentralized task-allocation policy for fleets of robots operating under uncertain task completion, deadlines, and sparse communication. In large-scale drone delivery scenarios, IBR achieves competitive completion rates with lower computational cost compared to classical scheduling and conflict-based allocation baselines.</td><td><a href="https://arxiv.org/abs/2604.11954">Link</a></td></tr>
+<tr><td>RMGS-SLAM: Real-time Multi-sensor Gaussian Splatting SLAM</td><td>Massachusetts Institute of Technology</td><td>Presents a tightly-coupled LiDAR–inertial–visual SLAM system that maintains a real-time 3D Gaussian splatting map while estimating robot pose in large-scale environments. A cascaded Gaussian initialization strategy and Gaussian-based loop closure enable a favorable balance of efficiency, localization accuracy, and photorealistic rendering.</td><td><a href="https://arxiv.org/abs/2604.12942">Link</a></td></tr>
+<tr><td>Machine Learning-Based Real-Time Detection of Compensatory Trunk Movements Using Trunk-Wrist Inertial Measurement Units</td><td>ETH Zurich</td><td>Uses just two IMUs (trunk and wrist) with an XGBoost classifier to detect compensatory trunk movements during upper-limb tasks in real time. The approach matches optical-motion-capture performance on able-bodied subjects and shows promising, though variable, generalization to clinical populations, supporting sparse wearable monitoring in therapy.</td><td><a href="https://arxiv.org/abs/2604.12591">Link</a></td></tr>
+<tr><td>3DRO: Lidar-level SE(3) Direct Radar Odometry Using a 2D Imaging Radar and a Gyroscope</td><td>ETH Zurich</td><td>Extends planar direct radar odometry to full SE(3) by fusing 2D imaging radar velocity estimates with 3D gyroscope integration over SO(3). Evaluated over 643 km from Boreas-RT, the method attains lidar-comparable odometry accuracy with a simple, radar–IMU configuration.</td><td><a href="https://arxiv.org/abs/2604.12027">Link</a></td></tr>
+<tr><td>ReefMapGS: Enabling Large-Scale Underwater Reconstruction by Closing the Loop Between Multimodal SLAM and Gaussian Splatting</td><td>Massachusetts Institute of Technology</td><td>Integrates multimodal SLAM with 3D Gaussian splatting to incrementally reconstruct complex underwater reef environments without COLMAP. The system seeds reconstruction from high-certainty trajectory segments, alternates local 3DGS optimization with pose-graph refinement, and achieves accurate, large-scale AUV mapping over hundreds of meters.</td><td><a href="https://arxiv.org/abs/2604.11992">Link</a></td></tr>
+<tr><td>Artificial Intelligence for Modeling and Simulation of Mixed Automated and Human Traffic</td><td>New York University</td><td>Surveys AI methods for simulating traffic with both autonomous and human-driven vehicles, organizing work into agent-level behavior, environment-level simulation, and cognitive/physics-informed models. It critiques current simulators’ reliance on simplistic drivers and outlines research directions, metrics, and datasets for more realistic mixed-autonomy traffic evaluation.</td><td><a href="https://arxiv.org/abs/2604.12857">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Learning Versatile Humanoid Manipulation with Touch Dreaming</td><td></td><td>Develops an RL-based whole-body humanoid controller and a VR teleoperation pipeline to collect rich loco-manipulation demonstrations. The proposed Humanoid Transformer with Touch Dreaming treats tactile signals as a core modality, predicting future contact forces and tactile latents to enable robust, contact-aware execution on diverse real-world tasks like folding, insertion, and tool use.</td><td><a href="https://arxiv.org/abs/2604.13015">Link</a></td></tr>
+<tr><td>FastGrasp: Learning-based Whole-body Control method for Fast Dexterous Grasping with Mobile Manipulators</td><td></td><td>Introduces FastGrasp, a two-stage RL framework that couples grasp candidate generation via a conditional VAE on point clouds with a learned whole-body controller for high-speed base–arm–hand coordination. Tactile sensing is used online to stabilize impacts and adapt to object variation, yielding robust fast grasping in both simulation and real-world tests.</td><td><a href="https://arxiv.org/abs/2604.12879">Link</a></td></tr>
+<tr><td>Scalable Trajectory Generation for Whole-Body Mobile Manipulation</td><td></td><td>Presents AutoMoMa, a GPU-accelerated trajectory optimization framework that unifies base–arm–object kinematics into a single chain and parallelizes planning for whole-body mobile manipulation. It generates over 500k physically valid trajectories across many scenes and robots, showing that large-scale, high-fidelity data is key for training generalizable imitation-learning policies.</td><td><a href="https://arxiv.org/abs/2604.12565">Link</a></td></tr>
+<tr><td>Whole-Body Mobile Manipulation using Offline Reinforcement Learning on Sub-optimal Controllers</td><td></td><td>Proposes WHOLE-MoMa, which uses a randomized, sub-optimal whole-body controller to collect diverse data, then applies offline RL with a chunked diffusion policy and Q-chunking critic to improve coordination. On articulated-object manipulation tasks with a TIAGo++ mobile manipulator, policies surpass WBC, behavior cloning, and offline RL baselines and transfer to hardware without real-world training data.</td><td><a href="https://arxiv.org/abs/2604.12509">Link</a></td></tr>
+<tr><td>XRZero-G0: Pushing the Frontier of Dexterous Robotic Manipulation with Interfaces, Quality and Ratios</td><td></td><td>Introduces XRZero-G0, a VR-based, robot-free data collection system with ergonomic dual grippers and a closed-loop pipeline for quality-controlled dexterous manipulation datasets. Experiments show that mixing a small amount of real-robot data with a much larger volume of robot-free demonstrations (e.g., 10:1) can match fully robot-collected datasets while reducing acquisition cost by ~20×.</td><td><a href="https://arxiv.org/abs/2604.13001">Link</a></td></tr>
+<tr><td>Robotic Manipulation is Vision-to-Geometry Mapping ($f(v) \rightarrow G$): Vision-Geometry Backbones over Language and Video Models</td><td>Yat-sen University</td><td>Argues that manipulation policies should be built on 3D vision-geometry backbones rather than vision-language or video encoders, and proposes the Vision-Geometry-Action (VGA) model using a pretrained 3D world model. With progressive volumetric modulation and joint training, VGA outperforms strong VLA baselines and shows robust zero-shot viewpoint generalization in real-world tasks.</td><td><a href="https://arxiv.org/abs/2604.12908">Link</a></td></tr>
+<tr><td>Actuation space reduction to facilitate insightful shape matching in a novel reconfigurable tendon driven continuum manipulator</td><td>University of Illinois Urbana-Champaign</td><td>Presents a reconfigurable tendon-driven continuum manipulator where spacer disks can be rotated to reroute tendons even post-actuation, greatly expanding shape control. By working in curvature–torsion space, the method identifies influential disks and uses a sequential, model-free shape-matching strategy to achieve desired backbones without complex modeling.</td><td><a href="https://arxiv.org/abs/2604.12792">Link</a></td></tr>
+<tr><td>From Kinematics to Dynamics: Learning to Refine Hybrid Plans for Physically Feasible Execution</td><td></td><td>Addresses the gap between first-order hybrid temporal plans and dynamically feasible trajectories by framing plan refinement as an RL problem in continuous space with explicit second-order constraints. The learned policy adjusts the initial kinematic plan to satisfy physical limits like accelerations and deadlines, reliably recovering executable motions.</td><td><a href="https://arxiv.org/abs/2604.12474">Link</a></td></tr>
+<tr><td>Robotic Nanoparticle Synthesis via Solution-based Processes</td><td></td><td>Automates long-horizon, solution-based nanoparticle synthesis by representing manipulation skills like pouring and knob-turning as sequences of constant screw motions learned from a single demonstration. This screw-theoretic, coordinate-invariant representation captures geometric constraints and supports robust reuse and adaptation of skills across lab setups.</td><td><a href="https://arxiv.org/abs/2604.12169">Link</a></td></tr>
+<tr><td>Uncertainty Guided Exploratory Trajectory Optimization for Sampling-Based Model Predictive Control</td><td>Robotics, Sensing and Networks Laboratory (RSN).; University of Minnesota, Twin Cities; University of Texas at Austin</td><td>Introduces UGE-TO, which models trajectories as uncertainty ellipsoids and enforces separation in distribution space via Hellinger distance to promote diverse exploration during optimization. Embedded into MPC as UGE-MPC, it achieves faster convergence and higher success rates than standard sampling-based controllers under the same sample budget, particularly in cluttered environments.</td><td><a href="https://arxiv.org/abs/2604.12149">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
