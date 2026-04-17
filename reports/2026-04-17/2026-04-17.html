@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-16</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-16</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>39</strong></div>
+        <div class="card">Papers analyzed: <strong>39</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Multiple works push the frontier of motion planning under constraints, including SIMD-accelerated manifold projection for real-time whole-body planning and hierarchical neural value fields guided by sparse roadmaps.</li><li>Several papers advance long-horizon manipulation and mobile manipulation via hierarchical VLA architectures, episodic spatial memory, and reflection-based planning agents.</li><li>Safety-focused methods gain traction, with new sampling strategies for learned safety filters, robust Q-function-based CBFs for black-box systems, and capability-aware multi-robot CBF formulations.</li><li>Motion planning in structured domains sees improvements through scale-invariant sampling for disassembly and a compositional framework (Mosaic) combining rule-based and learned planners for driving.</li><li>Institution-linked work from Stanford, UW, and CMU spans learned safety filters, multi-agent responsibility modeling, and uncertainty-aware radar-inertial odometry.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Boundary Sampling to Learn Predictive Safety Filters via Pontryagin&#x27;s Maximum Principle</td><td>Stanford University</td><td>Introduces a PMP-based characterization of near-violation boundary trajectories to guide data collection for learned Hamilton-Jacobi reachability. The resulting Control Barrier Value Function yields more sample-efficient, accurate safety filters with millisecond-scale runtime, validated in shared-control automotive racing.</td><td><a href="https://arxiv.org/abs/2604.13325">Link</a></td></tr>
+<tr><td>Learning Probabilistic Responsibility Allocations for Multi-Agent Interactions</td><td>University of Washington</td><td>Proposes a CVAE-based model to infer multimodal distributions over responsibility allocation in multi-agent scenarios using a differentiable optimization layer that links latent responsibilities to observed controls. Evaluated on INTERACTION driving data, it provides both strong predictive accuracy and interpretable insights into interactive behaviors.</td><td><a href="https://arxiv.org/abs/2604.13128">Link</a></td></tr>
+<tr><td>UNRIO: Uncertainty-Aware Velocity Learning for Radar-Inertial Odometry</td><td>Carnegie Mellon University</td><td>Presents UNRIO, a transformer-based radar-inertial odometry system that learns ego-velocity directly from raw 4D radar spectra with calibrated uncertainty estimates. Integrated into a sliding-window pose graph with IMU, it significantly outperforms DSP baselines, especially under challenging lateral-motion conditions.</td><td><a href="https://arxiv.org/abs/2604.13584">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Vectorizing Projection in Manifold-Constrained Motion Planning for Real-Time Whole-Body Control</td><td>Purdue University</td><td>Develops a SIMD-accelerated manifold-constrained motion planner that parallelizes projection-based constraint satisfaction. Achieving 100–1000× speedups over prior methods, it enables real-time, constraint-satisfying whole-body motion planning for complex systems like humanoids.</td><td><a href="https://arxiv.org/abs/2604.13323">Link</a></td></tr>
+<tr><td>Weakly-supervised Learning for Physics-informed Neural Motion Planning via Sparse Roadmap</td><td>Purdue University</td><td>Introduces Hierarchical Neural Time Fields, combining sparse roadmap-derived global supervision with PDE-based local regularization to learn value functions for motion planning. Demonstrated across 18 Gibson environments and hardware, it improves robustness and amortized planning in complex multi-room settings.</td><td><a href="https://arxiv.org/abs/2604.13204">Link</a></td></tr>
+<tr><td>Scale-Invariant Sampling in Multi-Arm Bandit Motion Planning for Object Extraction</td><td></td><td>Proposes a grow-shrink, scale-invariant sampling scheme embedded in a multi-arm bandit RRT for disassembly-style object extraction in tight spaces. By adaptively discovering useful sampling scales and PCA-based directions, it boosts success rates by an order of magnitude on most tested 3D scenarios.</td><td><a href="https://arxiv.org/abs/2604.14026">Link</a></td></tr>
+<tr><td>Capability-Aware Heterogeneous Control Barrier Functions for Decentralized Multi-Robot Safe Navigation</td><td></td><td>Presents CA-HCBF, unifying heterogeneous robot dynamics into a canonical second-order form and introducing a directional capability metric for fair safety responsibility allocation. Simulations with up to 30 robots and physical experiments show improved safety and reduced deadlock in dense, mixed-kinematics teams.</td><td><a href="https://arxiv.org/abs/2604.13245">Link</a></td></tr>
+<tr><td>Synthesis and Deployment of Maximal Robust Control Barrier Functions through Adversarial Reinforcement Learning</td><td>Johns Hopkins University; Princeton University</td><td>Shows that the safety value function of the Isaacs equation defines a robust discrete-time CBF over the maximal robust safe set and lifts it to a Q-function-based Q-CBF for black-box systems. Using adversarial RL, the method learns less conservative safe sets and enforces safety on nonlinear systems like a quadruped under adversarial disturbances.</td><td><a href="https://arxiv.org/abs/2604.13192">Link</a></td></tr>
+<tr><td>Mosaic: An Extensible Framework for Composing Rule-Based and Learned Motion Planners</td><td>Karlsruhe Institute of Technology</td><td>Introduces Mosaic, which arbitrates among heterogeneous motion planners via graphs that decouple trajectory generation, verification, and scoring. On nuPlan and interPlan driving benchmarks, it achieves state-of-the-art closed-loop scores and markedly reduces collisions by leveraging complementary rule-based and learned planners without retraining.</td><td><a href="https://arxiv.org/abs/2604.13853">Link</a></td></tr>
+<tr><td>Goal2Skill: Long-Horizon Manipulation with Adaptive Planning and Reflection</td><td></td><td>Proposes a dual-system framework where a VLM-based high-level planner maintains structured memory and decomposes goals, while a diffusion-based VLA controller executes subtasks from filtered observations. On RMBench, it significantly outperforms prior methods for partial-observability, long-horizon manipulation, highlighting the value of memory and explicit recovery.</td><td><a href="https://arxiv.org/abs/2604.13942">Link</a></td></tr>
+<tr><td>HiVLA: A Visual-Grounded-Centric Hierarchical Embodied Manipulation System</td><td></td><td>Introduces HiVLA, separating VLM-based high-level task decomposition and visual grounding from a flow-matching Diffusion Transformer action expert with cascaded cross-attention. The hierarchy preserves zero-shot reasoning while improving low-level execution, yielding strong gains in long-horizon and fine-grained manipulation tasks in clutter.</td><td><a href="https://arxiv.org/abs/2604.14125">Link</a></td></tr>
+<tr><td>ESCAPE: Episodic Spatial Memory and Adaptive Execution Policy for Long-Horizon Mobile Manipulation</td><td></td><td>Presents ESCAPE, combining a persistent, depth-free 3D spatial memory with memory-driven target grounding and an adaptive execution policy that interleaves global navigation and local manipulation. It attains state-of-the-art ALFRED performance and robust long-horizon mobile manipulation even with reduced instruction guidance.</td><td><a href="https://arxiv.org/abs/2604.13633">Link</a></td></tr>
+<tr><td>UMI-3D: Extending Universal Manipulation Interface from Vision-Limited to 3D Spatial Perception</td><td></td><td>Extends the wrist-mounted Universal Manipulation Interface with lightweight LiDAR and a unified calibration pipeline to enable LiDAR-centric SLAM and robust 3D demonstration capture. The improved data quality enhances downstream visuomotor policies and enables challenging tasks like deformable and articulated object manipulation.</td><td><a href="https://arxiv.org/abs/2604.14089">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
