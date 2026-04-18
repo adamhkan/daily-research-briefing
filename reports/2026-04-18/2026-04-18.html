@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-17</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-17</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>35</strong></div>
+        <div class="card">Papers analyzed: <strong>35</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Mobile manipulation sees a new data-efficient framework (DockAnywhere) for viewpoint-robust visuomotor policy learning from a single demonstration.</li><li>Dexterous manipulation is advanced via a low-cost, force-feedback teleoperation interface (DEX-Mouse) and a large-scale multimodal human–robot grasp dataset (HRDexDB).</li><li>Regrasp and multi-step manipulation planning are tackled with differentiable object pose connectivity metrics enabling gradient-based sequence optimization.</li><li>Whole-body and legged locomotion progress includes agile skill switching for humanoids, terrain-adaptive control for legged robots, and exploiting passive dynamics for robust bipedal walking.</li><li>Motion and trajectory planning methods span coverage on irregular hex grids, biologically inspired navigation cells, multi-UAV payload transport, assistive trajectory optimization, and POMDP-based object search.</li><li>A Stanford framework provides conformal-verified, vision-based human motion prediction for safer human–robot collaboration.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Vision-Based Safe Human-Robot Collaboration with Uncertainty Guarantees</td><td>Stanford University</td><td>Introduces a vision-based human pose and motion prediction pipeline that combines aleatoric uncertainty estimation with OOD detection and conformal prediction. The method produces uncertainty-calibrated prediction sets suitable for integration into certifiable safety frameworks for human–robot collaboration, validated on motion datasets and real-world HRC tests.</td><td><a href="https://arxiv.org/abs/2604.15221">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>DockAnywhere: Data-Efficient Visuomotor Policy Learning for Mobile Manipulation via Novel Demonstration Generation</td><td>Nanyang Technological University; National Taiwan University</td><td>Proposes DockAnywhere, a low-cost demonstration generation framework that decouples base motion from contact-rich manipulation to synthetically lift a single demo to many feasible docking poses. By 3D point-cloud editing and structure-preserving trajectory augmentation, the approach markedly improves viewpoint generalization and success rates for mobile manipulation policies in simulation and on real robots.</td><td><a href="https://arxiv.org/abs/2604.15023">Link</a></td></tr>
+<tr><td>DEX-Mouse: A Low-cost Portable and Universal Interface with Force Feedback for Data Collection of Dexterous Robotic Hands</td><td></td><td>Introduces DEX-Mouse, a sub-$150 handheld, calibration-free teleoperation device with kinesthetic force feedback for dexterous robot hands. The operator-agnostic design supports mounting the robot hand on the operator&#x27;s forearm, yielding high-quality, robot-aligned demonstrations and improved task completion and workload compared to existing teleop setups.</td><td><a href="https://arxiv.org/abs/2604.15013">Link</a></td></tr>
+<tr><td>Differentiable Object Pose Connectivity Metrics for Regrasp Sequence Optimization</td><td>University of Osaka</td><td>Presents a multi-step regrasp planner that models grasp feasibility with an energy-based model and defines a continuous energy landscape over object pose pairs. This enables gradient-based optimization of intermediate poses and an adaptive iterative deepening strategy, improving robustness and automatically finding minimum-step regrasp sequences, including cross-end-effector transfer.</td><td><a href="https://arxiv.org/abs/2604.14733">Link</a></td></tr>
+<tr><td>HRDexDB: A Large-Scale Dataset of Dexterous Human and Robotic Hand Grasps</td><td></td><td>Releases HRDexDB, a multimodal dataset of high-fidelity grasp trajectories for human and multiple robotic hands over 100 objects, with synchronized 3D motion, tactile sensing, and multi-view/egocentric video. The dataset includes both successful and failed grasps, designed to support multimodal policy learning and human-to-robot transfer in dexterous manipulation.</td><td><a href="https://arxiv.org/abs/2604.14944">Link</a></td></tr>
+<tr><td>Switch: Learning Agile Skills Switching for Humanoid Robots</td><td></td><td>Introduces Switch, a hierarchical multi-skill system for humanoids that builds a skill graph over motion data, trains a whole-body tracking policy with deep RL, and uses an online skill scheduler. The method supports smooth, on-demand transitions between diverse locomotion skills while maintaining robust motion imitation.</td><td><a href="https://arxiv.org/abs/2604.14834">Link</a></td></tr>
+<tr><td>Model-Based Reinforcement Learning Exploits Passive Body Dynamics for High-Performance Biped Robot Locomotion</td><td>University of Osaka</td><td>Compares model-based deep RL locomotion on biped models with and without passive mechanical elements such as springs. Exploiting passive dynamics yields attractor-driven learning that converges to stable limit cycles, resulting in more robust and energy-efficient walking and running, highlighting the value of passive properties in embodied AI.</td><td><a href="https://arxiv.org/abs/2604.14565">Link</a></td></tr>
+<tr><td>CART: Context-Aware Terrain Adaptation using Temporal Sequence Selection for Legged Robots</td><td></td><td>Proposes CART, a high-level controller that fuses proprioceptive and exteroceptive sequences to learn context-aware terrain representations for legged robots. Evaluated on ANYmal-C in simulation and Spot in the real world, CART improves success rates and significantly reduces base vibrations over multimodal baselines without increasing traversal time.</td><td><a href="https://arxiv.org/abs/2604.14344">Link</a></td></tr>
+<tr><td>R3D: Revisiting 3D Policy Learning</td><td></td><td>Analyzes failure modes in 3D policy learning and attributes them to missing 3D augmentations and problematic batch normalization. Proposes a transformer-based 3D encoder paired with a diffusion decoder, designed for stable large-scale training, that substantially outperforms prior 3D approaches on challenging manipulation benchmarks.</td><td><a href="https://arxiv.org/abs/2604.15281">Link</a></td></tr>
+<tr><td>Benchmarking Classical Coverage Path Planning Heuristics on Irregular Hexagonal Grids for Maritime Coverage Scenarios</td><td></td><td>Provides a large benchmark of 10,000 Hamiltonian-feasible irregular hex-grid instances and 17 classical coverage path heuristics tailored to maritime-like areas. Results show that explicit shortest-path reconnection heuristics are reliable for relaxed coverage, while a tuned Warnsdorff variant is strongest for Hamiltonian tours, and that implementation details in residual-degree policies critically affect performance.</td><td><a href="https://arxiv.org/abs/2604.15202">Link</a></td></tr>
+<tr><td>NEAT-NC: NEAT guided Navigation Cells for Robot Path Planning</td><td>-0006-5803-5013 SI Laboratory, National School of Applied Sciences (ENSA), Abdelmalek Essaadi University; I Laboratory, National School of Applied Sciences (ENSA), Abdelmalek Essaadi University; I Laboratory, National School of Applied Sciences (ENSA), Abdelmalek Essaadi University etouan</td><td>Extends NEAT with biologically inspired navigation cell inputs (place, grid, head-direction-like signals) to evolve recurrent neural networks for robot path planning. Demonstrations in static and dynamic environments highlight adaptability and real-time potential for robotics and games.</td><td><a href="https://arxiv.org/abs/2604.15076">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
