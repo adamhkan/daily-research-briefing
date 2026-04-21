@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-20</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-20</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>29</strong></div>
+        <div class="card">Papers analyzed: <strong>29</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Strong emphasis on safer motion planning and control under uncertainty, including dual control for trajectory planning, contact-aware continuum navigation, and PDE-based multi-robot density regulation.</li><li>Multiple works target more general and robust manipulation: a steerable robotic foundation model, diffusion-policy acceleration, and simulator-free shape-diverse data generation.</li><li>Skill and geometry generalization in manipulation are advanced via part-based object decomposition and one-shot cross-geometry transfer.</li><li>Infrastructure-level contributions (continual hand-eye calibration and vision-adaptive diffusion policies) aim to keep manipulation systems reliable in changing, open-world environments.</li><li>No papers match the specified institutions today; all highlights are topic-driven around manipulation and motion planning/control.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td colspan="4"><em>No matches</em></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Trajectory Planning for Safe Dual Control with Active Exploration</td><td>University of Michigan</td><td>Introduces Dual-gatekeeper, a framework that couples robust trajectory planning with active exploration under explicit safety and task-cost budgets. Exploration is only executed when it can be certified to improve model uncertainty without violating safety or mission-level performance, and is validated on quadrotor navigation and autonomous car racing under parametric uncertainty.</td><td><a href="https://arxiv.org/abs/2604.15507">Link</a></td></tr>
+<tr><td>One-Shot Cross-Geometry Skill Transfer through Part Decomposition</td><td>Brown University</td><td>Proposes a compositional approach to skill transfer that decomposes objects into semantic parts and uses generative shape models to align interaction points between demonstration and novel objects. This enables one-shot transfer of manipulation skills to objects with significantly different geometries, demonstrated in both simulation and real-world tasks.</td><td><a href="https://arxiv.org/abs/2604.15455">Link</a></td></tr>
+<tr><td>$\pi_{0.7}$: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities</td><td></td><td>Presents $\pi_{0.7}$, a generalist robotic foundation model conditioned on rich multimodal prompts (language, metadata, subgoal images) to steer behavior and strategy. The model demonstrates zero-shot generalization across embodiments and complex household manipulation tasks, achieving performance comparable to specialized RL-finetuned policies on cases like espresso machine operation and laundry folding.</td><td><a href="https://arxiv.org/abs/2604.15483">Link</a></td></tr>
+<tr><td>VADF: Vision-Adaptive Diffusion Policy Framework for Efficient Robotic Manipulation</td><td></td><td>Introduces VADF, a model-agnostic framework that accelerates diffusion-policy training and inference for manipulation via a loss-predicting network for hard-negative mining and a hierarchical vision-based task segmenter. The approach adaptively allocates noise and execution schedules to simple vs. complex sub-tasks, improving convergence speed and early success rates while reducing compute.</td><td><a href="https://arxiv.org/abs/2604.15938">Link</a></td></tr>
+<tr><td>Contact-Aware Planning and Control of Continuum Robots in Highly Constrained Environments</td><td></td><td>Develops a planning and control pipeline for continuum robots that explicitly evaluates and penalizes hazardous contacts while allowing benign ones in constrained anatomical environments. The method yields kinematically feasible trajectories and contact-aware Jacobians, achieving 100% target reach without dangerous tip contact and sub-2 mm tracking error in hardware tests on patient-specific anatomical models.</td><td><a href="https://arxiv.org/abs/2604.15638">Link</a></td></tr>
+<tr><td>ShapeGen: Robotic Data Generation for Category-Level Manipulation</td><td></td><td>Proposes ShapeGen, a simulator-free, 3D data generation pipeline for category-level manipulation that learns functional warpings between shapes to curate a reusable shape library. Using this library, it synthesizes physically plausible, function-aware demonstrations with minimal human input, significantly improving policies’ robustness to intra-category shape variation in real-world evaluations.</td><td><a href="https://arxiv.org/abs/2604.15569">Link</a></td></tr>
+<tr><td>Continual Hand-Eye Calibration for Open-world Robotic Manipulation</td><td></td><td>Presents a continual learning framework for hand-eye calibration that resists catastrophic forgetting across sequentially encountered scenes. A spatial-aware replay strategy maintains a geometrically diverse buffer, while dual distillation separately preserves global scene layout and precise pose knowledge, sustaining accuracy on prior scenes while adapting to new ones.</td><td><a href="https://arxiv.org/abs/2604.15814">Link</a></td></tr>
+<tr><td>Safe and Energy-Aware Multi-Robot Density Control via PDE-Constrained Optimization for Long-Duration Autonomy</td><td>University of Waterloo</td><td>Formulates multi-robot density control using the Fokker–Planck PDE to capture stochastic motion, integrating control Lyapunov and barrier functions to enforce target density tracking, obstacle avoidance, and energy sufficiency over charging cycles. The resulting quadratic program can run in real time and is validated in multi-robot experiments and simulations under localization and motion uncertainty.</td><td><a href="https://arxiv.org/abs/2604.15524">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
