@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-22</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-22</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>37</strong></div>
+        <div class="card">Papers analyzed: <strong>37</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Hybrid and wrench-aware control methods are improving safety and precision in in-contact and unknown-payload manipulation, including aerial and industrial platforms.</li><li>World-model-based and memory-augmented visuomotor policies are being refined to focus on physically relevant structure and long-horizon dependencies in manipulation.</li><li>New learning formulations for trajectory optimization and Gaussian-process-based path planning provide more efficient, uncertainty-aware motion planning.</li><li>Humanoid and legged control is progressing via unified latent representations, learned reduced-order hybrid models, and multi-gait RL with selective motion priors.</li><li>Whole-body and mobile manipulation is increasingly guided by high-level semantic and human-aware reasoning, combining VLMs with MPC and socially aware control.</li><li>Benchmarks and frameworks for world models and human-robot teaming emphasize physical executability, individual adaptation, and multi-cycle performance.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Multi-Step Gaussian Process Propagation for Adaptive Path Planning</td><td>UC Berkeley</td><td>OLAhGP formulates path planning as optimizing future waypoints under a Gaussian-process belief that fuses multi-modal environmental sensing with state and input constraints. In simulations and field trials on an autonomous surface vessel, it yields more informative paths and significantly better algal bloom detection accuracy than existing planners for the same sampling budget.</td><td><a href="https://arxiv.org/abs/2604.19148">Link</a></td></tr>
+<tr><td>Multi-Cycle Spatio-Temporal Adaptation in Human-Robot Teaming</td><td>Massachusetts Institute of Technology</td><td>RAPIDDS jointly models a human partner’s spatial motion patterns and task completion times over repeated cycles, then adapts both task scheduling and diffusion-based robot motion plans. Experiments and a 32-person user study show improved efficiency, reduced close proximity, and higher perceived fluency versus non-adaptive baselines.</td><td><a href="https://arxiv.org/abs/2604.19670">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>GenerativeMPC: VLM-RAG-guided Whole-Body MPC with Virtual Impedance for Bimanual Mobile Manipulation</td><td>Intelligent Space Robotics Laboratory</td><td>GenerativeMPC couples a VLM-RAG module with a whole-body MPC to translate visual and language context into constraints like velocity limits, safety margins, and virtual stiffness/damping for a bimanual mobile manipulator. The system achieves context-aware compliance and socially aware behavior, including automatic speed reduction and safe navigation/manipulation around humans in sim and on hardware.</td><td><a href="https://arxiv.org/abs/2604.19522">Link</a></td></tr>
+<tr><td>Accelerating trajectory optimization with Sobolev-trained diffusion policies</td><td></td><td>This work uses diffusion-based policies, trained with a Sobolev loss that incorporates both trajectories and feedback gains from a gradient-based TO solver, to warm-start trajectory optimization. The learned initializations avoid compounding errors and cut solve times by 2–20× while enabling fewer diffusion steps and lower inference latency.</td><td><a href="https://arxiv.org/abs/2604.19011">Link</a></td></tr>
+<tr><td>Learning Hybrid-Control Policies for High-Precision In-Contact Manipulation Under Uncertainty</td><td></td><td>MATCH learns hybrid position–force control policies that dynamically choose per-dimension control modes for delicate in-contact tasks like fragile peg insertion under severe localization noise. Compared to pose-only or variable-impedance baselines, it improves success rates, reduces peg breakage by up to 5×, and applies substantially less force in extensive sim-to-real experiments on a Franka arm.</td><td><a href="https://arxiv.org/abs/2604.19677">Link</a></td></tr>
+<tr><td>Wrench-Aware Admittance Control for Unknown-Payload Manipulation</td><td>Old Dominion University</td><td>The paper introduces an admittance control scheme that uses wrist force–torque sensing both to mitigate payload-induced wrench effects in real time and to estimate payload mass and center-of-mass offset. On a UR5e performing pick-and-place, the method improves transport accuracy and placement/stacking precision while preserving compliant behavior.</td><td><a href="https://arxiv.org/abs/2604.19469">Link</a></td></tr>
+<tr><td>AI-Enabled Image-Based Hybrid Vision/Force Control of Tendon-Driven Aerial Continuum Manipulators</td><td>Concordia University</td><td>This cascaded controller combines fixed-time sliding mode control with an online-learned RBF neural network for hybrid vision/force control of tendon-driven aerial continuum manipulators in SE(3). A GNN-based visual servoing pipeline using line features enables robust interaction-force tracking and image-feature regulation, outperforming rigid-arm aerial manipulation baselines in varied scenarios.</td><td><a href="https://arxiv.org/abs/2604.18961">Link</a></td></tr>
+<tr><td>Mask World Model: Predicting What Matters for Robust Robot Policy Learning</td><td></td><td>Mask World Model replaces RGB prediction with semantic mask dynamics in a video-diffusion backbone, enforcing a geometric bottleneck that emphasizes contacts and object motion while discarding texture noise. Coupled with a diffusion policy head, it substantially outperforms RGB-based world models on LIBERO and RLBench and shows stronger robustness and generalization in real-world tests.</td><td><a href="https://arxiv.org/abs/2604.19683">Link</a></td></tr>
+<tr><td>RoboWM-Bench: A Benchmark for Evaluating World Models in Robotic Manipulation</td><td></td><td>RoboWM-Bench evaluates video world models by converting predicted human-hand and robot manipulation videos into executable action sequences and testing them on manipulator tasks. Results across state-of-the-art models reveal persistent issues with physical plausibility, such as unstable contacts and spatial inconsistencies, even after finetuning on manipulation data.</td><td><a href="https://arxiv.org/abs/2604.19092">Link</a></td></tr>
+<tr><td>Gated Memory Policy</td><td></td><td>GMP is a visuomotor manipulation policy that learns a gating mechanism to decide when to use history and a cross-attention module to select what to recall, with diffusion noise injected into past actions for robustness. On the MemMimic benchmark it improves success on non-Markovian tasks by 30.1% over long-history baselines, while remaining competitive on Markovian RoboMimic tasks.</td><td><a href="https://arxiv.org/abs/2604.18933">Link</a></td></tr>
+<tr><td>UniT: Toward a Unified Physical Language for Human-to-Humanoid Policy Learning and World Modeling</td><td></td><td>UniT learns a shared discrete latent space of embodiment-agnostic physical intents by jointly reconstructing actions from vision and vision from actions across human and humanoid data. The resulting tokens enable data-efficient humanoid policy learning with strong OOD generalization and support human-to-humanoid transfer for video world models and control.</td><td><a href="https://arxiv.org/abs/2604.19734">Link</a></td></tr>
+<tr><td>HALO: Hybrid Auto-encoded Locomotion with Learned Latent Dynamics, Poincaré Maps, and Regions of Attraction</td><td></td><td>HALO uses an autoencoder to learn low-dimensional latent states and latent Poincaré maps for periodic hybrid locomotion dynamics, enabling Lyapunov analysis and region-of-attraction computation in the latent space. These guarantees are then lifted back to the full-order system, yielding reduced-order models that faithfully capture stability structure for hopping and humanoid robots.</td><td><a href="https://arxiv.org/abs/2604.18887">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
