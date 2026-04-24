@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-23</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-23</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>37</strong></div>
+        <div class="card">Papers analyzed: <strong>37</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Foundation VLA models and calibration techniques (PokeVLA, JoyAI-RA, TD calibration) target more robust, generalizable long-horizon manipulation policies.</li><li>Multiple works advance dexterous and bimanual manipulation via new tactile hardware, simulation, datasets, and LLM-based multi-arm coordination (FingerEye, ETac, VTouch++, BiCICLe).</li><li>Several papers focus on kinematic design and evaluation tools for multi-fingered hands, improving early-stage dexterous hand design and analysis.</li><li>World-model and optimal-control style methods (Cortex 2.0, TD-MPC2, Koopman RL, ORS) push planning, control, and credit assignment for complex motion and manipulation tasks.</li><li>New safety and specification tools (stochastic barrier certificates, STL-based lexicographic planning, passive variable impedance) address safe operation around dynamic obstacles and in shared-control settings.</li><li>Interactive and multimodal skill learning frameworks (MOMO) and domain-specific VLAs (ultrasound-guided needle insertion) demonstrate practical adaptation in industrial and medical contexts.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td colspan="4"><em>No matches</em></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>PokeVLA: Empowering Pocket-Sized Vision-Language-Action Model with Comprehensive World Knowledge Guidance</td><td></td><td>PokeVLA is a compact vision-language-action foundation model for robotic manipulation, trained via a two-stage paradigm that first learns spatial grounding and affordance, then injects manipulation-relevant representations into the action space. Through multi-view goal-aware semantics, geometry alignment, and an action expert, it attains state-of-the-art performance on LIBERO-Plus and real robots, improving robustness to perturbations for embodied manipulation tasks.</td><td><a href="https://arxiv.org/abs/2604.20834">Link</a></td></tr>
+<tr><td>JoyAI-RA 0.1: A Foundation Model for Robotic Autonomy</td><td></td><td>JoyAI-RA is a VLA embodied foundation model aimed at generalizable robotic manipulation across embodiments, unifying action spaces over web data, egocentric human videos, simulation, and real-robot trajectories. By explicitly bridging human and robot manipulation spaces, it improves cross-embodiment behavior transfer and outperforms prior methods on diverse simulation and real-world benchmarks.</td><td><a href="https://arxiv.org/abs/2604.20100">Link</a></td></tr>
+<tr><td>FingerEye: Continuous and Unified Vision-Tactile Sensing for Dexterous Manipulation</td><td></td><td>FingerEye is a compact sensor that fuses binocular RGB vision and marker-tracked compliant deformation to provide continuous pre-contact and post-contact feedback for dexterous manipulation. Using multiple FingerEye sensors, the authors train a vision-tactile imitation learning policy, supported by a digital twin and visual augmentation, enabling robust manipulation of diverse small objects and contact regimes.</td><td><a href="https://arxiv.org/abs/2604.20689">Link</a></td></tr>
+<tr><td>ETac: A Lightweight and Efficient Tactile Simulation Framework for Learning Dexterous Manipulation</td><td></td><td>ETac is a data-driven tactile simulation framework modeling elastomeric soft-body deformation with high fidelity and efficiency, suitable for large-scale RL training. It approximates FEM-quality surface deformations while running thousands of environments in parallel, enabling training of blind grasping policies with large-area tactile feedback that achieve high success across varied objects.</td><td><a href="https://arxiv.org/abs/2604.20295">Link</a></td></tr>
+<tr><td>Visual-Tactile Peg-in-Hole Assembly Learning from Peg-out-of-Hole Disassembly</td><td></td><td>This work learns peg-in-hole insertion by first training a visual-tactile policy on the easier inverse peg-out-of-hole task, then reversing and randomizing its trajectories to serve as expert data. The unified POMDP and multimodal sensing enable lower contact forces and significantly higher success rates on seen and unseen geometries than RL trained directly on insertion.</td><td><a href="https://arxiv.org/abs/2604.20712">Link</a></td></tr>
+<tr><td>A Kinematic Framework for Evaluating Pinch Configurations in Robotic Hand Design without Object or Contact Models</td><td></td><td>The paper proposes a purely kinematic method to evaluate a robotic hand’s pinch capabilities by analyzing overlaps between fingertip workspaces, without requiring object shapes or contact models. It enables early-stage comparison of different hand kinematics and helps quantify how design choices affect pinch feasibility.</td><td><a href="https://arxiv.org/abs/2604.20692">Link</a></td></tr>
+<tr><td>Kinematic Optimization of Phalanx Length Ratios in Robotic Hands Using Potential Dexterity</td><td></td><td>This study optimizes phalanx length ratios of a five-finger hand using global manipulability, workspace volume, overlap, and fingertip sensitivity as dexterity metrics in a voxelized workspace. It reveals unequal contributions of different phalanges to dexterity and highlights trade-offs among reachability, dexterity, and controllability for systematic hand design.</td><td><a href="https://arxiv.org/abs/2604.20686">Link</a></td></tr>
+<tr><td>VTouch++: A Multimodal Dataset with Vision-Based Tactile Enhancement for Bimanual Manipulation</td><td></td><td>VTouch++ is a large-scale bimanual manipulation dataset built around vision-based tactile sensing, providing rich physical interaction data in a matrix-style task organization. Automated collection pipelines and cross-modal experiments demonstrate its utility for learning policies that generalize across robots, policies, and contact-rich tasks.</td><td><a href="https://arxiv.org/abs/2604.20444">Link</a></td></tr>
+<tr><td>Bimanual Robot Manipulation via Multi-Agent In-Context Learning</td><td></td><td>BiCICLe uses standard text-only LLMs with in-context learning to control two robot arms by casting bimanual manipulation as a leader-follower multi-agent problem. With extensions like Arms&#x27; Debate and an LLM-as-judge, it achieves strong few-shot performance on TWIN benchmark tasks, surpassing other training-free and many supervised baselines.</td><td><a href="https://arxiv.org/abs/2604.20348">Link</a></td></tr>
+<tr><td>Cortex 2.0: Grounding World Models in Real-World Industrial Deployment</td><td></td><td>Cortex 2.0 is a world-model-based plan-and-act system that generates and scores candidate visual-latent trajectories before executing manipulation actions. Deployed on single- and dual-arm industrial platforms, it outperforms reactive VLA baselines on cluttered, contact-rich tasks like sorting and shoebox unpacking, improving reliability in unstructured settings.</td><td><a href="https://arxiv.org/abs/2604.20246">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
