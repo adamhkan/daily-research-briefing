@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-24</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-24</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>37</strong></div>
+        <div class="card">Papers analyzed: <strong>37</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>New whole-body control methods advance humanoid fighting, non-self-stabilizing motions, and dual-mode wheel-legged loco-manipulation.</li><li>FingerViP demonstrates high-success real-world dexterous manipulation via fingertip cameras and diffusion-based visuomotor policies.</li><li>Trace-conditioned and view-robust VLA frameworks significantly improve long-horizon and cross-view manipulation robustness.</li><li>Safety and planning advances include full-body CBF-based collision avoidance and waypoint-based bi-level multi-robot planning.</li><li>ETH Zurich presents a compact, magneto-elastic peristaltic pump, while CMU demonstrates Bayesian reasoning for autonomous casualty triage.</li><li>World-model-based post-training and new evaluation protocols clarify how VLAs behave and fail in open-world environments.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>A Compact Peristaltic Pump Based on Magneto-Elastic Hysteresis with Single Pneumatic Control</td><td>ETH Zurich</td><td>Introduces a soft peristaltic membrane pump actuated by a single pneumatic input and a passive embedded magnet, exploiting magneto-elastic hysteresis for compact, simple hardware and control. Modeling, simulations, and proof-of-concept experiments validate the mechanism and internal flow behavior for potential industrial and biomedical use.</td><td><a href="https://arxiv.org/abs/2604.21729">Link</a></td></tr>
+<tr><td>A Bayesian Reasoning Framework for Robotic Systems in Autonomous Casualty Triage</td><td>Carnegie Mellon University</td><td>Presents a Bayesian-network-based decision framework that fuses multiple vision algorithms to robustly infer casualty condition in mass-casualty incidents. In DARPA Triage Challenge trials, the system substantially improves both physiological assessment and overall triage accuracy versus vision-only baselines, demonstrating practical autonomous medical decision support.</td><td><a href="https://arxiv.org/abs/2604.21568">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>FingerViP: Learning Real-World Dexterous Manipulation with Fingertip Visual Perception</td><td></td><td>Proposes fingertip-mounted camera modules and a diffusion-based whole-hand visuomotor policy conditioned on third-person and fingertip views for dexterous manipulation. Multi-view tactile-like perception plus pose and joint-current encodings enable robust execution of confined, occluded, and long-horizon cabinet tasks with an 80.8% success rate, and the hardware and code will be open-sourced.</td><td><a href="https://arxiv.org/abs/2604.21331">Link</a></td></tr>
+<tr><td>Learn Weightlessness: Imitate Non-Self-Stabilizing Motions on Humanoid Robot</td><td>Beihang University; Tsinghua University; University of Science and Technology of China</td><td>Introduces a &quot;weightlessness&quot; mechanism that selectively relaxes humanoid joints to exploit body–environment contacts during non-self-stabilizing motions like sitting, lying, and leaning. An auto-labeling strategy and dynamic joint-relaxation policy, trained from single-action demonstrations, generalize across varied environmental geometries on the Unitree G1 while maintaining stability.</td><td><a href="https://arxiv.org/abs/2604.21351">Link</a></td></tr>
+<tr><td>RPG: Robust Policy Gating for Smooth Multi-Skill Transitions in Humanoid Fighting</td><td>Shanghai Jiao Tong University; Tsinghua University</td><td>Presents RPG, a hybrid expert policy framework that uses motion and temporal randomization to achieve smooth transitions among dynamic fighting skills in humanoids. A unified policy and a control pipeline integrate locomotion with combat actions, enabling long-duration, interruptible fighting on the Unitree G1 both in simulation and reality.</td><td><a href="https://arxiv.org/abs/2604.21355">Link</a></td></tr>
+<tr><td>X2-N: A Transformable Wheel-legged Humanoid Robot with Dual-mode Locomotion and Manipulation</td><td>-lab Department, Agibot Innovation Company, Shanghai, China.Email:; -lab Department, Agibot Innovation Company, Shanghai, China.Email: {yningaa; Hong Kong University of Science and Technology</td><td>Introduces X2-N, a high-DoF transformable wheel-legged humanoid that can switch between humanoid and wheel-legged configurations for efficient locomotion and manipulation. A unified RL-based whole-body controller handles hybrid locomotion, morphology transformation, and manipulation, demonstrating dynamic skating, stair climbing, and package delivery.</td><td><a href="https://arxiv.org/abs/2604.21541">Link</a></td></tr>
+<tr><td>Neuro-Symbolic Manipulation Understanding with Enriched Semantic Event Chains</td><td></td><td>Proposes eSEC-LAM, a neuro-symbolic framework that converts enriched Semantic Event Chains into explicit, confidence-aware symbolic states for manipulation reasoning. By augmenting predicates with functional roles, affordances, and saliency, and layering lightweight symbolic inference, it achieves robust action recognition and next-primitive prediction with interpretable explanations on several video datasets.</td><td><a href="https://arxiv.org/abs/2604.21053">Link</a></td></tr>
+<tr><td>Long-Horizon Manipulation via Trace-Conditioned VLA Planning</td><td></td><td>LoHo-Manip combines a task-managing VLM with a short-horizon executor VLA, using language plans and 2D keypoint trace prompts to convert long-horizon tasks into repeated local control. Receding-horizon re-planning yields implicit closed-loop behavior and robust recovery, boosting long-horizon manipulation success and generalization in simulation and on a Franka arm.</td><td><a href="https://arxiv.org/abs/2604.21924">Link</a></td></tr>
+<tr><td>VistaBot: View-Robust Robot Manipulation via Spatiotemporal-Aware View Synthesis</td><td></td><td>VistaBot integrates 4D geometry estimation and video diffusion-based view synthesis with latent action learning to make manipulation policies robust to camera viewpoint changes. Plugged into ACT and π₀ policies and evaluated via a new View Generalization Score, it substantially improves cross-view success without requiring camera calibration at test time.</td><td><a href="https://arxiv.org/abs/2604.21914">Link</a></td></tr>
+<tr><td>Hi-WM: Human-in-the-World-Model for Scalable Robot Post-Training</td><td></td><td>Hi-WM uses an action-conditioned world model as a substrate for collecting dense human corrective feedback via simulated rollouts, branching, and rollback around failure states. Incorporating these corrections into post-training improves real-world manipulation success by large margins over both base policies and world-model baselines on rigid and deformable tasks.</td><td><a href="https://arxiv.org/abs/2604.21741">Link</a></td></tr>
+<tr><td>From Noise to Intent: Anchoring Generative VLA Policies with Residual Bridges</td><td></td><td>ResVLA decomposes robot control into low-frequency &quot;intent&quot; and high-frequency residual dynamics, anchoring generative VLA policies on a deterministic motion plan refined via residual diffusion. Spectral analysis-based decoupling improves condition alignment, robustness to language and embodiment shifts, and convergence, with validation in simulation and real-world robotics.</td><td><a href="https://arxiv.org/abs/2604.21391">Link</a></td></tr>
+<tr><td>CorridorVLA: Explicit Spatial Constraints for Generative Action Heads via Sparse Anchors</td><td></td><td>CorridorVLA introduces sparse spatial anchors that define an allowed corridor of end-effector changes, guiding a flow-matching action head with explicit geometric constraints. On LIBERO-Plus, this physically grounded anchoring improves success of SmolVLA and GR00T by up to 12.4%, illustrating the benefit of interpretable spatial structure in generative policies.</td><td><a href="https://arxiv.org/abs/2604.21241">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
