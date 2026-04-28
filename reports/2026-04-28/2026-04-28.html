@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-27</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-27</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>30</strong></div>
+        <div class="card">Papers analyzed: <strong>30</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Multiple works advance motion planning and optimal control, from DRL-augmented parallel trajectory optimization (ATRS) to variable-time multi-vehicle coordination (V-STC) and energy-efficient multi-robot coverage (MRCPP).</li><li>New foundations for hybrid and constrained control are proposed, including MPC for general hybrid systems and RL policies that provably satisfy affine constraints under unknown hybrid dynamics.</li><li>Dexterous and dynamic manipulation see progress via palm-DoF analysis for thumb opposability, diverse trajectory primitives for articulated objects (QDTraj), and zero-shot dynamic rope manipulation through system identification (Wiggle and Go!).</li><li>Robot learning and foundation-model-based manipulation are extended with gaze-based intention modeling (GazeVLA), non-Markovian VLA with semantic graphs and code planners (CodeGraphVLP), and a closed-loop LLM-driven autonomous learning framework for uncovered tasks.</li><li>Simulation and tooling advances include LeHome for deformable household object manipulation and higher-order SE(3) tangent-operator derivatives for robust geometric optimization.</li><li>Real-world deployments and characterization span learning-augmented industrial automation on a live production line and precision torque coupling measurements on insect-scale flapping-wing robots.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Characterizing pitch and roll torque coupling in insect-sized flapping-wing robots using a microfabricated gimbal</td><td>University of Washington</td><td>Introduces a microfabricated gimbal capable of simultaneous high-sensitivity measurement of roll, pitch torques, and thrust in a 180 mg flapping-wing robot. Experiments show negligible pitch–roll coupling and small thrust variation, justifying independent-axis control assumptions and informing future aerodynamic models for insect-scale flyers.</td><td><a href="https://arxiv.org/abs/2604.22121">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>ATRS: Adaptive Trajectory Re-splitting via a Shared Neural Policy for Parallel Optimization</td><td></td><td>Proposes ATRS, which embeds a shared deep RL policy inside an ADMM-based parallel trajectory optimizer to adaptively re-split stagnating trajectory segments. The shared policy operates on solver-internal states, enabling size-invariant handling of varying segment counts and zero-shot generalization, yielding up to 26% fewer iterations and 19% less compute, with real-time replanning at 35 ms.</td><td><a href="https://arxiv.org/abs/2604.22715">Link</a></td></tr>
+<tr><td>False Feasibility in Variable Impedance MPC for Legged Locomotion</td><td></td><td>Analyzes a structural mismatch between parameter-based feasible sets and physically realizable behaviors in variable-impedance MPC when stiffness is treated as an instantaneous decision variable. Introduces dimensionless thresholds on actuator bandwidth vs. task timescale that predict infeasibility and shows that augmenting the prediction state with stiffness eliminates the mismatch by construction.</td><td><a href="https://arxiv.org/abs/2604.22251">Link</a></td></tr>
+<tr><td>V-STC: A Time-Efficient Multi-Vehicle Coordinated Trajectory Planning Approach</td><td></td><td>Introduces variable-time-step spatio-temporal corridors where both spatial cubes and their durations are optimization variables for each autonomous vehicle. This flexible corridor construction reduces temporal occupancy while maintaining collision-free separation, enabling more time-efficient multi-vehicle trajectories than fixed-time STC baselines.</td><td><a href="https://arxiv.org/abs/2604.22196">Link</a></td></tr>
+<tr><td>Energy-Efficient Multi-Robot Coverage Path Planning of Non-Convex Regions of Interests</td><td>. Bobadilla are with the School; . Padrao is with Providence College</td><td>Presents MRCPP, an energy-aware multi-robot coverage planner for large nonconvex regions with obstacles and no-fly zones, supporting heterogeneous platforms. It combines globally informed swath generation, turn-minimizing parallel sweeps, an mTSP-based task allocator, and heading-aware visibility-graph connections, achieving 3–40% energy savings and order-of-magnitude faster computation versus prior methods.</td><td><a href="https://arxiv.org/abs/2604.22189">Link</a></td></tr>
+<tr><td>DM$^3$-Nav: Decentralized Multi-Agent Multimodal Multi-Object Semantic Navigation</td><td>Northeastern University</td><td>Develops DM$^3$-Nav, a fully decentralized semantic navigation system where robots coordinate via ad-hoc pairwise communication without a global map or central coordinator. An implicit task allocation mechanism based on intent broadcasting and distance-weighted frontier selection reduces redundant exploration, matching or surpassing centralized baselines in simulation and two-robot real-world tests.</td><td><a href="https://arxiv.org/abs/2604.22014">Link</a></td></tr>
+<tr><td>Model Predictive Control of Hybrid Dynamical Systems</td><td>University of California, Santa Cruz</td><td>Formulates MPC for general hybrid dynamical systems modeled by coupled continuous and discrete dynamics with constraints. Provides structural properties of the hybrid optimal control problem and checkable conditions guaranteeing asymptotic stability via stage/terminal costs and static feedback laws linked by a control Lyapunov function.</td><td><a href="https://arxiv.org/abs/2604.21989">Link</a></td></tr>
+<tr><td>Learning Control Policies to Provably Satisfy Hard Affine Constraints for Black-Box Hybrid Dynamical Systems</td><td></td><td>Proposes an RL-based method that enforces affine, repulsive policies near constraint boundaries to guarantee satisfaction of hard affine state constraints for hybrid systems with unknown nonlinear dynamics but affine resets. A second repulsive region accounts for resets, and experiments on constrained pendulum and paddle juggling show strict safety with higher policy quality than reward shaping or learned CBF baselines.</td><td><a href="https://arxiv.org/abs/2604.22244">Link</a></td></tr>
+<tr><td>A Kinematic Analysis of Palm Degrees of Freedom for Enhancing Thumb Opposability in Robotic Hands</td><td></td><td>Analyzes how introducing palm degrees of freedom in a five-finger robotic hand affects thumb–finger overlap workspace, quantified via voxelized fingertip reach. Results show palm motion can significantly increase opposability, especially for ring and little fingers, but under fixed total DoF there are trade-offs between enlarged overlap and finger redundancy, offering design guidance for dexterous hands.</td><td><a href="https://arxiv.org/abs/2604.22283">Link</a></td></tr>
+<tr><td>Wiggle and Go! System Identification for Zero-Shot Dynamic Rope Manipulation</td><td></td><td>Introduces a two-stage framework where a system identification module infers rope physical parameters from motion, which then condition a goal-directed action optimizer for dynamic rope tasks. The approach enables zero-shot execution of new tasks, improving 3D target-striking accuracy from 15.34 cm to 3.55 cm and achieving high fidelity between predicted and real rope dynamics.</td><td><a href="https://arxiv.org/abs/2604.22102">Link</a></td></tr>
+<tr><td>QDTraj: Exploration of Diverse Trajectory Primitives for Articulated Objects Robotic Manipulation</td><td></td><td>Uses Quality-Diversity algorithms to automatically discover large sets of distinct, high-performing low-level trajectory primitives for manipulating articulated objects such as hinges and sliders. The method generates at least five times more diverse successful trajectories than baselines and generalizes across 30 PartNet-Mobility articulations, enabling robots to select context-appropriate motions in deployment.</td><td><a href="https://arxiv.org/abs/2604.22551">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
