@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-28</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-28</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>63</strong></div>
+        <div class="card">Papers analyzed: <strong>63</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Safety-aware control and planning are a strong focus, with new MPC, CBF/HQP, and sliding-mode+C3BF frameworks for manipulators and mobile robots under constraints and obstacles.</li><li>Vision-Language-Action (VLA) manipulation continues to mature, with methods for phase-structured control, reactive tactile feedback, multi-modal sensing, and mitigating fine-tuning lock-in while enabling efficient RL adaptation.</li><li>New planning and navigation techniques span vector-accelerated multi-robot motion planning, direction-aware convex free-region generation, active perception beam search, and robust learning-from-demonstration with failure awareness.</li><li>Whole-body and legged/humanoid control advances include quiet, GRF-aware locomotion, agile wheeled-legged evasion via HRL, and contact-rich humanoid recovery that leverages environment contacts.</li><li>Perception and data-centric methods target dynamic 6-DoF pose via event cameras, semi-supervised segmentation for household objects, and smoothness-based metrics for curating high-quality imitation data.</li><li>Learning-based MPC and generative/vector-field approaches demonstrate increasing cross-over between modern ML (diffusion, score models, flatness-based learning) and classical motion planning/control.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Cooptimizing Safety and Performance Using Safety Value-Constrained Model Predictive Control</td><td>New York University; Stanford University</td><td>Introduces an MPC scheme that enforces a reachability-based safety value function as a terminal constraint, ensuring trajectories remain inside a control-invariant safe set beyond the finite horizon. Compared to standard MPC and reactive safety filters, the approach achieves stronger constraint satisfaction and robustness on a Flexiv Rizon 10s manipulator while maintaining task performance.</td><td><a href="https://arxiv.org/abs/2604.23863">Link</a></td></tr>
+<tr><td>An Efficient Beam Search Algorithm for Active Perception in Mobile Robotics</td><td>ETH Zurich</td><td>Proposes node-wise beam search (NBS) that keeps top candidates per node, and a new RRAG graph construction, to make active-perception path planning more scalable and less prone to local optima. Across multiple active perception tasks and hardware trials, NBS+RRAG outperforms TSP- and SPT-based baselines, especially at low beam widths.</td><td><a href="https://arxiv.org/abs/2604.23327">Link</a></td></tr>
+<tr><td>Cooperative Informative Sensing for Monitoring Dynamic Indoor Environments via Multi-Agent Reinforcement Learning</td><td>Stanford University; UC Berkeley</td><td>Frames multi-robot indoor monitoring as a decentralized control problem that directly optimizes human-activity estimation accuracy under partial observability. A MARL-based policy architecture that handles variable numbers of humans consistently outperforms classical coverage and persistent monitoring baselines in simulation.</td><td><a href="https://arxiv.org/abs/2604.23179">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Multi-Robot Motions in Milliseconds: Vector-Accelerated Primitives for Sampling-Based Planning</td><td>University of Illinois Urbana-Champaign</td><td>Extends Vector-Accelerated Motion Planning to multi-robot settings with SIMD-accelerated MotionValidation and FindFirstConflict primitives. Achieves over 1100× speedup in multi-robot validation and up to 850× planning speedups, enabling millisecond-scale solutions for manipulators, rigid bodies, and heterogeneous teams.</td><td><a href="https://arxiv.org/abs/2604.23960">Link</a></td></tr>
+<tr><td>Tube Diffusion Policy: Reactive Visual-Tactile Policy Learning for Contact-rich Manipulation</td><td>EPFL; Idiap Research Institute; Purdue University; University of Toronto</td><td>Introduces Tube Diffusion Policy, which wraps diffusion-based imitation learning in a tube-based feedback controller to generate reactive visual-tactile policies for contact-rich manipulation. The method forms an observation-conditioned action tube around nominal plans, enabling high-frequency corrections that outperform prior imitation baselines on Push-T and dexterous tasks and run in real time on hardware.</td><td><a href="https://arxiv.org/abs/2604.23609">Link</a></td></tr>
+<tr><td>$M^2$-VLA: Boosting Vision-Language Models for Generalizable Manipulation via Layer Mixture and Meta-Skills</td><td>Tsinghua University</td><td>Shows that a generalized VLM can serve directly as a manipulation backbone when augmented with a Mixture-of-Layers mechanism that extracts task-critical semantic features and a Meta Skill Module imposing inductive biases for trajectories. Demonstrates improved zero-shot generalization and reduced catastrophic forgetting across simulated and real manipulation tasks.</td><td><a href="https://arxiv.org/abs/2604.24182">Link</a></td></tr>
+<tr><td>Move-Then-Operate: Behavioral Phasing for Human-Like Robotic Manipulation</td><td></td><td>Decouples manipulation into a coarse relocation phase and a contact-critical operation phase using a dual-expert VLA policy and a learned phase selector. Auto-labeled phase data from an MLLM yields large gains on RoboTwin2, matching or beating models trained on 10× more data and converging in fewer steps.</td><td><a href="https://arxiv.org/abs/2604.23620">Link</a></td></tr>
+<tr><td>BridgeACT: Bridging Human Demonstrations to Robot Actions via Unified Tool-Target Affordances</td><td>China University of Technology.; Chinese Academy of Sciences; Shanghai Jiao Tong University</td><td>Learns manipulation directly from human videos by modeling tool-target affordances as an embodiment-agnostic intermediate representation split into grasp selection and motion generation. A closed-loop controller maps affordances to robot actions, enabling real-world execution that generalizes to new objects, scenes, and viewpoints without robot demonstrations.</td><td><a href="https://arxiv.org/abs/2604.23249">Link</a></td></tr>
+<tr><td>RL Token: Bootstrapping Online RL with Vision-Language-Action Models</td><td></td><td>Adds an &quot;RL token&quot; readout to VLAs and trains a small actor-critic head on top, enabling sample-efficient online RL fine-tuning while preserving pretrained knowledge. On challenging insertion and fastening tasks, a few hours of real-world practice significantly boosts success and speed, sometimes surpassing human teleoperation.</td><td><a href="https://arxiv.org/abs/2604.23073">Link</a></td></tr>
+<tr><td>Guiding Vector Field Generation via Score-based Diffusion Model</td><td>NDY Lab, Department of Artificial Intelligence, Westlake University, Hangzhou, China. {chenzirui, guoshiliang; Y Lab, Department of Artificial Intelligence, Westlake University, Hangzhou, China. {chenzirui, guoshiliang; Zhejiang University</td><td>Proposes Score-Induced Guiding Vector Fields that derive robot guidance fields directly from data distributions via score-based diffusion models instead of pre-specified smooth curves. The learned fields support unordered, branching, and complex paths and outperform classical GVFs for navigation in challenging planar environments.</td><td><a href="https://arxiv.org/abs/2604.24487">Link</a></td></tr>
+<tr><td>Hybrid A*-Based Reverse Path-Planning of a Vehicle with Trailer System</td><td></td><td>Extends Hybrid A* to reverse path planning for vehicle–trailer systems with explicit modeling of jackknife limits and collision avoidance with surrounding vehicles. Simulations show feasible, collision-free reverse parking trajectories that respect configuration-dependent steering constraints.</td><td><a href="https://arxiv.org/abs/2604.24606">Link</a></td></tr>
+<tr><td>Trajectory Planning for an Articulated Commercial Vehicle using Model Predictive Contouring Control</td><td>Eindhoven University of Technology</td><td>Adapts MPCC to tractor–semitrailers by weighting different vehicle anchor points and constraining individual axles to remain within road boundaries. Simulations and full-scale prototype tests in logistic scenarios show robust forward and reverse maneuvers while avoiding jackknifing.</td><td><a href="https://arxiv.org/abs/2604.24064">Link</a></td></tr>
+<tr><td>Safe Navigation in Unknown and Cluttered Environments via Direction-Aware Convex Free-Region Generation</td><td>Hong Kong University of Science and Technology; National University of Singapore</td><td>Generates convex free regions that explicitly encode candidate motion directions and robot geometry, then plans continuously safe trajectories with Lipschitz-based certification. Demonstrates reliable navigation in cluttered 2D/3D scenarios and on quadruped and UAV hardware, improving traversability in narrow passages.</td><td><a href="https://arxiv.org/abs/2604.23648">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
