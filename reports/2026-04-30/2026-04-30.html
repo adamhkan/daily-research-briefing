@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-04-29</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-04-29</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>34</strong></div>
+        <div class="card">Papers analyzed: <strong>34</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Dexterous manipulation sees advances in risk-aware grasp planning, sequential resource-aware hand use, and robust control under multimodal uncertainty.</li><li>Mobile manipulation robustness is boosted by physically grounded symbolic planning that tightly couples navigation, reachability, and layered recovery.</li><li>New motion-planning formalisms and UGV–UAV cooperation algorithms address path planning under uncertainty with formal guarantees and empirical gains.</li><li>Whole-body safety and perception are improved via reinforcement learning for collision avoidance with egocentric tactile/proximity priors and new multi-modal artificial skins.</li><li>Safe visuomotor control from images is made more practical at scale through learned visual abstractions combined with System Level Synthesis and efficient solvers.</li><li>Simulation, execution, and policy architectures advance via high-throughput photorealistic simulators, friction-aware sim-to-real for ballbots, and discrete diffusion for asynchronous control.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>VISION-SLS: Safe Perception-Based Control from Learned Visual Representations via System Level Synthesis</td><td>ETH Zurich</td><td>VISION-SLS combines learned low-dimensional visual representations with System Level Synthesis to design nonlinear output-feedback controllers that guarantee constraint satisfaction under uncertainty. Using state-dependent error bounds and a scalable solver, it enables safe visuomotor control from high-resolution images in simulated car, quadrotor, humanoid tasks, and a real ground vehicle, outperforming baselines in safety and solve time.</td><td><a href="https://arxiv.org/abs/2604.24894">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>ANCHOR: A Physically Grounded Closed-Loop Framework for Robust Home-Service Mobile Manipulation</td><td></td><td>ANCHOR aligns symbolic task planning with continually revalidated geometric predicates to maintain consistency between plans and the evolving physical world in home-service mobile manipulation. It couples operability-aware base alignment with layered failure recovery, boosting real-robot success from 53.3% to 71.7% and achieving high recovery under perturbations in unseen homes.</td><td><a href="https://arxiv.org/abs/2604.25323">Link</a></td></tr>
+<tr><td>Logic of Fuzzy Paths</td><td></td><td>This work introduces a temporal logic that treats paths as first-class objects and uses fuzzy, time-varying constraints to express motion-planning specifications and preferences. Compared to Signal Temporal Logic, it yields simpler formulas, richer satisfaction notions, and is better suited both for human-written specifications and learning specifications from demonstrations.</td><td><a href="https://arxiv.org/abs/2604.24907">Link</a></td></tr>
+<tr><td>Variational Neural Belief Parameterizations for Robust Dexterous Grasping under Multimodal Uncertainty</td><td>. James Clark School; University of Maryland, College Park</td><td>The authors cast grasp acquisition as variational inference over latent contact and pose variables, representing belief as a differentiable Gaussian mixture and optimizing a CVaR-based risk objective via pathwise gradients. Compared to particle-filter MPC, the method achieves more robust dexterous grasps under contact and force uncertainty with an order-of-magnitude faster planning and better-calibrated risk both in simulation and on a multi-fingered hand.</td><td><a href="https://arxiv.org/abs/2604.25897">Link</a></td></tr>
+<tr><td>HANDFUL: Sequential Grasp-Conditioned Dexterous Manipulation with Resource Awareness</td><td>Northwestern University; University of Southern California</td><td>HANDFUL treats finger availability as a limited resource, learning grasp strategies that preserve degrees of freedom for subsequent manipulation subtasks such as pushing, pulling, and pressing. Through a new HANDFUL-Bench benchmark and real experiments on a LEAP hand, resource-aware grasps yield higher success and robustness than grasps optimized greedily for the initial task.</td><td><a href="https://arxiv.org/abs/2604.25126">Link</a></td></tr>
+<tr><td>Egocentric Tactile and Proximity Sensors as Observation Priors for Humanoid Collision Avoidance</td><td>University of Colorado Boulder</td><td>Using a dodgeball-inspired benchmark on a humanoid H1-2, this work studies how distributed tactile and proximity sensors shape learned whole-body collision-avoidance policies. It finds that raw, sparse, non-directional proximity measurements with sufficient range can effectively replace explicit object localization and offer better sample efficiency than dense directional sensing for RL-based avoidance.</td><td><a href="https://arxiv.org/abs/2604.25554">Link</a></td></tr>
+<tr><td>Improving Sensing Coverage and Compliance of 3D-Printed Artificial Skins Through Multi-Modal Sensing and Soft Materials</td><td>University of Colorado Boulder</td><td>The paper presents 3D-printed artificial skin modules that combine time-of-flight and self-capacitance sensing under a soft, compliant covering to enhance impact absorption and tactile capability. Deployed over an FR3 arm, the skins provide whole-arm contact detection, local scene reconstruction, and pressure-correlated responses with a streamlined electrical interface for scalable whole-body sensing.</td><td><a href="https://arxiv.org/abs/2604.25563">Link</a></td></tr>
+<tr><td>GS-Playground: A High-Throughput Photorealistic Simulator for Vision-Informed Robot Learning</td><td></td><td>GS-Playground integrates a parallel physics engine with batch 3D Gaussian Splatting to deliver photorealistic simulation at up to 10^4 FPS at 640x480, enabling large-scale visual RL. An automated Real2Sim pipeline reconstructs efficient, physically consistent environments, supporting locomotion, navigation, and manipulation tasks and narrowing both perceptual and physical sim-to-real gaps.</td><td><a href="https://arxiv.org/abs/2604.25459">Link</a></td></tr>
+<tr><td>Optimal UGV-UAV Cooperative Partitioning and Inspection of Shortest Paths</td><td></td><td>Extending the Canadian Traveller Problem, this work analyzes cooperative shortest-path planning where a UGV is aided by a UAV inspecting uncertain road segments. It derives worst-case competitive ratios showing how UAV speed improves performance and proposes an optimal partitioning strategy for inspection, achieving up to 30% UGV travel-time reduction on real-world road networks.</td><td><a href="https://arxiv.org/abs/2604.25284">Link</a></td></tr>
+<tr><td>Dynamic UGV-UAV Cooperative Path Planning in Uncertain Environments</td><td>Department of Computer Science, University of</td><td>The paper formulates dynamic cooperative path planning where UAVs scout an uncertain road network to guide a UGV safely and efficiently to its destination, relevant to disaster and emergency logistics. Several strategies, including a bidirectional scheme and multi-UAV extensions, are evaluated on 100 urban networks, showing notable UGV travel-time reductions at the cost of higher computation.</td><td><a href="https://arxiv.org/abs/2604.25267">Link</a></td></tr>
+<tr><td>DiscreteRTC: Discrete Diffusion Policies are Natural Asynchronous Executors</td><td></td><td>DiscreteRTC leverages discrete diffusion policies, whose native unmasking operation supports real-time chunking and inpainting, to execute actions asynchronously while thinking ahead. On dynamic simulation and real-world manipulation tasks, it outperforms flow-matching-based RTC with 50% higher success in a dynamic pick task, reduced computation (≈0.7×), and no extra fine-tuning for asynchronous execution.</td><td><a href="https://arxiv.org/abs/2604.25050">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
