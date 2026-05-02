@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-01</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-01</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>32</strong></div>
+        <div class="card">Papers analyzed: <strong>32</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Strong focus on contact-rich manipulation and task/motion planning, with new global trajectory optimization (Global-MPPI) and active-perception TAMP (VAP-TAMP).</li><li>Quadrupedal loco-manipulation advances toward whole-body mobile manipulation by integrating visuo-tactile hierarchy and large-scale RL with zero-shot sim-to-real transfer.</li><li>Foundation VLA and world models (LaST-R1, PRTS, MotuBrain, ExoActor) target long-horizon, instruction-following manipulation and humanoid control with improved dynamics and goal-reachability awareness.</li><li>Dexterous manipulation capabilities are pushed by function-based robotic hand co-design and improved modeling of redundant parallel manipulators’ internal forces.</li><li>New dynamics and simulation tools (RopeDreamer for deformable objects, DOT-Sim for optical tactile sensors) support more realistic planning and control in complex contact scenarios.</li><li>Navigation under dense dynamic obstacles benefits from hybrid latent-dynamics + MPPI methods that blend learned long-horizon intent with short-horizon physics-based safety.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Learning Tactile-Aware Quadrupedal Loco-Manipulation Policies</td><td>New York University</td><td>Introduces a hierarchical visuo-tactile pipeline for quadrupedal loco-manipulation, combining a demo-trained high-level policy that predicts end-effector trajectories and tactile evolution with a low-level tactile-aware whole-body controller learned via large-scale RL. The policy tracks diverse contact-rich trajectories and transfers zero-shot to real robots, improving performance by ~29% over vision-only and visuotactile baselines on tasks such as in-hand reorientation and valve tightening.</td><td><a href="https://arxiv.org/abs/2604.27224">Link</a></td></tr>
+<tr><td>Global Sampling-Based Trajectory Optimization for Contact-Rich Manipulation via KernelSOS</td><td>Carnegie Mellon University</td><td>Proposes Global-MPPI, a trajectory optimization framework that couples kernel sum-of-squares global exploration with log-sum-exp smoothing and local MPPI refinement to tackle high-dimensional, hybrid contact manipulation problems. Demonstrated on long-horizon tasks like PushT and dexterous in-hand manipulation, it finds higher-quality solutions with faster convergence and lower final cost than existing sampling-based baselines.</td><td><a href="https://arxiv.org/abs/2604.27175">Link</a></td></tr>
+<tr><td>Can Tabular Foundation Models Guide Exploration in Robot Policy Learning?</td><td>Carnegie Mellon University</td><td>Introduces TFM-S3, a hybrid local-global policy optimization method that uses a pretrained tabular foundation model to cheaply screen candidate policies in a low-dimensional subspace constructed via SVD. By interleaving frequent local updates with foundation-model-guided global search, it accelerates early learning and improves final performance on continuous-control robotic benchmarks under fixed rollout budgets.</td><td><a href="https://arxiv.org/abs/2604.27667">Link</a></td></tr>
+<tr><td>Robot Planning and Situation Handling with Active Perception</td><td>Carnegie Mellon University</td><td>Presents VAP-TAMP, a framework that fuses task and motion planning with active perception driven by vision-language models to detect and resolve unforeseen execution-time situations. By using action knowledge to guide viewpoint selection and scene-graph reasoning, it enables mobile manipulators to handle disturbances such as blocked paths or failed actions in service tasks, both in simulation and on hardware.</td><td><a href="https://arxiv.org/abs/2604.26988">Link</a></td></tr>
+<tr><td>DOT-Sim: Differentiable Optical Tactile Simulation with Precise Real-to-Sim Physical Calibration</td><td>Stanford University</td><td>Introduces DOT-Sim, a differentiable simulator for optical tactile sensors using Material Point Method elastodynamics and a learned residual image model to reproduce complex soft-deformation and optical responses. Rapidly calibrated from few demonstrations, it enables zero-shot transfer of classifiers and control policies, achieving high real-world accuracy on object classification, embedded tumor detection, and precise trajectory following.</td><td><a href="https://arxiv.org/abs/2604.27367">Link</a></td></tr>
+<tr><td>Design and Characteristics of a Thin-Film ThermoMesh for the Efficient Embedded Sensing of a Spatio-Temporally Sparse Heat Source</td><td>New York University</td><td>Presents ThermoMesh, a thin-film thermoelectric mesh that performs conduction-based thermal imaging with in-sensor compression to localize and characterize sparse heat sources. Through linear and nonlinear resistive interlayers (including NTC ceramics and VO₂), the design dramatically boosts minimum sensitivity and achieves high localization and temperature accuracy, targeting energy-efficient sensing in harsh environments.</td><td><a href="https://arxiv.org/abs/2604.28148">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Function-based Parametric Co-Design Optimization of Dexterous Hands</td><td>University of Illinois Urbana-Champaign</td><td>Proposes a unified parametric design framework for dexterous robot hands that jointly models palm structure, finger kinematics, fingertip geometry, and fine-scale surface curvature via deformation kernels. The system supports task-driven optimization for grasp stability and yields simulation- and fabrication-ready hand designs, facilitating rapid co-design and cross-embodiment manipulation research.</td><td><a href="https://arxiv.org/abs/2604.27557">Link</a></td></tr>
+<tr><td>Global Sampling-Based Trajectory Optimization for Contact-Rich Manipulation via KernelSOS</td><td>Carnegie Mellon University</td><td>Proposes Global-MPPI, a trajectory optimization framework that couples kernel sum-of-squares global exploration with log-sum-exp smoothing and local MPPI refinement to tackle high-dimensional, hybrid contact manipulation problems. Demonstrated on long-horizon tasks like PushT and dexterous in-hand manipulation, it finds higher-quality solutions with faster convergence and lower final cost than existing sampling-based baselines.</td><td><a href="https://arxiv.org/abs/2604.27175">Link</a></td></tr>
+<tr><td>Learning Tactile-Aware Quadrupedal Loco-Manipulation Policies</td><td>New York University</td><td>Introduces a hierarchical visuo-tactile pipeline for quadrupedal loco-manipulation, combining a demo-trained high-level policy that predicts end-effector trajectories and tactile evolution with a low-level tactile-aware whole-body controller learned via large-scale RL. The policy tracks diverse contact-rich trajectories and transfers zero-shot to real robots, improving performance by ~29% over vision-only and visuotactile baselines on tasks such as in-hand reorientation and valve tightening.</td><td><a href="https://arxiv.org/abs/2604.27224">Link</a></td></tr>
+<tr><td>RopeDreamer: A Kinematic Recurrent State Space Model for Dynamics of Flexible Deformable Linear Objects</td><td>German Research Center for Artificial Intelligence; Honda Research Institute; Research Institute Europe GmbH</td><td>Introduces a recurrent state-space model for deformable linear objects that represents configurations as quaternionic kinematic chains, enforcing constant link lengths and reducing nonphysical artifacts like stretching and tangling. A dual-decoder architecture separates reconstruction and prediction, cutting long-horizon prediction error by over 40% and improving topological consistency, making it suitable as a primitive for long-horizon manipulation planning.</td><td><a href="https://arxiv.org/abs/2604.28161">Link</a></td></tr>
+<tr><td>RAY-TOLD: Ray-Based Latent Dynamics for Dense Dynamic Obstacle Avoidance with TDMPC</td><td>Korea Advanced Institute of Science and Technology; Samsung Research</td><td>Presents RAY-TOLD, a hybrid navigation controller that learns LiDAR-based latent dynamics and a terminal value function to augment MPPI with long-horizon guidance in dense, dynamic crowds. By mixing learned policy proposals into the MPPI trajectory set, the method improves success rates and reduces collisions compared to pure MPPI while maintaining kinematic feasibility.</td><td><a href="https://arxiv.org/abs/2604.27450">Link</a></td></tr>
+<tr><td>Interaction Forces and Internal Loads in Parallel Manipulators with Actuation Redundancy</td><td></td><td>Clarifies and unifies the definitions of interaction forces and internal loads in redundantly actuated parallel manipulators, revealing oversights in prior work. Provides explicit methods to synthesize equilibrating and manipulating joint-torque vectors, supported by a case study that corrects erroneous results in the literature, informing better control of grasp-like parallel mechanisms.</td><td><a href="https://arxiv.org/abs/2604.27095">Link</a></td></tr>
+<tr><td>LaST-R1: Reinforcing Action via Adaptive Physical Latent Reasoning for VLA Models</td><td></td><td>Introduces LaST-R1, a VLA framework that couples latent chain-of-thought physical reasoning with a new RL algorithm, LAPO, which jointly optimizes the reasoning latents and action outputs. An adaptive latent CoT mechanism adjusts reasoning depth to task complexity, yielding near-perfect performance on LIBERO and up to 44% real-world gains on complex single- and dual-arm manipulation tasks after RL post-training.</td><td><a href="https://arxiv.org/abs/2604.28192">Link</a></td></tr>
+<tr><td>MotuBrain: An Advanced World Action Model for Robot Control</td><td></td><td>Proposes MotuBrain, a UniDiffuser-based multimodal generative model that jointly models video and action streams via a three-stream Mixture-of-Transformers architecture. The unified model supports policy learning, world modeling, video generation, inverse dynamics, and joint video-action prediction, scaling to heterogeneous and cross-embodiment data while providing a significantly accelerated inference stack for real-time deployment.</td><td><a href="https://arxiv.org/abs/2604.27792">Link</a></td></tr>
+<tr><td>ExoActor: Exocentric Video Generation as Generalizable Interactive Humanoid Control</td><td></td><td>Introduces ExoActor, which frames humanoid control as third-person video generation conditioned on task instructions and scene context, using the generated videos as an interface for interaction modeling. A downstream pipeline converts synthesized executions into humanoid motions via motion estimation and a general controller, enabling task-conditioned behaviors that generalize to new scenarios without extra real-world data.</td><td><a href="https://arxiv.org/abs/2604.27711">Link</a></td></tr>
+<tr><td>PRTS: A Primitive Reasoning and Tasking System via Contrastive Representations</td><td></td><td>Presents PRTS, a VLA foundation model trained via goal-conditioned contrastive RL, where language instructions are treated as goals and state-action/goal embeddings encode log-discounted goal occupancy. This grants the model an intrinsic sense of goal reachability and temporal task progress, yielding state-of-the-art performance on multiple long-horizon, contact-rich manipulation benchmarks and improved zero-shot instruction following.</td><td><a href="https://arxiv.org/abs/2604.27472">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
