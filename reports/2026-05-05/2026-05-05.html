@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-04</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-04</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>26</strong></div>
+        <div class="card">Papers analyzed: <strong>26</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Stereo and multistage spatial attention architectures are pushing robustness in mobile and fine manipulation, improving localization stability and task success under visual disturbances.</li><li>Interleaved vision–language reasoning and latent world-action models are emerging as strong paradigms for long-horizon manipulation without expensive pixel-space rollouts.</li><li>Experience-aware data selection and fleet-scale offline-to-online RL are improving learning efficiency and robustness for generalist manipulation policies in the wild.</li><li>Model-based contact localization and visual force sensing for soft grippers enable precise, low-cost force estimation to support delicate dexterous manipulation.</li><li>Uncertainty-aware costmaps and safety-constrained DRL planners are advancing motion planning reliability for legged locomotion and UAV navigation in challenging environments.</li><li>New XR-based simulation and cross-source LiDAR pose refinement benchmarks are enriching data generation and mapping infrastructure that underpins field robotic systems.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Paired-CSLiDAR: Height-Stratified Registration for Cross-Source Aerial-Ground LiDAR Pose Refinement</td><td>Stanford University</td><td>Introduces Paired-CSLiDAR, a benchmark for refining ground LiDAR poses using aerial scans despite limited geometric overlap. Proposes Residual-Guided Stratified Registration, a training-free geometry pipeline that exploits shared ground surfaces via height-stratified ICP and confidence-gated selection, achieving sub-meter accuracy and outperforming learned correspondence baselines.</td><td><a href="https://arxiv.org/abs/2605.00634">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Stereo Multistage Spatial Attention for Real-Time Mobile Manipulation Under Visual Scale Variation and Disturbances</td><td></td><td>Proposes a stereo multistage spatial attention and hierarchical recurrent model for real-time mobile manipulation with onboard vision. By extracting task-relevant 3D attention points and integrating them with robot state, the method improves robustness to changing viewpoints and visual disturbances across several mobile manipulation tasks.</td><td><a href="https://arxiv.org/abs/2605.00471">Link</a></td></tr>
+<tr><td>MSACT: Multistage Spatial Alignment for Stable Low-Latency Fine Manipulation</td><td></td><td>Augments action-chunking policies with a multistage spatial attention module that tracks stable 2D keypoints for fine, including bimanual, manipulation. A self-supervised temporal alignment loss reduces attention drift without explicit keypoint labels, improving localization stability and task success on the ALOHA platform while maintaining low latency.</td><td><a href="https://arxiv.org/abs/2605.00475">Link</a></td></tr>
+<tr><td>Thinking in Text and Images: Interleaved Vision--Language Reasoning Traces for Long-Horizon Robot Manipulation</td><td></td><td>Introduces Interleaved Vision–Language Reasoning (IVLR), which plans using traces that interleave textual subgoals and visual keyframes over an entire manipulation task. A multimodal transformer generates these traces and conditions an action decoder, yielding large gains on LIBERO long-horizon benchmarks versus text-only, vision-only, or no-trace baselines.</td><td><a href="https://arxiv.org/abs/2605.00438">Link</a></td></tr>
+<tr><td>Task-Conditioned Uncertainty Costmaps for Legged Locomotion</td><td></td><td>Learns a foothold prediction model that also estimates epistemic uncertainty conditioned on terrain and commanded motion, distinguishing in- from out-of-distribution operating regimes. This uncertainty is injected into costmap generation, enabling legged robots to plan safer paths and reducing feasibility error on challenging, unstructured terrains.</td><td><a href="https://arxiv.org/abs/2605.00261">Link</a></td></tr>
+<tr><td>Dynamic-TD3: A Novel Algorithm for UAV Path Planning with Dynamic Obstacle Trajectory Prediction</td><td></td><td>Models UAV navigation with dynamic obstacles as a constrained MDP and extends TD3 with trajectory intent prediction and a physics-aware Kalman filter. The dual-criterion policy enforces hard safety constraints while maintaining maneuverability, yielding better collision avoidance and smoother, more energy-efficient paths in aggressive threat scenarios.</td><td><a href="https://arxiv.org/abs/2605.00059">Link</a></td></tr>
+<tr><td>A Model-based Visual Contact Localization and Force Sensing System for Compliant Robotic Grippers</td><td></td><td>Presents a model-based pipeline that infers contact location and grasp forces for fin-ray soft grippers using RGB-D wrist cameras and inverse finite element analysis. Structural keypoints parameterize a simulation-driven estimator, achieving low force errors across objects and conditions, and enabling indirect, real-time force sensing for compliant dexterous grasps.</td><td><a href="https://arxiv.org/abs/2605.00307">Link</a></td></tr>
+<tr><td>Learning while Deploying: Fleet-Scale Reinforcement Learning for Generalist Robot Policies</td><td></td><td>Introduces Learning While Deploying, an offline-to-online RL framework that continually improves a generalist VLA policy using autonomous rollouts and human interventions collected from a 16-robot fleet. Combining distributional value learning with specialized Q-learning for flow-based actions, the system raises success to about 95% on diverse, including long-horizon, manipulation tasks.</td><td><a href="https://arxiv.org/abs/2605.00416">Link</a></td></tr>
+<tr><td>E$^2$DT: Efficient and Effective Decision Transformer with Experience-Aware Sampling for Robotic Manipulation</td><td></td><td>Enhances Decision Transformers for manipulation by coupling them with k-DPP-based, experience-aware sampling that favors diverse, high-return, uncertain, and underrepresented trajectories. A quality–diversity joint kernel uses DT latent embeddings and composite quality metrics to drive data selection, improving long-horizon performance in simulation and real-robot evaluations.</td><td><a href="https://arxiv.org/abs/2605.00159">Link</a></td></tr>
+<tr><td>Lucid-XR: An Extended-Reality Data Engine for Robotic Manipulation</td><td></td><td>Describes Lucid-XR, an XR-native physics environment running directly on headsets with human-to-robot pose retargeting and a physics-guided video generation pipeline. It produces large-scale, language-steerable synthetic datasets that enable zero-shot transfer of visual manipulation policies, including for soft and particulate materials, to cluttered and poorly lit real settings.</td><td><a href="https://arxiv.org/abs/2605.00244">Link</a></td></tr>
+<tr><td>Being-H0.7: A Latent World-Action Model from Egocentric Videos</td><td></td><td>Proposes a latent world-action model that inserts learnable latent queries between perception and action in VLA-style policies, trained with a dual-branch prior/posterior scheme that injects future information at training time only. This yields future-aware, dynamics-sensitive representations without visual rollouts, achieving state-of-the-art or comparable results on several simulated and real manipulation tasks.</td><td><a href="https://arxiv.org/abs/2605.00078">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
