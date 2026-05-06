@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-05</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-05</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>85</strong></div>
+        <div class="card">Papers analyzed: <strong>85</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Safety and formal methods see strong advances, from online safety filters for deformable manipulation to temporal-logic value functions and reach-avoid tubes for high-dimensional systems.</li><li>Manipulation capabilities are pushed via visuo-haptic shape completion, visibility-aware mobile grasping, desk-organization primitives, and several VLA-based and diffusion-based visuomotor policies.</li><li>Whole-body and legged control progresses with proprioception-only wrench estimation, dynamics-aware quadrupedal locomotion, humanoid force-adaptive loco-manipulation, and soft/continuum control.</li><li>New planning and control formulations span stochastic STL-constrained feedback motion planning, optimal-transport MPC, belief-space trajectory-trees, and multi-agent and UAV planners.</li><li>Sensing, hardware, and data infrastructure for dexterous and VLA-based systems expand with scalable hand sensing, conformal shape-mapping skins, low-cost manipulation platforms, and phone-based teleoperation.</li><li>Multiple works focus on long-horizon robustness and metacognition in VLA models, adding anticipation, adaptive test-time compute, and execution monitoring with automatic continual data collection.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Online Safety Filter for Deformable Object Manipulation with Horizon Agnostic Neural Operators</td><td>Carnegie Mellon University</td><td>Introduces a real-time safety filter for deformable object manipulation that wraps any nominal controller with explicit task-level safety constraints. A horizon-agnostic neural operator models PDE boundary dynamics, while a control barrier function enforces safety via a small QP, improving safe-fluid-manipulation trajectories over reward-shaped baselines.</td><td><a href="https://arxiv.org/abs/2605.01069">Link</a></td></tr>
+<tr><td>Robust Adaptive Predictive Control for Hook-Based Aerial Transportation Between Moving Platforms</td><td>ETH Zurich</td><td>Presents an MPC framework for hook-equipped quadrotors performing pick-and-place between moving platforms, using a MuJoCo-based digital twin as the prediction model. Zero-order robust optimization combined with EKF-based parameter estimation yields adaptive, constraint-satisfying control validated in complex simulations and real flights.</td><td><a href="https://arxiv.org/abs/2605.02370">Link</a></td></tr>
+<tr><td>High-Speed, Scalable Sensor Readout for Dexterous Robotic Hands via Shift-Register Multiplexing</td><td>ETH Zurich</td><td>Proposes a serial-in parallel-out shift-register architecture for high-bandwidth, low-wiring readout of heterogeneous analog sensors in dexterous hands. A 20-channel prototype achieves ≥1 kHz full-scan rates with low error, enabling accurate joint and tactile feedback for real-time dexterous manipulation.</td><td><a href="https://arxiv.org/abs/2605.01434">Link</a></td></tr>
+<tr><td>IMPACT-HOI: Supervisory Control for Onset-Anchored Partial HOI Event Construction</td><td>ETH Zurich</td><td>Introduces a mixed-initiative system for annotating egocentric videos with structured HOI event graphs, targeting supervision for robot manipulation learning. A trust-calibrated controller chooses between queries, suggestions, and safe completions, reducing manual actions while preserving annotator-confirmed decisions.</td><td><a href="https://arxiv.org/abs/2605.01666">Link</a></td></tr>
+<tr><td>Neural Backward Reach-Avoid Tubes with MPC Supervision for High-Dimensional Systems: An Application to Safe Spacecraft Docking</td><td>Stanford University</td><td>Develops a neural approximation of Hamilton–Jacobi reach-avoid value functions for high-dimensional docking dynamics, supervised both by PDE losses and curriculum MPC targets. The learned value is used for gradient-based control and as a terminal cost in MPC, yielding superior success and efficiency on 6D and 13D docking problems.</td><td><a href="https://arxiv.org/abs/2605.02021">Link</a></td></tr>
+<tr><td>Dynamics Aware Quadrupedal Locomotion via Intrinsic Dynamics Head</td><td>New York University</td><td>Proposes joint training of a quadruped control policy with an auxiliary Intrinsic Dynamics head that learns state-to-torque mappings and shapes a dynamics-aware reward. This encourages predictable dynamics, improving efficiency and smoothness in simulation and transferring to hardware with notable gains in torque efficiency and safety metrics.</td><td><a href="https://arxiv.org/abs/2605.01227">Link</a></td></tr>
+<tr><td>Value Functions for Temporal Logic: Optimal Policies and Safety Filters</td><td>Massachusetts Institute of Technology; UC San Diego</td><td>Analyzes value and policy optimality for undiscounted infinite-horizon tasks expressed in temporal logic, showing that greedy Q policies can be suboptimal for Until-style specifications. Constructs history-dependent policies on graphs of TL value functions that are provably optimal and demonstrates how Q-functions can act as general TL safety filters.</td><td><a href="https://arxiv.org/abs/2605.01051">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Visibility-Aware Mobile Grasping in Dynamic Environments</td><td></td><td>Presents a unified system for mobile grasping under limited FOV and dynamic obstacles, coupling a whole-body planner with active perception and a behavior-tree high-level planner. Demonstrated on a Fetch platform and in 400 simulations, it substantially improves success and collision safety in unknown static and dynamic scenes.</td><td><a href="https://arxiv.org/abs/2605.02487">Link</a></td></tr>
+<tr><td>Feedback Motion Planning for Stochastic Nonlinear Systems with Signal Temporal Logic Specifications</td><td></td><td>Provides a feedback motion-planning pipeline for continuous-time stochastic systems under STL with chance constraints, using predicate erosion driven by probabilistic reachable tubes. Contraction-based tracking controllers bound stochastic deviations, enabling deterministic STL trajectory optimization with high satisfaction probabilities on robots including a quadruped.</td><td><a href="https://arxiv.org/abs/2605.02361">Link</a></td></tr>
+<tr><td>Sampling-Based Control via Entropy-Regularized Optimal Transport</td><td></td><td>Introduces OT-MPC, which reframes sampling-based MPC as entropy-regularized optimal transport between candidate controls and low-cost proposals, optimized via Sinkhorn iterations. This geometry-aware update avoids mode-averaging pathologies of MPPI/CEM and improves success on navigation, manipulation, and locomotion tasks.</td><td><a href="https://arxiv.org/abs/2605.02147">Link</a></td></tr>
+<tr><td>Optimizing Trajectory-Trees in Belief Space: An Application from Model Predictive Control to Task and Motion Planning</td><td></td><td>Argues for belief-space trajectory-trees instead of single trajectories in partially observable settings, enabling branching at informative observations. Proposes a distributed augmented Lagrangian optimizer for tree-shaped MPC and extends Logic-Geometric Programming to partially observable TAMP, with examples in autonomous driving and small belief spaces.</td><td><a href="https://arxiv.org/abs/2605.01860">Link</a></td></tr>
+<tr><td>Robotic Desk Organization: A Multi-Primitive Approach to Manipulating Heterogeneous Objects via Environmental Constraints</td><td></td><td>Develops a desk-organization framework combining augmented perception with environment-assisted primitives like edge-based push-grasping and levering for deformables. A task planner sequences these primitives to organize mixed rigid and deformable planar objects, with real-world experiments showing robust performance.</td><td><a href="https://arxiv.org/abs/2605.02135">Link</a></td></tr>
+<tr><td>ShapeGrasp: Simultaneous Visuo-Haptic Shape Completion and Grasping for Improved Robot Manipulation</td><td>Czech Technical University in Prague</td><td>Introduces an iterative pipeline that alternates between visuo-haptic shape completion and simulated grasp planning, updating the object model after each grasp with tactile and occupancy cues. On two robots and grippers, ShapeGrasp improves both 3D reconstruction metrics and real-world grasp success, reaching up to 91% success with a two-finger hand.</td><td><a href="https://arxiv.org/abs/2605.02347">Link</a></td></tr>
+<tr><td>CoRAL: Contact-Rich Adaptive LLM-based Control for Robotic Manipulation</td><td></td><td>Proposes CoRAL, where LLMs synthesize context-aware cost functions for an MPPI controller instead of directly outputting actions, and a VLM-plus-online-ID loop refines physical parameters. A retrieval memory reuses strategies, enabling zero-shot planning and real-time contact-rich control that outperforms VLA and foundation-model planners in challenging scenarios.</td><td><a href="https://arxiv.org/abs/2605.02600">Link</a></td></tr>
+<tr><td>Decompose and Recompose: Reasoning New Skills from Existing Abilities for Cross-Task Robotic Manipulation</td><td></td><td>Presents a skill-reasoning framework that decomposes demonstrations into atomic skill–action pairs and recomposes them for unseen tasks via compositional reasoning. Dynamic and static demonstration libraries ensure coverage of skill patterns, yielding strong zero-shot cross-task performance on AGNOSTOS and real robots.</td><td><a href="https://arxiv.org/abs/2605.01448">Link</a></td></tr>
+<tr><td>SixthSense: Task-Agnostic Proprioception-Only Whole-Body Wrench Estimation for Humanoids</td><td>Hong Kong University of Science and Technology; Tencent Robotics X; Zhejiang University</td><td>Introduces SixthSense, which uses conditional flow matching over proprioception and IMU histories to infer sparse whole-body contact events and wrenches without external force sensors. The plug-and-play module improves collision detection, physical HRI, and teleoperation across standing, walking, and whole-body tracking behaviors.</td><td><a href="https://arxiv.org/abs/2605.01427">Link</a></td></tr>
+<tr><td>VOFA: Visual Object Goal Pushing with Force-Adaptive Control for Humanoids</td><td></td><td>Combines a goal-conditioned visuomotor policy with a force-adaptive whole-body controller to enable humanoid robots to push heavy objects to visual goals under uncertainty. Evaluated on the Booster T1 humanoid, VOFA achieves &gt;90% success in simulation and &gt;80% on hardware, handling objects up to ~17 kg.</td><td><a href="https://arxiv.org/abs/2605.01518">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
