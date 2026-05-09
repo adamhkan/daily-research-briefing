@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-08</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-08</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>42</strong></div>
+        <div class="card">Papers analyzed: <strong>42</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Dexterous manipulation advances focus on learning from sparse human demonstrations and improving sim-to-real transfer, achieving strong real-world performance across diverse contact-rich tasks.</li><li>World Action Models and VLA-based systems are rapidly evolving, with new methods for object-addressable state representations, parameter-efficient adaptation, cross-model knowledge transfer, and trust-aware execution.</li><li>Multiple works tackle motion planning and control under complex constraints, including visibility-aware trajectory search, resource- and safety-constrained planning, and structure-preserving dynamics learning.</li><li>New theoretical and algorithmic tools for whole-body and locomotion control include analysis of pendular structure in multi-contact locomotion and higher-order Lie-group dynamics for floating-base robots.</li><li>Benchmarks and sensing innovations (visually realistic manipulation simulation, contact-free grasp stability, electronics-free tactile feedback, deformable-object teleoperation) target more reliable and accessible real-world manipulation.</li><li>MIT contributes a cephalopod-inspired pulsed-jet swimming robot, while Stanford analyzes how pendular dynamics emerge from optimal control in legged locomotion.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>On the Emergence of Pendular Structure in Multi-Contact Locomotion</td><td>Stanford University</td><td>Analyzes how pendulum-like force patterns emerge directly from an optimal control problem that penalizes angular-momentum rates in multi-contact legged locomotion. The work explains conditions under which LIPM-like behavior appears, highlights limitations in two-contact stances, and validates results in simulation (point-mass quadruped) and on a Unitree Go1.</td><td><a href="https://arxiv.org/abs/2605.05707">Link</a></td></tr>
+<tr><td>Cycle-resolved Cephalopod-Inspired Pulsed-Jet Robot With High-Volume Expulsion and Drag-Reduced Gliding</td><td>Massachusetts Institute of Technology</td><td>Introduces a cephalopod-inspired pulsed-jet robot with a rigid–soft origami mantle enabling large cavity-volume reduction and drag-reduced gliding. Experiments dissect the contributions of expelled volume, glide duration, and refill path to overall locomotion, achieving fast, efficient jet-driven swimming as a platform for studying expulsion–glide–refill cycles.</td><td><a href="https://arxiv.org/abs/2605.05875">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>DexSynRefine: Synthesizing and Refining Human-Object Interaction Motion for Physically Feasible Dexterous Robot Actions</td><td></td><td>Proposes DexSynRefine, which turns sparse human-object interaction demonstrations into executable dexterous robot motions via a motion-manifold synthesizer, a task-space residual RL policy, and a contact-and-dynamics adaptation module. Across five dexterous tasks, it significantly outperforms prior action representations in simulation and sim-to-real transfer, improving success by 50–70 percentage points over pure kinematic retargeting.</td><td><a href="https://arxiv.org/abs/2605.05925">Link</a></td></tr>
+<tr><td>DexSim2Real: Foundation Model-Guided Sim-to-Real Transfer for Generalizable Dexterous Manipulation</td><td></td><td>Introduces DexSim2Real, combining foundation-model-guided visual domain randomization, a tactile-visual cross-attention policy, and an LLM-based progressive curriculum for dexterous manipulation. On six contact-rich tasks with blinded evaluation it achieves a 78.2% real-world success rate and shrinks the sim-to-real gap to 8.3%, outperforming prior sim-to-real methods.</td><td><a href="https://arxiv.org/abs/2605.05241">Link</a></td></tr>
+<tr><td>ReActor: Reinforcement Learning for Physics-Aware Motion Retargeting</td><td></td><td>Presents a bilevel RL-based framework that simultaneously adapts human reference motions to new robot morphologies and trains a tracking controller in physics simulation. Using approximate gradients and sparse semantic rigid-body correspondences, it produces physically plausible motions without manual tuning and demonstrates challenging behaviors on disparate embodiments, including quadrupeds.</td><td><a href="https://arxiv.org/abs/2605.06593">Link</a></td></tr>
+<tr><td>Lie Group Formulation of Recursive Dynamics Algorithms of Higher Order for Floating-Base Robots</td><td></td><td>Develops higher-order Lie-group formulations of Newton–Euler, articulated-body inertia, and hybrid dynamics algorithms for floating-base trees, providing closed-form equations and an admissible Coriolis matrix. Demonstrated on a 12-DoF aerial manipulator, the methods scale quadratically with derivative order and support accurate high-order dynamics for planning and control.</td><td><a href="https://arxiv.org/abs/2605.06498">Link</a></td></tr>
+<tr><td>Structure-Preserving Gaussian Processes Via Discrete Euler-Lagrange Equations</td><td></td><td>Introduces Lagrangian Gaussian Processes that embed discrete Euler–Lagrange structure into GP dynamics learning, preserving energy behavior and physical consistency. The approach learns from position-only data, enabling data-efficient, uncertainty-aware long-term predictions on systems including a real soft robot with hysteresis.</td><td><a href="https://arxiv.org/abs/2605.06246">Link</a></td></tr>
+<tr><td>Track A*: Fast Visibility-Aware Trajectory Planning for Active Target Tracking</td><td></td><td>Proposes Track A*, a visibility-aware trajectory planner on a 4D spatio-temporal grid that uses DAG layering, BVH-based distance caching, and beam pruning. Across large CARLA-based benchmarks it achieves near-baseline visibility with over 20× speedups and 100% convergence, providing a practical offline reference for tracking scenarios.</td><td><a href="https://arxiv.org/abs/2605.05338">Link</a></td></tr>
+<tr><td>Resource-Constrained Robotic Planning in the face of Mixed Uncertainty</td><td>Chinese Academy of Sciences; University College London; University of Chinese Academy of Sciences</td><td>Models robots under both probabilistic and nondeterministic uncertainty with resource limits using Consumption MDPs with Set-valued Transitions, combined with LTLf task specifications. Presents unrolling and optimized synthesis methods that compute robust strategies maximizing task satisfaction without resource exhaustion, validated on warehouse transport scenarios.</td><td><a href="https://arxiv.org/abs/2605.05797">Link</a></td></tr>
+<tr><td>Maximal Controlled Invariant-MPC: Enhancing Feasibility and Reducing Conservatism through Terminal CBF Constraint in Safety-Critical Control</td><td></td><td>Introduces an MPC formulation that uses a Control Barrier Function as a terminal constraint to reduce conservatism while guaranteeing safety. Theoretical results and simulations on a nonholonomic system show expanded reachable sets, fewer infeasible states (1.7–2.7× reduction), and improved tracking even for trajectories lying inside nominally unsafe regions.</td><td><a href="https://arxiv.org/abs/2605.05575">Link</a></td></tr>
+<tr><td>OA-WAM: Object-Addressable World Action Model for Robust Robot Manipulation</td><td></td><td>Proposes OA-WAM, which represents scenes as persistent robot and object slots with addressable identifiers, decoupling object identity from appearance. The model jointly predicts slot-based world evolution and continuous action chunks, achieving near-SOTA results on LIBERO and strong robustness on geometric generalization and causal slot-intervention tests.</td><td><a href="https://arxiv.org/abs/2605.06481">Link</a></td></tr>
+<tr><td>CKT-WAM: Parameter-Efficient Context Knowledge Transfer Between World Action Models</td><td></td><td>Introduces CKT-WAM, which transfers knowledge between World Action Models via compact text-space context vectors derived from compressed teacher hidden states and lightweight adapters. With only 1.17% trainable parameters, it attains 86.1% success on LIBERO-Plus and 83.3% in real long-horizon tasks, approaching full fine-tuning performance.</td><td><a href="https://arxiv.org/abs/2605.06247">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
