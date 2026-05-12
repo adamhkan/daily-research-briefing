@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-11</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-11</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>47</strong></div>
+        <div class="card">Papers analyzed: <strong>47</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>New motion-planning theory (PISTO, Voro-POMCPOW) improves success, smoothness, and offers finite-time guarantees for stochastic and POMDP planners.</li><li>Multiple works advance safe navigation: resilient AV motion planning with V2X (MORPH-U), Hamiltonian risk-aware fields, BEV-guided PathPainter, and ultra-lightweight topological UAV exploration.</li><li>Embodied manipulation sees progress in long-horizon brick assembly (BrickCraft), wet-lab protocol execution (BioProVLA-Agent), and aerial manipulation for pollination and deformable-object transport.</li><li>VLA-based manipulation is refined with better data strategies (ACA), tactile integration (AT-VLA), and utilization of failure demonstrations for more robust imitation learning.</li><li>New benchmarks and systems (TAVIS active-vision benchmark, AERO-VIS event-based SLAM) target perception and gaze control as key levers for manipulation and agile flight.</li><li>Advanced whole-body and flexible-manipulator control is addressed via Lie-algebraic PDE control and robust NMPC for close-proximity aerial inspection.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>AERO-VIS: Asynchronous Event-based Real-time Onboard Visual-Inertial SLAM</td><td>ETH Zurich</td><td>AERO-VIS introduces an asynchronous stereo event-inertial SLAM pipeline that adapts processing to the incoming event stream, reducing latency while maintaining real-time performance. Deployed on a UAV, it achieves high-accuracy, purely event-based onboard SLAM that is robust enough for closed-loop control and large-scale flight without offboard compute.</td><td><a href="https://arxiv.org/abs/2605.07885">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>PISTO: Proximal Inference for Stochastic Trajectory Optimization</td><td>Georgia Institute of Technology</td><td>PISTO reframes STOMP-style stochastic trajectory optimization as variational inference with an explicit KL-regularized proximal update, yielding a trust-region interpretation and closed-form mean updates. The derivative-free method handles non-differentiable costs and outperforms CHOMP and STOMP in arm motion planning, as well as CEM and MPPI in contact-rich MuJoCo locomotion and manipulation.</td><td><a href="https://arxiv.org/abs/2605.07215">Link</a></td></tr>
+<tr><td>MORPH-U: Multi-Objective Resilient Motion Planning for V2X-Enabled Autonomous Driving in High-Uncertainty Environments via Simulation</td><td></td><td>MORPH-U is a CARLA-based closed-loop stack that fuses onboard sensing with V2X into a Local Dynamic Map and triggers Hybrid-A* replanning upon validated hazards or map changes. A multi-objective formulation with Pareto-front analysis balances safety, tracking, responsiveness, and comfort, while a Byzantine-inspired gate filters faulty V2X, improving safety and robustness under adversarial message injection.</td><td><a href="https://arxiv.org/abs/2605.07370">Link</a></td></tr>
+<tr><td>Learning Material-Aware Hamiltonian Risk Fields for Safe Navigation</td><td></td><td>This work augments port-Hamiltonian navigation with a learned context-energy term that induces selective lateral forces toward genuinely safer directions, gated to avoid hallucinated maneuvers when no safe escape exists. Using a CVaR objective, the approach improves success, reduces premature evasive actions, and cuts catastrophic failures across synthetic benchmarks, off-road terrain, semantic maps, and highway traffic scenarios.</td><td><a href="https://arxiv.org/abs/2605.07038">Link</a></td></tr>
+<tr><td>BrickCraft: Visuomotor Skill Composition with Situated Manual Guidance for Long-Horizon Interlocking Brick Assembly</td><td></td><td>BrickCraft decomposes long-horizon interlocking-brick assembly into a small set of reusable visuomotor primitives defined relative to reference bricks. Situated manuals project high-level assembly intent into robot observations, enabling a compositional execution pipeline that generalizes from limited demonstrations to novel structures while maintaining precise manipulation.</td><td><a href="https://arxiv.org/abs/2605.07605">Link</a></td></tr>
+<tr><td>BioProVLA-Agent: An Affordable, Protocol-Driven, Vision-Enhanced VLA-Enabled Embodied Multi-Agent System with Closed-Loop-Capable Reasoning for Biological Laboratory Manipulation</td><td></td><td>BioProVLA-Agent is a multi-agent embodied system that parses natural lab protocols into verifiable subtasks, checks state via a VLM-RAG verification agent, and executes with a VLA-based embodied policy. An augmentation strategy (AugSmolVLA) improves robustness to transparent labware and visual perturbations, yielding more stable execution in atomic and composite wet-lab manipulation tasks.</td><td><a href="https://arxiv.org/abs/2605.07306">Link</a></td></tr>
+<tr><td>Modular Lie Algebraic PDE Control of Multibody Flexible Manipulators</td><td></td><td>The paper presents a screw-theoretic, PDE-based control framework for flexible serial manipulators, expressing motion and deformation in se(3) and eliminating distributed elastic acceleration via a strain-based substitution. Link-wise Lyapunov functions and an adaptive scheme provide global exponential convergence of twist and parameter errors, with interaction terms canceling exactly to yield a modular, scalable stability certificate.</td><td><a href="https://arxiv.org/abs/2605.06709">Link</a></td></tr>
+<tr><td>Sensitivity-Based Robust NMPC for Close-Proximity Offshore Wind Turbine Inspection with a Tilted Multirotor</td><td>Czech Technical University in Prague</td><td>This work augments nominal NMPC for a tilted multirotor with online constraint tightening based on parametric state sensitivities and gust bounds, creating a robust clearance constraint around turbine towers. The approach retains the original optimization structure while ensuring safety under mass, drag, thrust, and wind uncertainties, eliminating clearance violations in Monte Carlo tests at modest computational cost.</td><td><a href="https://arxiv.org/abs/2605.07771">Link</a></td></tr>
+<tr><td>Finite-Time Analysis of MCTS in Continuous POMDP Planning</td><td></td><td>The authors derive finite-time concentration bounds for MCTS in POMDPs, extending polynomial UCB-style exploration to yield guarantees at the root in both discrete and continuous observation spaces. They introduce Voro-POMCPOW, which adaptively partitions observations via Voronoi cells to keep branching finite, achieving competitive empirical performance while providing high-probability value bounds also applicable to continuous MDPs.</td><td><a href="https://arxiv.org/abs/2605.07703">Link</a></td></tr>
+<tr><td>Palm-sized Omnidirectional Vision-Based UAV Exploration with Sparse Topological Map Guidance</td><td>Hong Kong University of Science and Technology</td><td>A lightweight exploration pipeline for micro UAVs uses multi-fisheye omnidirectional vision to estimate depth and builds a sparse topological map of key nodes instead of dense occupancy grids. Frontiers are represented as topological nodes, and global path planning operates directly on this sparse graph, enabling efficient exploration on a palm-sized, 400 g platform with very low compute and memory footprint.</td><td><a href="https://arxiv.org/abs/2605.07275">Link</a></td></tr>
+<tr><td>PathPainter: Transferring the Generalization Ability of Image Generation Models to Embodied Navigation</td><td></td><td>PathPainter leverages a BEV image-generation model to interpret language instructions, localize goals, and paint traversability masks that act as global priors for ground and near-ground robots. A cross-view localization module aligns onboard odometry with the BEV map, enabling robust long-range navigation; a UAV using only a local planner successfully executes a 160 m outdoor mission.</td><td><a href="https://arxiv.org/abs/2605.07496">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
