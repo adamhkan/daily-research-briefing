@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-12</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-12</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>113</strong></div>
+        <div class="card">Papers analyzed: <strong>113</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Institutional highlights span UC San Diego’s above/below-water multi-robot SLAM, Stanford’s provably safe constraint tightening for vehicle planning, UC Berkeley’s certifiable speedups for optimal control, and ETH Zurich’s RGB-only multi-agent Gaussian-SLAM and large-scale 3D scene graph alignment.</li><li>Mobile manipulation and motion-planning papers are dominated by advances in generative VLA control, trajectory optimization, and diffusion/flow-based policies that emphasize long-horizon robustness, recovery, and efficiency.</li><li>Multiple works push fast and reliable motion planning: from optimal multi-agent path finding via optimal transport and Schrödinger bridges to translation-invariant edge bundles and terminal-cost-aware kinodynamic planning.</li><li>Whole-body and legged locomotion control advances include diffusion-guided quadruped priors, neuromorphic RL for on-robot adaptation, explicit stair-geometry conditioning for humanoids, and curriculum learning with external forces.</li><li>Safety, fault tolerance, and formal guarantees recur across topics, with contributions in safe Koopman learning, Gaussian-process-based safe exploration, deterministic protection levels for odometry, and symbolic constraint learning for embodied planning.</li><li>Benchmarks and datasets such as OmniNavBench, RoboMemArena, ObjView-Bench, M2Bench, SABER, and others aim to standardize evaluation for navigation, memory, view planning, monitoring, and retail manipulation.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Above and Below: Heterogeneous Multi-robot SLAM Across Surface and Underwater Domains</td><td>UC San Diego</td><td>Introduces a centralized multi-robot SLAM framework that fuses loop closures between surface vessels and underwater vehicles using shared above/below-water structures rather than acoustic ranging. The system merges individual state estimates into a unified pose graph, improving AUV localization accuracy across three real maritime environments and demonstrating practical heterogeneous-team SLAM without acoustic dependencies.</td><td><a href="https://arxiv.org/abs/2605.09811">Link</a></td></tr>
+<tr><td>Mismatch-Aware Adaptive Constraint Tightening for Bicycle-Model Trajectory Optimization</td><td>Stanford University</td><td>Analyzes when kinematic bicycle models become unsafe proxies for dynamic vehicles and derives a characteristic speed separating safe oversteer from safety-critical understeer regimes. The authors propose a state-dependent constraint-tightening law that scales with speed and curvature, achieving full safety with far less conservatism than fixed margins in trajectory optimization and MPC.</td><td><a href="https://arxiv.org/abs/2605.09376">Link</a></td></tr>
+<tr><td>SHIELD: Scalable Optimal Control with Certification using Duality and Convexity</td><td>UC Berkeley</td><td>Presents SHIELD, a hierarchical method for pruning variables and constraints in ℓ1-regularized convex programs while certifying feasibility and optimality using strong convexity and duality. Applied to stochastic MPC in complex traffic scenarios, SHIELD achieves order-of-magnitude speedups over full-dimensional solvers while preserving safety, enabling lightweight optimal control in real-time driving contexts.</td><td><a href="https://arxiv.org/abs/2605.09171">Link</a></td></tr>
+<tr><td>MAGS-SLAM: Monocular Multi-Agent Gaussian Splatting SLAM for Geometrically and Photometrically Consistent Reconstruction</td><td>ETH Zurich</td><td>Introduces the first RGB-only multi-agent 3D Gaussian Splatting SLAM framework, where each robot builds local monocular submaps and shares compact summaries instead of dense maps. Through geometry- and appearance-aware loop verification and occupancy-aware fusion, MAGS-SLAM achieves tracking and rendering quality competitive with RGB-D collaborative methods, while being deployable on lightweight platforms.</td><td><a href="https://arxiv.org/abs/2605.10760">Link</a></td></tr>
+<tr><td>OpenSGA: Efficient 3D Scene Graph Alignment in the Open World</td><td>ETH Zurich</td><td>Proposes an efficient framework to align object-level 3D scene graphs using fused vision-language, text, and geometric features with distance-gated spatial attention and minimum-cost-flow matching. The work introduces ScanNet-SG, a 700k-sample dataset with thousands of object categories, and shows strong gains on both frame-to-scan and scan-to-scan alignment, enabling robust object-level relocalization and multi-agent map fusion.</td><td><a href="https://arxiv.org/abs/2605.10484">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>HarmoWAM: Harmonizing Generalizable and Precise Manipulation via Adaptive World Action Models</td><td></td><td>Proposes HarmoWAM, an end-to-end world-action model that combines a predictive expert leveraging latent dynamics with a reactive expert driven by visual rollouts, coordinated by a process-adaptive gating mechanism. Across six real-robot manipulation tasks in unseen environments, it achieves strong zero-shot generalization, significantly outperforming prior VLA and world-model controllers in both transit and precise interaction phases.</td><td><a href="https://arxiv.org/abs/2605.10942">Link</a></td></tr>
+<tr><td>Muninn: Your Trajectory Diffusion Model But Faster</td><td></td><td>Introduces Muninn, a training-free caching wrapper for diffusion-based trajectory planners that reuses denoiser outputs when a calibrated error bound predicts low impact on the final plan. It yields up to 4.6× speedups with certified deviations from full-compute trajectories, maintaining task success and safety in real-time navigation and manipulation deployments.</td><td><a href="https://arxiv.org/abs/2605.09999">Link</a></td></tr>
+<tr><td>IMPACT: An Implicit Active-Set Augmented Lagrangian for Fast Contact-Implicit Trajectory Optimization</td><td></td><td>Develops IMPACT, an augmented-Lagrangian solver that implicitly manages contact modes as an active set within MPCC-based contact-implicit trajectory optimization. A tailored C++ implementation achieves 2.9–70× speedups over strong baselines on CITO benchmarks and improves contact-rich MPC quality, including demonstrations on real robotic pushing tasks.</td><td><a href="https://arxiv.org/abs/2605.09127">Link</a></td></tr>
+<tr><td>Efficient Multi-Robot Motion Planning with Precomputed Translation-Invariant Edge Bundles</td><td>University of Colorado Boulder</td><td>Introduces KiTE-Extend, which augments sampling-based kinodynamic planners with a library of precomputed, translation-invariant trajectory segments to guide action selection. The method is especially beneficial for multi-robot motion planning, where it reduces planning time and improves scalability across centralized, prioritized, and conflict-based schemes without altering underlying propagation or guarantees.</td><td><a href="https://arxiv.org/abs/2605.09801">Link</a></td></tr>
+<tr><td>Terminal Matters: Kinodynamic Planning with a Terminal Cost and Learned Uncertainty in Belief State-Cost Space</td><td>Worcester Polytechnic Institute</td><td>Extends asymptotically optimal kinodynamic planning by explicitly optimizing terminal-state quality via a terminal cost, and proves AO-RRT retains optimality under this objective. The KiTe planner further operates in belief space with learned dynamics and uncertainty, improving goal-reaching reliability in tasks like planar pushing and validating on real hardware.</td><td><a href="https://arxiv.org/abs/2605.09046">Link</a></td></tr>
+<tr><td>Optimal and Scalable MAPF via Multi-Marginal Optimal Transport and Schrödinger Bridges</td><td></td><td>Shows that anonymous multi-agent path finding can be formulated as a structured multi-marginal optimal transport problem that collapses to a polynomial-size linear program with integral, collision-free solutions. A Schrödinger-bridge-based entropic regularization with Sinkhorn-style iteration provides scalable approximations that remain near-optimal on large MAPF benchmarks.</td><td><a href="https://arxiv.org/abs/2605.10917">Link</a></td></tr>
+<tr><td>Trajectory-Consistent Flow Matching for Robust Visuomotor Policy Learning</td><td>University of New Hampshire, Durham, NH, USA. Emails:</td><td>Addresses the mismatch between pointwise flow-matching training and trajectory-level integration by adding rectified velocity supervision, multi-step consistency losses, temporal smoothness regularization, and RK4 integration. Dual-view 3D point-cloud encoders and the improved training recipe enable long-horizon manipulation tasks where baselines fail, achieving strong performance in both simulation and real-robot experiments.</td><td><a href="https://arxiv.org/abs/2605.08511">Link</a></td></tr>
+<tr><td>Constraint-Aware Diffusion Priors for High-Fidelity and Versatile Quadruped Locomotion</td><td></td><td>Introduces Diff-CAST, a diffusion-based motion prior that replaces GAN discriminators for learning rich quadruped gait distributions from heterogeneous datasets while mitigating mode collapse. Coupled with symmetric command conditioning and constrained RL, it yields drift-free, safety-aware locomotion with smooth skill transitions and robust sim-to-real performance on hardware.</td><td><a href="https://arxiv.org/abs/2605.08804">Link</a></td></tr>
+<tr><td>Neuromorphic Reinforcement Learning for Quadruped Locomotion Control on Uneven Terrain</td><td></td><td>Proposes an equilibrium-propagation-based PPO framework that combines a CPG gait policy with a residual posture controller, trained via local learning rules amenable to neuromorphic hardware. On a 12-DoF A1 robot over uneven terrain, the method matches backprop-trained PPO in performance while cutting GPU memory usage by over 4×, pointing toward low-power on-board adaptation.</td><td><a href="https://arxiv.org/abs/2605.09595">Link</a></td></tr>
+<tr><td>Explicit Stair Geometry Conditioning for Robust Humanoid Locomotion</td><td>Hong Kong University of Science and Technology; Mohamed bin Zayed University of Artificial Intelligence; The Chinese University of Hong Kong</td><td>Conditions a humanoid stair-climbing policy directly on interpretable geometric parameters such as step height, depth, and yaw, instead of opaque terrain embeddings. PPO-trained controllers generalize to unseen stair geometries in simulation and enable a Unitree G1 to reliably climb long, varied indoor and outdoor staircases, including 33 consecutive outdoor steps.</td><td><a href="https://arxiv.org/abs/2605.09944">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
