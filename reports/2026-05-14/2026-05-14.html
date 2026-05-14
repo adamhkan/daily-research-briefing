@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-13</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-13</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>50</strong></div>
+        <div class="card">Papers analyzed: <strong>50</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Mobile manipulation and contact-rich skills advance via symmetry-aware flow matching, follow-the-leader planning for continuum arms, and force-/tactile-driven diffusion policies for search and insertion.</li><li>Navigation sees new adaptive planners and learning frameworks, from UAV inspection in partially known indoor environments to LLM-designed rewards and online imitation for visual navigation.</li><li>VLA-based manipulation continues to mature, with predictive 3D forecasting, force-aware flow policies, geometry-aware compression, and hierarchical memory improving robustness, efficiency, and long-horizon competence.</li><li>Teleoperation and whole-body/whole-hand control progress through IMU-based humanoid teleop and MR-based dexterous twist retargeting, tightening the loop between human motion and robot embodiment.</li><li>Safety, evaluation, and infrastructure are increasingly emphasized via temporal-safety benchmarks, conservative offline value estimation, and cross-embodiment real-time I/O frameworks.</li><li>Perception for safe motion improves with LiDAR BEV pedestrian detection and weather-robust cross-view geo-localization, directly supporting navigation under challenging conditions.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>ASIP-Planner: Adaptive Planning for UAV Surface Inspection in Partially Known Indoor Environments</td><td>Carnegie Mellon University</td><td>Proposes an adaptive UAV inspection framework that couples a segment-based global coverage planner with a local view-angle adaptation module for indoor, partially known environments. The method clusters planar surfaces into compact viewpoint sequences and adjusts view direction online to handle unforeseen occlusions, achieving near-complete coverage with shorter paths in simulation and validated real flights.</td><td><a href="https://arxiv.org/abs/2605.11119">Link</a></td></tr>
+<tr><td>RIO: Flexible Real-Time Robot I/O for Cross-Embodiment Robot Learning</td><td>Carnegie Mellon University</td><td>Introduces RIO, a lightweight Python framework that standardizes robot I/O, teleoperation, sensor configuration, and policy deployment across diverse robot morphologies. By abstracting hardware-specific details, RIO simplifies collecting data and deploying VLAs on single-arm, bimanual, and humanoid platforms, demonstrated on multi-task household manipulation.</td><td><a href="https://arxiv.org/abs/2605.11564">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Morphologically Equivariant Flow Matching for Bimanual Mobile Manipulation</td><td>Istituto Italiano di Tecnologia</td><td>Formalizes morphological symmetry for bimanual mobile manipulation and enforces reflection equivariance in a C2-equivariant flow-matching policy. Symmetry-informed policies become ambidextrous, improving sample efficiency and enabling zero-shot generalization to mirrored configurations in both simulated and real TIAGo++ tasks.</td><td><a href="https://arxiv.org/abs/2605.12228">Link</a></td></tr>
+<tr><td>Sampling-Based Follow-the-Leader Motion Planning for Manipulator-Mounted Continuum Robots</td><td></td><td>Presents a sampling-based planner for follow-the-leader motion of continuum robots mounted on manipulators, jointly considering continuum shape and 6-DoF base pose. By decoupling global shape search from closed-form base pose computation, the method offers resolution-complete planning with provable tip tracking and is validated in simulation and on a tendon-driven CR on a serial arm.</td><td><a href="https://arxiv.org/abs/2605.11618">Link</a></td></tr>
+<tr><td>Closing the Motion Execution Gap: From Semantic Motion Task Constraints to Kinematic Control</td><td></td><td>Introduces Motion Statecharts and the Giskard framework to bridge symbolic motion specifications and low-level kinematic control via a differentiable world model. A task-function-based lMPC controller executes semantic constraints with jerk-bounded transitions, transferring across eight robot platforms in varied environments.</td><td><a href="https://arxiv.org/abs/2605.12053">Link</a></td></tr>
+<tr><td>EvoNav: Evolutionary Reward Function Design for Robot Navigation with Large Language Models</td><td></td><td>Automates RL reward design for robot navigation by having an LLM evolve candidate reward functions, evaluated through a staged proxy-to-full-training pipeline. The evolutionary search yields navigation policies that outperform manually crafted and prior automatic reward baselines while keeping training cost manageable.</td><td><a href="https://arxiv.org/abs/2605.11859">Link</a></td></tr>
+<tr><td>NavOL: Navigation Policy with Online Imitation Learning</td><td></td><td>Proposes NavOL, which iteratively rolls out a pretrained navigation diffusion policy in simulation while querying a privileged global planner for optimal waypoints as online supervision. This online imitation loop avoids reward engineering and mitigates distribution shift, scaling to thousands of trajectories per hour and showing strong sim and real-world visual navigation performance.</td><td><a href="https://arxiv.org/abs/2605.11762">Link</a></td></tr>
+<tr><td>DexTwist: Dexterous Hand Retargeting for Twist Motion via Mixed Reality-based Teleoperation</td><td></td><td>Targets MR-based teleoperation of dexterous hands for twist-centric tasks like opening caps and turning keys by focusing on functional screw-axis alignment rather than pure pose matching. DexTwist detects tripod grasps, estimates intended twist, and refines joint trajectories with a virtual-object objective, improving turning accuracy and screw-axis stability over conventional retargeting.</td><td><a href="https://arxiv.org/abs/2605.12182">Link</a></td></tr>
+<tr><td>ForceFlow: Learning to Feel and Act via Contact-Driven Flow Matching</td><td></td><td>Develops ForceFlow, a hierarchical flow-matching framework that fuses force/torque signals and vision for contact-rich manipulation. By treating force as a global regulatory signal and separating approach and interaction phases with a Vision-to-Force handover, it significantly boosts success rates and zero-shot generalization compared to a force-aware VLA baseline.</td><td><a href="https://arxiv.org/abs/2605.11048">Link</a></td></tr>
+<tr><td>SI-Diff: A Framework for Learning Search and High-Precision Insertion with a Force-Domain Diffusion Policy</td><td>Queen&#x27;s University</td><td>Uses a single force-domain diffusion policy with mode conditioning to handle both search and precise insertion in assembly tasks under pose uncertainty. A teacher-generated set of diverse demonstrations trains the policy to map tactile and velocity inputs to actions, extending tolerated misalignment and enabling zero-shot transfer to new part geometries.</td><td><a href="https://arxiv.org/abs/2605.12247">Link</a></td></tr>
+<tr><td>Rainbow Deep Q-Learning with Kinematics-Aware Design for Cooperative Delta and 3-RRS Parallel Robot Insertion</td><td>Zhejiang University</td><td>Combines geometric design optimization of a 3-RRS parallel robot with Rainbow DQN to learn cooperative peg-in-hole insertion with a Delta-3-RRS pair. The tuned kinematics enlarge a safe workspace for RL exploration, and the enriched DQN with shaped rewards achieves more stable insertions and fewer constraint violations than vanilla DQN and sampling-based planning.</td><td><a href="https://arxiv.org/abs/2605.11697">Link</a></td></tr>
+<tr><td>TriBand-BEV: Real-Time LiDAR-Only 3D Pedestrian Detection via Height-Aware BEV and High-Resolution Feature Fusion</td><td></td><td>Introduces a three-band height-aware BEV encoding and lightweight network that reformulates 3D LiDAR detection as 2D BEV detection, then reconstructs 3D boxes. The system achieves competitive pedestrian AP on KITTI at 49 FPS, offering an efficient perception module for real-time autonomous driving and mobile robot navigation.</td><td><a href="https://arxiv.org/abs/2605.12220">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
