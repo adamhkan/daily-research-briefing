@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-14</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-14</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>66</strong></div>
+        <div class="card">Papers analyzed: <strong>66</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>New control and planning frameworks push robustness in challenging navigation settings: from dynamic, human-populated spaces (HCSG, DynoJEPP) to deformable microrobots and wheeled–legged platforms (3D RL-DWA, MUJICA).</li><li>Multiple works advance manipulation robustness and generalization under data scarcity, including few-demo motion-field guidance (SID), single-demo construction manipulation, and semantics-aware dexterous grasping (SECOND-Grasp).</li><li>Navigation safety under uncertainty is a recurring focus, with distributionally robust safety filters, belief-space residual risk, and multi-UAV localization refinement all targeting reliable behavior in ambiguous environments.</li><li>Autonomous driving research emphasizes richer intent and causality modeling (CaAD, DIAL, MindVLA-U1, SI) to overcome mode collapse and improve preference alignment in long-tail scenes.</li><li>Perception and mapping for embodied agents see advances from monocular open-vocabulary 3D scene graphs (LEXI-SG) to calibration-free gas source localization and bathymetry-aware coverage planning.</li><li>No highly relevant motion-planning/manipulation papers this cycle come from the specified key institutions, but NYU contributes a notable on-device gesture detection framework (Scale-Gest) relevant to human-robot interaction pipelines.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Scale-Gest: Scalable Model-Space Synthesis and Runtime Selection for On-Device Gesture Detection</td><td>New York University</td><td>Introduces Scale-Gest, a runtime-adaptive framework that spans a dense family of tiny-YOLO gesture detectors and selects operating points via device-calibrated Accuracy-Complexity-Energy profiles. A motion-aware ROI gate further reduces compute, achieving up to 4× energy savings on a battery-powered laptop while maintaining 0.8–0.9 event-level F1 and ≈6 ms latency in driving-like scenarios.</td><td><a href="https://arxiv.org/abs/2605.12506">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>TinySDP: Real Time Semidefinite Optimization for Certifiable and Agile Edge Robotics</td><td></td><td>Presents TinySDP, a semidefinite programming solver tailored for embedded systems that enables real-time MPC with nonconvex obstacle constraints. By integrating PSD cone projections into a cached-Riccati ADMM scheme and adding rank-1 certificates, it achieves shorter, provably collision-free paths in cluttered navigation scenarios and is validated on a Crazyflie quadrotor.</td><td><a href="https://arxiv.org/abs/2605.13748">Link</a></td></tr>
+<tr><td>Asymptotically Optimal Ergodic Coverage on Generalized Motion Fields</td><td></td><td>Extends ergodic coverage to time-varying, flow-driven domains using a maximum mean discrepancy (MMD)–based metric that explicitly incorporates ambient flow. The method preserves ergodic guarantees and enables effective open-loop and underactuated exploration, validated in ocean-like fields and on aerial and legged robots in non-convex, flow-restricted environments.</td><td><a href="https://arxiv.org/abs/2605.13442">Link</a></td></tr>
+<tr><td>SID: Sliding into Distribution for Robust Few-Demonstration Manipulation</td><td></td><td>Proposes SID, which learns an object-centric motion field from canonicalized demonstrations to iteratively drive the system back toward the demonstration manifold, paired with a lightweight egocentric policy trained via conditioned flow matching. This decomposes large corrective motion from fine manipulation, yielding ~90% success on six real tasks from just two demonstrations, robust to pose shifts and disturbances.</td><td><a href="https://arxiv.org/abs/2605.13428">Link</a></td></tr>
+<tr><td>Manipulation Planning for Construction Activities with Repetitive Tasks</td><td>Stony Brook University</td><td>Uses VR demonstrations and screw geometry to extract constant screw motions from human examples, then applies ScLERP and RMRC to generate joint-space plans for arbitrarily long repetitive construction tasks. A 7-DoF arm builds brick walls and installs ceiling tiles in simulation and hardware from a single demonstration per primitive, maintaining precision over long horizons.</td><td><a href="https://arxiv.org/abs/2605.13754">Link</a></td></tr>
+<tr><td>SECOND-Grasp: Semantic Contact-guided Dexterous Grasping</td><td></td><td>Introduces a unified framework that fuses vision–language reasoning with multi-view geometry to produce semantically meaningful 3D contact maps for dexterous hands. A Semantic-Geometric Consistency Refinement stage enforces cross-view alignment and feasibility, and the resulting contact-supervised policy achieves &gt;97% lifting success and sizable gains in intent-aware grasping on DexGraspNet.</td><td><a href="https://arxiv.org/abs/2605.13117">Link</a></td></tr>
+<tr><td>Object Manipulation of the Variable Topology Truss system</td><td></td><td>Develops a hybrid force–position control framework for a Variable Topology Truss (VTT) robot, whose actuated truss members are joined by passive spherical joints. Sensor-based member-level force control and a static model of the truss enable accurate end-effector force synthesis, allowing consistent object manipulation with concurrent tracking of position and interaction forces.</td><td><a href="https://arxiv.org/abs/2605.13086">Link</a></td></tr>
+<tr><td>MUJICA: Multi-skill Unified Joint Integration of Control Architecture for Wheeled-Legged Robots</td><td></td><td>Presents MUJICA, a unified proprioceptive control policy that integrates multiple locomotion skills—omnidirectional driving, high-platform climbing, and fall recovery—for wheeled–legged robots. Skills are trained jointly under accurate DC-motor constraints with a learned high-level selector, achieving robust, adaptive locomotion and seamless mode transitions on a Unitree Go2-W in unstructured terrain.</td><td><a href="https://arxiv.org/abs/2605.13058">Link</a></td></tr>
+<tr><td>DynoJEPP: Joint Estimation, Prediction and Planning in Dynamic Environments</td><td>University of Manchester; University of Sydney</td><td>Introduces DynoJEPP, a factor-graph framework that jointly optimizes state estimation, dynamic-object prediction, and planning, while enforcing directional information flow via a novel directed factor. This prevents prediction/planning factors from corrupting localization, dramatically improving safety in dynamic navigation tasks and enabling an extended cooperative variant for interaction-aware planning.</td><td><a href="https://arxiv.org/abs/2605.12897">Link</a></td></tr>
+<tr><td>What Limits Vision-and-Language Navigation ?</td><td></td><td>Proposes StereoNav, a VLN framework that tackles sim-to-real degradation by introducing Target-Location Priors for stable spatial grounding and stereo-based semantic–geometric fusion for depth-aware action prediction. It achieves SOTA RGB-only performance on R2R-CE and RxR-CE and shows markedly improved real-robot navigation under lighting changes, motion blur, and underspecified instructions.</td><td><a href="https://arxiv.org/abs/2605.13328">Link</a></td></tr>
+<tr><td>HCSG: Human-Centric Semantic-Geometric Reasoning for Vision-Language Navigation</td><td>Hong Kong University of Science and Technology; National University of Singapore; Shanghai Jiao Tong University; The Chinese University of Hong Kong; The University of Hong Kong; Tsinghua University</td><td>Introduces HCSG, a human-centric VLN framework that explicitly reasons about pedestrian trajectories and intentions rather than treating humans as generic obstacles. A Human Understanding Module fuses geometric forecasting with VLM-derived action semantics into the navigation map, and a social distance loss enforces comfort distances, yielding large gains in success rate and collision reduction on HA-VLNCE.</td><td><a href="https://arxiv.org/abs/2605.13321">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
