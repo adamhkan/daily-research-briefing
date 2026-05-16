@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-15</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-15</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>38</strong></div>
+        <div class="card">Papers analyzed: <strong>38</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Dexterous and whole-body manipulation sees multiple advances, from human-in-the-loop VLA correction and history-aware diffusion policies to unified embodied models that jointly learn perception, reasoning, imagination, and action.</li><li>Navigation and motion planning are strengthened by frontier- and uncertainty-aware UAV MPC, safety-constrained RL with reachability verification, and graph-of-convex-sets optimization for autonomous driving.</li><li>New autonomous driving planners leverage flow matching, closed-loop value estimation and ranking, and multi-agent latent rollouts to close the gap between imitation learning and real-world rule-based metrics.</li><li>Safety, monitoring, and robustness are emphasized through vision-based temporal-logic runtime monitors, semantic attacks on HD map construction, and LiDAR odometry unified with semantic occupancy grids.</li><li>Surveys and analysis pieces map out the state of dexterous hand intelligence, quantify the role of 3D perception in VLN, and propose ergodic imitation and temporal priors as key design levers for robust control.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Vision-Based Runtime Monitoring under Varying Specifications using Semantic Latent Representations</td><td>ETH Zurich</td><td>Introduces certified runtime monitors that infer temporal-logic satisfaction from vision under partial observability, using semantic latent representations as a reusable interface. For a fragment of past-time STL formulas, they prove a minimal &quot;semantic basis&quot; target and develop a rolling prediction monitor, demonstrating tighter long-horizon guarantees on pedestrian-crossing benchmarks and validation on Waymo data.</td><td><a href="https://arxiv.org/abs/2605.13923">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>FU-MPC: Frontier- and Uncertainty-Aware Model Predictive Control for Efficient and Accurate UAV Exploration with Motorized LiDAR</td><td>Nanyang Technological University; National Taiwan University</td><td>Presents a hierarchical exploration framework for UAVs with an independently actuated rotating LiDAR. A global frontier planner and a local FU-MPC jointly optimize LiDAR orientation along predicted trajectories, balancing exploration gain and direction-dependent localization uncertainty for more efficient and robust exploration in complex environments.</td><td><a href="https://arxiv.org/abs/2605.14920">Link</a></td></tr>
+<tr><td>CaMeRL: Collision-Aware and Memory-Enhanced Reinforcement Learning for UAV Navigation in Multi-Scale Obstacle Environments</td><td>University of Science and Technology of China</td><td>Proposes an RL framework for UAV navigation that explicitly handles obstacles of widely varying scales. A collision-aware latent representation preserves fine obstacle structure, while a temporal memory module aggregates observations over time to overcome occlusions, yielding large success-rate gains in ultra-small and extra-large obstacle settings.</td><td><a href="https://arxiv.org/abs/2605.14810">Link</a></td></tr>
+<tr><td>Reactive Planning based Control for Mobile Robots in Obstacle-Cluttered Environments</td><td>Harbin Institute of Technology; University of Science and Technology of China</td><td>Develops a reactive planning based control strategy for mobile robots with only partial environment information. The method forms an initial reference path, locally modifies it via reactive planning for collision avoidance, and then tracks the updated path with an adaptive controller, demonstrated through numerical examples.</td><td><a href="https://arxiv.org/abs/2605.14232">Link</a></td></tr>
+<tr><td>Motion Planning for Autonomous Vehicles using Optimization over Graphs of Convex Sets</td><td></td><td>Applies optimization over Graphs of Convex Sets to autonomous-vehicle motion planning by decomposing free space into convex regions and optimizing Bezier-path and timing within each. Under a simplified dynamic bicycle model, the approach enforces approximate dynamic feasibility with convex constraints, achieving trajectories close to nonlinear optimal control while improving computation and robustness to initialization.</td><td><a href="https://arxiv.org/abs/2605.14199">Link</a></td></tr>
+<tr><td>Safety-Constrained Reinforcement Learning with Post-Training Reachability Verification for Robot Navigation</td><td></td><td>Combines CVaR-constrained RL with neural reachability analysis to train and certify safe navigation policies under perception uncertainty. Policies optimized for tail risk exhibit larger safety margins and higher formal verification rates, achieving 98.3% task success and strong sim-to-real transfer on a Clearpath Jackal platform.</td><td><a href="https://arxiv.org/abs/2605.14174">Link</a></td></tr>
+<tr><td>CLOVER: Closed-Loop Value Estimation &amp; Ranking for End-to-End Autonomous Driving Planning</td><td></td><td>Introduces a generator–scorer framework where a trajectory generator is trained for set-level coverage and a scorer predicts planner-metric sub-scores to rank proposals. Using evaluator-filtered pseudo-experts and conservative self-distillation, CLOVER attains state-of-the-art closed-loop driving scores on NAVSIM and strong nuScenes open-loop performance.</td><td><a href="https://arxiv.org/abs/2605.15120">Link</a></td></tr>
+<tr><td>Learning Direct Control Policies with Flow Matching for Autonomous Driving</td><td></td><td>Presents a flow-matching planner that outputs acceleration and curvature trajectories directly from BEV raster inputs. Trained on simulated urban data, the model maintains stable closed-loop control and generalizes to out-of-distribution highway and novel urban scenarios, attributed to geometry-centric BEV input and smooth vector-field learning.</td><td><a href="https://arxiv.org/abs/2605.14832">Link</a></td></tr>
+<tr><td>MAPLE: Latent Multi-Agent Play for End-to-End Autonomous Driving</td><td></td><td>Proposes MAPLE, which performs reactive multi-agent rollouts in the latent space of a VLA-based driving model for scalable closed-loop training. After supervised latent rollout training, reinforcement learning with global and agent-specific rewards and diversity bonuses yields state-of-the-art performance on Bench2Drive without external simulators.</td><td><a href="https://arxiv.org/abs/2605.14201">Link</a></td></tr>
+<tr><td>SOCC-ICP: Semantics-Assisted Odometry based on Occupancy Grids and ICP</td><td></td><td>Introduces a LiDAR odometry framework that jointly builds a semantic occupancy grid and aligns scans via geometry- and semantics-aware ICP. The single voxel-based map supports dynamic-object filtering and adaptive point-to-point or point-to-plane registration, achieving competitive accuracy and robustness in degenerate environments while producing a planning-ready map.</td><td><a href="https://arxiv.org/abs/2605.15074">Link</a></td></tr>
+<tr><td>Exploring Bottlenecks in VLM-LLM Navigation: How 3D Scene Understanding Capability Impacts Zero-Shot VLN</td><td>Shanghai Jiao Tong University</td><td>Analyzes how 3D perception quality impacts zero-shot vision-language navigation in VLM–LLM pipelines by deriving statistical upper bounds for both the LLM planner and fast reactive navigator. Experiments with state-of-the-art 3D models reveal a perception saturation point, suggesting that navigation benefits more from targeted semantic vocabularies and bounding-box quality than extreme pixel-level accuracy.</td><td><a href="https://arxiv.org/abs/2605.14801">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
