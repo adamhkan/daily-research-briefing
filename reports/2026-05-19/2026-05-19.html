@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-18</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-18</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>52</strong></div>
+        <div class="card">Papers analyzed: <strong>52</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Navigation and motion planning see multiple advances: sim-to-real RL navigation pipelines, geometry-driven local planners, MPC for ultra-narrow passages, and safe CBF-based navigation in constrained dynamic environments.</li><li>Dexterous and fine manipulation are targeted via new kinematic metrics for in-hand dexterity, a rich MuJoCo benchmark (DexJoCo), bimanual rope manipulation, and design optimization of robotic hands.</li><li>Visuomotor and VLA policy learning continues to accelerate, with several works on faster trajectory generation (FLASH, FocalPolicy, SkiP), feedback-enhanced world models, and compute-efficient VLA RL (PCM).</li><li>Mobile manipulation and whole-body control progress with dynamic quadruped pick-and-place, dual-arm + base door traversal via diffusion policy, humanoid navigation policies, and large-scale humanoid motion tracking (HoloMotion-1).</li><li>New tools and representations appear for long-horizon manipulation and planning: symbolic–low-level bilevel policies (BISON), functional 3D scene graphs, and task-conditioned tabletop scene/layout generation.</li><li>Multi-agent and aerial systems are addressed with practical AGV pathfinding adaptations, wind-aware glider trajectory planning, underwater AUV MARL tracking, and optimized drone inspection routing.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>NavRL++: A System-Level Framework for Improving Sim-to-Real Transfer in Reinforcement Learning-Based Robot Navigation</td><td>Carnegie Mellon University</td><td>Presents an end-to-end RL navigation framework with a detailed analysis of sim-to-real gaps such as sensor noise, latency, and perception failures. Introduces perturbation-aware fine-tuning and a Transformer-based temporal policy that achieve robust zero-shot transfer on aerial and legged platforms, matching optimization-based planners in static settings.</td><td><a href="https://arxiv.org/abs/2605.15559">Link</a></td></tr>
+<tr><td>KaRMA: A Kinematic Metric for Fine Manipulation Ability in Robotic Hands</td><td>Massachusetts Institute of Technology</td><td>Defines KaRMA, a kinematic-only metric that quantifies in-hand rolling manipulation of a spherical object under joint limits, collisions, and force feasibility. Evaluations on 16 robotic hands show it distinguishes designs that static metrics rank identically and exposes translation–rotation trade-offs relevant to dexterous manipulation.</td><td><a href="https://arxiv.org/abs/2605.15548">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Diffusion Policy for Coordinated Control of a Nonholonomic Mobile Base and Dual Arms in Door Opening and Passing</td><td>University of Massachusetts Amherst</td><td>Demonstrates a single diffusion-based visuomotor policy that coordinates a nonholonomic base and two arms to fully open and traverse heavy pull doors. Replaces brittle state machines with end-to-end learning, achieving robust, long-horizon mobile manipulation across diverse door interactions and disturbances.</td><td><a href="https://arxiv.org/abs/2605.15352">Link</a></td></tr>
+<tr><td>Learning Dynamic Pick-and-Place for a Legged Manipulator</td><td>Hong Kong University of Science and Technology; Korea Advanced Institute of Science and Technology</td><td>Introduces a hierarchical RL framework enabling a quadruped with a 6-DOF arm to perform fast, dynamic pick-and-place while walking. A mass-estimation module supports adaptive whole-body control for varying payloads, achieving high success rates over a large vertical workspace in both simulation and hardware.</td><td><a href="https://arxiv.org/abs/2605.15713">Link</a></td></tr>
+<tr><td>Fast Expanding Safe Circular Regions for Efficient Local Path Planning</td><td></td><td>Proposes a geometric local navigator that incrementally expands safe circular regions from LiDAR data toward the goal, avoiding heavy optimization or learning. Implemented in ROS2, it offers fast computation and longer horizons than standard local planners in simulation.</td><td><a href="https://arxiv.org/abs/2605.16009">Link</a></td></tr>
+<tr><td>Constrained MPC-Based Motion Planning for Morphing Quadrotors in Ultra-Narrow Passages under Limited Perception</td><td>Texas A&amp;M University; \&amp; University, College Station, TX 77843, USA.</td><td>Develops a nonlinear MPC framework with a smooth exponential obstacle cost that allows quadrotors to pass through extremely narrow gaps using only 2D LiDAR. The cost formulation keeps traversal costs low within gaps while retaining strong collision avoidance, and is applicable to other mobile robots.</td><td><a href="https://arxiv.org/abs/2605.15999">Link</a></td></tr>
+<tr><td>Reactive Robot-Centric Safety for Autonomous Navigation in Constrained and Dynamic Environments</td><td></td><td>Integrates a 3D LiDAR-based control barrier function safety filter into the navigation stack, defining an ellipsoidal body-frame safety region and enforcing collision avoidance in real time. Field experiments on a quadruped in cluttered, dynamic underground settings show robust, minimally invasive safety enforcement.</td><td><a href="https://arxiv.org/abs/2605.15782">Link</a></td></tr>
+<tr><td>Terrain Consistent Reference-Guided RL for Humanoid Navigation Autonomy</td><td>California Institute of Technology; Technology Innovation Institute</td><td>Trains humanoid locomotion policies guided by terrain-consistent reference trajectories that project footsteps to valid footholds and adjust swing/CoM motions. The learned SE(2)-velocity interface integrates with standard planners and is demonstrated on a Unitree G1 navigating rough outdoor terrain and stairs with onboard sensing and compute.</td><td><a href="https://arxiv.org/abs/2605.15517">Link</a></td></tr>
+<tr><td>DexJoCo: A Benchmark and Toolkit for Task-Oriented Dexterous Manipulation on MuJoCo</td><td></td><td>Introduces DexJoCo, a MuJoCo-based benchmark with 11 manipulation tasks emphasizing dexterous hand capabilities such as tool use, bimanual coordination, and long-horizon reasoning. Provides 1.1K trajectories, domain randomization, and extensive baselines, revealing key failure modes of current dexterous policies.</td><td><a href="https://arxiv.org/abs/2605.16257">Link</a></td></tr>
+<tr><td>Learning Sim-Grounded Policies for Bimanual Rope Manipulation from Human Teleoperation Data</td><td>German Research Center for Artificial Intelligence; Honda Research Institute; Research Institute Europe GmbH</td><td>Compares vision-based and state-based transformer policies for bimanual rope untangling learned from teleoperation data. A particle-based simulation of the rope’s 3D state yields substantially better open-loop action prediction than egocentric RGB, highlighting the benefit of physics-consistent representations for deformable object manipulation.</td><td><a href="https://arxiv.org/abs/2605.16043">Link</a></td></tr>
+<tr><td>GAP: Geometric Anchor Pre-training for Data-Efficient Visuomotor Learning of Manipulation Tasks</td><td>Meta AI</td><td>Proposes Geometric Anchor Pre-training, an action-free stage that trains the spatial pooling adapter of a frozen vision foundation model to produce stable keypoints anchored on task objects. This improves few-shot imitation performance and robustness under domain shifts on RoboMimic and ManiSkill with as few as 15–50 demonstrations.</td><td><a href="https://arxiv.org/abs/2605.15836">Link</a></td></tr>
+<tr><td>SkiP: When to Skip and When to Refine for Efficient Robot Manipulation</td><td></td><td>Introduces SkiP, an imitation-learning policy that relabels actions so that free-space segments are compressed into single decisions while maintaining dense predictions near contacts. Motion Spectrum Keying automatically segments trajectories by motion complexity, yielding 15–40% fewer executed steps without sacrificing manipulation success.</td><td><a href="https://arxiv.org/abs/2605.15536">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
