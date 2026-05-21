@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-20</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-20</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>59</strong></div>
+        <div class="card">Papers analyzed: <strong>59</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>ETH Zurich proposes a sampling-based safe RL algorithm with provable safety and efficiency guarantees, directly applicable to safety-critical robot control and motion planning.</li><li>NYU and UC Berkeley introduce COBALT, a scalable cloud-based teleoperation platform that crowdsources high-quality manipulation data using everyday devices, enabling rapid dataset growth for robot learning.</li><li>Multiple navigation works push beyond planar or single-floor assumptions, including cross-floor 3D exploration, semantic object-goal navigation, and depth-aware fine-tuning of navigation foundation models.</li><li>New frameworks for zero-shot and semantic navigation (TravExplorer, CLUE, MCNav, Dual-Heatmap grounding) combine language, vision, and traversability reasoning for robust goal-directed exploration without prior maps.</li><li>Advances in SLAM and odometry (PRISM-SLAM, minimalist VIO, ground-texture multi-session SLAM) focus on metric scale consistency, reduced sensing, and robustness in low-dynamic environments.</li><li>Whole-body and aerial control advances span compliant loco-manipulation for humanoids, neuromorphic and RL-based quadrotor control, and learning-accelerated multi-robot trajectory planning.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>COBALT: Crowdsourcing Robot Learning via Cloud-Based Teleoperation with Smartphones</td><td>New York University; UC Berkeley</td><td>COBALT is a cloud-based teleoperation stack that supports dozens to hundreds of simultaneous operators controlling simulated or real robots over the internet, using commodity devices such as smartphones or VR headsets. The platform achieves sub-100 ms latency for multiple concurrent users per GPU, logs rich quality metrics for automatic filtering of poor demonstrations, and enables scalable collection of high-quality manipulation datasets, as demonstrated by a 7,500-trajectory crowdsourced pilot.</td><td><a href="https://arxiv.org/abs/2605.19138">Link</a></td></tr>
+<tr><td>Sampling-Based Safe Reinforcement Learning</td><td>ETH Zurich</td><td>This work introduces Sampling-Based Safe Reinforcement Learning (SBSRL), a model-based algorithm that enforces safety by optimizing over a finite set of sampled dynamics models, approximating worst-case behavior under uncertainty. It provides high-probability safety guarantees and finite-time sample complexity bounds, and empirically achieves safe, efficient exploration in both simulation and real robot hardware, scaling via deep ensemble implementations.</td><td><a href="https://arxiv.org/abs/2605.19469">Link</a></td></tr>
+<tr><td>Hamilton--Jacobi Reachability for Spacecraft Collision Avoidance</td><td>UC Berkeley</td><td>The paper applies Hamilton–Jacobi reachability to two-satellite collision avoidance in a shared circular orbit using Hill–Clohessy–Wiltshire dynamics. By computing backward reachable sets for unsafe relative states and integrating them with supervisory control logic, it identifies when evasive maneuvers are necessary, yielding mathematically grounded safety guarantees for orbital separation.</td><td><a href="https://arxiv.org/abs/2605.20138">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>CEER: Compliant End-Effector and Root Control as a Unified Interface for Hierarchical Humanoid Loco-Manipulation</td><td>Duke University</td><td>CEER proposes an end-effector–root task-space abstraction that unifies whole-body compliant control and high-level planning for humanoid loco-manipulation. A teacher–student scheme distills a general motion-tracking controller into a low-level policy driven only by EE-root commands, enabling modular integration of heterogeneous planners and stable contact-rich manipulation in simulation and on hardware.</td><td><a href="https://arxiv.org/abs/2605.19981">Link</a></td></tr>
+<tr><td>TravExplorer: Cross-Floor Embodied Exploration via Traversability-Aware 3-D Planning</td><td>Shanghai Jiao Tong University</td><td>TravExplorer tackles zero-shot object navigation across multiple floors by maintaining a unified volumetric map that separates support surfaces from obstacles and explicitly models stairs and landings. A hierarchical planner performs target-aware frontier touring with 3D traversability-aware motion generation, achieving strong performance in large-scale simulation and on a Unitree Go2 without prior maps.</td><td><a href="https://arxiv.org/abs/2605.19958">Link</a></td></tr>
+<tr><td>D-CLING: Prior-Preserving Depth-Conditioned Fine-Tuning for Navigation Foundation Models</td><td>Frontier Research Center, Toyota Motor Corporation</td><td>D-CLING augments navigation foundation models with a depth-conditioned, zero-initialized residual branch that learns geometric cues while preserving pre-trained priors. This ControlNet-inspired design improves long-horizon goal-reaching and obstacle avoidance in real-world navigation, maintaining or enhancing generalization beyond the fine-tuning dataset.</td><td><a href="https://arxiv.org/abs/2605.19690">Link</a></td></tr>
+<tr><td>CLUE: Adaptively Prioritized Contextual Cues by Leveraging a Unified Semantic Map for Effective Zero-Shot Object-Goal Navigation</td><td>Korea Advanced Institute of Science and Technology</td><td>CLUE addresses zero-shot object-goal navigation by adaptively weighting room-type versus object co-occurrence cues using commonsense knowledge from an offline LLM. It builds a unified semantic value map that fuses these context signals to guide exploration, achieving higher success and SPL than prior ZSON baselines in both simulation and real-world runs.</td><td><a href="https://arxiv.org/abs/2605.19206">Link</a></td></tr>
+<tr><td>MCNav: Memory-Aware Dynamic Cognitive Map for Zero-shot Goal-oriented Navigation</td><td></td><td>MCNav introduces a dynamic cognitive map that stores queryable object information from explored regions, enabling goal re-validation and missed-goal re-exploration in zero-shot navigation. With blacklist and double-check mechanisms to stabilize revisits, it significantly improves instance-level target navigation performance on HM3D benchmarks.</td><td><a href="https://arxiv.org/abs/2605.19594">Link</a></td></tr>
+<tr><td>Beyond Waypoints: Dual-Heatmap Grounding for Cross-Embodiment Semantic Navigation</td><td></td><td>This work replaces single-point waypoint regression with a dual-heatmap representation: one heatmap for reachable regions and another for desired facing direction. The dense affordance output integrates as a differentiable potential field for local planners and generalizes across robot embodiments, markedly improving affordance rates over standard waypoint prediction.</td><td><a href="https://arxiv.org/abs/2605.19420">Link</a></td></tr>
+<tr><td>PRISM-SLAM: Probabilistic Ray-Grounded Inference for Scale-aware Metric SLAM</td><td></td><td>PRISM-SLAM fuses monocular RGB with depth priors from vision foundation models in a Bayesian factor graph, using a novel Plücker Ray-Distance factor to make metric scale identifiable. A dynamic scene uncertainty gating mechanism down-weights unreliable depth in dynamic regions, enabling real-time, scale-consistent SLAM at 30 FPS with metric ATE matching oracle-aligned performance.</td><td><a href="https://arxiv.org/abs/2605.19257">Link</a></td></tr>
+<tr><td>Minimalist Visual Inertial Odometry</td><td>Columbia University; University of Padua</td><td>This paper demonstrates planar odometry for differential-drive robots using just four downward-facing photodiodes with Gabor masks plus an IMU. A TCN trained in simulation decodes speed from the minimal visual signals, producing accurate, continuous trajectories across diverse terrains without real-world fine-tuning, highlighting an ultra-lightweight alternative to camera-based VIO.</td><td><a href="https://arxiv.org/abs/2605.19990">Link</a></td></tr>
+<tr><td>KIO-planner: Attention-Guided Single-Stage Motion Planning with Dual Mapping for UAV Navigation</td><td></td><td>KIO-planner is a single-stage trajectory planner for UAVs in dense, confined environments that integrates CBAM-based attention for better geometric feature extraction from depth and a Dual Mapping mechanism enforcing kinodynamic and collision constraints directly in pixel space. It achieves lower latency, smoother trajectories, and larger safety margins compared to optimization-based and end-to-end baselines.</td><td><a href="https://arxiv.org/abs/2605.19703">Link</a></td></tr>
+<tr><td>Graph Neural Planning and Predictive Control for Multi-Robot Communication-Constrained Unlabeled Motion Planning</td><td></td><td>The authors propose a hierarchical scheme combining a Graph Attention Planner (GATP) with decentralized nonlinear MPC for unlabeled multi-robot motion planning. GATP coordinates subgoal assignment under limited communication, while NMPC ensures dynamic feasibility and safety, showing good scalability, robustness to delays, and successful quadrotor deployments.</td><td><a href="https://arxiv.org/abs/2605.19209">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
