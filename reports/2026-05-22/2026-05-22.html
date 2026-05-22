@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-21</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-21</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>62</strong></div>
+        <div class="card">Papers analyzed: <strong>62</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>ETH Zurich introduces a high-precision, sensor-free contact registration method that can outperform optical tracking for surgical and industrial manipulation.</li><li>MIT and UC Berkeley propose a time-to-reach-based framework that unifies priority assignment, temporal separation, and safety filtering for dense multi-agent aerial traffic.</li><li>Multiple works advance dexterous and contact-rich manipulation, from proprioceptive transformers and visuo-haptic fusion to benchmarks for blind tactile RL.</li><li>New frameworks improve mobile and multi-agent motion planning and navigation, including scalable multi-robot planners, congestion-aware MAPF enhancement, and robust LiDAR-inertial odometry.</li><li>Humanoid and whole-body control progress via video-driven loco-manipulation learning, active perception with safety guarantees, and wheeled-legged platforms that repurpose legs for manipulation.</li><li>Vision-language-action and world-model-based policies see significant gains in manipulation and driving through 3D geometry grounding, Gaussian world models, and language-decoupled control architectures.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>From swept contact to pose: Probe-aware registration via complementary-shape docking</td><td>ETH Zurich</td><td>Proposes a calibration-free contact-based registration method that treats registration as docking between an object and the swept volume of a probe, using FFT-based global search followed by SE(3) refinement with analytic sensitivities. Achieves sub-0.04 mm / 0.4° accuracy in simulation and surpasses an optical tracker on a tooth-preparation robot without external sensors, enabling highly precise manipulation in constrained settings.</td><td><a href="https://arxiv.org/abs/2605.21398">Link</a></td></tr>
+<tr><td>Time-To-Reach Separation and Safety Filtering for Safe, Fair, and Efficient Multi-Agent Coordination</td><td>Massachusetts Institute of Technology; UC Berkeley</td><td>Introduces a time-to-reach (TTR) metric as the common currency for prioritization, temporal spacing, and safety filtering in dense aerial corridor merging. Using Hamilton-Jacobi reachability-based value functions, the framework enforces arrival-consistent priorities and collision avoidance while improving safety, fairness, and throughput over time-optimal and priority-agnostic baselines.</td><td><a href="https://arxiv.org/abs/2605.20625">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Learning Robust Dexterous In-Hand Manipulation from Joint Sensors with Proprioceptive Transformer</td><td></td><td>Demonstrates dexterous in-hand cube rotation on a tendon-driven ORCA hand using only joint sensing, without vision or tactile sensors. A teacher RL policy with privileged object state is distilled into a Transformer that extracts implicit object information from joint histories, achieving 3.1× higher rotation speed and significantly lower pose-estimation error than MLP baselines.</td><td><a href="https://arxiv.org/abs/2605.21330">Link</a></td></tr>
+<tr><td>Mobile UMI: Cross-View Diffusion Policy with Decoupled Kinematics for Mobile Manipulation</td><td>Zhejiang University</td><td>Presents a hardware-free mobile imitation learning framework that decouples SE(3) manipulation from SE(2) base motion using synchronized chest- and wrist-mounted cameras. A receding-horizon executor realigns generated action chunks online to mitigate latency, yielding 83.8% average success on long-horizon household mobile manipulation tasks and outperforming ACT and Diffusion Policy baselines.</td><td><a href="https://arxiv.org/abs/2605.20894">Link</a></td></tr>
+<tr><td>Scalable Multi-robot Motion Planning via Hierarchical Subproblem Expansion and Workspace Decomposition Refinement</td><td></td><td>Proposes a multi-robot motion planner that coordinates robots by discrete search over an iteratively refined workspace decomposition rather than directly in joint configuration space. By selectively refining regions where coordination is required, the method maintains decoupled planning where possible and achieves up to an order-of-magnitude speedup in planning time.</td><td><a href="https://arxiv.org/abs/2605.20395">Link</a></td></tr>
+<tr><td>Reinforcement Learning for Risk Adaptation via Differentiable CVaR Barrier Functions</td><td>University of Michigan</td><td>Combines RL with a differentiable quadratic-program safety layer using Conditional Value-at-Risk (CVaR) barrier functions for navigation in crowded, uncertain environments. The policy jointly learns control, risk levels, and safety margins under probabilistic constraints, delivering strong safety-efficiency trade-offs and generalization across obstacle densities and dynamics.</td><td><a href="https://arxiv.org/abs/2605.21257">Link</a></td></tr>
+<tr><td>Humanoid Whole-Body Manipulation via Active Spatial Brain and Generalizable Action Cerebellum</td><td></td><td>Introduces a two-module framework for humanoid loco-manipulation, where an &quot;Active Spatial Brain&quot; handles 3D spatial perception and task decomposition, and a &quot;Generalizable Action Cerebellum&quot; generates executable whole-body actions without task-specific robot data. Benchmarks across diverse spatial tasks show strong performance and generalization in complex humanoid manipulation scenarios.</td><td><a href="https://arxiv.org/abs/2605.21133">Link</a></td></tr>
+<tr><td>SUGAR: A Scalable Human-Video-Driven Generalizable Humanoid Loco-Manipulation Learning Framework</td><td></td><td>SUGAR converts unstructured human videos into deployable humanoid loco-manipulation skills via three stages: automatic extraction of human-object priors, physics-based refinement, and hierarchical policy distillation. On six simulated and real-world tasks, it outperforms reference-tracking baselines, scales with data, and transfers zero-shot with robust closed-loop control and failure recovery.</td><td><a href="https://arxiv.org/abs/2605.20373">Link</a></td></tr>
+<tr><td>Spacetime Optimal-Transport Attention for Visuo-Haptic Imitation Learning of Contact-Rich Manipulation</td><td>Nanyang Technological University; National Taiwan University</td><td>Proposes SO-TA, a tri-modal fusion backbone that aligns force/pose-derived queries with visual patches using entropy-regularized optimal transport, embedding structured priors for contact-rich tasks. Paired with a diffusion sequence policy, SO-TA achieves 100% success on tight peg-in-hole and maintains high robustness under visual perturbations compared to cross-attention and concatenation baselines.</td><td><a href="https://arxiv.org/abs/2605.20433">Link</a></td></tr>
+<tr><td>VBT-MPC: Vision-Based Tactile MPC for Contour Following</td><td>Worcester Polytechnic Institute</td><td>Introduces a model predictive control framework that operates directly in a tactile feature space obtained from a vision-based tactile sensor mounted on a robot end-effector. The method tracks object contours of varying geometry and material without explicit pose estimation or complex force control, outperforming tactile visual-servoing baselines in both simulation and hardware.</td><td><a href="https://arxiv.org/abs/2605.20392">Link</a></td></tr>
+<tr><td>roto 2.0: The Robot Tactile Olympiad</td><td></td><td>Presents roto 2.0, a GPU-parallel benchmark for tactile-based RL in &quot;blind&quot; manipulation using only proprioceptive and tactile inputs across four dexterous hand morphologies. Tuned baseline agents achieve up to 13 Baoding ball rotations in 10 seconds, vastly exceeding prior state-of-the-art and providing a standardized platform for end-to-end tactile RL research.</td><td><a href="https://arxiv.org/abs/2605.21429">Link</a></td></tr>
+<tr><td>A Terrain-Adaptive epsilon-Constraint MPC for Uneven Terrain Kinodynamic Planning</td><td></td><td>Develops an MPC framework with adaptive epsilon-constraint tuning that trades off path efficiency and pose stability for car-like robots on uneven terrain. A semi-parametric dynamics model combining analytic physics with sparse GPs over terrain descriptors enables real-time exploration of the Pareto front, achieving 94% navigation success and improved stability versus MPPI and GAKD.</td><td><a href="https://arxiv.org/abs/2605.21188">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
