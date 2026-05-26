@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-25</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-25</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>34</strong></div>
+        <div class="card">Papers analyzed: <strong>34</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>New motion-planning methods deliver certified joint-limit safety and temporal-logic satisfaction across arms, quadrotors, and humanoids.</li><li>Humanoid whole-body control advances with efficient cross-embodiment transfer, direct dynamic retargeting from video, and scalable language-driven controllers.</li><li>Navigation and exploration see intent-driven object search, language- and vision-guided frontier selection, and robust multi-floor and semantic drone exploration.</li><li>Manipulation progresses via visuo-tactile reflex control, diffusion- and MoE-based multi-task policies, and geometry-grounded video world models for trajectory generation.</li><li>Vision-Language-Action models gain stronger closed-loop decoders and agentic online adaptation, improving long-horizon and low-shot manipulation performance.</li><li>Resource-efficient perception and learning are highlighted by Gaussian multiview depth uncertainty and data-efficient neural inverse kinematics.</li><li>Applied systems in agriculture and hanger insertion show how task-specific perception, instrumentation, and sim-to-real DRL can replace hand-engineered planners.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Verified Task-Space Motion Planning Under Joint-Space Constraints</td><td>Carnegie Mellon University</td><td>Introduces a certified task-space planner that computes the largest Cartesian step guaranteed to be feasible under joint displacement bounds using SOS-based semidefinite programming and a fast bisection scheme. Integrated with Bug2, the adaptive planner eliminates joint-limit violations and achieves 100% goal reach across adversarial scenarios where standard Bug2 both violates limits and sometimes fails to reach the goal.</td><td><a href="https://arxiv.org/abs/2605.22991">Link</a></td></tr>
+<tr><td>UfM*: Uncertainty from Motion* for DNN Depth Estimation Using Gaussians</td><td>Massachusetts Institute of Technology</td><td>Proposes UfM*, a monocular depth uncertainty estimator that uses Gaussian mixture representations to capture multiview disagreement with only one network inference per frame. Compared to ensembles, it significantly improves calibration while consuming a fraction of the energy and memory, enabling real-time deployment on small, resource-constrained robots.</td><td><a href="https://arxiv.org/abs/2605.23098">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Signal Temporal Logic Motion Planning via Graphs of Convex Sets</td><td>Shanghai Jiao Tong University</td><td>Combines timed automata with graphs of convex sets to synthesize smooth Bézier trajectories that satisfy rich Signal Temporal Logic constraints and dynamic bounds. Demonstrated on systems from low-dimensional benchmarks to a 30-DoF humanoid and a UR-3 arm, the convex relaxation scales polynomially and yields STL-compliant, executable motion plans.</td><td><a href="https://arxiv.org/abs/2605.23240">Link</a></td></tr>
+<tr><td>Any2Any: Efficient Cross-Embodiment Transfer for Humanoid Whole-Body Tracking</td><td></td><td>Introduces Any2Any, a framework for reusing pretrained whole-body tracking policies across different humanoid robots via kinematic alignment and lightweight PEFT-based dynamics adaptation. With only ~1% of the original data and compute, it transfers Sonic policies from Unitree G1 to other humanoids while maintaining or improving tracking performance.</td><td><a href="https://arxiv.org/abs/2605.23733">Link</a></td></tr>
+<tr><td>Multi-Floor Exploration for Ground Robots via an Incremental Reachable Graph and Structural Priors</td><td></td><td>Presents an exploration framework that builds a sparse incremental reachable graph over support surfaces to handle stairs, ramps, and overlapping floors. By propagating structural priors between levels and planning hierarchically over confirmed and hypothetical connectivity, it improves 3D mapping completeness and efficiency in both simulation and real-robot tests.</td><td><a href="https://arxiv.org/abs/2605.23350">Link</a></td></tr>
+<tr><td>IntentionNav: A Benchmark for Intent-Driven Object Navigation from Implicit Human Instruction</td><td></td><td>Defines a benchmark where agents must infer and navigate to objects that satisfy free-text human intents without explicit category labels. Across 500 intents and 64 object categories, current VLM-based systems show large gaps between recognizing intent, reaching the vicinity, and successfully terminating, highlighting challenges in semantic navigation and goal verification.</td><td><a href="https://arxiv.org/abs/2605.23187">Link</a></td></tr>
+<tr><td>Turning Adaptation into Assets: Cross-Domain Bridging for Online Vision-Language Navigation</td><td></td><td>Proposes IDEA, a test-time adaptation framework for VLN that treats online updates as reusable &quot;assets&quot; in a soft-prompt library with domain coordinates. By bridging new domains via the convex hull of stored prompts, it mitigates forgetting and enables training-free cross-domain adaptation on REVERIE, R2R, and R2R-CE.</td><td><a href="https://arxiv.org/abs/2605.23257">Link</a></td></tr>
+<tr><td>Autonomous Frontier-Based Exploration with VLM Guidance</td><td></td><td>Augments classical frontier exploration with a VLM that selects frontiers using semantic and contextual reasoning over maps and images instead of purely geometric heuristics. In simulated indoor environments this yields up to 24% higher coverage while remaining training-free and robot-agnostic.</td><td><a href="https://arxiv.org/abs/2605.23165">Link</a></td></tr>
+<tr><td>Semantic-Aware Guided Drone Exploration for Language-Conditioned 3D Indoor Mapping</td><td></td><td>Introduces SAGE, which integrates CLIP-based semantic cues into volumetric frontier exploration to balance coverage with language-conditioned object search. On Matterport3D and real quadrotor flights, SAGE significantly accelerates object discovery over prior open-vocabulary explorers while maintaining good volumetric mapping.</td><td><a href="https://arxiv.org/abs/2605.23160">Link</a></td></tr>
+<tr><td>Vision-Based Agile Landing on Turbulent Waters</td><td></td><td>Uses reinforcement learning with visual keypoints and descriptors to control UAV attitude and thrust for landing on moving maritime platforms without explicit platform-state estimation. The learned policy outperforms an MPC baseline in very rough sea simulations and achieves reliable real-world landings with different onboard feature extractors.</td><td><a href="https://arxiv.org/abs/2605.23717">Link</a></td></tr>
+<tr><td>Robotic Strawberry Harvesting with Robust Vision and Deep Reinforcement Learning based Sim-to-Real Control</td><td></td><td>Combines a tailored instance-segmentation network with a target-conditioned PPO policy trained in simulation to control a UR10e for strawberry picking. The deployed system achieves over 84% end-to-end harvesting success in greenhouse trials, demonstrating DRL-based closed-loop control as a practical alternative to planner-based manipulation.</td><td><a href="https://arxiv.org/abs/2605.23863">Link</a></td></tr>
+<tr><td>TactileReflex: Noise-Statistics-Driven Vision-Tactile Reflex Control for Force-Sensitive Manipulation</td><td>Hong Kong University of Science and Technology; Shanghai Jiao Tong University</td><td>Introduces a calibration-light reflex controller that derives all thresholds from the intrinsic noise statistics of vision-based tactile sensors, avoiding explicit force calibration. The three-channel TactileReflex controller maintains grip within tight force margins, preventing cup deformation and enabling robust dynamic pouring, and can act as a plug-and-play safety layer beneath higher-level policies.</td><td><a href="https://arxiv.org/abs/2605.23568">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
