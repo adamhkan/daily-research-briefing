@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-27</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-27</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>40</strong></div>
+        <div class="card">Papers analyzed: <strong>40</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Strong focus on safety-aware motion planning and navigation this cycle, including chance-constrained planning under unknown disturbances and predictive near-miss avoidance in dynamic scenes.</li><li>Multiple works advance dynamic and social navigation in challenging environments (maritime COLREGs, residential hallways, dark confined spaces, and collaborative mapping with heterogeneous robots).</li><li>Mobile manipulation and multi-robot cooperation see progress via decentralized role-based box transport and physics-guided property estimation from single pushes.</li><li>Manipulation-learning papers emphasize data collection and sim-to-real: VR teleoperation for dexterous demos, holistic synthetic-data pipelines, and keypoint-based imitation learning.</li><li>Control and RL contributions target safe, efficient whole-body behavior, from Lyapunov/Lagrangian tracking to thermally-aware quadruped locomotion and Koopman-based safety filters.</li><li>Fine-grained language conditioning and lightweight perception/vision models emerge as key enablers for steerable VLA policies and practical agricultural harvesting.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>VR-DAgger: Immersive VR for Dexterous Data Collection and Uncertainty-Guided On-Policy Correction</td><td>ETH Zurich</td><td>Presents a VR-based teleoperation and DAgger-style pipeline for collecting high-quality demonstrations for dexterous manipulation, then focusing expert effort on high-uncertainty failure regions. The framework aims to mitigate covariate shift and reduce redundant corrections by guiding on-policy expert interventions using model uncertainty.</td><td><a href="https://arxiv.org/abs/2605.27114">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Provably Safe Motion Planning Under Unknown Disturbances</td><td>Delft University of Technology; University of Colorado Boulder; Virginia Tech</td><td>Introduces a sampling-based motion planner that enforces chance-constrained safety for systems with unknown disturbance distributions. By learning Wasserstein ambiguity tubes from trajectory data and combining them with a bandit-based validity checker, the method achieves probabilistically complete, less conservative planning in cluttered environments.</td><td><a href="https://arxiv.org/abs/2605.26625">Link</a></td></tr>
+<tr><td>TCBiRRT: Rapid Motion Planning for Tightly Coupled Dual-arm Space Manipulator Using Task-space Random Expansion</td><td></td><td>Proposes TCBiRRT, a task-space constrained BiRRT for dual-arm space manipulators under closed-chain constraints. By sampling and expanding directly in object pose space and mapping to joint paths via path IK with regrasping, it substantially improves success rates and planning times over configuration-space planners in complex on-orbit assembly scenarios.</td><td><a href="https://arxiv.org/abs/2605.27167">Link</a></td></tr>
+<tr><td>RCSP: Risk-Sensitive Conjectural Scenario Planning for Safe Dynamic Robot Navigation</td><td></td><td>Addresses near-miss failures in dynamic environments with a risk-sensitive planning layer that samples short-horizon obstacle motion conjectures and penalizes high-risk tail outcomes. Integrated as a module atop standard navigation stacks, RCSP improves safety and path quality in bottleneck scenarios while maintaining compatibility with existing local planners.</td><td><a href="https://arxiv.org/abs/2605.26348">Link</a></td></tr>
+<tr><td>Trust, Geometry, and Rules: A Credibility-Aware Reinforcement Learning Framework for Safe USV Navigation under Uncertainty</td><td></td><td>Combines credibility-weighted value learning, covariance-inflated velocity obstacles, and continuous COLREGs embeddings to train USV navigation policies robust to miscalibrated perception. The framework dynamically downweights low-credibility samples, geometrically shields unsafe actions, and smooths rule-encoding to improve collision avoidance and rule compliance.</td><td><a href="https://arxiv.org/abs/2605.26974">Link</a></td></tr>
+<tr><td>Look Further: Socially-Compliant Navigation System in Residential Buildings</td><td></td><td>Shows that reacting to humans at distances beyond typical personal-space ranges improves perceived safety, smoothness, and politeness for delivery robots in hallways. Introduces a Proactive Lane-Changing pattern that laterally shifts the robot at about 8 meters from oncoming pedestrians, validated via a 42-participant user study.</td><td><a href="https://arxiv.org/abs/2605.26710">Link</a></td></tr>
+<tr><td>NightSight: Passive Computation for Navigation in Dark Using Events</td><td></td><td>Demonstrates a lightweight perception pipeline for small aerial robots to navigate in complete darkness using an event camera, coded aperture, and IR dot projector. A CNN trained purely on synthetic data decodes depth-dependent blur patterns into dense depth maps in real time on an embedded GPU, enabling accurate short-range navigation.</td><td><a href="https://arxiv.org/abs/2605.26330">Link</a></td></tr>
+<tr><td>Collaborative Navigation and Exploration with β-Sparse Gaussian Processes</td><td></td><td>Introduces β-Sparse GPs for task-aware inducing point selection in a collaborative navigation setting with a lead robot and a mobile sensor platform. The sensor jointly chooses what map points to transmit and where to move, yielding lower path cost and substantially reduced communication compared to raw-data sharing in simulated terrains.</td><td><a href="https://arxiv.org/abs/2605.26304">Link</a></td></tr>
+<tr><td>Multi-Robot Box Transport over Different Surfaces with Decentralized Role-based Proportional Control</td><td>University at Buffalo</td><td>Presents R2P2, an asynchronous decentralized scheme for teams of robots to collaboratively push boxes with varying mass over flat and inclined surfaces. Robots assume roles such as push, support, and prevent and apply rule-based or proportional velocity control, outperforming virtual leader–follower baselines in simulation and physical TurtleBot experiments.</td><td><a href="https://arxiv.org/abs/2605.26430">Link</a></td></tr>
+<tr><td>Learning to Balance Motor Thermal Safety and Quadrupedal Locomotion Performance with Residual Policy</td><td>POSTECH; School of Mechanical Science and Engineering; University of Science and Technology of China</td><td>Integrates a whole-body thermal model into quadruped locomotion RL via a two-stage training process: a nominal gait policy plus a residual policy conditioned on motor temperatures. On a Unitree A1, the method extends operation under payloads from about 5 to over 13 minutes while maintaining terrain traversal, preventing motor overheating.</td><td><a href="https://arxiv.org/abs/2605.27046">Link</a></td></tr>
+<tr><td>L-Learning : A Lyapunov-Based Approach Leveraging Lagrangian Mechanics for Efficient and Stable Robot Tracking</td><td>Beihang University</td><td>Proposes L-Learning, a data-driven control framework that learns an energy-based Lyapunov function consistent with Lagrangian dynamics for trajectory tracking. By embedding stability constraints into the learning objective, it targets improved tracking accuracy and sample efficiency while guaranteeing closed-loop stability.</td><td><a href="https://arxiv.org/abs/2605.26648">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
