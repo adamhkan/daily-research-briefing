@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-28</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-28</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>60</strong></div>
+        <div class="card">Papers analyzed: <strong>60</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Navigation and motion planning papers emphasize risk-aware control, connectivity-preserving search, and online uncertainty handling for ground, aerial, and multi-robot systems.</li><li>Multiple works push dexterous and contact-rich manipulation via better tactile representations, contact planning, gentle force control, and diffusion-based action smoothing.</li><li>Whole-body and locomotion control advances span humanoid loco-manipulation data generation, agile quadrupeds with active spines, and frequency/spectral priors for athletic gaits.</li><li>Perception for navigation sees new terrain segmentation, self-supervised traversability, safer visual place recognition, and consistency-aware RGB-D odometry.</li><li>Vision-Language(-Action) ecosystems mature with new navigation frameworks, manipulation-focused VLA architectures, and large-scale benchmarks for evaluating generalization.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Trinity: Unifying Class-Agnostic Terrain and Semantic Segmentation for Unstructured Outdoor Environments by Leveraging Synthetic Data</td><td>ETH Zurich</td><td>Introduces Trinity, a transformer-based network that jointly performs semantic segmentation and class-agnostic terrain segmentation to learn robot-agnostic visual terrain priors. The approach is trained on a new synthetic dataset (RUGDSynth) and evaluated on the EXTerra real-world dataset, showing benefits for downstream traversability, odometry, and mission planning in complex outdoor navigation.</td><td><a href="https://arxiv.org/abs/2605.27644">Link</a></td></tr>
+<tr><td>Colosseum V2: Benchmarking Generalization for Vision Language Action Models</td><td>New York University</td><td>Presents Colosseum V2, a large-scale ManiSkill-based benchmark to systematically assess generalization of vision-language-action models across 28 robot manipulation tasks and distribution shifts. The results highlight significant robustness gaps for leading VLAs such as ACT and Pi0.5, and provide standardized tasks and metrics to drive more reliable general-purpose manipulation policies.</td><td><a href="https://arxiv.org/abs/2605.27759">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Accelerating Robot Path Planning via Connectivity-Preserving Region Proposal Network</td><td>Ouyang are with the School</td><td>Introduces CP-RPN, a segmentation-guided network that predicts compact, topologically connected corridor regions to shrink the search space for path planning. Using deformable attention transformers and topology-aware losses, it enables fast Voronoi-based planning with A* fallback, achieving ~0.11 s deterministic planning and &gt;99% success, outperforming sampling-based planners in stability and latency.</td><td><a href="https://arxiv.org/abs/2605.28362">Link</a></td></tr>
+<tr><td>Chance-Constrained MPPI under State and Dynamic Object Prediction Uncertainty and the Evaluation of Collision Risk Calibration</td><td>Faculty of Engineering and Informatics, University of Applied Sciences Aschaffenburg, Aschaffenburg, Germany</td><td>Proposes DUCCT-MPPI, a chance-constrained navigation controller that jointly incorporates localization uncertainty via an Unscented Transform tube and dynamic-obstacle prediction uncertainty via Monte Carlo sampling. Alongside, it introduces a scoring-rule-based framework to evaluate and calibrate closed-loop collision risk, yielding sizable gains in success rate and safety over Monte Carlo MPPI baselines in cluttered environments.</td><td><a href="https://arxiv.org/abs/2605.28330">Link</a></td></tr>
+<tr><td>AURA: Asymptotically Optimal Uncertainty-Robust Replanning Algorithm for Kinodynamic Systems</td><td></td><td>Presents AURA, a meta-planner that runs asymptotically optimal sampling-based planning and trajectory optimization in parallel with execution for kinodynamic systems. By continuously refining both the reference path and future control inputs, it improves path quality and tracking robustness under motion uncertainty in both simulation and real-world tests.</td><td><a href="https://arxiv.org/abs/2605.27699">Link</a></td></tr>
+<tr><td>Simulation-Informed Diffusion for Decentralized Multi-robot Motion Planning</td><td></td><td>Introduces Simulation-Informed Diffusion (SID), a decentralized planning framework where each robot uses a constraint-aware diffusion model to first simulate neighbors’ trajectories and then plan its own under safety constraints. This anticipation-based scheme requires minimal communication and scales to dense scenarios with over 100 robots, improving constraint satisfaction and success over classical and learning baselines.</td><td><a href="https://arxiv.org/abs/2605.27697">Link</a></td></tr>
+<tr><td>Natural Functional Gradients for Smooth Trajectory Optimization</td><td></td><td>Develops a trajectory optimization method that applies natural gradients directly in function space using a Gaussian-smoothed surrogate objective. A Monte Carlo estimator requiring only black-box trajectory evaluations yields smoother, more feasible motions than standard planning and optimization baselines, particularly in cluttered, narrow-passage manipulation scenarios.</td><td><a href="https://arxiv.org/abs/2605.28202">Link</a></td></tr>
+<tr><td>Self-Supervised Online Robot-Agnostic Traversability Estimation for Open-World Environments</td><td></td><td>Proposes COTRATE, an online self-supervised framework that learns traversability from unlabeled experience via a learning-based terrain assessment module on proprioceptive and inertial data. The inferred scores supervise a visual traversability network with a diversity-aware replay mechanism, enabling continual learning and cross-platform transfer across robots with different locomotion modes.</td><td><a href="https://arxiv.org/abs/2605.28442">Link</a></td></tr>
+<tr><td>POINav: Benchmarking and Enhancing Final-Meters Arrival in Real-World Vision-Language Navigation</td><td></td><td>Introduces POINav-Bench, a 3D Gaussian Splatting-based benchmark of 11 real commercial areas and 163 POIs to study precise final-meters navigation in realistic environments. A Brain-Action framework with POI-grounded reasoning and continuous waypoint prediction, plus a 70K signage-entrance dataset, supports more accurate POI-goal arrival for VLN agents.</td><td><a href="https://arxiv.org/abs/2605.28237">Link</a></td></tr>
+<tr><td>Uni-LaViRA: Language-Vision-Robot Actions Translation for Unified Embodied Navigation</td><td></td><td>Presents Uni-LaViRA, an agentic architecture that treats navigation as language-vision-to-action translation, leveraging pretrained multimodal LLMs rather than robot data scaling. With TODO List Memory and Second Chance Backtrack loops, it achieves competitive or superior zero-shot performance across four navigation task families and four heterogeneous robot platforms.</td><td><a href="https://arxiv.org/abs/2605.27582">Link</a></td></tr>
+<tr><td>STR Robot: Design of an Autonomous Mobile Robot from Simulation to Reality</td><td></td><td>Describes a full sim-to-real pipeline for an autonomous mobile robot focusing on onboard control, localization, and navigation rather than mechanical design. The framework is developed and validated in simulation before deployment, demonstrating that simulation-based design can produce reliable real-world navigation behavior.</td><td><a href="https://arxiv.org/abs/2605.28110">Link</a></td></tr>
+<tr><td>Design of a Real-time Asynchronous Monocular Odometry for Planetary Exploration</td><td></td><td>Outlines a real-time event-based monocular odometry system for planetary rovers using an Error-State Kalman Filter driven by asynchronous features from an event camera. The design targets high-speed, HDR-robust ego-motion estimation under strict compute constraints, leveraging a real-time asynchronous tracker for continuous state updates.</td><td><a href="https://arxiv.org/abs/2605.27661">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
