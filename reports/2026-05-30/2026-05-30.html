@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-05-29</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-05-29</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>43</strong></div>
+        <div class="card">Papers analyzed: <strong>43</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Bimanual and deformable-object manipulation see progress via single-arm data transfer (MonoDuo) and phase-conditioned, failure-aware imitation learning for dual-arm cloth handling.</li><li>Dexterous and contact-rich manipulation benefit from offline-to-online VLA post-training (BORA) and vision-to-proprioceptive distillation (VE2VF) for robust, domain-agnostic control.</li><li>Unified and enhanced VLA stacks (Qwen-VLA, 3DVLA, ElegantVLA, VLA-Pro, VLAConf, DynaFLIP) target cross-task generalization, 3D reasoning, efficiency, and calibrated confidence in real-world manipulation and navigation.</li><li>Navigation and motion planning advance with EXACT-MPPI’s footprint-aware point-cloud local planning, OMPL 2.0’s hardware-accelerated sampling-based planning, and diffusion-policy Fisher-preserving guidance for safer waypoint control.</li><li>Autonomous driving and off-road navigation leverage multi-resolution latency-aware end-to-end control, robust segmentation and traversability estimation under distribution shift, and security analysis of reasoning-enabled VLA planners.</li><li>New benchmarks and systems (RoboWits, PhAIL, dual-drone docking, decentralized acoustic swarms, active Gaussian mapping, DGSG-Mind) stress-test reasoning, cooperation, and long-horizon scene understanding for embodied agents.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>MonoDuo: Using One Robot Arm to Learn Bimanual Policies</td><td>UC Berkeley</td><td>MonoDuo trains bimanual manipulation policies using demonstrations collected from a single-arm robot paired with a human collaborator, swapping roles to cover both sides of the task. RGB-D data are converted into synthetic demonstrations for target bimanual robots via pose estimation and inpainting, enabling zero-shot deployment across robot configurations and strong gains from a small number of target-robot demos.</td><td><a href="https://arxiv.org/abs/2605.29298">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>EXACT-MPPI: Exact Signed-Distance Navigation for Arbitrary-Footprint Robots from Point Clouds via Path Integral Control</td><td>University of California, Davis; Zhejiang University</td><td>EXACT-MPPI is a training-free local planner that embeds an exact signed-distance evaluator for arbitrary robot footprints directly into an MPPI controller, operating on raw point clouds without occupancy grids. It preserves feasible motions in tight spaces and generalizes across differential-drive, Ackermann, omni, and hybrid platforms by swapping motion models and footprint descriptions only.</td><td><a href="https://arxiv.org/abs/2605.29663">Link</a></td></tr>
+<tr><td>The Open Motion Planning Library 2.0</td><td>Purdue University; Rice University</td><td>OMPL 2.0 modernizes the widely used sampling-based motion planning library with a focus on real-time planning and hardware acceleration, while retaining its rich collection of planners, state spaces, and problem formulations. The update targets tighter integration with contemporary AI workflows and reflects on OMPL’s role in shaping motion planning research.</td><td><a href="https://arxiv.org/abs/2605.29301">Link</a></td></tr>
+<tr><td>Qwen-VLA: Unifying Vision-Language-Action Modeling across Tasks, Environments, and Robot Embodiments</td><td></td><td>Qwen-VLA extends a large vision-language backbone with a DiT-based action decoder and embodiment-aware prompts to unify manipulation, navigation, and trajectory prediction in a single model. Jointly trained on diverse robotics, egocentric, and navigation datasets, it exhibits strong multi-task performance and embodiment transfer, achieving high success rates across simulation and real-world platforms.</td><td><a href="https://arxiv.org/abs/2605.30280">Link</a></td></tr>
+<tr><td>BORA: Bridging Offline Reinforcement Learning and Online Residual Adaptation for Real-World Dexterous VLA Models</td><td></td><td>BORA augments dexterous VLA manipulation with an offline critic conditioned on vision-language tokens and action chunks plus an online, human-in-the-loop residual RL adapter. The approach corrects execution errors and physical mismatches while keeping the pretrained VLA fixed, yielding large gains in success rate and generalization on real-world dexterous hand tasks.</td><td><a href="https://arxiv.org/abs/2605.30226">Link</a></td></tr>
+<tr><td>VE2VF: Vision-Enabled to Vision-Free Distillation via Real-world Reinforcement Learning for Robust Contact-Rich Manipulation</td><td></td><td>VE2VF uses a vision-enabled teacher policy to distill task knowledge into a vision-free student that relies only on pose, twist, and wrench sensing, trained entirely on the real robot. On the NIST assembly benchmark, this teacher–student RL framework attains high success and robust generalization across multiple unseen variants without extensive visual domain randomization.</td><td><a href="https://arxiv.org/abs/2605.29564">Link</a></td></tr>
+<tr><td>Phase-Conditioned Imitation Learning with Autonomous Failure Recovery for Robust Deformable Object Manipulation</td><td>The University of Hong Kong; Tohoku University</td><td>This work introduces a hierarchical, phase-conditioned ACT policy with FiLM modulation and a multi-modal phase predictor combining vision, force, and pose for deformable object manipulation. Coupled with hybrid impedance control and haptic teleoperation data collection, the system detects contact failures and triggers recovery behaviors, substantially boosting dual-arm T-shirt hanging success.</td><td><a href="https://arxiv.org/abs/2605.29407">Link</a></td></tr>
+<tr><td>Fisher-Preserving Guidance: Training-Free Manifold Constraints for Safe Diffusion Control</td><td></td><td>Fisher-Preserving Guidance modifies diffusion-policy sampling for waypoint prediction by projecting updates onto a low-rank Jacobian span to limit Fisher information drift, keeping actions near the training manifold. Combined with an uncertainty metric for multi-sample blending, it improves navigation and manipulation performance in simulated and real tasks without any retraining.</td><td><a href="https://arxiv.org/abs/2605.29937">Link</a></td></tr>
+<tr><td>FLIP: Real-Time and Resilient Formation Planning for Large-Scale DIstributed Swarms via Point Cloud Registration</td><td>Zhejiang University</td><td>FLIP recasts large-scale swarm formation planning as a spatiotemporal point cloud registration problem, allowing each agent to compute its optimal formation position sequence in a distributed way. Using registration with outlier rejection, it scales to formations with over 100 drones while limiting the propagation of failed or suboptimal trajectories.</td><td><a href="https://arxiv.org/abs/2605.29704">Link</a></td></tr>
+<tr><td>How to Relieve Distribution Shifts in Semantic Segmentation for Off-Road Environments</td><td>Seoul National University</td><td>ST-Seg tackles distribution shift in off-road semantic segmentation via style expansion to broaden domain coverage and texture regularization to stabilize local representations. Across multiple shifted target domains it markedly improves segmentation robustness, directly supporting more reliable off-road navigation.</td><td><a href="https://arxiv.org/abs/2605.29599">Link</a></td></tr>
+<tr><td>From General Vision to Reliable Traversability Estimation: Adapting Vision Foundation Models for Unstructured Outdoor Environments</td><td></td><td>ViTA adapts vision foundation models like SAM2 for traversability estimation by adding learnable traversability prompts, perspective-diversified training to handle label ambiguity, and geometric distillation for slope and elevation reasoning. It fuses semantic uncertainty and inferred geometry into continuous traversability scores, reducing false positives and improving cross-domain generalization in unstructured terrain.</td><td><a href="https://arxiv.org/abs/2605.29565">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
