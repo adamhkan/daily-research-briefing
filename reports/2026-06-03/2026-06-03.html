@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-06-02</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-06-02</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>121</strong></div>
+        <div class="card">Papers analyzed: <strong>121</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Dexterous and contact-rich manipulation saw advances in diffusion-based grasp generation (NDPP-Grasp, GraspGen-X), affordance and action manifolds (AFUN, LDA, GAM), and passivity-shielded VLA control (PaCo-VLA).</li><li>Mobile and aerial navigation work emphasized semantic reasoning and uncertainty handling, from probabilistic scene graphs and semantic ESDFs to UAV VLN with kinodynamic planning and expert-guided RL.</li><li>Humanoid and whole-body control progressed via perceptive locomotion encoders (GLAD), constrained whole-body tracking (ConstrainedMimic), universal action spaces (PHASOR), and loco-manipulation in photorealistic sim (LEGS, HOIST).</li><li>Vision-Language-Action models are being unified and hardened: OneVLA and Continuous Reasoning target general-purpose control, while MPVI, PACE, CaB, PaCo-VLA, and AHEAD improve robustness, timing, and safety without retraining.</li><li>Learned world models and generative planners (τ₀-WM, RoboDream, SKIP, CoFi, StressDream, DriveAnchor) are maturing into infrastructure for planning, data synthesis, and stress-testing across manipulation and autonomous driving.</li><li>Multi-robot and swarm systems gained new theory and tools, from diffusion-guided multi-robot motion planning and kinetic information transport models to adaptive CBF-based reconnection and physics-informed swarm controllers.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>From Cues to Horizons: Dynamic Risk Horizon Profiling for Trajectory Prediction</td><td>New York University</td><td>Introduces a risk horizon profiling module that learns a continuous potential-field-based risk distribution over future horizons to improve vehicle trajectory prediction. By modeling when surrounding agents become critical, it reduces long-horizon prediction error by ~25–29% on highway and urban datasets, supporting safer, more anticipatory planning for autonomous driving.</td><td><a href="https://arxiv.org/abs/2606.00857">Link</a></td></tr>
+<tr><td>ROG-Grasp: Root-Oriented Geometry for Robotic Grasping and Placement</td><td>New York University</td><td>Presents a geometry-driven grasping and placement pipeline for agricultural produce that infers root orientation from RGB-D data using YOLO detection and plane fitting. The system generates orientation-constrained grasps and Cartesian paths that outperform VLA baselines in reliability and speed, enabling consistent, orientation-aware handling of tomatoes and onions.</td><td><a href="https://arxiv.org/abs/2606.00449">Link</a></td></tr>
+<tr><td>FW-NKF: Frequency-Weighted Neural Kalman Filters</td><td>ETH Zurich</td><td>Proposes a neural Kalman filter that embeds a learnable, causal frequency-weighting operator into the residual, allowing explicit suppression of band-limited disturbances such as vibrations or EMI. Jointly learning transition and observation models with this spectral shaping yields up to 10% localization-error reduction and better orientation estimates on chaotic and human-pose benchmarks.</td><td><a href="https://arxiv.org/abs/2606.02251">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>OneVLA: A Unified Framework for Embodied Tasks</td><td></td><td>Introduces a single VLA architecture with a unified action head that can output both navigation and manipulation commands, eliminating task-specific heads. A progressive multi-stage training regime with CoT-style fine-tuning enables positive transfer between domains, achieving state-of-the-art performance across both simulated and real tasks.</td><td><a href="https://arxiv.org/abs/2606.01241">Link</a></td></tr>
+<tr><td>Co-training with Ego-centric Video and Demonstration for Robot Navigation Task</td><td>Kyoto University</td><td>Converts human egocentric walking videos into action-labeled data for ground robots by estimating camera motion and mapping it into robot-compatible actions. Co-training a VLA on both human-derived and robot data improves language grounding and robustness in a fruit-search navigation task without requiring large-scale robot data collection.</td><td><a href="https://arxiv.org/abs/2606.01951">Link</a></td></tr>
+<tr><td>Embedding Semantic Risk into Distance Fields and CBFs for Online Monocular Safe Control</td><td>Boston University; Texas A&amp;M University</td><td>Builds a monocular perception-to-control pipeline that fuses dense 3D reconstruction with semantic segmentation into a semantic Euclidean signed distance field. Class-dependent inflation of the ESDF feeds a CBF-based controller so higher-risk objects exert larger spatial influence, enabling semantic-aware safe teleoperation and autonomous navigation at 10–20 Hz.</td><td><a href="https://arxiv.org/abs/2606.01605">Link</a></td></tr>
+<tr><td>Hierarchical Semantic-Augmented Navigation: Optimal Transport and Graph-Driven Reasoning for Vision-Language Navigation</td><td></td><td>Proposes HSAN, which builds hierarchical semantic scene graphs and uses optimal-transport-based planning to select long-term goals that balance semantic relevance and reachability. A graph-aware RL policy executes low-level motions, yielding state-of-the-art VLN-CE performance and stronger generalization on long-horizon language-guided navigation.</td><td><a href="https://arxiv.org/abs/2606.01565">Link</a></td></tr>
+<tr><td>LEGS: Fine-Tuning Teleop-Free VLAs for Humanoid Loco-manipulation in an Embodied Gaussian Splatting World</td><td></td><td>Introduces a hybrid simulator combining mesh-based robot/objects with photorealistic 3D Gaussian Splatting backgrounds to train humanoid loco-manipulation VLAs without teleoperation. Auto-generated motion primitives and color calibration enable sim-to-real transfer on Unitree G1, matching or exceeding teleop-trained policies and retaining robustness under large appearance shifts.</td><td><a href="https://arxiv.org/abs/2606.01458">Link</a></td></tr>
+<tr><td>PSG-Nav: Probabilistic Scene Graph Navigation via Multiverse Decision Making</td><td></td><td>Constructs 3D probabilistic scene graphs that maintain full semantic distributions to represent perception uncertainty in open-vocabulary navigation. A multiverse decision module samples multiple likely world instantiations to select landmarks, while an evidential calibrator adapts to epistemic uncertainty, yielding SOTA success on MP3D, HM3D, and HSSD.</td><td><a href="https://arxiv.org/abs/2606.01313">Link</a></td></tr>
+<tr><td>ImagineUAV: Aerial Vision-Language Navigation via World-Action Modeling and Kinodynamic Planning</td><td></td><td>Uses a latent video diffusion model to &quot;imagine&quot; instruction-conditioned future UAV observations, then extracts 6-DoF motions and refines them with a kinodynamic planner. This imagination-driven pipeline addresses geometric inconsistency and dynamics mismatch in VLA, achieving superior aerial VLN performance with real-time execution via step-distilled inference.</td><td><a href="https://arxiv.org/abs/2606.01205">Link</a></td></tr>
+<tr><td>Robust Integrated Planning and Control for Quadrotors in Dynamic Environments via NMPC with CBF Penalties</td><td>Autonomous Vehicles Laboratory, Department of Aerospace Engineering, Toronto Metropolitan University, Toronto, Canada.</td><td>Embeds control barrier functions as exponential penalties inside an NMPC formulation, enabling smooth, feasible obstacle avoidance under tight actuation limits. Coupled with a high-gain disturbance observer and Kalman-based obstacle motion prediction, the approach yields safer, more robust quadrotor navigation than standard NMPC and hard-CBF baselines in sim and hardware.</td><td><a href="https://arxiv.org/abs/2606.01038">Link</a></td></tr>
+<tr><td>OSCAR: Obstacle Survival Curves for Adaptive Robot Navigation</td><td></td><td>Learns class-conditioned clearance-time survival models for temporary obstacles and integrates them into a time-dependent graph planner that decides how long to wait versus reroute. The robot updates these models online from censored observations, enabling near-oracle time-to-goal with only ~20 observations per obstacle class in both simulation and real deployments.</td><td><a href="https://arxiv.org/abs/2606.00990">Link</a></td></tr>
+<tr><td>Make Your VLA More Robust Without More Data By Interleaving Motion Planning</td><td>Georgia Institute of Technology</td><td>MPVI interleaves a frozen VLA with classical motion planning, using open-vocabulary detection, frontier exploration, and planners for navigation while the VLA handles manipulation and high-level decisions. Switching is governed by VLM-based completion checks and proprioceptive triggers, more than doubling task progress on BEHAVIOR-1K without additional training data.</td><td><a href="https://arxiv.org/abs/2606.00985">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
