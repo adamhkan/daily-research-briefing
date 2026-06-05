@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-06-04</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-06-04</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>45</strong></div>
+        <div class="card">Papers analyzed: <strong>45</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Humanoid whole-body control and loco-manipulation continue to advance, with new multi-modal controllers and large-scale virtual data pipelines enabling high sim-to-real success on Unitree G1.</li><li>Navigation and motion planning under uncertainty are a major focus, spanning agile quadrotor world models, unified visual navigation with latent imagination, and long-horizon online POMDP solvers.</li><li>Risk-aware and safety-first frameworks emerge across MPC, multi-agent exploration, and safe RL, emphasizing distribution-free guarantees and structured handling of multi-objective uncertainty.</li><li>New benchmarks and datasets target challenging domains such as underground exploration, deformable object and DLO manipulation, and visuotactile, language-conditioned control.</li><li>Semantic and world-model-based representations (occupancy grids, semantic SLAM, action-conditioned video models) are increasingly used to close the loop between perception, planning, and policy evaluation.</li><li>LLM- and VLA-centric tools are being systematically upgraded via better data curation, 3D and focus priors, and simulation-based verification to improve robustness and physical feasibility in manipulation and navigation.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td colspan="4"><em>No matches</em></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>GRAIL: Generating Humanoid Loco-Manipulation from 3D Assets and Video Priors</td><td></td><td>GRAIL is a fully virtual pipeline that composes 3D assets, simulator scenes, and video foundation model priors to synthesize metric 4D human–object interaction trajectories for humanoid loco-manipulation. These motions are retargeted to a Unitree G1 humanoid to train egocentric visual loco-manipulation policies, achieving high sim-to-real success on diverse object pick-up and stair-climbing without teleoperation data.</td><td><a href="https://arxiv.org/abs/2606.05160">Link</a></td></tr>
+<tr><td>M3imic: Learning a Versatile Whole-Body Controller for Multimodal Motion Mimicking</td><td>Mohamed bin Zayed University of Artificial Intelligence; Tsinghua University</td><td>M3imic learns a single whole-body control policy for humanoids that can track heterogeneous motion references, including joint trajectories, human poses, and end-effector paths, via modality-specific encoders into a shared latent space. Trained with large-scale RL in simulation and deployed on a Unitree G1, it achieves strong sim-to-real performance and high success rates on unseen motion references for locomotion and loco-manipulation.</td><td><a href="https://arxiv.org/abs/2606.04829">Link</a></td></tr>
+<tr><td>CoRe-MoE: Contrastive Reweighted Mixture of Experts for Multi-Terrain Humanoid Locomotion with Gait Adaptation</td><td></td><td>CoRe-MoE introduces a two-stage RL framework where a base gait policy for walking/running is augmented with a terrain-aware Mixture-of-Experts trained via contrastive objectives. The resulting controller enables a Unitree G1 to perform robust, natural gait transitions and adapt to stairs, slopes, obstacles, and unstructured terrains in zero-shot deployment.</td><td><a href="https://arxiv.org/abs/2606.04718">Link</a></td></tr>
+<tr><td>Generalization of World Models under Environmental Variability for Vision-based Quadrotor Navigation</td><td></td><td>This work systematically studies how DreamerV3-style world models trained for quadrotor navigation generalize under varying environmental randomness. Cross-environment SSL validation is shown to predict sim-to-real robustness better than RL policy scores, and key architectural factors like discrete latent size and training sequence length strongly influence real-world navigation success, including fully open-loop imagined flight.</td><td><a href="https://arxiv.org/abs/2606.05015">Link</a></td></tr>
+<tr><td>MAD: Mapping-Aware World Models for Agile Quadrotor Flight</td><td>Harbin Institute of Technology</td><td>MAD augments Dreamer-style world models to reconstruct local occupancy and visibility maps, forcing latent states to encode geometry and history relevant for collision avoidance. Policies trained on these mapping-aware latents achieve faster, safer quadrotor flight in cluttered navigation and racing tasks, with successful sim-to-real transfer up to 5 m/s in forested environments.</td><td><a href="https://arxiv.org/abs/2606.04534">Link</a></td></tr>
+<tr><td>WAM-Nav: Asymmetric Latent World-Action Modeling for Unified Visual Navigation</td><td></td><td>WAM-Nav jointly learns long-horizon action sequences and short-horizon visual foresight with a shared diffusion transformer, enabling anticipatory yet efficient visual navigation. A dual-stream conditioning on ego-motion history and observations plus unified goal encoding allows a single policy to handle Image-Goal, Point-Goal, and exploration tasks, with strong generalization and 85% average success in real-world deployments.</td><td><a href="https://arxiv.org/abs/2606.04907">Link</a></td></tr>
+<tr><td>MineXplore: An Open-Source Reinforcement Learning Exploration Benchmark for GNSS-Denied Underground Environment</td><td></td><td>MineXplore provides a MuJoCo-based exploration benchmark derived from a real Chilean copper mine survey, modeling a large tunnel network with realistic geometry, friction zones, incline, and lighting. PPO baselines demonstrate stable, reproducible learning for coverage-focused navigation, enabling controlled RL research on underground, GPS-denied exploration.</td><td><a href="https://arxiv.org/abs/2606.04569">Link</a></td></tr>
+<tr><td>Think Fast and Far: Long-Horizon Online POMDP Planning via Rapid State Sampling</td><td>Australian National University; Purdue University; Rice University</td><td>ROP-RAS3 is an approximate online POMDP solver that uses extremely fast sampling-based motion planning to generate diverse macro-actions, biasing belief-space search without enumerating large action spaces. It scales to problems with thousands of lookahead steps and high-dimensional continuous or hybrid state spaces, outperforming existing solvers on long-horizon planning tasks and demonstrating hardware feasibility.</td><td><a href="https://arxiv.org/abs/2606.04355">Link</a></td></tr>
+<tr><td>Distribution-Free Risk-Aware Planning and Control Under Uncertainty Using Conformal Spectral Risk Control</td><td>University of Michigan</td><td>This work extends conformal risk control to general spectral risk measures and integrates the resulting prediction sets into a risk-aware MPC framework. The approach provides distribution-free safety guarantees for navigation under uncertainty and yields safer, more computationally efficient obstacle-avoidance behavior than baseline RA-MPC in vehicle simulations.</td><td><a href="https://arxiv.org/abs/2606.04185">Link</a></td></tr>
+<tr><td>Multi-Agent Next-Best-View Optimization for Risk-Averse Planning</td><td>Amazon Robotics; Lehigh University</td><td>The authors propose a distributed multi-robot next-best-view scheme where each agent maintains a private 3D Gaussian Splatting map and collaboratively maximizes information gain via consensus ADMM. Collision risk is modeled through AV@R and used to both shape exploration and score trajectories, achieving mapping and safety comparable to centralized methods with drastically reduced communication.</td><td><a href="https://arxiv.org/abs/2606.04158">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
