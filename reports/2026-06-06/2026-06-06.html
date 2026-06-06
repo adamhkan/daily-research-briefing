@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-06-05</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-06-05</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>60</strong></div>
+        <div class="card">Papers analyzed: <strong>60</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Strong emphasis on whole-body and dexterous manipulation: several works (HANDOFF, MotionDisco, LadderMan, DexFuture, MoDex, RealDexUMI) push humanoid and hand-level control for long-horizon, contact-rich tasks.</li><li>Vision-Language-Action foundations continue to mature, with new affordance-aware (AffordanceVLA), speed-controllable (TempoVLA), and latent-reasoning (MPCoT, one-step VLA, FlowPRO, Flash-WAM) architectures aimed at practical robot deployment.</li><li>Robust motion generation and adaptation receive attention via torque adaptation (TAM), amortized nonlinear MPC, MPC-guided RL, transfer-boosted iCEM, and resilient policy adaptation (GLOVES).</li><li>Navigation and motion planning advances span underwater 3D path planning with learned flow surrogates, waypoint design for sampling-based planners, continuous-time SLAM, and uncertainty-aware sensor fusion.</li><li>Safety and verification are treated more systematically through a cross-layer survey of safe long-horizon manipulation, adversarial safety-policy training, and formally verifiable self-evolving skill contracts (VASO).</li><li>Institution-aligned work from MIT and Stanford highlights hardware-focused advances in high-speed vine robot navigation, visuotactile robotic ultrasound, and cross-view geo-localization in GNSS-denied environments.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Gotta Grow Fast: Design and Benchmarking of a Tip Mount for High-Speed Vine Robots</td><td>Massachusetts Institute of Technology; Stanford University</td><td>Introduces a triangular roller tip mount for soft, growing vine robots that reduces internal friction during eversion, enabling reliable high-speed growth with tip-mounted sensors. A custom testbed quantifies mount performance via tail tension, showing lower resistance and higher repeatability than prior designs, and establishing a benchmarking framework for sensor/tool integration in soft growing robots used for navigation in clutter.</td><td><a href="https://arxiv.org/abs/2606.06040">Link</a></td></tr>
+<tr><td>Visuotactile and Explicitly Force-Controlled Robotic Ultrasound for Abdominal Volumetric Reconstruction</td><td>Stanford University</td><td>Presents an autonomous robotic ultrasound system that combines stereo vision, visuotactile force feedback, and replayed expert strategies to perform adaptive abdominal scans. The robot builds a 3D topography of the abdomen, plans rib-aware scanning paths, and maintains probe contact via closed-loop force control, achieving image quality comparable to radiologists while enabling volumetric reconstructions beyond typical manual capability.</td><td><a href="https://arxiv.org/abs/2606.05848">Link</a></td></tr>
+<tr><td>Meridian: Metric-Semantic Primitive Matching for Cross-View Geo-Localization Beyond Urban Environments</td><td>Massachusetts Institute of Technology</td><td>Proposes Meridian, a training-free cross-view localization method that matches metric-semantic primitives between aerial imagery and ground RGB-D data for GNSS-denied environments. By forming and validating pose hypotheses through novel consistency metrics and robust pose-graph optimization, it achieves ~2.4 m average trajectory error over 19 km across diverse terrains from urban roads to wilderness.</td><td><a href="https://arxiv.org/abs/2606.06312">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>HANDOFF: Humanoid Agentic Task-Space Whole-Body Control via Distilled Complementary Teachers</td><td></td><td>Proposes HANDOFF, a unified whole-body controller for humanoids based on a compact task-space command interface distilled from specialized teachers for motion tracking, locomotion, and fall recovery. On a Unitree G1, it achieves strong velocity tracking and a large robust manipulation workspace, and is demonstrated in natural-language-driven task executions via a VLM-based planner.</td><td><a href="https://arxiv.org/abs/2606.06493">Link</a></td></tr>
+<tr><td>MotionDisco: Motion Discovery for Extreme Humanoid Loco-Manipulation</td><td></td><td>Introduces MotionDisco, which couples LLM-guided evolutionary search with sequential kinodynamic trajectory optimization to discover long-horizon humanoid loco-manipulation motions without demonstrations. Discovered trajectories are then tracked by RL policies and transferred to real humanoid hardware, enabling complex contact-rich whole-body skills generated fully automatically.</td><td><a href="https://arxiv.org/abs/2606.06139">Link</a></td></tr>
+<tr><td>LadderMan: Learning Humanoid Perceptive Ladder Climbing</td><td></td><td>Presents LadderMan, a two-stage learning framework that trains depth-based visuomotor policies for humanoid ladder climbing and constrained on-ladder manipulation. Hybrid motion tracking and imitation+RL distillation produce a unified policy that transfers zero-shot to real robots and supports teleoperated manipulation while maintaining stability on diverse ladder geometries.</td><td><a href="https://arxiv.org/abs/2606.05873">Link</a></td></tr>
+<tr><td>Accelerating and Scaling MPC-Guided Reinforcement Learning for Humanoid Locomotion and Manipulation</td><td>California Institute of Technology; Johns Hopkins University; Technology Innovation Institute</td><td>Studies MPC-guided RL (MPC-RL) for humanoid whole-body skills, introducing a centroidal-dynamics MPC-based reward and πⁿMPC, a batched GPU MPC solver that operates directly on time-varying dynamics. The approach scales MPC guidance to massively parallel RL, yielding improved locomotion and manipulation performance with validated hardware experiments.</td><td><a href="https://arxiv.org/abs/2606.05687">Link</a></td></tr>
+<tr><td>TAGA: Terrain-aware Active Gaze Learning for Generalizable Agile Humanoid Locomotion</td><td></td><td>TAGA learns active gaze policies for humanoid locomotion that selectively attend to informative regions in height scans under tight compute budgets. Fusing vision, proprioception, and commands via RL yields anticipatory gaze behaviors that improve training efficiency and enable robust perceptive locomotion over challenging terrains and large gap crossings in both simulation and hardware.</td><td><a href="https://arxiv.org/abs/2606.05880">Link</a></td></tr>
+<tr><td>3D Underwater Path Planning via Generative Flow Field Surrogates</td><td></td><td>Develops conditional GAN-based surrogates that replace computationally expensive RANS CFD in 3D AUV path planning through complex propeller wakes. Integrated into an energy-weighted A* planner, the learned flow fields recover a substantial portion of the energy and hazard-avoidance benefits of full CFD while enabling microsecond-level inference suitable for onboard navigation.</td><td><a href="https://arxiv.org/abs/2606.06077">Link</a></td></tr>
+<tr><td>Efficient Computation of Distance Functions for Navigation Vector Fields in Lie Groups</td><td></td><td>Proposes an efficient method to compute distances and closest points between robot configurations and G-polynomial curves on matrix Lie groups, avoiding costly optimization. By exploiting curve structure and reducing to few polynomial root-finds, it accelerates vector-field-based path tracking, with explicit SE(3) formulas and validation on a manipulator platform.</td><td><a href="https://arxiv.org/abs/2606.05372">Link</a></td></tr>
+<tr><td>Sample-efficient Low-level Motion Planning for Robotic Manipulation Tasks via Zero-shot Transfer Learning</td><td></td><td>Extends iCEM-based low-level motion planning for manipulation with a transfer learning scheme that reuses planner parameters from simpler upstream tasks to more complex downstream ones. Along with reward redesign via task decomposition, the framework improves success rates by up to 23% in simulation and is validated on a real Franka arm for stacking.</td><td><a href="https://arxiv.org/abs/2606.06041">Link</a></td></tr>
+<tr><td>A New Quaternion-Joint Cable-Driven Redundant Manipulator Configuration and its Control Through FABRIK and Residual Reinforcement Learning</td><td></td><td>Introduces a 4-segment, 8-joint cable-driven redundant manipulator using quaternion joints to expand workspace with reduced motor count. Residual RL layered on top of FABRIK inverse kinematics achieves orders-of-magnitude better positional and orientational accuracy, demonstrating precise control in obstructed workspaces.</td><td><a href="https://arxiv.org/abs/2606.05236">Link</a></td></tr>
+<tr><td>Merging model-based control with multi-agent reinforcement learning for multi-agent cooperative teaming strategies</td><td>Georgia Institute of Technology</td><td>Proposes MA-AC-MPC, an actor-critic MPC framework for cooperative multi-agent tasks that blends MARL with model-based predictive control for safe, dynamically feasible actions. Demonstrated on pursuit–evasion and heterogeneous drone–rover landing, it yields more robust and reliable team behaviors, achieving 100% hardware landing success versus 60% for a neural baseline.</td><td><a href="https://arxiv.org/abs/2606.06011">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
