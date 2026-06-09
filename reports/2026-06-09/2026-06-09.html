@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-06-08</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-06-08</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>50</strong></div>
+        <div class="card">Papers analyzed: <strong>50</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Neuro-symbolic and world-model-style planners are advancing long-horizon task and motion reasoning, including image-grounded STRIPS operators and bilevel task planners that run on real quadruped mobile manipulators.</li><li>Vision-Language-Action (VLA) manipulation policies are being strengthened via structured action representations (splines, voxel heatmaps, action-token plans) and better alignment of latent actions, with new tools for rapid task adaptation and failure recovery.</li><li>Robust visuomotor manipulation and grasping see progress through explicit action-coordinate visualization, cross-view 6-DoF grasp fusion, and affordance-driven hierarchical RL for quadruped “pedipulation.”</li><li>Navigation and trajectory planning work spans fine-grained UAV and language-guided indoor navigation, offline diffusion-based long-horizon route composition, active semantic exploration, and test-time optimization in driving and lane changes.</li><li>Foundational perspectives highlight that scaling VLAs is not enough, emphasizing interfaces for learning from unstructured human videos and procedurally generated manipulation puzzles, while new co-design methods speed up locomotion robot morphology optimization.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Neuro-Symbolic Learning for Long-Horizon Task Planning Under Complex Logical Constraints</td><td>Carnegie Mellon University</td><td>Proposes a bilevel neuro-symbolic framework where a neural scorer learns object importance while a symbolic planner solves tasks in the resulting pruned search space, with a 3R (Repair/Restart/Rollback) strategy stabilizing learning. Demonstrates large reductions in planning failures and time on benchmarks, and validates deployment on a quadruped-based mobile manipulator in both simulation and real-world settings.</td><td><a href="https://arxiv.org/abs/2606.06877">Link</a></td></tr>
+<tr><td>What Matters When Cotraining Robot Manipulation Policies on Everyday Human Videos?</td><td>Massachusetts Institute of Technology</td><td>Introduces a 28-hour dataset of natural human manipulation videos with accurate triangulated hand labels to study transfer to robot policies. Finds that high-quality hand pose alone is insufficient; successful cotraining requires embodiment-specialized vision and policy networks, yielding roughly 30 percentage point success gains in low-robot-data regimes across six tasks.</td><td><a href="https://arxiv.org/abs/2606.06627">Link</a></td></tr>
+<tr><td>Rapid co-design of Buoyancy-assisted robots for Challenging Locomotion using Gaussian Evolutionary Specialists</td><td>ETH Zurich</td><td>Introduces Gaussian Evolutionary Specialists, which partition morphology space into evolving Gaussian regions with specialist RL policies instead of retraining from scratch for each design. Applied to the BALLU buoyancy-assisted legged robot, the method discovers designs with 5–25% higher performance, clears obstacles 3× taller than baseline hardware, and cuts design optimization time by 37%.</td><td><a href="https://arxiv.org/abs/2606.07424">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Affordance-Based Hierarchical Reinforcement Learning for Quadruped Pedipulation</td><td></td><td>Presents a three-level hierarchical RL framework where pose affordances guide navigation, which in turn drives locomotion and pedipulation policies on quadruped robots. The system autonomously selects base poses and interaction points, enabling object-centric alignment and real-world object interaction without hand-designed high-level trajectories.</td><td><a href="https://arxiv.org/abs/2606.07506">Link</a></td></tr>
+<tr><td>ActionMap: Robot Policy Learning via Voxel Action Heatmap</td><td></td><td>Replaces conventional single-point action decoders in VLA models with a voxel heatmap over the continuous action space, explicitly modeling local action geometry. On LIBERO and real-world Franka manipulation, this head improves success rates, convergence speed, and data efficiency across distinct backbones, showing that action representation is a key lever for control performance.</td><td><a href="https://arxiv.org/abs/2606.06904">Link</a></td></tr>
+<tr><td>A Cross-view Fusion Framework for Robust 6-DoF Grasp Pose Estimation</td><td></td><td>Introduces a cross-view fusion pipeline that combines an auxiliary viewpoint, contrastive feature learning, and a cylinder-based integration module to handle occlusion and viewpoint variance in 6-DoF grasp estimation. The method aligns and fuses grasp-relevant geometry across views and achieves strong performance on GraspNet-1Billion and real-world grasping.</td><td><a href="https://arxiv.org/abs/2606.06878">Link</a></td></tr>
+<tr><td>AxisGuide: Grounding Robot Action Coordinate System in RGB Observations for Robust Visuomotor Manipulation</td><td></td><td>Augments RGB inputs with rendered base-frame axis overlays that explicitly encode how +x,+y,+z end-effector motions project into each camera view. This lightweight cue substantially improves generalization of behavior-cloned visuomotor policies in simulation and on real robots, particularly under object position shifts.</td><td><a href="https://arxiv.org/abs/2606.06761">Link</a></td></tr>
+<tr><td>Optimal Control Approach for Non-prehensile Ball Juggling Using a 7-DoF Manipulator</td><td>Mohamed bin Zayed University of Artificial Intelligence; Technical University of Munich</td><td>Develops a two-stage optimal control framework to generate and stabilize periodic juggling motions for a ball manipulated non-prehensilely by a 7-DoF arm. Offline-optimized trajectories are organized for real-time error correction, enabling robust juggling in simulation and on a Franka Panda without online optimal control.</td><td><a href="https://arxiv.org/abs/2606.06704">Link</a></td></tr>
+<tr><td>ChronoForest: Closed-Loop Multi-Tree Diffusion Planning for Efficient Bridge Search and Route Composition</td><td></td><td>Proposes a multi-tree diffusion planner that composes short-horizon offline trajectories into efficient long-horizon routes by coupling local bridge search with online route re-solving. On challenging AntMaze-Stitch benchmarks, ChronoForest achieves near-perfect success and significantly improves long-range route quality over prior diffusion-based planners.</td><td><a href="https://arxiv.org/abs/2606.06618">Link</a></td></tr>
+<tr><td>AEGIS: A Backup Reflex for Physical AI</td><td></td><td>Introduces AEGIS, which monitors a weak manipulation policy’s internal activations with a probe to detect high-risk timesteps and selectively hand control to a stronger policy. On LIBERO-Spatial, it recovers substantially more failing trajectories than blind or random escalation while invoking the strong policy on only ~38% of steps.</td><td><a href="https://arxiv.org/abs/2606.06660">Link</a></td></tr>
+<tr><td>Spline Policy: A Structured Representation for Robot Policies</td><td>EPFL; Idiap Research Institute; Research Institute, Martigny, Switzerland.</td><td>Replaces discrete action chunks with spline parameters as the policy output, yielding continuous trajectories that can be temporally resampled, edited, and converted into stabilizing vector fields. Compatible with diffusion, flow-matching, transformer, and VLA backbones, Spline Policy supports uncertainty propagation and integration with classical controllers in dexterous and standard manipulation tasks.</td><td><a href="https://arxiv.org/abs/2606.07386">Link</a></td></tr>
+<tr><td>RhinoVLA Technical Report</td><td></td><td>Presents RhinoVLA, a token-efficient VLA model co-designed with an edge SoC to reduce visual/context token load while maintaining multimodal capability. A unified interface aligns heterogeneous robots into a shared 72D state–action space, and hardware-aware optimizations deliver ~11.7 Hz real-time manipulation control with performance comparable to larger baselines.</td><td><a href="https://arxiv.org/abs/2606.07383">Link</a></td></tr>
+<tr><td>CAPE: Contrastive Action-conditioned Parallel Encoding for Embodied Planning</td><td></td><td>Introduces CAPE, which predicts full future latent trajectories for candidate action sequences in a single pass and trains them with a goal-convergent contrastive objective. On DROID and RoboCasa, CAPE improves future-state retrieval, offline action matching, and closed-loop planning for manipulation while reducing long-horizon planning-time inference cost.</td><td><a href="https://arxiv.org/abs/2606.07304">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
