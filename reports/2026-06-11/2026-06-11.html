@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-06-10</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-06-10</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>63</strong></div>
+        <div class="card">Papers analyzed: <strong>63</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Navigation and motion planning see multiple advances: from lifelong RL-based navigation (AllDayNav) and configuration-driven cross-embodiment local planning (AgniNav) to Lie-group interior point trajectory optimization (LieIPM) and more stable diffusion-based driving planners (DFP).</li><li>Whole-body humanoid control progresses via omni-modal motion generation (OMG), model-assisted RL for sparse-foothold locomotion (MARCH), and unified navigation–locomotion for humanoids across terrains (GuideWalk).</li><li>Dexterous and contact-rich manipulation are pushed by unified hand tokenization (UniDexTok), keypoint-based human-to-robot dexterous policy transfer (Dexterous Point Policy), large-scale bimanual data collection with YUBI, and force/tactile world modeling (TacForeSight).</li><li>Vision-language(-action) systems for navigation and manipulation gain safer social behavior (SALSA), spatially grounded action verification (VeriSpace), efficient token pruning (SAFE-Pruner), and systematic guidance on hierarchical VLA design (What Matters in Orchestrating Robot Policies).</li><li>Autonomous driving and racing benefit from uncertainty-aware and language-driven cost design (UAMP, Language-Driven Cost Optimization), diffusion-based temporally smooth planning (DFP), and stability-aware adaptive velocity planning and prediction models for racing.</li><li>Mapping, registration, and multi-robot coordination improve through continuous probabilistic submap joining (Information-Preserving Mapping), fast correspondence-free point cloud registration (Generalized-CVO), and distributed multi-UGV exploration with robust loop closures (Distributed Multi-UGV Exploration).</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>LieIPM: Lie Group Interior Point Method for Direct Trajectory Optimization of Rigid Bodies</td><td>Massachusetts Institute of Technology; UC Berkeley</td><td>This work develops a constrained trajectory optimization framework that operates directly on matrix Lie groups, preserving the geometry of rigid-body motion. The proposed Lie Group Interior Point Method uses second-order rigid-body models and intrinsic derivatives to achieve faster, more robust convergence and avoid rotational singularities compared to Euclidean-space solvers.</td><td><a href="https://arxiv.org/abs/2606.10579">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>AgniNav: Configuration-Driven Cross-Embodiment Local Planning for Robot Navigation</td><td>University of Science and Technology of China</td><td>AgniNav introduces a monocular local navigation framework that conditions both perception and planning on a shared four-parameter collision envelope, enabling zero-retraining transfer across wheeled, quadruped, and humanoid platforms. An image-to-scan network predicts pseudo-laserscans from RGB conditioned on height, while a dimension-aware planner uses the remaining footprint parameters for collision checking, achieving high success rates at 30 Hz on embedded hardware.</td><td><a href="https://arxiv.org/abs/2606.10903">Link</a></td></tr>
+<tr><td>AllDayNav: Lifelong Navigation via Real-World Reinforcement Learning</td><td>Peking University; Tsinghua University; University of Science and Technology of China</td><td>AllDayNav proposes a lifelong navigation framework that eschews explicit maps, instead encoding scene dynamics into a large RL policy coupled with a self-evolving multimodal memory of keyframes, semantics, and temporal context. The system autonomously generates instructions, goals, and rewards, achieving near-100% success and superior path efficiency over map-based and VLM/RL baselines in diverse synthetic and real settings.</td><td><a href="https://arxiv.org/abs/2606.10927">Link</a></td></tr>
+<tr><td>GUIDE: Goal-Initialized Directional Understanding for End-to-End Visual Navigation</td><td></td><td>GUIDE tackles navigation where the goal is specified only once at episode start, forcing reliance on internal spatial memory instead of continuous goal updates. By learning a spatial anchor predictor from proprioceptive history and combining it with depth-based local perception, a quadruped robot can traverse cluttered and maze-like environments without maps or external goal updates.</td><td><a href="https://arxiv.org/abs/2606.10832">Link</a></td></tr>
+<tr><td>A Distributed Multi-UGV Exploration Framework With Loop-Aware Planning and Descriptor-Aided Localization in Resource-Limited Environments</td><td></td><td>This framework enables fully distributed multi-UGV exploration in GPS-denied, bandwidth-limited environments via lightweight LiDAR global descriptors for cross-robot loop closure and uncertainty-aware loop selection. Verified loop closures anchor a sparse topological representation for hierarchical planning, reducing exploration time and travel distance by around 15% versus an mTSP baseline while cutting communication.</td><td><a href="https://arxiv.org/abs/2606.11088">Link</a></td></tr>
+<tr><td>Resilient Navigation for Autonomous Farm Robots by Leveraging Jerk-Augmented Models with IMU-Only Disturbance Rejection</td><td>. Simone Servadio, Assistant Professor owa State University, Ames, IA 50011, USA; Iowa State University</td><td>The authors propose a jerk-augmented Extended Kalman Filter with Multiple Tuning Factor adaptation to improve dead-reckoning for agricultural robots subject to high-frequency vibrations and sensor outages. By dynamically adjusting measurement covariance using jerk and residual statistics, the method significantly reduces 3D position RMSE over standard EKF baselines using only IMU and wheel odometry.</td><td><a href="https://arxiv.org/abs/2606.10971">Link</a></td></tr>
+<tr><td>Information-Preserving Continuous Occupancy Mapping with Variance-Weighted Submap Joining</td><td>University of Edinburgh</td><td>This paper presents a continuous probabilistic submap joining method that optimizes submap poses and a global occupancy field in latent log-odds space using sparse Bayesian sufficient statistics. It yields closed-form occupancy mean and variance, enabling analytical Jacobians and variance-weighted fusion, which improve pose accuracy, global consistency, and uncertainty calibration over grid-based and prior continuous mapping approaches.</td><td><a href="https://arxiv.org/abs/2606.10442">Link</a></td></tr>
+<tr><td>Diffusion Forcing Planner: History-Annealed Planning with Time-Dependent Guidance for Autonomous Driving</td><td></td><td>DFP is a diffusion-based motion planner that jointly denoises history and future trajectory segments with different noise levels, then applies classifier-free guidance to steer future plans using annealed history. This heterogeneous diffusion process produces temporally smoother, more stable, and controllable trajectories, achieving competitive closed-loop performance on nuPlan benchmarks.</td><td><a href="https://arxiv.org/abs/2606.11019">Link</a></td></tr>
+<tr><td>Uncertainty-Aware Motion Planning for Autonomous Driving in Mixed Traffic Environment</td><td></td><td>UAMP integrates an interaction-aware intent uncertainty estimator with a value-learning scheme that explicitly corrects biases from uncertain human intent predictions. By reasoning over a joint distribution of surrounding drivers&#x27; intents and incorporating this uncertainty into decision-making, the method improves safety and comfort while maintaining traffic efficiency in mixed-autonomy simulations.</td><td><a href="https://arxiv.org/abs/2606.09958">Link</a></td></tr>
+<tr><td>Planar-Sector LOS Guidance for Interception of Agile Targets with Lifting-Wing Quadcopters</td><td>Beihang University; University of Science and Technology of China</td><td>The PS-LOS guidance framework constrains lateral image error tightly while relaxing longitudinal error, preserving target visibility with a monocular strapdown camera but freeing thrust for aggressive pursuit. Combined with a delay-compensated estimator and nonlinear controller on a lifting-wing quadcopter, it nearly doubles available thrust near line-of-sight and enables long-range visual interception of agile aerial targets in outdoor tests.</td><td><a href="https://arxiv.org/abs/2606.10639">Link</a></td></tr>
+<tr><td>GuideWalk: Learning Unified Autonomous Navigation and Locomotion for Humanoid Robots across Versatile Terrains</td><td></td><td>GuideWalk unifies high-level navigation and low-level locomotion for humanoids via a traversability-aware guidance module and a composite teacher distillation scheme. The resulting policy, further refined with RL and behavior cloning, can perform stable obstacle-avoiding navigation over varied terrains while maintaining dynamically feasible humanoid gait.</td><td><a href="https://arxiv.org/abs/2606.10449">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
