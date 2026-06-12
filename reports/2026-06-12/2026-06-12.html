@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-06-11</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-06-11</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>55</strong></div>
+        <div class="card">Papers analyzed: <strong>55</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Multi-robot and informative planning methods advance motion planning and navigation for ground, aerial, surface, and marine robots, emphasizing safety, belief sharing, and long-horizon trajectory optimization.</li><li>New learning-based planners and world models (ILD, Fibration-RRT, ConsistencyPlanner, VLGA) focus on scaling to high dimensions and complex driving scenarios while retaining real-time performance and safety.</li><li>Dexterous and contact-rich manipulation see progress via new VLA adaptations, world models, tactile sensing, and Real2Sim2Real pipelines that better handle morphology gaps and dynamics uncertainty.</li><li>Vision-Language(-Action) architectures are being refined with better action pretraining, multimodal timing, language steering, and test-time compute allocation to improve robustness and instruction/OOD generalization.</li><li>Real-world deployment concerns—sim-to-real gaps, safety, adversarial robustness, and human-in-the-loop efficiency—are addressed in social navigation, marine and aerial systems, surgical and industrial manipulation, and HiL-RL.</li><li>Benchmarks, sensors, and hardware frameworks (DuoBench, HiPi, novel tactile and piezoresistive arrays, AerialClaw, MARUS extensions) aim to standardize evaluation and make advanced capabilities more reproducible.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Ambient Diffusion Policy: Imitation Learning from Suboptimal Data in Robotics</td><td>Massachusetts Institute of Technology</td><td>Ambient Diffusion Policy introduces a noise-dependent co-training strategy that selectively uses suboptimal demonstrations only at high and low diffusion times, leveraging the spectral structure of robot action data. This separation lets policies extract useful global and local patterns from low-quality data without inheriting harmful artifacts, improving performance across noisy, mismatched, and large-scale heterogeneous datasets such as Open X-Embodiment.</td><td><a href="https://arxiv.org/abs/2606.12365">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Fibration Trees: A Unified Approach to Multi-Robot Motion Planning</td><td>H Royal Institute of Technology, Stockholm, Sweden; KTH Royal Institute of Technology; Rice University; TH Royal Institute</td><td>This work formalizes &quot;fibration trees&quot; as a unifying abstraction over projections and decompositions in multi-robot motion planning, capturing sequential prioritization, parallel decomposition, and task-space projections in a single structure. Building on this, Fibration-RRT is a probabilistically complete sampling-based planner that efficiently solves high-DoF multi-robot problems (up to 96 DoF) by exploiting user-defined fibration hierarchies.</td><td><a href="https://arxiv.org/abs/2606.12070">Link</a></td></tr>
+<tr><td>Learning Unions of Convex Sets via Invertible Latent Decomposition for Path Planning</td><td></td><td>ILD jointly learns an invertible mapping and a union of convex polytopes in a latent space, enabling planners to operate over explicit convex regions while retaining scalability to complex geometries. The method achieves high planning success across 2D navigation and high-DoF (6–14 DoF) manipulation, with test-time refinement eliminating observed false-positive collisions and supporting real-time collision-free motion on physical arms.</td><td><a href="https://arxiv.org/abs/2606.12027">Link</a></td></tr>
+<tr><td>KinematicRL: A Sim-to-Real Reinforcement Learning Framework For Social Navigation With Kinodynamic Feasibility</td><td>University of Science and Technology of China</td><td>KinematicRL formulates DRL actions as second-order controls tailored to differential-drive robots and pretrains policies with stochastic iLQR, reducing the sim-to-real gap for social navigation. Coupled with a LiDAR-only human tracking pipeline and a residual gating block for balancing reactive and memory-based behaviors, the framework yields dynamically feasible navigation policies deployable with minimal real-world adjustment.</td><td><a href="https://arxiv.org/abs/2606.12042">Link</a></td></tr>
+<tr><td>MPPI-based Informative Trajectory Planning for Search and Capture of Drifting Targets with ASVs</td><td>Delft University of Technology; Norwegian University of Science and Technology</td><td>The authors propose a hybrid planning framework for autonomous surface vehicles that uses MPPI-based informative planning to jointly optimize long-horizon search and tracking of drifting targets. A multi-objective cost encodes exploration, interception, and safety, with a switch to pure-pursuit guidance for physical capture; simulations and field trials demonstrate superior target capture efficiency over baseline planners.</td><td><a href="https://arxiv.org/abs/2606.12019">Link</a></td></tr>
+<tr><td>UGV-Conditioned Multi-UAV Informative Planning on a Shared Exposure Belief</td><td></td><td>This work coordinates multiple UAVs to reduce a UGV&#x27;s exposure to threats while navigating through uncertain hazard fields by maintaining a shared exposure belief updated from aerial observations. A spatial region-assignment strategy allocates UAV sensing to route-relevant areas, yielding large reductions in UGV cumulative exposure and redundant aerial coverage in simulation compared to hazard-agnostic reconnaissance.</td><td><a href="https://arxiv.org/abs/2606.12306">Link</a></td></tr>
+<tr><td>Learning Unions of Convex Sets via Invertible Latent Decomposition for Path Planning</td><td></td><td>ILD jointly learns an invertible mapping and a union of convex polytopes in a latent space, enabling planners to operate over explicit convex regions while retaining scalability to complex geometries. The method achieves high planning success across 2D navigation and high-DoF (6–14 DoF) manipulation, with test-time refinement eliminating observed false-positive collisions and supporting real-time collision-free motion on physical arms.</td><td><a href="https://arxiv.org/abs/2606.12027">Link</a></td></tr>
+<tr><td>MPPI-based Informative Trajectory Planning for Search and Capture of Drifting Targets with ASVs</td><td>Delft University of Technology; Norwegian University of Science and Technology</td><td>The authors propose a hybrid planning framework for autonomous surface vehicles that uses MPPI-based informative planning to jointly optimize long-horizon search and tracking of drifting targets. A multi-objective cost encodes exploration, interception, and safety, with a switch to pure-pursuit guidance for physical capture; simulations and field trials demonstrate superior target capture efficiency over baseline planners.</td><td><a href="https://arxiv.org/abs/2606.12019">Link</a></td></tr>
+<tr><td>VLGA: Vision-Language-Geometry-Action Models for Autonomous Driving</td><td></td><td>VLGA augments VLA driving policies with a geometry expert supervised to reconstruct dense per-pixel pointmaps from LiDAR, explicitly grounding actions in 3D structure. On nuScenes and Bench2Drive it achieves state-of-the-art VLA performance in both open- and closed-loop evaluations, substantially reducing trajectory error and collision rates without relying on ego-state inputs.</td><td><a href="https://arxiv.org/abs/2606.12396">Link</a></td></tr>
+<tr><td>ConsistencyPlanner: Real-time Planning with Fast-Sampling Consistency Models</td><td></td><td>ConsistencyPlanner leverages fast-sampling consistency models to generate diverse candidate trajectories for autonomous driving and fuses heterogeneous scene and action features via an attention-based decoder. The approach balances multimodality with real-time performance, improving safety metrics in challenging dynamic scenarios compared to prior learning-based planners.</td><td><a href="https://arxiv.org/abs/2606.11569">Link</a></td></tr>
+<tr><td>Traceable Virtual Sea Trials in the Marine Robotics Unity Simulator for Manoeuvring Assessment of Unmanned Surface Vehicles</td><td></td><td>Extending the MARUS simulator, the authors build a standardized virtual sea-trial framework that automates IMO/ITTC-compliant Turning Circle and Zig-Zag manoeuvres for USVs. The system emphasizes traceable command-actuation logging and SI-ready data conditioning, enabling repeatable hydrodynamic-derivative identification and digital-twin calibration without costly physical sea trials.</td><td><a href="https://arxiv.org/abs/2606.12349">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
