@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-06-15</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-06-15</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>55</strong></div>
+        <div class="card">Papers analyzed: <strong>55</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>New control-theoretic and optimization tools push motion planning and MPC forward, from semidefinite relaxations for collision-free planning to robust MPC for deformable objects.</li><li>Vision-Language-Action (VLA) research continues to mature, with multiple works on real-time execution, robustness, physics grounding, and fine-tuning stability for manipulation and driving.</li><li>Navigation advances span floorplan-guided embodied navigation, reliability-aware and agentic UAV planners, multi-agent lifelong exploration, and BIM- and Gaussian-based mapping/localization.</li><li>Dexterous and contact-rich manipulation receive significant infrastructure upgrades, including open-source hand platforms, exoskeleton and haptic interfaces, and synergy-inspired hand hardware.</li><li>Safety and reliability are central themes across domains, with new frameworks for provably safe RL, safe highway driving RL, SOTIF-style safety envelopes, and auditing/repairing spurious policies.</li><li>Teleoperation and data-collection pipelines evolve with richer haptics, egocentric guidance, and robot-free interfaces, directly supporting scalable learning for mobile and whole-body manipulation.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Semidefinite Relaxations for Collision-Free Motion Planning</td><td>Massachusetts Institute of Technology</td><td>Formulates point-robot motion planning with spherical obstacles as a polynomial-curve optimization and analyzes a semidefinite relaxation that is provably equivalent to a related higher-dimensional planning problem. The symmetry-reduced relaxation scales linearly with polynomial degree, is dimension-independent, and runs 10–100× faster than SNOPT/IPOPT while serving effectively as a convex steering function in RRT for high-order quadrotor trajectory planning.</td><td><a href="https://arxiv.org/abs/2606.14063">Link</a></td></tr>
+<tr><td>The N2D Haptic Glove: A Multi-Finger Glove for 2D Directional Force Feedback for Contact Rich Manipulation</td><td>UC San Diego</td><td>Introduces a multi-finger haptic glove that renders planar fingertip forces via capstan transmissions, providing high-transparency, 2D directional feedback during manipulation. Bench tests and teleoperation user studies show reduced contact-force error, improved consistency, and better user experience versus visual-only and single-axis haptics, supporting more precise contact-rich teleoperation and learning from demonstration.</td><td><a href="https://arxiv.org/abs/2606.14083">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Whole-Body Impedance Model Predictive Control for Safe Physical Human--Robot Interaction on Floating-Base Platforms</td><td></td><td>Presents a three-level control architecture for floating-base robots that combines centroidal MPC, priority-based whole-body control, and a null-space impedance MPC with disturbance estimation. The approach guarantees zero steady-state error under bounded constant physical interaction loads and runs at ≥1 kHz via contact-consistent feedback linearization and offline QP precomputation, enabling safe, compliant pHRI during locomotion.</td><td><a href="https://arxiv.org/abs/2606.14617">Link</a></td></tr>
+<tr><td>Impedance MPC with Disturbance Estimation for Dexterous Hand Control</td><td></td><td>Develops an actuator-agnostic Impedance MPC framework that reduces tendon-driven fingers to constant-coefficient double integrators, enabling 500 Hz constrained MPC with encoder-only disturbance estimation. On a hydraulic finger and a 16-DOF simulated hand, it enforces contact and actuation limits while dramatically improving tracking accuracy and stiffness control over classical impedance in contact-rich tasks.</td><td><a href="https://arxiv.org/abs/2606.14606">Link</a></td></tr>
+<tr><td>ORCA: A Platform for Open-Source Dexterity Research</td><td></td><td>Introduces the ORCA stack, an open-source ecosystem that unifies anthropomorphic hand hardware control, simulation, teleoperation, and retargeting behind a single interface tightly integrated with robot-learning frameworks like LeRobot. Demonstrations show end-to-end pipelines from VR-based teleoperation data collection to learned in-hand reorientation policies, lowering barriers for reproducible dexterous manipulation research.</td><td><a href="https://arxiv.org/abs/2606.14561">Link</a></td></tr>
+<tr><td>Spatially Conditioned Diffusion Policy: Learning Precise and Robust Manipulation with a Single RGB Camera</td><td></td><td>Proposes SCDP, a diffusion-based visuomotor policy that uses multi-scale visual features and spatial conditioning along end-effector trajectories to focus attention in single-camera setups. The method matches or surpasses multi-camera baselines in simulation and shows precise, distraction-robust manipulation on real robots without wrist-mounted views.</td><td><a href="https://arxiv.org/abs/2606.14535">Link</a></td></tr>
+<tr><td>ForestBack: Breadcrumb-Based Pedestrian Dead Reckoning for Infrastructure-Free Return Navigation</td><td></td><td>Introduces ForestBack, an infrastructure-free return-navigation system that records reversible breadcrumb nodes using IMU, magnetometer, and barometric data to reconstruct and invert walking paths. On indoor obstacle-avoidance routes it cuts RMSE and final-position error by ~16–22% over standard PDR while achieving near-perfect turn-event detection, providing a lightweight navigation aid in GPS-denied settings.</td><td><a href="https://arxiv.org/abs/2606.14421">Link</a></td></tr>
+<tr><td>FloVerse: Floor Plan-Guided Multi-Modal Navigation</td><td></td><td>Defines FloVerse, a unified task that extends floorplan-guided navigation to PointNav, ObjectNav, and ImageNav, and introduces a 1.6K-scene dataset with 240K trajectories. The ThreeDiff policy combines a planner, a multimodal diffusion goal reasoner, and a depth-based refiner, showing that floorplan priors significantly boost navigation performance and can be implicitly exploited via diffusion-based models.</td><td><a href="https://arxiv.org/abs/2606.14267">Link</a></td></tr>
+<tr><td>BIM-Loc: BIM-Integrated Discrepancy-Aware LiDAR-based Indoor Localization</td><td></td><td>Presents BIM-Loc, which localizes robots indoors by directly registering LiDAR scans to Building Information Models while jointly estimating discrepancies between as-designed and as-built structures. A multi-hit ray-casting data association, BIM-integrated pose-graph optimization, and hierarchical Bayesian discrepancy detection yield higher localization accuracy and robustness than existing map-based methods.</td><td><a href="https://arxiv.org/abs/2606.14237">Link</a></td></tr>
+<tr><td>Universal Manipulation Exoskeleton: Learning Compliant Whole-body Policies with Real-time Torque Feedback</td><td></td><td>Introduces UME, a low-cost upper-limb exoskeleton that records joint torques and poses while providing real-time haptic feedback for high-fidelity teleoperation across multiple robot arms. The system enables learning of bimanual and whole-body compliant policies that succeed in long-horizon mobile manipulation, force-mediated tasks, and highly constrained environments, including visually occluded scenarios.</td><td><a href="https://arxiv.org/abs/2606.14218">Link</a></td></tr>
+<tr><td>Robustness without Wrinkles: Parallel Simulation and Robust MPC for Certified Deformable Manipulation</td><td></td><td>CORD-SLS combines a GPU-parallel differentiable simulator with contact smoothing and an output-feedback robust MPC scheme to control ropes and cloth under uncertainty. Conformal prediction calibrates perception-error bounds, yielding safe reachable tubes; experiments in rope routing and cloth folding show millisecond-level planning, higher safety, and better task success than prior methods.</td><td><a href="https://arxiv.org/abs/2606.14188">Link</a></td></tr>
+<tr><td>Guided Diffusion with Distilled Vision-Language Reliability for Aerial Navigation</td><td></td><td>Proposes a diffusion-based UAV trajectory planner that conditions on both observations and a reliability heatmap distilled from a vision-language model to flag untrustworthy regions like glass or glare. A differentiable ESDF-based guidance treats unreliable areas as virtual obstacles, cutting obstacle violations from ~40% to ~10% and increasing average reliability of traversed regions, while running up to 2× faster than using the full VLM online.</td><td><a href="https://arxiv.org/abs/2606.13883">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
