@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-06-16</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-06-16</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>127</strong></div>
+        <div class="card">Papers analyzed: <strong>127</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Multi-scenario and multi-robot motion planning advances span hierarchical RL+MPPI control, generative multi-robot trajectory planners, and safety-guaranteed occlusion-aware navigation.</li><li>Navigation and exploration see strong new tools: map-free diffusion-based explorers, standardized urban sidewalk benchmarks, ultra-fast DRL navigation training, and task-aware environment augmentation.</li><li>Dexterous and contact-rich manipulation is pushed forward via tactile-reactive policies, interaction-preserving human-to-robot retargeting, compliant cross-hand grasp transfer, and articulated-object interaction frameworks.</li><li>Humanoid and whole-body control progresses through disturbance-aware locomotion, full-body motion tracking, energy-aware arm control, and scalable safety analysis and infeasible-robust QP solvers.</li><li>Vision-language(-action) and world models deepen their role in control, from geometric action models and latent world-action models to retrieval-augmented, memory-augmented, and steering methods for VLAs and diffusion/flow policies.</li><li>Core navigation infrastructure (SLAM, VO, state estimation, semantic mapping, TRN, radar and monocular pipelines) is strengthened for operation in challenging environments and under tight compute budgets.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>HOLO-MPPI: Multi-Scenario Motion Planning via Hierarchical Policy Optimization</td><td>Massachusetts Institute of Technology</td><td>Introduces HOLO-MPPI, a hierarchical framework that learns a high-level, scenario-robust policy offline and uses it online as a data-driven prior for MPPI-based low-level control. Demonstrated on autonomous driving, it improves robustness and performance over vanilla MPPI and end-to-end RL across diverse scenarios while retaining real-time feasibility.</td><td><a href="https://arxiv.org/abs/2606.16480">Link</a></td></tr>
+<tr><td>VANDERER: Map-Free Exploration using Future-Aware and Visual-Curiosity-Guided Diffusion Policy</td><td>New York University</td><td>Proposes VANDERER, a map-free exploration framework that steers a diffusion policy with a learned visual curiosity module using only monocular images. The method predicts and scores future observations to guide exploratory actions, outperforming prior approaches like NoMaD by covering significantly more area in diverse simulated environments.</td><td><a href="https://arxiv.org/abs/2606.14879">Link</a></td></tr>
+<tr><td>Learning Context-Aware Neural ODE Dynamics for Adaptive Robotic Control</td><td>UC Berkeley</td><td>Presents a context-aware dynamics model based on neural ODEs that infers latent environmental factors from state–action histories and plugs into MPC-style controllers. Validated on quadrotor simulation and real Sphero and Fanuc platforms, the approach adapts to temporally and spatially varying dynamics without explicit environment sensing.</td><td><a href="https://arxiv.org/abs/2606.15469">Link</a></td></tr>
+<tr><td>Robust Conformal CBF and CLF Controllers via Iterative Policy Updates</td><td>ETH Zurich</td><td>Develops an episodic framework combining adversarially robust conformal prediction with CBF/CLF control to maintain formal safety and stability guarantees under distribution shift. By explicitly budgeting distribution shift between episodes, it updates conformal bounds and policies while preserving probabilistic guarantees, demonstrated on several control case studies.</td><td><a href="https://arxiv.org/abs/2606.15366">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Robots as Tokens: Unified Diffusion Transformer for Coordinated Multi-Robot Trajectory Generation</td><td></td><td>Introduces Roken, a diffusion transformer that treats each robot as a token and jointly generates collision-free, connectivity-constrained multi-robot trajectories in a single feed-forward pass. Trained on expert data across varying team sizes, it scales to different robot counts and unseen environments, outperforming the expert planner that generated its training set.</td><td><a href="https://arxiv.org/abs/2606.15550">Link</a></td></tr>
+<tr><td>PolyMerge: Compressing 3D Gaussian Splats with Polytope Coverings for Provably Safe Resource-Constrained Navigation</td><td>Georgia Institute of Technology</td><td>Proposes PolyMerge, which converts dense 3D Gaussian Splatting scenes into a compact union of convex polytopes that over-approximate obstacles and integrate with control barrier functions. Demonstrations on a Crazyflie show real-time, resource-efficient safe navigation with formal collision-avoidance guarantees under tight onboard compute.</td><td><a href="https://arxiv.org/abs/2606.16232">Link</a></td></tr>
+<tr><td>Exact, Efficient, and Safe Occlusion-Aware Planning Using AH-Polyhedrons</td><td>Georgia Institute of Technology; Honda Research Institute; Research Institute (HRI), Mountain View, CA.</td><td>Introduces APRO, an occlusion-aware planning framework using AH-polyhedron reachability to compute exact safety sets under occlusions without added conservatism or road-structure assumptions. Validated in autonomous valet parking scenarios, it achieves 100% safety with more efficient and less conservative behavior than prior guarantee-based methods.</td><td><a href="https://arxiv.org/abs/2606.15046">Link</a></td></tr>
+<tr><td>FlashNav: Ultra-Fast Policy Training for Robot Navigation within 20 Seconds</td><td></td><td>Presents FlashNav, a fully GPU-resident DRL framework that mirrors the navigation MDP while stripping nonessential simulation details, enabling policy training in under 20 seconds. Policies learned in this bitmap-based simulator transfer to real TurtleBot2 and Unitree Go2 platforms, showing that seconds-level training can still yield deployable obstacle-avoidance behavior.</td><td><a href="https://arxiv.org/abs/2606.15846">Link</a></td></tr>
+<tr><td>Task-Aware Environment Augmentation for Reliable Navigation via Shielded Conditional Diffusion</td><td></td><td>SCoDA poses environment augmentation—placing a limited number of fiducials along a planned trajectory—as a conditional diffusion problem over marker layouts. A shielded sampler reasons over where uncertainty-critical pose corrections should occur, delivering hardware-validated improvements in trajectory reliability and completion time under localization uncertainty.</td><td><a href="https://arxiv.org/abs/2606.15154">Link</a></td></tr>
+<tr><td>CrossMaps: Confidence-Aware Open-Vocabulary Semantic Mapping for Rover Navigation</td><td>Plattner Institute for Digital Engineering, Potsdam, Germany.</td><td>CrossMaps builds real-time, language-queryable semantic maps from RGB-D data using CLIP embeddings fused with geometric, semantic, and temporal confidence cues in short- and long-term memories. Designed for Jetson-powered UGVs, it provides semantic heatmaps that can be queried in natural language to guide navigation under partial observability.</td><td><a href="https://arxiv.org/abs/2606.16935">Link</a></td></tr>
+<tr><td>SidewalkBench: Benchmarking Visual Navigation on Urban Sidewalks</td><td></td><td>Introduces SidewalkBench, a GPU-accelerated Isaac Sim benchmark with procedurally generated and scanned urban sidewalk scenes populated by reactive pedestrians. Evaluating nine visual navigation models across unit tests, pedestrian interaction, and long-horizon scenarios, the work highlights robustness gaps and points to large-scale synthetic training as a promising direction.</td><td><a href="https://arxiv.org/abs/2606.16953">Link</a></td></tr>
+<tr><td>SemGeoNav:A Safety-Guided Visual Navigation Approach with Semantic Reasoning and Geometric Planning</td><td></td><td>SemGeoNav combines high-level semantic reasoning from end-to-end models with a geometric local planner and trajectory smoothing to achieve safe visual navigation. Real-world tests on a Unitree Go2 show improved obstacle avoidance, higher success rates, and shorter navigation times versus ViNT and NoMaD baselines.</td><td><a href="https://arxiv.org/abs/2606.16400">Link</a></td></tr>
+<tr><td>Bayesian Optimization for Learning Nonlinear MPC in Autonomous Agent Navigation</td><td></td><td>Presents a LiDAR-based, map-free navigation framework that generates collision-free A*-based trajectories and tracks them with a nonlinear MPC featuring smooth obstacle barriers. Offline Bayesian optimization tunes controller parameters, which transfer effectively from simulation to a Unitree Go2, yielding high success rates and sizable metric improvements without on-robot retuning.</td><td><a href="https://arxiv.org/abs/2606.14763">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
