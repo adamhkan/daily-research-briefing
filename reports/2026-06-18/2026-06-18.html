@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-06-17</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-06-17</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>54</strong></div>
+        <div class="card">Papers analyzed: <strong>54</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>New foundation models and benchmarks (Qwen-RobotManip, EBench, GeneralVLA-2, EgoInfinity, AnnotateAnything) push large-scale, generalist robot learning, especially for manipulation.</li><li>Multiple works target more reliable, safer control: warm-started trajectory optimization for space manipulators, latency-aware diffusion policies, learnable priors, and uncertainty-aware VLA policies.</li><li>Navigation and mapping advance via scalable learned navigation backbones, visual scale-aware policies, radar-based SLAM, and active-perception planning for UAVs.</li><li>Whole-body and dexterous interaction see progress with a compact low-cost anthropomorphic hand, humanoid whole-body control benchmarking, multisensory manipulation, and rapid damage adaptation in soft systems.</li><li>Skill acquisition and continual learning are enabled by sleep-phase consolidation, inference-time visual verification, reinforcement learning over world–action models, and unified human–robot pretraining.</li><li>Assistive and social settings benefit from personalized exoskeleton adaptation, abstention-aware rearrangement, and socially informed pedestrian trajectory prediction and cooperative path planning.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Transformer-Based Warm-Starting for Feasible and Optimal Terminal Approach to Tumbling Objects with Space Manipulators</td><td>Stanford University</td><td>Introduces a causal transformer warm-start for the computational bottleneck in sequential convex programming for space manipulator terminal guidance to tumbling targets. Decomposing translation and coupled attitude–manipulator planning, the method cuts second-stage SCP iterations by up to 28% and runtime by 23%, while preserving control cost and improving nonconvex feasibility projection robustness.</td><td><a href="https://arxiv.org/abs/2606.17317">Link</a></td></tr>
+<tr><td>Continual Online Personalization of Exoskeleton Control via Manifold-Aware Experience Replay</td><td>Carnegie Mellon University</td><td>Proposes a manifold-aware experience replay framework to preserve user-specific exoskeleton control across varying gait tasks during online adaptation. By replaying experiences organized on a learned gait manifold without explicit task labels, it mitigates catastrophic forgetting and improves torque and gait phase tracking by 40–60% over non-replay baselines.</td><td><a href="https://arxiv.org/abs/2606.17455">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>EBench: Elemental Diagnosis of Generalist Mobile Manipulation Policies</td><td>Xi&#x27;an Jiaotong University</td><td>Presents EBench, a simulation benchmark of 26 mobile manipulation tasks annotated along capability and generalization axes to go beyond single success-rate metrics. Evaluating leading generalist policies (π0, π0.5, XVLA, InternVLA-A1), it reveals divergent skill profiles and failure modes across dexterous and mobile subtasks despite similar overall success, enabling fine-grained diagnosis for model design.</td><td><a href="https://arxiv.org/abs/2606.18239">Link</a></td></tr>
+<tr><td>Qwen-RobotNav Technical Report: A Scalable Navigation Model Designed for an Agentic Navigation System</td><td></td><td>Introduces Qwen-RobotNav, a scalable base navigation model with a parameterized interface over task modes and observation configurations, enabling reconfigurable perception–planning at inference. Trained on 15.6M samples with vision–language co-training, it achieves state-of-the-art on multiple navigation benchmarks and supports hierarchical planners that dynamically switch modes for long-horizon tasks.</td><td><a href="https://arxiv.org/abs/2606.18112">Link</a></td></tr>
+<tr><td>WireCraft: A Simulation Benchmark for Industrial DLO Manipulation</td><td></td><td>Introduces WireCraft, a benchmark for industrial deformable linear object (wire/cable) manipulation across connector insertion, clip routing, and channel seating tasks with configurable difficulty and physics models. Comparative evaluations of RL, IL, and VLA policies show privileged-state RL can solve representative tasks, while vision-based policies still struggle with contact-rich alignment, highlighting open challenges in dexterous DLO manipulation.</td><td><a href="https://arxiv.org/abs/2606.18097">Link</a></td></tr>
+<tr><td>EAGG: Embodiment-Aligned Grasp Generation via Geometry-Aware Graph Conditioning</td><td>Tsinghua University</td><td>Proposes EAGG, a cross-end-effector grasp generator that encodes each hand or gripper as a topology-aware graph and low-dimensional control space, with a frozen backbone producing geometry-aware tokens. Iterative geometry injection keeps conditioning synchronized with evolving hand configurations, achieving near-specialized performance across six end-effectors and strong zero-shot transfer on the MultiGripperGrasp benchmark.</td><td><a href="https://arxiv.org/abs/2606.18092">Link</a></td></tr>
+<tr><td>A Hybrid Optimization Framework for Grasp Synthesis under Partial Observations</td><td>NVIDIA; University of Sydney</td><td>Combines an energy-based model with ICP in an SVGD optimization loop to synthesize robust grasps from partial point clouds. Across 5,360 attempts on 67 objects, the hybrid approach attains 60.9% success, outperforming AnyGrasp, GPD, and AS-ICP, demonstrating the value of coupling learned priors with geometric refinement for grasp planning.</td><td><a href="https://arxiv.org/abs/2606.18053">Link</a></td></tr>
+<tr><td>LAGO Policy: Latency-Aware Asynchronous Diffusion Policies with Goal-Directed Collision-Free Planning for Smooth Manipulation</td><td>Hong Kong University of Science and Technology; POSTECH; The University of Hong Kong</td><td>Introduces LAGO, an asynchronous diffusion-based control framework that accounts for inference latency and integrates trajectory optimization for smooth, collision-free manipulation. It conditions diffusion on future actions for temporal consistency, predicts task-relevant interaction goals, and refines trajectories with spatio-temporal optimization, yielding smoother, safer executions in real-world experiments.</td><td><a href="https://arxiv.org/abs/2606.17982">Link</a></td></tr>
+<tr><td>HumanoidArena: Benchmarking Egocentric Hierarchical Whole-body Learning</td><td></td><td>Presents HumanoidArena, a simulation benchmark for hierarchical whole-body humanoid control where high-level policies map egocentric inputs to intermediate whole-body actions executed by motion trackers. Seven leg-critical HOI/HSI tasks expose tight coupling between decision-making and locomotion, showing that performance is highly tracker-dependent and cross-tracker transfer of intermediate actions remains fragile.</td><td><a href="https://arxiv.org/abs/2606.17833">Link</a></td></tr>
+<tr><td>FLAP: FOV-Constrained Active Perception Planning for Prior-Map-Free 3D Navigation</td><td>Zhejiang University</td><td>Proposes FLAP, a trajectory optimization framework that embeds field-of-view and sensing constraints directly in the planning problem for UAV navigation in unknown 3D clutter. Using sensor-frame perception constraints, a velocity-triggered activation mechanism, and an active perception sub-trajectory, it supports aggressive 3D maneuvers without prior maps, improving safety and efficiency in simulations and real flights.</td><td><a href="https://arxiv.org/abs/2606.17630">Link</a></td></tr>
+<tr><td>RICH-SLAM: Radar SLAM with Incremental and Continuous Hilbert Mapping</td><td>Chinese Academy of Sciences; Hong Kong University of Science and Technology; University of Science and Technology of China; Zhejiang University</td><td>Introduces RICH-SLAM, a radar-based SLAM system combining a Rao–Blackwellized particle filter with an incremental Hilbert-space reduced-rank GP map. The method converts sparse, noisy radar returns into continuous, uncertainty-aware occupancy maps and uses posterior-aware particle weighting, enabling robust localization and planning in adverse conditions.</td><td><a href="https://arxiv.org/abs/2606.17534">Link</a></td></tr>
+<tr><td>DexLink Hand: A Compact, Affordable, 16-DOF Linkage-Driven Hand with Human-Like Dexterity</td><td>National University of Singapore; Zhejiang University</td><td>Presents DexLink, a fully self-contained anthropomorphic hand with 20 joints driven by 16 actuators, fitting within human-hand size at under 400 USD. A hybrid planar–spatial linkage architecture delivers biomimetic thumb motion, joint synergies, and high load capacity, achieving maximum Kapandji score and all 33 Feix grasp types in experiments.</td><td><a href="https://arxiv.org/abs/2606.17418">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
