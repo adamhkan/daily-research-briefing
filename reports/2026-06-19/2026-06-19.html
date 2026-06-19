@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-06-18</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-06-18</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>62</strong></div>
+        <div class="card">Papers analyzed: <strong>62</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Dexterous and mobile manipulation advances span zero-shot long-horizon execution, human-video-derived data, tactile and world-model benchmarks, and faster VLA control.</li><li>Navigation work emphasizes occupancy prediction for sidewalk robots, congestion-aware tour planning, egocentric-video-trained navigation VLAs, and robust multimodal SLAM/odometry across air, ground, underwater, and forest environments.</li><li>New planning and control methods target dynamic multi-agent settings, stochastic routing/orienteering, convoy following with delays, quadruped payload stability, and off-road UGV path tracking.</li><li>Embodied intelligence platforms, evaluation tools, and harnesses (BestMan, SC3-Eval, Guava, Mem-World, DREAM-Chunk, VEGA-Bench, HT-Bench) aim to standardize and scale training, benchmarking, and policy evaluation.</li><li>Institution-highlighted work from ETH Zurich, CMU, UW, and MIT covers tactile sim-to-real transfer, dynamic target TSP with moving obstacles, human-in-the-loop inspection control, and top-performing semantic segmentation for field robotics.</li><li>Perception-focused contributions include spatially consistent language-vision features, task-oriented view planning, radar/LiDAR place recognition, and heterogeneous radar distillation for all-weather localization.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>TactSpace: Learning a Physics-enriched Shared Latent Space for Tactile Sim-to-Real Transfer</td><td>ETH Zurich</td><td>Proposes a multi-modal representation learning framework that maps heterogeneous tactile signals from simulation and real sensors into a shared latent space, avoiding the need to simulate raw signals while retaining rich contact information. Trained with reconstruction and contrastive objectives, the learned embeddings enable zero-shot sim-to-real transfer for tasks like shape identification and force/geometry prediction, significantly reducing prediction errors and supporting more scalable tactile-informed manipulation.</td><td><a href="https://arxiv.org/abs/2606.18959">Link</a></td></tr>
+<tr><td>Two-Phase Bilevel Search for the Moving-Target Traveling Salesman Problem with Moving Obstacles</td><td>Carnegie Mellon University</td><td>Formulates the Moving-Target TSP with Moving Obstacles as a Mixed-Integer Conic Program and introduces a Two-Phase Bilevel Search algorithm that scales to instances with dozens of moving targets and obstacles. The method computes collision-free, time-feasible tours that substantially improve success rate, cost, and runtime over prior baselines, directly addressing route planning for agents in dynamic environments.</td><td><a href="https://arxiv.org/abs/2606.18730">Link</a></td></tr>
+<tr><td>Recover, Discover, Plan: Learning Skills and Concepts from Robot Failures</td><td>Carnegie Mellon University</td><td>Introduces ReSYNC, a framework that jointly learns recovery skills via RL and abstract relational predicates from failure experiences, then uses them for high-level planning. By turning local recoveries into generalized failure-avoidance strategies, it solves longer-horizon, unseen tasks more reliably than strong baselines and demonstrates sim-to-real transfer on non-prehensile manipulation.</td><td><a href="https://arxiv.org/abs/2606.18328">Link</a></td></tr>
+<tr><td>Admittance-Based Surface Alignment for Human-in-the-Loop Robotic Visual Inspection</td><td>University of Washington</td><td>Presents a closed-loop orientation control scheme for robotic visual inspection that combines operator commands and perception-driven surface normals in an admittance framework. Modeling the end-effector as a damped virtual sphere yields compliant, intuitive alignment behavior, achieving sub-degree orientation errors while accommodating human adjustments and perception noise.</td><td><a href="https://arxiv.org/abs/2606.18601">Link</a></td></tr>
+<tr><td>Technical Report for ICRA 2026 GOOSE 2D Fine-Grained Semantic Segmentation Challenge: Leveraging DINOv3 for Robust Outdoor Scene Understanding in Field Robotics</td><td>Massachusetts Institute of Technology</td><td>Details the winning approach to a fine-grained outdoor semantic segmentation challenge, combining a DINOv3 ViT backbone, ViT-Adapter, and Mask2Former decoder with an auxiliary coarse-category loss. An ensemble with multi-scale and flip test-time augmentation achieves state-of-the-art fine- and coarse-level mIoU, offering a strong perception backbone for field robots in off-road environments.</td><td><a href="https://arxiv.org/abs/2606.18582">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Zero-Shot Long-Horizon Dexterous Manipulation via Multi-View 3D-Grounded VLM Reasoning</td><td></td><td>Develops a zero-shot system that converts language instructions and multi-view RGB into 3D keypoints and task plans using a vision-language model plus multi-view fusion. The 3D grounding enables pick-and-place and tool-use with a dexterous hand, with closed-loop verification and replanning yielding robust long-horizon manipulation on unseen objects and tasks.</td><td><a href="https://arxiv.org/abs/2606.19340">Link</a></td></tr>
+<tr><td>Do as I Do: Dexterous Manipulation Data from Everyday Human Videos</td><td></td><td>Introduces DO AS I DO, an algorithm that reconstructs hand–object interactions from monocular in-the-wild human videos and retargets them to multi-fingered robot hands. The method produces robot-executable dexterous trajectories from RGB-only footage, outperforming prior hand–object estimation and providing guidance for collecting human data for manipulation learning.</td><td><a href="https://arxiv.org/abs/2606.19333">Link</a></td></tr>
+<tr><td>Mobile Pedipulation for Object Sliding via Hierarchical Control on a Wheeled Bipedal Robot</td><td>University of Michigan</td><td>Presents a hierarchical control framework for a wheeled biped that uses its wheels as manipulators to slide objects (pedipulation) while moving. A NMPC based on a three-rigid-body model jointly regulates locomotion and interaction forces, and a trajectory optimizer handles stick–slip, enabling real hardware to retrieve and slide kilogram-scale objects under a desk.</td><td><a href="https://arxiv.org/abs/2606.19233">Link</a></td></tr>
+<tr><td>Invertible Neural Network Adapter for One-Step Flow Matching in Robot Manipulation</td><td></td><td>Proposes an invertible latent-space adapter that performs one-step flow-matching to generate high-dimensional robot actions from multimodal inputs, including language and vision. Compared with iterative flow-matching VLAs, it preserves or improves manipulation performance while cutting inference latency roughly in half on real robots.</td><td><a href="https://arxiv.org/abs/2606.19194">Link</a></td></tr>
+<tr><td>HT-Bench: Benchmarking and Learning Dexterous Full-Hand Tactile Representations with Egocentric Vision</td><td></td><td>Introduces HT-Bench, a 10M-frame RGB plus 7.8M-frame full-hand tactile dataset across 226 tasks, supporting evaluation on tactile similarity, inpainting, vision-to-tactile synthesis, and prediction. The proposed HandTouch encoder, trained with progressive spatial, cross-modal, and temporal objectives, substantially outperforms prior tactile encoders, offering a scalable basis for dexterous tactile representation learning.</td><td><a href="https://arxiv.org/abs/2606.19161">Link</a></td></tr>
+<tr><td>Monocular 3D Occupancy Perception for Robots on Sidewalks via Hybrid 2D-3D Learning</td><td></td><td>WalkOCC is a monocular 3D occupancy framework tailored to sidewalk robots, combining LiDAR-RGB paired sequences with large unpaired image sets via ray-marching and pseudo-labeling. Together with the new Sidewalk3D dataset, it improves fine-grained 3D semantic occupancy (e.g., curbs, gutters) and robustness to environmental and platform shifts, enabling safer sidewalk navigation with a single camera.</td><td><a href="https://arxiv.org/abs/2606.19122">Link</a></td></tr>
+<tr><td>Congestion-Aware Robot Tour Planning in Crowded Environments</td><td></td><td>Introduces a probabilistic tour planner that learns CLiFF maps encoding human crowd flows, then solves an MDP online to route service robots through crowded spaces. The method replans as new people are observed, reducing congestion-induced slowdowns in settings like malls or museums using real-world crowd data.</td><td><a href="https://arxiv.org/abs/2606.19031">Link</a></td></tr>
+<tr><td>Object-Centric Residual RL for Zero-Shot Sim-to-Real VLA Enhancement</td><td></td><td>Proposes an object-pose-based residual RL policy that corrects the actions of a frozen VLA, trained purely in simulation with pose noise and a sim counterpart of the real VLA. The compact object-centric observation transfers cleanly to reality, improving success on real Franka manipulation tasks from 42% to 76% zero-shot and enabling self-improvement by retraining the base VLA on improved rollouts.</td><td><a href="https://arxiv.org/abs/2606.18953">Link</a></td></tr>
+<tr><td>Space Is Intelligence: Neural Semigroup Superposition for Riemannian Metric Generation</td><td>. Xu is with the School</td><td>Proposes encoding environment structure into a learned Riemannian metric over configuration space, such that geodesics correspond to collision-free paths, effectively placing “intelligence” in the space instead of the planner. A compact Encoder-Router network parameterizes metric generators whose semigroup superposition yields fields that generalize from a single training scene to diverse obstacle layouts with strong separation between safe and colliding paths.</td><td><a href="https://arxiv.org/abs/2606.18828">Link</a></td></tr>
+<tr><td>HALOMI: Learning Humanoid Loco-Manipulation with Active Perception from Human Demonstrations</td><td></td><td>HALOMI extends the UMI data collection framework to egocentric and wrist-view sensing with head–hand trajectories for humanoids, then learns a latent behavior-manifold controller for precise world-frame tracking. With ego-view alignment and controller-aware trajectory adaptation, a Unitree G1 achieves around 85% success on tasks spanning navigation, grasping, bimanual loco-manipulation, and dynamic behaviors such as tossing and deep-squat grasping.</td><td><a href="https://arxiv.org/abs/2606.18772">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
