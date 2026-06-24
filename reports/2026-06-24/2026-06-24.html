@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-06-23</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-06-23</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>174</strong></div>
+        <div class="card">Papers analyzed: <strong>150</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Strong focus on dexterous and whole-body manipulation: several works introduce scalable data generation (AutoDex, Wh0, Tactile Genesis), new control structures (CoorDex, Physics-Informed Eikonal Caging), and improved VLA/world-model integration for long-horizon tasks.</li><li>Navigation and SLAM advances target challenging regimes: uncertainty-aware vision-only navigation (UNSEEN), resilient multi-sensor fusion SLAM (Ultra-Fusion), underwater navigation/odometry (DVL-DeepONet, ISOPoT), and multi-agent deadlock-free navigation (Cooperative-ORCA*).</li><li>Humanoid and legged systems see progress in loco-manipulation and robust locomotion: OpenHLM and LP-NavOA for whole-body humanoid control, CoorDex and TACT-ful for dynamic loco-manipulation and stair climbing, plus DRL-based long-distance legged-wheeled navigation.</li><li>Vision-Language-Action and world action models are rapidly maturing, with emphasis on memory, safety, and RL fine-tuning (SafeDojo, MemoryVAM, KEMO, dVLA-RL, MV-WAM, RECALL), as well as benchmarks and surveys (LIBERO-Safety, World Action Models survey).</li><li>Multi-robot and heterogeneous systems gain better simulation and coordination tools: DeformX and HERCULES for realistic simulation, HetNet and CLS-DP for multi-agent coordination, and DUET and HoloAgent-0 for collaborative and unified embodied agents.</li><li>Foundational RL and control methods (Learning Process Rewards, BayesFP, Energy-based Compositional Diffusion Planning) provide reusable tools likely to benefit both manipulation and navigation pipelines.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>DeformX: A Versatile Co-Simulation Framework for Deformable Linear Objects</td><td>Carnegie Mellon University</td><td>DeformX combines a Cosserat-rod physics engine with Isaac Sim to provide physically accurate, visually realistic simulation of cables, ropes, and other deformable linear objects. It supports contact with arbitrary meshes and CAD-based visual skins, enabling both synthetic data generation and policy learning for DLO manipulation with strong sim-to-real transfer (e.g., wire segmentation and rope-swinging control).</td><td><a href="https://arxiv.org/abs/2606.22116">Link</a></td></tr>
+<tr><td>Heterogeneous Policy Networks for Composite Robot Team Communication and Coordination</td><td>Carnegie Mellon University</td><td>HetNet uses heterogeneous graph-attention networks to learn communication and coordination policies for multi-robot teams with different dynamics, state, and action spaces. It supports end-to-end learning of compact, binarized messages, significantly improving team performance and reducing bandwidth versus homogeneous-graph MARL baselines.</td><td><a href="https://arxiv.org/abs/2606.20962">Link</a></td></tr>
+<tr><td>Learning Process Rewards via Success Visitation Matching for Efficient RL</td><td>UC Berkeley</td><td>This work turns sparse binary success signals into dense process rewards by training a discriminator to distinguish successful from failed episodes and rewarding policies for matching successful state–action visitation patterns. The approach preserves the optimal policy while greatly accelerating RL fine-tuning on simulated and real robotic manipulation tasks, and is broadly reusable in other control domains.</td><td><a href="https://arxiv.org/abs/2606.23640">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>CoorDex: Coordinating Body and Hand Priors for Continuous Dexterous Humanoid Loco-Manipulation</td><td></td><td>CoorDex learns coordinated latent priors for humanoid body and dexterous hand from demonstrations, then uses residual RL on this structured action space to achieve on-the-move loco-manipulation. A Unitree G1 with a 20-DoF hand performs tasks like walking grasps and fridge door opening without stopping, outperforming joint-space PPO and monolithic latent policies.</td><td><a href="https://arxiv.org/abs/2606.23680">Link</a></td></tr>
+<tr><td>LP-NavOA: Integrated Local Navigation and Obstacle Avoidance for Humanoid Robots under Limited Perception</td><td></td><td>LP-NavOA distills an A* and waypoint-based teacher into a recurrent planner that overwrites only the heading command of a pre-trained locomotion policy, enabling map-free humanoid navigation with short-range sensing. The resulting controller achieves robust obstacle avoidance and goal recovery in cluttered MuJoCo environments and is shown deployable on a Unitree G1.</td><td><a href="https://arxiv.org/abs/2606.23249">Link</a></td></tr>
+<tr><td>OpenHLM: An Empirical Recipe for Whole-Body Humanoid Loco-Manipulation</td><td></td><td>OpenHLM provides a data and model recipe for whole-body VLA policies that directly control all humanoid DoFs from language and vision. Through systematic studies of teleoperation interfaces, model design, and heterogeneous co-training, it yields a humanoid policy that outperforms prior VLA baselines on long-horizon loco-manipulation with less demonstration time.</td><td><a href="https://arxiv.org/abs/2606.22174">Link</a></td></tr>
+<tr><td>Physics-Informed Eikonal Caging for Whole-Arm Manipulation Planning</td><td>EPFL; H Royal Institute of Technology, Stockholm, Sweden; Idiap Research Institute; KTH Royal Institute of Technology; Research Institute, Martigny, Switzerland; TH Royal Institute</td><td>This work recasts caging as a minimum-time escape problem and learns a smooth escape-time field via physics-informed neural networks that satisfies an eikonal equation. Embedding this differentiable caging objective into optimizers biases whole-arm manipulation plans toward robust geometric enclosures that are less sensitive to contact-model errors, improving disturbance robustness in simulation and hardware.</td><td><a href="https://arxiv.org/abs/2606.22143">Link</a></td></tr>
+<tr><td>Autonomous Subsea Cable Search and Tracking with Graph-Optimised Priors and Visual Tracking</td><td></td><td>The method fuses uncertain prior cable maps with real-time visual detections on an AUV using graph optimization constrained by catenary physics, yielding a physically plausible search space. It enables robust subsea cable reacquisition and tracking under route-map errors and partial burial, demonstrated in field trials with efficient recovery after tracking loss.</td><td><a href="https://arxiv.org/abs/2606.23606">Link</a></td></tr>
+<tr><td>DVL-DeepONet: A Physics-Guided Operator Learning for Resilient Underwater Navigation</td><td></td><td>DVL-DeepONet learns a nonlinear operator mapping inertial/DVL time series to vehicle velocity while enforcing Doppler-physics consistency, enabling accurate velocity estimation under noisy, missing, or even absent inertial measurements. Real AUV experiments over ~10 km show up to 40% improvement over model-based and learning baselines, supporting resilient underwater navigation.</td><td><a href="https://arxiv.org/abs/2606.23502">Link</a></td></tr>
+<tr><td>ISOPoT: Imaging Sonar Odometry by Point Tracking</td><td>University of California, Santa Barbara</td><td>ISOPoT brings modern point-tracking to forward-looking sonar, forming multi-frame point tracks that feed an odometry pipeline with robustness enhancements. Evaluations on public and in-house underwater datasets show consistent gains over prior sonar odometry in both sonar-only and multi-sensor fusion settings, improving pose estimation where vision is unreliable.</td><td><a href="https://arxiv.org/abs/2606.23006">Link</a></td></tr>
+<tr><td>FPAS: Frontier-Based Path Planning with Adaptive Sampling for Large-Scale Unknown Environments</td><td>Seoul National University</td><td>FPAS reinterprets frontiers for goal-directed exploration, using them both to push into unknown space and to backtrack from dead-ends. An openness-based adaptive sampler sparsifies the roadmap in open areas and densifies it in narrow passages, yielding more computationally efficient long-range navigation while maintaining strong goal-reaching performance.</td><td><a href="https://arxiv.org/abs/2606.22838">Link</a></td></tr>
+<tr><td>Cooperative-ORCA*: Real-Time Proactive Deadlock Avoidance for Continuous-Space Multi-Agent Navigation</td><td></td><td>C-ORCA* and C-ORCA*-MAPF extend ORCA* by reasoning over full continuous trajectories and spatial dependencies to proactively avoid deadlocks rather than reacting post hoc. The methods achieve higher solve rates, lower flowtime, and better runtimes than previous continuous-space MAPF solvers, making them suitable for tightly coupled multi-robot navigation.</td><td><a href="https://arxiv.org/abs/2606.22757">Link</a></td></tr>
+<tr><td>UNSEEN: Uncertainty-aware Navigation via Sparse Estimation in Unknown Environments</td><td></td><td>UNSEEN couples monocular SLAM, mapping, and planning into a unified, uncertainty-aware framework that runs purely from a front-facing camera. It builds sparse maps and pose estimates with covariance at 6 Hz and plans receding-horizon trajectories trading off progress and estimation quality, achieving 100% task success and up to 45% better estimation accuracy vs. baselines in real-world tests.</td><td><a href="https://arxiv.org/abs/2606.20755">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
