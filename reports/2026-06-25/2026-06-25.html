@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-06-24</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-06-24</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>41</strong></div>
+        <div class="card">Papers analyzed: <strong>41</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Inference-time optimization and simulator-in-the-loop refinement are emerging as powerful ways to impose physics and safety constraints on generative control policies and cloth manipulation in deployment.</li><li>World models are being leveraged across navigation, locomotion, and manipulation for foresight-driven planning, dynamics-aware representations, and value estimation from mixed-quality data.</li><li>Generalist manipulation policies increasingly rely on geometry-aware visual tokens, cross-robot action abstractions, and video-based representation alignment to scale across embodiments and data sources.</li><li>New control and planning advances span GPU-accelerated differentiable MPC and parallel LQ control, as well as safe trajectory planning for multi-floor ground vehicles and topology-adaptive multi-robot formation control.</li><li>Dexterous and fault-tolerant manipulation is pushed forward via tactile exploration without vision, pseudo-tactile contact estimation, compliant PDS joints with proprioception, and fault-aware whole-body loco-manipulation.</li><li>Structured scene and observation representations, semantic maps, and robust VPR pipelines are improving navigation, exploration, and context-aware planning in intralogistics, maritime, and indoor environments.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Grounding Generative Policies in Physics: Optimization-Guided Diffusion for Robot Control</td><td>ETH Zurich</td><td>Introduces an inference-time optimization scheme that replaces diffusion noise with optimized corrections, enforcing reachability, collision-avoidance, and controller trackability constraints without retraining. Demonstrated on dexterous grasp synthesis and dynamic manipulation, the approach improves feasibility, grasp quality preservation, and task success by up to 20–23 percentage points over guidance baselines.</td><td><a href="https://arxiv.org/abs/2606.24208">Link</a></td></tr>
+<tr><td>TACTFUL: Tactile-Driven Exploration For Object Localization and Identification in Confined Environments</td><td>Carnegie Mellon University</td><td>Presents a vision-free framework where a multi-fingered robot autonomously explores confined workspaces using tactile sensing to discover and localize objects and reconstruct their geometry. Trained fully on real hardware with a dynamic reward schedule, the single learned policy achieves 77% success and 1.5 cm reconstruction error, outperforming baselines on real objects.</td><td><a href="https://arxiv.org/abs/2606.24712">Link</a></td></tr>
+<tr><td>MinInter: Minimizing Trajectory Interpolation During Data Augmentation for Imitation Learning</td><td>Carnegie Mellon University</td><td>Proposes MinInter, a trajectory selection strategy for demonstration recombination that explicitly minimizes non-expert interpolation segments when generating augmented rollouts. On 12 MimicGen manipulation tasks with 26 variants, MinInter consistently boosts both data-generation and policy success rates, surpassing SkillGen particularly on long-horizon, contact-rich settings.</td><td><a href="https://arxiv.org/abs/2606.24078">Link</a></td></tr>
+<tr><td>ArtiTwinSplat: Interactable Digital Twin Reconstruction via Gaussian Splatting from RGB-D videos</td><td>ETH Zurich</td><td>Introduces a pipeline that turns real RGB-D videos into articulated, photorealistic digital twins using 3D Gaussian Splatting plus unsupervised articulation discovery. The resulting models expose part structure and kinematics for real-time rendering and interactive manipulation, offering a scalable route to digital assets for articulated object manipulation and planning.</td><td><a href="https://arxiv.org/abs/2606.24628">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>FT-WBC: Learning Fault-Tolerant Whole-Body Control for Legged Loco-Manipulation</td><td></td><td>Develops FT-WBC, a fault-tolerant whole-body controller for legged manipulators that decouples upper and lower body policies and adds a learned fault estimator plus a posture adaptation module. The system synthesizes compensatory gaits under actuator failures while preserving arm workspace, improving survival and task performance in both simulation and real-world transfer.</td><td><a href="https://arxiv.org/abs/2606.24466">Link</a></td></tr>
+<tr><td>NavWM: A Unified Navigation World Model for Foresight-Driven Planning</td><td></td><td>Proposes NavWM, a world model that unifies latent scene reasoning, multimodal action prediction, and controllable visual rollout for navigation. Using latent world tokens and anchor-based multimodal trajectory forecasting, it generates diverse candidate paths and uses visual foresight to select actions, achieving state-of-the-art future prediction and zero-shot navigation success across datasets.</td><td><a href="https://arxiv.org/abs/2606.24101">Link</a></td></tr>
+<tr><td>Optimization-based Safe Trajectory Planning for Autonomous Ground Vehicle in Multi-Floor Scenarios</td><td>. Chai and Y. Xia are with the school; . Chen is with Vanke School; Tsinghua University</td><td>Introduces a hierarchical planning framework for AGVs operating across multiple floors, combining a GVD- and multi-objective-based task planner for exit selection with an optimization-based trajectory planner. A warm-started hierarchical scheme and correlation-based obstacle constraint reduction enable fast convergence and safe, high-quality trajectories in simulation.</td><td><a href="https://arxiv.org/abs/2606.24631">Link</a></td></tr>
+<tr><td>TurboMPC: Fast, Scalable, and Differentiable Model Predictive Control on the GPU</td><td>Toyota Research Institute</td><td>Presents TurboMPC, a fully GPU-based differentiable MPC solver supporting rich constraints, implicit integration, and cross-time costs via SQP with an ADMM inner loop and implicit differentiation. Achieving up to 15× speedup over CPU and 58× over prior GPU solvers, it scales to horizons &gt;8000 knots and is demonstrated on humanoid control, RL, and full-scale autonomous racing.</td><td><a href="https://arxiv.org/abs/2606.24039">Link</a></td></tr>
+<tr><td>Parallel Dynamic Programming for Conic Linear Quadratic Control</td><td>Columbia University; Delft University of Technology; SA &amp; Dartmouth College; York, NY 10027 USA &amp; Dartmouth College; York, NY 10027 USA &amp; Dartmouth College anover, NH 03755, USA</td><td>Introduces a parallel-in-time solution for conic LQ optimal control by embedding an LQ subproblem into ADMM and splitting the horizon across time segments solved via parallel Riccati recursions. Benchmarks on real-world-inspired problems show up to 5× speedup on multi-core CPUs compared with existing serial and related parallel approaches.</td><td><a href="https://arxiv.org/abs/2606.24632">Link</a></td></tr>
+<tr><td>SPACE: Enabling Learning from Cross-Robot Data Toward Generalist Policies</td><td>Korea Advanced Institute of Science and Technology</td><td>Proposes SPACE, which standardizes robot actions as Cartesian state deltas and uses an Action Adapter to map these to robot-specific controls, handling embodiment, unit-to-unit, and intra-robot dynamics variations. When learning from heterogeneous cross-robot datasets, SPACE yields substantially better transfer and robustness to deployment-time dynamics shifts than command-predicting baselines.</td><td><a href="https://arxiv.org/abs/2606.24049">Link</a></td></tr>
+<tr><td>Enabling Robust Cloth Manipulation via Inference-Time Simulator-in-the-Loop Refinement</td><td></td><td>Extends simulator-in-the-loop optimization to real-world cloth manipulation using FLASH for efficient deformable simulation, a synthetic-trained real-to-sim state estimator from single RGB, and prior-guided MPPI rollouts. Online refinement around a distilled policy improves success rates and robustness over baselines in real-robot cloth tasks.</td><td><a href="https://arxiv.org/abs/2606.24552">Link</a></td></tr>
+<tr><td>G$^3$VLA: Geometric inductive bias for Vision-Language-Action Models</td><td></td><td>Introduces G$^3$VLA, a geometry-aware module that injects calibrated camera intrinsics/extrinsics via ray embeddings, projective positional encoding, and cross-view fusion into existing VLAs without changing their action space. Supervised by point maps or teacher predictions, it significantly improves spatially sensitive manipulation tasks across LIBERO, RoboCasa24, RoboTwin2.0, and real robots.</td><td><a href="https://arxiv.org/abs/2606.24472">Link</a></td></tr>
+<tr><td>Varying Bundle Size Reactive Multi-Task Assignment using Selective Cost Estimation for Multi-Agent Systems</td><td></td><td>Presents a two-stage, distributed multi-robot task allocation scheme where agents explore bundle combinations with a cheap heuristic and selectively invoke expensive path planning for promising candidates. A central coordinator then solves a set packing problem over these bids, enabling scalable, reactive allocation with dynamic bundle sizes and improved performance in navigation-oriented scenarios.</td><td><a href="https://arxiv.org/abs/2606.24462">Link</a></td></tr>
+<tr><td>Topological Online Learning for Displacement-based Formation Control</td><td>Indian Institute of Science</td><td>Introduces TOLD, an edge-level adaptation framework that updates interaction weights online in displacement-based formation control to reduce formation distortion under disturbances. Two variants—unconstrained gradient flow and non-negative exponential gradient flow—achieve up to 33% distortion reduction in simulation and over 31–62% reductions on Crazyflie quadrotor formations.</td><td><a href="https://arxiv.org/abs/2606.23901">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
