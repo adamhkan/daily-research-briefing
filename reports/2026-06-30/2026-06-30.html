@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-06-29</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-06-29</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>36</strong></div>
+        <div class="card">Papers analyzed: <strong>36</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Strong emphasis on dexterous and bimanual manipulation, including skill composition (DexCompose), stable in-grasp control, and human-to-robot transfer.</li><li>Several works push whole-body humanoid loco-manipulation and tracking, with new frameworks for coordinated upper/lower body control and contact-rich scene interaction.</li><li>World models and VLA architectures continue to mature for long-horizon, instruction-following manipulation, with advances in memory, grounding, redundancy analysis, and spiking implementations.</li><li>Navigation and SLAM see progress from dense multi-sensor fusion (LXD-SLAM) to low-latency on-device object-goal navigation (LocalNav) and energy-efficient spiking VLAs.</li><li>Multi-robot and multi-manipulator motion planning gains scalable, parallel, and asymptotically optimal variants of ARC for large robot teams.</li><li>Applied advances span aerial dynamic payload delivery, radiation-source localization, space fiducials, and socially compatible AV–human interaction models.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td colspan="4"><em>No matches</em></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>DexCompose: Reusing Dexterous Policies for Multi-Task Manipulation with a Single Hand</td><td></td><td>Introduces DexCompose, a role-aware residual composition method that reuses pretrained dexterous hand policies to execute composite tasks without interference. By assigning finger-level action ownership and training dual residuals for stabilization and adaptation, it achieves high success on 16 multi-task manipulation benchmarks.</td><td><a href="https://arxiv.org/abs/2606.28323">Link</a></td></tr>
+<tr><td>Learning Stable In-Grasp Manipulation in a Non-Dropping Action Space</td><td></td><td>Decomposes dexterous manipulation into analyzable components and constrains RL with physics- and control-theoretic priors to ensure stability. Demonstrates efficient, robust in-grasp repositioning and reorientation across objects and noise/friction conditions without sacrificing grasp stability.</td><td><a href="https://arxiv.org/abs/2606.28196">Link</a></td></tr>
+<tr><td>PA-BiCoop: A Primary-Auxiliary Cooperative Framework for General Bimanual Manipulation</td><td>AI Lab, State Grid Corporation of China.; Hong Kong University of Science; Hong Kong University of Science and Technology; Hong Kong University of Science echnology, Guangzhou.; IT AI Lab, State Grid Corporation of China.; University of Science and Technology of China; Zhejiang University</td><td>Proposes PA-BiCoop, a single-model framework that dynamically assigns primary and auxiliary roles to bimanual arms over task phases. With shared encoding and specialized decoders plus automatic role assignment, it significantly outperforms prior methods in RLBench2 and real-world bimanual tasks.</td><td><a href="https://arxiv.org/abs/2606.28192">Link</a></td></tr>
+<tr><td>Translation as a Bridging Action: Transferring Manipulation Skills from Humans to Robots</td><td></td><td>Argues that full 6-DoF human action spaces transfer poorly to robots and instead uses relative wrist translation in the head-camera frame as a common action representation. A π₀-style VLA with masked action tokens leverages this for effective transfer of human bimanual skills to parallel-gripper robots on novel tasks.</td><td><a href="https://arxiv.org/abs/2606.28133">Link</a></td></tr>
+<tr><td>S$^2$-VLA: State-Space Guided Vision-Language-Action Models for Long-Horizon Manipulation</td><td></td><td>Introduces S²-VLA with a State-Space Guided Adaptive Attention mechanism that maintains a belief state over task progress to dynamically fuse vision, language, and action cues. Despite a compact 2B size, it outperforms larger models on long-horizon manipulation benchmarks like LIBERO and SimplerEnv.</td><td><a href="https://arxiv.org/abs/2606.27872">Link</a></td></tr>
+<tr><td>DIM-WAM: World-Action Modeling with Diverse Historical Event Memory</td><td></td><td>Presents DiM-WAM, a world-action model with multi-scale explicit memory banks that encode historical visual events, local future dynamics, and global task progress. On RMBench and real Franka tasks, it greatly improves long-horizon manipulation success compared to prior world-action baselines.</td><td><a href="https://arxiv.org/abs/2606.27677">Link</a></td></tr>
+<tr><td>Direct Action-Head Injection of A Grounded 3D Point Unlocks Spatial and Task Generalization</td><td></td><td>Shows that representing grounding as a 3D point relative to the gripper and injecting it directly into the action head via adaptive layer norm dramatically boosts VLA spatial and task generalization. A small, backbone-agnostic MLP module yields large gains on LIBERO-PRO without altering pretraining.</td><td><a href="https://arxiv.org/abs/2606.27663">Link</a></td></tr>
+<tr><td>CWI: Composite Humanoid Whole-Body Imitation System for Loco-manipulation</td><td>Hong Kong University of Science and Technology; The University of Hong Kong; University of Hong Kong, Hong Kong SAR, China.; University of Illinois Urbana-Champaign; Zhejiang University</td><td>CWI decouples MoCap usage for upper-body manipulation and lower-body locomotion, combining rich manipulation references with AMP-guided stable gait learning. A multi-critic architecture and teacher–student distillation deliver a unified whole-body policy, validated in simulation and on a full-size humanoid.</td><td><a href="https://arxiv.org/abs/2606.27676">Link</a></td></tr>
+<tr><td>SceneBot: Contact-Prompted General Humanoid Whole Body Tracking with Scene-Interaction</td><td></td><td>Introduces SceneBot, which conditions humanoid control on both reference motions and link-level contact labels to unify free-space locomotion and contact-rich manipulation. A hindsight reconstruction pipeline recovers scene-interaction graphs from human motion, enabling robust long-horizon loco-manipulation like carrying objects up stairs.</td><td><a href="https://arxiv.org/abs/2606.27581">Link</a></td></tr>
+<tr><td>PhysisForcing: Physics Reinforced World Simulator for Robotic Manipulation</td><td>NVIDIA; Peking University</td><td>PhysisForcing adds physics-aware supervision to DiT-based video world models by aligning features with object trajectories and inter-region relations in contact-rich zones. This reduces deformations and inconsistencies in manipulation videos and improves closed-loop control success when used as a world model under WorldArena.</td><td><a href="https://arxiv.org/abs/2606.28128">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
