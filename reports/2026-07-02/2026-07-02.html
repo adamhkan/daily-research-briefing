@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-01</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-01</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>69</strong></div>
+        <div class="card">Papers analyzed: <strong>69</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>MIT and Stanford lead a comprehensive synthesis on robustness in robotic manipulation, formalizing definitions, mechanisms, and evaluation gaps across perception, planning, control, and hardware.</li><li>Task-conditioned Gaussian-splatting from MIT shows how language-specified regions of interest can drive efficient, real-time 3D mapping for downstream robot tasks.</li><li>Navigation and motion-planning work span hierarchical semantic maps, temporal-logic-guided language navigation, UAV trajectory generation, and compressed latent-space planning, emphasizing long-horizon efficiency and safety.</li><li>Dexterous and whole-body manipulation advances include zero-demo compositional dexterity, grasp-pretrained functional dexterity, humanoid manipulation benchmarks, and multi-modal tactile/VLA frameworks.</li><li>New datasets and benchmarks (tactile, human-present manipulation, safety-aware damage simulation, humanoid and lab dexterity) target generalization, safety, and human-awareness in real-world deployments.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Robustness of Robotic Manipulation: Foundations and Frontiers</td><td>Massachusetts Institute of Technology; Stanford University</td><td>Provides a formal, unified definition of manipulation robustness and develops probabilistic and control-theoretic formulations that cut across perception, planning, control, learning, and hardware. Surveys mechanisms, metrics, and evaluation practices, highlighting gaps between current benchmarks and human-level robustness and outlining open problems for robust manipulation in the wild.</td><td><a href="https://arxiv.org/abs/2606.31494">Link</a></td></tr>
+<tr><td>GaussLite: Online Task-Conditioned 3D Gaussian Splatting for Real-Time Robotic Mapping</td><td>Massachusetts Institute of Technology</td><td>Introduces a task-driven 3D Gaussian Splatting mapper that allocates representational capacity according to a natural-language task description, focusing density and optimization effort on task-relevant regions. Using online relevance masks from open-vocabulary detection, it achieves significantly higher ROI reconstruction quality at fixed Gaussian budgets and real-time rates on constrained hardware.</td><td><a href="https://arxiv.org/abs/2606.30809">Link</a></td></tr>
+<tr><td>Learning Locomotion on Discrete Terrain via Minimal Proximity Sensing</td><td>ETH Zurich</td><td>Embeds lightweight infrared proximity sensors into quadruped feet to provide pre-contact terrain feedback, bridging the gap between delayed proprioception and heavy global perception. RL policies leveraging these signals improve robustness on discrete terrain such as gaps and stepping stones, offering a low-power complement or alternative to complex vision stacks.</td><td><a href="https://arxiv.org/abs/2606.31912">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>RRT-Rope: A deterministic shortening approach for fast near-optimal path planning in large-scale uncluttered 3D environments</td><td></td><td>Proposes RRT-Rope, which first finds a feasible path with an altered RRT-Connect and then applies a deterministic, node-aware shortcutting scheme to rapidly approach near-optimal solutions. In large uncluttered 3D spaces such as underground mining stopes, it consistently improves path cost and computation time over Informed RRT*, RRT#, and prior shortcutting methods, achieving up to 70% speedups.</td><td><a href="https://arxiv.org/abs/2606.31948">Link</a></td></tr>
+<tr><td>Motion Planning in Compressed Representation Spaces</td><td></td><td>Learns a highly compressed, tokenized latent space with a hierarchical autoencoder and performs motion planning directly via search over latent tokens instead of raw trajectories. This unifies learning-based priors with model-based optimization, enabling efficient, flexible planning for tasks like autonomous driving while optimizing arbitrary test-time objectives.</td><td><a href="https://arxiv.org/abs/2606.30940">Link</a></td></tr>
+<tr><td>LeCropFollow: Latent Space Planning for Navigation in Unstructured Crop Fields</td><td>University of Illinois Urbana-Champaign</td><td>Introduces a visual navigation framework that plans directly in a learned latent manifold using semantic heatmaps and a model-based RL planner (TD-MPC2), avoiding brittle geometric reconstruction. Demonstrates robust under-canopy navigation in irregular crop rows with strong zero-shot sim-to-real transfer and substantial reductions in semantic failures versus geometric baselines.</td><td><a href="https://arxiv.org/abs/2606.31941">Link</a></td></tr>
+<tr><td>MVP-Nav: Multi-layer Value Map Planner Navigator</td><td></td><td>Presents an RGB-only object-goal navigation framework that reconstructs a 3D semantic occupancy map using foundation models and encodes both semantics and geometry into a Multi-layer Value Map. This unified cost space supports physically grounded planning and achieves state-of-the-art zero-shot object-goal navigation without active depth sensing.</td><td><a href="https://arxiv.org/abs/2606.31919">Link</a></td></tr>
+<tr><td>DynFly: Dynamic-Aware Continuous Trajectory Generation for UAV Vision-Language Navigation in Urban Environments</td><td></td><td>Bridges high-level vision-language navigation and low-level UAV control by learning B-spline control-point trajectories via a Spline-DiT generator with flow matching. Dynamic-aware supervision over position, velocity, acceleration, and heading yields continuous, executable UAV paths that substantially improve navigation metrics and trajectory quality on OpenUAV benchmarks.</td><td><a href="https://arxiv.org/abs/2606.31654">Link</a></td></tr>
+<tr><td>Diffusion-based 4D Trajectory Prediction and Distributed Control for UAV Swarms</td><td>Hong Kong University of Science and Technology; The University of Hong Kong</td><td>Couples a dimension-decoupled trajectory forecaster with a diffusion-based residual dynamics model to predict 4D swarm motion under uncertainty, feeding predictions into a distributed NMPC controller. On a new multi-scenario UAV swarm dataset, the framework reduces tracking error by 10–15% and achieves sub-0.07 m errors in complex environments at real-time rates.</td><td><a href="https://arxiv.org/abs/2606.31197">Link</a></td></tr>
+<tr><td>Hierarchical 3D Scene Graph Construction and Belief-based Planning for Semantic Navigation</td><td></td><td>Maintains an online Hierarchical 3D Scene Graph over objects, zones, and regions to provide multi-scale state abstraction for semantic navigation. A belief-based planner performs rollouts on this graph, fusing priors with exploration evidence to choose macro-actions, yielding improved success and path efficiency, especially for long-distance navigation.</td><td><a href="https://arxiv.org/abs/2606.31071">Link</a></td></tr>
+<tr><td>ViTL: Temporal Logic-Guided Zero-Shot Natural Language Navigation via Vision-Language Models</td><td>Lehigh University</td><td>Transforms natural-language commands with temporal structure into Linear Temporal Logic and DFA, orchestrating multi-goal, temporally constrained navigation with dynamic replanning. At the motion level, it uses a directional scoring scheme from VLMs to guide frontier exploration, improving both single- and multi-target navigation performance in HM3D.</td><td><a href="https://arxiv.org/abs/2606.30696">Link</a></td></tr>
+<tr><td>TAPE: Tether-Aware Path Planning for Autonomous Exploration of Unknown 3D Cavities Using a Tangle-Compatible Tethered Aerial Robot</td><td></td><td>Combines global frontier-based TSP planning with a local planner that explicitly trades off travel distance against tether length using an adjustable decision function. In 3D cavity exploration, it keeps tether length within limits in all simulated cases with only a small increase in distance over pure TSP, and is validated in field tests.</td><td><a href="https://arxiv.org/abs/2606.30817">Link</a></td></tr>
+<tr><td>Information-Aided DVL Calibration</td><td></td><td>Proposes an information-aided calibration approach for Doppler Velocity Logs that enhances conventional Kalman filter-based methods and enables GNSS-free self-calibration. On real AUV datasets, it improves velocity estimation by up to 35% in GNSS-denied conditions, directly reducing navigation drift and enhancing mission reliability.</td><td><a href="https://arxiv.org/abs/2606.31216">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
