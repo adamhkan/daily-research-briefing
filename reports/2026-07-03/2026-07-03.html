@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-02</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-02</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>62</strong></div>
+        <div class="card">Papers analyzed: <strong>62</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>ELMP introduces an analytical-gradient fine-tuning framework that slashes data and compute requirements for adapting neural motion planners, with strong real-robot results on a Franka arm.</li><li>Multiple works advance safe and scalable motion planning: new conformal distance fields, neural reachability for multi-arm systems, spatiotemporal convex-set graph search, and optimal any-angle planners for dynamic environments.</li><li>World and action modeling continues to mature, with new unified mobile manipulation WAMs, 3D point and 4D latent world models, and a concise taxonomy of world (action) models for control.</li><li>Dexterous and contact-rich manipulation sees progress via large-scale human tactile datasets, contact-wrench-guided learning from demonstrations, and symbol discovery for effect-based manipulation planning.</li><li>Navigation research spans robust bio-inspired policies, social and communication-enabled navigation, semantic map grounding with VLMs, and personalized household object search policies.</li><li>Control and safety advances include robust operational-space control with conformal disturbance bounds, GPU-parallel robust optimal control with certified linearization error bounds, and decentralized geometric control for cooperative aerial transport.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>ELMP: Efficient Learning for Motion Planning via Analytical Policy Gradients</td><td>ETH Zurich</td><td>ELMP adapts neural motion planners without recollecting expert trajectories by directly optimizing policies through a differentiable kinematic layer with dense collision, target, and smoothness costs. It achieves large gains in success rate and adaptation speed, generalizes across changing kinematics via point-cloud tool encodings, and runs at millisecond latency, validated on a Franka Panda.</td><td><a href="https://arxiv.org/abs/2607.00215">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>From Prediction Uncertainty to Conformalized Distance Fields for Safe Motion Planning</td><td>Seoul National University</td><td>This work introduces functional conformal prediction for entire distance fields, yielding distribution-free lower bounds that guarantee safety for any trajectory satisfying the constraint. Embedded in an MPC framework, it scales well with obstacle density and improves the safety–feasibility–efficiency trade-off in dense pedestrian and 3D quadrotor scenarios.</td><td><a href="https://arxiv.org/abs/2607.00776">Link</a></td></tr>
+<tr><td>Search-Based Spatiotemporal and Multi-Robot Motion Planning on Graphs of Space-Time Convex Sets</td><td></td><td>The paper proposes a planning framework where collision-free regions are modeled as convex sets in space-time, with trajectories corresponding to graph paths plus continuous optimization within sets. An exact convex decomposition scheme enables unified handling of dynamic obstacles and multi-robot interactions, solving up to 100-robot instances efficiently with high-quality solutions.</td><td><a href="https://arxiv.org/abs/2607.00444">Link</a></td></tr>
+<tr><td>NeHMO: Neural Hamilton-Jacobi Reachability Learning for Decentralized Safe Multi-Arm Motion Planning</td><td>Purdue University</td><td>NeHMO learns an approximation of a Hamilton–Jacobi reachability safety value function that captures worst-case inter-arm interactions in multi-manipulator systems. This learned representation is used inside a decentralized trajectory optimizer, enabling scalable, data-efficient, and provably safe multi-arm motion planning that outperforms existing decentralized baselines.</td><td><a href="https://arxiv.org/abs/2607.00326">Link</a></td></tr>
+<tr><td>Optimal any-angle path planning in static and dynamic environments</td><td></td><td>The authors present Zeta* and Zeta*-SIPP, optimal any-angle grid-based planners that use elliptical forward expansion and a novel field-of-view visibility check to reduce search while maintaining optimality. Zeta*-SIPP handles dynamic obstacles and is over 20× faster than the prior optimal dynamic any-angle method TO-AA-SIPP, making it attractive for navigation in open spaces.</td><td><a href="https://arxiv.org/abs/2607.00065">Link</a></td></tr>
+<tr><td>Trajectory Learning with Graph Representations for Social Robot Navigation</td><td></td><td>This imitation learning framework uses a graph-based auxiliary network to encode crowd interactions and a trajectory-level objective to capture temporal dynamics, addressing error accumulation in social navigation. It outperforms existing data-driven baselines on simulated and real-world datasets across multiple social compliance metrics.</td><td><a href="https://arxiv.org/abs/2607.00028">Link</a></td></tr>
+<tr><td>FLYNN: Robust Neural Network for Robot Navigation using Fly Brain Topology</td><td></td><td>FLYNN is a recurrent neural network whose architecture mirrors the Drosophila brain connectome and is trained for vision-based navigation. It matches the performance of similarly sized hand-crafted networks but is markedly more robust to out-of-distribution inputs and sensor degradation, remaining functional even under complete vision loss.</td><td><a href="https://arxiv.org/abs/2607.00025">Link</a></td></tr>
+<tr><td>Path Planning in Physically Viable World Models</td><td></td><td>The paper augments 3D Gaussian splat reconstructions with physics-based simulation to predict how terrain changes (e.g., flooding) affect route feasibility before deployment. A terrain-aware planner then reasons over these “physically viable” world models, revealing long-horizon route failures that standard static-map planners miss in real outdoor field tests.</td><td><a href="https://arxiv.org/abs/2607.00673">Link</a></td></tr>
+<tr><td>Trajectory Learning with Graph Representations for Social Robot Navigation</td><td></td><td>This imitation learning framework uses a graph-based auxiliary network to encode crowd interactions and a trajectory-level objective to capture temporal dynamics, addressing error accumulation in social navigation. It outperforms existing data-driven baselines on simulated and real-world datasets across multiple social compliance metrics.</td><td><a href="https://arxiv.org/abs/2607.00028">Link</a></td></tr>
+<tr><td>Robust Operational Space Control with Conformal Disturbance Bounds for Safe Redundant Manipulation</td><td>University of Houston</td><td>This work combines an operational-space extended state observer with conformal prediction to estimate disturbance bounds online and construct robust control barrier functions. The resulting controller achieves millimeter-level tracking and real-time safe control on a 7-DoF Franka arm under diverse disturbances, with probabilistic safety guarantees that reduce conservatism.</td><td><a href="https://arxiv.org/abs/2607.00424">Link</a></td></tr>
+<tr><td>Human-Centric Transferable Tactile Pre-Training for Dexterous Robotic Manipulation</td><td>Peking University; Tsinghua University</td><td>H-Tac is a 160-hour egocentric human tactile-action dataset spanning 300+ tasks and 135k episodes, used to pre-train a tactile model via unified tactile and action spaces for human-to-robot transfer. The proposed Transferable Tactile Pre-Training explicitly predicts future tactile signals to capture contact dynamics, yielding strong gains in dexterous robotic manipulation in simulation and on hardware.</td><td><a href="https://arxiv.org/abs/2607.01067">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
