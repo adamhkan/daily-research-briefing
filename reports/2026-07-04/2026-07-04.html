@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-03</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-03</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>47</strong></div>
+        <div class="card">Papers analyzed: <strong>47</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Rich cluster of new vision-language-action (VLA) work targets contact-rich manipulation, dynamic camera/view control, and safer long-horizon execution via flow matching and corrective inference.</li><li>Multiple papers push real-robot RL efficiency and sim-to-real reliability using world models, actuator shaping, and single-demonstration intervention schemes.</li><li>Navigation-focused contributions span language-conditioned local flow fields, crowd-aware social preferences, SE(2) navmeshes, and safe/lightweight RL for UAV and USV platforms.</li><li>Dynamic and challenging environments receive attention via physics-principled 3D world models, dynamic SLAM with Gaussian splatting, stereo SLAM with motion filtering, and human-in-the-loop driving simulation.</li><li>ETH Zurich contributes two water-domain control frameworks: cross-platform adaptive RL for autonomous surface vehicles and a choreographed aquatic robot swarm architecture.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Cross-Platform Control for Autonomous Surface Vehicles via Adaptive Reinforcement Learning</td><td>ETH Zurich</td><td>Proposes an adaptive RL policy for trajectory tracking that generalizes across surface vessels with differing dynamics by conditioning on interaction history and a learned latent dynamics representation. Trained in simulation with randomized vessel properties, the single policy transfers zero-shot to two real boats, significantly outperforming non-adaptive baselines and approaching platform-specific tuned controllers.</td><td><a href="https://arxiv.org/abs/2607.02037">Link</a></td></tr>
+<tr><td>Choreographing the Way of Water: A Computational Framework for Aquatic Robotic Art</td><td>ETH Zurich</td><td>Introduces Way of Water, a cyber-physical stack for choreographing fleets of autonomous surface vessels equipped with laminar water nozzles and lighting for large-scale aquatic performances. A browser-based authoring tool integrates trajectory optimization and MPC through a timeline interface, enabling non-programmers to design music-responsive water and light choreographies validated in two public deployments.</td><td><a href="https://arxiv.org/abs/2607.02174">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>CoFL-S: Spatially Queryable Sector Flow Fields for Local Language-Conditioned Navigation</td><td></td><td>Presents CoFL-S, a low-level VLA framework that predicts a continuous, language-conditioned flow field over the robot’s local sector and rolls out trajectories directly from it. By converting VLN-CE episodes into frame-level supervision and evaluating in a continuous-time Habitat benchmark with a shared velocity controller, CoFL-S outperforms token-based baselines and transfers zero-shot to real robots for closed-loop navigation.</td><td><a href="https://arxiv.org/abs/2607.02222">Link</a></td></tr>
+<tr><td>Multi-Rate Nonlinear Model Predictive Control for Wall-Supported Bipedal Locomotion of Quadrupedal Robots</td><td>University of Texas at El Paso, TX 79968, USA; Virginia Tech</td><td>Develops a multi-rate NMPC framework that jointly plans contact points and CoM/orientation trajectories for quadrupeds performing wall-assisted bipedal locomotion. A high-level SRB-based MR-NMPC optimizes contact and motion under nonlinear dynamics, while a whole-body controller enforces full-order dynamics, yielding significantly higher success rates on rough terrain than heuristic foot-placement MPC.</td><td><a href="https://arxiv.org/abs/2607.01574">Link</a></td></tr>
+<tr><td>SE(2) Navigation Mesh</td><td></td><td>Introduces SE(2) NavMesh, a polygonal representation that encodes yaw-dependent traversability using footprint masks and layered yaw graphs, overcoming limitations of yaw-invariant navmeshes for non-circular robots. Combined with a hierarchical ASA pathfinding strategy and online incremental updates from point clouds, it expands traversable area and outperforms sampling-based planners in constrained real and simulated environments.</td><td><a href="https://arxiv.org/abs/2607.01454">Link</a></td></tr>
+<tr><td>SPLC: Social Preference Learning for Crowd Robot Navigation</td><td>. Zheng are with the School</td><td>Proposes Social Preference Learning for Crowd Robot Navigation, which replaces hand-crafted social reward design in offline RL with automatically generated preference data based on principled social criteria. By encoding pedestrian dynamics and social norms into a preference signal, SPLC consistently improves socially compliant navigation metrics in simulation and on a TurtleBot4 platform.</td><td><a href="https://arxiv.org/abs/2607.01925">Link</a></td></tr>
+<tr><td>Lightweight Safe Reinforcement Learning for End-to-End UAV Navigation</td><td></td><td>Presents a perception-control integrated framework for high-speed UAV navigation using a lightweight CNN to encode sparse observations into risk-aware features and a safe PPO variant within a constrained MDP formulation. Coupled with curriculum learning and hierarchical control, the approach improves success, safety, and efficiency over RL baselines in dense obstacle fields while remaining suitable for onboard deployment.</td><td><a href="https://arxiv.org/abs/2607.01794">Link</a></td></tr>
+<tr><td>WaveLander: A Generalizable Hierarchical Control Framework for UAV Landing on Wave-Disturbed Platforms via Reinforcement Learning</td><td></td><td>Introduces WaveLander, where an RL policy outputs vertical velocity references for landing on wave-disturbed platforms, while a conventional low-level controller handles attitude and lateral stabilization. This hierarchical design reduces landing to a timing-aware scalar control problem and yields robust, smooth landings that generalize to unseen wave conditions in simulation.</td><td><a href="https://arxiv.org/abs/2607.01281">Link</a></td></tr>
+<tr><td>Path planning for unmanned naval surface vehicles</td><td></td><td>Combines a global planner—merging Grassfire, a modified Grassfire, and a novel Probabilistic Roadmap variant—with a local planner that reasons about relative obstacle motion to route unmanned surface vehicles behind moving obstacles. Simulations against D* and other dynamic planners show improved handling of both known static and moving obstacles.</td><td><a href="https://arxiv.org/abs/2607.01631">Link</a></td></tr>
+<tr><td>PhysMani: Physics-principled 3D World Model for Dynamic Object Manipulation</td><td></td><td>Proposes PhysMani, which couples a divergence-free 3D Gaussian velocity field world model with an action policy that attends to predicted future dynamics for manipulating fast-moving objects. The physics-grounded online-optimized velocity field enables accurate forecasting in unstructured 3D scenes, leading to superior performance on a new 16-task dynamic manipulation benchmark in sim and on robots.</td><td><a href="https://arxiv.org/abs/2607.01938">Link</a></td></tr>
+<tr><td>A Stereo Visual SLAM System Using Object-Level Motion Estimation and Geometric Filtering Based on Cross Disparity</td><td>Indian Institute of Technology Kanpur; Indian Institute of Technology Kharagpur</td><td>Introduces OCD SLAM, extending ORB-SLAM2 with a geometric &quot;cross disparity&quot; measure that combines temporal and stereo inconsistency to detect dynamic features, plus object-level motion classification via 3D detection and Kalman tracking. The system robustly separates static and dynamic elements, improving trajectory accuracy over ORB-SLAM2 and several dynamic SLAM baselines on KITTI.</td><td><a href="https://arxiv.org/abs/2607.02005">Link</a></td></tr>
+<tr><td>DL-SLAM: Enabling High-Fidelity Gaussian Splatting SLAM in Dynamic Environments based on Dual-Level Probability</td><td></td><td>Presents DL-SLAM, a monocular Gaussian Splatting SLAM that fuses semantic and geometric cues into pixel-level dynamic probabilities, then aggregates them into object-level dynamic scores. This dual-level scheme prunes dynamic Gaussians to maintain an artifact-free static map while exploiting transiently static objects for pose estimation, yielding up to 13% better tracking and high-fidelity semantic maps.</td><td><a href="https://arxiv.org/abs/2607.01860">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
