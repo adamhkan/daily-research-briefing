@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-08</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-08</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>50</strong></div>
+        <div class="card">Papers analyzed: <strong>50</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Motion-planning and control see multiple MPPI advances and control-aware trajectory optimization, improving navigation and manipulator performance in clutter and dynamic environments.</li><li>New frameworks for dexterous and whole-body manipulation (LAMP, WristMimic, RynnWorld-4D, FORGE, DexTele) emphasize latent action spaces, 4D world models, and tool/function-level generalization.</li><li>Mobile and embodied navigation is pushed by unified last-mile reasoning (UniLM-Nav), 360° geometry-aware directional reasoning (EAGOR), neural simulation at scale (Image2Sim), and new SLAM/occupancy benchmarks.</li><li>VLA/world-model ecosystems continue to mature, with structure-aware data selection (SIEVE), training-free/action-aware acceleration and RL post-training (ActionCache, OTQL), and more practical whole-body VLA deployments.</li><li>New datasets and benchmarks (Hilti-Trimble-Oxford 360 VI-SLAM, OrchardBench, GraspIT, ThorArena, HIOcc, APVI-SLAM) target robust navigation, mapping, grasping, and contact-rich humanoid interaction.</li><li>Assistive, agricultural, and vehicular applications benefit from autonomous powered wheelchairs, orchard harvesting simulation, and uncertainty-aware proprioceptive localization and PDR filters.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Clustering-Embedded Model Predictive Path Integral Control: Avoiding Averaging-Induced Failure and Enabling Efficient Cluster Selection for Dynamic Obstacles</td><td>University of Washington</td><td>Introduces CE-MPPI, which embeds pruning and DBSCAN-based clustering into MPPI to separate feasible from infeasible trajectory modes in cluttered, non-convex spaces. The method reduces obstacle-front hesitation and improves performance in dynamic scenes, yielding 48% faster time-to-goal and 12% shorter paths on a UR5e.</td><td><a href="https://arxiv.org/abs/2607.06499">Link</a></td></tr>
+<tr><td>Hilti-Trimble-Oxford Dataset: 360 Visual-Inertial Benchmark with Floor Plan Priors for SLAM and Localization</td><td>ETH Zurich</td><td>Releases a 360° visual–inertial dataset from an active multi-floor construction site, with LiDAR-inertial ground truth and floor-plan priors for SLAM and localization. The associated challenge highlights strong SLAM maturity but higher difficulty for floor-plan-referenced localization, motivating further research for navigation in construction environments.</td><td><a href="https://arxiv.org/abs/2607.06464">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>UniLM-Nav: A Unified Framework for Zero-Shot Last-Mile Navigation</td><td></td><td>Proposes UniLM-Nav, which uses a shared multimodal LLM backend to select views, ground task-conditioned affordances, and infer manipulation-ready base poses for mobile manipulators. On the OVMM benchmark and a Unitree B2 + Z1 platform, it outperforms prior work for open-vocabulary last-mile navigation.</td><td><a href="https://arxiv.org/abs/2607.06537">Link</a></td></tr>
+<tr><td>MP-MPPI: A Motion Primitive Guided Sampling-Based Optimizer for Model Predictive Control</td><td>Norwegian University of Science and Technology</td><td>Extends MPPI by injecting motion primitives into the sampling process, improving exploration of the control space while retaining real-time responsiveness. Demonstrated on quadcopter obstacle-field navigation, it enhances path-planning capability over standard MPPI.</td><td><a href="https://arxiv.org/abs/2607.06123">Link</a></td></tr>
+<tr><td>EAGOR: Embodied Reasoning in Omni-direction</td><td></td><td>Introduces a training-free, geometry-aware framework for 360° directional reasoning, maintaining a spherical belief over target directions using Spherical Harmonic Belief Fields. EAGOR improves map-free navigation and object search success and efficiency for legged robots relative to ERP-based VLM baselines.</td><td><a href="https://arxiv.org/abs/2607.06165">Link</a></td></tr>
+<tr><td>Image2Sim: Scaling Embodied Navigation via Generative Neural Simulator</td><td></td><td>Presents a neural simulation pipeline that turns posed RGB-D sequences into interactive scenes using feature Gaussians and a one-step pixel-flow renderer. Image2Sim generates ~20K scenes and 10M samples, enabling navigation policies trained purely in neural simulators to transfer strongly to real-world tasks.</td><td><a href="https://arxiv.org/abs/2607.05765">Link</a></td></tr>
+<tr><td>Towards Real-World Applications with an Autonomous Powered Wheelchair</td><td></td><td>Builds an autonomous prototype on a commercial self-balancing powered wheelchair by integrating RGB-D perception, LiDAR-based localization, and gesture-based interaction. Demonstrates hailing and people-following behaviors, illustrating challenges and feasibility of assistive navigation in real indoor environments.</td><td><a href="https://arxiv.org/abs/2607.06383">Link</a></td></tr>
+<tr><td>APVI-SLAM: Real-Time Acoustic-Pressure-Visual-Inertial Localization and Photorealistic Mapping System in Complex Underwater Environment</td><td>Hong Kong University of Science and Technology</td><td>Proposes APVI-SLAM, a multi-sensor underwater SLAM system that fuses acoustic, pressure, visual, and inertial data with reliability-aware weighting and a sliding-window freezing strategy. It achieves robust localization and Gaussian-based photorealistic mapping in challenging subsea conditions, and introduces a coral-reef dataset.</td><td><a href="https://arxiv.org/abs/2607.06222">Link</a></td></tr>
+<tr><td>GEM-Occ: From Visual Geometry Evidence to Embodied Semantic Occupancy Memory</td><td></td><td>Releases HIOcc, a unified semantic occupancy benchmark across ScanNet, ScanNet++, and Matterport3D, and introduces GEM-Occ, which fuses transient geometric evidence into a hierarchical Gaussian occupancy memory. The approach improves long-horizon indoor semantic mapping, free-space reasoning, and revisit consistency for navigation agents.</td><td><a href="https://arxiv.org/abs/2607.05543">Link</a></td></tr>
+<tr><td>Why does Deep Learning Improve Visual SLAM?</td><td>University of Zurich</td><td>Performs a controlled study dissecting deep visual SLAM components, showing that learned 2D data association and uncertainty—not recurrence alone—drive performance gains under difficult visual conditions. The results argue for learning-based association and uncertainty modeling as key levers for robust navigation SLAM.</td><td><a href="https://arxiv.org/abs/2607.06023">Link</a></td></tr>
+<tr><td>Quaternion-Averaging-Based Adaptive Complementary Filter for Pedestrian Dead Reckoning With a Foot-Mounted AHRS</td><td>KA and its promotion funds from KEIRIN RACE.The authors are with Graduate School</td><td>Introduces QAACF, which fuses angular-velocity-derived quaternions with acceleration and magnetometer quaternions via Markley’s quaternion averaging for a foot-mounted AHRS. By adapting sensor weights to gait phase and magnetic disturbance, it improves attitude and hence PDR accuracy at lower computational cost than Kalman filters.</td><td><a href="https://arxiv.org/abs/2607.05451">Link</a></td></tr>
+<tr><td>Uncertainty-Aware Velocity Correction for Proprioceptive Vehicle Localization using Evidential Mamba</td><td>Technical University of Munich</td><td>Proposes EVC-Mamba, a Mamba-based temporal model that turns onboard vehicle sensor streams into uncertainty-aware virtual velocity measurements fused in an error-state EKF. It reduces inertial drift during GNSS outages, approaching the performance of dedicated external velocity sensors while running at 40 Hz on edge hardware.</td><td><a href="https://arxiv.org/abs/2607.05669">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
