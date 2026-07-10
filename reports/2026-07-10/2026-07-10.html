@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-09</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-09</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>50</strong></div>
+        <div class="card">Papers analyzed: <strong>50</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Strong emphasis today on manipulation and control foundations: new tactile, proprioceptive, and primitive-based policies significantly boost dexterous and long-horizon performance.</li><li>Navigation and SLAM advances focus on human-aware social navigation, geometry-centric dense SLAM, event-based VIO in dynamics, and robust/global localization with strong cross-FOV guarantees.</li><li>Multiple works tighten the bridge between learning and control theory: residual-adaptive sampling MPC, STL-constrained motion planning, safe RL via MPC-style safety filters, and symplectic dynamics learning.</li><li>VLA and foundation-model-based control continue to mature, with onboard multi-agent architectures, native memory compression, latent memory tokens, and attention bottlenecks for better generalization.</li><li>Institution-priority highlights include CMU’s subject-conditioned diffusion for personalized gait generation and MIT’s cryptographically secure loop-closure framework for multi-robot SLAM privacy.</li><li>Quadruped and humanoid whole-body control progresses via large-scale quadruped motion foundations and immersive VR/LLM-assisted humanoid teleoperation for locomotion-plus-manipulation tasks.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Generating Personalized Lower-Limb Kinematics Across Walking Speeds Using Subject-Conditioned Diffusion</td><td>Carnegie Mellon University</td><td>Introduces a subject-conditioned residual diffusion model to synthesize personalized lower-limb kinematics at unseen walking speeds from a single seen-speed gait sequence. Trained on able-bodied data, it generalizes to stroke patients with low joint-angle error, substantially reducing data collection needs for exoskeleton personalization and gait-assistance planning.</td><td><a href="https://arxiv.org/abs/2607.07533">Link</a></td></tr>
+<tr><td>CILC: Cryptographically-secure Inter-agent Loop Closure Candidate Detection for Multi-Agent Collaborative SLAM</td><td>Massachusetts Institute of Technology</td><td>Shows that broadcasting global descriptors in multi-robot SLAM can leak approximate imagery and trajectories to a compromised agent, then proposes CILC, which uses secure multi-party computation for loop-closure candidate detection without revealing raw descriptors. The approach remains real-time and communication-feasible for visual and LiDAR descriptors while significantly improving privacy.</td><td><a href="https://arxiv.org/abs/2607.06700">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>HumAIN: Human-Aware Implicit Social Robot Navigation</td><td>George Mason University; Tufts University; University of Virginia</td><td>Proposes HumAIN, a social navigation framework that learns human-aware trajectory representations from rich multimodal inputs using a transformer teacher, then distills them into a lightweight student suitable for real-time planning. By leveraging implicit whole-body human cues (gait, pose, orientation), it more accurately predicts human motion and plans socially compliant robot trajectories, improving prediction metrics by nearly 30% over prior work.</td><td><a href="https://arxiv.org/abs/2607.07357">Link</a></td></tr>
+<tr><td>GemNav: Discrete-Token Visual Robot Navigation using a Multimodal Large Language Model</td><td></td><td>Adapts a frozen multimodal LLM into a waypoint navigation policy using LoRA on the language tower, with waypoints and navigation signals expressed as discrete tokens. Trained on only 8.7 hours of data, the policy transfers zero-shot to multiple real-world environments, navigating to goals within 0.25–0.42 m and demonstrating that discrete-token MLLM adaptation is a data-efficient alternative to bespoke navigation stacks.</td><td><a href="https://arxiv.org/abs/2607.06882">Link</a></td></tr>
+<tr><td>GeoGS-SLAM: Geometry-Only Gaussian Splatting for Dense Monocular SLAM</td><td>Beihang University</td><td>Introduces GeoGS, a geometry-only 3D Gaussian Splatting representation, and GeoGS-SLAM, a dense monocular SLAM system that drops appearance modeling to focus on fast, accurate geometry. By retaining only spatial parameters and introducing efficient geometric training and loop-closure map-updating, it achieves better online mapping efficiency and reconstruction quality for navigation-oriented SLAM than appearance-aware 3DGS baselines.</td><td><a href="https://arxiv.org/abs/2607.07452">Link</a></td></tr>
+<tr><td>PLED-VINS: A Point-Line Event-Based Visual Inertial SLAM for Dynamic Environments</td><td>Korea Advanced Institute of Science and Technology</td><td>Presents an event-camera-based VIO-SLAM framework that jointly tracks points and lines and explicitly scores their temporal and geometric reliability in dynamic scenes. An adaptive fusion of these reliability measures, including motion-conditioned modeling for lines, suppresses features from moving objects and improves state estimation on challenging dynamic sequences.</td><td><a href="https://arxiv.org/abs/2607.07374">Link</a></td></tr>
+<tr><td>G-PROBE: Cross-FOV Place Recognition and Certainty-Coupled Localization for 3D Point Clouds</td><td></td><td>Proposes a learning-free 3D point-cloud localization pipeline robust to asymmetric and narrow fields of view, using virtual sensor decomposition and cross-FOV branch ensembles to encode heading hypotheses. A certainty-coupled GICP backend refines poses using high-certainty regions, yielding strong multi-session F1 and Recall@1 in cross-sensor and FOV-asymmetry settings where competing methods collapse.</td><td><a href="https://arxiv.org/abs/2607.06782">Link</a></td></tr>
+<tr><td>Disturbance-aware Motion Planning for Over-actuated Underwater Vehicles Exploiting Actuation Redundancy for High-fidelity 3D Reconstruction</td><td>Hong Kong University of Science and Technology; The University of Hong Kong; University of Science and Technology of China</td><td>Develops a disturbance-aware motion-planning and thrust-allocation scheme for over-actuated ROVs that exploits actuation redundancy to minimize thruster-induced flow in a target sensing region. Using a control-oriented thruster-wake proxy and real-time null-space search, the method significantly reduces local flow, improving underwater 3D reconstruction accuracy and success rate in extensive trials.</td><td><a href="https://arxiv.org/abs/2607.07139">Link</a></td></tr>
+<tr><td>Learning Spatiotemporal Tubes for Full Class of Signal Temporal Logic Tasks for Control of Unknown Systems under Input Constraints</td><td></td><td>Introduces Spatiotemporal Tubes (STTs) parameterized by PINNs to encode Signal Temporal Logic tasks for unknown Euler-Lagrange systems under input constraints. By learning tube center and radius to maximize STL robustness and then enforcing that the closed-form controller keeps the state inside these tubes, the framework guarantees satisfaction of local and global STL specifications in single- and multi-agent setups.</td><td><a href="https://arxiv.org/abs/2607.07136">Link</a></td></tr>
+<tr><td>EvoPlan: Evolutionary Neuro-Symbolic Robot Planning with Spatio-Temporal Guarantees</td><td>Texas A&amp;M University</td><td>Combines LLMs, PDDL planning, and mined Signal Temporal Logic constraints into a neuro-symbolic planning framework with execution-time safety guarantees. An evolutionary process has LLMs propose and repair plans vetted by programmatic validators, while mined STL constraints from demonstrations are used to shield navigation and driving policies, yielding safer and more robust plans across simulated tasks.</td><td><a href="https://arxiv.org/abs/2607.06724">Link</a></td></tr>
+<tr><td>Residual-Conservative Model Predictive Path Integral Control</td><td>. Kim is with the School</td><td>Augments MPPI with residual-aware mechanisms that tighten constraints, reshape safety costs, and adapt sampling temperature based on model–plant mismatch. Theoretical analysis links residual magnitude to rollout-cost reliability and constraint violation probability, and simulations on a point mass and 2R manipulator show improved safety margins and task success under significant modeling errors.</td><td><a href="https://arxiv.org/abs/2607.06950">Link</a></td></tr>
+<tr><td>Safe Reinforcement Learning using Ideas from Model Predictive Control</td><td></td><td>Proposes a generic safe RL framework where an MPC-derived feasible state–action set is precomputed offline and used online as a safety filter that projects RL actions onto this safe set. Experiments on a nonlinear 1-DoF hardware testbed show that the agent can explore and learn performant policies while strictly respecting hard safety constraints, avoiding damaging constraint violations.</td><td><a href="https://arxiv.org/abs/2607.07252">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
