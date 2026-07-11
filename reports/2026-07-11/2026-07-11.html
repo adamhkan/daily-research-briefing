@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-10</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-10</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>38</strong></div>
+        <div class="card">Papers analyzed: <strong>38</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Surgeons successfully teleoperated general-purpose humanoids for laparoscopic tasks in vivo, offering a concrete benchmark of current humanoid manipulation limits in surgery.</li><li>New dexterous-manipulation resources span large-scale benchmarks (DexVerse) and improved teleoperation/retargeting (AnyDexRT), supporting cross-task, cross-hand generalization.</li><li>Vision-language(-action) models are being tightly integrated with memory, planning, and video-action backbones (Harness VLA, TFP, FabriVLA, LingBot-VA 2.0, APIVOT) to tackle long-horizon, contact-rich manipulation and planning.</li><li>Navigation and motion-planning work emphasizes robustness under shift and constraints: safe tube-based control for unknown systems, radar/semantic localization and TTC-based avoidance, and stringent autonomous-driving benchmarks.</li><li>Soft wearable and assistive devices (personalized exogloves, musculoskeletal exogloves, prosthesis privacy) target dexterous mobility and raise new safety and privacy questions for embodied AI.</li><li>A growing focus on UAV and cooperative navigation (FSD-VLN, SASGeo, RadLoc, D-CLIPSE, bandwidth-constrained VLN) highlights semantic, communication-efficient strategies for long-horizon operation in GNSS-denied or cluttered environments.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>In vivo feasibility study of humanoid robots in surgery</td><td>UC San Diego</td><td>Evaluates a general-purpose humanoid teleoperation framework for laparoscopic surgery across benchtop tests, dry-lab user studies, and in vivo porcine procedures. Quantifies precision, performance, and safety relative to established surgical systems, clarifying current capabilities and gaps for humanoid manipulation in minimally invasive surgery.</td><td><a href="https://arxiv.org/abs/2607.07972">Link</a></td></tr>
+<tr><td>ARDY: Autoregressive Diffusion with Hybrid Representation for Interactive Human Motion Generation</td><td>ETH Zurich</td><td>Proposes ARDY, a streaming human-motion generator combining autoregressive transformers and diffusion on a hybrid trajectory/latent representation. Achieves real-time, text- and kinematic-constraint-controlled motion suitable for interactive animation and potentially humanoid motion planning interfaces.</td><td><a href="https://arxiv.org/abs/2607.08741">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>DexVerse: A Modular Benchmark for Multi-Task, Multi-Embodiment Dexterous Manipulation</td><td></td><td>Introduces DexVerse, a large-scale dexterous-manipulation benchmark with 100 tasks, 3 arms, and 6 hands, covering grasping, articulated objects, tool use, bimanual and long-horizon skills. Provides controllable visual variation, rich multimodal demonstrations, and baseline results showing substantial challenges for current VLA and diffusion policies in task and embodiment generalization.</td><td><a href="https://arxiv.org/abs/2607.08751">Link</a></td></tr>
+<tr><td>FabriVLA: A Lightweight Vision-Language-Action Model for Precise Multi-Task Manipulation</td><td></td><td>Presents FabriVLA, a ~1B-parameter vision-language-action model using a flow-matching action head with gated self-attention and shallow VLM fusion. On Meta-World MT50 it reaches 90% tier-average success, showing that compact VLAs can deliver strong multi-task manipulation without massive backbones.</td><td><a href="https://arxiv.org/abs/2607.08575">Link</a></td></tr>
+<tr><td>Harness VLA: Steering Frozen VLAs into Reliable Manipulation Primitives via Memory-Guided Agents</td><td></td><td>Proposes Harness VLA, an agentic framework that wraps a frozen VLA as a retryable contact-rich primitive, composed with a small analytic primitive library for grounding, staging, navigation, and release. By learning operating ranges and failure models instead of new skills, it significantly boosts robustness to perturbations on LIBERO-Pro, RoboCasa365, and RoboTwin C2R without finetuning the VLA.</td><td><a href="https://arxiv.org/abs/2607.08448">Link</a></td></tr>
+<tr><td>EgoWAM: World Action Models Beyond Pixels with In-the-Wild Egocentric Human Data</td><td></td><td>Studies world representation choices for World Action Models trained on egocentric human videos for manipulation transfer. Through controlled co-training experiments, finds that predictions in DINO or 3D flow space scale better than pixel prediction, improving both out-of-distribution generalization and in-domain robot performance on bimanual tasks.</td><td><a href="https://arxiv.org/abs/2607.08436">Link</a></td></tr>
+<tr><td>SkillPlug: Unsupervised Skill Mining for Few-Shot Adaptation in Robotic Manipulation</td><td>Nanyang Technological University; National Taiwan University</td><td>Introduces SkillPlug, a plug-in skill-conditioning module that mines a compact library of reusable skills from multi-task demonstrations via self-supervised objectives. Keeping mined skills fixed, it adapts to new manipulation tasks by finetuning only lightweight routing and action heads, yielding improved multi-task performance and few-shot generalization in sim and on real robots.</td><td><a href="https://arxiv.org/abs/2607.08354">Link</a></td></tr>
+<tr><td>TFP: Temporally Conditioned Memory-Fusion Policies for Visuomotor Learning</td><td></td><td>TFP augments VLA backbones with an event-sensitive memory state governed by Liquid Time-Constant dynamics, directly modulating the flow-matching action decoder. This improves performance on stage-dependent, occluded manipulation tasks, raising success on LIBERO and LIBERO-plus and showing causal influence of the learned task-progress belief on generated action chunks.</td><td><a href="https://arxiv.org/abs/2607.08283">Link</a></td></tr>
+<tr><td>Monocular Vision Based Control Framework for Grasping</td><td></td><td>Presents a unified RGB-only grasping pipeline that handles both soft and rigid objects with a standard position-controlled gripper. It combines open-vocabulary detection, segmentation, tracking, monocular depth, and language-based stiffness estimation to choose strategies and uses deformation- or distance-based feedback for stable grasps on diverse food and household items.</td><td><a href="https://arxiv.org/abs/2607.07897">Link</a></td></tr>
+<tr><td>STEMbot: A Compliant Robot for Under-Canopy Plant Navigation</td><td>University of Michigan</td><td>Introduces STEMbot, a miniature compliant climbing robot for navigating and inspecting plant stems under crop canopies. It integrates geometric PIN-SLAM with a semantic OcTree and a manifold-constrained A* planner with ray-traced goals, achieving reliable branch-aware traversal and accurate reconstructions needed for autonomous under-canopy navigation.</td><td><a href="https://arxiv.org/abs/2607.07873">Link</a></td></tr>
+<tr><td>Shift &amp; Drift: A Zero-Shot Benchmark for Generalizable and Robust Autonomous Driving Motion Planning</td><td>Karlsruhe Institute of Technology</td><td>Proposes Shift &amp; Drift, a dual-track benchmark that tests closed-loop motion planners under semantic shift (German and SF city scenarios embedded in nuPlan) and injected state-distribution drift. Analysis shows imitation planners degrade sharply under shift and perturbations, while RL planners trade some ID fidelity for greater robustness, clarifying generalization challenges.</td><td><a href="https://arxiv.org/abs/2607.07844">Link</a></td></tr>
+<tr><td>Latent Memory Palace: Reasoning for Control as Autoregressive Variational Inference</td><td></td><td>Develops Latent Memory Palace, framing control reasoning as autoregressive variational inference over a latent memory space. The resulting policy exhibits adaptive test-time computation and strong performance on simulated and real control tasks, and also yields an action tokenizer that improves downstream autoregressive policy learning.</td><td><a href="https://arxiv.org/abs/2607.08724">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
