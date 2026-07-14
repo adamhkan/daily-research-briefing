@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-13</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-13</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>33</strong></div>
+        <div class="card">Papers analyzed: <strong>33</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Strong emphasis on contact-rich and dexterous manipulation: whole-arm MPC with tactile sensing (TACTIC), tactile-guided dexterity benchmarking (TactiDex), and one-shot force-aware LfD highlight growing focus on physically grounded contact control.</li><li>Multiple works bridge vision/video priors to feasible robot motion (PhysV2A, GenVid2Robot, DemoBridge, AgenticFocus), tackling embodiment and kinematic feasibility in video-to-action pipelines.</li><li>Navigation and exploration advances span socially aware and pedestrian-safe mobile robots, crowd-free multi-UAV exploration without communication, underwater vehicle control with CFD surrogates, and permanence-aware autonomous driving.</li><li>New control and planning abstractions emerge: B-spline action parameterizations, shortcut trajectory planning for offline RL, adaptive MPPI with disturbance estimation, and shared-control teleoperation via probabilistic intent inference.</li><li>Foundational model and world-model work (CLAP, FlowDAgger, CD-LAM, STP) targets fast adaptation and controllability of large VLM/VLA and action-conditioned world models for both manipulation and navigation.</li><li>MIT’s Hydra++ demonstrates real-time hierarchical 3D scene graphs with object-level shape estimation, underscoring integration of richer geometry into online mapping pipelines.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Hydra++: Real-Time Hierarchical 3D Scene Graph Construction With Object-Level Shape Estimation</td><td>Massachusetts Institute of Technology</td><td>Hydra++ extends hierarchical 3D scene graphs with category-agnostic object-level shape estimation, enabling richer geometry than partial point clouds or CAD templates. It couples online shape inference with a reprojection-mask consistency filter and supports hybrid LiDAR-camera sensing for large-scale outdoor operation, improving both object and scene reconstruction quality in real and simulated environments.</td><td><a href="https://arxiv.org/abs/2607.09455">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>TACTIC: Tactile and Vision Conditioned Contact-Centric Control for Whole-Arm Manipulation</td><td></td><td>TACTIC is a receding-horizon controller for whole-arm manipulation that fuses RGB-D, distributed tactile sensing, and a proximity map into a hybrid predictive model. By coupling learned latent dynamics with analytical contact Jacobians inside a sampling-based MPC, it predicts future contact configurations/forces and steers actions to trade task progress against safe, regulated multi-link contact.</td><td><a href="https://arxiv.org/abs/2607.09218">Link</a></td></tr>
+<tr><td>TactiDex: A Real-World Tactile-Guided Benchmark for Human-Like Dexterous Manipulation</td><td></td><td>TactiDex provides a real-world dataset and benchmark that align dense whole-hand tactile signals with kinematic and object states for dexterous tasks. Building on this, the TactiSkill framework uses a tri-component tactile reward to supervise human-to-robot transfer, improving manipulation success and contact realism, including bimanual scenarios.</td><td><a href="https://arxiv.org/abs/2607.09190">Link</a></td></tr>
+<tr><td>Validating Virtual Reality for Studying Multimodal Human-Robot Interaction in Socially Aware Robot Navigation</td><td></td><td>This work validates an immersive VR replica of a motion-capture arena for studying multimodal human-robot co-navigation with a PR2 mobile manipulator. User studies across crossing and pass-by interactions show VR preserves perceived social awareness and reproduces human trajectory and head-orientation behaviors consistent with real-world navigation.</td><td><a href="https://arxiv.org/abs/2607.09261">Link</a></td></tr>
+<tr><td>Empirical Pedestrian Safety Assessment in a Mobile Robot Using a Predictive Social Force Model</td><td>National Taiwan University</td><td>The paper implements classical and PTTC-augmented social force models, plus new predictive variants, on a nonholonomic robot navigating toward a pedestrian in a facing scenario. Objective metrics and user studies confirm that PTTC-based models improve pedestrian safety, while the added benefit of predictive integration is modest in single-pedestrian interactions.</td><td><a href="https://arxiv.org/abs/2607.09192">Link</a></td></tr>
+<tr><td>Dec-MARVEL: Decentralized Multi-Agent Exploration without Communication under Budget Constraints</td><td>. of Artificial Intelligence, Sogang University.; . of Electronic Engineering, Sogang University.; National University of Singapore</td><td>Dec-MARVEL enables teams of UAVs with limited sensing and no explicit communication to perform budget-aware exploration by coordinating implicitly through observed teammate trajectories. A graph-attention actor trained with phase-conditioned critics and a budget curriculum selects waypoints that respect return constraints, achieving higher coverage and lower overlap than baselines across multiple team sizes and budgets, with sim-to-real validation.</td><td><a href="https://arxiv.org/abs/2607.09060">Link</a></td></tr>
+<tr><td>SplatCtrl: Perception-Action Coupling via Gaussian Scene Representations and Reactive Robot Control</td><td>Mitsubishi Electric Research Laboratories; University of Cambridge; University of Pennsylvania</td><td>SplatCtrl tightly couples 3D Gaussian Splatting-based scene reconstruction with reactive arm control via signed-distance-like metrics derived from isotropic Gaussians. These continuous collision probabilities feed into control barrier functions, enabling smooth, safe arm motion in previously unseen, dynamic environments, including human-robot shared workspaces.</td><td><a href="https://arxiv.org/abs/2607.08948">Link</a></td></tr>
+<tr><td>DemoBridge: A Simulation-in-the-Loop Toolkit for Single-View Human Demonstration Retargeting</td><td></td><td>DemoBridge converts monocular RGB stereo recordings of human hand demonstrations into collision-aware, dynamically validated robot-arm trajectories. A single global trajectory optimizer reasons jointly over alternative grasps, arm and object collisions, and fidelity to the demonstration, backtracking through a physics simulator when needed to ensure executable, stable rollouts suitable for policy learning.</td><td><a href="https://arxiv.org/abs/2607.09519">Link</a></td></tr>
+<tr><td>One-Shot Multimodal Learning from Demonstration with Force-Constrained Elastic Maps</td><td></td><td>This framework performs one-shot LfD that jointly models motion and force, segmenting demonstrations into force-aware primitives and extending elastic maps to encode external force constraints. A convex optimization procedure yields trajectory models that reproduce demonstrated motion and contact profiles, improving safety and robustness across different force-sensing setups and robot platforms.</td><td><a href="https://arxiv.org/abs/2607.09515">Link</a></td></tr>
+<tr><td>PhysV2A: Reachability-Gated and Semantic-Mask-Constrained Feasibility Completion for Video-to-Robot Manipulation</td><td></td><td>PhysV2A turns object-motion priors from video into robot-feasible trajectories by treating grasps as trajectory-conditioned and performing hierarchical reachability gating over grasp–trajectory candidates. A VLM-assisted semantic mask identifies which Cartesian components can be relaxed, enabling manipulability-aware refinement that preserves task semantics while improving kinematic feasibility and robustness in real-robot tasks.</td><td><a href="https://arxiv.org/abs/2607.09365">Link</a></td></tr>
+<tr><td>GenVid2Robot: From Video Generation to Robot Manipulation via Rigid-Geometric Consistency</td><td>Shanghai Jiao Tong University</td><td>GenVid2Robot uses generated videos as hypotheses over object motion, accepting only those whose 2D anchor trajectories are consistent with first-frame RGB-D geometry under a sparse SE(3) model. The validated relative motion is bound to a physically grounded grasp pose and refined with bounded depth compensation, yielding grasp-conditioned trajectories that are geometrically consistent and more reliable in real manipulation.</td><td><a href="https://arxiv.org/abs/2607.09191">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
