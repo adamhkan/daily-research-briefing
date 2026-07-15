@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-14</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-14</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>113</strong></div>
+        <div class="card">Papers analyzed: <strong>113</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>MIT and CMU contribute a strong cluster of infrastructure papers, from GPU-accelerated large-batch MPC (WarpMPC) and Koopman-augmented legged RL (SKooP) to mmWave radar mapping and robust LiDAR-inertial odometry for navigation in adverse conditions.</li><li>Navigation and motion-planning advances span stochastic path priors (AutoPath), physics-informed rectified flows for fast collision-free control (PIER-Flow), and multiple social or human-aware navigation formulations (HUMA, SFM-NMPC, MRRD).</li><li>Manipulation-focused works push diffusion/flow policies, image-space and classification-based action parameterizations (MoF, SegDiff, AMP, Pix2Act), and whole-body loco-manipulation frameworks (PAKE, TAC-LOCO), including bimanual and quadruped-arm systems.</li><li>Dexterous and teleoperated manipulation see new pipelines that leverage single human demos, teleoperation with co-tracking controllers, and large egocentric video corpora (REGRIND, TeleDexter, EgoSteer), plus cross-hand grasp generators (GraspGraphNet).</li><li>Vision-language(-action) integration continues to mature across city-scale VLN, VLA-based general manipulation, UAV active perception, and navigation foundation models (DA-Nav, VIA, ABot-N1, Traj-VLN, ActiveFly-Bench, TS-Mask VLA, Lumo-2).</li><li>Surveys and toolkits (coverage path planning survey, VLN survey, CR-Solver for continuum robots) highlight consolidation of methods alongside emerging safety frameworks for exploration, multi-robot systems, and driving (SEAMLiS, D-SafeMPC, BucketKD).</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>SKooP: Symmetric Koopman Predictions for Faster and More Generalizable Legged Robot Locomotion with Reinforcement Learning</td><td>Massachusetts Institute of Technology</td><td>SKooP jointly learns a Koopman dynamics model and symmetry-aware policy for legged locomotion, using Koopman predictions as privileged critic inputs. This yields smoother, more informative features for RL, accelerating convergence and improving reward across challenging bipedal-style tasks on a quadruped.</td><td><a href="https://arxiv.org/abs/2607.11624">Link</a></td></tr>
+<tr><td>WarpMPC: Large-Batch MPC on GPU via ADMM with Unrolled $LDL^\top$ Factorization</td><td>Massachusetts Institute of Technology</td><td>WarpMPC exploits shared MPC problem structure to unroll sparse LDLᵀ factorizations on GPU, dramatically increasing throughput for large batches of SQP iterations. The approach attains 3–25× speedups on cartpole, quadrotor, and humanoid benchmarks and can quickly generate data to train neural approximations of MPC policies.</td><td><a href="https://arxiv.org/abs/2607.11603">Link</a></td></tr>
+<tr><td>3D Scene Graph Prediction: Generating Hierarchical Models from Partially Observed Environments</td><td>Massachusetts Institute of Technology</td><td>This work predicts hierarchical 3D scene graphs—floor-plan and traversability at the room level plus per-room object layouts—from partial observations. A mixed-domain graph diffusion model handles rooms, while an existing diffusion component generates object arrangements, enabling robots to anticipate unseen structure for exploration and search.</td><td><a href="https://arxiv.org/abs/2607.10879">Link</a></td></tr>
+<tr><td>Interleaved POMDP Planning for Multi-Object Search in Unknown Multi-Room Household Environments</td><td>Massachusetts Institute of Technology</td><td>Inter-POMDP decomposes multi-object search into a high-level POMDP over object-location beliefs and a low-level navigation POMDP over obstacle-aware particles. By interleaving the two planners and seeding beliefs from LLM-informed histograms, it reduces collisions, steps, and detections versus baselines in simulated and real homes.</td><td><a href="https://arxiv.org/abs/2607.10437">Link</a></td></tr>
+<tr><td>Millimeter Wave Radar: From Synthetic Aperture to Probabilistic Mapping</td><td>Carnegie Mellon University</td><td>The authors build a complete pipeline from raw mmWave radar through synthetic aperture processing to probabilistic occupancy maps, targeting operation in smoke, fog, and other adverse conditions. They benchmark mapping and downstream planning performance, release a GPU-accelerated pipeline, and provide a public mmWave dataset.</td><td><a href="https://arxiv.org/abs/2607.10161">Link</a></td></tr>
+<tr><td>A Numerically-Robust ROS 2 Port of iG-LIO: Diagnosing and Fixing Toolchain-Induced Failures in Incremental GICP LiDAR-Inertial Odometry</td><td>Carnegie Mellon University</td><td>This report analyzes numerical failures that arose when porting the iG-LIO LiDAR-inertial odometry system from ROS 1 to ROS 2, tracing them to QoS misconfigurations and a oneTBB–Eigen interaction. The resulting ROS 2 Jazzy implementation improves robustness, supports multiple LiDAR families, and is validated on several sensor setups.</td><td><a href="https://arxiv.org/abs/2607.09947">Link</a></td></tr>
+<tr><td>Diffusion for Long-Horizon Multi-Robot Path Planning in Human-Shared Environments</td><td>Carnegie Mellon University</td><td>MRRD combines rolling-horizon diffusion-based path generation with conflict-based search to coordinate up to 15 robots moving through dense crowds. Temporal conditioning captures urgency, while distinct guidance for humans and robots yields more socially aware, collision-free long-horizon navigation than existing planners.</td><td><a href="https://arxiv.org/abs/2607.09911">Link</a></td></tr>
+<tr><td>NeuralActuator: Neural Actuation Modeling for Robot Dynamics and External Force Perception</td><td>Massachusetts Institute of Technology</td><td>NeuralActuator learns a neural model of actuator behavior that predicts effective joint efforts, external forces with a contact gate, and motor-condition scores from telemetry. Trained on a multi-platform dataset, it improves dynamics fidelity and sensorless force perception on low-cost arms and enhances behavior cloning performance.</td><td><a href="https://arxiv.org/abs/2607.11734">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Mixture of Frames Policy: Multi-Frame Action Denoising for Bimanual Mobile Manipulation</td><td></td><td>MoF is a diffusion-based policy that denoises a shared SE(3) action state across multiple task-aligned frames with frame-specialized denoisers, then fuses their predictions. It leverages a column-based 6D rotation parameterization to keep frame transforms differentiable even for noisy states, outperforming single-frame and MoE baselines in simulated and real bimanual mobile manipulation.</td><td><a href="https://arxiv.org/abs/2607.11884">Link</a></td></tr>
+<tr><td>PAKE: Learning Whole-Body Loco-Manipulation with Partial Kinematic Embeddings</td><td></td><td>PAKE decomposes quadruped-with-arm loco-manipulation into partial reference motion generation via a Kinematic Normalizing Flow and low-level imitation control. A high-level controller navigates the KNF latent space to exploit redundancy, enabling accurate end-effector and base tracking in simulation and real-world whole-body tasks.</td><td><a href="https://arxiv.org/abs/2607.11041">Link</a></td></tr>
+<tr><td>TAC-LOCO: Unified Whole-Body Control for Quadrupedal TACtile-Informed LOCO-Manipulation</td><td></td><td>TAC-LOCO fuses tactile array inputs from a compliant gripper with proprioception in a unified RL policy for leg–arm–gripper control on a quadruped platform. The learned controller tracks base and end-effector commands while modulating grasp force, achieving substantial force reduction and very low object drop rates under varying external loads.</td><td><a href="https://arxiv.org/abs/2607.10132">Link</a></td></tr>
+<tr><td>A Minimalist Retargeting-Guided Reinforcement Learning Recipe for Dexterous Manipulation</td><td></td><td>REGRIND retargets a single human hand–object demo into a robot reference that preserves contact geometry, then trains a residual RL policy to track object-centric keypoints in simulation. With careful system identification, the policy transfers zero-shot to real multi-fingered hands for tool-use tasks such as scissors operation and screwdriver turning.</td><td><a href="https://arxiv.org/abs/2607.11874">Link</a></td></tr>
+<tr><td>Towards Human-level Dexterous Teleoperation</td><td></td><td>TeleDexter learns a hand–object co-tracking controller that maps operator intent to low-level contact-rich execution using RL on subgoal sequences extracted from human motion. The single-stage RL pipeline, with domain randomization and action masking, transfers zero-shot to hardware across multiple dexterous hands, enabling challenging in-hand reorientation and tool use.</td><td><a href="https://arxiv.org/abs/2607.11481">Link</a></td></tr>
+<tr><td>GraspGraphNet: Graph-Structured Multi-Embodiment Dexterous Grasp Generation</td><td>Korea Advanced Institute of Science and Technology</td><td>GraspGraphNet represents each robotic hand as a URDF-derived kinematic graph and performs conditional flow matching directly in joint and palm-pose space. Trained jointly on several hand types, it generates executable dexterous grasps with high success and low inference latency, generalizing without retraining to topology variations such as finger removal.</td><td><a href="https://arxiv.org/abs/2607.11031">Link</a></td></tr>
+<tr><td>AutoPath: Learning Transferable Goal-Conditioned Stochastic Path Prior for Safe Navigation Without Human Demonstrations</td><td>Harbin Institute of Technology; Shanghai Jiao Tong University; Zhejiang University</td><td>AutoPath learns a goal-conditioned stochastic path prior on a canonical, rotation-normalized state space, modeling multimodal local paths consistent with geometry. A polar action manifold and risk-sensitive utility shaping enable sampling diverse yet safe trajectories that transfer across robot platforms, from differential-drive bases to quadrupeds, without retraining.</td><td><a href="https://arxiv.org/abs/2607.11739">Link</a></td></tr>
+<tr><td>DA-Nav: Direction-Aware City-Scale Vision-Language Navigation</td><td>Chinese Academy of Sciences; University of Chinese Academy of Sciences</td><td>DA-Nav turns commercial turn-by-turn directions into executable actions by formulating navigation as discrete spatial grounding on the image plane and layering Chain-of-Thought reasoning for deviation detection, action choice, and target selection. Trained with the new ReDA dataset in CARLA, it outperforms prior VLN methods and runs zero-shot on quadruped and humanoid robots for kilometer-scale real-world navigation.</td><td><a href="https://arxiv.org/abs/2607.11638">Link</a></td></tr>
+<tr><td>Stop to Decide: Latency-Aware Proprioceptive Navigation Primitives for Mapping-Free Quadruped Inspection</td><td></td><td>Focusing on compute-limited quadrupeds, this work shows that in-motion stair-summit detection fails systematically at low navigation loop rates. A modified &quot;climb–settle&quot; cadence combined with simple proprioceptive and range sensing yields near-zero overshoot and enables a fully onboard, mapping-free inspection stack that reliably follows corridors and stairs at varying control frequencies.</td><td><a href="https://arxiv.org/abs/2607.11204">Link</a></td></tr>
+<tr><td>Learning to Navigate Efficiently with Only 0.58M Trainable Parameters</td><td>Nanyang Technological University</td><td>This navigation system analytically computes projective geometry, occupancy, and frame transforms, using them as interfaces between three tiny learned modules for goal grounding, trajectory distribution estimation, and residual-diffusion trajectory sampling. Training just 0.58M parameters on modest data, it approaches state-of-the-art point-goal performance with far fewer trainable weights, lowest collision rates, and 50 Hz inference.</td><td><a href="https://arxiv.org/abs/2607.11029">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
