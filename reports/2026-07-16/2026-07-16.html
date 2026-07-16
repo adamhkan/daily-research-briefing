@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-15</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-15</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>41</strong></div>
+        <div class="card">Papers analyzed: <strong>41</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Navigation and SLAM see multiple advances: dual-stream Mamba policies for LiDAR obstacle avoidance, pixel-level loop closures for topological shortcuts, physics-aware radar SLAM, and LLM-driven elastic multi-robot formations.</li><li>Motion planning contributions focus on constrained, diverse trajectory generation and model-based diffusion optimal control for multi-robot systems, plus spaceborne manipulator-based attitude maneuvers.</li><li>Mobile and aerial platforms gain stronger capabilities via robust off-road multimodal navigation, nighttime agricultural visual navigation, tight quadrotor formation flight with learned residual dynamics, and unified UAV tracking-to-terminal guidance.</li><li>Manipulation and dexterous control work span 3D Gaussian-grounded VLA policies, dense reward learning from synthesized failures, in-hand rolling with physics priors, and improved progress/value estimation for contact-rich tasks.</li><li>Whole-body and loco-manipulation are extended by humanoid dribbling with privileged visual representations and GaitSpan’s single policy spanning walking to running regimes.</li><li>VLA and robot-learning infrastructure advances address dense rewards, structured exploration, temporal redundancy in inference, and instance-enriched semantic maps for visual-language navigation.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>StratMamba: Strategic and Reactive Stream Partitioning for Path-Efficient LiDAR-Based Obstacle Avoidance</td><td>Massachusetts Institute of Technology</td><td>Introduces StratMamba, a dual-stream Mamba-based temporal architecture that combines fast-decay memory for reactive obstacle avoidance with slow-decay memory for long-horizon goal-directed planning from LiDAR. On quadruped navigation tasks in simulation and real world, it outperforms LSTM, Transformer, and vanilla Mamba baselines in timeout rate, path efficiency, and robustness under extended LiDAR ranges.</td><td><a href="https://arxiv.org/abs/2607.12370">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Model-Based Diffusion Optimal Control for Multi-Robot Motion Planning</td><td></td><td>Proposes MDOC, a diffusion-based optimal control framework that samples dynamically feasible trajectories without demonstrations, enforcing safety via Control Barrier Functions. Coupled with Conflict-Based Search for multi-robot coordination, it improves success rate, smoothness, and computation time over baseline planners while maintaining collision-free motion.</td><td><a href="https://arxiv.org/abs/2607.12423">Link</a></td></tr>
+<tr><td>Globalized Constrained Stein Variational Inference for Diverse Feasible Robot Motion Planning</td><td></td><td>SteinSQP embeds hard constraints such as collisions, joint limits, and dynamics directly into a constrained Stein variational inference framework for sampling motion-trajectory ensembles. A GPU-friendly primal-dual solver and an ensemble-level merit function yield diverse, fully feasible trajectories faster and more robustly than first-order Stein methods and multistart nonlinear programming.</td><td><a href="https://arxiv.org/abs/2607.12732">Link</a></td></tr>
+<tr><td>DiffRadar: Differentiable Physics-Aware Radar SLAM with Gaussian Fields</td><td>Clemson University</td><td>Models radar observations as a differentiable Gaussian field, jointly optimizing robot pose and scene structure through a radar forward model instead of discrete scan matching. On public benchmarks and stress tests, DiffRadar significantly reduces trajectory error, improves map consistency, and runs in real time, enabling robust radar-only SLAM in challenging environments.</td><td><a href="https://arxiv.org/abs/2607.12265">Link</a></td></tr>
+<tr><td>PixelLoop: Shortcut Topological Navigation with Pixel-Level Loops</td><td></td><td>Introduces pixel-level loop closures that create dense shortcut edges in a topological map grounded in relative 3D geometry, directly affecting connectivity and cost propagation. This enables stable any-to-any navigation and costmaps aligned with geometric shortest paths, yielding over 35% absolute gains in Success Rate and SPL compared to image-level baselines and validating on real robots.</td><td><a href="https://arxiv.org/abs/2607.12811">Link</a></td></tr>
+<tr><td>MAMMOTH: A Multi-Modal End-to-End Policy for Off-Road Mobility Robust to Missing Modality</td><td>Indian Institute of Science</td><td>Presents MAMMOTH, an end-to-end diffusion-policy-based navigation system that fuses RGB, thermal, 3D point clouds, and ego-velocity for off-road visual-goal navigation and exploration. A modality-dropout training scheme makes the policy robust to missing or degraded sensors, improving collision avoidance, terrain-aware planning, and night-time performance in real-world tests.</td><td><a href="https://arxiv.org/abs/2607.12965">Link</a></td></tr>
+<tr><td>EFLUX: Elastic Multi-Robot Formation Navigation and Adaptation with Agentic LLMs</td><td>University of California, Los Angeles; University of Pennsylvania; University of Southern California</td><td>EFLUX uses an LLM-based agent to reason over a structured scene representation and jointly select deformation (scale, shear) and reconfiguration (split, merge) actions for robot formations. A closed-loop generation–verification–correction pipeline converts these high-level decisions into per-robot waypoints, reducing deadlocks and failures while preserving coordinated navigation in constrained spaces.</td><td><a href="https://arxiv.org/abs/2607.12050">Link</a></td></tr>
+<tr><td>Enabling 24-hour Agricultural Robotics: Unsupervised Day-to-Night Cross-Modal Image Translation for Nighttime Visual Navigation</td><td>SER Lab ennesaw State University, Marietta, GA 30060, USA.</td><td>Proposes an unsupervised framework that translates daytime RGB crop-row images into NIR-like nighttime views, preserving semantics via CLIP and modeling limited illumination with a visibility mask. This allows reusing daytime labels to train nighttime navigation perception, demonstrated on the new AgriNight dataset and validated in real-time nocturnal field robot trials.</td><td><a href="https://arxiv.org/abs/2607.12065">Link</a></td></tr>
+<tr><td>Flatness-Preserving Residual Learning for Real-Time Tight Quadrotor Formation Flight</td><td>University of Pennsylvania</td><td>Learns residual aerodynamic interaction dynamics for tightly spaced quadrotor formations while maintaining differential flatness of the joint system. This enables a lightweight feedback-linearization controller with feedforward compensation that matches NMPC-level tracking accuracy using an order-of-magnitude less computation and under 30 seconds of training data.</td><td><a href="https://arxiv.org/abs/2607.12275">Link</a></td></tr>
+<tr><td>Autonomous Tracking and Terminal Guidance of Moving Targets for Fixed-Wing UAVs</td><td></td><td>Presents a unified three-phase control framework for fixed-wing UAVs with pan-tilt cameras, incorporating vision-based acquisition, NMPC tracking with CBF constraints to avoid self-occlusion, and quaternion-based terminal guidance. High-fidelity simulations show robust target tracking and precise impact-angle-constrained interception while respecting dynamics and FOV limits.</td><td><a href="https://arxiv.org/abs/2607.12801">Link</a></td></tr>
+<tr><td>Instance-Enriched Semantic Maps for Visual Language Navigation</td><td></td><td>Builds 2.5D instance-level semantic maps using open-vocabulary panoptic segmentation with rich attributes and captions, enabling fine-grained object distinctions for instruction-following navigation. An LLM-based query router and compact storage format yield large gains in query AUC, object retrieval, and navigation success over 3D scene-graph baselines.</td><td><a href="https://arxiv.org/abs/2607.12630">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
