@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-17</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-17</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>58</strong></div>
+        <div class="card">Papers analyzed: <strong>58</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Foundation and world-action models for embodied control see rapid advances, with new work on drift-based world models, long-context robot policies, and analysis of WAM vulnerabilities and steering.</li><li>Motion planning and navigation methods increasingly leverage flow/diffusion-style generative models, constraint integration, and adaptive scheduling to improve safety, speed, and constraint satisfaction.</li><li>Whole-body and dexterous manipulation research emphasizes tactile/force grounding, contact-rich control, and new affordable hardware platforms for hands and grippers.</li><li>Vision-Language-Action (VLA) policies are being shaped for robustness, steerability, lifelong learning, and real-time deployment, including navigation-oriented interfaces and teleoperation aids.</li><li>Safe and robust operation under uncertainty is addressed via control barrier functions, risk-aware safety filters, causal diagnosis of failures, and network-aware QoC for collaborative navigation.</li><li>Mapping, memory, and scenario-generation tools—from object-level change detection and stigmergic memories to DSL scenario generators—support long-term autonomy and validation in complex environments.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Action QFormer: Structured Representation Shaping under Action Supervision in Vision-Language-Action Models</td><td>UC Berkeley</td><td>Introduces Action QFormer, a query-based action interface that reorganizes pretrained multimodal VLA representations into action-centric features before action generation. This reduces harmful overwriting of language/grounding representations, yielding large gains in zero-shot sim-to-real navigation and more reliable instruction-following action generation.</td><td><a href="https://arxiv.org/abs/2607.14635">Link</a></td></tr>
+<tr><td>G$^2$SR: Geometric Methods for Fast and Memory-Efficient Gaussian-based Surface Reconstruction</td><td>Massachusetts Institute of Technology</td><td>Proposes G2SR, a hybrid geometric–learning pipeline that reconstructs 3D Gaussian splats from few RGB views using a lightweight 2D splat tracker plus analytic multi-view triangulation. It matches or surpasses heavier end-to-end methods in geometric accuracy while running tens of reconstructions per second with dramatically lower memory, enabling practical online mapping for mobile robots.</td><td><a href="https://arxiv.org/abs/2607.14470">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Learning Agile Navigation in Crowded Environments for Quadruped Robots</td><td>Shanghai Jiao Tong University</td><td>VOP-Nav combines Velocity Obstacles theory with end-to-end learning, using multi-frame LiDAR to predict a safe velocity region without explicit tracking of dynamic obstacles. It achieves higher success rates and better speed–safety balance than baselines in simulation and on a Unitree Go2 navigating dense crowds.</td><td><a href="https://arxiv.org/abs/2607.15036">Link</a></td></tr>
+<tr><td>Curvature-Constrained and Constant-Speed Distributed Simultaneous Arrival Control for Multi-Robot Systems</td><td>National University of Defense Technology</td><td>Develops a distributed hybrid controller for Dubins-type robots with curvature and constant-speed constraints to achieve simultaneous arrival at a target point. Using a virtual time variable and maximum-consensus-based switching, the method is scalable, communication-light, and in some cases provably time-optimal.</td><td><a href="https://arxiv.org/abs/2607.14781">Link</a></td></tr>
+<tr><td>BridgeFlow: Fast and Robust SE(2)-Equivariant Motion Planning with Flow Matching</td><td>Shanghai Jiao Tong University</td><td>BridgeFlow achieves exact SE(2) equivariance via task canonicalization instead of heavy equivariant networks, then uses a Brownian-bridge prior and optimal transport for efficient flow-matching-based trajectory generation. It yields up to 15× faster inference and higher valid-trajectory rates than diffusion baselines in cluttered 2D and 7-DoF manipulator tasks.</td><td><a href="https://arxiv.org/abs/2607.14725">Link</a></td></tr>
+<tr><td>Motion Planning with Model-Based Diffusion via Constraint Optimization and Adaptive Scheduling</td><td></td><td>MD-COAS unifies soft constraint handling via an inexact augmented Lagrangian prior with hard Convex Feasible Set projections in a model-based diffusion framework for single-robot motion planning. An adaptive scheduler co-optimizes safety enforcement and diffusion steps, improving safety, convergence speed, and final cost in highly non-convex 2D and 7-DoF arm benchmarks.</td><td><a href="https://arxiv.org/abs/2607.14455">Link</a></td></tr>
+<tr><td>ConFlow: Constraints-Guided Learning with Flow Matching for Motion Generation</td><td></td><td>ConFlow injects constraint information directly into the flow-matching training objective using differentiable barrier/cost functions and a conditional Gaussian Process source distribution. It also leverages infeasible demonstrations as negative supervision, reducing collisions and improving trajectory quality over standard flow-matching baselines in multi-robot navigation.</td><td><a href="https://arxiv.org/abs/2607.14424">Link</a></td></tr>
+<tr><td>Risk-Aware Belief Control Barrier Functions over Random Finite Sets</td><td>Delft University of Technology; KTH Royal Institute of Technology; TH Royal Institute</td><td>Introduces a belief-level control barrier function framework where multi-object uncertainty is modeled as a Random Finite Set and estimated via an SMC-PHD filter. Safety constraints are enforced directly on the particle-based belief, with theoretical forward-invariance guarantees and validation in simulation and underwater robot experiments.</td><td><a href="https://arxiv.org/abs/2607.15016">Link</a></td></tr>
+<tr><td>Modeling and Validation of Quality of Control for Edge-Offloaded Collaborative Navigation</td><td></td><td>Extends the Quality of Control (QoC) framework to realistic mobile robots whose navigation and collision avoidance rely on edge-offloaded control over 5G. Through analytical modeling and testbed experiments, it characterizes control–communication trade-offs and shows how ROS2 reliability settings impact QoC, with RELIABLE QoS outperforming BEST-EFFORT in key regimes.</td><td><a href="https://arxiv.org/abs/2607.14853">Link</a></td></tr>
+<tr><td>Safe Execution of RL Policies Via Acceleration-Based CBF-QP Constraint Enforcement for Real-World Robotic Deployments</td><td>CNRS–AIST Joint Robotics Laboratory (JRL), IRL3218, AIST, Tsukuba, Japan; IST Joint Robotics Laboratory; University of Tokyo</td><td>Acc-CBF-QP wraps any RL policy in an acceleration-based QP that enforces joint, torque, velocity, and collision constraints via control barrier functions at runtime. On a Kinova arm and Unitree H1 humanoid, it drastically reduces or eliminates constraint violations while preserving nominal performance in safe regimes and preventing shutdowns under aggressive commands.</td><td><a href="https://arxiv.org/abs/2607.14488">Link</a></td></tr>
+<tr><td>Information-Theoretic Adaptive Cooling for Deterministic MPPI via Entropy Feedback</td><td>Hong Kong University of Science and Technology; Shanghai Jiao Tong University</td><td>Proposes ITAC, an entropy-based feedback rule that adaptively cools the temperature in deterministic MPPI control based on the Shannon entropy of importance weights. The method guarantees asymptotic convergence while avoiding premature weight collapse, yielding faster and more efficient convergence on nonsmooth STL-constrained motion-planning tasks.</td><td><a href="https://arxiv.org/abs/2607.14245">Link</a></td></tr>
+<tr><td>CosFly-VLA: A Spatially Aware Vision-Language-Action Model for UAV Tracking</td><td></td><td>CosFly-VLA is a VLA policy for UAV target tracking under frequent occlusions, jointly predicting target grounding, visibility, and continuous actions. A curriculum of spatially grounded pretraining, staged supervised fine-tuning, CoT reasoning, and RL with multi-term rewards significantly improves tracking accuracy and robustness over OpenVLA baselines.</td><td><a href="https://arxiv.org/abs/2607.15004">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
