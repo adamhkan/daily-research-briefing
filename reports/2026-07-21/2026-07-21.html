@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-20</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-20</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>46</strong></div>
+        <div class="card">Papers analyzed: <strong>46</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>New visuo-tactile gripper and sensing methods (VTAP, VTLoc, BayesContact, tensegrity and optical-fiber skins) significantly advance contact-rich and dexterous manipulation.</li><li>Multiple works tackle navigation and exploration robustness, from humanoid path planning (RAVEN) and zero-shot object-goal navigation (SkillNav, T-DRN) to industrial UWB localization and SLAM/exploration pipelines.</li><li>Motion planning and control see strong contributions in kinodynamic multi-objective planning (lexSST/coSST/poSST), fast task-space collision avoidance, and asymmetric Dubins airplane paths.</li><li>Foundation VLA models and compositional training strategies (Xiaomi-Robotics-1, AC-VLA) improve mobile manipulation and out-of-distribution task execution, while new benchmarks (IMBench, reach-avoid, NeuroCommitSSM) expose remaining gaps.</li><li>Whole-body and mobile manipulation interfaces (coupled egocentric teleoperation, NeuroCommitSSM) and morphology innovations (Handroid, CSSPD soft gripper, Opti-Hexa UAV) target practical deployment and resilience.</li><li>Targeted data collection and active learning (contact-rich segments only, embodied active learning) improve data efficiency for manipulation and environment-specific perception under navigation and annotation budgets.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>VTAP Gripper: Synergizing Fingertip Sensing and a Visuo-Tactile Active Palm for Dexterous In-Hand Manipulation</td><td>New York University</td><td>Introduces a tactile-reactive three-finger gripper with an actuated visuo-tactile palm and fingertip arrays, enabling both robust grasps and fine in-hand manipulation without high-DoF anthropomorphic hands. A gesture-conditioned teleoperation retargeting framework bridges human hand motion to the gripper, supporting tasks like syringe reorientation, clustered-object singulation, and peg-in-hole insertion.</td><td><a href="https://arxiv.org/abs/2607.15448">Link</a></td></tr>
+<tr><td>Minimum Time Dubins Airplane Paths with Asymmetric Climb Rates</td><td>UC Berkeley</td><td>Extends Dubins airplane models to allow asymmetric climb and descent rates, preserving time optimality while better exploiting vehicle performance. The approach yields up to 71% reduction in minimum-time connections and accelerates sampling-based planning on rugged terrain, with validation including real-world flight tests.</td><td><a href="https://arxiv.org/abs/2607.15863">Link</a></td></tr>
+<tr><td>A Model-Based Decoupling Strategy for Proprioception and Contact Sensing in an Architected Soft Manipulator</td><td>Massachusetts Institute of Technology</td><td>Presents an architected soft continuum segment with six fluidic channels whose pressure signals are decomposed into shape and contact information via a constant-curvature model and robust regression. Integrated into an eight-segment continuum arm, the system supports accurate proprioception and high-rate contact detection for tactile teaching, force regulation, and tactile object reconstruction.</td><td><a href="https://arxiv.org/abs/2607.15582">Link</a></td></tr>
+<tr><td>A Morphing-Designed Hexarotor Prototype combining Practical Resilience and Efficiency</td><td>New York University</td><td>Demonstrates a morphing hexarotor (Opti-Hexa) whose arm-geometry can be tuned to simultaneously achieve resilience to single-propeller failures and energy efficiency comparable to a standard star layout. Using an open-source morphing platform and empirical power and resilience metrics, the authors identify a viable geometric region with no significant aerodynamic penalty.</td><td><a href="https://arxiv.org/abs/2607.16002">Link</a></td></tr>
+<tr><td>CASAband: Easy-to-Wear Textile Wristband using Shape Memory Alloy Actuators for Spatial and Temporal Haptic Feedback</td><td>UC San Diego</td><td>Introduces a lightweight, fully untethered SMA-actuated haptic wristband that delivers spatial and patterned cues around the wrist for guidance and navigation support. User studies show high accuracy in localizing and discriminating vibration patterns, with demonstrations in pick-and-place and outdoor pedestrian navigation using haptic-only instructions.</td><td><a href="https://arxiv.org/abs/2607.15533">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Handroid: Bridging Dexterous Hand and Humanoid</td><td></td><td>Presents Handroid, a 27-DoF reconfigurable platform that operates either as an anthropomorphic dexterous hand or as a small humanoid with locomotion-capable legs. A unified control and learning stack supports teleoperated in-hand manipulation, RL-based locomotion, and long-horizon tasks that combine embodiment switching, navigation, and dexterous pick-and-place.</td><td><a href="https://arxiv.org/abs/2607.16187">Link</a></td></tr>
+<tr><td>Let the Body Follow: Coupled Egocentric Control for Whole-Body Robot Teleoperation</td><td>Johns Hopkins University; New Jersey Institute of Technology</td><td>Proposes an egocentric teleoperation scheme where a mobile manipulator’s torso and base automatically respond to the operator’s head and arm motions, reducing explicit base/torso commands. User studies on TIAGo show improved manipulation efficiency, fewer singularities, lower control effort, and reduced workload compared with a hybrid baseline.</td><td><a href="https://arxiv.org/abs/2607.16095">Link</a></td></tr>
+<tr><td>SkillNav: Score-Level Skill Intervention for Zero-Shot Object Goal Navigation</td><td></td><td>Introduces a skill framework that directly edits the curiosity value map of VLM-based navigators to encode behavioral memory at zero token cost, avoiding prompt inflation. Stratified skill interventions (soft scaling, lower-bound boost, hard override) yield modular, training-free improvements and set new zero-shot object-goal navigation SOTA on MP3D and HM3D benchmarks.</td><td><a href="https://arxiv.org/abs/2607.15758">Link</a></td></tr>
+<tr><td>A Task-Space Receding Horizon Controller for Fast Collision Avoidance</td><td></td><td>Develops a task-space receding-horizon controller that rolls out short contact-consistent predictions using inflated convex geometries, then executes only the first smooth minimum-acceleration input. The method balances anticipation and responsiveness for high-DOF manipulators, outperforming MPC and optimization-fabric baselines in dynamic clutter while remaining real-time feasible.</td><td><a href="https://arxiv.org/abs/2607.15733">Link</a></td></tr>
+<tr><td>RAVEN: Reinforcement-Adaptive Visibility-Graph Planning for Robust Humanoid Navigation with Collision-Free MPC</td><td>University of California, Los Angeles</td><td>Combines a visibility-graph planner with MPC where RL adaptively adjusts obstacle inflation and graph parameters to account for delays and tracking errors in humanoid locomotion. By reshaping free-space geometry rather than costs, RAVEN reduces overshoot and collision risk in narrow passages while maintaining interpretability and constraint-aware tracking.</td><td><a href="https://arxiv.org/abs/2607.15701">Link</a></td></tr>
+<tr><td>Difference-Based Relational Learning for Zero-Shot Object-Goal Visual Navigation With Direct Sim-to-Real Transfer</td><td></td><td>Proposes T-DRN, which uses Siamese difference-based features between goal and observations plus a dual-frame temporal buffer to build domain-invariant object representations under narrow FoV. The approach improves zero-shot object-goal navigation performance in AI2-THOR and transfers directly to a physical wheeled robot without retraining.</td><td><a href="https://arxiv.org/abs/2607.15642">Link</a></td></tr>
+<tr><td>Multi-Objective Kinodynamic Motion Planning with Asymptotic Pareto Optimality</td><td>University of Colorado Boulder</td><td>Extends the SST kinodynamic planner to maintain locally Pareto-optimal representative sets per witness, enabling lexicographic, constrained, and Pareto-front optimization under dynamics. The resulting algorithms (lexSST, coSST, poSST) come with completeness and optimality guarantees and show strong empirical performance on multi-objective planning tasks.</td><td><a href="https://arxiv.org/abs/2607.15508">Link</a></td></tr>
+<tr><td>Xiaomi-Robotics-1: Scaling Vision-Language-Action Models with over 100K Hours of Real-World Trajectories</td><td></td><td>Introduces a large VLA model trained on 100k+ hours of real manipulation via an auto-labeled trajectory dataset, enabling instruction-following mobile manipulation and data-efficient adaptation. The model exhibits clear scaling trends and achieves new SOTA on RoboCasa365 and RoboDojo, serving as a strong generalist robot policy backbone.</td><td><a href="https://arxiv.org/abs/2607.15330">Link</a></td></tr>
+<tr><td>VTLoc: Learning-based Tactile Contact Localization in Visual Point Clouds</td><td></td><td>Presents a visual-tactile framework that localizes contact points by aligning a pseudo-point cloud from tactile-visual features with a global 3D visual point cloud, plus iterative refinement. On a 100-object real benchmark, VTLoc significantly reduces ambiguity between local tactile readings and global object geometry, improving contact localization for manipulation.</td><td><a href="https://arxiv.org/abs/2607.16146">Link</a></td></tr>
+<tr><td>BayesContact: Uncertain Pose Estimation via Visuo-Tactile Proposals and Simulation-based Inference</td><td>Microsoft Research; University of Edinburgh; University of Waterloo</td><td>Uses simulation-based inference to maintain a particle belief over object pose by scoring hypotheses against both rendered depth and simulated force/torque outcomes from probing. Applied to peg-in-hole, BayesContact improves pose observability and insertion success by around 30% over vision-only baselines and enables active information-gain probing.</td><td><a href="https://arxiv.org/abs/2607.16123">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
