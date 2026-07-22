@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-21</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-21</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>91</strong></div>
+        <div class="card">Papers analyzed: <strong>91</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Navigation and motion planning see strong advances in safety-aware, socially compliant, and long-horizon settings, including adaptive safety margins for visual navigation, multimodal terrain mapping, and disturbance-aware aerial planning.</li><li>Whole-body and manipulation control progress via new VLA-based frameworks, contact- and force-aware policies, compliant LfD, and interpretable high-level skill selection for long-horizon tasks.</li><li>Foundation-style models and operating systems for embodied agents mature, with unified task-planning benchmarks, policy orchestration frameworks, and runtime platforms that decouple cognition from low-level execution and emphasize verification and safety.</li><li>Multi-agent and distributed control methods improve robustness and coordination under communication loss and shared-payload constraints, with theoretical safety guarantees via control barrier functions and covariance steering under distributional ambiguity.</li><li>Sim-to-real transfer and controller robustness are repeatedly stressed across locomotion, grasping, path tracking, and INDI-based aerial control, supported by new analysis tools, calibration pipelines, and depth-regularized world models.</li><li>Topic-relevant work from major institutions (NYU, CMU, Stanford) includes adaptive safety critics for diffusion navigation, long-range traversability priors for off-road planning, and value-aware predictors that stabilize multi-agent coordination under degraded communication.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Learning Adaptive Safety Margins for Visual Navigation</td><td>New York University</td><td>Proposes a context-conditioned safety critic that learns adaptive clearance preferences to rank diffusion-based path proposals from RGB-D input. Trained with privileged ESDF data then distilled to perception-only, it decomposes safety, efficiency, and clearance-matching terms to avoid both over-conservative detours and risky shortcuts. Demonstrated on HM3D/MP3D PointGoal tasks and zero-shot transfer to a Unitree G1 humanoid navigating cluttered indoor scenes.</td><td><a href="https://arxiv.org/abs/2607.18200">Link</a></td></tr>
+<tr><td>Distilling Global Traversability Priors for Image-based Affordance Prediction in Off-road Environments</td><td>Carnegie Mellon University</td><td>Introduces a framework that uses satellite imagery to compute feasible off-road paths and distill long-range traversability priors directly into an FPV image-based affordance network. By supervising with global reachability rather than local depth horizons, the method reduces myopic behavior and improves long-range planning, yielding &gt;10% performance gains and fewer human interventions in real off-road navigation tests.</td><td><a href="https://arxiv.org/abs/2607.17984">Link</a></td></tr>
+<tr><td>Value-Aware Prediction for Robust Multi-Agent Coordination Under Communication Loss</td><td>Stanford University</td><td>Extends MARO-style observation prediction by weighting prediction errors with advantage estimates, focusing model capacity on high-value interaction dynamics. In multi-agent particle environments with intermittent communication, the approach maintains coordination and prevents performance collapse when link reliability drops below 40%, improving mean returns by over 20% and sharply reducing variance compared with unweighted predictors.</td><td><a href="https://arxiv.org/abs/2607.17914">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Manifold-Guided Motion Planning for Tight Assemblies</td><td></td><td>Presents Critical-Manifold Guided RRT (CMG-RRT), a sampling-based planner tailored to rigid-body assembly tasks where feasible paths lie near contact manifolds with near-zero clearance. By hierarchically biasing samples toward these critical manifolds, the planner is proved probabilistically complete and empirically solves challenging rotational assemblies, including a fully automatic solution of the Elk disentanglement puzzle.</td><td><a href="https://arxiv.org/abs/2607.17898">Link</a></td></tr>
+<tr><td>Leveraging Two Robotic Arms for Tight Assembly Performance Gains</td><td></td><td>Develops an end-to-end framework that plans and executes tight assembly operations with two coordinated arms given part CAD models and desired final poses. The method provides theoretical bounds on execution time and accuracy, and experiments show over 50% average reduction in execution time and improved trajectory quality versus single-arm baselines, along with workspace design guidelines.</td><td><a href="https://arxiv.org/abs/2607.17876">Link</a></td></tr>
+<tr><td>Lifelong Localization in Dynamic Indoor Environments Combining Odometry with Sparse Distance Sampling</td><td></td><td>Proposes a lifelong localization framework that fuses robot odometry with as few as 16 distance samples to robustly localize in large, dynamic planar indoor spaces. The method provides provable convergence to the true pose under static (and suitably modeled dynamic) environments, solves the kidnapped robot problem in real time, and attains SLAM-comparable accuracy with far lower sensing and bandwidth requirements.</td><td><a href="https://arxiv.org/abs/2607.17852">Link</a></td></tr>
+<tr><td>Task-Space Constrained Stochastic Trajectory Optimization for Time-Optimal Forestry Crane Motion Planning</td><td>IT Austrian Institute of Technology GmbH; T Austrian Institute of Technology GmbH, 1210 Vienna, Austria; T Austrian Institute of Technology GmbH, 1210 Vienna, Austria {marc-philip.ecker,christoph.froehlich</td><td>Introduces TSC-VP-STO, a task-space-constrained extension of Via-Point Stochastic Trajectory Optimization that jointly optimizes trajectories and redundant terminal configurations for hydraulic forestry cranes. By exploiting redundancy under pump-flow constraints, the planner balances joint velocities and reduces trajectory durations by 12–15% on average, validated in real-world log loading cycles.</td><td><a href="https://arxiv.org/abs/2607.17818">Link</a></td></tr>
+<tr><td>VLN-AVP: Zero-Shot Vision-Language Navigation with Hybrid Long-Short-Term Memory for Autonomous Valet Parking</td><td>Shanghai Jiao Tong University</td><td>Proposes VLN-AVP, a zero-shot valet parking framework that combines BEV perception with vision-language models and a hybrid memory architecture. Short-term perception memory tracks semantic cues while long-term topological memory supports stable policy learning, enabling instruction-following navigation without pre-built maps and yielding &gt;25% success gains over VLN baselines and &gt;15% over autonomous driving methods in simulation, with strong real-vehicle performance.</td><td><a href="https://arxiv.org/abs/2607.17767">Link</a></td></tr>
+<tr><td>Stability and Comfort in Mobile Robot-Pedestrian Interactions</td><td>National Taiwan University</td><td>Develops socially aware navigation algorithms for nonholonomic mobile robots based on extended Social Force Models and projected Time-to-collision SFM, with formal stability guarantees under boundedly nonpassive pedestrian assumptions. Experiments with pedestrians show improved subjective comfort and safe, efficient crowd navigation compared with remote-controlled and prior model-based baselines.</td><td><a href="https://arxiv.org/abs/2607.17604">Link</a></td></tr>
+<tr><td>Predictive Training with Latent Imagination for Visual Quadruped Navigation</td><td></td><td>Augments a reactive LSTM-SRU navigation controller for quadrupeds with an auxiliary JEPA-style predictor and SIGReg regularization that supervise the hidden state to anticipate its own future evolution during training. The predictor is discarded at inference, yet policies achieve substantially higher navigation success and fewer collisions around dynamic obstacles, with zero-shot sim-to-real transfer on a Unitree Go2 in cluttered indoor and dynamic outdoor scenes.</td><td><a href="https://arxiv.org/abs/2607.17574">Link</a></td></tr>
+<tr><td>Finite-Time Curvature-Constrained Vector Field for Saturation-Free Motion Planning of Nonholonomic Robots</td><td>National University of Defense Technology</td><td>Introduces a finite-time curvature-constrained vector field (FT-C2VF) and an almost globally C1-smooth, saturation-free controller for nonholonomic robots. The vector field ensures continuous, bounded curvature with finite-time convergence to the target, while the controller respects actuator limits without saturation and achieves almost-global finite-time stability, validated in simulations and outdoor Ackermann-vehicle experiments.</td><td><a href="https://arxiv.org/abs/2607.17542">Link</a></td></tr>
+<tr><td>G2-Nav: Grounded and Guarded Vision-Language Costmaps for Robot Social Navigation</td><td></td><td>Proposes G2-Nav, which converts open-set vision-language reasoning into interpretable costmaps for social navigation instead of direct action commands. A VLM evaluates traversability and social agents, verifies semantic tracking, and populates a costmap that is guarded by high-frequency safety checks, enabling safe, efficient, and socially compliant navigation in unstructured real-world environments.</td><td><a href="https://arxiv.org/abs/2607.16956">Link</a></td></tr>
+<tr><td>Token-Wise Latent Streaming from Slow Reasoners to Fast Planners for Dynamic Vision Language Navigation</td><td>Hong Kong University of Science and Technology; National University of Singapore; Zhejiang University</td><td>Introduces SPARK-VLN, a dual-system VLN framework that streams intermediate VLM hidden states token-by-token to a fast flow-matching planner, mitigating observation staleness in dynamic human environments. A sequence-to-slot latent bridge and evolving latent conditioner let the planner continuously update plans during language inference, improving navigation success and social compliance without sacrificing efficiency.</td><td><a href="https://arxiv.org/abs/2607.16806">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
