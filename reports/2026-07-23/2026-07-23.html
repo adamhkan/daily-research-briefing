@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-22</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-22</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>39</strong></div>
+        <div class="card">Papers analyzed: <strong>39</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Motion planning and navigation dominate today’s robotics papers, spanning stochastic kinodynamic planning, STL-based planning/control, POMDP interception in crowds, and long-horizon UAV navigation with learned world models.</li><li>Formal methods and safety appear repeatedly, from STL-constrained planning and behavior tree synthesis to theoretical limits of sampling-based reachability and integrity-gated eco-driving.</li><li>Learning-centric approaches for locomotion and control include torque-driven quadruped RL, Koopman-based balancing, and contact-implicit MPC for hybrid aerial–terrestrial robots.</li><li>Embodied world modeling and vision-language systems advance via unified world action models, masked visual actions, STL-structured VLM control, and test-time scaled VLMs for UAV navigation.</li><li>Mobile and multi-agent systems see progress in GPS-denied UAV geo-localization, hierarchical LLM+DRL multi-UAV navigation, confidence-gated vision for UAV–UGV cooperation, and eco-CACC under model integrity checks.</li><li>Manipulation and dexterity are addressed through underactuated hand design, twist-space task decomposition, and rich intermediate representations/datasets for manipulation reasoning and control.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>From Distances to Trajectories: Real-Time Signed Distance Function Mapping and Distance-Accelerated Motion Planning for UAVs</td><td>UC San Diego</td><td>Introduces OREN, an online SDF mapper combining an octree prior with a neural residual, and Bubble★, a distance-aware search planner that grows maximal collision-free “bubbles” for UAV navigation. The unified mapping–planning pipeline runs onboard a quadrotor in cluttered indoor environments, cutting SDF error by 22% and planning 90 m trajectories in 1–3 s with formal guarantees of termination and completeness.</td><td><a href="https://arxiv.org/abs/2607.19306">Link</a></td></tr>
+<tr><td>FARO: Feasibility-Aware Robot Motion Optimization</td><td>Carnegie Mellon University</td><td>Proposes a nested kino-dynamic feasibility checker integrated with a feasibility-guided tree search and LLM-based contact plan sampling for humanoid loco-manipulation. The system rapidly finds dynamically consistent trajectories that can be tracked by an RL controller, enabling high-quality whole-body execution in complex, real-world loco-manipulation tasks.</td><td><a href="https://arxiv.org/abs/2607.18362">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Stochastic Multi-Objective Kinodynamic Planning Against Adversaries</td><td>University of Michigan</td><td>Develops SMO-RRT and SMO-SST for kinodynamic motion planning that jointly optimize cost and safety-risk in environments with stochastic adversaries. By planning over closed-loop policies and using Monte Carlo particle rollouts for on-tree risk evaluation, the methods yield Pareto fronts of probabilistically safe trajectories with finite-sample chance-constraint guarantees.</td><td><a href="https://arxiv.org/abs/2607.19284">Link</a></td></tr>
+<tr><td>Pose-Parameterized Motion Planning and CBF-QP Self-Collision Filtering for a Long-Reach Drilling Boom</td><td></td><td>Combines pose-parameterized planning with a capsule-based CBF-QP filter to ensure self-collision-free motion of a multi-link drilling boom. A task-specific planner generates detours offline while an online CBF-QP regulates joint velocities, achieving millimeter-level accuracy and zero sampled self-collisions across large simulated task sets.</td><td><a href="https://arxiv.org/abs/2607.18855">Link</a></td></tr>
+<tr><td>Beyond Transformers: Linear Attention Policy for Open-Vocabulary Object Goal Navigation</td><td></td><td>Introduces LANav, a linear-attention-based policy architecture for open-vocabulary object-goal navigation that maintains structured internal state updates under partial observability. With the proposed WSLA mechanism, the policy outperforms Transformer baselines on HM3D-OVON and transfers effectively to a Unitree Go2 robot with high real-world success.</td><td><a href="https://arxiv.org/abs/2607.18794">Link</a></td></tr>
+<tr><td>Intelligent Multi-UAV Navigation in ITNTNs: A Hierarchical LLM Approach</td><td>Carleton University</td><td>Presents a hierarchical control architecture where a cloud LLM handles slow-timescale strategic decisions and edge LLMs generate sub-goals for a fast DRL controller governing UAV flight. The framework coordinates multi-UAV navigation and network handovers in 3D aerial highways, reducing collisions and improving throughput in simulated integrated terrestrial/non-terrestrial networks.</td><td><a href="https://arxiv.org/abs/2607.18604">Link</a></td></tr>
+<tr><td>DASH Robot: Minimalistic Design and Optimal Aerial-Terrestrial Locomotion via Contact-Implicit Control</td><td>. Xiong is now with the Shanghai Innovation Institute</td><td>Introduces DASH, a minimal ducted-fan robot with a single spring leg that supports both agile flight and energy-efficient ground hopping. A contact-implicit MPC automatically selects locomotion mode and actuation, enabling seamless transitions and autonomous obstacle traversal in experiments.</td><td><a href="https://arxiv.org/abs/2607.18527">Link</a></td></tr>
+<tr><td>Beyond Fixed Goal Delivery: Online POMDP Planning for Target Interception in Crowds</td><td>University of Colorado Boulder</td><td>Formulates intercepting moving targets in dense human crowds as an online POMDP solved via tree search with a fixed compute budget. A unified steering–speed action parameterization dramatically improves safe interception rates and time-to-intercept over sequential path-then-speed baselines, especially at high crowd densities.</td><td><a href="https://arxiv.org/abs/2607.18517">Link</a></td></tr>
+<tr><td>Towards Torque-Driven Reinforcement Learning for Quadruped Locomotion</td><td>University of Louisville</td><td>Explores torque-level RL control for a heavy, high-torque quadruped (Unitree B1), avoiding reliance on state-estimated velocities in the observation space. In simulation, the learned policy achieves fast locomotion over rough terrain and stair traversal, highlighting the viability of torque-driven whole-body control for larger platforms.</td><td><a href="https://arxiv.org/abs/2607.18365">Link</a></td></tr>
+<tr><td>No Training, Better Flights: Test-Time Scaled VLMs for UAV Navigation</td><td></td><td>Applies test-time scaling to vision-language models for UAV navigation by generating multiple candidate trajectories and iteratively self-correcting them without retraining. A multi-criteria scoring function selects safer, more goal-aligned plans, pushing state-of-the-art performance in vision-language aerial navigation.</td><td><a href="https://arxiv.org/abs/2607.19288">Link</a></td></tr>
+<tr><td>STL-GCS: A Planner-Controller Framework for Signal Temporal Logic via Graphs of Time-varying Convex Sets</td><td></td><td>Unifies planning and control for STL-specified tasks by encoding predicates as time-varying convex sets and solving a shortest-path problem via Graphs of Convex Sets with B-spline trajectories. A corresponding feedback controller uses the same sets to maintain specification satisfaction under tracking errors, validated in space robotics experiments.</td><td><a href="https://arxiv.org/abs/2607.19196">Link</a></td></tr>
+<tr><td>NGPS: GPS-Denied Aerial Geo-Localization and 2.5D Reconstruction via Deep Satellite Image Matching and Multi-Rate Sensor Fusion</td><td></td><td>Proposes NGPS, a GPS-free geo-localization pipeline that matches downward-facing UAV imagery to satellite maps and fuses it with VIO and IMU through an adaptive UKF. Running in real time on a Jetson Orin NX, it delivers meter-level position accuracy at 60–150 m altitude and supports online 2.5D orthomosaic reconstruction.</td><td><a href="https://arxiv.org/abs/2607.18936">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
