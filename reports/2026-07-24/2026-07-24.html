@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-23</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-23</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>34</strong></div>
+        <div class="card">Papers analyzed: <strong>34</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Strong focus on safe and robust navigation and motion planning, from social navigation and V2X driving to UAVs under spoofing and vehicle drifting on ice.</li><li>Multiple works advance embodied navigation benchmarks and cross-embodiment policies, including indoor–outdoor NavVerse, embodiment-aware EA-Nav, and referring-based visual tracking in ReferTrack.</li><li>Mobile and whole-body control is extended to new platforms and use cases, such as a low-cost robotic guide dog (Milo), miniature humanoid tele-loco-manipulation, and versatile limbless locomotion (Morphing MILR).</li><li>Manipulation research emphasizes data efficiency and abstraction, with one-shot skill acquisition from a single human video (HOST), language-guided multi-embodiment grasping (SeededGrasp), and LLM-guided environment simplification (LENS).</li><li>New control and learning frameworks tackle safety and recovery: distributed MPC+CBF for multi-robot boats, spoofing-aware UAV trajectory planning, human-derived recovery behaviors (EgoRecovery), and contact-persistent full actuation for aerial interaction.</li><li>MIT contributes both to distributed motion planning for aquatic robots and to soft-robot-enabled distributed acoustic localization, underscoring institutional strength in field robotics and sensing.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Distributed Motion Planning with Safety Guarantees for Self-Reconfiguring Robotic Boats</td><td>Massachusetts Institute of Technology</td><td>Introduces a hybrid distributed framework for multi-robot aquatic shape formation that combines ADMM-based distributed MPC with local CBF filters to guarantee inter-robot collision avoidance. The approach mitigates nonconvex local minima while maintaining real-time safety, and is validated in simulation with up to 25 agents and on hardware with four robotic boats.</td><td><a href="https://arxiv.org/abs/2607.20352">Link</a></td></tr>
+<tr><td>Distributed Acoustic Localization Array Deployed Using a Soft Everting Vine Robot</td><td>Massachusetts Institute of Technology</td><td>Presents a distributed microphone array integrated along a soft everting vine robot for victim localization in confined spaces, using a dynamic SRP-PHAT framework for both far-field DOA and near-field 3D localization. Experiments across array placements and robot shapes show that accurate localization is possible even with partially deployed arrays, highlighting soft robots as carriers for adaptable sensing architectures.</td><td><a href="https://arxiv.org/abs/2607.20392">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Towards Miniature Humanoid Tele-Loco-Manipulation Using Virtual Reality and Reinforcement Learning</td><td>University of Louisville</td><td>Develops a full-body telepresence control stack for miniature humanoids that couples VR-based upper-body teleoperation with RL-based lower-body locomotion. Demonstrations on ROBOTIS OP3 show compliant walking up to 0.45 m/s and tele-loco-manipulation in a cube relocation task, making advanced whole-body humanoid control more accessible.</td><td><a href="https://arxiv.org/abs/2607.20399">Link</a></td></tr>
+<tr><td>SeededGrasp: Language-Guided Grasping in Complex Scenes with Multiple Embodiments</td><td></td><td>Proposes a two-stage grasping framework where a VLM predicts a semantic seed point conditioned on language, which then guides a lightweight grasp generator. By decoupling high-level reasoning from low-level geometry and training on a new 2.5M-grasp multi-embodiment dataset, SeededGrasp improves success in cluttered tabletop scenes in both simulation and real robots.</td><td><a href="https://arxiv.org/abs/2607.20207">Link</a></td></tr>
+<tr><td>Unified Prediction and Planning via Conflict-Aware Disjoint Parameter Training</td><td>Korea Advanced Institute of Science and Technology</td><td>Identifies &quot;Skill Conflict&quot; in compact unified models that jointly perform motion prediction and navigation planning, where overlapping parameters harm specialization. Introduces Disjoint Parameter Training, a model-merging framework with sparse parameter fusion that alleviates conflicts and improves crowd-navigation performance on JRDB and JTA benchmarks.</td><td><a href="https://arxiv.org/abs/2607.19971">Link</a></td></tr>
+<tr><td>EA-Nav: Learning Safe Visual Navigation Policies with Embodiment Awareness</td><td>Zhejiang University</td><td>Presents an imitation-learning-based navigation framework that conditions policies on explicit embodiment geometry tokens to resolve action ambiguity across different robots. Using Internet-scale cross-embodiment video data and risk-aware correction modules, EA-Nav improves cross-embodiment navigation safety and performance without extensive RL interaction.</td><td><a href="https://arxiv.org/abs/2607.19880">Link</a></td></tr>
+<tr><td>SOPD-SocialNav: Selective On-Policy Distillation for Vision-Language Social Navigation</td><td>NVIDIA</td><td>Introduces selective on-policy distillation from a large VLM teacher to a lightweight student for socially aware navigation, using entropy-based token selection and JS-divergence on informative decisions. The distilled model outperforms standard distillation and supervised baselines on social navigation benchmarks and runs in real time on a small robot.</td><td><a href="https://arxiv.org/abs/2607.19850">Link</a></td></tr>
+<tr><td>NavVerse: Benchmarking Indoor-to-Outdoor Embodied Navigation in Continuous Robot Simulation</td><td></td><td>Introduces NavVerse, a physics-based benchmark with 10,000 episodes spanning indoor, outdoor, and indoor-to-outdoor tasks for object, language, and place navigation. Evaluation of RL, VLA, and modular baselines reveals large performance gaps in cross-context navigation, especially for indoor-to-outdoor adaptation and safety under kinodynamic constraints.</td><td><a href="https://arxiv.org/abs/2607.19695">Link</a></td></tr>
+<tr><td>Remote ID Spoofing-Aware Trajectory Planning for Small Unmanned Aerial Systems</td><td></td><td>Proposes a decentralized trajectory planner for UAVs that explicitly models potential spoofing in Remote ID broadcasts by fusing signal-strength measurements to detect and localize spoofers. A chance-constrained formulation turns uncertainty into risk-bounded unsafe regions in an MDP planner, reducing near mid-air collisions in multi-UAV simulations.</td><td><a href="https://arxiv.org/abs/2607.19650">Link</a></td></tr>
+<tr><td>LENS: LLM-guided Environment Simplification for Planning and Control in Clutter</td><td></td><td>Introduces LENS, a plug-in module that uses LLMs to generate task-specific scene abstractions by pruning or merging objects in cluttered manipulation environments. By dynamically simplifying the world model in closed loop, LENS boosts success of classical planners, model-based controllers, and VLAs across complex multi-object tasks.</td><td><a href="https://arxiv.org/abs/2607.19633">Link</a></td></tr>
+<tr><td>Milo, a Fully Autonomous Indoor/Outdoor Robotic Guide Dog</td><td></td><td>Presents Milo, a low-cost Unitree Go2-based robotic guide dog with fully onboard perception and navigation for assisting blind and low-vision users indoors and outdoors. A voxel-based mapping and obstacle/pedestrian detection stack feeds a learned obstacle-avoidance policy, achieving smoother and safer navigation than a costmap baseline; hardware and software are open-sourced.</td><td><a href="https://arxiv.org/abs/2607.19530">Link</a></td></tr>
+<tr><td>ReferTrack: Referring Then Tracking for Embodied Visual Tracking</td><td></td><td>Proposes a two-stage embodied tracking policy that first selects the language-described target among detected boxes and then outputs waypoints conditioned on this grounded decision. Temporal-viewpoint-bbox indicator tokens maintain target context over time, yielding state-of-the-art single-camera performance on EVT-Bench and successful deployment on legged and humanoid robots.</td><td><a href="https://arxiv.org/abs/2607.20061">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
