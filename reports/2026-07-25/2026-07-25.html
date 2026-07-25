@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-24</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-24</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>35</strong></div>
+        <div class="card">Papers analyzed: <strong>35</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Multi-robot coordination and navigation see strong advances, from distributed diffusion-based trajectory optimization to socially consistent multi-robot navigation and AV coordination at unsignalized intersections.</li><li>Manipulation research emphasizes robustness in contact-rich and visuo-tactile settings, scalable data engines and datasets, and unified control frameworks that explicitly couple high-level policies with low-level impedance/admittance behavior.</li><li>New navigation formulations and systems, including vision-only long-horizon UAV navigation, monocular VLM-based indoor navigation, and capability-aware traversability, target long-horizon, embodiment-aware deployment in unstructured environments.</li><li>Aerial and multi-drone systems progress with safe, scalable payload transport via CBF-based RL that transfers zero-shot to real hardware and decentralized UAV swarms for target protection in GPS/communication-denied settings.</li><li>Benchmarking and data generation efforts expand with large-scale tabletop and teleoperation-based manipulation datasets, Gaussian-splatting SLAM for large-scale mapping, and domain-specific datasets for cluttered transparent lab objects and topological road maps.</li><li>Several works focus on interpretability and compositionality in policies—through mixture-of-experts VLAs, bias-aware compositional evaluation, correctable visual attention, and factorized latent coordination for AVs.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Safe and Scalable Multi-Drone Payload Transport via CBF-based Reinforcement Learning with Zero-Shot Sim-to-Real Transfer</td><td>Massachusetts Institute of Technology</td><td>Introduces a learning-based framework for cooperative multi-drone payload transport that uses a minimal 2D abstraction and a Discrete Graph Control Barrier Function PPO scheme to enforce safety. A single distributed policy, trained with domain randomization, generalizes across varying team sizes and scenarios and transfers zero-shot to real multi-drone hardware operating in dynamic environments.</td><td><a href="https://arxiv.org/abs/2607.20665">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Distributed Model-Based Diffusion For Scalable Multi-Robot Trajectory Optimization</td><td>University of Michigan</td><td>Extends model-based diffusion to multi-robot systems by decomposing the reverse diffusion process into local conditional denoising steps coordinated via a central server. The resulting Distributed MBD framework scales trajectory optimization to high-dimensional, non-convex coordination tasks like multi-floor coverage and rush-hour traffic, solving them in sub-seconds and outperforming existing baselines.</td><td><a href="https://arxiv.org/abs/2607.20992">Link</a></td></tr>
+<tr><td>Socially Consistent Multi-Robot Navigation Using Decoupled Planning and Trajectory Coordination</td><td></td><td>Presents a partially decentralized navigation framework that embeds social norms into a modified A* global planner and then coordinates multi-robot trajectories via a mixed-integer convex program. Sharing socially compliant paths across robots builds a social route graph, yielding predictable, human-aligned motion and simplifying downstream multi-robot coordination.</td><td><a href="https://arxiv.org/abs/2607.20772">Link</a></td></tr>
+<tr><td>VoLN: Vision-Only Long-Horizon Navigation---Paradigm, Benchmark, and Method</td><td></td><td>Defines Vision-Only Long-Horizon Navigation, shifting guidance from explicit language instructions to locally observable visual cues and goal views. The VoLN-UAV benchmark and VoLN-MLLM baseline expose major challenges in long-horizon evidence integration and cross-view goal matching for aerial robots operating under continuous 3D motion.</td><td><a href="https://arxiv.org/abs/2607.21400">Link</a></td></tr>
+<tr><td>Robostral Navigate</td><td></td><td>Introduces an 8B vision-language navigation model that uses only monocular RGB streams to predict image-space waypoints, enabling embodiment-agnostic deployment across wheeled, legged, and aerial platforms. Trained on 2.4M simulated trajectories with a prefix-caching recipe and RL fine-tuning, it sets new SOTA on R2R-CE and RxR-CE while outperforming depth and multi-camera systems.</td><td><a href="https://arxiv.org/abs/2607.20785">Link</a></td></tr>
+<tr><td>ZONDA: Zero-shot Object Navigation with Dynamic Avoidance in Multi-floor Environments</td><td></td><td>Proposes a zero-shot object-goal navigation framework that unifies heuristic multi-floor planning, multi-view target verification via a VLM, and explicit pedestrian tracking for dynamic obstacle avoidance. Demonstrated on a real biped robot and large-scale simulators, ZONDA enables robust cross-floor, dynamic navigation without task-specific training.</td><td><a href="https://arxiv.org/abs/2607.21025">Link</a></td></tr>
+<tr><td>Towards Capability-Aware Traversability Navigation for Unstructured Environments</td><td>Mobile Robotics Group, University of São Paulo, São Carlos, SP, Brazil.Correspondence to</td><td>Introduces Capability-Aware Traversability (CAT), which embeds robot-specific physical limits directly into a spatial feature space using SPADE-conditioned semantic terrain maps. The method improves AUROC and AUPRC over baselines on trajectory-aligned data and runs on legged and wheeled robots at 4.8 Hz, yielding embodiment-aware obstacle avoidance in unstructured terrain.</td><td><a href="https://arxiv.org/abs/2607.20679">Link</a></td></tr>
+<tr><td>Self-Supervised Bio-Inspired Robotic Trajectory Planning with Obstacle Avoidance</td><td></td><td>Extends a neuro-inspired self-supervised trajectory planning framework to environments with obstacles, leveraging coupled forward and inverse models for internal supervision. Experiments show the planner can generate collision-free trajectories but also reveal exploitation of the learning signal, prompting proposed training and mitigation strategies.</td><td><a href="https://arxiv.org/abs/2607.20743">Link</a></td></tr>
+<tr><td>A Real-Time Generalized Nash Equilibrium Framework for Interaction-Aware Autonomous Driving in Mixed Traffic</td><td></td><td>Models AV–human-driver interactions as a Generalized Nash Equilibrium Problem with shared safety and geometric constraints, explicitly coupling each agent’s feasible strategies. A custom particle-swarm-based solver achieves sub-50 ms convergence and generates comfortable, human-like trajectories validated on a real autonomous Renault Zoé in mixed traffic.</td><td><a href="https://arxiv.org/abs/2607.21043">Link</a></td></tr>
+<tr><td>Deep Reinforcement-Learning-Guided Model Predictive Control for Preventing Overtakes in Autonomous Racing</td><td>National University of Singapore; University of Michigan</td><td>Formulates defensive racing as a spatial occupancy regulation problem, combining a SAC-based strategic layer in Frenet coordinates with a nonlinear MPC controller under friction constraints. On a racing circuit, the framework substantially delays overtakes and reduces opponent progress while operating in real time near vehicle dynamic limits.</td><td><a href="https://arxiv.org/abs/2607.20973">Link</a></td></tr>
+<tr><td>Decentralized UAV Swarms for Ground Target Protection in GPS- and Communication-Denied Environments</td><td>Computing and the Ingenuity Labs Research Institute; Czech Technical University in Prague; Queen&#x27;s University</td><td>Develops a decentralized UAV-swarm defense system that relies solely on onboard sensing and relative measurements, without GPS or inter-UAV communication. Kalman filters estimate both hostile and friendly states, and a swarm encirclement strategy adapts to target motion, with real-robot tests showing effective detection, encirclement, and interception of attacking UAVs.</td><td><a href="https://arxiv.org/abs/2607.20710">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
