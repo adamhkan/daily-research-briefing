@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-07-28</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-07-28</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>69</strong></div>
+        <div class="card">Papers analyzed: <strong>69</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>MIT proposes a semantic, semi-incremental object-SLAM backend that eliminates explicit data association while tightly fusing landmark semantics and mapping.</li><li>ETH Zurich demonstrates continual RL on the RoboRacer platform, rapidly adapting a single racing policy to new tracks with limited real-world data.</li><li>New methods span high-level world/action models, visuo-tactile foundations, and curriculum learning for long-horizon manipulation on LIBERO and real robots.</li><li>Navigation-focused work advances traversability-aware global planners, UAV MPC in complex corridors, and safety-aware RL for quadrotor flight in dynamic clutter.</li><li>Multiple papers target real-time execution and robustness of VLA and world models, including anticipatory chunking, latent predictive anchors, and action-selection refinements.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Continual-RL for Generalization in Autonomous Racing on the RoboRacer Platform</td><td>ETH Zurich</td><td>Introduces a continual RL framework based on Continual Backpropagation to adapt a single driving policy across different RoboRacer track-floor combinations using only real-world data. The method fine-tunes within ~15 minutes to surpass classical controllers and is compared against an offline RL baseline, highlighting plasticity and generalization in physical-world continual learning.</td><td><a href="https://arxiv.org/abs/2607.24320">Link</a></td></tr>
+<tr><td>Semantic Semi-Incremental Data-Association-Free Object SLAM</td><td>Massachusetts Institute of Technology</td><td>Proposes a generalized SLAM framework that jointly estimates data associations, robot poses, landmark states, and landmark semantics without explicit data association. A semi-incremental optimizer fuses positional and semantic measurements (class labels and feature vectors), improving accuracy and efficiency over strong baselines on synthetic and real datasets.</td><td><a href="https://arxiv.org/abs/2607.23384">Link</a></td></tr>
+<tr><td>Pose-Aware Modeling to Mitigate Pose-Related Artifacts in Tactile Gloves</td><td>University of Washington</td><td>Analyzes how hand pose corrupts measurements in soft tactile gloves and introduces a pose-aware residual model to compensate these artifacts without hardware changes. Validated across three glove designs and 15 users, the method significantly lowers minimum detectable force and improves contact detection quality for dexterous manipulation and teleoperation.</td><td><a href="https://arxiv.org/abs/2607.22964">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Model Predictive Planner for UAV Navigation in Non-Convex Air Corridors</td><td></td><td>Develops a mixed-integer model predictive control planner for UAVs operating inside non-convex urban air corridors, unifying corridor feasibility and dynamic consistency in one optimization. By embedding a shortest-path-based offset cost and feasibility constraints, the method generates dynamically valid, collision-free trajectories without requiring a separate global planner.</td><td><a href="https://arxiv.org/abs/2607.24369">Link</a></td></tr>
+<tr><td>Learning Traversability-Aware Global Planners for Long Horizon Off-Road Navigation</td><td>EVCOM Army Research Laboratory; OM Army Research laboratory, Adelphi, MD, USA; Texas A&amp;M University; VCOM Army Research laboratory, Adelphi, MD, USA</td><td>Learns a continuous traversability map from overhead geo-spatial data using human driving trajectories and self-supervised LiDAR priors, enabling long-horizon off-road global planning beyond onboard sensor range. Field trials on a Warthog UGV show human-level path efficiency with ~85% fewer operator interventions than local-planner-only autonomy.</td><td><a href="https://arxiv.org/abs/2607.23743">Link</a></td></tr>
+<tr><td>Anticipatory Risk-Guided Reinforcement Learning for Safe Flight Through Dynamic Clutter</td><td></td><td>Introduces a risk-guided RL framework for quadrotor navigation in dense dynamic environments, training an actor-critic to predict a future collision-risk map based on Closest Point of Approach using privileged simulation states. At deployment, a lightweight encoder uses depth sequences to infer risk and guide actions, improving safety and efficiency with strong zero-shot sim-to-real transfer.</td><td><a href="https://arxiv.org/abs/2607.23565">Link</a></td></tr>
+<tr><td>FloAff-Kitchen: Bridging Navigation and Manipulation via Canonical and Progressive Floor Affordance Learning</td><td></td><td>Proposes CFAR and PFAL, a unified framework to predict floor affordances that optimize downstream manipulation success rather than mere navigability for mobile manipulators in kitchens. A new FloAff-Kitchen benchmark evaluates cross-scene, multi-view settings, where the method outperforms baselines in selecting base placements for diverse manipulation tasks.</td><td><a href="https://arxiv.org/abs/2607.24207">Link</a></td></tr>
+<tr><td>Moving-Horizon Estimation and Nonlinear Model Predictive Control of Cable-Driven Soft Manipulators</td><td></td><td>Presents an MHE–NMPC framework grounded in reduced Cosserat-rod dynamics for cable-driven soft manipulators, enabling cable-length-based control without direct tension sensing. Simulations and experiments on a four-cable prototype demonstrate real-time implementation, accurate state estimation, and constrained end-effector tracking for soft-arm manipulation.</td><td><a href="https://arxiv.org/abs/2607.24029">Link</a></td></tr>
+<tr><td>Learning Reusable Hybrid Motion Priors for Humanoid Locomotion from Motion Imitation</td><td></td><td>Introduces a hybrid motion prior (HMP) distilled from motion-imitation experts into a codebook-based architecture that downstream policies query via discrete latent actions. Applied to humanoid locomotion tasks including navigation and fall recovery, the frozen HMP enables task policies with interpretable structure, reuse across tasks, and successful deployment on a Unitree G1.</td><td><a href="https://arxiv.org/abs/2607.24083">Link</a></td></tr>
+<tr><td>LEACL: LLM-Enhanced Automatic Curriculum Learning for Reinforcement Learning in Long-Horizon Manipulation Tasks</td><td>Nanyang Technological University; National Taiwan University; Sony AI; University of Texas at Austin</td><td>Combines large language models with automatic curriculum learning to tackle sparse-reward, long-horizon manipulation in LIBERO. The LLM decomposes tasks into subtasks and generates specifications, while ACL uses only sparse rewards, yielding better asymptotic success than hand-crafted dense-reward baselines.</td><td><a href="https://arxiv.org/abs/2607.23515">Link</a></td></tr>
+<tr><td>FutureRTC: Real-Time Robot Execution with Anticipatory-Conditioned Action Chunking</td><td></td><td>Proposes FutureRTC, a plug-in adaptation that predicts future proprioceptive states and visual embeddings to align VLA policy inputs with execution-time contexts during asynchronous chunked control. A state-correction and motion-aware observation prediction module plus a policy-consistency loss reduce inter-chunk discontinuities and improve robustness to inference delays in simulation and real robots.</td><td><a href="https://arxiv.org/abs/2607.24008">Link</a></td></tr>
+<tr><td>LeapBot-WA: World-Anchor Action Models via Predictive Latent Alignments</td><td></td><td>Introduces LeapBot-WA, a latent-centric World Action Model that replaces pixel-level video generation with Joint-Embedding Predictive Architecture-based semantic dynamics. An Isotropic Semantic Autoencoder aligns latent spaces for diffusion and an asymmetric Mixture-of-Transformers enables heavy world modeling only at training, achieving SOTA on LIBERO and strong zero-shot robustness with zero extra inference cost.</td><td><a href="https://arxiv.org/abs/2607.23969">Link</a></td></tr>
+<tr><td>WorldDiT: A Unified Diffusion Architecture for World and Action Modeling</td><td></td><td>Presents WorldDiT, a single diffusion transformer jointly trained to generate action chunks and predict future visual patches, avoiding reliance on large VLM backbones. On four LIBERO suites, it sits on the Pareto frontier of parameter count vs. success rate, offering a compact baseline for scaling world–action diffusion models.</td><td><a href="https://arxiv.org/abs/2607.23909">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
