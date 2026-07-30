@@ -1,0 +1,2751 @@
+{
+  "submission_date": "2026-07-29",
+  "filters": {
+    "institutions": [
+      "Carnegie Mellon University",
+      "Massachusetts Institute of Technology",
+      "Stanford University",
+      "ETH Zurich",
+      "UC Berkeley",
+      "New York University",
+      "UC San Diego",
+      "University of Washington"
+    ],
+    "topics": [
+      "mobile manipulation",
+      "navigation",
+      "motion planning",
+      "dextrous manipulation",
+      "whole-body control"
+    ]
+  },
+  "paper_count": 41,
+  "selected_paper_count": 31,
+  "papers": [
+    {
+      "arxiv_id": "arXiv:2607.26056",
+      "title": "INTACT: Isomorphic Intent-to-Action Learning for Search-Free World Models",
+      "authors": [
+        "Junhan Sun",
+        "Hao Zhao",
+        "Guofeng Zhang"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Forward latent world models predict how actions change a scene, but recover actions for a desired change only through expensive test-time search. We introduce INTACT (INtent-To-ACTion), an end-to-end JEPA that turns action-labeled, reward-free trajectories into a deployable intent-to-action interface. Each transition supplies physical intent $z_{t+1}-z_t$, while a future goal supplies deployment intent $\\operatorname{sg}(z_g)-z_t$. The architecture is isomorphic between the local and goal motion-intent backbone-input graphs through an identical four-slot grammar and shared parameters, and between supported local and goal motion-intent families through action-law semantics induced by the same predictor rather than pointwise latent equality. INTACT also provides intact transfer from RGB evidence to action-effective latent intent coordinates and from intent families to their corresponding action-law families. Asymmetric endpoint gradients ground physical successors and fix future goals as anchors, joining representation learning and control without pointwise latent matching or globally linear dynamics. The resulting coordinates support a robust distributional action law: its conditional mean serves directly as a search-free policy, while sampling remains available for diversity or optional verification. On the four official LeWM tasks, one-epoch, zero-search models reach 85.78\\%, 100.00\\%, 97.67\\%, and 97.89\\% success. Optional local CEM centered on the Direct plan reaches 96.86\\% macro success using 384 instead of 9,000 candidate sequences, reducing sampling by $23.44\\times$ while improving pure CEM by 16.00 points. One shared four-task encoder reaches 89.39\\% E5 Direct macro and improves every task over jointly trained LeWM, while predicted--expert action-family kNN tracks Direct success at $r=0.954$. Direct inference takes 2.9--5.5 ms.",
+      "abs_url": "https://arxiv.org/abs/2607.26056",
+      "pdf_url": "https://arxiv.org/pdf/2607.26056.pdf",
+      "html_url": "https://arxiv.org/html/2607.26056v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Junhan Sun",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Hao Zhao",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Guofeng Zhang",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Forward latent world models predict how actions change a scene, but recover actions for a desired change only through expensive test-time search. We introduce INTACT (INtent-To-ACTion), an end-to-end JEPA that turns action-labeled, reward-free trajectories into a deployable intent-to-action interface. Each transition supplies physical intent $z_{t+1}-z_t$, while a future goal supplies deployment intent $\\operatorname{sg}(z_g)-z_t$. The architecture is isomorphic between the local and goal motion",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "World models and intent-to-action mapping for control; relevant to planning for manipulation/navigation though not specific to mobile platforms.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.26055",
+      "title": "$π\\mathbf{R}^2$: Reactive Real-time Flow Policies",
+      "authors": [
+        "Sungjae Park",
+        "Shubham Tulsiani"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Generalist manipulation policies increasingly take the form of action-chunking flow policies built on large pretrained backbones. Such chunks run open-loop, so the policy cannot react to sensory input arriving mid-execution, sacrificing \\emph{reactivity}. Replanning more often would restore it, but the perception-to-action pipeline (a large backbone plus multiple denoising steps) is too slow: this \\emph{latency} forbids frequent replanning and leaves committed actions stale, making such policies ill-suited for dynamic, closed-loop control. We present $\\pi\\mathbf{R}^2$, which makes these policies reactive and real-time while retaining large backbones, expressive multi-modal policies, and multi-action prediction. Built on the per-position noise schedule of diffusion forcing, $\\pi\\mathbf{R}^2$ contributes two ideas. First, it splits conditioning into a fast channel (proprioception, fresh every tick) and an asynchronously updated slow channel (vision-language features), so the policy reacts to proprioception within a chunk while tolerating stale vision. Second, a latency-adaptive flow schedule treats in-flight actions as inpainting conditioning and emits actions in one denoising step per call, letting one trained model adapt to varying hardware latency. Requiring minimal modification to existing architectures, $\\pi\\mathbf{R}^2$ can be finetuned from a pretrained policy: applied to GR00T-N1.7 on a real xArm6+XHand platform, it replans closed-loop roughly $4\\times$ faster than the base policy (~$25$Hz on an A5000 GPU), acting on a fresh observation every $40$ms. Across simulation and real-world manipulation tasks, $\\pi\\mathbf{R}^2$ improves the success rate by up to $23\\%$ in simulation and $30\\%$ in the real world over the strongest baseline. Project page: this https URL",
+      "abs_url": "https://arxiv.org/abs/2607.26055",
+      "pdf_url": "https://arxiv.org/pdf/2607.26055.pdf",
+      "html_url": "https://arxiv.org/html/2607.26055v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Sungjae Park",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Shubham Tulsiani",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Generalist manipulation policies increasingly take the form of action-chunking flow policies built on large pretrained backbones. Such chunks run open-loop, so the policy cannot react to sensory input arriving mid-execution, sacrificing \\emph{reactivity}. Replanning more often would restore it, but the perception-to-action pipeline (a large backbone plus multiple denoising steps) is too slow: this \\emph{latency} forbids frequent replanning and leaves committed actions stale, making such policies",
+      "topic_relevance": 3,
+      "topic_match": true,
+      "topic_rationale": "Reactive real-time flow policies for manipulation with feedback; tightly related to manipulation control and motion generation.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.26047",
+      "title": "S2A2: Audio-Visual Imitation Learning for Manipulation Tasks Using Acoustic Spatial Information",
+      "authors": [
+        "Kaneyoshi Hiratsuka",
+        "Benjamin Yen",
+        "Ryosuke Kojima"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Acoustic information provides rich cues about object location, material properties, and changes caused by contact or motion. This paper introduces a new set of acoustic-aware manipulation tasks for imitation learning, in which robots must use auditory cues to determine manipulation targets. These tasks require sound source localization and identification for active exploration in robotic manipulation. Also, we propose a multimodal imitation learning framework, Spatial-Spectral Audio Action (S2A2), that integrates visual features with acoustic spatial and acoustic signal information for the acoustic-aware manipulation tasks. We implemented S2A2 models that integrates policies such as ACT, Diffusion Policy, VQ-BeT, and $\\pi_0$, into our framework. Simulation experiments showed that the proposed method is the most effective for tasks requiring both position and timbre. Furthermore, real-robot experiments confirm the applicability of the proposed tasks and framework to real-world manipulation.",
+      "abs_url": "https://arxiv.org/abs/2607.26047",
+      "pdf_url": "https://arxiv.org/pdf/2607.26047.pdf",
+      "html_url": "https://arxiv.org/html/2607.26047v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Kaneyoshi Hiratsuka",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Benjamin Yen",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Ryosuke Kojima",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Acoustic information provides rich cues about object location, material properties, and changes caused by contact or motion. This paper introduces a new set of acoustic-aware manipulation tasks for imitation learning, in which robots must use auditory cues to determine manipulation targets. These tasks require sound source localization and identification for active exploration in robotic manipulation. Also, we propose a multimodal imitation learning framework, Spatial-Spectral Audio Action (S2A2",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Audio-visual imitation learning for manipulation tasks; directly about robot manipulation policies, though not specifically dextrous.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25985",
+      "title": "Physics-Aware End-to-End Deep Reinforcement Learning for Quadcopter Control with Actuator Dynamics",
+      "authors": [
+        "Ya-Chia Shen",
+        "Woei-Leong Chan"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Unmanned aerial vehicles (UAVs), particularly quadcopters, present unique challenges for autonomous control due to their underactuated dynamics: only four available control inputs must govern six degrees of freedom. This paper investigates a physics-aware, end-to-end deep reinforcement learning (DRL) approach that acts directly on low-level body inputs, total thrust and body torques $(T, \\tau_x, \\tau_y, \\tau_z)$, and closes the loop through a high-fidelity Simulink environment. Our simulator integrates a 12-state rigid-body model (MATLAB Level-2 S-Function) with (i) an Action2RPM allocation based on the Moore-Penrose pseudo-inverse of a coefficient matrix derived from thrust and drag terms, and (ii) first-order actuator dynamics for each motor (time constant $T_m = 0.076$ s), including rotor gyroscopic coupling. A shaped reward balances goal-reaching and stability using an exponential position well, attitude penalties, and quadratic velocity costs. Four DRL algorithms, DDPG, TD3, PPO, and SAC, are evaluated in two stages: (S1) thrust-only hover and (S2) hover with pitch torque and a translated goal. Results show that SAC and TD3 achieve superior stability and exploration efficiency, while PPO is less sample-efficient. The study highlights the significance of modeling actuator lags and aerodynamic moments for stable low-level control and provides a reproducible benchmark for quadcopter DRL.",
+      "abs_url": "https://arxiv.org/abs/2607.25985",
+      "pdf_url": "https://arxiv.org/pdf/2607.25985.pdf",
+      "html_url": "",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Ya-Chia Shen",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Woei-Leong Chan",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Unmanned aerial vehicles (UAVs), particularly quadcopters, present unique challenges for autonomous control due to their underactuated dynamics: only four available control inputs must govern six degrees of freedom. This paper investigates a physics-aware, end-to-end deep reinforcement learning (DRL) approach that acts directly on low-level body inputs, total thrust and body torques $(T, \\tau_x, \\tau_y, \\tau_z)$, and closes the loop through a high-fidelity Simulink environment. Our simulator int",
+      "topic_relevance": 1,
+      "topic_match": false,
+      "topic_rationale": "Quadcopter low-level control and dynamics; control-focused but not motion planning or navigation at higher level.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25918",
+      "title": "DC-WAM: Dynamic-Centric Visual Supervision and Reasoning for World-Action Models",
+      "authors": [
+        "Haoyuan Ji",
+        "Lingxiang Fan",
+        "Shang Su",
+        "Yinqiao Lu",
+        "Mengkai Shi",
+        "Jun Gao",
+        "Shuo Feng"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "World-Action Models (WAMs) augment robot policies with future visual prediction, but it remains unclear what the visual modality should learn for control. While photorealistic future prediction provides dense supervision, it also incurs substantial computation and can allocate capacity to texture, illumination, and background variations that are only weakly related to action selection. Recent efficient WAM variants suggest that the main benefit of the video branch may not lie in the rendered future itself, but in the control-relevant visual representations induced during training. In this work, we revisit future video prediction from a dynamic-centric perspective and ask whether an existing RGB-based WAM can be redirected from appearance-dominated reconstruction toward interaction-induced visual dynamics without introducing additional modality-specific predictions or online inputs at deployment. We propose DC-WAM, a dynamic-centric WAM framework that redistributes supervision and computation in the RGB video branch. At the supervision level, DC-WAM combines temporal-difference flow matching with trajectory-guided weighting, emphasizing dense temporal changes and localized regions where the gripper, manipulated objects, and contact areas move. At the reasoning level, DynaRoute predicts token-wise dynamic relevance and converts it into an attention bias, guiding the model toward control-relevant future tokens. Experiments in simulation and on real-world manipulation tasks show that DC-WAM consistently improves policy performance, especially under out-of-distribution perturbations in lighting, object appearance, and background texture.",
+      "abs_url": "https://arxiv.org/abs/2607.25918",
+      "pdf_url": "https://arxiv.org/pdf/2607.25918.pdf",
+      "html_url": "https://arxiv.org/html/2607.25918v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Haoyuan Ji",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Lingxiang Fan",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Shang Su",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yinqiao Lu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Mengkai Shi",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Jun Gao",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Shuo Feng",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "World-Action Models (WAMs) augment robot policies with future visual prediction, but it remains unclear what the visual modality should learn for control. While photorealistic future prediction provides dense supervision, it also incurs substantial computation and can allocate capacity to texture, illumination, and background variations that are only weakly related to action selection. Recent efficient WAM variants suggest that the main benefit of the video branch may not lie in the rendered fut",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "World-Action Models for robot policies and control; relevant to motion generation and planning for manipulation.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25912",
+      "title": "SAM3D-Guided Object-Centric Representation Alignment for Vision-Language-Action Models",
+      "authors": [
+        "Zonghe Liu (1)",
+        "Shanyuan Jie (2)",
+        "Xiaoquan Sun (3)",
+        "Chen Cao (1)",
+        "Zetian Xu (1)",
+        "Zongsheng Liu (4)",
+        "Jiayu Chen (1 and 5) ((1) University of Hong Kong",
+        "(2) Shenzhen Institutes of Advanced Technology",
+        "Chinese Academy of Sciences",
+        "(3) Huazhong University of Science and Technology",
+        "(4) Beijing University of Aeronautics and Astronautics",
+        "(5) Infiforce)"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Vision-Language-Action (VLA) models have shown strong potential for general robot manipulation, but most existing models rely on 2D visual-language backbones and lack fine-grained 3D understanding of target objects, especially under occlusion, pose variation, scale changes, and precise spatial interaction. We propose an object-centric 3D representation alignment framework built upon $\\pi_0$, using SAM3D as a frozen 3D teacher to provide target-object 3D priors during training. Specifically, we localize task-relevant objects with object recognition models, generate corresponding object masks, and use SAM3D to extract dense object-level 3D representations, which are aligned with intermediate visual features of $\\pi_0$. This enables the policy to internalize target-object 3D information while preserving the original RGB-language-to-action inference pipeline without requiring depth, point clouds, masks, SAM3D, or additional 3D modules at test time. Simulation experiments show consistent improvements, achieving 99.1\\% on LIBERO and an average length of 4.11 on CALVIN. Real-world experiments further demonstrate that our method is particularly effective in long-horizon manipulation scenarios where the robot must focus on different target objects across multiple subtasks.",
+      "abs_url": "https://arxiv.org/abs/2607.25912",
+      "pdf_url": "https://arxiv.org/pdf/2607.25912.pdf",
+      "html_url": "https://arxiv.org/html/2607.25912v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Zonghe Liu (1)",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Shanyuan Jie (2)",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Xiaoquan Sun (3)",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Chen Cao (1)",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Zetian Xu (1)",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Zongsheng Liu (4)",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Jiayu Chen (1 and 5) ((1) University of Hong Kong",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "(2) Shenzhen Institutes of Advanced Technology",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Chinese Academy of Sciences",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "(3) Huazhong University of Science and Technology",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "(4) Beijing University of Aeronautics and Astronautics",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "(5) Infiforce)",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Vision-Language-Action (VLA) models have shown strong potential for general robot manipulation, but most existing models rely on 2D visual-language backbones and lack fine-grained 3D understanding of target objects, especially under occlusion, pose variation, scale changes, and precise spatial interaction. We propose an object-centric 3D representation alignment framework built upon $\\pi_0$, using SAM3D as a frozen 3D teacher to provide target-object 3D priors during training. Specifically, we l",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "3D object-centric representations for VLA robot manipulation models; supports precise spatial interaction and manipulation planning.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25895",
+      "title": "HiFi-UMI: Learning Deployable Manipulation Policies from High-Fidelity UMI Data Alone",
+      "authors": [
+        "Simple AI : Yuteng Wei",
+        "Jinming Ma",
+        "Jiawei Wang",
+        "Weitao Zhou",
+        "Yushen Zuo",
+        "Ke Rui",
+        "Minglei Li",
+        "Jinhao Zhang",
+        "Zhikang Pan",
+        "Xiang Wang",
+        "Haoran Jia",
+        "Huan Du",
+        "Zicheng Zeng",
+        "Jun Ma",
+        "Guiyu Qin",
+        "Di Zhang",
+        "Xiaofei Li"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-training. We ask whether raising the fidelity of robot-free UMI data, rather than shrinking the real-robot fraction, can remove that anchor. We present HiFi-UMI, a portable UMI data-production system co-designed for trajectory accuracy, inter-gripper relative pose, synchronization, and field of view: head-mounted offline stereo-inertial SLAM, native rather than reconstructed relative pose, a shared microsecond GPIO trigger, and two wide-angle cameras per hand covering ~200 degrees. It reaches 3 mm workspace-local end-effector accuracy without external tracking infrastructure. Using this corpus, we demonstrate zero-robot post-training: a policy post-trained solely on HiFi-UMI demonstrations deploys directly on a real robot and matches in-domain teleoperation across three backbones spanning the vision-language-action and world-action-model families, with success-rate differences of -2.5, +3.1, and -0.6 percentage points on StarVLA-QwenPI, OpenPI-pi_0.5, and LingBot-VA; the strongest policy reaches 85% on a precision insertion task, even though the teleoperation baseline is collected in the evaluation scene and no HiFi-UMI trajectory is. Pre-training on 4,000 hours from the same corpus lowers action error on ten unseen tasks by 41% and, on StarVLA-QwenPI, raises real-robot success by a further 18.1 percentage points. We open-source HiFi-UMI-2K, 2,000 hours of microsecond-synchronized, ultra-wide-FoV demonstrations, each automatically reconstructed and validated through simulation replay, as a large-scale, high-fidelity resource for the robot-learning community.",
+      "abs_url": "https://arxiv.org/abs/2607.25895",
+      "pdf_url": "https://arxiv.org/pdf/2607.25895.pdf",
+      "html_url": "https://arxiv.org/html/2607.25895v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Simple AI : Yuteng Wei",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Jinming Ma",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Jiawei Wang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Weitao Zhou",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yushen Zuo",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Ke Rui",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Minglei Li",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Jinhao Zhang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Zhikang Pan",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Xiang Wang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Haoran Jia",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Huan Du",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Zicheng Zeng",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Jun Ma",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Guiyu Qin",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Di Zhang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Xiaofei Li",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Learning deployable manipulation policies is bottlenecked by the scarcity of data that is both high-fidelity and scalable. Real-robot teleoperation is accurate but costly to scale; robot-free UMI capture scales readily, and current practice uses the resulting data mainly for pre-training, adding a small real-robot \"anchor\" at post-training. We ask whether raising the fidelity of robot-free UMI data, rather than shrinking the real-robot fraction, can remove that anchor. We present HiFi-UMI, a por",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Learning deployable manipulation policies from teleoperation-like data; directly about robot manipulation control.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25807",
+      "title": "Modular Robotic Catheters for Endovascular Aneurysm Repair",
+      "authors": [
+        "Alex Ranne",
+        "Jinshi Zhao",
+        "Ali Anil Demircali",
+        "Songli Moey",
+        "Ayhan Aktas",
+        "Burak Temelkuran",
+        "Nassir Navab",
+        "Ferdinando Rodriguez y Baena"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Fenestrated/Branched endovascular aneurysm repair (FEVAR/BEVAR) require surgeons to navigate catheters and guidewires into various branches of the abdominal aorta, before deploying stent grafts to alleviate pressure on the aneurysm. Previous clinical studies suggests that surgeons continue to struggle with vessel access using standard commercial instruments, prolonging the procedural time and inducing further complications. In this work, we present two contributions to solving this problem: 1) A bespoke 2-segment steerable catheter, consisting of 4 degrees of freedom to enhance dexterity. 2) An expandable, modular tendon-driven actuation platform that can accommodate for the redundancies introduced in our system. To fabricate the catheter, we capitalized on thermal fiber drawing, a technique that creates high-aspect ratio devices at scale, and processed the catheter with laser micro-machining to soften its tip. We evaluated the system using simulations, where we investigated the catheter's bending stiffness, then its steerability with in-vitro experiments in vascular phantoms. This handheld, robotic steerable catheter system has the potential to shorten the length of future endovascular surgeries, and give clinicians the tools to resolve challenging clinical cases.",
+      "abs_url": "https://arxiv.org/abs/2607.25807",
+      "pdf_url": "https://arxiv.org/pdf/2607.25807.pdf",
+      "html_url": "https://arxiv.org/html/2607.25807v1",
+      "html_author_notes_text": "∗\nThese authors contributed equally to this work.Alex Ranne is supported by the UKRI CDT in AI for Healthcare under Grant EP/S023283/1, the ICL-TUM Joint Academy of Doctoral Studies (JADS) program, and by the InnoHK\nInitiative of the Innovation and Technology Commission of the Hong Kong\nSpecial Administrative Region Government, Multi-Scale Medical Robotics\nCentre, The Chinese University of Hong Kong. Jinshi Zhao is supported by Cancer Research UK under the grant\nEDDPJT-May21/100001.\n1\nAlex Ranne, Songli Moey, and Ferdinando Rodriguez y Baena are with the Hamlyn Centre for Robotic Surgery, Department of Mechanical Engineering, Imperial College London, SW7 2AZ, UK (Corresponding author: Ferdinando Rodriguez y Baena, e-mail:\nf.rodriguez@imperial.ac.uk)\n2\nJinshi Zhao, Ali Anil Demircali, and Burak Temelkuran are with the Department of Metabolism, Digestion and Reproduction, Imperial College London, SW7 2AZ, UK.\n3\nAyhan Aktas is with Department of Mechanical Engineering, Bursa Uludag University, 16059, Bursa, Turkey\n4\nNassir Navab is with the Chair for Computer Aided Medical Procedures and Augmented Reality (CAMP), Technical University of Munich, 85748 Garching, Germany",
+      "html_author_institutions": [
+        "These authors contributed equally to this work.Alex Ranne is supported by the UKRI CDT in AI for Healthcare under Grant EP/S023283/1, the ICL-TUM Joint Academy of Doctoral Studies (JADS) program, and by the InnoHK",
+        "Centre, The Chinese University of Hong Kong. Jinshi Zhao is supported by Cancer Research UK under the grant",
+        "Jinshi Zhao, Ali Anil Demircali, and Burak Temelkuran are with the Department of Metabolism, Digestion and Reproduction, Imperial College London, SW7 2AZ, UK",
+        "Ayhan Aktas is with Department of Mechanical Engineering, Bursa Uludag University, 16059, Bursa, Turkey",
+        "Nassir Navab is with the Chair for Computer Aided Medical Procedures and Augmented Reality (CAMP), Technical University of Munich, 85748 Garching, Germany"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Alex Ranne",
+            "institutions": [
+              {
+                "canonical": "The University of Hong Kong",
+                "raw": "iative of the Innovation and Technology Commission of the Hong Kong",
+                "match_method": "token_overlap",
+                "confidence": 1.0
+              }
+            ],
+            "raw_institutions": [
+              "iative of the Innovation and Technology Commission of the Hong Kong"
+            ]
+          },
+          {
+            "name": "Jinshi Zhao",
+            "institutions": [
+              {
+                "canonical": "The University of Hong Kong",
+                "raw": "iative of the Innovation and Technology Commission of the Hong Kong",
+                "match_method": "token_overlap",
+                "confidence": 1.0
+              }
+            ],
+            "raw_institutions": [
+              "iative of the Innovation and Technology Commission of the Hong Kong"
+            ]
+          },
+          {
+            "name": "Ali Anil Demircali",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Songli Moey",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Ayhan Aktas",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Burak Temelkuran",
+            "institutions": [],
+            "raw_institutions": [
+              "Aktas is with Department of Mechanical Engineering, Bursa Uludag University, 16059, Bursa, Turkey"
+            ]
+          },
+          {
+            "name": "Nassir Navab",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Ferdinando Rodriguez y Baena",
+            "institutions": [],
+            "raw_institutions": [
+              "Aktas is with Department of Mechanical Engineering, Bursa Uludag University, 16059, Bursa, Turkey"
+            ]
+          }
+        ],
+        "paper_level_institutions": [
+          "Aktas is with Department of Mechanical Engineering, Bursa Uludag University, 16059, Bursa, Turkey",
+          "Imperial College London",
+          "Technical University of Munich",
+          "The Chinese University of Hong Kong",
+          "The University of Hong Kong"
+        ],
+        "paper_level_detected_institutions": [
+          "Aktas is with Department of Mechanical Engineering, Bursa Uludag University, 16059, Bursa, Turkey",
+          "Imperial",
+          "Technical University of Munich",
+          "The Chinese University of Hong Kong",
+          "iative of the Innovation and Technology Commission of the Hong Kong",
+          "itiative of the Innovation and Technology Commission of the Hong Kong",
+          "mperial College"
+        ],
+        "unmapped_raw_institutions": [
+          "Aktas is with Department of Mechanical Engineering, Bursa Uludag University, 16059, Bursa, Turkey"
+        ],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Fenestrated/Branched endovascular aneurysm repair (FEVAR/BEVAR) require surgeons to navigate catheters and guidewires into various branches of the abdominal aorta, before deploying stent grafts to alleviate pressure on the aneurysm. Previous clinical studies suggests that surgeons continue to struggle with vessel access using standard commercial instruments, prolonging the procedural time and inducing further complications. In this work, we present two contributions to solving this problem: 1) A",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Modular catheters for endovascular procedures involving navigation in vasculature; path planning/navigation in constrained anatomy.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25798",
+      "title": "Transformer Transformer: A Unified Model for Motion-Conditioned Robot Co-design",
+      "authors": [
+        "Huy Ha",
+        "C. Karen Liu",
+        "Shuran Song"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "An often overlooked factor of robot manipulation performance is the embodiment of the robot itself. Motivated by this problem, we study motion-conditioned robot co-design, where the goal is to generate complete robot designs that track target end-effector trajectories (from human demonstrations) while optimizing user-defined rewards. We introduce Transformer Transformer, a diffusion transformer trained on RoboTokens, a unified tokenization of robot embodiments, states, and actions. The same architecture can be used across embodiment spaces (e.g., wheeled bimanual, quadrupeds, humanoids) and use cases (embodiment generation, cross embodiment controller). Rather than overfitting to one reward function, Transformer Transformer is a dynamics model, whose reward-agnostic state and action predictions can be converted into reward-specific value predictions. These value predictions are used to steer embodiment diffusion towards high value robot designs, through a procedure we call Dynamics Self-Guidance. Experiments across multiple design spaces show zero-shot optimization of unseen rewards and trajectories, improving performance and runtime over the evolutionary baseline. Finally, we fabricated an optimized ALOHA design, which reduced tracking error by over 70% compared to the original design.",
+      "abs_url": "https://arxiv.org/abs/2607.25798",
+      "pdf_url": "https://arxiv.org/pdf/2607.25798.pdf",
+      "html_url": "https://arxiv.org/html/2607.25798v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Huy Ha",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "C. Karen Liu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Shuran Song",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "An often overlooked factor of robot manipulation performance is the embodiment of the robot itself. Motivated by this problem, we study motion-conditioned robot co-design, where the goal is to generate complete robot designs that track target end-effector trajectories (from human demonstrations) while optimizing user-defined rewards. We introduce Transformer Transformer, a diffusion transformer trained on RoboTokens, a unified tokenization of robot embodiments, states, and actions. The same arch",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Robot co-design conditioned on end-effector motions; related to manipulation kinematics and motion feasibility.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25784",
+      "title": "Motion-Acceleration Calibration and Compensation in IMUs without External Equipment for Attitude Estimation Filters",
+      "authors": [
+        "Fabian Arzberger",
+        "Andreas Nüchter"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Attitude estimation based on inertial sensing requires measurements of local angular velocities and local gravity via gyroscopes and accelerometers. However, during the motion of a mobile system the inertial measurement unit (IMU) will be subject to additional accelerations which skews the measurement of local gravity. This effect gets amplified the further away the IMU is from the base of the system. Many attitude estimation filters, such as \"Madgwick\" or \"Mahony\", account for this by relying more on gyroscope integration for periods of high angular velocity. However, this approach is prone to accumulate long term error especially around the gravity vector. In this work we utilize the gyroscope measurements to compensate the additional accelerations induced by the motion of the system, i.e., centripetal- and tangential-accelerations. Additionally, we introduce a calibration method that estimates intrinsic IMU parameters such as axes misalignment, bias, scale, as well as the extrinsic base-to-IMU vector without the necessity for additional external equipment. Our evaluation in simulation as well as in the real-world shows that this method improves any attitude filter that relies on the direction of gravity. Furthermore we demonstrate the effectivenes on highly dynamic systems, and systems that are unable to put the IMU at the center of rotation, using our real-world spherical mobile mapping system.",
+      "abs_url": "https://arxiv.org/abs/2607.25784",
+      "pdf_url": "https://arxiv.org/pdf/2607.25784.pdf",
+      "html_url": "https://arxiv.org/html/2607.25784v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Fabian Arzberger",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Andreas Nüchter",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Attitude estimation based on inertial sensing requires measurements of local angular velocities and local gravity via gyroscopes and accelerometers. However, during the motion of a mobile system the inertial measurement unit (IMU) will be subject to additional accelerations which skews the measurement of local gravity. This effect gets amplified the further away the IMU is from the base of the system. Many attitude estimation filters, such as \"Madgwick\" or \"Mahony\", account for this by relying m",
+      "topic_relevance": 1,
+      "topic_match": false,
+      "topic_rationale": "IMU calibration/compensation for attitude estimation; sensing and estimation, not planning or manipulation.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25781",
+      "title": "Tripody: An Overconstrained 3-SPR-like Parallel Robot for High-Reach Construction Tasks",
+      "authors": [
+        "Julien Kindle",
+        "Jakub Raczy",
+        "Riccardo Balbi",
+        "Andrea Alessandretti",
+        "Cesar Cadena",
+        "Marco Hutter"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Many ceiling construction tasks still rely on heavy serial manipulators that are difficult to deploy in cluttered interiors, motivating lightweight, field-ready alternatives that reach ceiling height while maintaining millimeter-level accuracy and the stiffness demanded by overhead tool loads. We introduce Tripody, a wheeled 3-DoF parallel robot for high-reach tasks that replaces the base spherical joints of a classical 3-SPR (3 legs; S: base spherical joint; P: actuated prismatic joint; R: end-effector revolute joint) morphology with universal joints, intentionally overconstraining the mechanism; small, distributed elastic deflections absorb the resulting incompatibilities, preserving predominantly translational motion. The 33kg system extends from 1.7m to 3.4m in height, supports a continuous 32kg payload, and offers a modular end-effector interface for ceiling operations. We detail the mechanical design - including custom linear actuators and a kinematic-compatibility analysis - and a control stack for accurate positioning that combines SE(3) state estimation, forward kinematics, and task-space control. In experiments, Tripody exhibits similar in-plane stiffness to a spherical-base variant but substantially higher torsional stiffness - an increase of 67% at 1.7m, 196% at 2.6m, and 454% at 3.4m - while maintaining negligible cross-axis coupling. Closed-loop positioning with a total station converges below 0.6mm across the entire workspace; pure model extrapolation achieves a 95th-percentile error of 2.7mm (max 3.6mm). Finally, we demonstrate task-level ceiling-drilling feasibility in an open-loop study by drilling a 15-hole pattern with 4.5mm maximum relative hole-position error after rigid alignment. These results support overconstrained, compliance-absorbing 3-SPR-like architectures as a practical path to lightweight, high- reach, millimeter-accurate construction robots.",
+      "abs_url": "https://arxiv.org/abs/2607.25781",
+      "pdf_url": "https://arxiv.org/pdf/2607.25781.pdf",
+      "html_url": "https://arxiv.org/html/2607.25781v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Julien Kindle",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Jakub Raczy",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Riccardo Balbi",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Andrea Alessandretti",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Cesar Cadena",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Marco Hutter",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Many ceiling construction tasks still rely on heavy serial manipulators that are difficult to deploy in cluttered interiors, motivating lightweight, field-ready alternatives that reach ceiling height while maintaining millimeter-level accuracy and the stiffness demanded by overhead tool loads. We introduce Tripody, a wheeled 3-DoF parallel robot for high-reach tasks that replaces the base spherical joints of a classical 3-SPR (3 legs; S: base spherical joint; P: actuated prismatic joint; R: end-",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Parallel robot for high-reach construction with wheeled base; relevant to mobile manipulation and whole-body workspace reach.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25754",
+      "title": "Cooperative Multi-UAV Navigation in Complex Environments via Systematic Multi-Agent Deep Reinforcement Learning",
+      "authors": [
+        "Yu Su",
+        "Nabil Aouf"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Cooperative navigation of multi-agent UAVs in complex environments faces key challenges including local optima traps, sparse rewards, learning imbalance among agents, and insufficient cross-scenario generalisation. This paper proposes a multi-agent deep reinforcement learning framework that addresses these issues through coordinated exploration, demonstration exploitation, safe curriculum scheduling, and structure-aware generalisation. First, a perception mechanism combining memory of visited states, directional novelty estimates, and penalty backpropagation enables agents to proactively detect and escape local optima. Second, a hierarchical collaborative demonstration buffer with tiered behaviour cloning manages trajectories by degree of team collaboration and applies differential supervision to the actor network, improving demonstration utilisation under sparse collaborative signals. Third, a safety-aware dual-condition curriculum scheduling mechanism reviews mastered scenarios through back-testing and experience pre-filling during training, suppressing catastrophic forgetting while ensuring both task performance and flight safety. For generalisation, local geometric features computed from sensor readings are abstracted into a domain parameter, through which a structure-aware gating network and mixture-of-experts mechanism condition the policy on local structural patterns rather than scenario-specific coordinates, enabling cross-scenario transfer without exposure to the target environment. The framework is further validated under mixed static-dynamic obstacle settings, showing robust adaptability to dynamic disturbances. Simulation results confirm strong performance in collaboration success rate, navigation robustness, zero-shot cross-scenario generalisation, and dynamic environment adaptability.",
+      "abs_url": "https://arxiv.org/abs/2607.25754",
+      "pdf_url": "https://arxiv.org/pdf/2607.25754.pdf",
+      "html_url": "https://arxiv.org/html/2607.25754v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Yu Su",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Nabil Aouf",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Cooperative navigation of multi-agent UAVs in complex environments faces key challenges including local optima traps, sparse rewards, learning imbalance among agents, and insufficient cross-scenario generalisation. This paper proposes a multi-agent deep reinforcement learning framework that addresses these issues through coordinated exploration, demonstration exploitation, safe curriculum scheduling, and structure-aware generalisation. First, a perception mechanism combining memory of visited st",
+      "topic_relevance": 3,
+      "topic_match": true,
+      "topic_rationale": "Cooperative multi-UAV navigation in complex environments via DRL; directly on navigation planning.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25731",
+      "title": "Tri-Manual Visuomotor Imitation Learning of Robot Policies",
+      "authors": [
+        "James Zhao",
+        "Mingyuan Ba",
+        "Weiming Zhi"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Bimanual teleoperation provides an effective way to collect robot demonstrations, but it assumes that the operator and robot have matching numbers of simultaneous control channels. This assumption breaks for tri-manual systems: the robot can coordinate three arms concurrently, whereas a single operator can continuously control only two. Pairwise mode switching may therefore record otherwise independent motions sequentially, causing behaviour cloning to reproduce delays imposed by the interface rather than required by the task. We present TriManPolicy, a tri-manual imitation learning system that allows one operator to demonstrate behaviours for three arms. Its central component is Dependency-Aware Tri-Arm Scheduling (DATS). The key idea is to preserve the demonstrated arm motions while reconsidering when they occur. DATS retimes demonstrations offline by preserving local sensorimotor segments of fixed duration and repositioning them according to constraints on task order and arm usage that are reviewed by a human. The resulting data train a single synchronous policy for all three arms, while deployment requires neither the dependency graph nor the scheduler. Across six challenging tasks performed in the real world, policies trained on demonstrations retimed by DATS exhibit more efficient coordination while maintaining comparable observed task success. Offline analysis further shows that DATS changes the supervision across arms rather than merely removing idle periods.",
+      "abs_url": "https://arxiv.org/abs/2607.25731",
+      "pdf_url": "https://arxiv.org/pdf/2607.25731.pdf",
+      "html_url": "https://arxiv.org/html/2607.25731v2",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "James Zhao",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Mingyuan Ba",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Weiming Zhi",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Bimanual teleoperation provides an effective way to collect robot demonstrations, but it assumes that the operator and robot have matching numbers of simultaneous control channels. This assumption breaks for tri-manual systems: the robot can coordinate three arms concurrently, whereas a single operator can continuously control only two. Pairwise mode switching may therefore record otherwise independent motions sequentially, causing behaviour cloning to reproduce delays imposed by the interface r",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Tri-manual visuomotor imitation learning for multi-arm robots; relevant to whole-body and dextrous manipulation control.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25728",
+      "title": "Shared Voxel-Map-Based Cooperative Indoor UAV Guidance with a Multi-Agent Soft Actor-Critic Controller",
+      "authors": [
+        "Thomas Hickling",
+        "Dylan Wynne",
+        "Yu Su",
+        "Nabil Aouf"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "This paper presents a cooperative indoor UAV guidance framework that combines a shared voxel-map world model with a multi-agent Soft Actor-Critic (MASAC) controller. Multiple drones fuse 360 LiDAR observations into a common world-frame occupancy map, which is converted into a compact bird's-eye-view (BEV) representation and provided to each agent as an ego-aligned local crop. This integrate-in-world, act-in- ego design enables consistent multi-UAV spatial fusion whilst retaining decentralised continuous control. The policy combines BEV map features, near-field obstacle observations, and compact goal and peer-state information within a centralised-training, decentralised-execution framework. In simulation, the learned controller achieves a 90.3% success rate in corridor navigation, outperforming Astar planning, an artificial potential field controller, and a prior guidance method. To address residual sim-to-real mismatch, the simulation-trained policy is further adapted using offline imitation fine-tuning from real-world data. Real-world experiments in GNSS-denied indoor environments demonstrate stable two-UAV cooperative operation across increasingly chal- lenging obstacle layouts. The results show that shared voxel-map representations provide an effective and scalable spatial substrate for learned cooperative indoor UAV guidance.",
+      "abs_url": "https://arxiv.org/abs/2607.25728",
+      "pdf_url": "https://arxiv.org/pdf/2607.25728.pdf",
+      "html_url": "https://arxiv.org/html/2607.25728v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Thomas Hickling",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Dylan Wynne",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yu Su",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Nabil Aouf",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "This paper presents a cooperative indoor UAV guidance framework that combines a shared voxel-map world model with a multi-agent Soft Actor-Critic (MASAC) controller. Multiple drones fuse 360 LiDAR observations into a common world-frame occupancy map, which is converted into a compact bird's-eye-view (BEV) representation and provided to each agent as an ego-aligned local crop. This integrate-in-world, act-in- ego design enables consistent multi-UAV spatial fusion whilst retaining decentralised co",
+      "topic_relevance": 3,
+      "topic_match": true,
+      "topic_rationale": "Indoor multi-UAV guidance with voxel maps and MASAC; core navigation and motion planning topic.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25593",
+      "title": "When Does Legacy Data Start to Help? Emergent Transfer in Cross-Configuration Robot Learning",
+      "authors": [
+        "Tao Wang",
+        "Hudson Hou",
+        "Yingdong Hu",
+        "Yufeng Liu",
+        "Qinghai Li",
+        "Yingjie Jiang",
+        "Yingzhi Wang",
+        "Cheng Ma",
+        "Richard Wang",
+        "Yang Gao"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Robotic hardware evolves over time, but demonstration data is often tied to a specific sensor and actuator configuration. This raises a practical and underexplored question: when does legacy data begin to benefit an upgraded robot? We study this question on a wheeled humanoid platform across two hardware generations, where both the camera and gripper are changed while the overall morphology remains fixed. Contrary to the common assumption that more cross-configuration data is always helpful, we observe a grokking-like transition: legacy data remains ineffective until the upgraded configuration acquires a minimum level of task competence, after which co-training gains rise sharply before diminishing near saturation. We hypothesize that this task-dependent transition is governed by a transfer threshold and characterize the resulting three-phase pattern. Across real-robot manipulation tasks, we observe all three phases: no measurable benefit at low competence ($10.0\\% \\rightarrow 10.0\\%$), a sharp gain after crossing the threshold ($23.3\\% \\rightarrow 86.7\\%$ on flower insertion), and diminishing returns at high competence ($85.0\\% \\rightarrow 93.3\\%$ on pen insertion). We provide a theoretical account based on gradient alignment and residual policy uncertainty, and derive a phase-aware rule for deciding when to collect more new-hardware data and when to reuse legacy demonstrations. We further validate this three-phase pattern on a mobile dual-arm watering task, with results consistent with our predictions.",
+      "abs_url": "https://arxiv.org/abs/2607.25593",
+      "pdf_url": "https://arxiv.org/pdf/2607.25593.pdf",
+      "html_url": "https://arxiv.org/html/2607.25593v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Tao Wang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Hudson Hou",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yingdong Hu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yufeng Liu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Qinghai Li",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yingjie Jiang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yingzhi Wang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Cheng Ma",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Richard Wang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yang Gao",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Robotic hardware evolves over time, but demonstration data is often tied to a specific sensor and actuator configuration. This raises a practical and underexplored question: when does legacy data begin to benefit an upgraded robot? We study this question on a wheeled humanoid platform across two hardware generations, where both the camera and gripper are changed while the overall morphology remains fixed. Contrary to the common assumption that more cross-configuration data is always helpful, we ",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Cross-configuration robot learning on wheeled humanoid; affects navigation/manipulation policy transfer.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25541",
+      "title": "P3: Probabilistic Policy Propagation for Stable VAE-Based Robot Learning",
+      "authors": [
+        "Liyun Yan",
+        "Jianming Ma",
+        "Yang Zhang",
+        "Shengcheng Fu",
+        "Zhanxiang Cao",
+        "Keqi Zhu",
+        "Yizhi Chen",
+        "Yue Gao"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Variational Autoencoders are widely used to encode high-dimensional and noisy observations in robotics. However, their stochastic latent creates a mismatch with Proximal Policy Optimization (PPO): an effective policy marginalizes over the latent distribution, whereas former implementations estimate its probability ratio and KL divergence using only one latent sample. We identify a fundamental but overlooked theoretical cause: naive single-sample approximations in stochastic latent space induce significant variance and bias in the surrogate loss. To address this, we introduce P^3 (Probabilistic Policy Propagation), a distribution-aware optimization framework for VAE-based policies. $P^3$ couples moment-based probabilistic method for stable and efficient learning with sampling-based calibration for robust policy behavior under latent uncertainty. In our experiments, P^3 boosts data efficiency from 64.6% to >96%, reduces convergence steps by >20%. Furthermore, P^3 is evaluated on challenging humanoid parkour tasks and shows an effective foundation for VAE-based PPO. Code is available at this https URL .",
+      "abs_url": "https://arxiv.org/abs/2607.25541",
+      "pdf_url": "https://arxiv.org/pdf/2607.25541.pdf",
+      "html_url": "https://arxiv.org/html/2607.25541v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Liyun Yan",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Jianming Ma",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yang Zhang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Shengcheng Fu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Zhanxiang Cao",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Keqi Zhu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yizhi Chen",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yue Gao",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Variational Autoencoders are widely used to encode high-dimensional and noisy observations in robotics. However, their stochastic latent creates a mismatch with Proximal Policy Optimization (PPO): an effective policy marginalizes over the latent distribution, whereas former implementations estimate its probability ratio and KL divergence using only one latent sample. We identify a fundamental but overlooked theoretical cause: naive single-sample approximations in stochastic latent space induce s",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Stable VAE-based robot learning; generic robot control/policy training relevant for planning and manipulation pipelines.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25516",
+      "title": "A Causality-aware Infer-diagnose-refine Framework for Test-time Modality Adaptation in VLA Models",
+      "authors": [
+        "Haoyu Zhang",
+        "Yuwei Wu",
+        "Jin Chen",
+        "Gao Zhi",
+        "Zhenxin Diao",
+        "Mingyang Gao",
+        "Kun Wu",
+        "Yongchun Liu",
+        "Fan Li"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Vision-language-action (VLA) models predict sequential actions to execute tasks specified by language instructions, conditioned on visual observations and proprioceptive states. However, how to fuse modalities in VLA models remains an open problem, since robot manipulation involves dynamic phases, such as long-distance movements and close-range interactions, in which the importance of visual observations may vary over time. In this paper, we propose an infer-diagnose-refine (IDR) framework, a model-agnostic framework that can be integrated with diverse VLA architectures for refining action predictions at test time. IDR first infers actions under factual and counterfactual scenarios of visual observations, and then diagnoses the causal effects of visual observations as the estimated dynamic importance, which is finally used to refine the action predictions in a training-free manner. We further design a causality-aware action refiner to realize the IDR framework, including zero-padding interventions for inferring counterfactual actions, norm-based quantification for diagnosing causal effects, and gated residual fusion for refining actions. Extensive experiments on both simulation benchmarks and real-world tasks show improvements in overall performance across multiple VLA backbones, demonstrating the efficacy of dynamically adjusting visual importance at test time.",
+      "abs_url": "https://arxiv.org/abs/2607.25516",
+      "pdf_url": "https://arxiv.org/pdf/2607.25516.pdf",
+      "html_url": "https://arxiv.org/html/2607.25516v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Haoyu Zhang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yuwei Wu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Jin Chen",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Gao Zhi",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Zhenxin Diao",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Mingyang Gao",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Kun Wu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yongchun Liu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Fan Li",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Vision-language-action (VLA) models predict sequential actions to execute tasks specified by language instructions, conditioned on visual observations and proprioceptive states. However, how to fuse modalities in VLA models remains an open problem, since robot manipulation involves dynamic phases, such as long-distance movements and close-range interactions, in which the importance of visual observations may vary over time. In this paper, we propose an infer-diagnose-refine (IDR) framework, a mo",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "VLA modality adaptation for manipulation tasks; directly about robot manipulation sequencing and control.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25448",
+      "title": "Room-Mediated Co-occurrence for Zero-Shot Object-Centric Semantic Navigation via Frontier Scoring",
+      "authors": [
+        "Adam Scicluna",
+        "Gavin Paul",
+        "Alen Alempijevic"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Zero-shot ObjectNav methods increasingly use vision-language priors, but direct object-object similarity in the latent space is often a weak proxy for spatial co-occurrence. We present an analytical, training-free semantic navigation pipeline that mediates object relationships through a compact room lexicon. Each object label is mapped to a CLIP-derived Room Probability Vector (RPV), and object-target co-occurrence is computed from RPV distribution overlap. These scores are projected onto a value map using geodesic flood-fill propagation (Fast Marching Method), with adaptive signal decay, and are used to rank frontiers by semantic score for navigation. Together, these components form an integrated, training-free, object-centric pipeline for open-vocabulary zero-shot navigation. Results show that our object-centric approach improves Success Rate (SR) and Success by weighted inverse Path Length (SPL) by a relative 3% and 1.3%, respectively, compared to image-holistic baselines on the HM3D dataset validation split, while preserving interpretability and open-vocabulary flexibility. Code is available at: this http URL .",
+      "abs_url": "https://arxiv.org/abs/2607.25448",
+      "pdf_url": "https://arxiv.org/pdf/2607.25448.pdf",
+      "html_url": "https://arxiv.org/html/2607.25448v1",
+      "html_author_notes_text": "All authors are with the Robotics Institute, Faculty of Engineering and Information Technology, University of Technology Sydney (UTS), Sydney, Australia. Corresponding author:\n{adam.scicluna@uts.edu.au}\nAdam Scicluna is supported by Australian Government Research Training Program Scholarships.© 2026 IEEE. Personal use of this material is permitted. Permission from IEEE must be obtained for all other uses, in any current or future media, including reprinting/republishing this material for advertising or promotional purposes, creating new collective works, for resale or redistribution to servers or lists, or reuse of any copyrighted component of this work in other works.",
+      "html_author_institutions": [
+        "Adam Scicluna is supported by Australian Government Research Training Program Scholarships.© 2026 IEEE. Personal use of this material is permitted. Permission from IEEE must be obtained for all other uses, in any current or future media, including reprinting/republishing this material for advertising or promotional purposes, creating new collective works, for resale or redistribution to servers or lists, or reuse of any copyrighted component of this work in other works"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Adam Scicluna",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Gavin Paul",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Alen Alempijevic",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Zero-shot ObjectNav methods increasingly use vision-language priors, but direct object-object similarity in the latent space is often a weak proxy for spatial co-occurrence. We present an analytical, training-free semantic navigation pipeline that mediates object relationships through a compact room lexicon. Each object label is mapped to a CLIP-derived Room Probability Vector (RPV), and object-target co-occurrence is computed from RPV distribution overlap. These scores are projected onto a valu",
+      "topic_relevance": 3,
+      "topic_match": true,
+      "topic_rationale": "Semantic ObjectNav pipeline with room-mediated co-occurrence; directly on object-centric navigation planning.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25397",
+      "title": "Decompose and Reorganize: Planning with Primitives and Visuomotor Policies Learned from Demonstrations",
+      "authors": [
+        "Yizhou Chen",
+        "Hang Xu",
+        "Dongjie Yu",
+        "Yupu Lu",
+        "Tengye Xu",
+        "Zeqing Zhang",
+        "Wei Zhang",
+        "Yi Ren",
+        "Ben M. Chen",
+        "Jia Pan"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Successfully automating dexterous, long-horizon robotic manipulation requires frameworks capable of both high-level reasoning and fine-grained execution. Traditional task and motion planning (TAMP), while excellent at symbolic planning, is often brittle in contact-rich operations. Simultaneously, imitation learning (IL), while effective in manipulation tasks with visual feedback, is limited by its low capability in spatial generalization and multi-stage operation. To reconcile their complementary strengths and limitations, we propose DR-LfD (Decomposed and Reorganized Skills Learned from Demonstrations), a framework that seamlessly integrates visuomotor policies into a TAMP-gated decision-making system. Based on contact relationships, DR-LfD decomposes human demonstrations into atomic skills, which are reproduced as visuomotor policies or object-centric primitives. The initiation, termination, and constraints of the visuomotor policies are carefully modeled and implemented in a TAMP-compatible form, enabling reorganization of skills learned from different sources. DR-LfD transforms the learning problem from one requiring exponential demonstration data over possible skill sequences to one whose demonstration burden scales with the number of distinct skill types, with limited data for each skill. Through comprehensive real-world and simulation benchmarking across diverse scenarios, we demonstrate the strong performance of DR-LfD on tasks involving multiple steps, unseen setups, and physical constraints. Project website: this https URL .",
+      "abs_url": "https://arxiv.org/abs/2607.25397",
+      "pdf_url": "https://arxiv.org/pdf/2607.25397.pdf",
+      "html_url": "https://arxiv.org/html/2607.25397v1",
+      "html_author_notes_text": "Yizhou Chen, Dongjie Yu, Yupu Lu, Tengye Xu, and Jia Pan are with The University of Hong Kong, Hong Kong.Hang Xu is with JD.com (JingDong).Zeqing Zhang is with Nanyang Technological University (NTU), Singapore.Wei Zhang is with Southern University of Science and Technology (SUSTech), Shenzhen, China.Yi Ren is with Huawei Technologies.Ben M. Chen is with The Chinese University of Hong Kong (CUHK), Hong Kong.",
+      "html_author_institutions": [
+        "Yizhou Chen, Dongjie Yu, Yupu Lu, Tengye Xu, and Jia Pan are with The University of Hong Kong, Hong Kong.Hang Xu is with JD.com (JingDong).Zeqing Zhang is with Nanyang Technological University (NTU), Singapore.Wei Zhang is with Southern University of Science and Technology (SUSTech), Shenzhen, China.Yi Ren is with Huawei Technologies.Ben M. Chen is with The Chinese University of Hong Kong (CUHK), Hong Kong"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Yizhou Chen",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Hang Xu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Dongjie Yu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yupu Lu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Tengye Xu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Zeqing Zhang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Wei Zhang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yi Ren",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Ben M. Chen",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Jia Pan",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [
+          "Nanyang Technological University",
+          "National Taiwan University",
+          "The Chinese University of Hong Kong",
+          "The University of Hong Kong"
+        ],
+        "paper_level_detected_institutions": [
+          "CUHK",
+          "NTU",
+          "The University of Hong Kong",
+          "eqing Zhang is with Nanyang Technological University"
+        ],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Successfully automating dexterous, long-horizon robotic manipulation requires frameworks capable of both high-level reasoning and fine-grained execution. Traditional task and motion planning (TAMP), while excellent at symbolic planning, is often brittle in contact-rich operations. Simultaneously, imitation learning (IL), while effective in manipulation tasks with visual feedback, is limited by its low capability in spatial generalization and multi-stage operation. To reconcile their complementar",
+      "topic_relevance": 3,
+      "topic_match": true,
+      "topic_rationale": "Combining TAMP with visuomotor policies for dexterous long-horizon manipulation; strong manipulation and motion planning focus.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25388",
+      "title": "SGTP: Sampling-based Game-Theoretic Planning for Real-Time Multi-Vehicle Autonomous Racing",
+      "authors": [
+        "Zhouheng Li",
+        "Fangguo Zhao",
+        "Mattia Piccinini",
+        "Baha Zarrouki",
+        "Yuan Gao",
+        "Zitong Shan",
+        "Johannes Betz",
+        "Chen Lv",
+        "Lei Xie"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Autonomous multi-vehicle racing requires real-time planning of diverse competitive behaviors in intense interactions. Existing planners often struggle to balance strategic diversity and computational efficiency. To address this challenge, we propose Sampling-based Game-Theoretic Planning (SGTP), a real-time framework that combines game-theoretic reasoning with GPU-accelerated sampling of control sequences and dynamics rollouts. Sampled trajectories are ranked using a game-aware cost to capture competitive interactions and generate diverse racing behaviors. Our planner then performs feasibility selection by explicitly enforcing track-boundary and dynamic collision-avoidance constraints, ensuring safe and reliable transitions between racing strategies. Extensive simulations on challenging tracks show that SGTP achieves a 95.24% win rate and a 99.35% task-completion ratio in highly interactive races, with a mean computational time of 0.095 s over multiple iterative solving steps. We also demonstrate the successful application of SGTP in large-scale scenarios with up to 10 agents. We release our code and provide an open-source benchmark of multi-agent autonomous racing algorithms to facilitate future research. Project page: this https URL .",
+      "abs_url": "https://arxiv.org/abs/2607.25388",
+      "pdf_url": "https://arxiv.org/pdf/2607.25388.pdf",
+      "html_url": "https://arxiv.org/html/2607.25388v1",
+      "html_author_notes_text": "†\nCorresponding author: leix@iipc.zju.edu.cn.\n1\nZhejiang University, Hangzhou, China.\n2\nNanyang Technological University, Singapore.\n3\nTechnical University of Munich, Garching, Germany.",
+      "html_author_institutions": [
+        "Zhejiang University, Hangzhou, China",
+        "Nanyang Technological University, Singapore",
+        "Technical University of Munich, Garching, Germany"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Zhouheng Li",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Fangguo Zhao",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Mattia Piccinini",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Baha Zarrouki",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yuan Gao",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Zitong Shan",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Johannes Betz",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Chen Lv",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Lei Xie",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [
+          "Nanyang Technological University",
+          "Technical University of Munich",
+          "Zhejiang University"
+        ],
+        "paper_level_detected_institutions": [
+          "Nanyang Technological University",
+          "Technical University of Munich",
+          "Zhejiang University",
+          "anyang Technological University",
+          "hejiang University"
+        ],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Autonomous multi-vehicle racing requires real-time planning of diverse competitive behaviors in intense interactions. Existing planners often struggle to balance strategic diversity and computational efficiency. To address this challenge, we propose Sampling-based Game-Theoretic Planning (SGTP), a real-time framework that combines game-theoretic reasoning with GPU-accelerated sampling of control sequences and dynamics rollouts. Sampled trajectories are ranked using a game-aware cost to capture c",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Sampling-based game-theoretic planner for multi-vehicle racing; motion planning and navigation under interaction constraints.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25327",
+      "title": "Belief-Aware Influence and Trust (BAIT): Shaping Human Belief During Repeated Human-Robot Interaction",
+      "authors": [
+        "Ye-Ji Mun",
+        "Mahsa Golchoubian",
+        "Shahabedin Sagheb",
+        "Yan Bai",
+        "Tianhao Ji",
+        "Dylan P. Losey",
+        "Katherine Driggs-Campbell"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Repeated human-robot interaction (HRI) requires proactively accounting for humans who continually adapt to evolving beliefs about the robot. Prior frameworks often treat encounters as isolated events, suffering cumulative task performance decay as human perception drifts, or maintain long-term influence through erratic, unpredictable behavior that erodes perceived human trust and relies on computationally unscalable formulations. To address these gaps, we introduce the Belief- Aware Influence and Trust (BAIT) controller. BAIT integrates a hierarchical particle filter, which infers both fast human strategic shifts and slow perceptual belief updates, with a belief-aware Model Predictive Path Integral planner. BAIT explicitly optimizes the trade-off between long-horizon influence and human trust, while enforcing immediate task performance as a strict constraint. Across simulations, a human-subject study, and a real-world GEM vehicle deployments in repeated lane-merging scenarios, BAIT achieves task performance comparable to baselines that optimize long-term influence through unpredictability while yielding significantly higher user trust. The video demonstrating our experiments is available at this https URL .",
+      "abs_url": "https://arxiv.org/abs/2607.25327",
+      "pdf_url": "https://arxiv.org/pdf/2607.25327.pdf",
+      "html_url": "https://arxiv.org/html/2607.25327v1",
+      "html_author_notes_text": "1\nUniversity of Illinois at Urbana-Champaign, Department of Electrical and Computer Engineering.\n2\nUniversity of Toronto, Department of Mathematical and Computational Science.\n3\nVirginia Tech, Department of Mechanical Engineering.Corresponding author’s email:\nyejimun2@illinois.edu",
+      "html_author_institutions": [
+        "University of Illinois at Urbana-Champaign, Department of Electrical and Computer Engineering",
+        "University of Toronto, Department of Mathematical and Computational Science"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Ye-Ji Mun",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Mahsa Golchoubian",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Shahabedin Sagheb",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yan Bai",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Tianhao Ji",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Dylan P. Losey",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Katherine Driggs-Campbell",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [
+          "University of Illinois Urbana-Champaign",
+          "University of Toronto",
+          "Virginia Tech"
+        ],
+        "paper_level_detected_institutions": [
+          "University of Illinois at Urbana-Champaign",
+          "University of Toronto",
+          "Virginia Tech",
+          "iversity of Illinois at Urbana-Champaign, Department of Electrical and Computer Engineering."
+        ],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Repeated human-robot interaction (HRI) requires proactively accounting for humans who continually adapt to evolving beliefs about the robot. Prior frameworks often treat encounters as isolated events, suffering cumulative task performance decay as human perception drifts, or maintain long-term influence through erratic, unpredictable behavior that erodes perceived human trust and relies on computationally unscalable formulations. To address these gaps, we introduce the Belief- Aware Influence an",
+      "topic_relevance": 1,
+      "topic_match": false,
+      "topic_rationale": "Human-robot interaction framework shaping beliefs/trust; high-level interaction, not planning or manipulation mechanics.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25219",
+      "title": "SONG: A Photorealistic 3D Gaussian Simulation Platform for Benchmarking Social Navigation",
+      "authors": [
+        "Weiqi Huang",
+        "Dianyi Yang",
+        "Jiaxin Li",
+        "Shuangyi Dong",
+        "Hao Xu",
+        "Zan Wang",
+        "Wei Liang"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Social navigation has progressed from simplified 2D environments toward a more general vision-based setting, in which a robot needs to achieve socially compliant behavior purely from onboard visual observations. Yet supporting simulation platforms have not kept pace: existing options either lack visual observations, lack moving human avatars, or fall short of real-world fidelity in appearance and pedestrian behavior, offering limited support for advancing vision-based social navigation. We introduce SONG, a SOcial Navigation platform powered by 3D Gaussian splatting (3DGS). It leverages 3DGS for both scene and avatar representations, drives pedestrians using semantically grounded trajectories generated by a large language model, and synthesizes their full-body motion with a trajectory-conditioned generator to produce continuous, natural movement. On top of the platform, we curate SONG-Bench, a set of evaluation episodes stratified by difficulty, and propose a multi-dimensional metric suite covering effectiveness, safety, and social compliance. A systematic evaluation of representative navigation baselines reveals three findings: (a) vision-based social navigation is far from solved; (b) a critical safety deficit precedes social etiquette; (c) real-world data matters more than model scale. Crucially, we demonstrate that fine-tuning on our curated data effectively improves the success rate in real-world environments. We hope our platform provides a faithful and rigorous testbed for the next generation of vision-based social navigation research.",
+      "abs_url": "https://arxiv.org/abs/2607.25219",
+      "pdf_url": "https://arxiv.org/pdf/2607.25219.pdf",
+      "html_url": "https://arxiv.org/html/2607.25219v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Weiqi Huang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Dianyi Yang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Jiaxin Li",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Shuangyi Dong",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Hao Xu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Zan Wang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Wei Liang",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Social navigation has progressed from simplified 2D environments toward a more general vision-based setting, in which a robot needs to achieve socially compliant behavior purely from onboard visual observations. Yet supporting simulation platforms have not kept pace: existing options either lack visual observations, lack moving human avatars, or fall short of real-world fidelity in appearance and pedestrian behavior, offering limited support for advancing vision-based social navigation. We intro",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Simulation platform for social navigation benchmarking; supports navigation research though not an algorithm itself.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25215",
+      "title": "Leveraging Semantic Maps for City-Scale Cross-View Localization",
+      "authors": [
+        "Ethan Fahnestock",
+        "Erick Fuentes",
+        "Philip R Osteen",
+        "Nicholas Roy"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "We want robots to localize in previously untraversed environments against commonly available prior data. Rich semantic data available from OpenStreetMap can be useful in this task. However, existing methods either ignore this semantic information, directly matching panoramas and overhead imagery, or dramatically compress the semantic information, working with a small set of fixed classes. To leverage this rich semantic information, two challenges need to be overcome. First, useful semantic information needs to be extracted from the robot's egocentric observations. Second, the observed information must be quickly associated with the large prior semantic map (e.g., up to 628 km^2). We show that VLMs are effective at both extracting relevant landmarks from panoramas, and identifying feasible correspondences between these landmarks and prior overhead landmarks. However, using VLMs to propose all correspondences scales poorly as the number of mapped landmarks increases. Instead, we propose distilling a lightweight matcher from a VLM which computes correspondences for all entities in a map. We use this output to form an observation likelihood which is fused over time with a Bayes filter to create a time series of pose estimates. To support further investigation into generalizable cross-view methods that leverage semantic information, we release a dataset of extracted semantics and evaluation trajectories spanning eleven environments, including panoramas we collected in a snowstorm and at night in Boston. We demonstrate our method, trained on a single city's fair-weather data, generalizes across location, lighting, weather, and other challenges. Code and datasets are available at this https URL .",
+      "abs_url": "https://arxiv.org/abs/2607.25215",
+      "pdf_url": "https://arxiv.org/pdf/2607.25215.pdf",
+      "html_url": "https://arxiv.org/html/2607.25215v1",
+      "html_author_notes_text": "∗\nindicates equal contribution. Distribution Statement A: Approved for public release: distribution unlimited.This work has been submitted to the IEEE for possible publication. Copyright may be transferred without notice, after which this version may no longer be accessible.",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Ethan Fahnestock",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Erick Fuentes",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Philip R Osteen",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Nicholas Roy",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "We want robots to localize in previously untraversed environments against commonly available prior data. Rich semantic data available from OpenStreetMap can be useful in this task. However, existing methods either ignore this semantic information, directly matching panoramas and overhead imagery, or dramatically compress the semantic information, working with a small set of fixed classes. To leverage this rich semantic information, two challenges need to be overcome. First, useful semantic infor",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "City-scale cross-view localization using semantic maps; foundational for large-scale navigation systems.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25195",
+      "title": "Decentralized Scalable Exploration via Emergent Adaptive Lévy Walks on Minimal-Sensing Platforms",
+      "authors": [
+        "Wai Lun Leong",
+        "Teo Swee Huat Rodney"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Efficient autonomous exploration with palm-sized nano-UAVs remains challenging due to severe limitations in sensing, computation, and flight endurance. We present a lightweight sensor-driven Lévy walk (SDLW) controller for aerial robots weighing under 50 grams and equipped with sparse local sensing. The method combines discrete Lévy step-length sampling with a sensor-reactive heading policy using directional range measurements. Each robot independently samples its Lévy exponent from a uniform prior to diversify exploration without inter-robot communication for exploration control. Each robot then selects headings using a von Mises distribution that biases motion toward open directions while preserving superdiffusive exploration properties. The controller operates at constant computational cost, enabling scalable multi-UAV exploration. Simulation results show coverage improvements of 79.6% in open arenas, 43.1% in rooms-and-corridors layouts, and 13.6% in cluttered environments, with collision reductions of 13.0%, 7.1%, and 1.4%, respectively, relative to a uniform-heading Lévy walk baseline. This work provides a practical framework for scalable multi-robot exploration on minimal-sensing, resource-constrained nano-UAVs.",
+      "abs_url": "https://arxiv.org/abs/2607.25195",
+      "pdf_url": "https://arxiv.org/pdf/2607.25195.pdf",
+      "html_url": "https://arxiv.org/html/2607.25195v1",
+      "html_author_notes_text": "Additional material including the open-source code is available at\nhttps://github.com/williamleong/sdlw\n.\n1,2\nWai Lun Leong and Teo Swee Huat Rodney are with the National University of Singapore, Singapore\n{william.leong, tsltshr}@nus.edu.sg",
+      "html_author_institutions": [
+        "Additional material including the open-source code is available at",
+        "Wai Lun Leong and Teo Swee Huat Rodney are with the National University of Singapore, Singapore"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Wai Lun Leong",
+            "institutions": [
+              {
+                "canonical": "National University of Singapore",
+                "raw": "National University of Singapore",
+                "match_method": "paper_level_fallback",
+                "confidence": 0.65
+              }
+            ],
+            "raw_institutions": [
+              "National University of Singapore"
+            ]
+          },
+          {
+            "name": "Teo Swee Huat Rodney",
+            "institutions": [
+              {
+                "canonical": "National University of Singapore",
+                "raw": "National University of Singapore",
+                "match_method": "paper_level_fallback",
+                "confidence": 0.65
+              }
+            ],
+            "raw_institutions": [
+              "National University of Singapore"
+            ]
+          }
+        ],
+        "paper_level_institutions": [
+          "National University of Singapore"
+        ],
+        "paper_level_detected_institutions": [
+          "Leong and Teo Swee Huat Rodney are with the National University of Singapore, Singapore",
+          "NUS"
+        ],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Efficient autonomous exploration with palm-sized nano-UAVs remains challenging due to severe limitations in sensing, computation, and flight endurance. We present a lightweight sensor-driven Lévy walk (SDLW) controller for aerial robots weighing under 50 grams and equipped with sparse local sensing. The method combines discrete Lévy step-length sampling with a sensor-reactive heading policy using directional range measurements. Each robot independently samples its Lévy exponent from a uniform pr",
+      "topic_relevance": 3,
+      "topic_match": true,
+      "topic_rationale": "Decentralized exploration with nano-UAVs using Lévy walks; core autonomous navigation/exploration topic.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25138",
+      "title": "Reactive 3D Motion Planning for a Franka Arm via Star-World Workspace Reshaping",
+      "authors": [
+        "Gia Dcosta",
+        "Saayuj Deshpande",
+        "Samhitha Vedire"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Safety inflation can cause nearby obstacles to overlap, violating the disjoint-obstacle assumptions used by many modulation-based reactive planners. We investigate Star-World workspace reshaping for three-dimensional reactive control of a Franka Emika Panda manipulator. At each update, intersecting inflated obstacles are clustered and replaced by star-shaped proxies before a dynamical-system-based end-effector controller is evaluated. A null-space artificial-potential-field term provides complementary arm-body avoidance. We compare reshaped and unreshaped obstacle representations in six PyBullet scenarios using goal attainment, path-length ratio, and computation time. In this preliminary 12-trial evaluation, reshaping reaches the goal in five of six scenarios, compared with four of six for the unreshaped baseline. It resolves the canonical overlapping-wall case and requires 0.68--8.70\\,ms per workspace update for scenes containing one to seven obstacles. However, it also increases path length, produces near-equilibria in two cases, and closes a navigable corridor through over-aggressive merging. These results show both the promise and the practical limitations of transferring Star-World guarantees from workspace geometry to a redundant manipulator controlled through inverse kinematics.",
+      "abs_url": "https://arxiv.org/abs/2607.25138",
+      "pdf_url": "https://arxiv.org/pdf/2607.25138.pdf",
+      "html_url": "https://arxiv.org/html/2607.25138v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Gia Dcosta",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Saayuj Deshpande",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Samhitha Vedire",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Safety inflation can cause nearby obstacles to overlap, violating the disjoint-obstacle assumptions used by many modulation-based reactive planners. We investigate Star-World workspace reshaping for three-dimensional reactive control of a Franka Emika Panda manipulator. At each update, intersecting inflated obstacles are clustered and replaced by star-shaped proxies before a dynamical-system-based end-effector controller is evaluated. A null-space artificial-potential-field term provides complem",
+      "topic_relevance": 3,
+      "topic_match": true,
+      "topic_rationale": "Reactive 3D motion planning for a manipulator using workspace reshaping; directly about motion planning/control.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25071",
+      "title": "Input Shaping for Point-to-Point Motion with a Continuum Robot Arm",
+      "authors": [
+        "Rodolfo Hdz. Ibarra",
+        "Karan Baker",
+        "Parsa Molaei",
+        "Adrian Stein",
+        "Hunter B. Gilbert"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "A cable-driven continuum robot arm is an underactuated mechanism and may suffer residual vibration at the end of a rest-to-rest maneuver. In this work, a time-delay filter is applied as an input shaper to the system to eliminate the excitation of vibratory modes. A non-robust and a robust time-delay filter are designed based on a linear system model and demonstrate improved response compared to a velocity-driven pulse input. Experimental results using the continuum robot validate the application of the input shaper, with reduced overshoot and settling time exemplifying the reduction in oscillation at the end of the maneuver. It is also shown that utilizing the robust shaper further improves the response of the arm in comparison to applying the non-robust shaper. These results are significant towards the precise and robust implementation of continuum robots in applications involving arbitrary end-effector trajectories.",
+      "abs_url": "https://arxiv.org/abs/2607.25071",
+      "pdf_url": "https://arxiv.org/pdf/2607.25071.pdf",
+      "html_url": "https://arxiv.org/html/2607.25071v1",
+      "html_author_notes_text": "R. H. Ibarra, K. Baker, P. Molaei, A. Stein, and H. B. Gilbert are with the Department of Mechanical and Industrial Engineering, Louisiana State University, LA 70803, USA.\n(email: {rherna10,kbake54,pmolae1,astein,hbgilbert} @lsu.edu)\n.This material is based upon work supported in part by the National Science Foundation under Grant Number 2133019.",
+      "html_author_institutions": [
+        "R. H. Ibarra, K. Baker, P. Molaei, A. Stein, and H. B. Gilbert are with the Department of Mechanical and Industrial Engineering, Louisiana State University, LA 70803, USA"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Rodolfo Hdz. Ibarra",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Karan Baker",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Parsa Molaei",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Adrian Stein",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Hunter B. Gilbert",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "A cable-driven continuum robot arm is an underactuated mechanism and may suffer residual vibration at the end of a rest-to-rest maneuver. In this work, a time-delay filter is applied as an input shaper to the system to eliminate the excitation of vibratory modes. A non-robust and a robust time-delay filter are designed based on a linear system model and demonstrate improved response compared to a velocity-driven pulse input. Experimental results using the continuum robot validate the application",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Input shaping for continuum robot arm motion; trajectory shaping for manipulation and whole-body-like flexible arms.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25056",
+      "title": "Hybrid Artificial Potential Fields and Spatio-Temporal Transformers for Real-Time AUV Path Planning",
+      "authors": [
+        "Khadija Rais",
+        "Abdelmadjid Benmachiche",
+        "Imene Soualmia"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Autonomous Underwater Vehicles (AUVs) operate in complex, unstructured environments where efficient and safe path planning is critical for mission success and energy conservation. This paper presents a comprehensive comparative evaluation of thirteen path planning algorithms, ranging from classical graph-search methods (A*, Dijkstra) and sampling-based approaches (RRT*) to metaheuristics (PSO, GA, ACO, BCO) and learning-based architectures. Special emphasis is placed on a proposed hybrid approach combining Artificial Potential Fields (APF) with a Spatio-Temporal (ST) Transformer. Evaluated across five navigation scenarios on high-resolution underwater terrain maps, all algorithms achieved 100\\% task completion; however, significant trade-offs emerged in path optimality, collision avoidance, and computational load. The Hybrid APF + ST-Transformer demonstrated superior balanced performance, achieving the shortest average path length (943.15 units), a low collision rate (0.031), and efficient computation time (0.96 s), outperforming standalone learning models, which required fallback mechanisms and classical methods that incurred higher latency. While classical algorithms guaranteed collision-free paths, their excessive path lengths and processing times render them less suitable for dynamic underwater operations. Conversely, metaheuristic approaches introduced trajectory complexity unsuitable for strict energy constraints. Based on these findings, the Hybrid APF + ST framework is recommended as a principal approach for real-time AUV navigation, offering a robust solution that harmonizes reactive obstacle avoidance with global path optimality in resource-constrained underwater systems.",
+      "abs_url": "https://arxiv.org/abs/2607.25056",
+      "pdf_url": "https://arxiv.org/pdf/2607.25056.pdf",
+      "html_url": "https://arxiv.org/html/2607.25056v1",
+      "html_author_notes_text": "Corresponding author:\nkhadija.rais@univ-tebessa.dz\n.\nE-mail:\nkhadija.rais@univ-tebessa.dz\nLaboratory of Mathematics, Informatics and Systems (LAMIS), Echahid Cheikh Larbi Tebessi University, Tébessa, Algeria",
+      "html_author_institutions": [
+        "Laboratory of Mathematics, Informatics and Systems (LAMIS), Echahid Cheikh Larbi Tebessi University, Tébessa, Algeria"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Khadija Rais",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Abdelmadjid Benmachiche",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Imene Soualmia",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Autonomous Underwater Vehicles (AUVs) operate in complex, unstructured environments where efficient and safe path planning is critical for mission success and energy conservation. This paper presents a comprehensive comparative evaluation of thirteen path planning algorithms, ranging from classical graph-search methods (A*, Dijkstra) and sampling-based approaches (RRT*) to metaheuristics (PSO, GA, ACO, BCO) and learning-based architectures. Special emphasis is placed on a proposed hybrid approac",
+      "topic_relevance": 3,
+      "topic_match": true,
+      "topic_rationale": "Comparative evaluation of AUV path planning algorithms, including novel hybrid method; direct motion planning/navigation content.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25053",
+      "title": "Motion Generation With Environmental Constraints",
+      "authors": [
+        "Előd Páll",
+        "Oliver Brock"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Robot motion planning faces challenges in high-dimensional spaces and uncertain environments, often constrained by the need for collision-free motions. We advocate an alternative approach, Environmental Constraint Exploitation (ECE), where deliberate contact with the environment simplifies planning by reducing dimensionality and computational complexity. By integrating ECE into motion planning algorithms, we bias exploration to task-relevant regions and leverage contact for uncertainty reduction to improve robustness during execution. We evaluate ECE benefits with RRT-based planners and demonstrate their practical benefits in a real-world application. This work consolidates and extends prior research, showcasing how ECE simplifies motion planning while enhancing adaptability and performance in complex environments.",
+      "abs_url": "https://arxiv.org/abs/2607.25053",
+      "pdf_url": "https://arxiv.org/pdf/2607.25053.pdf",
+      "html_url": "https://arxiv.org/html/2607.25053v1",
+      "html_author_notes_text": "1\n1\naffiliationmark:\nRobotics and Biology Laboratory, Technische Universität Berlin, Germany\n2\n2\naffiliationmark:\nScience of Intelligence, Research Cluster of Excellence, Berlin, Germany\noliver.brock(at)tu-berlin.de",
+      "html_author_institutions": [
+        "Robotics and Biology Laboratory, Technische Universität Berlin, Germany"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Előd Páll",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Oliver Brock",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Robot motion planning faces challenges in high-dimensional spaces and uncertain environments, often constrained by the need for collision-free motions. We advocate an alternative approach, Environmental Constraint Exploitation (ECE), where deliberate contact with the environment simplifies planning by reducing dimensionality and computational complexity. By integrating ECE into motion planning algorithms, we bias exploration to task-relevant regions and leverage contact for uncertainty reduction",
+      "topic_relevance": 3,
+      "topic_match": true,
+      "topic_rationale": "Motion planning exploiting environmental constraints and contact; core planning with contact, relevant to manipulation/mobile manipulation.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25049",
+      "title": "FIRMGrasp: A Friction-Informed Risk Margin for Robust Grasp Synthesis",
+      "authors": [
+        "Clinton Enwerem",
+        "John S. Baras",
+        "Calin Belta"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Classical grasp quality metrics assume a single deterministic friction coefficient, so they cannot predict whether a grasp retains force closure across the range of friction values the contacting surfaces may exhibit. To predict these failures, we present FIRMGrasp, a family of friction-volatility-aware grasp quality metrics grounded in the Conditional Value-at-Risk (CVaR) risk measure. Unlike standard grasp quality assessors that assume a single friction realization, our metric evaluates the force-closure margin at the CVaR-discounted mean of the adverse friction tail, yielding a risk-adjusted margin $\\varepsilon^{(\\beta)}$, the inscribed-ball radius of the risk-adjusted wrench space. We establish its monotonicity in the confidence level $\\beta$, its differentiability in the grasp parameters, and a probabilistic closure certificate that guarantees force closure with probability at least $\\beta$ whenever $\\varepsilon^{(\\beta)}$ is positive. Under a calibrated friction distribution, analytic evaluation shows our $\\varepsilon^{(\\beta)}$ metric identifies friction-sensitive grasps that the nominal Ferrari-Canny epsilon rates as high-quality, and we compare against the nominal epsilon and recent differentiable baselines. Across 1,599 LEAP Hand and Allegro Hand grasps, 53% of the grasps the nominal Ferrari-Canny margin certifies lose force closure in the adverse friction tail. On the same set, the nominal margin separates realized shake and pick success with probabilities of only 0.53 and 0.67, near chance on shake success, whereas $\\varepsilon^{(\\beta)}$ orders the pair correctly with probabilities of 0.63 and 0.78, respectively. In simulated lift trials with gravity enabled at an adverse friction coefficient of 0.2, grasps $\\varepsilon^{(\\beta)}$ certifies reach a 70% success rate under lateral pull, against 25% for grasps the nominal margin certifies but $\\varepsilon^{(\\beta)}$ rejects.",
+      "abs_url": "https://arxiv.org/abs/2607.25049",
+      "pdf_url": "https://arxiv.org/pdf/2607.25049.pdf",
+      "html_url": "https://arxiv.org/html/2607.25049v1",
+      "html_author_notes_text": "1\nThe authors are with the Department of Electrical & Computer Engineering and Institute for Systems Research, University of Maryland, College Park, MD, USA. Emails:\n{enwerem, baras, calin}@umd.edu\n.",
+      "html_author_institutions": [
+        "The authors are with the Department of Electrical & Computer Engineering and Institute for Systems Research, University of Maryland, College Park, MD, USA. Emails:"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Clinton Enwerem",
+            "institutions": [
+              {
+                "canonical": "University of Maryland, College Park",
+                "raw": "University of Maryland, College Park",
+                "match_method": "paper_level_fallback",
+                "confidence": 0.65
+              }
+            ],
+            "raw_institutions": [
+              "University of Maryland, College Park"
+            ]
+          },
+          {
+            "name": "John S. Baras",
+            "institutions": [
+              {
+                "canonical": "University of Maryland, College Park",
+                "raw": "University of Maryland, College Park",
+                "match_method": "paper_level_fallback",
+                "confidence": 0.65
+              }
+            ],
+            "raw_institutions": [
+              "University of Maryland, College Park"
+            ]
+          },
+          {
+            "name": "Calin Belta",
+            "institutions": [
+              {
+                "canonical": "University of Maryland, College Park",
+                "raw": "University of Maryland, College Park",
+                "match_method": "paper_level_fallback",
+                "confidence": 0.65
+              }
+            ],
+            "raw_institutions": [
+              "University of Maryland, College Park"
+            ]
+          }
+        ],
+        "paper_level_institutions": [
+          "University of Maryland, College Park"
+        ],
+        "paper_level_detected_institutions": [
+          "University of Maryland"
+        ],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Classical grasp quality metrics assume a single deterministic friction coefficient, so they cannot predict whether a grasp retains force closure across the range of friction values the contacting surfaces may exhibit. To predict these failures, we present FIRMGrasp, a family of friction-volatility-aware grasp quality metrics grounded in the Conditional Value-at-Risk (CVaR) risk measure. Unlike standard grasp quality assessors that assume a single friction realization, our metric evaluates the fo",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Grasp quality metric incorporating friction uncertainty; directly related to manipulation and robust grasp planning.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.24959",
+      "title": "Amortising Trajectory Optimisation for Residual MPC via Implicit Contact Differentiation",
+      "authors": [
+        "Daniel Layeghi",
+        "Thomas Corbères",
+        "Calum Arnott",
+        "Aditya Kamireddypalli",
+        "Hashim Al-Obaidi",
+        "Steve Tonneau",
+        "Michael Mistry"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Differentiable simulation can accelerate contact-rich trajectory optimisation by exposing local sensitivities of task outcomes to controls. Existing approaches either use finite differences, which are expensive and step-size sensitive; differentiate iterative contact solvers by unrolling automatic differentiation (AD), which stores a growing computation trace; or require intricate, solver-specific KKT sensitivity derivations. We introduce an AD-assisted implicit derivative for regularised smooth contacts and apply it to Mujoco MJX, based on the Implicit Function Theorem (IFT). The method differentiates the stationarity residual at the tolerance-converged solution, avoiding both solver unrolling and hand-assembled KKT systems. IFT keeps compiled temporary memory nearly constant with solver effort, changing by less than 4$\\%$ from one to ten iterations versus 10.6$\\times$ growth for unrolled AD. IFT memory grows slower with active contacts and model dimension, using 20$\\times$ less memory at 256 contacts and 6$\\times$ less at 16 contacts and 96 DoF. We further introduce optimiser distillation for residual MPC, amortising batched full-horizon iLQR into a policy that guides short-horizon residual iLQR. Across Finger, Franka, and Unitree, this raises six-step success by 28-98 percentage points over standard iLQR.",
+      "abs_url": "https://arxiv.org/abs/2607.24959",
+      "pdf_url": "https://arxiv.org/pdf/2607.24959.pdf",
+      "html_url": "https://arxiv.org/html/2607.24959v1",
+      "html_author_notes_text": "1\nSchool of Informatics, University of Edinburgh, Scotland.\n*\nThese authors contributed equally.\n†\nCorresponding author:\nc.r.arnott@ed.ac.uk\n.",
+      "html_author_institutions": [
+        "School of Informatics, University of Edinburgh, Scotland"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Daniel Layeghi",
+            "institutions": [
+              {
+                "canonical": "University of Edinburgh",
+                "raw": "University of Edinburgh",
+                "match_method": "paper_level_fallback",
+                "confidence": 0.65
+              }
+            ],
+            "raw_institutions": [
+              "University of Edinburgh"
+            ]
+          },
+          {
+            "name": "Thomas Corbères",
+            "institutions": [
+              {
+                "canonical": "University of Edinburgh",
+                "raw": "University of Edinburgh",
+                "match_method": "paper_level_fallback",
+                "confidence": 0.65
+              }
+            ],
+            "raw_institutions": [
+              "University of Edinburgh"
+            ]
+          },
+          {
+            "name": "Calum Arnott",
+            "institutions": [
+              {
+                "canonical": "University of Edinburgh",
+                "raw": "University of Edinburgh",
+                "match_method": "paper_level_fallback",
+                "confidence": 0.65
+              }
+            ],
+            "raw_institutions": [
+              "University of Edinburgh"
+            ]
+          },
+          {
+            "name": "Aditya Kamireddypalli",
+            "institutions": [
+              {
+                "canonical": "University of Edinburgh",
+                "raw": "University of Edinburgh",
+                "match_method": "paper_level_fallback",
+                "confidence": 0.65
+              }
+            ],
+            "raw_institutions": [
+              "University of Edinburgh"
+            ]
+          },
+          {
+            "name": "Hashim Al-Obaidi",
+            "institutions": [
+              {
+                "canonical": "University of Edinburgh",
+                "raw": "University of Edinburgh",
+                "match_method": "paper_level_fallback",
+                "confidence": 0.65
+              }
+            ],
+            "raw_institutions": [
+              "University of Edinburgh"
+            ]
+          },
+          {
+            "name": "Steve Tonneau",
+            "institutions": [
+              {
+                "canonical": "University of Edinburgh",
+                "raw": "University of Edinburgh",
+                "match_method": "paper_level_fallback",
+                "confidence": 0.65
+              }
+            ],
+            "raw_institutions": [
+              "University of Edinburgh"
+            ]
+          },
+          {
+            "name": "Michael Mistry",
+            "institutions": [
+              {
+                "canonical": "University of Edinburgh",
+                "raw": "University of Edinburgh",
+                "match_method": "paper_level_fallback",
+                "confidence": 0.65
+              }
+            ],
+            "raw_institutions": [
+              "University of Edinburgh"
+            ]
+          }
+        ],
+        "paper_level_institutions": [
+          "University of Edinburgh"
+        ],
+        "paper_level_detected_institutions": [
+          "University of Edinburgh",
+          "hool of Informatics, University of Edinburgh, Scotland.",
+          "ol of Informatics, University of Edinburgh, Scotland."
+        ],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Differentiable simulation can accelerate contact-rich trajectory optimisation by exposing local sensitivities of task outcomes to controls. Existing approaches either use finite differences, which are expensive and step-size sensitive; differentiate iterative contact solvers by unrolling automatic differentiation (AD), which stores a growing computation trace; or require intricate, solver-specific KKT sensitivity derivations. We introduce an AD-assisted implicit derivative for regularised smooth",
+      "topic_relevance": 3,
+      "topic_match": true,
+      "topic_rationale": "Differentiable contact dynamics for trajectory optimization and MPC; central to motion planning/control for contact-rich tasks.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.24863",
+      "title": "Steeringless Drifting: Differential-Torque Control of a Four-Wheel Independently Driven Vehicle",
+      "authors": [
+        "Sheng Zhao",
+        "Zexin Wu",
+        "Dongyang Zhou",
+        "Bolin Zhao",
+        "Xiaodong Wu"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Control methods for emerging vehicle chassis architectures are important for autonomous driving near handling limits. Unlike conventional drift control, which relies on mechanical steering and rear-tire saturation, a steering-free four-wheel independently driven (4WID) vehicle can generate direct yaw moment through differential wheel torques. This paper proposes a differential-torque drift control method for such a vehicle. A double-track vehicle model incorporating four-wheel differential actuation is established, based on which a drift-equilibrium calculation method and a closed-loop drift controller are developed. The proposed approach is validated through simulations and experiments on a 1:10-scale vehicle. The results show that the vehicle can achieve steady circular drifting with a sideslip angle of approximately 20$^\\circ$ and perform figure-eight drift tracking. This study demonstrates the feasibility of drift control using only differential wheel torques and provides a new perspective on near-limit control for steering-free vehicle architectures.",
+      "abs_url": "https://arxiv.org/abs/2607.24863",
+      "pdf_url": "https://arxiv.org/pdf/2607.24863.pdf",
+      "html_url": "https://arxiv.org/html/2607.24863v1",
+      "html_author_notes_text": "*This work was supported by the National Science Foundation Grant 52472413.\n(Corresponding author: Xiaodong Wu)\n1,2\nSheng Zhao is with the School of Mechanical Engineering, Shanghai Jiao Tong University, Shanghai 200240, China, and also with the School of Mechanical and Aerospace Engineering, Nanyang Technological University, Singapore 639798, Singapore.\nzhaoshengkim@sjtu.edu.cn\n1\nZexin Wu, Dongyang Zhou and Xiaodong Wu are with the School of Mechanical Engineering, Shanghai Jiao Tong University, Shanghai 200240, China.\n2\nBolin Zhao is with the School of Mechanical and Aerospace Engineering, Nanyang Technological University, Singapore 639798, Singapore.",
+      "html_author_institutions": [
+        "Sheng Zhao is with the School of Mechanical Engineering, Shanghai Jiao Tong University, Shanghai 200240, China, and also with the School of Mechanical and Aerospace Engineering, Nanyang Technological University, Singapore 639798, Singapore",
+        "Zexin Wu, Dongyang Zhou and Xiaodong Wu are with the School of Mechanical Engineering, Shanghai Jiao Tong University, Shanghai 200240, China",
+        "Bolin Zhao is with the School of Mechanical and Aerospace Engineering, Nanyang Technological University, Singapore 639798, Singapore"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Sheng Zhao",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Zexin Wu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Dongyang Zhou",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Bolin Zhao",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Xiaodong Wu",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [
+          "Nanyang Technological University",
+          "Shanghai Jiao Tong University"
+        ],
+        "paper_level_detected_institutions": [
+          "Nanyang Technological University",
+          "SJTU",
+          "anyang Technological University",
+          "hanghai Jiao Tong University"
+        ],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Control methods for emerging vehicle chassis architectures are important for autonomous driving near handling limits. Unlike conventional drift control, which relies on mechanical steering and rear-tire saturation, a steering-free four-wheel independently driven (4WID) vehicle can generate direct yaw moment through differential wheel torques. This paper proposes a differential-torque drift control method for such a vehicle. A double-track vehicle model incorporating four-wheel differential actua",
+      "topic_relevance": 1,
+      "topic_match": false,
+      "topic_rationale": "Drift control of 4WID vehicle via differential torque; control near limits but not primarily planning/navigation algorithms.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.24860",
+      "title": "Egocentric Station Holding of Robotic Fish in Unknown Turbulent Background Flow",
+      "authors": [
+        "Xiaozhu Lin",
+        "Xu Huang",
+        "Hongru Dai",
+        "Xiaopei Liu",
+        "Junzhi Yu",
+        "Yang Wang"
+      ],
+      "subjects": "Robotics (cs.RO)",
+      "abstract": "Approaching a target position and holding station in flowing water is a fundamental and critical capability for robotic fish operating in natural aquatic environments. Despite decades of advances in enhancing swimming efficiency and maneuverability, this capability remains underdeveloped, largely owing to the insufficiently characterized, highly nonlinear fluid-structure interactions inherent to freely swimming robotic fish in flows. To bridge this gap, we propose the SWiFT framework, a Swimming With Flow Toolbox that enables the efficient exploration of an egocentric station-holding policy for a body and/or caudal fin (BCF) robotic fish in unknown and turbulent background flows via reinforcement learning (RL). Our SWiFT integrates a free-swimming flow-tank experimental setup with a highly efficient, physically consistent computational fluid dynamics (CFD)-based simulator and a systematic sim-to-real transfer pipeline. The resulting policy achieves substantial improvements over state-of-the-art methods across all metrics, most notably root-mean-square error (RMSE) of distance. Furthermore, we validated that egocentric feedback alone, without any explicit flow sensing, enables station-holding in unknown turbulent flows, closely mirroring the biological phenomenon of rheotaxis. Accordingly, the success of this egocentric station-holding policy not only advances robotic fish control toward real-world deployment, but also highlights SWiFT's promise as a foundation for tackling complex swimming tasks for underwater robots.",
+      "abs_url": "https://arxiv.org/abs/2607.24860",
+      "pdf_url": "https://arxiv.org/pdf/2607.24860.pdf",
+      "html_url": "https://arxiv.org/html/2607.24860v1",
+      "html_author_notes_text": "This work was supported by the National Natural Science Foundation of China under Grant 62503329.\n(Corresponding author: Yang Wang.)\nXiaozhu Lin, Xu Huang, Hongru Dai, Xiaopei Liu and Yang Wang are with the School of Information Science and Technology, ShanghaiTech University, Shanghai, China\n{linxzh, huangxu2024, daihr2024, liuxp, wangyang4}@shanghaitech.edu.cn\nJunzhi Yu is with the State Key Laboratory for Turbulence and Complex Systems, Department of Advanced Manufacturing and Robotics, College of Engineering, Peking University, Beijing 100871, China, and also with the Laboratory of Cognitive and Decision Intelligence for Complex System, Institute of Automation, Chinese Academy of Sciences, Beijing 100190, China\njunzhi.yu@ia.ac.cn",
+      "html_author_institutions": [
+        "Xiaozhu Lin, Xu Huang, Hongru Dai, Xiaopei Liu and Yang Wang are with the School of Information Science and Technology, ShanghaiTech University, Shanghai, China",
+        "Junzhi Yu is with the State Key Laboratory for Turbulence and Complex Systems, Department of Advanced Manufacturing and Robotics, College of Engineering, Peking University, Beijing 100871, China, and also with the Laboratory of Cognitive and Decision Intelligence for Complex System, Institute of Automation, Chinese Academy of Sciences, Beijing 100190, China"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Xiaozhu Lin",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Xu Huang",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Hongru Dai",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Xiaopei Liu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Junzhi Yu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yang Wang",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [
+          "Chinese Academy of Sciences",
+          "Peking University"
+        ],
+        "paper_level_detected_institutions": [
+          "Chinese Academy of Sciences",
+          "Peking University",
+          "eking University"
+        ],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Approaching a target position and holding station in flowing water is a fundamental and critical capability for robotic fish operating in natural aquatic environments. Despite decades of advances in enhancing swimming efficiency and maneuverability, this capability remains underdeveloped, largely owing to the insufficiently characterized, highly nonlinear fluid-structure interactions inherent to freely swimming robotic fish in flows. To bridge this gap, we propose the SWiFT framework, a Swimming",
+      "topic_relevance": 1,
+      "topic_match": false,
+      "topic_rationale": "Robotic fish station holding in turbulent flow; advanced control but limited planning/navigation abstraction.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.26005",
+      "title": "Pictura: Perspective-View Self-Play at Scale for Driving",
+      "authors": [
+        "Yuan Yin",
+        "Elias Ramzi",
+        "Marc Lafon",
+        "Valentin Charraut",
+        "Victor Bares",
+        "Yihong Xu",
+        "Éloi Zablocki",
+        "Alexandre Boulch",
+        "Thibault Buhet",
+        "Andrei Bursuc",
+        "Matthieu Cord"
+      ],
+      "subjects": "Computer Vision and Pattern Recognition (cs.CV)",
+      "abstract": "Self-play in simulation produces robust driving policies at scale. Demonstrations of such behavior have been made using privileged vectorized observations such as exact poses and velocities, even for occluded agents. This assumes that perception is solved and introduces a representation gap with the partial observation of a deployed agent driving from the perspective view of egocentric cameras. A common fix, distilling the privileged policy into a camera-input student, leaves the student imitating decisions its own view cannot justify. Instead, we establish perspective-view self-play as a practical training regime. We introduce Pictura, a GPU-accelerated multi-agent driving simulator that renders each agent's egocentric view at every step, mitigating the representation gap at its source. Pictura sustains up to 500K agent-steps/s (2M images/s) on a single H100. Using Pictura, we train Alberti by self-play with plain PPO. It is the first large-scale driving self-play policy trained directly from perspective images, without privileged observations. Training spans 50B agent steps for ~35M km of driving. It approaches the driving performance of its privileged vectorized counterpart, and transfers zero-shot to Waymo Open Motion Dataset layouts re-rendered in Pictura, where it outperforms privileged vectorized agents. Project page: this https URL",
+      "abs_url": "https://arxiv.org/abs/2607.26005",
+      "pdf_url": "https://arxiv.org/pdf/2607.26005.pdf",
+      "html_url": "https://arxiv.org/html/2607.26005v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Yuan Yin",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Elias Ramzi",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Marc Lafon",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Valentin Charraut",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Victor Bares",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Yihong Xu",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Éloi Zablocki",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Alexandre Boulch",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Thibault Buhet",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Andrei Bursuc",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Matthieu Cord",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Self-play in simulation produces robust driving policies at scale. Demonstrations of such behavior have been made using privileged vectorized observations such as exact poses and velocities, even for occluded agents. This assumes that perception is solved and introduces a representation gap with the partial observation of a deployed agent driving from the perspective view of egocentric cameras. A common fix, distilling the privileged policy into a camera-input student, leaves the student imitati",
+      "topic_relevance": 3,
+      "topic_match": true,
+      "topic_rationale": "Self-play driving from egocentric cameras; strong autonomous driving navigation and motion planning component.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25989",
+      "title": "Untangling Co-Drift: Proactive Multi-Intent Failure Prediction and Root-Cause Disambiguation for Self-Driving Networks",
+      "authors": [
+        "Md. Kamrul Hossain",
+        "Walid Aljoby"
+      ],
+      "subjects": "Networking and Internet Architecture (cs.NI)",
+      "abstract": "The vision of self-driving networks that monitor, reason, and act upon themselves with minimal human intervention relies on tightly coupled monitoring, analytics, and actuation functions. In this work, we treat these functions as three operational macro-intents: continuous telemetry, real-time analytics, and programmatic actuation, and formalize the health of each function as an intent that the network must continuously satisfy. A critical, yet underexplored, challenge stems from the causal coupling among these intents, where a singular fault within one macro-intent propagates as a co-drift and subsequently triggers cascading, symptomatic anomalies across the remaining intents. This ambiguity makes it exceedingly difficult for existing, reactive approaches to distinguish the true root-cause intent from symptomatic victim intents, and their reliance on threshold-crossing detection leaves insufficient time for proactive remediation. We introduce MILD, a novel framework that reformulates intent assurance from reactive drift detection to proactive failure prediction. Grounded in our three-macro-intent formulation of the self-driving control loop, MILD employs a teacher-augmented Mixture-of-Experts architecture with a hybrid objective that jointly optimizes intent failure prediction and root-cause attribution. MILD enables KPI-level diagnostics via SHAP explainability and dynamic intent failure urgency estimation via multi-horizon modeling. Our extensive evaluation of MILD across three environments of increasing realism, from a controlled statistical benchmark, to a microservices application, to an SDN-based edge-to-cloud testbed, demonstrates that MILD achieves high failure detection rates, strong remediation lead times, and accurate intent-level root-cause disambiguation. This positions MILD as a practical enabler of closed-loop assurance in next-generation autonomous networks.",
+      "abs_url": "https://arxiv.org/abs/2607.25989",
+      "pdf_url": "https://arxiv.org/pdf/2607.25989.pdf",
+      "html_url": "https://arxiv.org/html/2607.25989v1",
+      "html_author_notes_text": "(Corresponding author: Walid Aljoby.)\nMd. Kamrul Hossain is with Information and Computer Science Department, King Fahd University of Petroleum and Minerals, Dhahran 31261, Saudi Arabia.\nWalid Aljoby is with Information and Computer Science Department, and IRC for Intelligent Secure Systems, King Fahd University of Petroleum and Minerals, Dhahran 31261, Saudi Arabia.",
+      "html_author_institutions": [
+        "Md. Kamrul Hossain is with Information and Computer Science Department, King Fahd University of Petroleum and Minerals, Dhahran 31261, Saudi Arabia",
+        "Walid Aljoby is with Information and Computer Science Department, and IRC for Intelligent Secure Systems, King Fahd University of Petroleum and Minerals, Dhahran 31261, Saudi Arabia"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Md. Kamrul Hossain",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Walid Aljoby",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "The vision of self-driving networks that monitor, reason, and act upon themselves with minimal human intervention relies on tightly coupled monitoring, analytics, and actuation functions. In this work, we treat these functions as three operational macro-intents: continuous telemetry, real-time analytics, and programmatic actuation, and formalize the health of each function as an intent that the network must continuously satisfy. A critical, yet underexplored, challenge stems from the causal coup",
+      "topic_relevance": 0,
+      "topic_match": false,
+      "topic_rationale": "Self-driving computer networks; unrelated to robotic motion planning, navigation, or manipulation.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25389",
+      "title": "HOME: Robust Hough-space Matching Method for Structured and Textureless Videos",
+      "authors": [
+        "Masaki Satoh"
+      ],
+      "subjects": "Computer Vision and Pattern Recognition (cs.CV)",
+      "abstract": "Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), which frequently fail in structured environments dominated by strong linear structures or textureless surfaces. While line-based Simultaneous Localization and Mapping (SLAM) systems mitigate this by utilizing line segments, conventional line extraction and description algorithms are computationally prohibitive for real-time edge robotics. To address this fundamental bottleneck, we propose HOME (Hough-space One-dimensional Matching of Extrema), an ultra-lightweight, training-free feature matching framework. HOME transforms images into Hough space, mapping global linear structures to stable local extrema, which serve as keypoints, thereby reformulating complex line matching into highly efficient one-dimensional point matching. The proposed 1D radial descriptor mathematically guarantees rotational and translational invariance without the overhead of explicit orientation estimation. As a proof of concept to validate the matching accuracy and efficiency of HOME, this paper focuses on homography estimation. Extensive evaluations demonstrate that HOME achieves robust registration in challenging scenarios where point-based methods fail, operating at a much faster speed than existing line-based methods. Extending this robust matching engine to full 3D pose estimation remains a highly promising future direction.",
+      "abs_url": "https://arxiv.org/abs/2607.25389",
+      "pdf_url": "https://arxiv.org/pdf/2607.25389.pdf",
+      "html_url": "https://arxiv.org/html/2607.25389v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Masaki Satoh",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Visual front-ends for robotic localization typically rely on point-based features such as Oriented FAST and Rotated BRIEF (ORB), which frequently fail in structured environments dominated by strong linear structures or textureless surfaces. While line-based Simultaneous Localization and Mapping (SLAM) systems mitigate this by utilizing line segments, conventional line extraction and description algorithms are computationally prohibitive for real-time edge robotics. To address this fundamental bo",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "Robust visual front-end for localization using Hough-space matching; important for SLAM supporting navigation.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25370",
+      "title": "Critical slowing down for predicting controller induced loss of control in quadrotors",
+      "authors": [
+        "Jasper J. van Beers",
+        "Prashant Solanki",
+        "Erik-Jan van Kampen",
+        "Coen C. de Visser"
+      ],
+      "subjects": "Systems and Control (eess.SY)",
+      "abstract": "We develop a novel forecasting scheme to anticipate controller induced loss of control (LOC) in quadrotors and evaluate it on real LOC flight data from four different quadrotors. For this, early warning signals of LOC are derived using critical slowing down (CSD), a generic phenomenon shown to precede critical transitions across various complex ecological and biological systems. As such, our early warning indicators are generic in the sense that no system models are needed to facilitate forecasts of LOC. The approach is evaluated on real quadrotor flight data wherein LOC occurs due to unstable controller behavior arising from input-output delays. Our approach achieves a time-to-LOC forecast of up to 0.9 seconds before LOC occurs, outperforming state-of-the-art recurrent neural network quadrotor LOC forecasters in terms of detection accuracy and LOC data reliance. In particular, we leverage insights from CSD to accurately predict LOC without using data of the LOC event itself. Going further, we apply our forecasters without any re-parameterization to anticipate a different LOC scenario, quadrotor flyways, that occur on other quadrotors flying both indoors and outdoors. Despite these differences, our approach successfully detects LOC, demonstrating that it can generalize across controller architectures, quadrotors, and LOC scenarios.",
+      "abs_url": "https://arxiv.org/abs/2607.25370",
+      "pdf_url": "https://arxiv.org/pdf/2607.25370.pdf",
+      "html_url": "https://arxiv.org/html/2607.25370v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Jasper J. van Beers",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Prashant Solanki",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Erik-Jan van Kampen",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Coen C. de Visser",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "We develop a novel forecasting scheme to anticipate controller induced loss of control (LOC) in quadrotors and evaluate it on real LOC flight data from four different quadrotors. For this, early warning signals of LOC are derived using critical slowing down (CSD), a generic phenomenon shown to precede critical transitions across various complex ecological and biological systems. As such, our early warning indicators are generic in the sense that no system models are needed to facilitate forecast",
+      "topic_relevance": 1,
+      "topic_match": false,
+      "topic_rationale": "Predicting controller-induced loss of control in quadrotors; safety forecasting, not motion planning or navigation per se.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25337",
+      "title": "Temporal-Distance JEPA: Plan-Aware Representation Learning for Latent World Model Predictive Control",
+      "authors": [
+        "Jiaxin Bai",
+        "Jiaxuan Xiong"
+      ],
+      "subjects": "Computation and Language (cs.CL)",
+      "abstract": "Joint-Embedding Predictive Architectures (JEPAs) learn world models by predicting in representation space rather than reconstructing pixels, making them a natural backbone for latent model predictive control from offline demonstration logs. JEPA-style training optimizes short-horizon latent prediction, whereas planning requires a multi-step ranking of imagined futures by goal progress. Prior JEPA planners often inherit that ranking from embedding geometry, typically latent Euclidean distance, which arises as a byproduct of representation learning rather than as a progress cost mined from the logs. We propose Temporal-Distance-JEPA, which retains the LeWM encoder--predictor backbone and mines a directed temporal cost from reward-free trajectories: same-trajectory step order supplies positive targets, cross-trajectory pairs act as heuristic negatives, and a rollout-consistency term matches the planner horizon. The mined supervision serves two roles: as the deployed planning cost when progress is topological, and as a representation signal that improves Euclidean planning when contact geometry dominates. Under locked evaluation, deploying the mined cost raises Two-Room success to 100.0% versus LeWM's 97.4%, while shared Euclidean planning on the same temporally trained checkpoint raises OGB-Cube by 14.2 points over LeWM and improves Push-T. Against LeWM and the concurrent RC-aux baseline under locked evaluation, Temporal-Distance-JEPA matches or exceeds both methods on every environment. Ablations show that the directed head, cross-trajectory negatives, and rollout consistency each contribute. Temporal-Distance-JEPA narrows the train--plan gap for JEPA world-model planners by discovering temporal progress structure in offline logs and co-designing cost form with plan-time deployment. Code is available at this https URL .",
+      "abs_url": "https://arxiv.org/abs/2607.25337",
+      "pdf_url": "https://arxiv.org/pdf/2607.25337.pdf",
+      "html_url": "https://arxiv.org/html/2607.25337v2",
+      "html_author_notes_text": "Hong Kong Baptist University\nHong Kong\nChina\nbaijiaxin@hkbu.edu.hk",
+      "html_author_institutions": [
+        "Hong Kong Baptist University"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Jiaxin Bai",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Jiaxuan Xiong",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Joint-Embedding Predictive Architectures (JEPAs) learn world models by predicting in representation space rather than reconstructing pixels, making them a natural backbone for latent model predictive control from offline demonstration logs. JEPA-style training optimizes short-horizon latent prediction, whereas planning requires a multi-step ranking of imagined futures by goal progress. Prior JEPA planners often inherit that ranking from embedding geometry, typically latent Euclidean distance, wh",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "JEPA-based world models for MPC with plan-aware representations; directly relevant to motion planning/control.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25236",
+      "title": "VisualPatchWorld: Code World Models as Latent Structured Representations for Planning",
+      "authors": [
+        "Jiaxin Bai",
+        "Jiaxuan Xiong"
+      ],
+      "subjects": "Computation and Language (cs.CL)",
+      "abstract": "Different research lines use the term world model in different ways, yet they share a common aim: to capture how the world evolves under action in a form that supports perception, simulation, and planning. Two prominent realizations are neural predictors that learn dynamics in continuous vector spaces, and hand-built physics engines that expose explicit state and physical laws. Neural predictors scale from data but leave the form of the dynamics implicit; physics engines are inspectable and editable but difficult to construct at scale. We introduce VisualPatchWorld (VPW), which represents world dynamics as code. VPW first selects a qualitative dynamical form with short active probes, then fits that form's free parameters from recorded state-action traces by minimizing multi-step prediction error. The resulting programs can be rolled forward like a simulator, inspected in source form, and used inside model-predictive control; image-derived scene graphs can supply the live state at replan time. Across comparisons with prior code-based world models, VPW attains 69.0% mean planning success and exceeds the strongest code baseline by 23.5 points. The largest gains arise when choosing the correct qualitative dynamics is essential. Under the same planner, the induced models approach ground-truth engine success on navigation and grasp-rich control; a residual gap remains for contact-rich pushing, and checking a shortlist of promising plans in the engine closes most of that gap. These results establish a practical route toward automatically constructed code world models that are useful for planning. Code is available at this https URL .",
+      "abs_url": "https://arxiv.org/abs/2607.25236",
+      "pdf_url": "https://arxiv.org/pdf/2607.25236.pdf",
+      "html_url": "https://arxiv.org/html/2607.25236v1",
+      "html_author_notes_text": "Hong Kong Baptist University\nHong Kong\nChina\nbaijiaxin@hkbu.edu.hk",
+      "html_author_institutions": [
+        "Hong Kong Baptist University"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Jiaxin Bai",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Jiaxuan Xiong",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Different research lines use the term world model in different ways, yet they share a common aim: to capture how the world evolves under action in a form that supports perception, simulation, and planning. Two prominent realizations are neural predictors that learn dynamics in continuous vector spaces, and hand-built physics engines that expose explicit state and physical laws. Neural predictors scale from data but leave the form of the dynamics implicit; physics engines are inspectable and edit",
+      "topic_relevance": 2,
+      "topic_match": true,
+      "topic_rationale": "World models as structured representations for planning; generic but central to planning and control for robots.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.25047",
+      "title": "Extended Reality as a Mediation Layer for Situated Human Control in Human-Robot Teaming",
+      "authors": [
+        "Jens Grubert",
+        "John Dudley",
+        "Eyal Ofek",
+        "Per Ola Kristensson"
+      ],
+      "subjects": "Human-Computer Interaction (cs.HC)",
+      "abstract": "Extended Reality (XR) is increasingly used in human-robot interaction to communicate robot intent, planned motion, reachability, and state. We argue that XR should also be understood as a mediation layer for situated human control in human-robot teaming. Situated human control denotes the human collaborator's ability to understand, shape, authorize, and interrupt robot action within the concrete physical, social, and temporal context in which that action unfolds. We ground this perspective in scenarios from robot-assisted bedside nursing, multi-arm supervisory control, and collaborative assembly under divided attention. Across these scenarios, robot autonomy must remain inspectable and adjustable as people move, goals change, sensing is incomplete, control roles shift, and plans become invalid. We identify four mediation functions connecting human intent and robot autonomy, robot plans and human judgment, levels of shared control, and team roles, handover, and recovery. Building on these functions, we derive six design dimensions: joint action possibilities, socio-physical constraints, uncertainty and plan validity, multimodal control and correction, roles, handover, and accountability, and anticipatory recovery. The paper outlines a research agenda for XR systems that make robot autonomy more actionable and accountable in dynamic shared environments.",
+      "abs_url": "https://arxiv.org/abs/2607.25047",
+      "pdf_url": "https://arxiv.org/pdf/2607.25047.pdf",
+      "html_url": "https://arxiv.org/html/2607.25047v1",
+      "html_author_notes_text": "e-mail: jens.grubert@hs-coburg.de",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Jens Grubert",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "John Dudley",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Eyal Ofek",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Per Ola Kristensson",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Extended Reality (XR) is increasingly used in human-robot interaction to communicate robot intent, planned motion, reachability, and state. We argue that XR should also be understood as a mediation layer for situated human control in human-robot teaming. Situated human control denotes the human collaborator's ability to understand, shape, authorize, and interrupt robot action within the concrete physical, social, and temporal context in which that action unfolds. We ground this perspective in sc",
+      "topic_relevance": 1,
+      "topic_match": false,
+      "topic_rationale": "XR as mediation for human control/teaming; interaction-focused, not specifically motion planning or manipulation.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.24996",
+      "title": "Calibrated Partial Resets: Preventing Policy Collapse in Continual Reinforcement Learning",
+      "authors": [
+        "Luc McCutcheon",
+        "Evangelos Chatzaroulas",
+        "Saber Fallah"
+      ],
+      "subjects": "Machine Learning (cs.LG)",
+      "abstract": "Neural networks are hindered by accumulating dormant neurons and loss of expressivity throughout training, particularly in non-stationary data settings, such as continual supervised and reinforcement learning. Recently, neuron resets have been used to maintain gradient flow and restore plasticity. However, full unit reinitialization often sacrifices peak performance and can destabilize training, leading to policy collapse. To preserve plasticity without destabilizing training, we propose Calibrated Partial Resets (CPR), an optimizer that periodically pulls low-utility neurons toward their initialization, with pull strength scaled by each neuron's utility. Unlike binary reset methods, partial resets avoid brittleness; unlike uniform decay, calibrated utility-scaling concentrates adjustment on the units that need it most. Among compared methods, only CPR avoids policy collapse over 400M training steps in SlipperyAnt, and it outperforms prior decay and reset-based methods on Continual MetaWorld and Continual MinAtar benchmarks. Ablations reveal a tunable trade-off between plasticity and peak performance, highlighting utility-scaled reinitialization as a promising direction for continual learning.",
+      "abs_url": "https://arxiv.org/abs/2607.24996",
+      "pdf_url": "https://arxiv.org/pdf/2607.24996.pdf",
+      "html_url": "https://arxiv.org/html/2607.24996v1",
+      "html_author_notes_text": "",
+      "html_author_institutions": [],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Luc McCutcheon",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Evangelos Chatzaroulas",
+            "institutions": [],
+            "raw_institutions": []
+          },
+          {
+            "name": "Saber Fallah",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Neural networks are hindered by accumulating dormant neurons and loss of expressivity throughout training, particularly in non-stationary data settings, such as continual supervised and reinforcement learning. Recently, neuron resets have been used to maintain gradient flow and restore plasticity. However, full unit reinitialization often sacrifices peak performance and can destabilize training, leading to policy collapse. To preserve plasticity without destabilizing training, we propose Calibra",
+      "topic_relevance": 1,
+      "topic_match": false,
+      "topic_rationale": "Continual RL method preventing policy collapse; generic learning technique, only indirectly related to planning/manipulation.",
+      "institution_match": false,
+      "matched_institutions": []
+    },
+    {
+      "arxiv_id": "arXiv:2607.24852",
+      "title": "Track-Leakage-Free Hold-Out Self-Validation for Photogrammetric Reconstruction: Protocol, Sensitivity, and Limits",
+      "authors": [
+        "Behnam Asadi"
+      ],
+      "subjects": "Computer Vision and Pattern Recognition (cs.CV)",
+      "abstract": "Automated photogrammetric inspection emits metric measurements from reconstructions whose correctness is normally unknown without an external survey. Can a reconstruction estimate its own reliability with no ground truth, and what would such an estimate measure? We formalise a track-leakage-free hold-out protocol: a deterministic image subset is withheld, and each withheld view is re-localised by resection against only those 3D points supported by at least two retained images, so no view is tested against structure it helped create. We evaluate it on five GNSS-referenced captures (four RTK-fixed) across four sites, 13 ETH3D laser-scan scenes, a EuRoC flight, and 30 IMC 2025 scenes. The protocol is computationally well-posed -- good reconstructions score near-perfect self-consistency (median rotation error 0.003 deg) -- but it does not measure accuracy, for a structural rather than statistical reason. It saturates: confidence stays pinned at 1.00 while true error swings 14.1x within a single capture, and holds at 1.00 on survey-grade truth at 3.4 m, 4.3 m, and 1.7 m / 13 deg. It is blind to coherent distortion: corruption that fragments a reconstruction is caught (1.00 -> 0.96), but corruption yielding a single, internally self-consistent, globally distorted model is not -- at three of four captures such models were wrong by 55-106 m at confidence 1.00. On IMC 2025 the same dichotomy appears with no injected degradation: confidence separates failed from successful reconstructions (rho = 0.68) yet ranks nothing among the successful ones (rho = 0.01). A capture-level meta-analysis of the continuous signal is underpowered and sign-unstable (k = 5, 95% CI [-0.45, +0.75]); the negative result does not rest on it. Track-leakage-free hold-out therefore measures internal geometric consistency: a qualitative fragmentation warning, not a substitute for control-point accuracy assessment.",
+      "abs_url": "https://arxiv.org/abs/2607.24852",
+      "pdf_url": "https://arxiv.org/pdf/2607.24852.pdf",
+      "html_url": "https://arxiv.org/html/2607.24852v2",
+      "html_author_notes_text": "Patent pending (U.S. provisional 64/113,075).\nCorrespondence:\nbehnam.asadi@gmail.com\n.All numbers are from real runs on operational\nGNSS-referenced captures (a four-capture core on three sites, three RTK-fixed, plus GUT\nCampus as an out-of-set fifth capture on a distinct site); sparsity (Sec.\nV-E\n) and\nmatch-corruption (Sec.\nV-F\n) are complete across the four-capture core.",
+      "html_author_institutions": [
+        "Campus as an out-of-set fifth capture on a distinct site); sparsity (Sec"
+      ],
+      "manual_institution_extraction": {
+        "authors": [
+          {
+            "name": "Behnam Asadi",
+            "institutions": [],
+            "raw_institutions": []
+          }
+        ],
+        "paper_level_institutions": [],
+        "paper_level_detected_institutions": [],
+        "unmapped_raw_institutions": [],
+        "filter_match": false,
+        "filter_match_institutions": []
+      },
+      "abstract_for_prompt": "Automated photogrammetric inspection emits metric measurements from reconstructions whose correctness is normally unknown without an external survey. Can a reconstruction estimate its own reliability with no ground truth, and what would such an estimate measure? We formalise a track-leakage-free hold-out protocol: a deterministic image subset is withheld, and each withheld view is re-localised by resection against only those 3D points supported by at least two retained images, so no view is test",
+      "topic_relevance": 1,
+      "topic_match": false,
+      "topic_rationale": "Photogrammetric reconstruction self-validation; mapping accuracy, tangential to navigation but not planning/controls focused.",
+      "institution_match": false,
+      "matched_institutions": []
+    }
+  ],
+  "briefing": {
+    "executive_summary": [
+      "Strong focus on navigation and motion planning, from UAV swarms and underwater vehicles to social navigation and city-scale localization.",
+      "Multiple works advance manipulation planning and control, including contact- and friction-aware motion planning, task and motion integration, and trajectory optimization for MPC.",
+      "World models and JEPA-style architectures continue to mature as planning backbones, emphasizing temporal structure, intent-to-action mapping, and code-based dynamics representations.",
+      "New benchmarks and simulators emerge for high-fidelity social navigation, multi-vehicle racing, and driving from egocentric cameras.",
+      "Foundational algorithmic tools appear for vision-based localization and grasp analysis, addressing challenging visual conditions and friction uncertainty."
+    ],
+    "institution_matches": [],
+    "topic_matches": [
+      {
+        "paper_id": "arXiv:2607.26055",
+        "title": "$\\pi\\mathbf{R}^2$: Reactive Real-time Flow Policies",
+        "institution": "",
+        "overview": "Introduces $\\pi\\mathbf{R}^2$, a latency-aware, closed-loop variant of action-chunking flow policies that splits fast proprioceptive and slow vision-language conditioning while emitting actions in a single denoising step. Applied to an xArm6+XHand, it enables ~25 Hz replanning and significantly improves success on dynamic manipulation tasks versus non-reactive baselines.",
+        "link": "https://arxiv.org/abs/2607.26055"
+      },
+      {
+        "paper_id": "arXiv:2607.25754",
+        "title": "Cooperative Multi-UAV Navigation in Complex Environments via Systematic Multi-Agent Deep Reinforcement Learning",
+        "institution": "",
+        "overview": "Presents a multi-agent DRL framework for cooperative UAV navigation tackling local optima, sparse rewards, learning imbalance, and cross-scenario transfer. It combines novelty-aware exploration, hierarchical demonstration buffers, safety-aware curriculum scheduling, and structure-aware mixture-of-experts generalization to achieve robust collaboration and zero-shot cross-scenario performance.",
+        "link": "https://arxiv.org/abs/2607.25754"
+      },
+      {
+        "paper_id": "arXiv:2607.25728",
+        "title": "Shared Voxel-Map-Based Cooperative Indoor UAV Guidance with a Multi-Agent Soft Actor-Critic Controller",
+        "institution": "",
+        "overview": "Combines a shared world-frame voxel occupancy map with decentralized multi-agent SAC to guide multiple UAVs in GNSS-denied indoor spaces. A BEV crop plus local sensing feeds each agent, yielding high corridor navigation success in simulation and robust two-UAV cooperative flight after offline imitation fine-tuning on real data.",
+        "link": "https://arxiv.org/abs/2607.25728"
+      },
+      {
+        "paper_id": "arXiv:2607.25448",
+        "title": "Room-Mediated Co-occurrence for Zero-Shot Object-Centric Semantic Navigation via Frontier Scoring",
+        "institution": "",
+        "overview": "Proposes a training-free ObjectNav pipeline that mediates object relationships via CLIP-derived room probability vectors instead of direct object similarity. By propagating room-conditioned co-occurrence scores over a map and ranking frontiers, it improves HM3D zero-shot navigation metrics while remaining interpretable and open-vocabulary.",
+        "link": "https://arxiv.org/abs/2607.25448"
+      },
+      {
+        "paper_id": "arXiv:2607.25397",
+        "title": "Decompose and Reorganize: Planning with Primitives and Visuomotor Policies Learned from Demonstrations",
+        "institution": "Nanyang Technological University; National Taiwan University; The Chinese University of Hong Kong; The University of Hong Kong",
+        "overview": "DR-LfD integrates task and motion planning with visuomotor policies by decomposing demonstrations into contact-defined atomic skills. These are encoded as TAMP-compatible primitives with learned visuomotor controllers, enabling flexible recomposition of multi-step dexterous tasks with reduced demonstration burden and strong generalization.",
+        "link": "https://arxiv.org/abs/2607.25397"
+      },
+      {
+        "paper_id": "arXiv:2607.25195",
+        "title": "Decentralized Scalable Exploration via Emergent Adaptive Lévy Walks on Minimal-Sensing Platforms",
+        "institution": "National University of Singapore",
+        "overview": "Introduces a sensor-driven Lévy walk controller for sub-50 g nano-UAVs with minimal local sensing, enabling scalable multi-robot exploration without communication. Directionally biased heading sampling preserves superdiffusive exploration while steering toward open space, significantly improving coverage and reducing collisions over uniform Lévy baselines.",
+        "link": "https://arxiv.org/abs/2607.25195"
+      },
+      {
+        "paper_id": "arXiv:2607.25138",
+        "title": "Reactive 3D Motion Planning for a Franka Arm via Star-World Workspace Reshaping",
+        "institution": "",
+        "overview": "Applies Star-World workspace reshaping to 3D reactive control of a Franka arm with inflated, overlapping obstacles. By clustering and replacing overlaps with star-shaped proxies and adding null-space body avoidance, the method resolves difficult configurations like overlapping walls with millisecond update times, though with some path-length and corridor-closure trade-offs.",
+        "link": "https://arxiv.org/abs/2607.25138"
+      },
+      {
+        "paper_id": "arXiv:2607.25056",
+        "title": "Hybrid Artificial Potential Fields and Spatio-Temporal Transformers for Real-Time AUV Path Planning",
+        "institution": "",
+        "overview": "Benchmarks 13 path planners for AUVs and proposes a hybrid APF + spatio-temporal Transformer scheme. The hybrid approach combines reactive obstacle avoidance with learned global optimization to achieve competitive path optimality, low collisions, and sub-second planning in complex underwater terrains.",
+        "link": "https://arxiv.org/abs/2607.25056"
+      },
+      {
+        "paper_id": "arXiv:2607.25053",
+        "title": "Motion Generation With Environmental Constraints",
+        "institution": "",
+        "overview": "Advocates Environmental Constraint Exploitation, explicitly using deliberate contact with the environment to simplify motion planning. By biasing RRT-based planners toward task-relevant, contact-rich regions, it reduces effective dimensionality and improves robustness in uncertain, cluttered scenarios, validated both in simulation and a real application.",
+        "link": "https://arxiv.org/abs/2607.25053"
+      },
+      {
+        "paper_id": "arXiv:2607.24959",
+        "title": "Amortising Trajectory Optimisation for Residual MPC via Implicit Contact Differentiation",
+        "institution": "University of Edinburgh",
+        "overview": "Introduces an implicit-function-theorem-based derivative for smooth contact in MuJoCo MJX, avoiding unrolled AD and hand-derived KKT systems while drastically reducing memory growth with solver effort and contact count. Combines this with optimizer distillation for residual MPC, yielding large success-rate gains on contact-rich tasks with Finger, Franka, and Unitree robots.",
+        "link": "https://arxiv.org/abs/2607.24959"
+      }
+    ]
+  },
+  "papers_fetched": 41,
+  "papers_analyzed": 41
+}
