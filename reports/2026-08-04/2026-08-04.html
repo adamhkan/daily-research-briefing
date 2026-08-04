@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-03</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-03</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>36</strong></div>
+        <div class="card">Papers analyzed: <strong>36</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Whole-body and task-aware control is advancing across domains, from humanoid object lifting to extreme off-road vehicle jumps and redundant cable-driven systems.</li><li>Safe and robust motion generation is being tackled with homotopy-aware corridor planning, decentralized multi-robot safety, and barrier-enhanced generative action models.</li><li>Manipulation research emphasizes semantic and physical consistency, including transparent labware grasping, affordance-guided grasp selection, and robustness to visual shifts.</li><li>New planning formulations improve navigation and viewpoint selection in challenging environments, including underwater multimodal dynamics, plant-leaf NBV planning, and vision-language navigation with agentic memory.</li><li>Multi-robot and VLM-based frameworks are enabling heterogeneous teams to execute language-specified tasks in unknown environments without centralized control.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td colspan="4"><em>No matches</em></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Balancing of Humanoid with Object Mass: Trade-off Analyses and Lifting Control</td><td></td><td>Introduces a balanced state basin (BSB) formulation that embeds object mass into whole-body humanoid dynamics, quantifying how object mass and contact conditions affect balance. Defines critical and transition masses and uses BSBs as explicit constraints in whole-body trajectory optimization to achieve stable lift-and-hold and lift-and-release behaviors in simulation and experiments.</td><td><a href="https://arxiv.org/abs/2607.29625">Link</a></td></tr>
+<tr><td>Homotopy-Aware Corridor Generation without Predefined Reference Paths</td><td>Peking University</td><td>Proposes a reference-path-free corridor generation method using graphs of convex sets that directly constructs safe corridors from free space rather than from a guiding path. An adaptive multi-scale GCS and a homotopy-aware fusion of redundant corridors enable efficient exploration of distinct topologies with demonstrated benefits on ground and aerial robots.</td><td><a href="https://arxiv.org/abs/2607.29513">Link</a></td></tr>
+<tr><td>MROPE: A Multi-Robot Safe Cooperative Strategy via combined Predictive Safety Filters and Ellipse-based Constraint Compression</td><td></td><td>Presents a hierarchical strategy for drone swarms that separates cooperative target tracking from local safety by compressing complex obstacles into per-robot safe ellipses. Distributed optimization, decentralized consensus, and local predictive safety filters enable scalable, real-time collision-free navigation in cluttered environments.</td><td><a href="https://arxiv.org/abs/2607.29203">Link</a></td></tr>
+<tr><td>HAM-VLN: Harnessing Hierarchical Agentic Memory for Zero-Shot Vision-and-Language Navigation</td><td></td><td>Introduces a decision-coupled, agent-authored memory that maintains a depth-grounded world graph while controlling an LLM-based VLN agent. By selectively retaining recent waypoints and retrieving older history via relevance, recency, and salience, HAM-VLN reduces context length by over 65% and improves zero-shot success on VLN-CE and HM3D ObjectNav benchmarks.</td><td><a href="https://arxiv.org/abs/2607.29600">Link</a></td></tr>
+<tr><td>Safe Vision Language Action Models via Barrier Enhanced Flow Matching</td><td>Pennsylvania State University</td><td>Integrates control barrier functions directly into the flow-matching denoising process of generative action models so that sampled trajectories satisfy safety constraints by construction. A smooth log-sum-exp aggregate barrier enforces chunk-level safety with bounded divergence from the target distribution, maintaining task success on manipulation and 2D navigation benchmarks without retraining.</td><td><a href="https://arxiv.org/abs/2607.29569">Link</a></td></tr>
+<tr><td>TransGraspNet: Physically and Geometrically Consistent Manipulation of Transparent Labware</td><td>Peking University; Shanghai Jiao Tong University; University of Science and Technology of China</td><td>Proposes an end-to-end framework that enforces boundary, surface, and physics consistency for grasping transparent glassware with liquids. By tightly coupling perception and grasp planning, TransGraspNet improves contour and normal estimation and yields stable, spill-free grasps in cluttered transparent scenes and high-speed liquid transport.</td><td><a href="https://arxiv.org/abs/2607.29567">Link</a></td></tr>
+<tr><td>Tri-Space Operational Control of Redundant Multilink and Hybrid Cable-Driven Parallel Robots Using an Iterative-Learning based Reactive Approach</td><td></td><td>Develops a tri-space control framework that simultaneously respects constraints in actuation, joint, and operational spaces for redundantly actuated cable-driven robots. Reactive control ensures online feasible tracking with collision and manipulability avoidance, while iterative learning optimizes null-space parameters for improved performance over repeated tasks.</td><td><a href="https://arxiv.org/abs/2607.29500">Link</a></td></tr>
+<tr><td>AquaJEPA: Action-Conditioned Multimodal Predictive Representations for Underwater Robot Dynamics</td><td></td><td>Introduces an action-conditioned joint-embedding predictive model that fuses RGB, sonar, and proprioception with explicit sensor validity for underwater robots. AquaJEPA feeds a receding-horizon planner and achieves the best aggregate closed-loop navigation performance across 120 systematically varied environments, significantly reducing final position errors versus multimodal and recurrent baselines.</td><td><a href="https://arxiv.org/abs/2607.29393">Link</a></td></tr>
+<tr><td>SAGP: Semantic Affordance-Guided Grasp Planning via Coarse-Zone VLM Reasoning</td><td>Center for Autonomous Robotic Systems (KUCARS), Khalifa University; Center for Autonomous Robotic Systems (KUCARS), Khalifa University nited Arab Emirates</td><td>Proposes a training-free pipeline that partitions object point clouds into coarse spatial zones and uses a VLM to rate each region’s grasp suitability. These semantic scores re-rank geometry-based candidates, preserving physical success while substantially improving task-appropriate grasps on functionally structured objects like mugs and tools.</td><td><a href="https://arxiv.org/abs/2607.29374">Link</a></td></tr>
+<tr><td>DART: Dual-Axis Airborne Reachability-Gated Torque-Reaction for Off-Road Vehicle Jumps</td><td>Chinese Academy of Sciences; University of Chinese Academy of Sciences</td><td>Analyzes fundamental limits of mid-air attitude control for heavy off-road vehicles and shows that most leverage lies in pre-takeoff speed shaping. DART derives a certified feasible-takeoff set and a dual-axis wheel-torque controller that, in simulation, turns previously crashing jump profiles into consistently safe landings with tight pitch and roll regulation.</td><td><a href="https://arxiv.org/abs/2607.29011">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
