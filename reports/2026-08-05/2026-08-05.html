@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-04</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-04</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>118</strong></div>
+        <div class="card">Papers analyzed: <strong>118</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Strong emphasis on motion planning and control across platforms, from SE(3) trajectory generation and Riemannian informed trees to stochastic safe navigation and multi-agent dynamic games.</li><li>Multiple works push mobile and aerial navigation, including agile UAV world–action models, triangulation-aware VIO, stochastic temporal roadmaps, and reusable object-navigation memories.</li><li>Dexterous and contact-rich manipulation advances focus on tactile/VLA integration, cross-embodiment grasp synthesis, human-derived manipulability priors, and contact-aware visuo-tactile fusion.</li><li>Vision-language-action models continue to expand for mobile and dynamic manipulation, with trajectory-guided policies, panoramic or multi-camera perception, geometry-shaped representations, and analysis of failure modes.</li><li>Whole-body and humanoid control receives attention via rapid training for motion tracking, single-leg balance benchmarks, teleoperation and imitation systems, and composition of locomotion and manipulation skills.</li><li>Institution-aligned work includes MPC-based doorway traversal for mobile manipulators (MIT) and rapid online embodiment adaptation for quadrupedal locomotion (UC San Diego).</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Motion Planning for Mobile Manipulators Navigating Doorways via Model Predictive Control</td><td>Massachusetts Institute of Technology</td><td>Introduces an MPC-based motion planning framework that treats the robot and door as a coupled dynamical system to autonomously open and traverse push/pull doors. Manipulation feasibility is enforced via penalty terms instead of explicit arm kinematics, yielding dynamically feasible, collision-free trajectories validated in simulation and hardware.</td><td><a href="https://arxiv.org/abs/2608.00206">Link</a></td></tr>
+<tr><td>Rapid Embodiment Adaptation for Quadrupedal Locomotion</td><td>UC San Diego</td><td>Proposes an online embodiment adaptation module that infers hardware changes, such as joint range constraints and trunk-mass variations, from short interaction histories and conditions a generalist locomotion policy on this estimate. In both simulation and real-world tests on a Unitree Go2, the method maintains stable gait under severe degradation where non-adaptive baselines fail.</td><td><a href="https://arxiv.org/abs/2608.01506">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>RIT*: Riemannian Informed Trees for Cost-Adaptive Optimal Motion Planning</td><td></td><td>Replaces Euclidean primitives in batch informed trees with Riemannian counterparts to better handle anisotropic and spatially varying cost metrics in high-dimensional spaces. The framework also learns a collision-adaptive metric online, substantially reducing path cost versus BIT* in 6-DOF and 14-DOF manipulation benchmarks.</td><td><a href="https://arxiv.org/abs/2608.00822">Link</a></td></tr>
+<tr><td>Learning Smooth SE(3) Trajectories under Left-Invariant Riemannian Metrics</td><td>University of Pennsylvania</td><td>Presents a neural framework for generating higher-order smooth rigid-body trajectories on SE(3) under general left-invariant Riemannian metrics. By learning polynomial body-twist parameters conditioned on the metric, it approximates optimal variational solutions in milliseconds and is demonstrated on motion primitives and quadrotor flight refinement.</td><td><a href="https://arxiv.org/abs/2608.01562">Link</a></td></tr>
+<tr><td>Complete Motion Planning using Workspace-Fibered Decomposition for nR-Planar Manipulator</td><td></td><td>Introduces a workspace-fibered decomposition that plans for redundant planar manipulators via obstacle-constrained reachable workspaces of sub-chains and recursive lifting through orientation fibers. This preserves collision-free connectivity while avoiding explicit full C-space obstacle construction, reducing collision-checking complexity.</td><td><a href="https://arxiv.org/abs/2608.01172">Link</a></td></tr>
+<tr><td>Learning-Based Motion Planning for Dynamic Environments: From Foundational Algorithms to Emerging Paradigms</td><td>Chinese Academy of Sciences; Shanghai Jiao Tong University; University of Chinese Academy of Sciences; University of Connecticut; University of Science and Technology of China</td><td>Surveys motion planning in dynamic environments with an emphasis on how learning augments classical planners. Proposes a taxonomy spanning direct policy learning, learning-augmented planning, hybrids, and training enhancements, and outlines open challenges in safety, sim-to-real transfer, dense crowds, and perception–planning coupling.</td><td><a href="https://arxiv.org/abs/2608.00625">Link</a></td></tr>
+<tr><td>DreamTrajectory: Trajectory-Guided Action Generation with World Model Alignment for Mobile Manipulation</td><td></td><td>Combines intention-level end-effector trajectory prediction with action-chunk generation to better coordinate base–arm motion in mobile manipulation. A lightweight trajectory world model scores candidate chunks against the intended path, improving success rates substantially in simulation and on real mobile manipulation tasks.</td><td><a href="https://arxiv.org/abs/2608.01381">Link</a></td></tr>
+<tr><td>Learning Panorama-Aware VLA for Mobile Manipulation with Whole-Body Teleoperation</td><td>Beihang University; Johns Hopkins University</td><td>Develops a VR-based whole-body teleoperation system and PanoVLA, a Mixture-of-Transformers VLA policy that encodes panoramic observations for bimanual mobile manipulation. The panoramic fusion significantly boosts stage and end-to-end task success over local-view baselines across real-world mobile manipulation tasks.</td><td><a href="https://arxiv.org/abs/2608.02257">Link</a></td></tr>
+<tr><td>TANGO-VIO: Triangulation-Aware Navigation with Guaranteed Feature-Observability for Visual-Inertial Odometry</td><td></td><td>Introduces a triangulation-aware navigation framework that embeds a feature observability metric into a control barrier function to maintain good parallax for VIO. The method corrects velocity commands to keep the log-determinant information metric above a threshold, improving triangulation conditioning in both simulated and real flights.</td><td><a href="https://arxiv.org/abs/2608.02079">Link</a></td></tr>
+<tr><td>FlowPilot: Real-Time World-Action Modeling for Agile UAV Navigation</td><td>Shanghai Jiao Tong University; The University of Hong Kong</td><td>Presents a compact world–action model that jointly denoises future depth and trajectories using flow matching, coupling video and action experts. With Bernstein-polynomial action parameterization, the onboard system generates smooth, trackable references in under 18 ms and achieves fast, clutter-robust UAV navigation using only depth.</td><td><a href="https://arxiv.org/abs/2608.00635">Link</a></td></tr>
+<tr><td>StochSIPP: Safe Interval Path Planning in Stochastic Dynamic Environments</td><td></td><td>Extends Safe Interval Path Planning to stochastic temporal roadmaps by planning macro-actions over an AND/OR action–observation graph of uncertain edge and vertex statuses. Under mild assumptions, the policy is provably collision-free and minimizes expected arrival time; experiments show improved arrival times and feasibility in gated scenarios.</td><td><a href="https://arxiv.org/abs/2608.00792">Link</a></td></tr>
+<tr><td>A Forward-Inverse Dynamic Game Framework for Enhanced Multi-Agent Trajectory Planning</td><td>Zhejiang University</td><td>Formulates multi-agent trajectory planning as a KL-regularized dynamic game with state-dependent weighting to capture bounded rationality and varying interaction strength. A context-aware inverse game infers agent objectives from demonstrations, leading to effective feedback Nash strategies validated in cooperative navigation and merging experiments.</td><td><a href="https://arxiv.org/abs/2608.01636">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
