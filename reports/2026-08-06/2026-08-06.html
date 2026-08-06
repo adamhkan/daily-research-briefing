@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-05</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-05</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>55</strong></div>
+        <div class="card">Papers analyzed: <strong>55</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>MIT leads with two strong contributions on safe, time-optimal navigation and motion planning around obstacles, including exact signed-distance CBFs for polytopic robots and a biconvex minimum-time planner.</li><li>Multiple works advance trajectory optimization and MPC for complex, uncertain dynamics, from stochastic multiple shooting to GPU-native ADMM-MPC that scales to long horizons and multi-agent scenarios.</li><li>Humanoid and whole-body control see notable progress via perceptive locomotion and contact-implicit motion retargeting, pushing toward dynamic, contact-rich behaviors that transfer to real hardware.</li><li>Dexterous and bimanual manipulation benefit from new generative and flow-based models for grasping, video-based skill distillation, and human-/world-in-the-loop learning under tight compute budgets.</li><li>Navigation and exploration under uncertainty are strengthened by POMDP-based science planning, UAV path planning with social constraints, and robust real-time monitoring of safety specifications.</li><li>A growing body of work analyzes and improves Vision-Language(-Action) and world-model-based control stacks, targeting robustness, sample efficiency, and better use of temporal and state information.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Control Barrier Functions via Minkowski Operations for Safe Navigation among Polytopes</td><td>Massachusetts Institute of Technology</td><td>Introduces a nonsmooth control barrier function framework that computes exact signed distance between polytopic robots and obstacles using Minkowski operations, avoiding conservative spherical/ellipsoidal approximations. The method derives analytical gradients, reveals new local minima from geometry–kinematics coupling, and enables non-conservative, safety-recovering navigation maneuvers in unicycle and translation-only scenarios.</td><td><a href="https://arxiv.org/abs/2608.02886">Link</a></td></tr>
+<tr><td>Biconvex Optimization for Smooth Minimum-Time Trajectories around Convex Obstacles</td><td>Massachusetts Institute of Technology</td><td>Proposes a biconvex minimum-time trajectory optimization scheme that jointly convexifies time and derivative constraints and enforces collision avoidance via time-varying separating planes. Alternating between plane computation and trajectory optimization yields an anytime planner that escapes local minima and converges from simple collision-free initializations, demonstrated on drone navigation and dual-arm bin unloading.</td><td><a href="https://arxiv.org/abs/2608.02834">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>CUDA MPC: A GPU-Native Solver for Model Predictive Control</td><td>Queen&#x27;s University</td><td>Presents a GPU-native MPC solver that fuses a parallel-in-horizon ADMM algorithm into a single CUDA kernel, keeping all intermediate variables in on-chip memory and synchronizing only neighboring horizon blocks. Across nonlinear robotics benchmarks, it sustains real-time rates with 10–100× longer horizons than CPU solvers and uniquely enables fast, collision-free control for a centralized 10-agent swarm.</td><td><a href="https://arxiv.org/abs/2608.03051">Link</a></td></tr>
+<tr><td>Stochastic Multiple Shooting Trajectory Optimization via Sequential Local Policy Evaluation</td><td>Hopkins University Whiting School of Engineering; Johns Hopkins University</td><td>Extends stochastic trajectory optimization by replacing single shooting with multiple short horizon segments linked via local feedback policies, improving sample efficiency and terminal constraint satisfaction. The method also reconstructs approximate Jacobians from rollouts, making it suitable for model-based RL with black-box dynamics, and shows gains on cartpole swingup and a challenging VTOL quadplane landing task.</td><td><a href="https://arxiv.org/abs/2608.03978">Link</a></td></tr>
+<tr><td>Accelerating Human-Aware Robot Trajectory Generation via Diffusion and Consistency Distillation</td><td></td><td>Builds a constrained motion-planning pipeline for manipulators in HRI by first generating collision- and self-collision-free joint trajectories with RRT/RRT*, then training a diffusion model to sample constraint-satisfying motions. Consistency distillation compresses iterative diffusion into a fast sampler, yielding up to 150 candidate trajectories in &lt;100 ms with high success rates and reduced joint and end-effector jerk.</td><td><a href="https://arxiv.org/abs/2608.03159">Link</a></td></tr>
+<tr><td>Light-Loco-Parkour: Versatile Perceptive Whole-Body Locomotion via Multi-Skill Distillation</td><td></td><td>Introduces an end-to-end perceptive control policy that unifies walking, balancing, climbing, stepping down, and vaulting into a single whole-body humanoid controller conditioned only on depth and velocity commands. By distilling parkour-like object-interacting skills into a locomotion policy and learning autonomous skill transitions, it achieves robust, zero-shot transfer to real indoor and outdoor terrains using only onboard sensing.</td><td><a href="https://arxiv.org/abs/2608.02653">Link</a></td></tr>
+<tr><td>Shooting for Contact: Contact-Implicit Multiple Shooting for Dynamic Motion Retargeting</td><td>California Institute of Technology; School of Computing, DePaul University; Technology Innovation Institute</td><td>Proposes a direct-simulation multiple shooting framework that embeds a differentiable physics engine in a nonlinear program to retarget kinematic motions into dynamically feasible, contact-consistent whole-body trajectories. The approach handles friction, impacts, self-collision, and actuation limits without explicit contact schedules, accelerating RL-based motion imitation and enabling zero-shot sim-to-real transfer of dynamic crawling and jump-turns on a Unitree G1.</td><td><a href="https://arxiv.org/abs/2608.03116">Link</a></td></tr>
+<tr><td>GraspMeanFlow: SE(3)-Equivariant MeanFlow for Few-Step 6-DoF Grasp Generation</td><td></td><td>Introduces an SE(3)-equivariant MeanFlow model that learns finite-time average velocity fields, enabling few-step sampling of 6-DoF grasp poses while preserving exact equivariance. On ACRONYM, a single function evaluation matches the distribution quality of iterative SE(3) flows in five steps, and a refined variant improves grasp success by up to 24.3 percentage points in the few-step regime.</td><td><a href="https://arxiv.org/abs/2608.03295">Link</a></td></tr>
+<tr><td>RoboReact: Agentic Skill Distillation from Generated Egocentric Videos for Generalizable Whole-Body Manipulation</td><td></td><td>Presents a pipeline that uses generative video models to synthesize human manipulation behaviors, lifts them into 3D keyframes, and retargets them to high-DoF humanoids for whole-body manipulation. Online object-centric re-grounding and VLM-guided refinement adapt imagined skills to real-world geometry and execution errors, yielding robust, generalizable manipulation on physical humanoid platforms without teleoperation data.</td><td><a href="https://arxiv.org/abs/2608.03387">Link</a></td></tr>
+<tr><td>Bimanual Manipulation Within an 8 GB Budget: Zero-Copy Sensing and Quantized ACT on an Entry-Level Jetson</td><td>Georgia Institute of Technology</td><td>Demonstrates a practical bimanual manipulation stack running entirely on a Jetson Orin Nano (8 GB) by combining zero-copy camera pipelines with a quantized ACT policy. TensorRT-based FP16 and INT8 variants cut inference latency by 6.4–9× while maintaining task success on deformable pick-and-place, and the study characterizes which ACT components are quantizable under general-purpose INT8 calibration.</td><td><a href="https://arxiv.org/abs/2608.03938">Link</a></td></tr>
+<tr><td>POMDPs for Autonomous Science Exploration</td><td></td><td>Introduces the Science Hypothesis Map POMDP, which plans in a belief space over inferred physical properties rather than raw observations, making high-dimensional, science-aware exploration tractable. On extended RockSample and real hyperspectral cuprite data, it improves rewards and information gain over continuous-observation and information-theoretic baselines while reducing per-step computation.</td><td><a href="https://arxiv.org/abs/2608.03155">Link</a></td></tr>
+<tr><td>Flying over The Uncertain Nature (FORTUNE): Intelligent and Humanistic 3D Path Planning for Low-Altitude Collaboration</td><td></td><td>Formulates a 3D multi-UAV routing and task assignment problem that jointly handles uncertain, time-varying ground demands and altitude-dependent social and environmental costs such as noise and safety risk. The FORTUNE framework combines offline Transformer-based demand prediction and evolutionary planning with online refinement for emergent points of interest, outperforming prior methods on real and synthetic datasets.</td><td><a href="https://arxiv.org/abs/2608.03408">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
