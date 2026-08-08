@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-07</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-07</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>42</strong></div>
+        <div class="card">Papers analyzed: <strong>42</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Humanoid and whole-body loco-manipulation advances ($\omega$-0) show end-to-end world-action modeling for smooth manipulate-while-moving behavior in homes.</li><li>Navigation and motion planning see progress from fast convex corridor generation on point clouds (PathCover) and underwater navigation under partial observability.</li><li>Autonomous driving/world-action planners (Adaptive-WAM, Robust-WAM) leverage video diffusion and semantic foresight to cut latency and improve robustness to visual shifts.</li><li>Multi-agent and multi-robot coordination methods (SJRL for LMAPF-R2, CoMuDi for disassembly) address realistic dynamics, rotations, and makespan optimization.</li><li>Manipulation research continues to scale generalist VLA/VLWA policies and control fidelity, with advances in dynamics priors, impedance control, affordances, and viewpoint/wrist modeling.</li><li>Scene-level reasoning for mobile robots (Prior-SG, ETH Zurich) uses LLM-derived priors to segment functional regions in open, arbitrarily-structured environments.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Prior-SG: Task and Prior Driven Region Segmentation for Scene Graphs in Arbitrarily-Structured Environments</td><td>ETH Zurich</td><td>Introduces Prior-SG, which fuses online RGB-D mapping with LLM-synthesized topological priors to build hierarchical 3D scene graphs for mobile platforms. A MAP-based Markov Random Field inference integrates visual, geometric, and object cues with task-specific prior graphs, enabling robust semantic region segmentation even in open-plan environments and allowing the robot to restructure space based on high-level tasks.</td><td><a href="https://arxiv.org/abs/2608.06170">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>$\omega$-0: A Latent Predictive World Action Model for Concurrent Humanoid Loco-Manipulation</td><td>Nanyang Technological University; National Taiwan University</td><td>$\omega$-0 is a latent predictive world-action model that generates whole-body actions for humanoids performing concurrent loco-manipulation from language, vision, and proprioception. It learns compact future observation embeddings coupled with diffusion-based whole-body action generation and is trained on the 40+ hour $\omega$-HOME dataset, enabling smooth manipulate-while-walking behaviors across 11 real household tasks.</td><td><a href="https://arxiv.org/abs/2608.06375">Link</a></td></tr>
+<tr><td>Adaptive-WAM: Quality-Guided Early-Exit Planning from Intermediate Video-Diffusion Features</td><td></td><td>Adaptive-WAM studies how much of a video diffusion backbone is needed for reliable driving decisions and exploits insensitivity to noise levels to decode trajectories from intermediate layers. By attaching multi-exit trajectory heads and a lightweight quality scorer, it adaptively truncates computation, eliminating full video generation while achieving state-of-the-art navigation performance on NAVSIM and transferring to nuScenes with low error and latency.</td><td><a href="https://arxiv.org/abs/2608.06008">Link</a></td></tr>
+<tr><td>PathCover: A Fast Convex Decomposition along a Path via Randomized Iterative Space Partitioning (RISP) on Point Clouds</td><td>. Poulakakis is with Robotics Institute; University of Delaware</td><td>PathCover introduces RISP, a randomized algorithm that constructs overlapping convex polytopes directly from raw point clouds in expected linear time, forming safe corridors along a reference path. These corridors constrain downstream MPC and trajectory optimization, providing an order-of-magnitude speedup over existing corridor generators and enabling real-time navigation on quadrotor and quadruped platforms with live LiDAR.</td><td><a href="https://arxiv.org/abs/2608.05586">Link</a></td></tr>
+<tr><td>Unified Planning-Learning Framework for Robust UUV Navigation Under Partial Observability</td><td>Norwegian University of Science and Technology</td><td>Proposes an observation-only pipeline for UUV navigation that combines persistent occupancy mapping, a clearance-aware global planner, and a risk-aware RL local controller. A learned latent state captures environment structure and dynamics, while behavior-tree distillation with uncertainty-aware weighting improves safety and robustness in dynamic, partially observable underwater environments.</td><td><a href="https://arxiv.org/abs/2608.05365">Link</a></td></tr>
+<tr><td>ErgoSurf: Ergodic Control for the Coverage of Unknown Surfaces</td><td>Technical University of Munich</td><td>ErgoSurf presents an online ergodic control framework that simultaneously reconstructs unknown surface geometry and plans contact-rich coverage trajectories. A GP implicit surface model is updated from tactile contacts, while locally sampled point clouds and heat-diffusion-based potentials guide ergodic exploration, yielding smooth trajectories and accurate surface reconstruction in simulation and hardware.</td><td><a href="https://arxiv.org/abs/2608.06208">Link</a></td></tr>
+<tr><td>Topometric Autonomous Vehicle Localization by Combining Visual Embeddings and Feed-Forward 3D Models</td><td></td><td>This work fuses Visual Place Recognition embeddings with feed-forward 3D geometry models in a topometric framework for robust vehicle localization. An offline mapping stage models pose-appearance interactions, and an online particle filter couples odometry, place beliefs, and FF3D pose estimates, significantly improving appearance-based localization performance and handling perceptual aliasing.</td><td><a href="https://arxiv.org/abs/2608.06021">Link</a></td></tr>
+<tr><td>Search-Aided Joint Agent-Environment Reinforcement Learning for Robust Lifelong Multi-Agent Path Finding with Rotations</td><td></td><td>Addresses a realistic lifelong MAPF setting with in-place rotation and strict safety constraints (LMAPF-R2) inspired by warehouse robots. SJRL augments policies with Causal PIBT single-step search and jointly learns agent and environment policies, where the environment shapes edge costs for global guidance, yielding large performance gains and validated in mixed-reality experiments with hundreds of agents.</td><td><a href="https://arxiv.org/abs/2608.05588">Link</a></td></tr>
+<tr><td>Coordinated Multi-Robot Disassembly for Makespan Optimization of Large-Scale Assemblies</td><td></td><td>CoMuDi plans coordinated pick, place, and exit motions for teams of robots disassembling large assemblies under precedence constraints. By propagating temporal constraints and using space-time RRT* to minimize individual arrival times, it reduces idle time and overall makespan, scaling to scenarios with up to 49 parts and 9 robots.</td><td><a href="https://arxiv.org/abs/2608.05830">Link</a></td></tr>
+<tr><td>Robust-WAM: Bridging Generative Pretraining and Semantic Foresight in World-Action Models</td><td></td><td>Robust-WAM augments VAE-latent video-based world-action models with a semantic foresight alignment objective that injects appearance-invariant future scene semantics into the action stream. Learnable query tokens aligned to temporal positions preserve benefits of large-scale generative pretraining while improving robustness to illumination and appearance shifts in embodied control tasks.</td><td><a href="https://arxiv.org/abs/2608.05903">Link</a></td></tr>
+<tr><td>VIDP: Variable Impedance Diffusion Policy for Compliant Robot Manipulation from Diverse Demonstrations</td><td></td><td>VIDP learns variable impedance manipulation policies from kinematic demonstrations without force sensing by modeling task-parameterized trajectory distributions via a directionality-aware mixture model. These distributions are mapped to stiffness profiles, enabling joint prediction of poses and compliance, and experiments show better success, lower interaction forces, and reduced tracking error versus fixed-impedance baselines.</td><td><a href="https://arxiv.org/abs/2608.06210">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
