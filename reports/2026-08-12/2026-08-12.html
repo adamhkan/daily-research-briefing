@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-11</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-11</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>116</strong></div>
+        <div class="card">Papers analyzed: <strong>116</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Navigation and motion planning dominate today’s papers, with new world models, diffusion planners, and curriculum methods all targeting safer, more reliable trajectories in complex environments.</li><li>Social and crowd navigation see notable advances via predictive human cost fields and conformal, certified planning for legged robots.</li><li>A cluster of works pushes vision-language(-action) navigation, including zero-shot object-goal navigation, dialogue-grounded interactive navigation, and efficient aerial VLN with automated preference optimization.</li><li>Whole-body and mobile-manipulation style control is advanced through hierarchical frameworks for underwater vehicle–manipulator systems and humanoid loco-manipulation via learned latent skills.</li><li>Dexterous and force-aware manipulation receives attention through new visuo-tactile grasping, low-impedance gripper hardware, tactile/force-learning surveys, and fingertip designs that expand thin-object grasping capabilities.</li><li>CMU and Stanford contribute institution-matched work on safe autonomy verification, cooperative driving VLAs, human-demonstration capture, and speed-optimized manipulation policies.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>SpeedTuning: Speeding Up Policy Execution with Lightweight Reinforcement Learning</td><td>Stanford University</td><td>Introduces SpeedTuning, an RL framework that learns a separate policy to select execution speeds for existing manipulation controllers. It accelerates imitation-learned policies by over 2.4× on tasks like pouring and throwing while maintaining comparable success rates and requiring no new demonstrations.</td><td><a href="https://arxiv.org/abs/2608.09138">Link</a></td></tr>
+<tr><td>Agentic Harnesses: LLM-Driven Verification Layers for Robot Autonomy</td><td>Carnegie Mellon University</td><td>Proposes an LLM-based verification middleware that judges high-level robot plans before execution, using an ensemble of &quot;LLM-as-a-Judge&quot; experts with chain-of-thought reasoning. The harness achieves about 85% precision across approval classes and blocks 97% of adversarial tasks while introducing minimal false positives/negatives between accept and reject.</td><td><a href="https://arxiv.org/abs/2608.09857">Link</a></td></tr>
+<tr><td>High Fidelity Capture, Reconstruction, and Transfer of Human Demonstrations for Robot-Assisted Bathing</td><td>Carnegie Mellon University</td><td>Presents a contact-centric pipeline to capture, reconstruct, and transfer clinician bathing demonstrations, including synchronized motion, shape, contact, and force data. The dataset supports controlling a soft dexterous hand for bathing tasks on a mannequin using both open- and closed-loop strategies, targeting safer pHRI in clinical care.</td><td><a href="https://arxiv.org/abs/2608.09127">Link</a></td></tr>
+<tr><td>CMU-Drive and V2V-VLA: Cooperative Multi-agent Unified Driving with Reasoning Benchmark and Vehicle-to-Vehicle Vision-Language-Action Models</td><td>Carnegie Mellon University</td><td>Introduces CMU-Drive, a closed-loop benchmark for cooperative multi-vehicle autonomous driving, and V2V-VLA, a VLA model that jointly generates ego actions, waypoints, verbal reasoning, and inter-vehicle communication. This establishes a first baseline for multi-agent, end-to-end cooperative driving with explicit language and coordination.</td><td><a href="https://arxiv.org/abs/2608.07621">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Energy-Structured Latent World Models with Neural Time Fields for Physically Constistent Open-World Motion Planning</td><td></td><td>Proposes an Energy-Structured Latent World Model whose latent state explicitly encodes energy and momentum, ensuring causal, physically consistent dynamics. Integrated into Physics-Conditioned Neural Time Fields via the Eikonal equation, it yields navigation policies with higher success, SPL, and lower collision and Eikonal residual than prior latent and time-field planners.</td><td><a href="https://arxiv.org/abs/2608.09876">Link</a></td></tr>
+<tr><td>Entanglement-Free Trajectory Planning for Tethered Mobile Robots with a Slack Tether</td><td>Delft University of Technology</td><td>Develops a three-stage motion planner for tethered mobile robots with slack cables that explicitly models tether entanglement. By building a topological model of the entanglement-free configuration space and solving a homotopy-constrained trajectory problem, it generates dynamically feasible paths that avoid tether tangling in cluttered environments.</td><td><a href="https://arxiv.org/abs/2608.09860">Link</a></td></tr>
+<tr><td>Hierarchical Fast-Slow ReAct Agent for Zero-Shot Object-Goal Navigation</td><td></td><td>Introduces a hierarchical navigation agent that combines a fast frontier-based controller with a slow deliberative layer grounded in coordinate-anchored semantic memory. The system reuses prior observations, filters detections via a VLM, and selectively deliberates, achieving state-of-the-art zero-shot object-goal navigation success on HM3D and MP3D.</td><td><a href="https://arxiv.org/abs/2608.09816">Link</a></td></tr>
+<tr><td>Graph-Guided Safe Diffuser: Topological Graph Guidance for Safe Diffusion Planning</td><td></td><td>Presents G2SD, a hierarchical diffusion-based planner that uses a learned latent topological graph for high-level planning and conditioned diffusion for low-level trajectory generation. The approach theoretically reduces manifold-rupture-induced constraint violations and empirically boosts collision-free success in Maze2D navigation from ~40–50% to 98%.</td><td><a href="https://arxiv.org/abs/2608.09484">Link</a></td></tr>
+<tr><td>SAIN: Structure-Aware Interactive Navigation with Active Dialogue Grounding for Mobile Robot</td><td>Harbin Institute of Technology</td><td>Targets interactive instance-goal navigation under ambiguous language by converting dialogue into persistent structured memories over values, rooms, graphs, and objects. This zero-shot framework uses those memories for frontier ranking and target approach, improving SR and SPL over prior dialogue-enabled baselines without task-specific policy training.</td><td><a href="https://arxiv.org/abs/2608.09196">Link</a></td></tr>
+<tr><td>Latent World Models with Monotone Planning Costs for Image-Goal Navigation</td><td>Drexel University</td><td>Trains a latent world model on top of a frozen DINO encoder with an autoregressive rollout loss plus a Monotone Cost Ranking objective that enforces consistent cost ordering over perturbed action sequences. The resulting planner achieves state-of-the-art image-goal navigation on GNM data and transfers zero-shot to real robots in indoor and outdoor scenes.</td><td><a href="https://arxiv.org/abs/2608.09073">Link</a></td></tr>
+<tr><td>Hierarchical Topology-Aware Planning and Control of Underwater Vehicle-Manipulator Systems in Confined Environments</td><td></td><td>Proposes MANTA, a three-layer framework that first finds traversable base corridors, then jointly optimizes base–arm trajectories, and finally tracks them via a learned Gaussian-process MBRL policy. It improves success, clearance, and arm-effort metrics over sampling-based baselines for underwater intervention in caves and narrow tubes.</td><td><a href="https://arxiv.org/abs/2608.08871">Link</a></td></tr>
+<tr><td>Curriculum Generation under Structured Parametric Environments for Robust Navigation Policies</td><td>Cornell University</td><td>Introduces a gradient-based curriculum generator over continuous environment parameters, with a distribution-shift regularizer for richer latent features. On CarRacing and BipedalWalker variants, it consistently outperforms manual and automated curricula (SPRL, ALP-GMM, reverse curricula) in robustness under parameter variation.</td><td><a href="https://arxiv.org/abs/2608.08545">Link</a></td></tr>
+<tr><td>MPPI Planning with Gaussian-Based Human Cost Function for Social Navigation</td><td></td><td>Augments MPPI with Predictive Gaussian Interaction Fields that roll out pedestrian forecasts and encode them as anisotropic, speed-scaled motion cones. This yields closed-form, parallelizable costs that reduce collision rates to 0% across crowd densities while preserving real-time performance.</td><td><a href="https://arxiv.org/abs/2608.08323">Link</a></td></tr>
+<tr><td>Drone-Assisted UAV-UGV Collaboration for Autonomous Navigation in Snow-Covered Terrain</td><td></td><td>Demonstrates a UAV–UGV system where an overhead drone performs snow-robust road segmentation using an efficient U-Net with synthetic snow augmentation and tracks the UGV via YOLOv5 and depth sensing. Fused into a dynamic planner, the setup enables robust ground navigation on snow-covered roads with sub-metre UAV localization accuracy.</td><td><a href="https://arxiv.org/abs/2608.07797">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
