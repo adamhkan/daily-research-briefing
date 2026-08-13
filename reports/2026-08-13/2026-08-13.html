@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-12</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-12</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>40</strong></div>
+        <div class="card">Papers analyzed: <strong>40</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Stanford and ETH Zurich contribute strong navigation and aerial-interaction methods, including tunable human-following in crowds and millimeter-accurate ceiling marking with a compliant aerial end-effector.</li><li>Multiple works advance risk- and safety-aware navigation and planning, from CVaR-based kinodynamic planning in uncertain planetary terrains to dual-space MPC safety monitors and robust safety filtering with control barrier functions.</li><li>Mobile manipulation and whole-body control see notable progress via semantic 3D Gaussian splatting for open-vocabulary manipulation and volume-informed whole-body planning for humanoids in confined environments.</li><li>Dexterous and deformable manipulation capabilities are extended with real-world cooperative bimanual grasping of large objects and competition-grade autonomous T-shirt handling.</li><li>World-action models and skill abstractions continue to mature, emphasizing failure-aware training, multi-stream geometry/semantics, and stage-level futures for robust, data-efficient manipulation policies.</li><li>Several works strengthen long-horizon autonomy infrastructure, including persistent world models for service robots, human-centric spatio-temporal memories, and fabric-specific perception tailored for deformable manipulation.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Navigating the Proximity-Safety Balance: Constraint Decomposition for Human Following in Pedestrian Crowds</td><td>Stanford University</td><td>Introduces a multi-constraint RL formulation for human-following in dense crowds that decomposes proximity and safety into separate cost constraints with interpretable thresholds. By explicitly incorporating human-motion prediction uncertainty into the costs, the method enables tunable trade-offs between staying close to a target and collision risk, validated in both simulated and real-robot deployments.</td><td><a href="https://arxiv.org/abs/2608.10056">Link</a></td></tr>
+<tr><td>Aerial Layouting: Design and Control of a Compliant and Actuated End-Effector for Precise In-flight Marking on Ceilings</td><td>ETH Zurich</td><td>Presents an aerial system with a novel smart end-effector based on a stability-optimized Gough-Stewart platform to achieve millimeter-level precision in ceiling marking tasks. Through compliant, multi-contact, and actuated design, the end-effector absorbs vehicle-level pose errors, enabling accurate aerial interaction without demanding extreme control precision from the drone.</td><td><a href="https://arxiv.org/abs/2608.10987">Link</a></td></tr>
+<tr><td>Protection Levels for Vision-Based Pose Estimation</td><td>Stanford University</td><td>Derives protection levels—probabilistic bounds on pose error—for a nonlinear PnP-based, runway-relative vision navigation pipeline, even under undetected measurement faults. The work quantifies how redundancy, pixel uncertainty, and runway distance shape these bounds, offering a path toward certifiable integrity for vision-based aircraft navigation.</td><td><a href="https://arxiv.org/abs/2608.10023">Link</a></td></tr>
+<tr><td>Lost in Reconstruction: Aligning Action Representations with Language in Vision-Language-Action Models</td><td>Carnegie Mellon University</td><td>Shows that reconstruction-only action tokenization in VLAs discards verb-level semantics relevant for language-conditioned control. Proposes SALT, an action tokenizer that aligns discrete action codes with language via an auxiliary instruction-reconstruction loss, yielding substantially higher success rates and verb-specialized codes while preserving action fidelity.</td><td><a href="https://arxiv.org/abs/2608.10484">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Whole-Body Planning for Humanoids Navigating Confined Spaces via Self-Collision Avoidance References</td><td>University of Texas at Austin</td><td>Proposes a three-stage whole-body planner for humanoids in highly confined environments that optimizes over reachable rigid-body volumes with differentiable collision avoidance and self-collision constraints. The resulting trajectories, used to train a residual RL policy, enable the Unitree G1 to execute complex multi-contact motions in spaces exceeding NIST emergency response standards where standard planners fail.</td><td><a href="https://arxiv.org/abs/2608.10220">Link</a></td></tr>
+<tr><td>Embodied Multimodal Grounding for Open-Vocabulary Mobile Manipulation via Semantic 3D Gaussian Splatting</td><td>Hong Kong University of Science and Technology</td><td>Introduces a mobile manipulation framework that builds a task-driven Semantic 3D Gaussian Splatting map to unify active sensing, language-conditioned 3D grounding, and reachability-aware base positioning. Coupled with a diffusion-based VLA policy, this explicit 3D semantic interface improves robustness to clutter, occlusion, and embodiment shifts, significantly outperforming PointVLA and DexVLA in real-robot tests.</td><td><a href="https://arxiv.org/abs/2608.10756">Link</a></td></tr>
+<tr><td>Risk-Aware Kinodynamic Motion Planning Under Uncertainty For Safe Navigation on Planetary Environments</td><td>Aerospace Engineering at the Georgia Institute; Georgia Institute of Technology</td><td>Combines an AO-RRT kinodynamic planner with sequential convex programming to generate dynamically feasible, risk-aware trajectories under uncertain terrain and perception. Using CVaR as a risk metric, the approach cuts trajectory risk by roughly 97% in simulated and hardware experiments, targeting safe planetary rover navigation under learned interaction uncertainties.</td><td><a href="https://arxiv.org/abs/2608.11175">Link</a></td></tr>
+<tr><td>AECNav: Active Evidence Consolidation for Efficient Zero-Shot Open-Vocabulary Object Navigation</td><td></td><td>Recasts zero-shot object-goal navigation as an evidence-driven process, with shared semantic encodings, log-odds evidence consolidation, and active frontier selection for information gain. The training-free AECNav pipeline attains state-of-the-art success rates on HM3D and MP3D benchmarks while reducing inference overhead, and transfers effectively to a quadruped platform at ~5 Hz.</td><td><a href="https://arxiv.org/abs/2608.10817">Link</a></td></tr>
+<tr><td>Dual Stress: Runtime Safety Monitoring for Safety-Constrained MPC Navigation</td><td></td><td>Exploits KKT multipliers from a safety-constrained MPC as a dual-space &quot;stress&quot; signal indicating marginal control effort to maintain safety around obstacles. This dual stress monitor complements geometric hazard metrics, jointly flagging about three-quarters of avoidable collisions in simulation, compared to under half for geometric detectors alone.</td><td><a href="https://arxiv.org/abs/2608.10791">Link</a></td></tr>
+<tr><td>Nonlinear Model Predictive Control via Sequential Convex Programming for Drone-to-Drone Docking</td><td>Indian Institute of Technology Hyderabad</td><td>Formulates mid-air drone docking as a nonlinear optimal control problem with disturbance-augmented dynamics, solved via sequential convex programming in a receding-horizon fashion. High-fidelity simulations show reliable convergence into tight docking cones and robustness to wind and estimation noise, with bounded approach velocities and constraint satisfaction.</td><td><a href="https://arxiv.org/abs/2608.10542">Link</a></td></tr>
+<tr><td>Wind-Informed Rapid Flight-Planning in Complex Urban Topologies via Machine Learning and Experimental Validation</td><td></td><td>Trains a surrogate flow model to infer urban wind fields from building geometry and incident wind, then derives a volumetric flight-challenge field for path planning. Experimental MAV tests in a wind-tunnel urban mockup show that wind-aware trajectories reduce undesired displacement and improve stability compared to wind-agnostic plans.</td><td><a href="https://arxiv.org/abs/2608.10309">Link</a></td></tr>
+<tr><td>Toward the Cognitive--Physical Limits of Embodied Intelligence through a World-Model-Centric Autonomous Racing Agent</td><td>Nanyang Technological University; National Taiwan University</td><td>Develops a world-model-centric autonomous racing agent that learns predictive models near vehicle limits to couple world-state construction, future reasoning, and high-g control. Using data from real-vehicle racing up to 256.3 km/h and 26.8 m/s² lateral acceleration, the agent achieves high interaction success in simulation and refines its boundary-aware behavior via closed-loop world-model updates.</td><td><a href="https://arxiv.org/abs/2608.10618">Link</a></td></tr>
+<tr><td>Dreamer-SAC: Off-Policy Learning in Latent World Models for Sample-Efficient Autonomous Driving</td><td></td><td>Integrates a recurrent state-space world model with off-policy Soft Actor-Critic, training both policy and value functions directly in latent space using short-horizon rollouts and n-step targets. In autonomous driving tasks balancing efficiency and safety, Dreamer-SAC surpasses DreamerV3, SAC, and PPO while requiring substantially fewer real interactions, highlighting an optimal intermediate length for imagined rollouts.</td><td><a href="https://arxiv.org/abs/2608.10386">Link</a></td></tr>
+<tr><td>Real-World Cooperative Bimanual Dexterous Grasp of Large Objects from Single-View Observations</td><td>University of Auckland</td><td>Presents a real-world system for cooperative bimanual dexterous grasping of large objects using a DDPM-based grasp generator conditioned on single-view segmented point clouds. Coupled with motion planning and online grasp refinement, the framework achieves high success on a dual-arm platform across unseen objects, without requiring full 3D models.</td><td><a href="https://arxiv.org/abs/2608.10383">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
