@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-13</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-13</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>28</strong></div>
+        <div class="card">Papers analyzed: <strong>28</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>ContactIPM introduces a faster, structure-exploiting interior-point solver for contact-implicit trajectory optimization, advancing whole-body motion planning with contacts.</li><li>New datasets and generators (DaViNCi, RoadWeaver, TrafficDiffuser, D3D-GEN, HandEdit) broaden realistic evaluation for navigation, driving, and dexterous manipulation.</li><li>Several works (RIFT, World Tokens, MiDAS, StellaVLA, G0.5) refine how future prediction, demonstrations, and world modeling are used in VLA control, improving efficiency and OOD robustness.</li><li>Safety and reliability for autonomous driving and navigation are strengthened via neuro-symbolic safety guards, hybrid behavior planners, risk-sensitive routing, and adversarial test generation.</li><li>Embodied agent infrastructure (Thea, SHAPER) and failure monitoring for OpenVLA highlight the growing role of non-parametric harnesses and diagnostics in robust robot deployment.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Early Warning Signals for OpenVLA Failure under Visual Distribution Shift</td><td>New York University</td><td>Analyzes whether internal activations of a frozen OpenVLA policy contain early-warning signals before failures caused by visual distribution shifts. Linear probes fitted on intermediate layers retrospectively separate failing from successful trajectories well, but also trigger frequent false alarms in clean runs, highlighting the gap between retrospective discriminability and practically useful online warning behavior.</td><td><a href="https://arxiv.org/abs/2606.29699">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>ContactIPM: A Structure-Exploiting Interior-Point Solver for Contact-Implicit Trajectory Optimization</td><td></td><td>Proposes ContactIPM, a primal–dual interior-point method tailored to contact-implicit trajectory optimization with complementarity constraints. By identifying complementary inequality pairs, using barrier-coupled relaxations, and exploiting optimal-control structure via Riccati recursions, it achieves 2–9× speedups and higher robustness over prior MPCC solvers on contact-rich manipulation and transport benchmarks.</td><td><a href="https://arxiv.org/abs/2608.11731">Link</a></td></tr>
+<tr><td>Learning Loco-Manipulation From SMPC Demonstrations With Sparse Offline-to-Online RL</td><td>Technical University of Munich</td><td>Combines sample-based MPC in simulation with sparse-reward offline-to-online RL to learn integrated locomotion and manipulation skills. The high-level RL agent, paired with a low-level stability controller, surpasses its MPC teacher and transfers sim-to-real on both an arm-equipped quadruped and a humanoid for complex loco-manipulation.</td><td><a href="https://arxiv.org/abs/2608.12063">Link</a></td></tr>
+<tr><td>DaViNCi: A Dataset Towards Outdoor Vision-and-Language Navigation with Continuous Actions and Dynamic Elements</td><td>Shanghai Jiao Tong University</td><td>Introduces DaViNCi, an outdoor vision-and-language navigation dataset with continuous control and dynamic elements such as moving agents. Results show substantial performance drops compared to prior discrete-graph VLN datasets, underscoring the challenges of realistic outdoor navigation and the value of DaViNCi for advancing VLN research.</td><td><a href="https://arxiv.org/abs/2608.11901">Link</a></td></tr>
+<tr><td>Scalable Multi-Agent Maze Traversal with Local Communication</td><td></td><td>Presents a distributed algorithm for many robots to explore and traverse unknown maze-like graphs using only local communication and leader–follower coordination. The method is complete, near-optimal in makespan with respect to full-knowledge strategies, and empirically scales to hundreds of agents while reducing total fuel usage vs. independent exploration.</td><td><a href="https://arxiv.org/abs/2608.11895">Link</a></td></tr>
+<tr><td>IoT-Enabled Autonomous Maritime Navigation in Smart Ports: A Curriculum-Guided Shared Policy Learning Framework</td><td>Nanyang Technological University; National Taiwan University</td><td>Develops a curriculum-guided RL framework with a shared recurrent policy for autonomous maritime navigation in congested smart ports under partial observability. Centralized offline training with fully onboard execution improves collision avoidance, navigation reliability, and scalability across varying traffic densities.</td><td><a href="https://arxiv.org/abs/2608.11597">Link</a></td></tr>
+<tr><td>Energy-Aware Wind-Resilient Routing for Truck-Assisted Multi-UAV Delivery under Wind Uncertainty</td><td>Hong Kong University of Science and Technology; The University of Hong Kong</td><td>Introduces EWR, an online risk-sensitive planner for UAV–truck delivery that updates a time-dependent energy graph using noisy wind estimates and conservative uncertainty margins. The approach reduces wind-induced return failures and boosts mission success rates compared to static or deterministic routing models.</td><td><a href="https://arxiv.org/abs/2608.11641">Link</a></td></tr>
+<tr><td>Learning-Based Behavior Planning for Automated Driving: Real-World Integration and Deployment</td><td>RWTH Aachen University</td><td>Proposes a hybrid behavior-planning stack where a deep network suggests driving maneuvers and an optimization-based supervisor enforces drivability and safety constraints. Evaluated on real-world urban data and deployed on a test vehicle, the approach targets explainable and verifiable learning-based motion planning for automated driving.</td><td><a href="https://arxiv.org/abs/2608.12198">Link</a></td></tr>
+<tr><td>RoadWeaver: Large-Scale Lane-Level HD Map Generation from Scratch for Autonomous Driving Simulation</td><td></td><td>RoadWeaver is a coarse-to-fine generative framework that synthesizes globally consistent, lane-level HD road networks from scratch. It achieves high reachability and low dead-end and alignment errors, outperforming prior methods while generating full maps in seconds for scalable autonomous driving simulation.</td><td><a href="https://arxiv.org/abs/2608.11580">Link</a></td></tr>
+<tr><td>DaViNCi: A Dataset Towards Outdoor Vision-and-Language Navigation with Continuous Actions and Dynamic Elements</td><td>Shanghai Jiao Tong University</td><td>Introduces DaViNCi, an outdoor vision-and-language navigation dataset with continuous control and dynamic elements such as moving agents. Results show substantial performance drops compared to prior discrete-graph VLN datasets, underscoring the challenges of realistic outdoor navigation and the value of DaViNCi for advancing VLN research.</td><td><a href="https://arxiv.org/abs/2608.11901">Link</a></td></tr>
+<tr><td>Video2Track: From Real-World Interaction Videos to Steerable Adversarial Closed-Track Testing for Automated Driving Systems</td><td></td><td>Video2Track transfers real-world driving interactions from videos into parameterized, adversarial closed-track test scenarios. By grounding high-level semantics onto track topologies and generating multi-agent trajectories via conditional diffusion and Stackelberg-game tuning, it produces diverse, executable scenarios with controllable risk for ADS validation.</td><td><a href="https://arxiv.org/abs/2608.11592">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
