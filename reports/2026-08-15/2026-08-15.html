@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-14</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-14</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>36</strong></div>
+        <div class="card">Papers analyzed: <strong>36</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Dexterous and contact-rich manipulation see new data-efficient learning frameworks, safety monitors, and simulation/benchmarking tools aimed at generalization and robustness.</li><li>Navigation work spans humanoid and aerial VLN, underwater and relay-based localization, and socially compliant crowd navigation via proxemics-aware reward shaping.</li><li>New hierarchical and event-structured world models, teleoperation safety layers, and budget-aware skill practice target long-horizon and constrained robot learning.</li><li>Benchmarks such as RoboSynChallenge, H2R-Bench, HumanTracker, and Hand2Bot systematically evaluate manipulation, tracking, and human-to-robot transfer capabilities.</li><li>Perception advances include adaptive visual bottlenecks, functional affordance exploration, robust VINS and AUV relative pose estimation, and egocentric force/contact inference.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>EgoPHI: Estimating Contact and Force from Egocentric Vision</td><td>ETH Zurich</td><td>EgoPHI predicts dense 3D contact maps and force distributions on hand and object meshes from a single RGB image plus object geometry, trained via a physics-based simulation pipeline that augments existing hand–object datasets with per-vertex force labels. It generalizes across simulated and real interactions, providing physically grounded egocentric interaction understanding that could inform future robot contact reasoning and human–robot interaction models.</td><td><a href="https://arxiv.org/abs/2608.13014">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>NestDex: Nested Policy Learning with Copilot Assisted Teleoperation for Dexterous Manipulation</td><td>University of Sydney; Vanderbilt University</td><td>NestDex introduces a nested policy-learning framework where teleoperators command only arm motion and a single-DoF skill clutch, while an inner hand-policy handles contact-rich finger behavior using proprioceptive history and a vision-language skill selector. These assisted demonstrations train an outer visuomotor policy that controls arm and hand end-to-end, improving demonstration reliability and autonomous dexterous manipulation performance.</td><td><a href="https://arxiv.org/abs/2608.13362">Link</a></td></tr>
+<tr><td>RoboSynChallenge: Mastering Real-World Dexterity via Generalizing Synthesized Manipulation Skills</td><td>Chinese University of Hong Kong, Shenzhen; The Chinese University of Hong Kong</td><td>RoboSynChallenge defines a unified benchmark for generalizable robotic manipulation, combining large-scale synthetic manipulation trajectories with standardized real-world evaluations across diverse tasks and difficulty levels. It provides multiple baseline policy families (Transformer, diffusion, VLA, world models) to study how simulation-trained skills transfer to unseen, real-world manipulation scenarios.</td><td><a href="https://arxiv.org/abs/2608.12416">Link</a></td></tr>
+<tr><td>HumanoidVLN: A Physics-Grounded Simulator and Benchmark for Vision-Language Navigation Across Diverse Humanoid Embodiments</td><td></td><td>HumanoidVLN is an Isaac Sim–based benchmark for vision-language navigation with physically realistic humanoid robots featuring diverse morphologies and locomotion stacks. It couples RL-based bipedal locomotion with VLN models and curated language instructions, and shows strong sim-to-real correlation on a Unitree G1, highlighting embodiment–controller–policy interactions in humanoid navigation.</td><td><a href="https://arxiv.org/abs/2608.12860">Link</a></td></tr>
+<tr><td>ASPIRE-VINS: Adaptive Spline-based Visual-inertial Navigation System With Robust 3D Measurement Residuals</td><td></td><td>ASPIRE-VINS is a continuous-time visual–inertial navigation system that uses adaptive knot placement and multi-resolution splines to match temporal resolution to motion complexity. Its 3D measurement-space residuals align features with calibrated rays, improving bearing consistency and yielding competitive or reduced trajectory errors under varied motions and sensing conditions.</td><td><a href="https://arxiv.org/abs/2608.12840">Link</a></td></tr>
+<tr><td>AirForesight: Current-to-Future Spatial Map Imagination with Cross-Space Planning Consistency for UAV-VLN</td><td>Harbin Institute of Technology</td><td>AirForesight tackles UAV vision-language navigation by learning a structured current-map representation supervised for both scene reconstruction and future trajectory prediction, then propagating it to reason about future maps. A cross-space planning consistency loss aligns imagined map-space trajectories with expert waypoint directions, improving 3D waypoint prediction in outdoor aerial VLN benchmarks.</td><td><a href="https://arxiv.org/abs/2608.12835">Link</a></td></tr>
+<tr><td>SAP-Nav: Spatial Semantic Representation Meets Active Perception for Hierarchical Open-Vocabulary Object Navigation</td><td></td><td>SAP-Nav is a zero-shot framework for hierarchical open-vocabulary object navigation that incrementally builds a queryable spatial–semantic map from actively selected room views. An active viewpoint verification module decides when to reposition for better evidence before verifying candidate targets, yielding strong gains on LangMap and HM3D-OVON without task-specific training or precomputed maps.</td><td><a href="https://arxiv.org/abs/2608.12707">Link</a></td></tr>
+<tr><td>Towards Socially Compliant Navigation in Deep Reinforcement Learning via Proxemics-Based Reward Modeling</td><td></td><td>This work integrates a proxemics-based reward into DRL navigation, modeling each human’s personal space as a Gaussian-mixture field to provide dense social feedback. When plugged into existing DRL navigators, the reward improves social-compliance metrics across various crowd configurations while retaining competitive task efficiency.</td><td><a href="https://arxiv.org/abs/2608.12917">Link</a></td></tr>
+<tr><td>HumanTracker: Towards Comprehensive and Human-Aligned Motion Tracking Benchmark</td><td></td><td>HumanTracker provides ~153 hours of motion capture data and the HumanScore metric to evaluate humanoid motion tracking in a way that aligns with human perceptual judgments. It exposes failures such as incorrect contacts and instability that standard kinematic metrics overlook, directly benefiting teleoperation and whole-body imitation control.</td><td><a href="https://arxiv.org/abs/2608.13555">Link</a></td></tr>
+<tr><td>ContactGuard: Pre-Contact Execution Monitoring with Action-Conditioned Latent World Models</td><td>Vanderbilt University</td><td>ContactGuard predicts short-horizon visual consequences of chunked visuomotor actions in a latent space, using an action-conditioned world model trained from unlabeled data plus a lightweight failure classifier. By simulating the policy’s own planned action chunk and aborting if likely failure is predicted, it improves pre-contact failure detection in real contact-rich manipulation without modifying the base policy.</td><td><a href="https://arxiv.org/abs/2608.13438">Link</a></td></tr>
+<tr><td>Attention from Action, for Action: Emergent Visual Bottlenecks for Policy Learning</td><td>University of Freiburg</td><td>Seeker learns action-supervised, progression-aware regions of interest over frozen DINOv3 features, iteratively querying visual evidence to localize task-relevant areas. These ROIs drive cropping, augmentation, and point-cloud filtering, boosting data efficiency and robustness of visuomotor manipulation policies compared to no-crop or heuristic action-derived crops.</td><td><a href="https://arxiv.org/abs/2608.13422">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
