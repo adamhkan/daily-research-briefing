@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-17</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-17</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>32</strong></div>
+        <div class="card">Papers analyzed: <strong>32</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Strong focus on safe, anticipatory aerial and ground navigation: new temporal-barrier CBFs for multi-UAV collision avoidance and tube-based certificates for articulated trucks.</li><li>Learning-based planners extend from informative Mars exploration and pixel-goal navigation to self-play pursuit-evasion and control-informed racecar planning.</li><li>Navigation is increasingly semantics- and language-aware, with graph-based object reasoning and evidence-preserving belief memories for object- and language-guided tasks.</li><li>Manipulation work pushes dexterous skill learning from human data and task-structured flat-object handling, along with dynamic, reaction-critical VLA control and vibration-aware collaborative manipulation.</li><li>Several papers refine general embodied control and evaluation: LTL-guided chunked manipulation policies, smoother asynchronous VLA control, active-perception for disambiguation, and coverage-aware failure discovery.</li><li>Autonomous driving and mixed-traffic control continue to adopt RL with curriculum and knowledge-data fusion, while mobile communication agents are repositioned via more tractable spectral-graph proxies.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>A Temporal Barrier Framework for Collision Avoidance in Multi-Agent Autonomous Aerial Vehicles</td><td>Massachusetts Institute of Technology</td><td>Introduces adversarial time-to-collision (aTTC) as a risk metric embedded in a control barrier function defined directly in time, enabling anticipatory multi-UAV collision avoidance. A neural surrogate makes aTTC usable in real-time QP-based controllers, yielding significantly improved waypoint progress and reduced collisions versus distance-based CBFs in 3D simulations.</td><td><a href="https://arxiv.org/abs/2608.14239">Link</a></td></tr>
+<tr><td>Coverage Aware Active Evaluation for Failure Discovery with Paired Systems</td><td>Massachusetts Institute of Technology</td><td>Proposes an adaptive failure-discovery framework that combines dense proxy evaluations with sparse target-system tests using residual correction and coverage-aware mutual information. Across driving, manipulation, and legged locomotion, it finds up to 2× more diverse and severe failures than random or standard active-learning baselines.</td><td><a href="https://arxiv.org/abs/2608.13719">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>OccPlanner: Goal-Aware Occupancy-Conditioned Diffusion Planner for Pixel-Goal Navigation</td><td></td><td>Presents a diffusion-based planner that grounds pixel-specified goals into egocentric metric space using learned local 3D occupancy features. Trained with automatically reconstructed L3ROcc labels from monocular RGB videos, it achieves large gains in success rate on pixel-goal navigation and shows initial sim-to-real transfer on a Unitree Go2.</td><td><a href="https://arxiv.org/abs/2608.14160">Link</a></td></tr>
+<tr><td>PILOT: Privileged Imitation Learning for End-to-End Motion Planning of Autonomous UAVs under Partial Observability</td><td></td><td>Introduces a privileged imitation-learning framework that distills optimal-control experts into a vision-based end-to-end UAV motion planner. A temporal-convolutional fusion of past depth and odometry plus trajectory parameterization yields safe, dynamically consistent flight in clutter with &gt;80% computational savings and successful zero-shot field deployment.</td><td><a href="https://arxiv.org/abs/2608.14082">Link</a></td></tr>
+<tr><td>Spatiotemporal Tube-Based Safety-Certificate for Autonomous Navigation of Articulated Vehicles</td><td></td><td>Develops a spatiotemporal tube-based planner that certifies routes for articulated vehicles, ensuring that towed trailers remain within a traffic corridor under bounded corrections. By exploiting articulated kinematics and sway constraints, it generates safe paths for complex truck–trailer configurations in simulation.</td><td><a href="https://arxiv.org/abs/2608.14531">Link</a></td></tr>
+<tr><td>Expected Free Energy-based Informative Path Planning for Robotic Mars Exploration</td><td>Eindhoven University of Technology</td><td>Applies the expected free energy (EFE) objective from active inference to informative path planning under hard budget constraints. Using a Gaussian-process map of an unknown field, the planner jointly balances exploration and exploitation, outperforming information-theoretic baselines in finding high-value regions while keeping travel costs bounded.</td><td><a href="https://arxiv.org/abs/2608.14466">Link</a></td></tr>
+<tr><td>Graph-MambaNav: Spatial-Temporal Graph Mamba Leveraging Object-Relation Knowledge for Object-Goal Navigation</td><td>Kan are with the School</td><td>Proposes a target-aware spatial-temporal graph architecture that orders objects by target relevance and uses Mamba-based selective scanning for long-range reasoning. LLM-derived commonsense relations initialize node ordering and edge weights, leading to improved object-goal navigation in AI2-THOR/RoboTHOR and successful real-robot trials.</td><td><a href="https://arxiv.org/abs/2608.13723">Link</a></td></tr>
+<tr><td>OpenBelief-Nav: Evidence-Preserving Object Memory for Open-Vocabulary Language-Guided Navigation</td><td></td><td>Introduces an object-centric belief memory that retains phrase-level evidence, reliability cues, and provenance instead of committing to single fused labels. This evidence-preserving scene graph improves open-vocabulary segmentation quality and maintains or surpasses existing methods in language-guided navigation across simulation and Unitree G1 experiments.</td><td><a href="https://arxiv.org/abs/2608.13923">Link</a></td></tr>
+<tr><td>AgilePE: Autonomous UAV Pursuit-Evasion via Self-Play Reinforcement Learning</td><td>Zhejiang University</td><td>Presents an end-to-end pursuit–evasion framework where quadrotor policies output low-level thrust and body-rate commands trained via competitive self-play. With a hardware-aligned simulator and domain randomization, learned strategies such as dodging and flanking transfer zero-shot to real UAVs without trajectory planners.</td><td><a href="https://arxiv.org/abs/2608.14135">Link</a></td></tr>
+<tr><td>Control-Informed Constraint Adaptation in Minimum-Time Trajectory Planning for Autonomous Racing</td><td>Technical University of Munich</td><td>Augments minimum-time racecar planners with online adaptation of spatial constraints based on measured tracking errors, expanding usable track space while maintaining safety. In closed-loop simulation, the method cuts lap times by 1.8 s with similar compute cost by feeding execution deviations back into planning.</td><td><a href="https://arxiv.org/abs/2608.14448">Link</a></td></tr>
+<tr><td>CORAL: Curriculum-Optimized Reward Adaptation for LiDAR-Based Goal-Directed Urban Driving</td><td>Department of Computer Engineering, Korea University of Technology and Education (KOREATECH) (e-mail:</td><td>Combines a staged curriculum with a stage-aware reward to train LiDAR-based PPO policies for long-horizon urban driving tasks. On CARLA, this design enables 100% success on hardest routes with full behavioral constraints and strong zero-shot transfer to multiple unseen towns using only a compact 99D state.</td><td><a href="https://arxiv.org/abs/2608.14332">Link</a></td></tr>
+<tr><td>FlatLab: A Unified Methodology Framework and Simulation-Based Benchmark for Robotic Manipulation of Flat Objects</td><td>University, Changchun, China</td><td>Introduces a two-stage framework where a strategy generator learns object-invariant manipulation strategies from point clouds and an execution module composes reusable primitives for long-horizon flat-object manipulation. The FlatLab benchmark provides diverse rigid/deformable objects and standardized metrics, showing strong generalization beyond baselines.</td><td><a href="https://arxiv.org/abs/2608.14049">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
