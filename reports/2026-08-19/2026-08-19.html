@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-18</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-18</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>104</strong></div>
+        <div class="card">Papers analyzed: <strong>104</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Dexterous and contact-rich manipulation sees strong advances in simulation pre-training, teleoperation, force/tactile-aware retargeting, and arm-aware grasp generation, reducing data needs and improving real-world transfer.</li><li>Vision-language-action (VLA) models continue to mature for long-horizon manipulation and whole-body control via better memory, phase-aware and stop-aware interfaces, tactile residual modulation, efficient fine-tuning, and device/edge execution.</li><li>New planning and control frameworks tackle complex motion: mixed discrete-continuous contact planning, hybrid contact-motion planning for deformable and soft robots, and body-aware risk planning for legged platforms and UAVs.</li><li>Spatial and temporal memory for long-horizon tasks is being rethought with task-driven 3D Gaussian maps, compressed visual histories, and structured reward/credit assignment for robust long-horizon manipulation learning.</li><li>Navigation and SLAM robustness improve through motion-blur-aware and Gaussian-splatting SLAM, LiDAR degeneracy analysis, dead-end prediction, curriculum learning for locomotion, and safe region construction for constrained environments.</li><li>Foundation datasets and tools—from high-fidelity human motion and tactile-intelligence reviews to safety scenario characterization—aim to underpin scalable humanoid, locomotion, and manipulation policy learning.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Pre-training Visual Dexterity in Simulation</td><td>Massachusetts Institute of Technology; Stanford University</td><td>Introduces Simulation Pre-training for Dexterity (SPD), where humans teleoperate a virtual dexterous hand in VR to collect 75 hours of multi-task data for a causal transformer. When fine-tuned on just 1–2 hours of real bimanual dexterous demonstrations, the pre-trained policies outperform behavior cloning from scratch, validating sim-only pre-training as a strong data source for real-world dexterous manipulation.</td><td><a href="https://arxiv.org/abs/2608.15917">Link</a></td></tr>
+<tr><td>Revisiting Open-Loop Execution in Robotics: Toward Reactive, Higher-Performing Policies</td><td>Massachusetts Institute of Technology</td><td>Analyzes why action chunking (open-loop execution of action sequences) helps imitation policies and shows its key benefit is compensating for non-Markovian expert demonstrations rather than merely reducing compounding errors. With sufficiently long observation context, fully reactive closed-loop policies outperform long open-loop execution, motivating design of long-context, highly reactive manipulation policies.</td><td><a href="https://arxiv.org/abs/2608.15938">Link</a></td></tr>
+<tr><td>ScenarioCharacterization: A Modular Toolkit for Characterizing Safety across Trajectory Datasets</td><td>Carnegie Mellon University</td><td>Presents an open-source, configuration-driven toolkit that standardizes how driving trajectory datasets are converted into a common scenario representation and then characterized for features, behaviors, and criticality. The modular design allows rapid analysis and visualization across datasets like Waymo, Argoverse2, and nuPlan, supporting safety and scenario-based evaluation workflows.</td><td><a href="https://arxiv.org/abs/2608.16041">Link</a></td></tr>
+<tr><td>MistyPilot: Enabling Social-Robot Control through Multi-Agent LLM Skill Orchestration</td><td>New York University</td><td>Implements a multi-agent LLM control stack for the Misty social robot, splitting responsibilities between agents for physical interaction (sensor-triggered skills) and social dialogue/state management. The system interprets natural-language instructions, binds sensors to skills, and manages task state, achieving robust routing and low-variance behavior while users report good usability.</td><td><a href="https://arxiv.org/abs/2608.15549">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>HAF: Adapting Generalist VLAs to Humanoid Whole-Body Loco-manipulation via Hierarchical Action Flow and Spectral Latent RL</td><td>Xi&#x27;an Jiaotong University</td><td>Proposes HAF, which adapts frozen generalist VLAs to humanoid loco-manipulation via a hierarchical flow-based action generator (HAF-VLA) and a lightweight spectral latent RL module (HAF-Steer). The design decomposes full-body action generation into coordinated stages and steers actions in a compressed latent space, improving whole-body coordination and real-world task performance without fine-tuning the large VLA backbone.</td><td><a href="https://arxiv.org/abs/2608.16837">Link</a></td></tr>
+<tr><td>ViHaTeleop: A Low-Cost, Lightweight Visual-Haptic Teleoperation System for Dexterous Manipulation Learning</td><td>Tohoku University</td><td>Introduces a $550, 0.7 kg visual-haptic teleoperation interface combining SLAM-based wrist tracking, camera-based hand tracking, and vibrotactile feedback for each finger. User studies across six contact-critical tasks show haptic feedback consistently increases success rates and perceived contact clarity, and demonstrations collected with the system improve downstream visual-tactile manipulation policies.</td><td><a href="https://arxiv.org/abs/2608.16572">Link</a></td></tr>
+<tr><td>ReForce: Learning Force-aware Retargeting for Dexterous Manipulation</td><td></td><td>Presents ReForce, which augments standard kinematic hand retargeting with a learned force residual to better match human-intended contact forces on robot hands. Using a general force-tracking model trained in simulation, it supports both online teleoperation and offline demonstration translation, improving force tracking and multi-finger contact engagement on demanding tasks like deformable cup grasping.</td><td><a href="https://arxiv.org/abs/2608.15560">Link</a></td></tr>
+<tr><td>Pre-training Visual Dexterity in Simulation</td><td>Massachusetts Institute of Technology; Stanford University</td><td>SPD collects 75 hours of VR teleoperated dexterous-hand data entirely in simulation to pre-train a causal transformer on multi-task manipulation. Fine-tuning the pre-trained model on 1–2 hours of real bimanual-hand demonstrations yields clear gains over training from scratch, showing sim-only teleoperation is a practical pre-training source for real dexterous manipulation.</td><td><a href="https://arxiv.org/abs/2608.15917">Link</a></td></tr>
+<tr><td>Arm-Aware Guided Dexterous Grasp Generation with Arm-Agnostic Grasp Models</td><td></td><td>Proposes a framework that turns an arm-agnostic diffusion grasp generator into an arm-aware system at inference time via joint optimization over hand pose and arm configuration. Closed-form gradients for arm- and environment-related constraints guide diffusion sampling toward feasible grasps, drastically increasing feasible grasp rates in constrained scenes without retraining for each arm.</td><td><a href="https://arxiv.org/abs/2608.16351">Link</a></td></tr>
+<tr><td>FlexWorm: Primitive-augmented Hybrid Contact-motion Planning for Suction-based Multi-segment Deformable Robots</td><td>Peking University; School of Advanced Manufacturing and Robotics</td><td>Introduces a hybrid planner for multi-segment suction-based soft robots navigating complex 3D surfaces, explicitly handling adhesion switching and body deformation. A block-wise IK hybrid search explores feasible adhesion transitions, while a learned primitive-retrieval layer accelerates local proposals; the method outperforms baselines in simulation and transfers to real soft robots under uncertainty.</td><td><a href="https://arxiv.org/abs/2608.16853">Link</a></td></tr>
+<tr><td>Accelerating Mixed Discrete-Continuous Motion Planning via Neural Graphs of Convex Sets</td><td>Northeastern University</td><td>Speeds up Graphs of Convex Sets motion planning by replacing expensive convex relaxations with a graph attention network that predicts promising paths and a small ranking network that orders them. Across quadrotor, 7-DoF arm, and contact-rich pushing tasks, the approach preserves 100% success while achieving up to two orders of magnitude runtime reduction with modest cost suboptimality.</td><td><a href="https://arxiv.org/abs/2608.15440">Link</a></td></tr>
+<tr><td>FlexWorm: Primitive-augmented Hybrid Contact-motion Planning for Suction-based Multi-segment Deformable Robots</td><td>Peking University; School of Advanced Manufacturing and Robotics</td><td>Develops a planning framework for deformable multi-segment soft robots with suction pads, combining best-first search over adhesion patterns with continuous IK under collision and quasi-static constraints. A learned primitive library supplies reusable local motion segments to accelerate search, improving planning success and time and demonstrating feasibility on a pneumatic soft robot platform.</td><td><a href="https://arxiv.org/abs/2608.16853">Link</a></td></tr>
+<tr><td>Robot-Body-Aware Traversal Risk Graph Planning for Wheeled-Legged Robots in Complex Terrain</td><td>Intelligent Perception and Human-Machine Collaboration - ShanghaiTech University</td><td>Extends Traversal Risk Graph (TRG) navigation by explicitly reasoning over an oriented body footprint and yaw sweeps along graph edges for wheeled-legged robots. The resulting RB-TRG planner reduces support-loss and body-interference metrics and raises simulated success rates from 51.5% to 68.5%, with real-world Go2-W trials demonstrating improved safe navigation on rough terrain.</td><td><a href="https://arxiv.org/abs/2608.16433">Link</a></td></tr>
+<tr><td>$\tau_0$-VLA: a Hierarchical Robot Foundation Model with World-Model-Guided Test-Time Computation</td><td>The Chinese University of Hong Kong</td><td>Introduces $\tau_0$-VLA, a hierarchical foundation model that treats high-level subtask selection for manipulation as a compute-scalable inference problem guided by a learned world model. The policy, trained on over 40,000 hours of multimodal real-world data, can allocate extra test-time compute to search over subtask proposals, yielding higher subtask prediction accuracy and better closed-loop long-horizon performance.</td><td><a href="https://arxiv.org/abs/2608.16885">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
