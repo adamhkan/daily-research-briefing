@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-20</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-20</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>38</strong></div>
+        <div class="card">Papers analyzed: <strong>38</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Dexterous and deformable-object manipulation see multiple new benchmarks (LabDex, SoftVTBench) and training pipelines (ADEPT, RoboEdit, Dream2Reward) targeting long-horizon, high-DoF control and rich visuo-tactile feedback.</li><li>Navigation and motion planning advances span depth-guided collision-aware indoor navigation, autonomous agricultural tractors, and grounded LLM-based or world-model-based trajectory planning for driving.</li><li>Whole-body and underactuated control methods progress via a behavior world model for humanoids and a control-constrained DDP MPC framework enabling underactuated quadruped balancing and dynamic gaits.</li><li>Task and layout planning papers address concurrent navigation–fetch coordination for assistive robot dogs and backward layout search for sequence-constrained assembly with explicit motion feasibility checks.</li><li>Institution-matched work from UC Berkeley and UC San Diego explores LLM-based agentic solutions for contact-rich manipulation and task-agnostic control strategies for soft exosuits.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Revisiting the &quot;Push-T&quot; Robot Manipulation Task with Agentic Robotics</td><td>UC Berkeley</td><td>Uses an LLM coding agent (Claude Code with Fable 5) to autonomously derive algorithms for the Push-T manipulation benchmark without demonstrations. The agent discovers simulation resources online, iteratively optimizes a pushing policy that outperforms diffusion policies trained on 200 demos, and extends to alphabet-shaped blocks and cross-embodiment 3D arm simulations.</td><td><a href="https://arxiv.org/abs/2608.18227">Link</a></td></tr>
+<tr><td>A Task-Agnostic Control Strategy for Dynamic Assistance with Pneumatically Actuated Soft Exosuits</td><td>UC San Diego</td><td>Introduces an inverse-plant control framework for pneumatically actuated upper-extremity soft exosuits that relies only on kinematic sensing. A personalized Hammerstein model (Preisach hysteresis + LTI filter) enables task-agnostic assistance, substantially reducing interaction torques and muscle activation across a range of movement speeds.</td><td><a href="https://arxiv.org/abs/2608.18364">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>ADEPT: Accelerating Dexterity via Pre-Training and Post-Training using Reinforcement Learning</td><td>NVIDIA; University of Michigan</td><td>Proposes ADEPT, a large-scale RL framework that pretrains a generic dexterous policy and then post-trains task-specific behaviors while preserving reusable skills. A joint-space Geometric Fabric and a stabilized post-training recipe enable sim-to-real transfer of visuo-tactile dexterous manipulation on 23- and 29-DoF robot hands at near human speed.</td><td><a href="https://arxiv.org/abs/2608.19182">Link</a></td></tr>
+<tr><td>Autonomous Agricultural Tractor: Integrated Weed Detection and LiDAR Navigation for Precision Paddy Farming</td><td></td><td>Presents AgriNav, an autonomous tractor system integrating LiDAR-based navigation with weed/crop perception for paddy fields. A GNSS–IMU–odometry EKF and LiDAR–camera fusion maintain crop-row following through GNSS outages, while asymmetric CNN detectors and conservative weed classification protect rice plants and cut perception load.</td><td><a href="https://arxiv.org/abs/2608.19004">Link</a></td></tr>
+<tr><td>Real-Time Control-Constrained DDP for Underactuated Balancing of Legged Robots</td><td></td><td>Introduces ABC-DDP, a control-constrained Differential Dynamic Programming method using accelerated projected gradients and virtual constraints within a multiple-shooting MPC framework. It handles strong underactuation in real time, enabling a quadruped to achieve static two-leg balancing and varied dynamic gaits under disturbances.</td><td><a href="https://arxiv.org/abs/2608.18552">Link</a></td></tr>
+<tr><td>DevGRU: Depth-guided Visual Navigation using a Collision-aware Recurrent Model</td><td></td><td>DevGRU is a depth- and goal-conditioned navigation policy that predicts collision-aware future trajectories with a recurrent action predictor and explicit collision prediction. It significantly outperforms ViNT, NoMaD, and NavDP baselines across multiple indoor scenes while using fewer parameters and achieving faster inference.</td><td><a href="https://arxiv.org/abs/2608.18470">Link</a></td></tr>
+<tr><td>Backward Layout Search for Sequence-Constrained Robotic Assembly</td><td></td><td>Proposes Backward Layout Search, which assigns initial part poses in reverse assembly order to satisfy a given assembly sequence. By combining geometric, kinematic, grasp, and motion feasibility checks with beam search and collision masks, it reduces evaluations and runtime while producing collision-free layouts validated via forward motion planning.</td><td><a href="https://arxiv.org/abs/2608.18454">Link</a></td></tr>
+<tr><td>GuideFetch: A Task Coordination Framework for Concurrent Navigation and Object Retrieval in Assistive Robot Dogs</td><td>Karlsruhe Institute of Technology</td><td>GuideFetch coordinates a guide robot and a fetch robot to execute navigation and object-retrieval tasks concurrently from natural language. An LLM produces schedule-conditioned action schemas that are validated against robot capabilities and world state, enabling safe parallel execution that shortens missions without sacrificing reliability.</td><td><a href="https://arxiv.org/abs/2608.18292">Link</a></td></tr>
+<tr><td>GigaBrain-WBC-0.5: A Behavior World Model for Robust Whole-Body Control with Environment Interaction</td><td></td><td>Introduces a Behavior World Model for humanoids that jointly predicts actions, states, and future behavior-command distributions using a causal Transformer. Trained with large-scale terrain-annotated motion data, it filters implausible commands online and achieves large gains in terrain interaction, robustness to bad commands, and fall recovery, with successful hardware transfer across platforms.</td><td><a href="https://arxiv.org/abs/2608.18234">Link</a></td></tr>
+<tr><td>PartialBiGrasp: Inferring Hidden Local Geometry for Bimanual Grasping from Partial Views</td><td></td><td>PartialBiGrasp learns implicit local geometry from partial point clouds via convolutional occupancy networks to support dual-arm grasp planning on large, complex objects. It identifies graspable, collision-free contact regions and object thickness, then refines candidate grasp pairs with sampling-based optimization to achieve robust force-closure grasps in simulation and on real robots.</td><td><a href="https://arxiv.org/abs/2608.19188">Link</a></td></tr>
+<tr><td>DA-WAM: Decision-Aligned Future Latents for Driving World Models</td><td></td><td>DA-WAM unifies future representation learning and trajectory planning for autonomous driving by predicting action-conditioned future latents per candidate trajectory. An online encoder–momentum-target setup and factorized scorer keep future predictions decision-informative, yielding state-of-the-art performance on NAVSIM benchmarks.</td><td><a href="https://arxiv.org/abs/2608.19085">Link</a></td></tr>
+<tr><td>RoboEdit: Turning Human Manipulation Videos into Scalable Robot Experience</td><td></td><td>RoboEdit is a human-to-robot video editing suite that reconstructs human hand–object interactions from RGB and retargets them into robot embodiments, generating a 14M-frame dataset across seven robot hands. Its core model, RoboEdit-Trans, enforces temporal coherence and recovers 3D robot hand states, enabling scalable supervision for learning real-world manipulation policies.</td><td><a href="https://arxiv.org/abs/2608.18948">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
