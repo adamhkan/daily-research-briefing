@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-21</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-21</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>37</strong></div>
+        <div class="card">Papers analyzed: <strong>37</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Sampling-based MPC and control-barrier-function MPC frameworks advance motion planning for unstable and nonholonomic systems, with real-world humanoid loco‑manipulation and marine surface-vehicle validations.</li><li>Multiple works push world-action and predictive modeling (DECOWAM, HiTac-WAM, surgical and driving world models, neural reduced dynamics) to support whole-body coordination, tactile-rich manipulation, and domain-specific planning.</li><li>Dexterous and contact-rich manipulation see progress via object-agnostic grasp synthesis, canonical workspaces for contact topology, and hierarchical tactile forecasting for replanning.</li><li>Vision-language(-action) and LLM-based planning systems are refined for robust multi-task manipulation, end-user robot programming, navigation near offshore wind farms, and safer long-horizon TAMP under temporal logic.</li><li>Hierarchical and latent-structure learning methods (offline skill quality-diversity RL, latent action models, continual VLA skill learning) improve sample efficiency and retention for complex manipulation and locomotion.</li><li>Applied platforms in mobile and specialized domains (mobile manipulators for doors, humanoid tennis, subsea and synchrotron robots) demonstrate increasingly coordinated whole-body and in-situ manipulation capabilities.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Hybrid Feedback Sampling for Sample-Efficient Model Predictive Control</td><td>Carnegie Mellon University</td><td>Introduces Feedback Sampling MPC, which samples control sequences via an optimized feedback policy to improve stability and sample efficiency in shooting-based MPC. A hybrid local/global sampling design yields faster convergence than MPPI and superior optimality to standard feedback sampling, enabling challenging contact-rich tasks including humanoid loco‑manipulation and dexterous manipulation in simulation and on real humanoids.</td><td><a href="https://arxiv.org/abs/2608.19443">Link</a></td></tr>
+<tr><td>Beyond Multimodal Alignment: Certifying Physical Language through Response Substitution and Ordered Execution</td><td>Carnegie Mellon University; New York University</td><td>Proposes DBOSC, an operational framework to certify whether multimodal representations encode interchangeable, executable physical meaning across sensors and under new action compositions. Experiments on haptic and elastoplastic systems separate attribute access, response substitution, fusion closure, and ordered execution, showing that success depends critically on the executor rather than representation compression alone.</td><td><a href="https://arxiv.org/abs/2608.19492">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>DECOWAM: Decoupled Whole-Body World-Action Model for Legged Mobile Manipulation</td><td>Harbin Institute of Technology; Tsinghua University</td><td>Presents DECOWAM, a world-action model that factorizes base and arm influences on future observations for legged mobile manipulation. Using residual adapters over a FastWAM backbone with adversarially separated base/arm latents and base-velocity conditioning, it improves future video and action prediction and yields more robust whole-body coordination and base displacement in closed-loop trials.</td><td><a href="https://arxiv.org/abs/2608.20114">Link</a></td></tr>
+<tr><td>Video2DoorTraversal: Push Door Traversal via Simulated Door Twins</td><td>Shanghai Jiao Tong University</td><td>Introduces a single-video real-to-sim-to-real pipeline for wheel‑legged mobile manipulators to perform full door approach, opening, and traversal. From one RGB video, a simulation-ready articulated door twin is built, used to synthesize policy demonstrations, and to train a dual-depth policy that achieves high success on seen and structurally similar unseen real doors with fully onboard perception and control.</td><td><a href="https://arxiv.org/abs/2608.20251">Link</a></td></tr>
+<tr><td>Evidence-Gated Task and Motion Planning with Vision-Language Models</td><td></td><td>Proposes EAFG, which couples VLM-generated exploratory subgoals with TAMP execution to actively acquire visual evidence under partial observability. A feasibility gate then decides whether to continue planning, gather more evidence, or halt, improving completion of long-horizon manipulation tasks and reducing futile attempts when required objects are absent.</td><td><a href="https://arxiv.org/abs/2608.20084">Link</a></td></tr>
+<tr><td>CoToGrasp: Contact-Topology-Conditioned Dexterous Grasp Synthesis via Canonical Workspace Learning</td><td></td><td>Introduces CoToGrasp, a generative framework that synthesizes diverse, stable dexterous grasps conditioned on specified contact topologies without object-specific training. By learning a gripper-centric canonical workspace that decouples functional intent from object geometry, it achieves state-of-the-art zero-shot performance on unseen objects and validates synthesized grasps on a physical robot.</td><td><a href="https://arxiv.org/abs/2608.19776">Link</a></td></tr>
+<tr><td>GOAG: Generative and Object-Agnostic Grasp Planner for Dexterous Robotic Manipulation</td><td></td><td>Presents GOAG, a deep generative model that learns a compact latent distribution of gripper contact surfaces, enabling object-agnostic sampling of multifingered grasps. Object features are only introduced at inference, allowing fast generation of high-quality grasps that achieve strong success rates on MultiDex objects in both simulation and real-world tests without object-specific training.</td><td><a href="https://arxiv.org/abs/2608.19759">Link</a></td></tr>
+<tr><td>HiTac-WAM: A Hierarchical Tactile World Action Model for Contact-Rich Robot Manipulation</td><td>Chinese Academy of Sciences</td><td>Develops HiTac-WAM, a hierarchical tactile world-action model that predicts contact state, 3D deformation, and slip risk as a directed hierarchy for candidate action chunks. The model guides action selection and triggers corrective replanning when observed tactile feedback diverges, substantially boosting success in real contact-rich tasks like chip grasping, erasing, and USB insertion.</td><td><a href="https://arxiv.org/abs/2608.19574">Link</a></td></tr>
+<tr><td>Multimodal Trajectory Planning for Surface Vehicles using Turning Circle-based Control Barrier Functions</td><td></td><td>Proposes a guide-path-free MPC framework for autonomous surface vehicles using turning-circle-based control barrier functions that encode nonholonomic turning limits. By embedding left/right avoidance modes directly in safety constraints, the planner explores topologically distinct trajectories, reducing local minima and deadlocks and improving safety metrics in dense dynamic traffic.</td><td><a href="https://arxiv.org/abs/2608.19537">Link</a></td></tr>
+<tr><td>Fine-Tuning VLAs with Self-Demonstrated Generative Control for Multi-Task Manipulation</td><td></td><td>Introduces a self-supervised finetuning scheme for VLAs where the zero-shot model generates additional interaction rollouts to augment limited expert data on new robot embodiments. This preserves instruction-following and pretrained skills while efficiently acquiring new manipulation abilities, yielding stronger multi-task policies on real ALOHA hardware and a RoboTwin benchmark.</td><td><a href="https://arxiv.org/abs/2608.19490">Link</a></td></tr>
+<tr><td>When Automata Meet Streams: Temporal Logic Compilation for Stream-Based Robotics Task and Motion Planning</td><td></td><td>Presents SAM-TD, a compilation method that enforces arbitrary LTLf constraints within stream-based TAMP by embedding regressed automaton guards into pre-specified action schemas. It synchronously tracks automaton states and uses token-based pruning to respect temporal specifications while handling objects generated dynamically by streams, achieving the first demonstrations of LTLf-constrained stream-based TAMP.</td><td><a href="https://arxiv.org/abs/2608.19453">Link</a></td></tr>
+<tr><td>SAGE: Ergodic Control for Autonomous and Adaptive Inspection of Subsea Infrastructure</td><td></td><td>Introduces SAGE, an ergodic-control architecture that allocates AUV time according to an evolving risk distribution over subsea valves rather than a fixed tour. Compared with a tuned A* loop, it revisits high-risk valves more frequently and adapts inspection patterns on-the-fly when new leaks are detected, without explicit replanning or operator intervention.</td><td><a href="https://arxiv.org/abs/2608.19671">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
