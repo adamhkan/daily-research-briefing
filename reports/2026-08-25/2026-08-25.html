@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-24</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-24</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>37</strong></div>
+        <div class="card">Papers analyzed: <strong>37</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Navigation and motion-planning papers span UAVs, quadrotors, surface vessels, and ground robots, with strong emphasis on MPC, safety under uncertainty, and GPS-/IMU-denied operation.</li><li>Multiple works advance dexterous and robust manipulation via new gripper hardware, visuotactile and physical-property-aware policies, and future-aware VLA control for dynamic targets.</li><li>Bimanual and long-horizon task structure planning methods target more complex manipulation, including rigid-object bimanual constraints and sparse task precedence recovery.</li><li>Humanoid whole-body control progresses through RL-based stand-up and sit-to-stand policies that handle deformable terrain and variable chair heights.</li><li>Vision-language(-action) architectures are pushed in medical endoscopy, autonomous driving, conveyor-belt manipulation, and active perception with physics-informed exploration.</li><li>A unified branch-and-bound GCS Steiner-TSP formulation connects high-level combinatorial planning with continuous trajectory generation for mobile-manipulator inspection.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td colspan="4"><em>No matches</em></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>SRL-MPC: Shape-Aware Reinforcement Learned Model Predictive Control</td><td>The University of Hong Kong</td><td>Introduces Shape-Aware Reinforcement Learned MPC for navigation in dense, heterogeneous robot and human crowds without simplifying geometry. High-order CBF constraints from geometric separation features ensure safety, while an RL policy adapts MPC parameters online, substantially improving safety and adaptability over baselines.</td><td><a href="https://arxiv.org/abs/2608.21175">Link</a></td></tr>
+<tr><td>Neural-Primitive: An Efficient End-to-end Local Planner with Primitive-based Imitation Learning for Autonomous Flight</td><td>Zhejiang University</td><td>Presents an end-to-end local planner for autonomous flight that directly maps sensory input to polynomial trajectory primitives via imitation learning. The compact network generates smooth, dynamically feasible, empirically collision-free trajectories in cluttered environments with sub-millisecond compute time and strong sim-to-real transfer.</td><td><a href="https://arxiv.org/abs/2608.20948">Link</a></td></tr>
+<tr><td>Fast Coordinated Bimanual Motion Planning With Hard Constraints</td><td></td><td>Proposes a bimanual motion planning pipeline that enforces rigid-object constraints by leader–follower parameterization and continuous inverse kinematics along the path. Achieves roughly 19× faster planning than prior work while guaranteeing continuous satisfaction of the rigid transformation constraint, validated on simulated and real Kinova Gen3 setups.</td><td><a href="https://arxiv.org/abs/2608.20946">Link</a></td></tr>
+<tr><td>Hybrid Roller-Jamming Gripper for Object Acquisition and Retention Under Pose Uncertainty</td><td></td><td>Introduces a gripper that combines inward-rolling intake with vacuum-driven granular jamming to handle off-center and partial contacts. In 840 grasp trials under pose uncertainty, the hybrid design far outperforms roller-only and jamming-only variants, evidencing strong acquisition and retention for household manipulation.</td><td><a href="https://arxiv.org/abs/2608.20962">Link</a></td></tr>
+<tr><td>Koala Gripper: Co-designing Robotic Grippers and Data-Capture Devices for Scaling Dexterous Manipulation Learning</td><td></td><td>Presents a co-design framework yielding the Koala Gripper, a handheld data-capture and robotic gripper system optimized jointly for human ergonomics and robotic execution. The design offers backdrivable, force-optimized fingers and a dual-thumb mechanism, improving dexterity and grasp diversity for large-scale learning from demonstration.</td><td><a href="https://arxiv.org/abs/2608.20546">Link</a></td></tr>
+<tr><td>ViTacPhys: Physical Property-Aware Grasping from Human Visual-Tactile Demonstrations</td><td></td><td>Develops a visual–tactile framework that estimates object mass, friction class, and stiffness from human demonstrations, then transfers to robot grasping. Conditioning grasp policies on inferred physical properties yields high success rates on both in-distribution and novel objects, with force profiles closer to human teleoperation than ACT.</td><td><a href="https://arxiv.org/abs/2608.21355">Link</a></td></tr>
+<tr><td>VT-MUSE: Multimodal Unified Sequential Visuotactile Representation Learning for Manipulation</td><td>Shanghai Jiao Tong University</td><td>Introduces a two-stage visuotactile representation learning framework that jointly aligns visual and tactile streams over time and learns a conditional latent model for contact-rich manipulation. The learned representation, used in a lightweight Transformer policy, significantly improves task success in simulation and real-world experiments.</td><td><a href="https://arxiv.org/abs/2608.21290">Link</a></td></tr>
+<tr><td>The Coastline as a Structural Constraint: Harnessing Scene Geometry for Autonomous Surface Vessel Localization</td><td>Brigham Young University</td><td>Proposes LiDAR- and vision-based frameworks that exploit shoreline and water-surface geometry for GPS-denied surface-vessel localization. By registering shoreline observations to satellite-derived coastlines and using factor-graph fusion, the methods reduce drift and maintain long-term bounded error, with shoreline detection aided by foundation models.</td><td><a href="https://arxiv.org/abs/2608.21276">Link</a></td></tr>
+<tr><td>Beyond Imitation: Self-Improving Robot Policies via Off-Policy Q-Planning</td><td></td><td>Augments large visuomotor behavior-cloning policies with a small off-policy Q-function that guides action selection and absorbs both successful and failed rollouts. This enables online self-improvement without modifying BC weights, yielding consistent performance gains on LIBERO, RoboTwin, and real bimanual tasks compared to several RL and SFT baselines.</td><td><a href="https://arxiv.org/abs/2608.21204">Link</a></td></tr>
+<tr><td>FF-MPCC: High-speed Agile Formation Flight with Model Predictive Contouring Control</td><td></td><td>Extends model predictive contouring control to decentralized high-speed UAV formation flight along complex paths. A novel reparameterization and synchronization of dynamic formations allow each UAV to respect its own dynamics while maintaining formation, improving formation-keeping by 65% at speeds up to 21 m/s over time-parameterized tracking.</td><td><a href="https://arxiv.org/abs/2608.21056">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
