@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-25</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-25</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>92</strong></div>
+        <div class="card">Papers analyzed: <strong>92</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Certified and optimization-based planning tools (CSymPlan, OpenSCvx, GCS-Bridging) advance safety and scalability for high-DOF and convex-region motion planning.</li><li>Multiple works integrate language, vision, and geometry for robust navigation and manipulation, spanning SLAM (SuperMap), semantic navigation (OptiSight, RACO), and mobile manipulation (TONAV, DreamMimic).</li><li>World/vision-language-action models continue to mature, with new interfaces, memory, and supervision schemes (Pointing-VLA, UniMem, CounterAlign, SCVC, DELE-w0.5, WAM-OPD) improving robustness and long-horizon control.</li><li>Whole-body and quadrupedal control (DreamMimic, DELTA, GuRO) achieve better locomotion and loco-manipulation via world models, terrain-aware encoders, and curvature-aware optimization.</li><li>Robustness to uncertainty, faults, and dynamics mismatch is a key theme, with works on fault-tolerant navigation, physics-filtered feedback, force/torque-based adaptation, and improved Sim2Real.</li><li>Benchmarks and system architectures (InstructMove, The Imitator Game, GOLEM, Physical Agentic AI) emphasize evaluation and modular orchestration for real-world, multi-robot, and humanoid deployments.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>CSymPlan: Certified Symbolic Planning and Control for High-DOF Manipulators</td><td>New York University</td><td>Introduces CSymPlan, a certified reach-avoid planning-and-control framework for high-DOF arms that jointly reasons about dynamics, disturbances, and safety. It provides both offline precomputed feedback policies and online symbolic synthesis, achieving zero safety violations on Franka FR3 tasks by refusing to execute uncertified commands.</td><td><a href="https://arxiv.org/abs/2608.22983">Link</a></td></tr>
+<tr><td>OpenSCvx: An Open-Source Modular and Extensible Nonlinear Trajectory Planning Package</td><td>University of Washington</td><td>Presents OpenSCvx, a Python framework that lifts high-level trajectory-optimization problem descriptions into solver-ready formulations. It supports continuous-time constraints, temporal/logical specs, batching, and modular backends, easing development and comparison of advanced motion-planning algorithms.</td><td><a href="https://arxiv.org/abs/2608.21631">Link</a></td></tr>
+<tr><td>UniMem: Unifying Multimodal Memory and Control for Vision-Language-Action Models</td><td>Stanford University</td><td>Proposes UniMem, a single-backbone VLA framework where an event classifier and keyframe encoder maintain multimodal memory directly within the policy. It improves non-Markovian manipulation/navigation tasks in sim and hardware while simplifying training compared to hierarchical or multi-model memory pipelines.</td><td><a href="https://arxiv.org/abs/2608.22869">Link</a></td></tr>
+<tr><td>In-Situ Reconstruction of the International Space Station Using 3D Gaussian Splatting and Astrobee</td><td>UC Berkeley</td><td>Uses 3D Gaussian Splatting to reconstruct high-fidelity 3D maps of the ISS Kibo module from Astrobee grayscale images. Demonstrates that a few hundred in-situ images are sufficient to build fast-rendering, high-quality maps suitable for free-flyer navigation and interior mapping updates.</td><td><a href="https://arxiv.org/abs/2608.21685">Link</a></td></tr>
+<tr><td>MIVIFI: Bridging Perspective and Fisheye Domains for Training Multi-View Fisheye Image Generation Models</td><td>ETH Zurich</td><td>Introduces MIVIFI, a cross-domain generative framework that leverages perspective datasets to train multi-view fisheye image generators for surround perception. By combining KITTI-360 fisheye and nuScenes data via equirectangular projections, it synthesizes photorealistic fisheye views for rare events and varied conditions.</td><td><a href="https://arxiv.org/abs/2608.23140">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>GCS-Bridging: Restoring Connectivity of Disconnected Convex Sets for Graph-of-Convex-Sets Motion Planning</td><td></td><td>Addresses disconnected Graph-of-Convex-Sets (GCS) maps by inflating collision-free point paths into new convex regions that reconnect start and goal components. Achieves 99.8% connectivity restoration in simulation and validates on a Franka arm, strengthening reliability of convex-optimization-based motion planning.</td><td><a href="https://arxiv.org/abs/2608.22326">Link</a></td></tr>
+<tr><td>TONAV: Task-Oriented Navigation and Action-Velocity Chunk Learning for Articulated Object Quadrupedal Mobile Manipulation</td><td>School of Artificial Intelligence and Robotics, Hunan University, China.</td><td>Proposes TONAV, a quadruped mobile-manipulation framework that fuses vision-language-based task-oriented navigation with velocity-supervised action chunks for stable contact-rich manipulation. It closes the gap between base positioning and manipulation readiness, boosting success on real articulated-object tasks.</td><td><a href="https://arxiv.org/abs/2608.22296">Link</a></td></tr>
+<tr><td>DreamMimic: Learning Visuomotor Whole-Body Loco-Manipulation via World Model</td><td>Tsinghua University</td><td>Introduces DreamMimic, which distills privileged teacher policies into vision-based humanoid controllers using a world model as a predictive latent space and supervision signal. Auxiliary prediction heads and performance-conditioned guidance stabilize learning of long-horizon loco-manipulation behaviors from images.</td><td><a href="https://arxiv.org/abs/2608.22278">Link</a></td></tr>
+<tr><td>OptiSight: Bridging Semantic Reasoning and Geometric Control for Embodied Navigation</td><td></td><td>Combines VLM-based semantic reasoning with geometric visual servoing in a finite-state &quot;Chain-of-Thought&quot; navigation framework. Grounded-SAM provides open-vocabulary target localization and pure-geometry control executes continuous navigation, yielding reliable zero-shot indoor navigation in Habitat under tight VRAM budgets.</td><td><a href="https://arxiv.org/abs/2608.23354">Link</a></td></tr>
+<tr><td>SuperMap: A Spatio-Temporal SLAM System for Visual-Language Navigation</td><td></td><td>Presents SuperMap, a 4D spatio-temporal mapping system that fuses high-rate geometric SLAM with asynchronous open-vocabulary perception. It maintains stable object identities and prunes outdated content, exposing a queryable 4D scene graph tailored for language-guided navigation in dynamic environments.</td><td><a href="https://arxiv.org/abs/2608.22896">Link</a></td></tr>
+<tr><td>Triplet2Track: A Hierarchical System with Object-Centric Representations for Reliable Long-Horizon Manipulation</td><td>Shanghai Jiao Tong University</td><td>Introduces the Triplet-to-Track System, a closed-loop imitation framework that encodes subgoals as instance-grounded semantic triplets and converts them to continuous tracks for execution. Using human videos and online progress monitoring, it achieves strong reliability on long-horizon manipulation with object-level and compositional generalization.</td><td><a href="https://arxiv.org/abs/2608.22800">Link</a></td></tr>
+<tr><td>DELTA: Deformable Elevation-Based Local Terrain Attention Encoder for Sparse-Terrain Quadrupedal Locomotion</td><td>Korea Advanced Institute of Science and Technology</td><td>Proposes DELTA, a deformable attention encoder that samples state-conditioned elevation patches to build fixed-size terrain tokens independent of map resolution. It matches dense attention encoders in performance while enabling higher-resolution maps and better sparse-terrain quadrupedal locomotion, including sim-to-real transfer on RAIBO2.</td><td><a href="https://arxiv.org/abs/2608.22033">Link</a></td></tr>
+<tr><td>Force/Torque-Based Kinematic Adaptation for Robotic Manipulation Tasks</td><td>.S. Naval Research Laboratory; .S. Naval Research Laboratory mail:</td><td>Develops an online adaptive scheme that identifies the kinematic mapping between joints and task-space features using only joint angles and wrist force/torque sensing. The method is provably stable, handles rigid and compliant inner-loop control, and is validated on peg-in-hole insertion, enabling tool- and contact-aware dexterous manipulation.</td><td><a href="https://arxiv.org/abs/2608.21592">Link</a></td></tr>
+<tr><td>Guided Riemannian Optimization (GuRO): Bridging Model Predictive Control and Decision Transformers</td><td></td><td>Proposes GuRO, which uses MPC-generated locally optimal trajectories to guide a decision transformer trained in a Riemannian parameter space. Curvature-aware optimization improves convergence and performance on high-dimensional quadruped control tasks over TRPO, SAC, and online decision-transformer baselines.</td><td><a href="https://arxiv.org/abs/2608.23204">Link</a></td></tr>
+<tr><td>Macro-Action Topological Navigation under Noisy Localization using Reinforcement Learning</td><td></td><td>Demonstrates pixel-only macro-action navigation in large 3D apartments using RL with an onboard pose estimator based on object-centric ORB features and an EKF. Despite noisy motion and drift, the agent follows topological edges reliably by maintaining local pose consistency, avoiding full SLAM while still reaching changing object goals.</td><td><a href="https://arxiv.org/abs/2608.23055">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
