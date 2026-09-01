@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-08-31</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-08-31</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>30</strong></div>
+        <div class="card">Papers analyzed: <strong>30</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Navigation under extreme or complex conditions is a major theme, from underwater caves and subarctic forests to hazardous multi-robot exploration with risk-aware coordination.</li><li>Multiple works push task and motion planning forward, including iterative game-theoretic coordination for multi-arm manipulators and reactive TAMP under partial observability.</li><li>Dexterous and contact-rich manipulation advances include a simulation-ready tendon-driven hand and improved VLA-based anticipatory reasoning.</li><li>Several papers target generalist VLA models and metric-aware perception, improving representation quality and geometry alignment for robust manipulation policies.</li><li>Industrial and applied systems focus on safe, verifiable procedures and reliable grasping/bin-picking in cluttered or deformable-object settings.</li><li>Multi-robot and distributed planning methods emphasize robustness to latency, heterogeneous sensors, and risk distribution while maintaining mission performance.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td colspan="4"><em>No matches</em></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Contact-Guided Exploration for Non-Prehensile Locomanipulation with Multi-Critic RL</td><td></td><td>Introduces a multi-critic RL framework where a dedicated exploration critic, guided by dense contact-seeking rewards, drives a mobile manipulator toward meaningful contact points for non-prehensile tasks like box pushing and chair transport. Candidate interaction points from a generic grasping algorithm improve generalization across objects, and real-world results on a quadrupedal mobile manipulator demonstrate deployable non-prehensile locomanipulation.</td><td><a href="https://arxiv.org/abs/2608.28140">Link</a></td></tr>
+<tr><td>Coordinated Motion Planning for Multi-Arm Systems via Iterative LQ Games</td><td></td><td>Formulates multi-arm motion planning as an iterative linear-quadratic game where each manipulator is an agent optimizing its own objective subject to shared state and collision constraints. Linearization around nominal trajectories and Riccati-based feedback Nash strategies yield smooth, collision-aware trajectories that scale to high-DOF systems and outperform traditional planners.</td><td><a href="https://arxiv.org/abs/2608.27726">Link</a></td></tr>
+<tr><td>Plan Along the Way: Event-Triggered Foundation-Model Planning for TAMP Execution in Partially Observable Manipulation</td><td></td><td>Proposes ROBUST TAMP, an LLM/VLM-guided framework that repeatedly replans as new objects are discovered in partially observable manipulation scenes. By constraining the planner to validated, executable actions over the currently visible relational state and treating object discovery as explicit replanning events, the system improves long-horizon task success in RLBench kitchen and grill tasks with hidden objects and articulated containers.</td><td><a href="https://arxiv.org/abs/2608.28075">Link</a></td></tr>
+<tr><td>STEGNav: Spatio-Temporal Event Graph Reasoning for Multimodal Lifelong Object Navigation</td><td></td><td>Presents STEGNav, a training-free navigation framework that replaces static scene graphs with spatio-temporal event graphs capturing both target instances and exploration frontiers plus trajectory-aware memory. A VLM agent reasons over this representation to select navigation goals, achieving strong success rates on GOAT-Bench and HM3D variants and demonstrating reliable cross-task experience reuse.</td><td><a href="https://arxiv.org/abs/2608.28279">Link</a></td></tr>
+<tr><td>Spatial-Semantic Reasoning using Large Language Models for Efficient UAV Search Operations</td><td></td><td>Develops a real-time semantic navigation system for UAV ObjectNav where an LLM interprets natural language instructions and prioritizes high-probability search regions based on object detections and 3D spatial context. Integrated with online mapping and spline-based trajectory planning, the framework reduces mission duration in simulation and real-world tests while maintaining search accuracy.</td><td><a href="https://arxiv.org/abs/2608.28270">Link</a></td></tr>
+<tr><td>CAVE-NAV: VLM-Based Autonomous 3D Navigation in Underwater Cave Environments</td><td>University of South Florida</td><td>Introduces a VLM-guided framework for 3D navigation in visually degraded underwater caves, using chain-of-thought reasoning over RGB, depth, and sonar-derived clearance cues to infer safe motion directions. Simulated experiments across varied cave topologies show collision-free end-to-end traversals with maintained clearance from cave walls.</td><td><a href="https://arxiv.org/abs/2608.27793">Link</a></td></tr>
+<tr><td>One year in a forest: Analyzing the challenges of autonomous navigation in subarctic environments</td><td>Laval University</td><td>Reports on a year-long deployment of a mobile robot in a subarctic forest, benchmarking nine odometry, localization, and mapping pipelines over 64 km of data. Seasonal appearance changes, self-similarity, and snowbanks significantly degrade state-of-the-art SLAM, with complex methods offering limited gains over proprioceptive baselines and lidar outperforming visual and radar for cross-season localization.</td><td><a href="https://arxiv.org/abs/2608.27628">Link</a></td></tr>
+<tr><td>Cooperative Risk-Aware Exploration in Heterogeneous Multi-Robot Systems Using Algorithmic Altruism</td><td>Electrical and Computer Engineering at Oklahoma State University</td><td>Proposes a game-theoretic exploration framework where heterogeneous robots optimize information gain while internalizing teammates’ risk via altruistic coupling inspired by Hamilton’s rule. The resulting Social Nash Equilibrium reallocates hazard exposure toward lower-valued robots, reducing redundant coverage and improving team separation without sacrificing map coverage, with both simulations and hardware validation.</td><td><a href="https://arxiv.org/abs/2608.28409">Link</a></td></tr>
+<tr><td>Probabilistic Multi-Robot Gas Source Localization with Uncalibrated Sensors: A Distributed Estimation Approach</td><td>EPFL</td><td>Introduces a calibration-free, distributed probabilistic scheme where each robot builds a local belief using rank-based features invariant to sensor nonlinearities, then fuses beliefs via a product-of-experts model. Coupled with informative-region allocation and path planning, the method yields accurate gas-source localization in high-fidelity simulations despite strongly heterogeneous, uncalibrated sensors.</td><td><a href="https://arxiv.org/abs/2608.28214">Link</a></td></tr>
+<tr><td>Distributed Model-Based Diffusion: Finite Horizon Contraction under Bounded Delay</td><td></td><td>Analyzes Distributed Model-Based Diffusion, a sampling-based MPC approach for nonlinear, nonconvex multi-agent trajectory optimization under communication latency. Theoretical results show contraction and robustness to bounded delays, and experiments on driving and aerial combat tasks demonstrate improved makespan and win rates over centralized diffusion-based control.</td><td><a href="https://arxiv.org/abs/2608.27685">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
