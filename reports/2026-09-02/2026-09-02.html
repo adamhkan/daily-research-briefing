@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-09-01</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-09-01</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>88</strong></div>
+        <div class="card">Papers analyzed: <strong>88</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Foundation and VLA models continue to push dexterous and long-horizon manipulation, with several works focusing on self-evolving world models, temporal and physical grounding, and non-gradient deployment-time adaptation.</li><li>Navigation research spans embodied indoor agents, off-road ground vehicles, aerial/underwater/aquatic platforms, microrobots, and autonomous driving, with emphasis on cross-platform generalization, hazard awareness, and benchmarking robustness under corruptions and degradation.</li><li>Motion planning advances include certified graph-of-convex-sets planning, adaptive continuous-time collision checking, multi-modal vehicle trajectory planning, and new complexity results and benchmarks for multi-agent and routing problems.</li><li>Humanoid and soft-body control results demonstrate agile whole-body behaviors (brachiation, blind manipulation, soft-arm exploration) using rich proprioception and reinforcement learning, highlighting whole-body and distributed contact as powerful sensing channels.</li><li>Simulation, benchmarks, and evaluation suites (Behavior-Skill, RoboPhys-3D, Agri-Sim, DriveDegrade, microrobot navigation, ultrasound and palpation twins) are maturing to expose intermediate skills, 3D consistency, sim-to-real fidelity, and realistic safety/robustness limits.</li><li>Selective works from Carnegie Mellon University, New York University, and ETH Zurich contribute respectively to training-free VLA correction, touchable telepresence, and wearable soft robotic massage systems.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Training-Free Action Correction for VLA Model Failures via Language Feedback</td><td>Carnegie Mellon University</td><td>CorrectVLA introduces a deployment-time framework that turns a single task-level natural language correction into uniform, additive adjustments on action magnitudes, without modifying VLA policy weights. It reliably fixes execution misalignment failures in simulation and on a real xArm7 under environment shift, restoring near-perfect task success when the underlying policy’s semantic intent is correct but its action scaling is off.</td><td><a href="https://arxiv.org/abs/2608.29967">Link</a></td></tr>
+<tr><td>Feelium: A Touchable Blimp Body for Aerial Telepresence</td><td>New York University</td><td>Feelium is a blimp-based telepresence robot whose inflatable skin acts as a shared haptic surface between a remote VR user and co-located partners. Onboard sensing and rendering let physical touches on the blimp be visualized to the remote user, enabling rich, embodied social interaction in aerial telepresence beyond conventional audio-visual channels.</td><td><a href="https://arxiv.org/abs/2608.29391">Link</a></td></tr>
+<tr><td>MiBOT: A head-worn robot that modulates cardiovascular responses through human-like soft massage</td><td>ETH Zurich</td><td>MiBOT is a silent, head-worn massage robot that uses pneumatically actuated soft tactors and pressure-feedback control to mimic human head massage. In controlled user studies, it reduces blood pressure and heart rate comparably to human-administered massage, demonstrating the potential of soft wearable robots for physiological regulation and rehabilitation.</td><td><a href="https://arxiv.org/abs/2608.30055">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>LightNav-0: Eliciting VLM Spatial Intelligence for Generalist Embodied Navigation</td><td></td><td>LightNav-0 leverages a compact VLM backbone for unified embodied navigation, representing tasks through dual-channel pointing tokens and a residual vector-quantized action tokenizer that maps spatial intent to robot-specific trajectories. Trained across 4k+ hours of navigation data, it achieves SOTA monocular success on 10 simulated benchmarks and shows strong zero-shot transfer across robots and environments.</td><td><a href="https://arxiv.org/abs/2608.30935">Link</a></td></tr>
+<tr><td>Zeva: In-Context Causal Learning for Generalizable Embodied Manipulation</td><td>Tsinghua University</td><td>Zeva enables robots to improve manipulation performance online by encoding each executed action and state change into a causal interaction signal stored in a dual-timescale memory. Retrieved signals are injected into a frozen policy as context, allowing self-evolution during deployment—success rates improve with experience without any gradient updates to the base model.</td><td><a href="https://arxiv.org/abs/2608.30880">Link</a></td></tr>
+<tr><td>Behavior-Skill: A Fine-Grained Benchmark for Evaluating Vision-Language-Action Policies in Long-Horizon Tasks</td><td>Inc., Guangzhou, China.; National University of Defense Technology; Peng Inc.</td><td>Behavior-Skill reorganizes long-horizon mobile manipulation evaluation around 235k labeled skill instances extracted from 10k demonstrations over 50 household tasks. Each skill has restorable intermediate states and success predicates, enabling skill-level evaluation that reveals non-uniform failure patterns—especially in contact-rich skills—for VLA policies like pi0.5 and GR00T.</td><td><a href="https://arxiv.org/abs/2608.30536">Link</a></td></tr>
+<tr><td>CanonNav: Disentangling Navigation Behavior from Camera Geometry in Cross-Platform Visual Navigation</td><td></td><td>CanonNav transforms visual observations and trajectories into a camera-consistent canonical space to separate navigation behavior from platform-specific camera geometry. Combined with safety and local-progress supervision derived from an offline traversability estimator, this enables RGB-only policies that outperform RGB and even RGB-D baselines across varied camera setups and environments.</td><td><a href="https://arxiv.org/abs/2608.30242">Link</a></td></tr>
+<tr><td>Motus2: A Self-Evolving General World Model for Dexterous Manipulation</td><td></td><td>Motus2 is a unified world model for dexterous manipulation that shares parameters across a policy, dynamics simulator, and value evaluator, forming a closed decision-and-learning loop. Scaled across monocular and stereo egocentric data with tactile feedback and instantiated on a dual-arm, dual-hand platform, it uses both successes and failures to continuously improve manipulation competence.</td><td><a href="https://arxiv.org/abs/2608.30237">Link</a></td></tr>
+<tr><td>Contrast-Free Autonomous Navigation of Untethered Endovascular Microrobots Using Single-Plane Fluoroscopy</td><td></td><td>VISTA builds a 3D digital twin of vascular anatomy and discretizes vessel centerlines into milestones, enabling 3D navigation of magnetically actuated microrobots from single-plane fluoroscopy alone. In phantoms and in-vivo rat experiments, it cuts navigation time, corrective commands, and radiation exposure by up to 62%, 98%, and 57% versus human-in-the-loop control.</td><td><a href="https://arxiv.org/abs/2608.30220">Link</a></td></tr>
+<tr><td>Sampling-based Certified Planning with Graphs of Convex Sets</td><td></td><td>This work augments graph-of-convex-sets planning with continuous-time collision certification by sampling overlaps and faces, verifying candidate paths via clearance certificates, and repairing failures with in-region detours. On a challenging 14-DOF bimanual benchmark, it returns zero invalid trajectories versus many for a standard GCS planner, while finding certified solutions faster.</td><td><a href="https://arxiv.org/abs/2608.29770">Link</a></td></tr>
+<tr><td>Learning Agile Perceptive Traversal of Sparse 3D Structures for Humanoids</td><td></td><td>The authors train a lidar-based RL policy for humanoid monkey-bar traversal, combining privileged expert sub-policies with an attention encoder and recurrence to handle sparse 3D geometry. After sim-to-real transfer that models sensing and hardware limits plus hook end-effectors, the real robot completes jump-up, brachiation, and landing in 14/15 trials and brachiates at up to 0.5 m/s.</td><td><a href="https://arxiv.org/abs/2608.29769">Link</a></td></tr>
+<tr><td>LARC: Lazy Adaptive Reachability Certification of Robot Manipulator Trajectories</td><td></td><td>LARC certifies continuous-time obstacle clearance for piecewise-cubic joint trajectories by recursively bisecting only intervals with uncertain clearance, using inflated midpoint capsules bounded by exact speed maxima. On hundreds of 7-DOF trajectories, it matches a dense fixed-time-check baseline’s decisions with about a quarter of the work and over 10× median speedup, without certifying any audited collisions.</td><td><a href="https://arxiv.org/abs/2608.29767">Link</a></td></tr>
+<tr><td>Blind Dexterity: Whole-Body Humanoid Manipulation via Pure Proprioception</td><td>German Research Center for Artificial Intelligence</td><td>Using only joint encoders on a Unitree G1 humanoid, the authors train policies that treat compliant contact as a whole-body tactile channel to walk, trap a soccer ball, find and lift a suitcase handle, and mount a randomly placed skateboard. Separate compact estimators decode task-relevant state from short proprioceptive histories, showing that encoder-based sensing plus compliant actuation can underpin rich whole-body manipulation.</td><td><a href="https://arxiv.org/abs/2608.29487">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
