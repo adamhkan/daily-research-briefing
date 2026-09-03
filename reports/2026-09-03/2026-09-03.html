@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-09-02</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-09-02</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>50</strong></div>
+        <div class="card">Papers analyzed: <strong>50</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Humanoid and whole-body control sees notable advances, from text-driven diffusion action priors (ADAPT) to a practical architecture for fast loco-manipulation behavior authoring on real humanoids.</li><li>New benchmarks and frameworks target underexplored regimes: aerial manipulation (AM-Bench), high-precision insertion (Peg-in-Bench), and counterfactual evaluation for imitation-learning robustness and negation-aware dexterous grasping.</li><li>Foundation-style models and VLAs are pushed toward contact-rich, long-horizon manipulation via contact-aware action-wrench prediction (Facet-0), reusable skill libraries (REFACTOR-VLA), and adaptive action chunking.</li><li>Navigation and motion planning under uncertainty are strengthened through dual-process neuro-symbolic planners, scalable Rao-Blackwellized POMDP solvers, and verifier-first low-latency VLN.</li><li>Multi-robot and dynamic-environment operation is addressed with connectivity-aware multi-UAV exploration, cooperative drone perception with runtime context planes, and dynamic 3D memories/scene graphs.</li><li>Control and hardware contributions span EPID guarantees for multi-DOF manipulators, non-prehensile throwing with RL, soft and dexterous hardware (variable-transmission fingers, origami actuators), and wearable bidirectional haptics for manipulation.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>ADAPT: Agile Diffusion Action Priors for Robust and Steerable Online Text-Driven Humanoid Control</td><td>ETH Zurich</td><td>ADAPT learns a diffusion-based action prior over humanoid state-action trajectories, enabling end-to-end, closed-loop whole-body control directly from text commands. A residual RL layer atop the frozen diffusion controller improves long-horizon robustness, smooth prompt switching, and allows reuse of the same motion prior for downstream task adaptation.</td><td><a href="https://arxiv.org/abs/2609.00677">Link</a></td></tr>
+<tr><td>AM-Bench: A Modular Simulation Suite and Benchmark for Aerial Manipulation Policy Learning</td><td>Carnegie Mellon University</td><td>AM-Bench provides a standardized simulation suite for multirotor-based aerial manipulation, covering diverse embodiments, 12 contact and transport tasks, and configurable disturbances. It supports system-level evaluation across embodiment, low-level control, and policy design, with simulation studies and real-world validation demonstrating its diagnostic value.</td><td><a href="https://arxiv.org/abs/2609.00641">Link</a></td></tr>
+<tr><td>A Wearable Pneumatic Device for Continuous, Closed-Loop, Bidirectional Tactile Interaction</td><td>Stanford University</td><td>This work introduces a wearable pneumatic system whose channels can act as both tactile sensors and actuators, enabling bidirectional touch interaction with closed-loop pressure control. User studies show improved teleoperated manipulation efficiency and reduced applied force and mental workload, particularly under limited visual feedback.</td><td><a href="https://arxiv.org/abs/2609.00612">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Facet-0: A Robotic Foundation Model for Contact-Rich Precise Manipulation</td><td>Nanyang Technological University</td><td>Facet-0 is a foundation model that jointly predicts action chunks and their induced wrist-wrench profiles, aligning wrench histories with vision-language and state. A distributional Action-Wrench Critic and lightweight task-specific actor enable robust sub-millimeter assembly, achieving large gains over baselines on computer-assembly tasks.</td><td><a href="https://arxiv.org/abs/2609.01596">Link</a></td></tr>
+<tr><td>A System for Fast, Resilient, and Adaptable Loco-Manipulation Behaviors on Humanoid Robots</td><td></td><td>The authors present a behavior architecture for humanoid loco-manipulation that fuses affordance templates, tree-structured logic, and runtime-editable perception. A whole-body controller supports concurrent walking and manipulation, enabling rapid authoring and adaptation of tasks like door traversal and object sorting under disturbance.</td><td><a href="https://arxiv.org/abs/2609.01518">Link</a></td></tr>
+<tr><td>Does Imitation Learning Preserve Temporal Robustness in Dexterous Manipulation? An Expert-Learner Comparison Across Task Execution Speeds</td><td></td><td>Using a contact-rich parcel insertion task, this study compares an expert controller and ACT imitation policies across execution speeds. While both succeed at nominal speed, learned policies degrade more under speedup, especially in insertion alignment, highlighting that matching nominal success does not imply temporal robustness.</td><td><a href="https://arxiv.org/abs/2609.01453">Link</a></td></tr>
+<tr><td>Obstacle-Aware Autonomous Coverage and Navigation for Outdoor Robots</td><td></td><td>The paper proposes a ROS 2-based architecture that couples refined coverage planning, dual-antenna RTK-GNSS EKF localization, and Nav2 execution with behavior-tree mission management. Field trials across varied outdoor sites show 93–96% area coverage with robust docking and recovery for long-duration missions.</td><td><a href="https://arxiv.org/abs/2609.01384">Link</a></td></tr>
+<tr><td>Peg-in-Bench: A Modular Benchmark for High-Precision Robotic Insertion</td><td></td><td>Peg-in-Bench introduces a fully 3D-printable, reconfigurable peg-in-hole benchmark with varied geometries, tolerances, and layouts to assess high-precision insertion. A scenario generator produces standardized, machine-readable task descriptions to systematically test robustness and generalization across insertion conditions.</td><td><a href="https://arxiv.org/abs/2609.00906">Link</a></td></tr>
+<tr><td>Connectivity-Aware Graph Extension for Decentralized Multi-Robot Exploration</td><td></td><td>Within a decentralized multi-UAV exploration framework, this work proposes a frontier-connectivity-based graph extension strategy that stabilizes area partitioning under intermittent communication. Simulations show higher exploration efficiency than existing methods, particularly at low communication rates.</td><td><a href="https://arxiv.org/abs/2609.00804">Link</a></td></tr>
+<tr><td>Non-Prehensile Throwing: A Reinforcement Learning Perspective</td><td>. Domae are with the National Institute</td><td>The authors develop an RL-based approach for non-prehensile throwing that optimizes joint-jerk trajectories, exploiting sliding and rolling contacts without explicit contact models. Policies trained in simulation transfer zero-shot to a UR5e, achieving high-velocity throws of diverse large and heavy objects with 97% success.</td><td><a href="https://arxiv.org/abs/2609.00771">Link</a></td></tr>
+<tr><td>A Compact Robotic Finger with 2-DoF MCP Joint Embedding DoF-Selective Passive Continuously Variable Transmission for Wide Force-Speed Operating Range</td><td></td><td>This work presents a 2-DoF robotic finger whose MCP joint integrates a passive CVT on the flexion axis while keeping direct transmission for abduction-adduction. Load-responsive moment-arm adaptation yields up to 4.19× force amplification and supports dexterous tasks like ball rolling without sacrificing lateral mobility.</td><td><a href="https://arxiv.org/abs/2609.00769">Link</a></td></tr>
+<tr><td>Potential-Guided Particle Steering for Negation-Constrained Dexterous Grasping</td><td></td><td>The paper introduces an inference-time framework that enforces language-specified avoidance constraints (e.g., &#x27;avoid the body&#x27;) in dexterous grasp generation without negation-specific training. Combining SMC and classifier-free guidance with a frozen 3D part-grounding model greatly reduces constraint violations on the NegGrasp benchmark.</td><td><a href="https://arxiv.org/abs/2609.00555">Link</a></td></tr>
+<tr><td>Dual Process Motion Planning</td><td></td><td>Inspired by &quot;Thinking Fast and Slow,&quot; this neuro-symbolic framework couples experience-driven &#x27;System 1&#x27; modules with symbolic &#x27;System 2&#x27; planners via a metacognitive controller. Across nonlinear motion-planning benchmarks, the architecture improves efficiency, accuracy, and generalization compared to purely classical or learned methods.</td><td><a href="https://arxiv.org/abs/2609.01260">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
