@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-09-07</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-09-07</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>41</strong></div>
+        <div class="card">Papers analyzed: <strong>41</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Navigation and motion planning see advances from human-aware crowd navigation, 3DGS-based benchmark generation, and foundational theory relaxing δ-similarity assumptions.</li><li>Multiple works target robust perception and mapping for navigation, including underwater BEV occupancy, multi-sensor odometry in degenerate environments, surround-depth for driving, and outdoor 3D scene graphs.</li><li>Autonomous driving research emphasizes cooperative and connected behaviors via LLM-based decision negotiation, edge-assisted fusion and trajectory prediction, and diffusion-based trajectory planning and scenario generation.</li><li>Dextrous and contact-rich manipulation progresses through tactile-informed world-action models, analysis of hand morphology as an inductive bias, and intent-aware bimanual handover using temporal tactile encoding.</li><li>VLA and world-action models remain central in manipulation, with new benchmarks, robustness and failure-recovery evaluations, and techniques for efficient online RL, latent reasoning, and fine-grained failure detection.</li><li>Institution-highlighted work from MIT applies differential game theory to drone-swarm defense, demonstrating statistically significant gains in interception success over unilateral optimization tactics.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Game-Theoretic Drone Swarm Defense: A Case Study in Applied Differential Game Theory</td><td>Massachusetts Institute of Technology</td><td>This report applies differential game theory to assign defenders and guide midcourse maneuvers for drone swarms protecting high-value assets. Compared to unilateral optimization baselines, Nash-equilibrium-based tactics significantly increase full-interception probability, especially against evasive intruders, with Bayesian analysis indicating a 99.9% posterior probability of superior defense performance.</td><td><a href="https://arxiv.org/abs/2609.04394">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Human-Human &amp; Human-Robot Interaction Transformer (H2INT) for Robot Navigation in Dense and Uncertain Crowds</td><td></td><td>H2INT is a reinforcement learning framework for robot navigation in dense crowds that explicitly models heterogeneous human-human and human-robot interactions via a gated two-stage Transformer and a recurrent policy. By inferring pedestrian responsiveness from relative geometry and using a curriculum that reduces responsiveness, it improves simulated safety and robustness and transfers to real-robot deployment without retraining.</td><td><a href="https://arxiv.org/abs/2609.05300">Link</a></td></tr>
+<tr><td>NavArena: Automated Construction of Goal-Oriented Navigation Benchmarks from 3D Gaussian Splatting Reconstructions</td><td></td><td>NavArena converts fixed 3D Gaussian Splatting reconstructions into large-scale goal-oriented visual navigation benchmarks by combining egocentric RGB-D rendering, occupancy costmaps, and semantic goal extraction from open-vocabulary masks. Across over 2,000 scenes and 22.2M expert trajectories, it enables unified, closed-loop evaluation protocols for spatial and semantic navigation policies.</td><td><a href="https://arxiv.org/abs/2609.04602">Link</a></td></tr>
+<tr><td>Achieving Asymptotic Near-Optimality Without $\delta$-Similarity</td><td></td><td>This work revisits theoretical guarantees for sampling-based motion planners that rely on δ-similar trajectories to prove asymptotic near-optimality. It identifies a &quot;crowding out&quot; failure mode where low-cost local paths prevent δ-similar segments from entering the tree, and shows that near-optimality can still be ensured by explicitly accounting for this phenomenon without requiring δ-similar solutions.</td><td><a href="https://arxiv.org/abs/2609.04464">Link</a></td></tr>
+<tr><td>AquaBEV: Monocular Underwater BEV Occupancy with 3D Sonar Supervision</td><td>University of South Florida</td><td>AquaBEV predicts local bird’s-eye-view occupancy for underwater robots from a single RGB image, using paired 3D imaging sonar as geometric supervision during training. A polar, calibration-free representation with causal range-wise decoding improves Visible IoU and Observed IoU by roughly 4% over adapted terrestrial occupancy baselines on a controlled underwater benchmark.</td><td><a href="https://arxiv.org/abs/2609.04411">Link</a></td></tr>
+<tr><td>FIRE-LIVWO: Robust LiDAR-Inertial-Visual-Wheel Odometry via Failure-Immune mmWave Radar Enhancement</td><td>. Zhou and E. Hu are with the School</td><td>FIRE-LIVWO is a tightly coupled multi-modal odometry framework for underground coal mines that integrates 4D mmWave radar, LiDAR, vision, and wheel odometry in a unified VoxelMap with an iterated error-state Kalman filter. It detects degeneracy online, adaptively reweights modalities, and uses Doppler constraints and non-holonomic vehicle constraints to maintain localization accuracy (≈5.7 m error) under smoke, dust, and corridor degeneracy.</td><td><a href="https://arxiv.org/abs/2609.05325">Link</a></td></tr>
+<tr><td>A Schema Bounded Language Model for Refining Robot Policies Without Destabilizing Local Learning</td><td></td><td>This study investigates decentralized navigation by heterogeneous robots combining LLM-based policy agents, UCB bandits, and Double DQN controllers, with LLMs operating at round-level rather than per-tick decisions. Cross-robot policy summaries allow schema-bounded refinement, and experiments in a shared simulation show that the full configuration consistently reaches goals fastest without destabilizing low-level learning.</td><td><a href="https://arxiv.org/abs/2609.05133">Link</a></td></tr>
+<tr><td>ToPos: Automated Optimal Positioning on Topographic Manifolds using Constrained Geodesic Voronoi Decomposition</td><td></td><td>ToPos formulates the distribution of spatial reference sites on complex terrain as a geodesic Voronoi decomposition problem on a 2D manifold embedded in 3D. Using Riemannian Nesterov-accelerated optimization and feasibility constraints (e.g., safe zones, slopes, occlusions), it achieves approximately 74% improvement in surface area balance over planar methods, supporting mapping, sampling, and deployment planning in high-relief environments.</td><td><a href="https://arxiv.org/abs/2609.05084">Link</a></td></tr>
+<tr><td>Open-Set 3D Scene Graphs for Field Robotics: An Outdoor Case Study</td><td>Brigham Young University</td><td>Using Terra 3DSG as a case study, this field report analyzes open-set 3D scene graphs for outdoor robotic navigation and object retrieval across five datasets. It finds that while compact, consistent 3DSGs can support navigation-based retrieval with ~70% success, challenges remain in handling multimodal semantic embeddings, integrating traversability, and achieving reliable region-level understanding.</td><td><a href="https://arxiv.org/abs/2609.04607">Link</a></td></tr>
+<tr><td>Scalable Edge-assisted Fusion and Path Prediction for Connected Autonomous Vehicles</td><td>Georgia Institute of Technology; University of Edinburgh</td><td>Conductor is an edge-based system that fuses AV and roadside-unit data into a unified world model and predicts vehicle trajectories under strict age-of-information constraints. An occlusion-aware selector and adaptive controller jointly manage which AV inputs and prediction horizons to process, achieving near-oracle fusion fidelity and maintaining AoI safety bounds in simulations with up to 31 connected autonomous vehicles.</td><td><a href="https://arxiv.org/abs/2609.04364">Link</a></td></tr>
+<tr><td>One Diffusion Model, Two Roles: Guided Trajectory Planning and Safety-Critical Scenario Generation in Closed-Loop Simulation</td><td>KTH Royal Institute of Technology</td><td>This work leverages a single diffusion-based traffic model both as an ego-vehicle motion planner and as a generator of safety-critical scenarios in closed-loop driving simulation. A new SSDS decoder improves planning, while the DAPSE guidance method injects arbitrary energy functions at inference to steer agents toward realistic but adversarial interactions that expose planner vulnerabilities beyond standard benchmarks.</td><td><a href="https://arxiv.org/abs/2609.04921">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
