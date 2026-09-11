@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-09-10</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-09-10</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>56</strong></div>
+        <div class="card">Papers analyzed: <strong>56</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Dexterous and deformable-object manipulation see major advances, from grounding generated video plans in simulation to real-robot benchmarks and full-shape estimation under partial observability.</li><li>New frameworks for VLM/VLA-driven manipulation and generalist policies (GTA-2, DUET-DINO, FreqFM, TFGCA, HaWMPO, RoboDrop, JEPA Policy) significantly boost zero-shot skill synthesis, long-horizon planning, and data efficiency.</li><li>Motion planning and navigation progress spans AGV traffic management and routing, continuum-robot diffusion planners, symmetry-aware learned planners, and high-rate MPC for tiny drones.</li><li>Whole-body control and locomotion are pushed to more challenging regimes, including humanoid brachiation, granular terrain walking, perceptive visual loco-manipulation, and legged curricula via actuator dynamics.</li><li>Safety, robustness, and partial observability are addressed via belief-state planning for LLM agents, STL-based corrective control, risk-sensitive driving, odometry drift correction, and adaptive shared control.</li><li>Benchmarks and systems work (FolDeX, RealSimLoop, InstantMimic, Bayesian optimization survey) emphasize standardized evaluation, real-to-sim adaptation, and massively accelerated policy training.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Grounding Generated Video Plans in Simulation Towards Versatile Dexterous Controllers</td><td>UC Berkeley</td><td>Introduces a pipeline that converts generated hand–object interaction videos into executable dexterous manipulation controllers by grounding them in simulation. A multi-object, multi-trajectory HOI tracker trained on over 1,500 grounded videos substantially outperforms baselines and transfers to real robots for diverse grasps and non-prehensile manipulation.</td><td><a href="https://arxiv.org/abs/2609.10050">Link</a></td></tr>
+<tr><td>GTA-2: A Multi-VLM Framework for Synthesizing Robot Manipulation Skills via Grounded Task Axes</td><td>Carnegie Mellon University</td><td>Presents GTA-2, a modular multi-VLM system that composes object-centric task axes into executable, task-specific manipulation skills without task-specific demos or policy training. Four specialized VLM agents decompose tasks, assemble axis-based skills, assign controller parameters, and ground visual features, achieving strong zero-shot and refined performance on 14 real-robot tasks.</td><td><a href="https://arxiv.org/abs/2609.09808">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>FolDeX: A Physical-World Benchmark for Long-Horizon Robotic Manipulation of Deformable Objects</td><td></td><td>Defines FolDeX, a large-scale real-robot benchmark centered on garment folding to study long-horizon deformable-object manipulation and heterogeneous real-world data reuse. The suite spans 2,000+ hours, 20+ tasks, and 10+ embodiments, with a standardized remote evaluation platform to fairly compare policies under realistic variations.</td><td><a href="https://arxiv.org/abs/2609.10243">Link</a></td></tr>
+<tr><td>Deformable Object Manipulation under Partial Observability via Real-Time Full-Shape Estimation</td><td></td><td>Proposes cRVAE, a conditional recurrent VAE that reconstructs full deformable-object state from sparse corner-node observations and runs fast enough for receding-horizon control. In rope and fabric tasks, it matches XPBD accuracy while being orders of magnitude faster, enabling obstacle-aware collaborative manipulation on a Unitree Go2 robot.</td><td><a href="https://arxiv.org/abs/2609.10308">Link</a></td></tr>
+<tr><td>Assembling Two Parts in One Hand</td><td>Hong Kong University of Science and Technology; The University of Hong Kong; University of Hong Kong ffiliation:</td><td>Formulates in-hand assembly of two rigid objects with a single dexterous hand as an RL problem driven by a goal relative pose between parts. Auxiliary rewards, human-inspired pose regularization, and robust sensing enable a single recipe to solve multiple assembly tasks in simulation with zero-shot transfer to hardware using only one camera.</td><td><a href="https://arxiv.org/abs/2609.10137">Link</a></td></tr>
+<tr><td>DUET-DINO: Simultaneous Cross-View World Modeling for Latent Planning in Robot Manipulation</td><td></td><td>Introduces DUET-DINO, a cross-view latent world model that jointly predicts action-conditioned futures from side and wrist cameras for full 7-DoF end-effector planning. Leveraging complementary views and DINOv3 features, it improves zero-shot planning on diverse manipulation tasks and is robust to visual distribution shifts.</td><td><a href="https://arxiv.org/abs/2609.10506">Link</a></td></tr>
+<tr><td>A traffic management system for large and heterogeneous vehicles in narrow industrial environments</td><td></td><td>Develops an AGV traffic management system based on lifelong multi-agent path finding over NURBS roadmaps, tailored to dense, non-grid industrial layouts. A bounded-horizon CBS variant with rolling conflict resolution and deadlock handling boosts throughput by up to 11% over rule-based and industrial baselines while ensuring safe coordination.</td><td><a href="https://arxiv.org/abs/2609.10400">Link</a></td></tr>
+<tr><td>HiRAD: A Flexible Large-Scale AGV Routing System</td><td>Hong Kong University of Science and Technology</td><td>Proposes HiRAD, a hierarchical RL framework for continuous-space routing of large AGV fleets with real-time guarantees. It decomposes heading and speed, uses a step-level spatiotemporal representation, and an event-driven decision pipeline to cut inference complexity and reduces makespan by up to 63% on warehouses and random graphs.</td><td><a href="https://arxiv.org/abs/2609.09752">Link</a></td></tr>
+<tr><td>PccDiffuser: Multi-solution Motion Planning for Continuum Robots</td><td></td><td>Introduces PccDiffuser, a conditional diffusion model that learns a multimodal distribution over configuration-space paths for continuum robots under a constant-curvature model. With GNN-based obstacle encoding and analytic differential kinematics in the denoiser, it achieves 91% success and efficient multi-solution planning, validated on a tendon-driven continuum robot.</td><td><a href="https://arxiv.org/abs/2609.09745">Link</a></td></tr>
+<tr><td>What Symmetry Buys a Learned Motion Planner</td><td>Shanghai Jiao Tong University</td><td>Shows that expressing planning problems in a start–goal frame analytically removes most SE(3) symmetries, dramatically improving learned motion-planner performance without architectural changes. On cluttered 3D benchmarks, this representation alone raises collision-free success from 14.6% to 51.1%, dwarfing gains from enforcing residual equivariance in the model.</td><td><a href="https://arxiv.org/abs/2609.10033">Link</a></td></tr>
+<tr><td>AccelMPC: High-Rate, Low-Power FPGA-Accelerated Model Predictive Control for Tiny Drones</td><td></td><td>Presents AccelMPC, an FPGA-accelerated ADMM-based MPC solver co-designed with a lightweight PCB for 35 g drones, enabling 1 kHz onboard constrained control with dynamic obstacles. The system achieves up to 15.6× faster solves and nearly 200× better energy–delay product than microcontroller baselines while scaling to very large optimization problems.</td><td><a href="https://arxiv.org/abs/2609.09380">Link</a></td></tr>
+<tr><td>SwingBot: Learning Whole-Body Brachiation for Humanoid Robots</td><td></td><td>Develops SwingBot, a learning framework that enables humanoid robots with passive hooks to perform continuous brachiation on overhead bars. By using biomimetic keyframes and recurrent privileged state estimation, it learns long-horizon release–swing–capture sequences that robustly traverse varying bar spacings and external disturbances in hardware.</td><td><a href="https://arxiv.org/abs/2609.10283">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
