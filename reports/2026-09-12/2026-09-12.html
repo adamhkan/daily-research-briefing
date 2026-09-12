@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-09-11</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-09-11</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>44</strong></div>
+        <div class="card">Papers analyzed: <strong>44</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Dexterous manipulation advances include real-time Jacobian-based in-hand pen writing and new exoskeleton-based data collection for contact-rich hand tasks.</li><li>VLA and world-action modeling papers push long-horizon, memory- and safety-aware manipulation control, with faster, safer, and more steerable action heads.</li><li>New planning and kinematics methods address constrained manipulators and closed-chain mechanisms, improving trajectory optimization with general-purpose IK.</li><li>Navigation and locomotion work spans swarm platforms, valuation-aware hazardous exploration, robust humanoid and quadruped control, and low-cost or degraded-vision depth/SLAM.</li><li>Perception for autonomy is strengthened by relocalization-informed depth from 3DGS, radar- and event-based sensing, and monocular Visual-SLAM tailored for agriculture.</li><li>Framework papers propose unified runtimes and interfaces for quadruped inspection and end-user sketch programming of swarms, emphasizing deployability and usability.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Rapid Learning of Dexterous In-Hand Pen Writing through Real-Time Jacobian Estimation</td><td>ETH Zurich</td><td>Introduces an embodied controller that estimates the task Jacobian of the hand–object system online, enabling an anthropomorphic hand to perform in-hand pen writing after ~18 s of initialization, without analytic models, simulation, or demonstrations. The same formulation transfers across three hand embodiments and achieves sub-millimeter accuracy on 3D pen trajectories, offering a lightweight alternative to RL/IL for dexterous in-hand manipulation.</td><td><a href="https://arxiv.org/abs/2609.11775">Link</a></td></tr>
+<tr><td>RIDE: Relocalization-Informed Depth Estimation with 3D Gaussian Splatting</td><td>Carnegie Mellon University</td><td>Proposes RIDE, which fuses sparse metric depths from render–match–PnP relocalization against a metrically scaled 3DGS map with a video-depth prior to produce dense, temporally consistent metric depth from RGB. Global/local correction and temporal memory handle intermittent observations, improving depth accuracy and consistency for robot perception without task-specific fine-tuning.</td><td><a href="https://arxiv.org/abs/2609.11079">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>SEED-UMI: Sharing the Exoskeleton between human and robot for onE-to-one Dexterous demonstration</td><td>Peking University</td><td>Presents SEED-UMI, where a single exoskeleton is physically shared by human and robot so joint encoders and wrist-mounted cameras provide a common embodiment-centric observation space. This paired supervision enables policies to learn directly from raw exoskeleton images for contact-rich dexterous tasks, tripling data-collection efficiency over teleoperation and achieving 70% average success.</td><td><a href="https://arxiv.org/abs/2609.11753">Link</a></td></tr>
+<tr><td>Morphology-Aware Human Motion Retargeting for Wheeled-Humanoid Loco-Manipulation</td><td>Harbin Institute of Technology</td><td>Builds a pipeline to retarget SMPLX human motion onto a wheeled humanoid that lacks legs, redistributing lower-body motion into planar base and torso while preserving manipulation-relevant arm kinematics. A reference-twist planner and learned BaseDecode policy in simulation yield executable loco-manipulation behaviors for the Galaxea R1 Pro under realistic actuation limits.</td><td><a href="https://arxiv.org/abs/2609.11357">Link</a></td></tr>
+<tr><td>Contact-Aware Incremental Model Predictive Control for an Underactuated Aerial Manipulator</td><td></td><td>Combines NMPC for precise end-effector pose and normal-force tracking with whole-body incremental nonlinear dynamic inversion on a quadrotor with a simple 1-DoF arm. Experiments on aerial writing across surfaces, forces, friction, and wind show robust 5-DoF pose and force control without fully actuated platforms or dedicated force sensing.</td><td><a href="https://arxiv.org/abs/2609.11661">Link</a></td></tr>
+<tr><td>Memory as Plans: World-Action Modeling with Memory-Grounded Planning</td><td>Harbin Institute of Technology</td><td>MaP-WAM reframes memory for non-Markovian manipulation as planning-time episodic context: past segments are stored as multimodal records, converted into compact language-plus-visual plans that condition a fixed-context executor. A World-Action-Progress model predicts action chunks and execution progress, achieving strong RMBench and real-robot performance with near-constant inference latency over long histories.</td><td><a href="https://arxiv.org/abs/2609.11561">Link</a></td></tr>
+<tr><td>2AM: Grounding Agent-Side Memory as Guidance for Steerable Action Models in Long-Horizon Manipulation</td><td>KU Leuven</td><td>Separates memory and control by making a multimodal Agent the sole memory holder and a stateless RGB-only Action Model the executor for manipulation. The Agent emits language and 2D spatial hints that steer the VLA, and training with noisy, dropped hints teaches robustness; on LIBERO-Mem, 2AM vastly outperforms prior long-horizon baselines without extra geometry or planners.</td><td><a href="https://arxiv.org/abs/2609.11308">Link</a></td></tr>
+<tr><td>Beyond Noise Steering: Dual-Latent Space Reinforcement Learning for Generative Robot Policy</td><td></td><td>Introduces DLSRL, which controls generative action policies via two latents: one for initial noise and one injected into intermediate token representations through adapters. This dual modulation lets RL adjust action features without modifying the frozen generator, improving adaptation speed and performance on diverse manipulation tasks across generative architectures.</td><td><a href="https://arxiv.org/abs/2609.11270">Link</a></td></tr>
+<tr><td>LTLDiff: Finite Linear Temporal Logic-Guided Data Generation and Diffusion Policies for Multi-agent Robotic Manipulation</td><td>University of Toronto</td><td>LTLDiff learns LTLf task specifications from natural language and embeds them via abstract syntax trees to condition both demonstration generation and diffusion-based multi-agent policies. The logic-conditioned diffusion encourages temporally ordered, coordinated behaviors, yielding higher success rates on multi-arm manipulation tasks requiring precise sequencing and synchronization.</td><td><a href="https://arxiv.org/abs/2609.11043">Link</a></td></tr>
+<tr><td>ObstaDiff: Generalizable Diffusion Policy Learning via Obstacle-aware Representations</td><td>University of California, Los Angeles</td><td>Proposes ObstaDiff, which decomposes diffusion policy learning into an obstacle-aware encoder that separates target, obstacles, and background, and a downstream alignment policy that aims for target-relative bottleneck poses. In real greenhouse picking tests, it significantly improves task success and reduces collisions versus standard imitation-learning baselines in clutter.</td><td><a href="https://arxiv.org/abs/2609.10918">Link</a></td></tr>
+<tr><td>IMLE-VLA: Fast Single-Step Action Generation for Vision-Language-Action Policies</td><td>Simon Fraser University; University of Pennsylvania</td><td>Replaces iterative diffusion/flow action heads in VLAs with a single-step conditional IMLE generator that maintains multimodal action coverage. Applied to π₀.₅, IMLE-VLA boosts control frequency and smoothness, achieves state-of-the-art success on LIBERO, and improves real-robot performance and robustness without sacrificing generalization.</td><td><a href="https://arxiv.org/abs/2609.10915">Link</a></td></tr>
+<tr><td>Planning along Differentiable Charts of Constraint Manifolds with General-Purpose IK Solvers</td><td></td><td>Shows how to obtain gradients of analytic IK parameterizations from standard forward-kinematics Jacobians via the inverse function theorem, making meta-solver IK (e.g., IKFast) usable in gradient-based trajectory optimization under constraints. A least-squares domain extension and smooth reachability constraint maintain useful gradients outside reach, validated in numerical and hardware box-manipulation tasks.</td><td><a href="https://arxiv.org/abs/2609.10905">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
