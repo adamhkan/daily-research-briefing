@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-09-15</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-09-15</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>129</strong></div>
+        <div class="card">Papers analyzed: <strong>129</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>CMU introduces GeomVLA, a 3D vision-language-action model that jointly reasons about scene geometry, motion, and actions, achieving SOTA manipulation without robot-action pretraining.</li><li>NYU proposes VFAL, fusing foundation-model vision with force-based admittance control to achieve millimeter-precision peg insertion into moving targets using failure-aware online adaptation.</li><li>Mobile manipulation and navigation see multiple advances in long-horizon memory, world-model-based planning, and costmap/CBF safety layers, targeting more robust operation in clutter and under uncertainty.</li><li>Dexterous and whole-body control progresses via tactile-driven and predicted-touch manipulation, cross-embodiment humanoid control foundations, and force-aware wheeled-legged loco-manipulation.</li><li>Safety, verification, and reachability are emphasized in new neural HJ reachability solvers, invariant-set computation, and hybrid safety-filter architectures for humanoids and mobile robots.</li><li>MIT and Stanford contribute new testbeds and planners for safety-critical navigation in space and autonomous driving, including chance-constrained belief-space maneuvering and scalable reachability value learning.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Vision-Force Admittance Learning for Peg Insertion into a Movable Hole</td><td>New York University</td><td>VFAL combines asynchronous visual pose estimates from vision foundation models with high-frequency force-based admittance control to handle peg insertion into moving or uncertain targets. Visual feedback regularizes a learned force model, enabling online adaptation and failure recovery while maintaining millimeter-level precision across varied pegs and dynamic motions.</td><td><a href="https://arxiv.org/abs/2609.14133">Link</a></td></tr>
+<tr><td>GeomVLA: Unifying Scene, Motion, and Action in 3D</td><td>Carnegie Mellon University</td><td>GeomVLA lifts pretrained VLM features into robot-centric 3D tokens, learns a latent 3D scene-motion trajectory, and conditions a flow-based action denoiser on these motion tokens with geometry-aware attention. This unified 3D representation improves consistency between perception, motion prediction, and manipulation actions, yielding SOTA results on CALVIN and strong real-robot performance without robot-action pretraining.</td><td><a href="https://arxiv.org/abs/2609.13812">Link</a></td></tr>
+<tr><td>ResSafe: Learning Safety Filtering with Residual Reinforcement Learning for Humanoids</td><td>UC Berkeley</td><td>ResSafe splits humanoid control into a task-focused nominal policy and a residual safety policy that learns corrective actions, effectively acting as a learned safety filter. This residual RL formulation improves the performance–safety trade-off and reduces the need for delicate multi-objective reward tuning in a single monolithic controller.</td><td><a href="https://arxiv.org/abs/2609.15988">Link</a></td></tr>
+<tr><td>DreamSat-Bench: Development and Initial Testing of a Testbed for AI-Based Pose Estimation from 3D Reconstruction</td><td>Massachusetts Institute of Technology</td><td>DreamSat-Bench is a modular rendezvous and proximity-operations testbed that couples MuJoCo/Isaac/LeRobot simulation with robotic-arm motion to benchmark AI-based relative navigation. It evaluates a pipeline that reconstructs a 3D target with DreamSat and tracks pose with FoundationPose, quantifying how factors like reconstruction latency and illumination impact RPO pose-estimation accuracy.</td><td><a href="https://arxiv.org/abs/2609.14183">Link</a></td></tr>
+<tr><td>Gradient-Free Neural Hamilton-Jacobi Reachability for Scalable Safety-Critical Control</td><td>Stanford University</td><td>This work learns discrete-time HJ reachability value functions and safety policies without computing spatial gradients, instead exploiting bang-bang structure to turn adversarial optimization into supervised policy learning. A windowed temporal curriculum stabilizes long-horizon value propagation, enabling scalable safety filters up to 80D systems and real-time deployment on an F1-tenth car with zero-shot generalization to new tracks.</td><td><a href="https://arxiv.org/abs/2609.14087">Link</a></td></tr>
+<tr><td>Chance-Constrained Belief-Space Maneuver Planning for Autonomous Collision Avoidance Under Uncertainty</td><td>Stanford University</td><td>The authors frame satellite conjunction response as chance-constrained belief-space planning over Gaussian orbital uncertainties using Monte Carlo tree search that anticipates future tracking updates. Their planner decides when to wait for better information versus commit to a maneuver while enforcing a terminal collision-risk bound, reducing unnecessary maneuvers yet avoiding risk violations on historical conjunction cases.</td><td><a href="https://arxiv.org/abs/2609.13428">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>MessyMem: Learning-from-Doing Memory for Mobile Manipulation</td><td></td><td>MessyMem maintains a 3D scene graph augmented with interaction-derived properties and outcomes so a mobile manipulator can reuse knowledge across tasks and visits. It links objects, locations, and past keyframes, enabling retrieval of task-relevant evidence over hours of operation and significantly improving long-horizon mobile manipulation performance versus memory-free baselines.</td><td><a href="https://arxiv.org/abs/2609.15976">Link</a></td></tr>
+<tr><td>HarnessVLN: Unifying Training-Free Embodied Navigation through an Agent Harness</td><td>Tsinghua University</td><td>HarnessVLN coordinates perception, retrieval, grounding, navigation, and recovery via a tool-based Agent Harness on top of multimodal LLMs, remaining fully training-free. It validates candidate actions against geometric feasibility and a persistent spatiotemporal graph, achieving new training-free SOTA on multiple VLN benchmarks and transferring to humanoid navigation in real environments.</td><td><a href="https://arxiv.org/abs/2609.15195">Link</a></td></tr>
+<tr><td>LieSpline-DP: Lie-Group B-Spline Diffusion Policy for Smooth Robot Manipulation</td><td>Shanghai Jiao Tong University</td><td>LieSpline-DP represents end-effector trajectories as B-splines directly on SE(3), sharing boundary control poses between plans to guarantee global C² continuity. On real-robot manipulation tasks, it reduces jerk and substantially boosts success rates—especially in liquid pouring and flexible-object tasks—relative to standard diffusion policies.</td><td><a href="https://arxiv.org/abs/2609.15162">Link</a></td></tr>
+<tr><td>X-WBC: A Cross-Embodiment Foundation Model for Humanoid Whole-Body Control</td><td></td><td>X-WBC separates human motion semantics from robot-specific execution via shared command tokens and lightweight embodiment heads trained across multiple humanoid robots. A causal Transformer learns reusable temporal structure, enabling improved motion tracking and consistent whole-body control across nine simulated and four real humanoids from a unified foundation model.</td><td><a href="https://arxiv.org/abs/2609.15213">Link</a></td></tr>
+<tr><td>Force-Aware Reinforcement Learning with Hybrid Sensorless Force Estimation for Wheeled-Legged Loco-Manipulation</td><td></td><td>This work combines model-based generalized-momentum observers, wrench projection, and residual learning to estimate end-effector forces for a wheeled-legged robot without F/T sensors. The estimated forces feed a mode-conditioned whole-body policy that unifies free-space, pure-force, and hybrid control, enabling tasks like valve turning, wiping, and human-guided motion in both simulation and hardware.</td><td><a href="https://arxiv.org/abs/2609.13779">Link</a></td></tr>
+<tr><td>Touch2Trace: Tactile-Driven Imitation Learning for Dexterous Cable Tracing</td><td></td><td>Touch2Trace trains a transformer-based policy on self-supervised TacV5 tactile encodings and teleoperated demos to perform fingertip cable tracing without vision. On a Tesollo DG-5F hand it boosts mean traced length from 0.2 cm to 20.1 cm and success from 0% to 93%, with zero-shot generalization to unseen cables and routings.</td><td><a href="https://arxiv.org/abs/2609.15921">Link</a></td></tr>
+<tr><td>PredTac: Learning Contact-Rich Manipulation with Predicted Touch</td><td></td><td>PredTac first learns a visuo-proprioceptive network to predict tactile states, then uses these predicted touch signals as inputs to manipulation policies, eliminating the need for physical tactile hardware at deployment. On contact-rich insertion and rotation tasks, predicted-touch policies approach measured-tactile performance and far outperform vision-only baselines.</td><td><a href="https://arxiv.org/abs/2609.15198">Link</a></td></tr>
+<tr><td>Volumetric Harmonic Field Navigation for Quadrotors</td><td></td><td>The authors precompute a 3D harmonic potential field and couple it with a constrained predictive planner that queries the field at predicted quadrotor positions, without extracting explicit reference paths. Experiments in structured 3D environments and on physical Crazyflie flights show smoother, higher-clearance navigation than Dijkstra-based guidance, at the cost of modestly longer paths.</td><td><a href="https://arxiv.org/abs/2609.15680">Link</a></td></tr>
+<tr><td>GLAM: Training a latent world model over global spatiotemporal memory for active exploration and navigation</td><td>Northeastern University; Tsinghua University; University of California, Los Angeles</td><td>GLAM learns a JEPA-style latent world model over global map tokens and uses it in GLAM NAV to jointly predict future map representations and waypoint latents from past maps and goals. Trained on Habitat ObjectNav rollouts, it improves success and SPL over a reproduced BSC-Nav baseline by planning in latent map space rather than raw RGB.</td><td><a href="https://arxiv.org/abs/2609.14561">Link</a></td></tr>
+<tr><td>NavPatch: Evidence-Guided Object-Level Costmap Correction with Vision-Language Models</td><td></td><td>NavPatch overlays an object-level correction layer on standard costmaps, using an open-vocabulary VLM plus RGB-D/LiDAR to detect objects that should be added, removed, or extended as obstacles. By filtering observations and maintaining patches across frames, it raises real-robot navigation success from 70% to 86% while cutting false patch commits versus single-frame updates.</td><td><a href="https://arxiv.org/abs/2609.14543">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
