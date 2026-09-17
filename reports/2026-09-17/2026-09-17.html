@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-09-16</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-09-16</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>77</strong></div>
+        <div class="card">Papers analyzed: <strong>77</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Carnegie Mellon highlights: ModAR advances world-action modeling with multi-modal future prediction, while ManiSkillFormer introduces a neuro-symbolic, demo-free pipeline for compositional manipulation using geometric contracts.</li><li>NYU proposes an adapter-bank architecture where low-rank perturbations of a shared recurrent core act as compositional motor options, enabling novel movement sequences with strong generalization.</li><li>Whole-body humanoid control and dexterous manipulation see rapid progress, from learning loco-manipulation policies (Weave, WholeBodyWAM) to geometry-aware collision avoidance (RECAL) and constraint-conditioned dexterous grasp synthesis (ConGraspXL).</li><li>New motion planning and safety methods span high-dimensional sampling (HAR-RRT hybrids), hybrid-systems HJ reachability with safety guarantees, quadrotor escape-aware control barriers, and learning-based UAV path planning under complex constraints.</li><li>Navigation and SLAM robustness are pushed by video-based planning for navigation (CueNav), continual traversability prediction, ToF-inertial odometry for nano-UAVs (TIO-Former), and human-inspired semantic place recognition (HuMemSLAM).</li><li>Dexterous and contact-rich manipulation gain resilience and sensing via residual fault adaptation for in-hand manipulation, proximity-based interaction dynamics (ProxiDex), unified visuo-tactile policies from human video (UniDex-ViTac), and teleoperation with tactile-informed force control (XRoboToolKit-T).</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Modality-Autoregressive World-Action Models</td><td>Carnegie Mellon University</td><td>Introduces ModAR, a world-action model that autoregressively denoises multiple future modalities (e.g., depth, point tracks, DINO features) before predicting actions, allowing each to condition on previously generated signals. Experiments show that incorporating non-RGB geometric/semantic modalities improves manipulation performance, with ModAR outperforming prior WAMs and approaching Flex-π performance at ~20× lower training FLOPs, including on real bimanual tasks.</td><td><a href="https://arxiv.org/abs/2609.17524">Link</a></td></tr>
+<tr><td>ManiSkillFormer: Demonstration-Free Compositional Manipulation via Task-Conditioned Geometric Contracts</td><td>Carnegie Mellon University</td><td>Proposes ManiSkillFormer, a neuro‑symbolic framework where manipulation skills are defined via task-conditioned geometric contracts (keypoints, normals) that mediate between perception and reusable motion templates. LLMs generate contracts and templates, enabling demonstration-free, compositional dual-arm manipulation with strong zero-shot performance across diverse objects, functional tasks, and long-horizon sequences.</td><td><a href="https://arxiv.org/abs/2609.16331">Link</a></td></tr>
+<tr><td>Learning Options for Compositional Motor Control with Adapter Banks</td><td>New York University</td><td>Implements a motor-control architecture where a shared recurrent core is modulated by a bank of residual adapters, each acting as a low-rank perturbation selected by a discrete latent code. Trained on biomechanical control tasks, the system learns compositional motor primitives that can be sequenced by a high-level policy to generate novel movements, substantially improving generalization over multitask baselines.</td><td><a href="https://arxiv.org/abs/2609.17042">Link</a></td></tr>
+<tr><td>A Programmable Optics Cloud Laboratory</td><td>Massachusetts Institute of Technology</td><td>Presents PICO, a robotic cloud-laboratory architecture for programmable, reconfigurable free-space optics experiments. A domain-specific software layer abstracts physical optics setups, enabling remote interactive use, scripting, autonomous routines, and versioned experiment configurations on a shared robotic platform.</td><td><a href="https://arxiv.org/abs/2609.16413">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Motion planning in high dimensional spaces hybridizing RRT and HAR via position-direction decoupling</td><td></td><td>Proposes hybrid sampling-based planners that decouple the choice of extension point from extension direction, unifying RRT and Hit-and-Run (HAR) as special cases and introducing sparse-move strategies where only a subset of robots moves per step. The resulting HARF planner solves cluttered multi-robot motion planning problems with up to 384 DoF, achieving up to 100× speedups over classical RRT in difficult instances.</td><td><a href="https://arxiv.org/abs/2609.16810">Link</a></td></tr>
+<tr><td>Optimized Wrench Polytope Analysis for Real-Time Stability Control of Legged Robots in Complex Multi-Contact Configurations</td><td></td><td>Develops an optimized algorithm to compute the full actuatable wrench polytope for arbitrary multi-contact configurations on legged robots at ~49 Hz, enabling inclusion in real-time control loops. The resulting stability controller is validated in simulation and hardware, maintaining balance in challenging environments such as slopes and scaffolding that are difficult for existing controllers.</td><td><a href="https://arxiv.org/abs/2609.17405">Link</a></td></tr>
+<tr><td>IL-ACT: Imitation Learning with Adaptive Cartesian Tracking Control for a 30-ton Excavator</td><td></td><td>Introduces IL-ACT, combining an imitation-learned joint-rate policy with adaptive Cartesian feedback and a stopping-distance governor for precise motion control of a 30-ton excavator. Simscape evaluations over varied trajectories and conditions show complete task success and reduced tracking error versus teacher and PID baselines, with theoretical bounds on adaptive states and feedback.</td><td><a href="https://arxiv.org/abs/2609.16696">Link</a></td></tr>
+<tr><td>Hamilton-Jacobi Reachability for Hybrid Systems: Unified Goal-Driven Control with Safety Guarantees</td><td></td><td>Extends Hamilton-Jacobi reachability to hybrid systems with discrete modes and continuous dynamics, computing value functions that define safe sets under control limits and uncertainty. Builds hybrid least-restrictive safety filters and backward reach-avoid tubes that jointly guarantee safety and goal reachability, validated on simulated and real quadruped experiments.</td><td><a href="https://arxiv.org/abs/2609.17430">Link</a></td></tr>
+<tr><td>Escape-Aware Control Barrier Functions for Quadrotor Safety under Body-Rate Limits</td><td></td><td>Analyzes the gap between state-only control barrier functions and true safety when thrust reorientation is rate-limited on quadrotors, deriving a closed-form characterization of the certification gap. Proposes an escape-aware barrier defined over state and previous input, yielding larger safety margins and zero observed unsafe escapes across hundreds of simulated episodes compared to standard and backup-CBF baselines.</td><td><a href="https://arxiv.org/abs/2609.17292">Link</a></td></tr>
+<tr><td>WholeBodyWAM: Generalizing Pre-trained World-Action Priors to Humanoid Loco-Manipulation via WBC-Grounded Coordination</td><td></td><td>Extends world-action models from arm-centric settings to humanoid loco-manipulation by jointly predicting visual dynamics, manipulation actions, and whole-body control intents. By grounding pre-trained priors in heterogeneous whole-body controllers rather than relearning from scratch, WholeBodyWAM attains ~92% simulation success and smoother performance across controllers in real humanoid tasks.</td><td><a href="https://arxiv.org/abs/2609.16644">Link</a></td></tr>
+<tr><td>Weave: Learning Whole-Body Dexterous Loco-Manipulation from Human-Object Interactions</td><td>The Chinese University of Hong Kong</td><td>Presents Weave, which converts human-object interaction demonstrations into robot-executable trajectories and trains a unified policy controlling 29 body and 12 finger joints for humanoid loco-manipulation. Achieves high success across nine objects, including zero-shot performance on unseen interaction sequences, and releases ~23 hours of physically executed rollouts with contact labels.</td><td><a href="https://arxiv.org/abs/2609.16683">Link</a></td></tr>
+<tr><td>Collision-Aware Humanoid Whole-Body Control under Imperfect Tracking Targets</td><td></td><td>Introduces RECAL, a robot–environment cross-attention layer that augments standard whole-body controllers with point-cloud-based collision awareness, trading off target tracking against geometric safety. Demonstrated in simulation and on a Digit V3 humanoid, RECAL reduces collisions for locomotion and manipulation tasks, including with carried objects, while preserving tracking performance.</td><td><a href="https://arxiv.org/abs/2609.16405">Link</a></td></tr>
+<tr><td>Fingers as Legs: Learning Self-Supported Locomotion and Manipulation with an Anthropomorphic Hand</td><td></td><td>Shows that an anthropomorphic robotic hand can serve as a compact mobile manipulator by using its fingers for both locomotion and manipulation. Reinforcement-learned policies enable crawling, steering, fall recovery, and object interaction such as keyboard input and pushing tasks, on a self-contained platform with onboard power and compute.</td><td><a href="https://arxiv.org/abs/2609.17172">Link</a></td></tr>
+<tr><td>SWIM: Vision-Language-Grounded Soft Whole-Body Interactive Manipulation</td><td>Nanyang Technological University</td><td>Proposes SWIM, a vision-language-action framework that maps RGB observations and language instructions to actuation sequences for a tendon-driven soft continuum robot. A diffusion-based action head and Visual Soft Proprioception jointly encode body geometry, enabling high success in packing, reaching, and grasping tasks in simulation and hardware, outperforming adapted VLA baselines.</td><td><a href="https://arxiv.org/abs/2609.17035">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
