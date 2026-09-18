@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-09-17</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-09-17</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>113</strong></div>
+        <div class="card">Papers analyzed: <strong>113</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Humanoid and legged loco-manipulation see strong progress, from keyframe-bridged VLM planning and RL whole-body control to adaptive MPC and large-scale traversal learning.</li><li>Motion planning advances span multi-robot TAMP optimality, cascade-aware collision risk, kinodynamic planning benchmarks, and LLM-generated MIP formulations for multi-modal planning.</li><li>Force-, contact-, and tactile-aware methods are increasingly central for dexterous and contact-rich manipulation, with new VLAs, correction policies, tactile priors, and grasp representations.</li><li>Navigation and trajectory planning in dynamic, cluttered, or adverse environments leverage richer risk models, social interaction reasoning, SLAM/mapping innovations, and UAV/quadrotor-specific planners.</li><li>Vision-language(-action) models permeate planning and control, guiding keyframes, route planning, world models, and adaptation policies while exposing new challenges in tokenization and real-time execution.</li><li>Institution-linked work from CMU, MIT, ETH Zurich, and NYU emphasizes active perception/mobile manipulation, language-grounded route planning, open soft-robot platforms, and reproducible manipulation kits.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>KINO: A Keyframe Interface for VLM Planning and Whole-Body Control in Humanoid Loco-Manipulation</td><td>ETH Zurich</td><td>Introduces a hierarchical humanoid loco-manipulation system where a VLM selects task-relevant whole-body keyframes, which are then retargeted and tracked by a keyframe-conditioned RL controller. A saliency-based keyframe sampling strategy enables large performance gains, achieving up to 92% success on diverse one- and two-handed tasks with a Unitree G1.</td><td><a href="https://arxiv.org/abs/2609.18869">Link</a></td></tr>
+<tr><td>ActiveScale: Scaling Active Perception for Robots across Model, Data, and Hardware</td><td>Carnegie Mellon University</td><td>Proposes an active perception framework for VLAs that augments policies with camera-pose-aware tokens, temporal video inputs, and a mid-training recipe using 1000 hours of egocentric/robotic data. A new mobile-manipulation platform (AMP) supports single-operator teleoperation for large-scale data collection, improving success on viewpoint-dependent manipulation tasks.</td><td><a href="https://arxiv.org/abs/2609.18514">Link</a></td></tr>
+<tr><td>Map2Route: Benchmarking Compositional Language-Grounded Route Planning over Semantic Maps</td><td>Carnegie Mellon University</td><td>Introduces Map2Route, a benchmark of 1,000 episodes testing compositional route planning over semantic maps with rich relational, preference, and constraint language. The accompanying Grounding2Route method converts language into executable code with verification-guided repair, outperforming adapted baselines but still lagging human performance.</td><td><a href="https://arxiv.org/abs/2609.17910">Link</a></td></tr>
+<tr><td>SPROUT: The Open-Source Soft Growing Robot for Search and Rescue</td><td>Massachusetts Institute of Technology</td><td>Releases a fully open soft growing robot system (SPROUT) designed with USAR practitioners for operation in dusty, wet, and confined collapsed-structure environments. Modular hardware and ROS 2 software support varied payloads and control strategies, with field demonstrations of inspection and traversal in first-responder training sites.</td><td><a href="https://arxiv.org/abs/2609.17781">Link</a></td></tr>
+<tr><td>WetRobo: A Reproducible Robot Kit for Coding Agents in Biological Laboratories</td><td>New York University</td><td>Presents WetRobo, a standardized arm-and-labware kit plus code and demonstrations that allow coding agents to synthesize task programs from natural language without local teleoperation data. In two different labs, a Codex-based agent successfully executes common lab manipulation tasks and transfers better than a lab-specific VLA policy.</td><td><a href="https://arxiv.org/abs/2609.18435">Link</a></td></tr>
+<tr><td>Not All Layers Need Tuning: Diagnosing and Directing Adaptation in Vision-Language-Action Models</td><td>Carnegie Mellon University</td><td>Analyzes where VLAs actually need adaptation under different deployment shifts by measuring per-region parameter displacement and proposing a diagnostic that predicts region importance from a handful of unlabeled target observations. A rank-based LoRA allocator then focuses capacity on key regions, matching or beating uniform adapters and, in real-robot tests, rivaling full fine-tuning with &lt;0.1% of parameters.</td><td><a href="https://arxiv.org/abs/2609.18084">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Learning Holistic Whole-Body Loco-Manipulation with a Bipedal Mobile Manipulator</td><td>University of Illinois Urbana-Champaign</td><td>Trains a unified RL-based whole-body controller that maps 6-DoF end-effector targets directly to coordinated arm and leg actions for a bipedal base, handling reaching, posture adaptation, and stepping without explicit gait commands. A reward-gating scheme and temporal context estimator yield a single policy usable with VR teleoperation, diffusion policies, or scripted goals on hardware.</td><td><a href="https://arxiv.org/abs/2609.18930">Link</a></td></tr>
+<tr><td>Adaptive-MHE : A Sampling-Based Adaptive MPC for Legged Loco-Manipulation via Moving Horizon Estimation</td><td>University of Calgary</td><td>Combines sampling-based moving-horizon estimation with MPC to identify object and terrain parameters such as mass and friction online for legged loco-manipulation. The framework adapts control to changing conditions without differentiable dynamics, improving robustness over non-adaptive baselines and approaching performance with ground-truth parameters.</td><td><a href="https://arxiv.org/abs/2609.17832">Link</a></td></tr>
+<tr><td>Learning Multi-Humanoid Pickup and Transport via Decentralized Object-Centric Control</td><td>Dynamics Robotics and AI Lab (DRAIL), Oregon State University, Corvallis, OR, USA.</td><td>Develops decentralized object-centric policies where each humanoid controls a local attachment region on a shared object, enabling gripperless bimanual pickup, cooperative transport, and handover. Policies trained on single-robot pickup generalize surprisingly well to multi-robot scenarios, with additional gains from explicit multi-humanoid training and successful sim-to-real demonstrations.</td><td><a href="https://arxiv.org/abs/2609.17824">Link</a></td></tr>
+<tr><td>PASSAGE: Scaling Scene-Aligned Motion Learning for Perceptive Humanoid Traversal in Cluttered Environments</td><td></td><td>Uses 100 hours of VR-captured, scene-aligned human motion to train a conditional flow-matching planner and a whole-body tracker for humanoid traversal through clutter. The system runs fully onboard with LiDAR mapping and achieves over 70% contact-free success on unseen layouts, composing behaviors like stepping over, ducking, and squeezing past obstacles without skill annotations.</td><td><a href="https://arxiv.org/abs/2609.18732">Link</a></td></tr>
+<tr><td>ElastiQP: An Always-Feasible QP Solver for Constrained Robot Control</td><td></td><td>Introduces a dual active-set QP solver that analytically folds L1-penalized slack variables into inequality constraints, guaranteeing a usable solution even when the nominal QP is infeasible. On robot control benchmarks, it matches or exceeds state-of-the-art solvers on feasible problems and delivers valid, minimally violating controls up to 40× faster on infeasible instances, with open-source C++/Python/JAX implementations.</td><td><a href="https://arxiv.org/abs/2609.19080">Link</a></td></tr>
+<tr><td>Asymptotically Optimal Multi-Robot Task and Motion Planning</td><td>Nanyang Technological University</td><td>Establishes sufficient conditions for asymptotic optimality in multi-robot TAMP where task transitions constrain different robot subsets and thus different subspaces. The proposed planner builds evolving single-robot roadmaps and performs implicit tensor-product search with conditional transition sampling and lazy collision checking, yielding asymptotically optimal multi-robot manipulation plans without constructing the full composite roadmap.</td><td><a href="https://arxiv.org/abs/2609.18813">Link</a></td></tr>
+<tr><td>CaSCo: Cascade-Aware Soft-Collision Motion Planning</td><td></td><td>Formulates motion planning that minimizes semantic risk over both direct robot-object and induced object-object collisions using VLM-assigned object risks and physics simulation. Roadmap states are augmented with object arrangements and incurred-risk sets, and an optimal graph search with a cascade-relaxed heuristic finds paths that reason about collision cascades in cluttered manipulation scenes.</td><td><a href="https://arxiv.org/abs/2609.18910">Link</a></td></tr>
+<tr><td>DynoFluxBench: Benchmarking Kinodynamic Space-Time Planners in Dynamic Environments</td><td></td><td>Introduces DynoFluxBench, a benchmark for kinodynamic planning in known dynamic environments with unbounded arrival time, and three new planners that fuse kinodynamic and space-time search. The methods are analyzed for probabilistic completeness and empirically compared, with ST-Db-RRT achieving up to 32× faster first-solution times while alternatives remain robust when trajectory optimization is fragile.</td><td><a href="https://arxiv.org/abs/2609.18549">Link</a></td></tr>
+<tr><td>M$^3$P-R1: Reinforcement Learning for Large Language Model Guided Multi-Modal Motion Planning via MIP Code Generation</td><td>Duke University; Purdue University</td><td>Uses RL fine-tuning of LLMs to synthesize executable MIP code for multi-modal motion planning problems that mix continuous dynamics and discrete mode switches. Rather than outputting trajectories directly, the model generates solver-ready Python programs that define variables, constraints, and objectives, learning effective discretizations and coupling constraints from solver feedback.</td><td><a href="https://arxiv.org/abs/2609.18669">Link</a></td></tr>
+<tr><td>InterMASH: A Unified Geometric Representation for Grasp Synthesis</td><td>University of Science and Technology of China</td><td>Proposes InterMASH, a cross-embodiment grasp representation based on sphere-anchored tokens whose spherical-harmonic features jointly encode local hand and object geometry plus contact. A conditional diffusion transformer operates on these tokens to generate consistent hand shapes and contacts, achieving competitive physical feasibility on ShadowHand benchmarks and benefiting from joint human–robot training.</td><td><a href="https://arxiv.org/abs/2609.18504">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
