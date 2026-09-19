@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-09-18</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-09-18</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>133</strong></div>
+        <div class="card">Papers analyzed: <strong>133</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Sim-to-real and hybrid learning methods are advancing contact-rich manipulation, achieving high success in tight-clearance insertion, book shelving, garment unfolding, and deformable bag handling.</li><li>Navigation and motion planning see progress in resilient space-robot planning, off-road world models, semantic and task-aware active exploration, and large-scale multi-object navigation under resource constraints.</li><li>Whole-body and legged control are extended to challenging terrains and tasks, including roofing locomotion, humanoid multi-floor navigation, and fast dynamics-relaxed MPC for quadrupeds.</li><li>Vision-language(-action) models are increasingly integrated with classical planning, safety harnesses, and structured world models to improve long-horizon manipulation and language-guided navigation.</li><li>Tactile and compliance-centric approaches, from human-touch world models to bilateral teleoperation for impedance learning and agile tactile WAMs, significantly improve dexterous and contact-rich control.</li><li>Foundational scene and memory representations (scene graphs, workspace tokens, object-centric splatting) provide more robust spatial reasoning and long-horizon memory for manipulation and navigation stacks.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Visual Sim-to-Real Learning for Robotic Insertion under Geometric Variations: Application to Rebar Installation</td><td>University of Washington</td><td>RebarSim trains a privileged-state RL teacher in simulation over procedurally varied rebar geometries, then distills to a multi-view RGB+proprioception student under strong domain randomization. The student transfers zero-shot to a real factory rebar line, achieving 91.3% success in 1.4 mm-clearance insertion and requiring 4–6× fewer samples to adapt to new designs when pretrained.</td><td><a href="https://arxiv.org/abs/2609.20477">Link</a></td></tr>
+<tr><td>Resilient Motion Planning for Free-Flying Space Robots under Actuator Failures</td><td>ETH Zurich</td><td>This framework models thruster failures as a Markov chain and precomputes reachable sets to evaluate goal-attainment probability under degraded actuation. An RRT* planner stitches waypoints to maximize success probability, yielding motion plans that remain controllable under injected actuator failures on a real free-flyer platform.</td><td><a href="https://arxiv.org/abs/2609.20407">Link</a></td></tr>
+<tr><td>Self-excited actuation enables adaptive and resilient flapping-wing flight</td><td>UC San Diego</td><td>The authors build the first flight-capable flapping robot using asynchronous, self-excited actuation inspired by insect flight muscles. The embodied dynamics let wings automatically adapt to body resonance changes and collisions without sensing, significantly improving flight stability and obstacle resilience versus synchronous actuation in cluttered environments.</td><td><a href="https://arxiv.org/abs/2609.19480">Link</a></td></tr>
+<tr><td>Workspace Models: Lightweight Robotic Memory via Saliency-Driven Supervision</td><td>Massachusetts Institute of Technology</td><td>Workspace Models introduce a compact “workspace token” learned by distilling VLM-identified salient historical information during training into a single latent memory. At deployment, policies query only this token (no online VLM), improving both success and efficiency on memory-intensive manipulation tasks compared with conditioning on full observation histories.</td><td><a href="https://arxiv.org/abs/2609.20820">Link</a></td></tr>
+<tr><td>OPTED: On-Policy Fine-Tuning for End-to-End Driving using a Render-Free Teacher</td><td>ETH Zurich</td><td>OPTED trains a privileged vectorized teacher with RL and uses it to supervise camera-based end-to-end driving policies during closed-loop post-training. In AlpaSim 3DGS simulations, this decoupled scheme boosts driving scores up to 9.5× with roughly three orders of magnitude fewer simulator interactions than direct RL on the vision policy.</td><td><a href="https://arxiv.org/abs/2609.20756">Link</a></td></tr>
+<tr><td>FAMOS: Feed-Forward 3D Articulation Modeling from Sparse Observations</td><td>ETH Zurich; Stanford University</td><td>FAMOS predicts movable-part segmentation and joint parameters from sparse, unordered point clouds using a multi-state articulation transformer that aggregates cues across views. With a procedural data generator and an “observed articulation span” objective, it improves over feed-forward and optimization baselines on multiple articulated-object datasets.</td><td><a href="https://arxiv.org/abs/2609.20817">Link</a></td></tr>
+<tr><td>ParticleSplat: Self-supervised Object-centric Latent Particle Splatting</td><td>Carnegie Mellon University</td><td>ParticleSplat lifts latent 2D particles into a 3D Gaussian splatting space trained via self-supervised view synthesis, yielding an object-centric scene factorization. The learned particles provide unsupervised object masks, support controllable 3D scene edits, and enhance downstream robotic manipulation performance.</td><td><a href="https://arxiv.org/abs/2609.19463">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Feeling Terrain Before Crossing: World Models for Off-Road Navigation</td><td></td><td>Feel-WM is an off-road navigation world model that conditions on proprioception and predicts both future camera views and what the robot will physically feel (slip, tilt, shake) plus failure risk. Planning over this “physical future” yields better rough-terrain route selection and higher success than visual-only world models, including real deployment on a Husky on mountain trails.</td><td><a href="https://arxiv.org/abs/2609.19863">Link</a></td></tr>
+<tr><td>Task-Oriented Active Learning of Residual Dynamics for Model Predictive Path Integral Control</td><td>Technical University of Munich</td><td>ToIA scores candidate rollouts in MPPI by how much early observations would reduce uncertainty at task-relevant future states, guiding online Gaussian-process residual learning. In simulated off-road navigation, this task-oriented criterion improves goal-reaching by up to ~27 percentage points over passive learning and outperforms task-agnostic active baselines, especially with sparse updates.</td><td><a href="https://arxiv.org/abs/2609.19378">Link</a></td></tr>
+<tr><td>Strategic Transformer for Resource-Constrained Multi-Object Navigation in Ultra-Large-Scale Environments</td><td></td><td>Formulating multi-object navigation as a Set Orienteering Problem, this work introduces a lightweight Strategic Transformer that learns expert combinatorial logic for tour prioritization. Coupled with a bounded 2-opt refinement, it yields up to 94× speedup over heavy meta-heuristics with bounded-latency inference and state-of-the-art PPL on &gt;2000 m² ProcTHOR environments.</td><td><a href="https://arxiv.org/abs/2609.20227">Link</a></td></tr>
+<tr><td>Universal Navigation Interface: Robot-Free Data for Wheeled Robot Navigation</td><td>A. Khoury College; Northeastern University</td><td>UNI uses a human-operated rollator and smartphone to collect 37.2 km of navigation data that is inherently constrained to wheeled-feasible routes. Fine-tuning visual navigation models on UNI reduces trajectory prediction error by ~17–25% and supports closed-loop transfer to a powered wheelchair in challenging curb and staircase scenarios.</td><td><a href="https://arxiv.org/abs/2609.20114">Link</a></td></tr>
+<tr><td>ViLoMan: Learning Visual-Proprioceptive Whole-Body Loco-Manipulation Skills for Humanoid Robots</td><td>Chinese Academy of Sciences; Key Laboratory of AI Safety, Institute of Computing Technology, CAS, China.; University of Chinese Academy of Sciences</td><td>ViLoMan converts partial human demonstrations into physically feasible full-body trajectories for a humanoid and distills them into a unified depth+proprioception policy. A single policy on a Unitree G1 closes doors from diverse configurations using only onboard sensing, demonstrating robust whole-body loco-manipulation and sim-to-real transfer.</td><td><a href="https://arxiv.org/abs/2609.19340">Link</a></td></tr>
+<tr><td>Learning Slope-Adaptive Whole-Body Locomotion for Humanoid Robots in Roofing Construction</td><td>University of Florida</td><td>This framework retargets human roofing motions to a Unitree G1 and grounds them on a metric roof model, then refines via execution-aware RL to maintain support and work relations under tracking errors. The humanoid executes uphill walking, nailgunning, hammering, and bending on pitched roofs with &lt;8 cm base-frame error while respecting support and clearance constraints.</td><td><a href="https://arxiv.org/abs/2609.20558">Link</a></td></tr>
+<tr><td>DR-MPC: Fast and Feasible Dynamics-Relaxed Model-Predictive Control for Legged Locomotion</td><td></td><td>DR-MPC relaxes dynamics and affine constraints into penalties, leaving only box constraints and yielding a structured QP solvable via a tailored interior-point method with Schur complements. On a Unitree Go1, it achieves ~4.4 ms onboard MPC cycles, 16× faster than HPIPM and 4.4× faster than OSQP, with comparable locomotion quality.</td><td><a href="https://arxiv.org/abs/2609.20035">Link</a></td></tr>
+<tr><td>Learning Safe Humanoid Navigation from Reduced Order Models</td><td>California Institute of Technology</td><td>RoM-Nav first trains a navigation policy on reduced-order dynamics with 3D LiDAR, then transfers it to full humanoid dynamics with a frozen locomotion controller and a Poisson safety filter. Deployed on a Unitree G1, it achieves mapless multi-floor navigation with over 10 m vertical and 100 m path length while maintaining safety around out-of-distribution obstacles.</td><td><a href="https://arxiv.org/abs/2609.19272">Link</a></td></tr>
+<tr><td>TADreamer: Zero-Shot Language-Guided 3D Navigation for Terrestrial-Aerial Bimodal Robots via Video Imagination</td><td></td><td>TADreamer uses a VLM to turn onboard observations and language into prompts for a video generator, reconstructing imagined navigation videos into 3D waypoints with mode (ground/air) labels. A two-stage calibration aligns these trajectories to real geometry, enabling zero-shot language-guided bimodal navigation across seven real indoor/outdoor scenarios.</td><td><a href="https://arxiv.org/abs/2609.19824">Link</a></td></tr>
+<tr><td>VLN on the Fly: An Onboard Vision-Language Navigation Stack for Aerial Robots</td><td></td><td>This modular onboard stack runs a quantized VLM for grounding, depth-based 3D goal lifting, a B-spline planner, and an RL-based controller on a quadrotor. Across 21 real flights, it reaches language-referenced targets in 19/21 trials with ~5.7 cm mean final error and &lt;40% GPU utilization, including obstacle-aware trajectories in clutter.</td><td><a href="https://arxiv.org/abs/2609.20191">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
