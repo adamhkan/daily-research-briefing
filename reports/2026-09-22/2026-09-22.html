@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-09-21</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-09-21</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>114</strong></div>
+        <div class="card">Papers analyzed: <strong>114</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>CMU and collaborators push long-horizon manipulation reliability and safety, with subtask-focused value functions (SeeQ), subtask RL fine-tuning (PARTS), and lifecycle safety evaluation (SafeStage).</li><li>New frameworks strengthen whole-body and legged/humanoid control in clutter and low-friction settings, including LIMBO for safe humanoid whole-body control and FootQuery/SABER for perceptive, semantically aware locomotion.</li><li>Motion planning and trajectory optimization advance with GPU-parallel contact-rich planning (CoMET), probabilistic swept-volume models for chance-constrained planning, and a square-root Gauss-Newton iLQR formulation.</li><li>Navigation research spans audio-guided search-and-rescue, social and pedestrian-aware VLN, off-road traversability with VLMs, and path planning under temporary obstacles and quadrotor 3D Gaussian-splat maps.</li><li>VLA and world-action models see rapid refinement around geometry, contact, and failure prediction, including FOCAL-VLA, PSR/ForeTac-VLA, and VLA-Scope, plus multiple new sim-to-real and data-generation pipelines.</li><li>Digital-twin and mapping foundations mature with ForceTwin’s force-informed articulated-object twins, Gaussian-/NeRF-style reconstruction for demos and mapping, and a text-only Scene Language Model for persistent scene memory.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>SeeQ: Training Generalist Value Functions for Long-Horizon Robotic Manipulation</td><td>Carnegie Mellon University</td><td>SeeQ learns subtask-elicited Q-functions that estimate value only over the currently active subtask, drastically shortening credit assignment for long-horizon manipulation. The model predicts the active subtask in natural language before value estimation, enabling annotation-free test-time use and significantly improving best-of-N steering of VLA policies on real bimanual platforms.</td><td><a href="https://arxiv.org/abs/2609.22085">Link</a></td></tr>
+<tr><td>PopNavShift: Stress-Testing Social Navigation under Behavioral Population Shift</td><td>New York University</td><td>PopNavShift builds persona-conditioned pedestrian models from LLM-generated profiles to systematically stress-test social navigation under population behavior shifts. Matched experiments show controller rankings can invert when only pedestrian time-pressure changes, highlighting the need to evaluate social navigators across populations and metrics that capture pedestrian burden, not just robot travel time.</td><td><a href="https://arxiv.org/abs/2609.21838">Link</a></td></tr>
+<tr><td>ForceTwin: Physics-informed Digital Twins for Robotic Manipulation from Instrumented Human Interaction</td><td>ETH Zurich</td><td>ForceTwin constructs physics-informed digital twins of articulated objects by having humans probe them with a force-sensing gripper, jointly identifying articulation, parametric dynamics, and a neural residual for state-dependent mechanism forces. As a feedforward model in impedance control on Spot and Franka, it substantially improves goal completion over kinematics-only or VLM-parameterized twins, especially for stiff mechanisms like spring-loaded doors.</td><td><a href="https://arxiv.org/abs/2609.21751">Link</a></td></tr>
+<tr><td>RAYA: Learning Where and When to Intervene for Robot Recovery</td><td>Carnegie Mellon University</td><td>RAYA embeds a learned finite-horizon recoverability margin inside an optimal controller and couples it with a learned scheduler that dynamically reweights task objectives when recovery authority shrinks. Across quadrotor and autonomous-vehicle benchmarks and on-board Crazyflie flights under severe disturbances, it enables missions that defeat several strong safety and MPC baselines.</td><td><a href="https://arxiv.org/abs/2609.21690">Link</a></td></tr>
+<tr><td>SAGE: Safety-Aligned Gradient Enforcement for Human--Robot Collaboration</td><td>Carnegie Mellon University</td><td>SAGE aligns multi-agent RL policies with control-barrier-function safety by internalizing safety projections via a differentiable finite-penalty layer and enforcing team-consistent updates with a Lyapunov-based correction. In multi-humanoid collaborative scenarios, it maintains low collision rates while significantly improving task success and reducing discrepancies between proposed and safety-filtered actions.</td><td><a href="https://arxiv.org/abs/2609.21130">Link</a></td></tr>
+<tr><td>Dynamics-Induced Commitment in Learning-Based Robotic Penalty Kicks</td><td>Carnegie Mellon University</td><td>This work analyzes when a hierarchical humanoid-quadruped penalty system becomes dynamically committed to a shot direction and models the resulting reduced zero-sum game. Using a DIC-Map analysis, they locate commitment about 0.29 s before contact and show that improving the responder’s estimator architecture yields much higher save rates than purely delaying the response.</td><td><a href="https://arxiv.org/abs/2609.21100">Link</a></td></tr>
+<tr><td>Constraint-Unified MPC for Over-Actuated Surface Vehicles with Post-Detection Fault Reconfiguration</td><td>ETH Zurich</td><td>This deployed MPC framework optimizes per-thruster commands for over-actuated surface vessels in a single QP, handling trajectory tracking, allocation, and per-thruster limits while reconfiguring after detected faults. Fielded on Lake Zürich and in Venice performances, it tracks trajectories with centimeter-scale RMS error and remains within tens of centimeters of reference even with multiple thruster failures, outperforming a cascaded control baseline.</td><td><a href="https://arxiv.org/abs/2609.21046">Link</a></td></tr>
+<tr><td>When to Waddle: A Comparative Study of Bipedal Torso-Stabilization on Low-Friction Surfaces</td><td>Carnegie Mellon University</td><td>Using a five-actuator biped, the paper compares upright versus penguin-like torso-over-stance-leg strategies across friction regimes and COM placements. Results in MuJoCo and hardware show that lateral torso motion and a higher COM improve speed and energy efficiency on low-friction surfaces, while the trend reverses at higher friction, providing design guidance for bipedal locomotion on slippery terrain.</td><td><a href="https://arxiv.org/abs/2609.21185">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Contact-Rich Motion Planning via GPU-Parallel Mode Evaluation</td><td></td><td>CoMET revisits explicit contact-mode enumeration for contact-rich motion planning by pairing a greedy mode-expansion strategy with GPU-parallel trajectory optimization. On planar pushing and bimanual nonprehensile manipulation benchmarks, it achieves solution quality and planning times comparable to or better than optimization and search baselines, demonstrating that broad, parallel mode evaluation is a viable alternative for CRMP.</td><td><a href="https://arxiv.org/abs/2609.21803">Link</a></td></tr>
+<tr><td>Stochastic Neural Signed Swept Volume for Real-time Chance-Constrained Trajectory Optimization</td><td></td><td>This work learns a probabilistic signed-distance representation of a robot’s swept volume, capturing epistemic uncertainty and perception noise. Integrated into a chance-constrained trajectory optimizer, the model enables real-time, safety-aware motion planning for high-DOF manipulators under noisy sensing, validated both in simulation and on hardware.</td><td><a href="https://arxiv.org/abs/2609.21211">Link</a></td></tr>
+<tr><td>Square Root Gauss-Newton iLQR</td><td></td><td>The authors derive a square-root formulation of iLQR that exploits Gauss-Newton structure to propagate Cholesky factors of the cost-to-go Hessian via simple QR decompositions. This improves numerical conditioning, especially within augmented-Lagrangian constrained formulations, and yields a trajectory optimizer that is both robust and algorithmically simple for nonlinear control problems.</td><td><a href="https://arxiv.org/abs/2609.21053">Link</a></td></tr>
+<tr><td>LOInK: Learned Optimal Inverse Kinematics via Structured Neural Surrogate Models</td><td></td><td>LOInK learns an invertible mapping from configuration space to a task-plus-latent space structured so that low-cost IK solutions lie near the origin of the latent space. A fast network-inversion procedure then samples near-optimal IK solutions, achieving large speedups over conventional constrained optimization for quadruped climbing and enabling high-quality solutions even for soft actuators.</td><td><a href="https://arxiv.org/abs/2609.21275">Link</a></td></tr>
+<tr><td>FORTE: Task-Adaptive Force Capability Optimization for Mobile Manipulators</td><td>Istituto Italiano di Tecnologia</td><td>FORTE uses a VLM to infer task-specific force requirements and optimizes mobile-manipulator trajectories to maximize a task-oriented residual force polytope margin while balancing manipulability and smoothness. Experiments on lifting and holding tasks show it preserves dexterity on light loads and reallocates configuration to meet heavy-load force demands better than force-agnostic baselines.</td><td><a href="https://arxiv.org/abs/2609.21497">Link</a></td></tr>
+<tr><td>Learning Distance-Conditioned Object Transport for Humanoid Loco-Manipulation from a Single Motion Clip</td><td>Electronics Technology Institute, Republic of Korea.</td><td>DCRR recomposes a single humanoid loco-manipulation motion clip to create distance-conditioned training trajectories, then distills them into a reference-free policy. Across multiple transport modes (carry, kick-push, crouch-push, drag), the learned policy accurately modulates object displacement by command and transfers to hardware for distance-varying object transport.</td><td><a href="https://arxiv.org/abs/2609.21467">Link</a></td></tr>
+<tr><td>TRACE: Coverage Path Planning for Unknown Environments Using Hierarchical Coverage Tree</td><td>University of Science and Technology of China</td><td>TRACE maintains a hierarchical coverage tree that tracks how newly discovered obstacles fragment the remaining free space and updates an incremental global tour accordingly. By locally refining only affected regions and combining global-tour guidance with local back-and-forth coverage, it achieves faster, more efficient coverage in unknown environments than six existing CPP baselines.</td><td><a href="https://arxiv.org/abs/2609.21777">Link</a></td></tr>
+<tr><td>NaViRrator: Robot Navigation from Human-Readable Maps through a Learned Visual Route</td><td></td><td>NaViRRator converts start–goal clicks on schematic maps into route scaffolds using start–goal line conditional flow matching, then verbalizes those routes with a VLM for a downstream VLN executor. Separating map-conditioned route generation from language execution improves success and SPL over A*-based and direct map-to-instruction baselines in real-world navigation.</td><td><a href="https://arxiv.org/abs/2609.21316">Link</a></td></tr>
+<tr><td>AirSplan: Risk-Aware Motion Planning for Quadrotors in Cluttered 3D Gaussian Splats</td><td></td><td>AirSplan builds normalized 3D Gaussian-splat maps and leverages quadrotor differential flatness to derive tight continuous-time collision constraints. Its reachability-based planner finds safe paths in cluttered scenes in over 80% of cases, substantially outperforming prior methods that either approximate geometry coarsely or check collisions only at discrete states.</td><td><a href="https://arxiv.org/abs/2609.21226">Link</a></td></tr>
+<tr><td>AcousticDiffusion: Semantically Conditioned Audio-Guided Diffusion Policy for Search-and-Rescue Assistance</td><td></td><td>AcousticDiffusion fuses DOA-based acoustic beliefs with semantic cues from a pretrained audio recognizer to drive a diffusion-based waypoint generator for navigating toward distressed callers. In both synthetic and real quadruped experiments, it achieves lower bearing error and closer final distances to callers than classical planners guided by conventional acoustic localization.</td><td><a href="https://arxiv.org/abs/2609.21792">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
