@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-09-23</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-09-23</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>112</strong></div>
+        <div class="card">Papers analyzed: <strong>112</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>CMU introduces JAMB, a joint action–motion diffusion policy that substantially boosts success and robustness in bimanual manipulation.</li><li>New motion-planning and control methods advance constrained planning, dynamic deformable-object manipulation, and humanoid whole-body loco-manipulation.</li><li>Multiple works push dexterous and forceful manipulation forward, from all-linear Cartesian fingers and visually grounded fingertip forces to tool-use via hand–object mechanisms.</li><li>Navigation and SLAM see progress in prediction-aware legged obstacle avoidance, monocular and drone navigation, semantic orchard mapping, and radar–lidar SE(3) localization.</li><li>Vision-language(-action) systems continue to mature, with geometry-aware and safety-wrapped VLA manipulation, sparse semantic navigation, and unified embodied models.</li><li>UC San Diego, UC Berkeley, and Stanford contribute institution-aligned work spanning continuum catheter localization, free-flyer space manipulation, driving-safety benchmarking, and humanoid-RL education.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>JAMB: Joint Action-Motion Diffusion for Bimanual Manipulation</td><td>Carnegie Mellon University</td><td>JAMB jointly denoises bimanual actions and future 3D point tracks in a shared transformer, explicitly coupling control and predicted scene geometry. On 16 simulated tasks and several real-robot evaluations, it strongly outperforms action-only and auxiliary-geometry baselines, with better generalization in cluttered and out-of-distribution scenes.</td><td><a href="https://arxiv.org/abs/2609.25322">Link</a></td></tr>
+<tr><td>Shaft-Configuration-Adaptive Catheter Tip Position Estimation via Motor-History Conditioned Residual Learning</td><td>UC San Diego</td><td>This work augments a calibrated geometric catheter model with a motor-history-conditioned GRU residual corrector to estimate 3D tip pose without explicit shaft sensing. Across multiple catheters and bent configurations, it cuts tip-position error by ~59% versus a constant-curvature baseline, improving navigation accuracy for tendon-driven continuum instruments.</td><td><a href="https://arxiv.org/abs/2609.26304">Link</a></td></tr>
+<tr><td>A Deployable Four-Finger Payload for Teleoperated Free-Flying Manipulation with Astrobee</td><td>UC Berkeley</td><td>The authors design a 17-DoF, four-finger payload on a linear rail for NASA’s Astrobee, controlled via VR teleoperation to map human hand motions to bimanual free-flyer manipulation. Zero-gravity MuJoCo simulations on cargo transport tasks show feasible performance and quantify success, contact maintenance, and task times.</td><td><a href="https://arxiv.org/abs/2609.25614">Link</a></td></tr>
+<tr><td>NavSafe-$\infty$: Benchmarking Closed-Loop Driving Safety in Photorealistic Environments</td><td>UC San Diego</td><td>NavSafe-$\infty$ is a photorealistic closed-loop benchmark of 280 driving scenarios with safety-centric taxonomies for crashes, violations, and incidents. Evaluating 20 end-to-end policies reveals weak correlation between open-loop metrics and closed-loop safety, and shows how common training remedies can trade safety margin for progress.</td><td><a href="https://arxiv.org/abs/2609.26618">Link</a></td></tr>
+<tr><td>Teaching Reinforcement Learning and Humanoid Robotics to High-School Students: An Expert-Validated Curriculum Design on a Low-Cost Open Platform</td><td>Stanford University</td><td>This paper proposes a research-inspired curriculum where high-school students assemble an open-source humanoid, train a walking policy in simulation, and deploy it on hardware. Expert review surfaces key design tensions—authenticity vs. cognitive load, integration vs. visible progress, and teamwork vs. accountability—informing a reusable framework for precollege robotics courses.</td><td><a href="https://arxiv.org/abs/2609.25674">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Induced Riemannian Metrics for Motion Planning with Constraints</td><td>University of Toronto</td><td>The authors formalize motion planning on constraint submanifolds using induced Riemannian metrics, ensuring that implicit and explicit task-space representations share the same geometry. They extend both sampling-based planning and trajectory optimization under general metrics, and demonstrate benefits on constrained bimanual manipulation with dual Franka arms.</td><td><a href="https://arxiv.org/abs/2609.25695">Link</a></td></tr>
+<tr><td>PLAT: Sparse Timed Keyframe Motion Tracking for Humanoid Control via Privileged Latent Transition Learning</td><td></td><td>PLAT learns humanoid controllers that track sparse future keyframes with timing rather than dense motion, using privileged dense motion during training to shape a latent transition model. A latent residual RL stage refines transitions instead of raw actions, yielding stable, accurate whole-body motions in simulation and on a Unitree G1.</td><td><a href="https://arxiv.org/abs/2609.25754">Link</a></td></tr>
+<tr><td>HOTICE: Whole-Body Humanoid Object Transportation in Cluttered Environments</td><td></td><td>HOTICE combines humanoid–object decoupled potential fields with a dual-agent RL architecture that separates upper- and lower-body control while sharing state and rewards. Trained via specialist-to-generalist distillation, the policy enables a Unitree G1 to transport varied objects through clutter with coordinated whole-body collision avoidance.</td><td><a href="https://arxiv.org/abs/2609.25363">Link</a></td></tr>
+<tr><td>Brace Yourself: Task-Conditioned Environmental Bracing for Forceful Humanoid Manipulation</td><td>Queensland University of Technology</td><td>This work introduces Supporting Hand Strategy (SHS), which learns to use one arm to brace against the environment while the other performs forceful tasks. On a Unitree G1, SHS boosts sustainable interaction forces from 13.5 N to about 60 N and improves force tracking, extending humanoid manipulation capability without online trajectory optimization.</td><td><a href="https://arxiv.org/abs/2609.25486">Link</a></td></tr>
+<tr><td>VisForce: Visual Grounding of Current and Desired Forces for Goal-Conditioned Dexterous Manipulation</td><td></td><td>VisForce encodes current and desired fingertip forces as rendered visual cues over wrist and goal images, then uses cross-attention to produce force-aware actions. On a UR10 with a dexterous hand, it achieves consistent force-conditioned grasps and 40–70% success on multi-stage force-sensitive tasks such as slip-modulated peg-in-hole.</td><td><a href="https://arxiv.org/abs/2609.25785">Link</a></td></tr>
+<tr><td>The Cartesian Hand: In-Hand Manipulation with All-Linear Fingers</td><td></td><td>The Cartesian Hand is a 7-DoF end-effector with two independent parallel grippers and four translating fingertips that generate relative object motion using only linear DOFs. Its configuration-independent fingertip kinematics enable complex in-hand tasks—threaded closures, pipetting, triggers, screwdriving—on 35 objects, including bimanual use on a humanoid.</td><td><a href="https://arxiv.org/abs/2609.25696">Link</a></td></tr>
+<tr><td>Relative Contact Velocity-Controlled Hand-Object Mechanism for Dexterous Tool Manipulation</td><td></td><td>This paper models a hand and tool as a unified hand–object mechanism controlled via Cartesian relative contact velocities and forces between generalized contact frames. A lightweight least-squares motion planner and complementary filter enable five different multi-finger hands to execute full tool-use sequences—grasp, reorient, and wield—from the same simple references.</td><td><a href="https://arxiv.org/abs/2609.25619">Link</a></td></tr>
+<tr><td>CableVLA: Simulation-Privileged Global-Local Representation Learning for Cable Routing</td><td></td><td>CableVLA couples a topology-aware visual head (TopoHead) with a tactile encoder (TacSense) to learn global cable configuration and local contact dynamics from simulation-privileged signals. A contact gate injects force-tactile residuals into a frozen policy, raising simulated cable-routing success from ~63% to ~85% and improving slip detection versus CNN-LSTM baselines.</td><td><a href="https://arxiv.org/abs/2609.25606">Link</a></td></tr>
+<tr><td>Manipulation of Deformable Linear Objects Using Model Predictive Path Integral Control with Bidirectional Long Short-Term Memory Learning</td><td></td><td>The authors learn DLO dynamics with a biLSTM trained on MuJoCo data and embed it in a Model Predictive Path Integral controller for closed-loop cable-like object manipulation. Simulations and experiments show accurate trajectory tracking and efficient control despite the object’s high-dimensional, nonlinear behavior.</td><td><a href="https://arxiv.org/abs/2609.26238">Link</a></td></tr>
+<tr><td>Manipulation with Stability Guarantees: Linear Deformable Objects with Non-negligible Physical Response Grasped at Multiple Location</td><td></td><td>This work develops a fully dynamic model of linear deformable objects with multiple actuation points and recasts manipulation as shape regulation via forces and torques in SE(3). Nonlinear feedback laws provide explicit steady-state convergence conditions, and simulations plus real-time experiments with online shape estimation demonstrate stable manipulation beyond quasi-static regimes.</td><td><a href="https://arxiv.org/abs/2609.26004">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
