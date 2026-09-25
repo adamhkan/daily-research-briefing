@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-09-24</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-09-24</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>103</strong></div>
+        <div class="card">Papers analyzed: <strong>103</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Stanford and Berkeley contribute strong advances in data-efficient learning for long-horizon manipulation (TANDEM, TP-Flow, DemoDPO/LeWAM, TP-Flow, etc.), including selective demonstrations, few-shot adaptation, and world-action models.</li><li>Dexterous and dual-arm manipulation see notable progress in both hardware (Berkeley QUAD Hand) and control (LiMA, DEAL-Grasp, BrickCraft-Duo), pushing toward real-time, long-horizon, and geometry-aware dexterity.</li><li>World models and WAM/VLA-style policies are central across many papers, supporting generalizable insertion, contact-rich manipulation, and memory-aware control with improved latency, temporal alignment, and evaluation protocols.</li><li>Navigation and locomotion work spans multi-robot relational navigation, off-road traversability, GNSS-denied UAV localization, dense monocular-inertial SLAM, amphibious and humanoid locomotion, and social/group-aware goal prediction.</li><li>Safety, robustness, and reliability cut across topics: contact detection on low-cost arms, safety filters and safety-focused RL, uncertainty-aware local navigation, adversarial robustness, and backdoor/security analysis in industrial arms.</li><li>Benchmarks and meta-infrastructure (X2Real, BranchDrive, RegenHarness, EmbodiedSWE, CMA, Kairos, NaviScale) aim to make evaluation, data generation, and long-horizon embodied reasoning more faithful and scalable.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>TANDEM: Task and Motion Planning with As-Needed Demonstrations for Efficient Vision-Language-Action Model Fine-tuning</td><td>Stanford University</td><td>TANDEM combines task and motion planning with selective human teleoperation, treating human assistance as an on-demand planning capability to fill gaps in a fixed TAMP domain. It uses VLMs to extend predicates and operators and aligns planner motions with a VLA pretraining distribution, yielding 2.9× more useful demonstrations per unit human time and boosting π_{0.5}-DROID success from 0% to 60% on challenging long-horizon tasks.</td><td><a href="https://arxiv.org/abs/2609.28314">Link</a></td></tr>
+<tr><td>A Quasi-Direct-Drive Underactuated Asymmetric Hand for Dexterous and Efficient Grasping and Manipulation</td><td>UC Berkeley</td><td>The Berkeley QUAD hand is a 4-finger anthropomorphic design with QDD actuation and bio-inspired asymmetry, dedicating dexterity to radial fingers and strength via an underactuated ulnar transmission. It achieves 29/33 Feix grasps, very low backdrive forces (~50 g), and up to 96× heat reduction under sustained loading, enabling both delicate and forceful manipulation in a compact, thermally efficient form factor.</td><td><a href="https://arxiv.org/abs/2609.27240">Link</a></td></tr>
+<tr><td>Banana Kick: Response-Informed Skill Evolution for Humanoid Soccer</td><td>Carnegie Mellon University</td><td>This work introduces Response-Informed Skill Evolution (RISE) to evolve a standard humanoid kick into a high-spin &#x27;banana kick&#x27; by focusing RL updates on policy responses that actually change the ball trajectory, overcoming first-order learning starvation. Under calibrated aerodynamics and sim-to-real transfer, the method achieves an 11.55 rad/s mean ball spin and 19.8% score improvement, with motion-capture validation on hardware.</td><td><a href="https://arxiv.org/abs/2609.27269">Link</a></td></tr>
+<tr><td>Vision-Based Control of a Tether-Suspended Aerial Radiation Sensing Payload</td><td>UC Berkeley</td><td>The authors control a passive radiation sensor suspended on a tether beneath a heavy-lift drone, regulating the payload rather than vehicle trajectory using vision-based estimation of tether swing. A Kalman filter infers tether angles from a downward-facing camera, and an LQR with integral action achieves 20% lower payload tracking error versus a vehicle-referenced baseline in windy outdoor tests.</td><td><a href="https://arxiv.org/abs/2609.27219">Link</a></td></tr>
+<tr><td>HiRE: Hindsight Reward Editing for Policy Finetuning</td><td>UC Berkeley</td><td>HiRE is a training-free framework that retrofits foundation representation models into control-aware reward functions by contrasting successful and failed trajectories to identify and penalize &#x27;trap states&#x27;. It produces dense, calibrated rewards that avoid value collapse and reward hacking, enabling RL finetuning that achieves up to 3× base-policy performance with improved sample efficiency and stability.</td><td><a href="https://arxiv.org/abs/2609.27068">Link</a></td></tr>
+<tr><td>Action-Directed Information for Distributed Control and Agentic Interaction</td><td>UC San Diego</td><td>This conceptual study proposes measuring information at the point where messages change actions, then connecting it to function via interventions and disturbances in a limb-coordinated walker. Comparing self-sensing vs peer-sensing controllers, peer information improves tracking under failures, and the analysis clarifies how action-relevant information can be hidden in aggregate performance metrics.</td><td><a href="https://arxiv.org/abs/2609.27580">Link</a></td></tr>
+<tr><td>Surgical Kinematics from Monocular Video with Learned Articulated Motion Constraints</td><td>New York University</td><td>This paper reconstructs surgical instrument kinematics (position, orientation, jaw angle) from monocular video by fusing DINOv3 features, SAM masks, monocular depth, and temporal encoders with a differentiable least-squares trajectory fit. On 2,802 Open-H episodes it reduces path-length MAE from 0.45 to 0.34 cm and boosts motion-segmentation mAP from 44.5% to 54.4% over prior video-based methods.</td><td><a href="https://arxiv.org/abs/2609.27227">Link</a></td></tr>
+<tr><td>Fine Wrist Control as a Marker of Surgical Teleoperation Expertise</td><td>Stanford University</td><td>Analyzing upper-limb motion of 9 expert and 27 novice users on a peg-transfer task, the study finds experts stabilize wrist motion more while preserving shoulder/elbow range, completing tasks significantly faster. These biomechanics suggest that fine wrist control is a consistent marker of teleoperation expertise and may warrant explicit training attention.</td><td><a href="https://arxiv.org/abs/2609.27160">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>LiMA: Bridging Long-term Imagination to Real-time Dexterous Manipulation via Asynchronous Diffusion</td><td>Key Laboratory of Multimedia Information Processing, School of Computer Science</td><td>LiMA is an asynchronous dual-system diffusion framework that decouples slow long-horizon intent planning from fast reactive motion refinement for dexterous bimanual manipulation. Using a latent Schrödinger bridge coupling between sparse intents and dense actions, it cuts inference latency by ~46% over Cosmos-Policy while achieving 70.8% overall success across six dexterous tasks, including generalization to unseen scenarios.</td><td><a href="https://arxiv.org/abs/2609.28431">Link</a></td></tr>
+<tr><td>PointCast: One World Model for Rigid, Articulated, and Deformable Object Manipulation</td><td></td><td>PointCast is a diffusion-transformer world model that predicts future 3D point trajectories for objects and end-effector, treating rigid, articulated, cloth, and rope settings under a unified point-set representation. Trained from randomized simulation and teleoperation data, it outperforms baselines on 3/4 regimes and, when embedded in MPC, enables competitive or superior performance on four manipulation tasks with one network evaluation per horizon window.</td><td><a href="https://arxiv.org/abs/2609.28393">Link</a></td></tr>
+<tr><td>Contact-Implicit Stein Projected ADMM for Discovery of Diverse Contact-Rich Manipulation Strategies</td><td></td><td>This work augments contact-implicit trajectory optimization with Stein variational ideas, applying the repulsive force in ADMM&#x27;s split variable space to obtain multiple distinct solutions in one run. Across pushing, grasping, and multi-robot handover, the method discovers diverse contact modes and robust strategies more simply than prior multi-solution solvers.</td><td><a href="https://arxiv.org/abs/2609.28299">Link</a></td></tr>
+<tr><td>BrickCraft-Duo: Efficient Dual-Arm Skill Learning and Refinement for Compositional Long-Horizon Assembly</td><td>Tsinghua University</td><td>BrickCraft-Duo learns reusable uni- and bimanual brick assembly skills from few demonstrations, sharing across symmetric arms via bilateral alignment and role assignments. Stability-aware reasoning composes skills into long-horizon dual-arm assembly with human-in-the-loop refinement, achieving ≥60% full-task and ≥95% step-level success on real 9-step assemblies with partial support and tight tolerances.</td><td><a href="https://arxiv.org/abs/2609.28281">Link</a></td></tr>
+<tr><td>Generalizable Robotic Insertion with World Models</td><td></td><td>The authors train a single vision+proprioception world model from up to 90 diverse insertion tasks and use it for model-based planning that generalizes to unseen, geometrically novel parts. The approach attains 56% zero-shot success on unknown objects vs 7% for a model-free baseline, with performance scaling positively as more training objects are added and efficient finetuning on new parts.</td><td><a href="https://arxiv.org/abs/2609.28258">Link</a></td></tr>
+<tr><td>DEAL-Grasp: Decoupled Alignment Representation for Geometry-Aware Dexterous Grasp Generation</td><td></td><td>DEAL-Grasp reformulates dexterous grasp synthesis in an alignment space that separates geometric anchors from articulation parameters, recovering rigid transforms via Procrustes alignment. Using heterogeneous-state flow matching with adaptive physical regularization, it generates diverse, stable grasps with low penetration and high force-perturbation robustness on MultiDex and zero-shot RealDex, with markedly lower latency than optimization-heavy baselines.</td><td><a href="https://arxiv.org/abs/2609.28131">Link</a></td></tr>
+<tr><td>Distillation for Efficient Multitask Manipulation Policies via Conditional Flow Matching</td><td></td><td>This paper distills many single-task Conditional Flow Matching (CFM) expert policies into a single multi-task manipulation model by transferring their learned velocity fields while retaining the original CFM objective. On RLBench, the multi-task policy matches or exceeds naïve multi-task CFM training at fixed model size, improving performance without per-task models.</td><td><a href="https://arxiv.org/abs/2609.28107">Link</a></td></tr>
+<tr><td>AeRSoM: An Aerial Rigid-Soft Integrated Manipulator for Contact-Rich Manipulation</td><td></td><td>AeRSoM is a fully actuated aerial robot with an integrated rigid-soft manipulator and variable stiffness, distributing compliance to absorb contact disturbances while maintaining precision. A composite control scheme enables robust, accurate execution of contact-rich tasks such as transmission-line grasping, turbine-blade interaction, peg-in-hole, and screwing in real-world tests.</td><td><a href="https://arxiv.org/abs/2609.28044">Link</a></td></tr>
+<tr><td>Task-Prototype Guided Flow Matching for Few-Shot Generalization in Vision-Language Robot Manipulation</td><td></td><td>TP-Flow builds structured phase-level &#x27;task prototypes&#x27; from a small support set and injects them into a flow-matching manipulation policy via adaptive priors and gated normalization. Trained episodically, it reaches 66.8%, 79.6%, and 82.1% success in 1-, 4-, and 6-shot settings on LEROBOT-ARM-SO101, substantially outperforming CFM variants while running in real time at 10 Hz.</td><td><a href="https://arxiv.org/abs/2609.27780">Link</a></td></tr>
+<tr><td>CoRelNav: Collaborative Relational Navigation for Multi-Robot Spatially Constrained Semantic Navigation</td><td></td><td>CoRelNav couples task-conditioned multi-robot exploration with collaborative relation verification for navigation goals specified by object relations (e.g., &#x27;left of the sofa&#x27;). A spatial-semantic field drives exploration and robot reallocation, while distributed observations are fused for instance-consistent relation hypotheses, yielding consistent gains over single-robot and non-relational baselines in simulation and deployment on two real robots.</td><td><a href="https://arxiv.org/abs/2609.27720">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
