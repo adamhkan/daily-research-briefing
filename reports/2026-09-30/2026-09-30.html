@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-09-29</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-09-29</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>243</strong></div>
+        <div class="card">Papers analyzed: <strong>150</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Institution-aligned work advances motion planning in rich 3DGS scenes, dexterous manipulation from human video, HOI retargeting for humanoids, tactile shear encoding for contact-rich tasks, and high-performance dexterous Rubik’s Cube control.</li><li>Multiple foundations-style systems target whole-body and mobile manipulation: mobile bimanual loco-manipulation from human egocentric demos, discrete humanoid VLA control, and generalist mobile manipulation across many datasets and embodiments.</li><li>Navigation and motion planning are strengthened via task-aware roadmap sparsification for inspection, hierarchical object navigation with LLM-based relocation, quadruped terrain-aware exploration with exteroceptive–proprioceptive fusion, Mars and planetary-exploration simulators, and infrastructure-camera-augmented VLN.</li><li>Humanoid and legged whole-body control progresses through tactile-augmented VLA loco-manipulation, safe model-informed RL for bipedal locomotion, multi-terrain locomotion controllers, whole-body compliance and proprioceptive force estimation for interaction.</li><li>Dexterous and contact-rich manipulation sees extensive use of human and tactile data, including unified visual–tactile–action models, tactile-guided RL and force-informed learning, universal action representations, and multiple frameworks for retargeting human skills to robots.</li><li>Safety, reliability, and policy efficiency are recurring themes, with work on predictive semantic safety, adaptive safety under wrong world models, collision screening, zero-shot obstacle avoidance for generative policies, and diverse frameworks for failure-driven or on-policy refinement of VLA/WAM manipulation policies.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>CollisionSplatting: Collision-Aware Motion Planning in 3DGS Scenes with Image-Conditioned Objectives and Adjustable Conservatism</td><td>New York University</td><td>Introduces a GPU-accelerated, probability-inspired distance metric operating directly on 3D Gaussian Splatting scenes, enabling collision-aware motion planning that jointly optimizes geometric and image-conditioned objectives. Integrated with MPPI and RRT, it achieves high collision-checking throughput and low VRAM use, with demonstrations on real-world navigation and manipulation.</td><td><a href="https://arxiv.org/abs/2609.35619">Link</a></td></tr>
+<tr><td>DexAgent: An Agentic Human2Sim2Robot Framework for Dexterous Manipulation with Self-Evolving Tool Library</td><td>Stanford University</td><td>Presents an agentic pipeline that converts a single egocentric human video plus a task prompt into robot trajectories for dexterous manipulation, with verification-guided stages for semantic understanding, simulation reconstruction, trajectory optimization, and data generation. The framework grows a reusable tool library of skills and verifiers, yielding 3.5× higher success than baselines across 11 real tasks.</td><td><a href="https://arxiv.org/abs/2609.35318">Link</a></td></tr>
+<tr><td>HOI-Retarget: Contact-Centric Retargeting for Human-Object Interaction</td><td>ETH Zurich</td><td>Proposes a contact-centric trajectory-optimization method to retarget human–object interaction motions onto humanoid robots under kinematic limits, using labeled contacts as object-frame targets while balancing tracking, support, and smoothness. The approach scales single demonstrations across object sizes, ingests monocular video reconstructions, and supports multi-robot manipulation, with code and retargeted data released.</td><td><a href="https://arxiv.org/abs/2609.34674">Link</a></td></tr>
+<tr><td>TacGooseBumps (TacGB): Retrofitting Normal-Only Tactile Sensors with Shear Encoding for Learning Contact-Rich Manipulation</td><td>UC Berkeley</td><td>Introduces a passive domed film that mechanically encodes tangential shear into changes in an existing pressure-map tactile sensor, avoiding new electronics or calibration. Across several imitation-learning tasks, the added shear signal significantly boosts insertion success, efficiency, and contact quality, indicating that mechanically encoded shear can materially aid contact-rich policies.</td><td><a href="https://arxiv.org/abs/2609.34006">Link</a></td></tr>
+<tr><td>FINGR: Learning Dexterous Hand Control for Real-World Rubik&#x27;s Cube Solving</td><td>UC San Diego</td><td>Presents FINGR, a policy architecture combining finger-relative geometric encodings with supervised future interaction tokens for force, progress, and joint displacement. On a real dexterous hand it attains 99% success on 2×2×2 layer turns and, when integrated with grasping and regrasping, solves fully scrambled cubes in about 137 seconds on average.</td><td><a href="https://arxiv.org/abs/2609.33973">Link</a></td></tr>
+<tr><td>AGRO-SUVIDE: Agentic Robotics for Surgical Viscoelastic Debridement</td><td>UC Berkeley</td><td>Develops an agentic system that decomposes a single human viscoelastic debridement demo into recurring skills, implements them either as procedural routines or learned policies, and composes them into a looped task graph with verification of pre/post-conditions. On a dVRK, it achieves high single- and multi-fragment removal rates and generalizes to unseen fragment configurations with limited human intervention.</td><td><a href="https://arxiv.org/abs/2609.34823">Link</a></td></tr>
+<tr><td>Sufficiency of Zeroth-Order Reward Shaping for Policy Gradient in Stabilization Control</td><td>UC San Diego</td><td>Analyzes reward design for RL-based stabilization, showing theoretically and empirically that zeroth-order (configuration-only) rewards over goal-relevant coordinates are sufficient for policy-gradient methods under low dissipation, while additional velocity terms can introduce sensitivity and brittle tuning. The work gives concrete guidance on omitting first-order terms from stabilization rewards while retaining velocity in observations.</td><td><a href="https://arxiv.org/abs/2609.34695">Link</a></td></tr>
+<tr><td>Bayesian Active Learning for Intent Disambiguation in Interactive Robot Planning</td><td>Massachusetts Institute of Technology</td><td>Formulates clarification in language-based robot planning as active learning over candidate Signal Temporal Logic task specifications, with LLMs used to seed and linguistically phrase queries rather than drive the dialogue. Bayesian optimization chooses clarifying questions to maximize information gain, leading to higher task satisfaction with fewer interaction rounds versus LLM-only baselines in several domains.</td><td><a href="https://arxiv.org/abs/2609.34270">Link</a></td></tr>
+<tr><td>AD-E2E-JEPA: A Joint-Embedding Predictive Architecture For End-to-End Autonomous Driving</td><td>New York University</td><td>Evaluates existing JEPA-style world models for goal-conditioned zero-shot planning in autonomous driving and introduces AD-E2E-JEPA with a regularized learnable projector to drastically compress planning features. The model achieves up to 100× inference speedup while maintaining planning quality, reaching strong NAVSIMv2 scores without training explicit driving policies.</td><td><a href="https://arxiv.org/abs/2609.34085">Link</a></td></tr>
+<tr><td>SurgFlow: 3D Object-Centric Contact Flow for Surgical Robot Manipulation</td><td>UC San Diego</td><td>Learns 3D object-centric contact flow from stereo surgical video alone, predicting per-point 3D trajectories and contact scores that drive bimanual tool actions. On dVRK tasks such as tissue retraction and needle handover, SurgFlow substantially outperforms baselines trained on the same data and transfers zero-shot to a humanoid laparoscopic platform.</td><td><a href="https://arxiv.org/abs/2609.33237">Link</a></td></tr>
+<tr><td>Learning with Object-centric Representations of Tactile Interactive Perception for Robot Manipulation</td><td>Carnegie Mellon University</td><td>Proposes an object-centric framework where robots perform tactile exploration, a token learner extracts representative tactile segments, and contrastive alignment with text shapes a latent capturing multiple physical properties. These representations condition downstream policies, nearly doubling success on challenging multimodal tasks like pouring and box opening versus policies without tactile context.</td><td><a href="https://arxiv.org/abs/2609.33235">Link</a></td></tr>
+<tr><td>An Empirical Study on What Matters for Viewpoint-Generalizable Policies in Visual Imitation Learning</td><td>Carnegie Mellon University</td><td>Conducts a controlled study of design choices for visuomotor imitation policies that generalize across large camera pose variations. It finds that retaining dense visual tokens and involving the action head in geometric reasoning are key, yielding policies that maintain performance under drastic viewpoint shifts and zero-shot sim-to-real with random cameras.</td><td><a href="https://arxiv.org/abs/2609.32762">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>DexRoam: Learning Mobile Bimanual Dexterous Manipulation from Egocentric Whole-Body Human Demonstrations</td><td>Beihang University; Chinese Academy of Sciences; Hong Kong University of Science and Technology; Key Laboratory of Multimedia Information Processing; Peking University</td><td>Presents a full pipeline for learning mobile bimanual dexterous manipulation from tracker-free egocentric human demonstrations captured with a VR headset and stereo camera. Through embodiment, action-semantic, and temporal alignment, human and robot data are co-learned by VLA policies, roughly doubling task success on GR00T N1.7 and pi0.5 while halving required robot demos.</td><td><a href="https://arxiv.org/abs/2609.35761">Link</a></td></tr>
+<tr><td>Humanoid Loco-Manipulation With Discrete VLA Model</td><td></td><td>Introduces Holo-M, a discrete-action VLA for humanoid loco-manipulation that extends the language-model vocabulary with body-part-specific action tokens for end-effector, body, hands, and kinematics. Grouped discrete diffusion decoding enables real-time whole-body control, and experiments on the SIMPLE benchmark show state-of-the-art generalist and specialist performance.</td><td><a href="https://arxiv.org/abs/2609.35709">Link</a></td></tr>
+<tr><td>MM-ABC: Towards Generalist Mobile Manipulation via Seeing, Coordinating and Imagining</td><td>Hong Kong University of Science and Technology; The University of Hong Kong; Tsinghua University</td><td>Proposes MM-ABC, a foundation model for mobile manipulation that combines multi-level VLM perception, a training-only future imagination branch, and coordinated arm–base action streams via masked joint attention and clean-action prediction. Pretrained on 5,000+ hours across 17 embodiments, it sets strong results on EBench, RoboCasa365, LIBERO(+), and several real mobile-manipulation tasks.</td><td><a href="https://arxiv.org/abs/2609.35652">Link</a></td></tr>
+<tr><td>Inspection-SPARS: Task-Oriented Sparse Roadmaps for Inspection Planning</td><td></td><td>Extends the SPARS roadmap-sparsification framework with task-aware criteria for inspection, explicitly treating point-of-interest coverage alongside connectivity and path quality. The resulting Inspection-SPARS roadmaps are 4–8× smaller yet enable combinatorial solvers to find up to 25% shorter inspection tours versus dense or prior task-agnostic inspection roadmaps.</td><td><a href="https://arxiv.org/abs/2609.35516">Link</a></td></tr>
+<tr><td>Terrain-Aware Autonomous Planetary Exploration for Exteroceptive-Proprioceptive Mapping with Quadruped Scouts</td><td></td><td>Develops a terrain-aware exploration system for quadruped scouts that fuses RGB-D-based elevation and traversability maps with proprioceptive interaction cues into a multi-layer global representation. An exploration module selects targets in unknown but promising regions, and navigation over the learned cost map reduces cost of transport in subsequent traverses on lunar-analog terrain.</td><td><a href="https://arxiv.org/abs/2609.35493">Link</a></td></tr>
+<tr><td>Uni-VLaT: Whole-Body Tactile Adaptation of VLA Policies for Humanoid Loco-Manipulation</td><td>Tsinghua University</td><td>Augments VLA humanoid controllers with a tactile pathway trained to jointly predict future tactile, visual, and proprioceptive latents, building a tactile-anchored multimodal context for contact-rich loco-manipulation. On five real tasks involving locomotion and sustained human/scene contact, Uni-VLaT boosts average success to 75%, far exceeding vision-only and non-predictive tactile baselines.</td><td><a href="https://arxiv.org/abs/2609.35450">Link</a></td></tr>
+<tr><td>QuadHand: A Compact Quadrotor Aerial Manipulator with MRC-SDF-Based Whole-Body Motion Planning</td><td></td><td>Presents QuadHand, a quadrotor with a 3-DoF arm and passive CoG compensation, together with a robot-centric multi-articulated signed distance field (MRC-SDF) for detailed yet tractable geometry. A joint spatiotemporal whole-body optimizer plans safe trajectories for aerial manipulation in cluttered environments, validated in both simulation and hardware.</td><td><a href="https://arxiv.org/abs/2609.35094">Link</a></td></tr>
+<tr><td>Graph-Based Simultaneous Path and Foothold Planning for Multi-Limbed Intra-Vehicular Robots in Space Stations</td><td>Tohoku University</td><td>Introduces a graph-theoretic planner that jointly searches body paths and discrete grasp footholds for multi-limbed robots traversing space-station interiors. The method enforces manipulability and grasp-availability constraints and is shown in ISS-like simulations to efficiently generate feasible stance sequences and motions in highly constrained microgravity environments.</td><td><a href="https://arxiv.org/abs/2609.35000">Link</a></td></tr>
+<tr><td>DexWeave: Learning Dexterous Humanoid Loco-Manipulation from Human Demonstrations</td><td>Shanghai Jiao Tong University</td><td>Couples a two-stage interaction-consistent retargeting pipeline with an anatomy-aware Transformer policy that tokenizes body regions and their dependencies for whole-body dexterous control. DexWeave improves retargeting fidelity and RL training efficiency over MLP baselines and is deployed on a Unitree G1 with dexterous hands to perform real-world loco-manipulation.</td><td><a href="https://arxiv.org/abs/2609.34724">Link</a></td></tr>
+<tr><td>SOR-Nav: Search or Relocate? Context-Gated Exploration and Cross-Region Relocation for Object Navigation</td><td></td><td>Proposes SOR-Nav, a hierarchical ObjectNav system that builds persistent 3D object clusters and frontier graphs, then uses an LLM-driven supervisor to decide between continued local search and relocating to more promising regions. It achieves state-of-the-art success and SPL on HM3D-v1/v2 and MP3D, with more than 2× SPL improvement on MP3D over prior methods.</td><td><a href="https://arxiv.org/abs/2609.34707">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
