@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-10-01</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-10-01</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>144</strong></div>
+        <div class="card">Papers analyzed: <strong>144</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Foundational models for world-action, grounding, and VLA (Magic-W0, GroundingPI, GroundAnything, UniWAM, EWAM, Dream4ACT) continue to push unified perception–action for mobile manipulation and driving.</li><li>Navigation and planning see strong advances in risk-aware planning, belief-aware multi-agent path finding, exploration, SLAM, and social/semantic navigation (FORTE, MAGIC, GPU-accelerated marginal gain, MVP-SLAM, Social-WM, ASENA, NavHarness).</li><li>Whole-body and dexterous manipulation progress via egocentric pretraining, visuo-tactile perception, cross-embodiment grasp transfer, soft-body and continuum control, and humanoid loco-manipulation (IronMind, OccluDex, FunCo-Grasp, PneuTac, NEXUS, LocoWM).</li><li>Safety and reliability are a major theme across navigation and manipulation through RL-guided NMPC, CBF-guided RL, semantic safety reasoning, MaDE feasibility enforcement, and shields/failure-driven self-evolution (RL-Guided PAC-NMPC, DODGER, NEUPRO, MaDE, FailBank, Multi-Link Safety Filtering).</li><li>Several papers focus on system-level efficiency: adaptive horizons, sparse imagination, quantization, fast denoising, and GPU-accelerated information gain enable real-time deployment of WAMs, VLAs, and exploration planners (SplineWAM, Sparse-WAM, SteerQuant, Toward Real-Time VLAs, GPU-Accelerated Marginal Gain).</li><li>Institution-filtered highlights include new manipulation hardware and representation learning (CMU membrane-coupled delta array and drone downwash, ETH Zürich’s DTMR and tactile curiosity), and an ultra-fast 3D scene graph for real-time perception at UC San Diego.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Making Waves: A Membrane-Coupled Delta Array for Manipulating Objects Below the Actuator Spacing</td><td>Carnegie Mellon University</td><td>An 8×8 delta-robot array is mechanically coupled by a stretchable membrane so that 64 discrete end-effectors act as a continuous surface, enabling manipulation of objects smaller than the actuator spacing. The authors define local quasi-static and cyclic displacement-field primitives, then train a policy over low-order DCT coefficients that transfers to hardware with 76% success across 15–90 mm objects. This platform effectively turns a coarse actuator grid into a fine-resolution parallel manipulator for multi-object control.</td><td><a href="https://arxiv.org/abs/2609.39652">Link</a></td></tr>
+<tr><td>Dense Temporal Motion Retargeting for Legged Robots</td><td>ETH Zurich</td><td>DTMR jointly optimizes timing and control at every control step to retarget dynamic human motions such as jumps to humanoid robots. Using GPU-parallel sampling-based MPC, it selectively deforms motion timing where needed, outperforming baselines in precision on two hours of human motion data and four humanoid platforms, while being ~19× faster than a temporal-optimization baseline. Learned policies from DTMR references transfer to real humanoid hardware.</td><td><a href="https://arxiv.org/abs/2609.38617">Link</a></td></tr>
+<tr><td>Tactile Curiosity Drives Robot Interaction</td><td>ETH Zurich</td><td>TacEx decomposes epistemic uncertainty by sensing modality and concentrates intrinsic motivation on tactile channels, driving exploration toward contact-rich interactions instead of free-space motion. The resulting interaction-dense datasets enable offline training of pick-and-place policies and sample-efficient post-training of VLAs, substantially improving downstream manipulation performance without task rewards or expert guidance during exploration. This positions touch as a key driver for efficient RL in manipulation.</td><td><a href="https://arxiv.org/abs/2609.40134">Link</a></td></tr>
+<tr><td>Drone Soccer: Learning to Manipulate with Multicopter Downwash</td><td>Carnegie Mellon University</td><td>The work models multicopter downwash as a controllable interaction force rather than a disturbance, training an RL policy to dribble a soccer ball using rotor-induced airflow. A simplified downwash dynamics model supports policy learning that transfers to real drones, revealing a new class of aerial manipulation behaviors that exploit aerodynamic effects for object control.</td><td><a href="https://arxiv.org/abs/2609.38588">Link</a></td></tr>
+<tr><td>Yggdrasil: a Layer-First 3D Scene Graph for Real-Time Querying</td><td>UC San Diego</td><td>Yggdrasil introduces a layer-first hierarchical 3D scene graph built from generic nodes, edges, and layers, optimized for microsecond-level query latency. Compared with a prior DSG baseline, it achieves up to 121× faster queries and fits comfortably within a 200 μs perception-loop budget on both desktop and embedded hardware. Integrations into three existing pipelines show up to 99% reduction in scene-graph overhead, freeing compute for higher-level navigation and planning.</td><td><a href="https://arxiv.org/abs/2609.38640">Link</a></td></tr>
+<tr><td>Draft: A Parametric Tool for Robot Design Exploration</td><td>Massachusetts Institute of Technology</td><td>Draft compiles tree-structured parametric robot descriptions directly into MJCF models, avoiding CAD and enabling rapid morphology–control co-design. Hardware-grounded parameter trends learned from over 100 actuators and 49 robots provide realistic masses and inertias; four off-the-shelf platforms are matched within ~1.1× mass error. Case studies on quadrupeds illustrate how Draft supports systematic exploration of morphology–performance tradeoffs under RL controllers.</td><td><a href="https://arxiv.org/abs/2609.38405">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>UniWAM Technical Report: Unified Mobile Manipulation via Mixed-Stream World-Action Modeling and Manipulation Anchor Pose Supervision</td><td></td><td>UniWAM is a mixed-stream world-action model with separate but jointly trained navigation and manipulation branches, enabling unified policies for mobile manipulation from egocentric RGB. A large-scale automatically generated MAP-Data corpus (1.5M episodes, 7,500 hours) provides image-plane Manipulation Anchor Pose supervision for navigation and projected end-effector trajectories for manipulation. UniWAM outperforms strong baselines on MAP-Bench and achieves leading performance across 24 real-robot MAP navigation and mobile manipulation tasks.</td><td><a href="https://arxiv.org/abs/2609.39388">Link</a></td></tr>
+<tr><td>RL-Guided PAC-NMPC for Probabilistically-Safe Perception-Based Navigation in Unknown Environments</td><td></td><td>This method marries probabilistic actor–critic RL with Probably Approximately Correct Nonlinear MPC to achieve perception-based navigation with finite-time statistical safety guarantees. Learned stochastic models of the policy and sensors feed a sampling-based SNMPC that enforces bounds on collision probability and ensures expected value-function improvement. Simulations and fixed-wing hardware tests show safer navigation and improved performance in high-dimensional, vision-based navigation tasks in unknown environments.</td><td><a href="https://arxiv.org/abs/2609.39854">Link</a></td></tr>
+<tr><td>HiWE: Hierarchical World Knowledge Model with Visual Keypoint Enhancement for Zero-Shot 3D Path Planning</td><td>Chinese Academy of Sciences; Key Laboratory of Brain Cognition and Brain-inspired Intelligence Technology, CAS; University of Chinese Academy of Sciences</td><td>HiWE links point-based visual grounding to language-driven 3D motion planning: PointVLM predicts task-relevant 2D keypoints, which are lifted into a semantic 3D representation used by a language planner (3DLLM) to output end-effector waypoints and gripper actions. A hybrid grasping module refines local contact poses. Across 14 simulated and four real tasks, the framework supports zero-shot 3D path planning and execution without task-specific demonstration training.</td><td><a href="https://arxiv.org/abs/2609.39323">Link</a></td></tr>
+<tr><td>SplineWAM: Adaptive Action Horizons for World Action Models via B-Spline Representations</td><td>Tsinghua University</td><td>SplineWAM replaces fixed-length action chunks in world-action models with cubic B-spline parameterizations whose knot times adapt to motion complexity. By aligning video supervision to non-uniform knot times and introducing Jacobian-Pullback Real-Time Chunking, the model extends or shortens execution per call while ensuring continuity in the decoded action stream. On LIBERO-Plus and RoboCasa, SplineWAM improves task success by 4–8 points while reducing policy calls by ~25%, and matches or exceeds chunking WAMs on real bimanual tasks with 1.2–1.6× more motion per call.</td><td><a href="https://arxiv.org/abs/2609.39873">Link</a></td></tr>
+<tr><td>FORTE: Forecasting Occupancy for Spatiotemporal Risk-Aware Planning in Dynamic Environments</td><td></td><td>FORTE combines a non-autoregressive latent-diffusion OGM predictor with a planner that reasons over spatiotemporal occupancy overlap and directivity, selecting paths that minimize collision risk without explicit object tracking. Temporal shift modules maintain consistency across the predicted horizon, and multiple topologically distinct paths are evaluated for risk. Experiments show up to 215% higher OGM IoU, 5.24× faster prediction, and up to 3.5× higher navigation success versus prior OGM-based methods.</td><td><a href="https://arxiv.org/abs/2609.39305">Link</a></td></tr>
+<tr><td>ASENA: Self-evolving Agents for Embodied Navigation</td><td>NVIDIA</td><td>ASENA couples general-purpose coding agents with an embodied navigation policy (ASENA-VLN) that outputs body-frame trajectories from monocular RGB and natural-language instructions. The agent iteratively writes and executes code, logs outcomes, and refines its skills without changing model weights, while ASENA-VLN is trained on routes, VQA, and atomic navigation tasks. It achieves SOTA on R2R/RxR VLN benchmarks and, through workspace evolution, boosts success on recurring tasks to up to 98% in simulation and demonstrates map-free indoor navigation on a Unitree G1.</td><td><a href="https://arxiv.org/abs/2609.39207">Link</a></td></tr>
+<tr><td>Experience-Driven Continual Learning of Terrain Traversability for Quadruped Robots</td><td>Istituto Italiano di Tecnologia</td><td>The proposed pipeline continually learns terrain–robot interaction properties (slip, forces, traction, cost of transport, touchdown loading) from pre-contact images using DINOv3 descriptors and an evidential regressor that outputs both predictions and epistemic/aleatoric uncertainty. A bounded replay buffer with validation-gated model replacement preserves historical performance while adapting to new terrains. Traversability scores feed a local multilayer map for downstream navigation, with hardware experiments on a Unitree Go2 showing safer, more adaptive quadruped navigation on unseen terrains.</td><td><a href="https://arxiv.org/abs/2609.39755">Link</a></td></tr>
+<tr><td>Occlusion-Aware, Quasi-Static, Stability-Oriented Trajectory Planning on Uneven Terrain</td><td></td><td>This framework plans quasi-static, stability-aware trajectories for rigid 4-wheeled vehicles over highly uneven terrain while accounting for terrain-induced occlusions. A fixed-feature Fourier terrain model with coverage-dependent epistemic uncertainty is fit using a Flow Matching warm-start, and uncertainty is propagated via implicit differentiation through a nonlinear pose/contact model into a CEM-based planner. In synthetic terrain tests the full method nearly halves failure rates versus baselines, with hardware trials confirming occlusion- and stability-aware off-road navigation.</td><td><a href="https://arxiv.org/abs/2609.39105">Link</a></td></tr>
+<tr><td>LocoWM: High-Precision Locomotion through World-Model-Guided Residual Adaptation</td><td>Chinese Academy of Sciences; University of Chinese Academy of Sciences</td><td>LocoWM augments a base locomotion policy with a world-model-guided residual adapter that anticipates future proprioceptive trajectories and compensates for predicted deviations before they materialize. Trained in two stages (locomotion and dynamics first, then residual adaptation), it improves command tracking, terrain leveling, acceleration compensation, and push recovery relative to end-to-end and purely reactive residual baselines. Results highlight world-model-informed residuals as a powerful tool for precise whole-body legged control.</td><td><a href="https://arxiv.org/abs/2609.39179">Link</a></td></tr>
+<tr><td>DiffWAM: A Fast and Efficient Navigation World Action Model</td><td></td><td>DiffWAM directly maps predictive features from a frozen video foundation model and initial geometry into continuous UAV trajectories without decoding future video during deployment. A Grid-Motion module preserves spatial–temporal associations and a Latent2Pose head grounds motion in 3D, while FastDreamer overlaps prediction and control for asynchronous execution. On the DiffWAM-1000 benchmark it achieves 0.35 m trajectory RMSE and 74.4% endpoint success, and onboard experiments on Jetson AGX Thor demonstrate complex real-world UAV maneuvers with ~1.08 s pipeline latency.</td><td><a href="https://arxiv.org/abs/2609.39763">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
