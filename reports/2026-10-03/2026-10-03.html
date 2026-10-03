@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-10-02</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-10-02</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>107</strong></div>
+        <div class="card">Papers analyzed: <strong>107</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Foundation-model-style VLAs and world-action models continue to advance manipulation, memory, and safety, with several works targeting long-horizon, failure-robust control.</li><li>Humanoid and legged loco-manipulation are a major theme, including test-time reward evolution, whole-body safety/coordination, and reusable motion capabilities.</li><li>Navigation and motion planning see progress in uncertainty-aware belief-space planning, glass-aware mapping, LiDAR BEV perception, multi-robot exploration, and execution-interface adaptation.</li><li>Dexterous and continuum manipulation benefit from better retargeting, Jacobian modeling, and data-efficient trajectory-guided RL, plus new teleoperation and co-training pipelines.</li><li>Task-and-motion planning and high-level reasoning are increasingly coupled to LLMs, with applications from spacecraft rendezvous to legible plans and stable construction sequences.</li><li>Selected CMU, Berkeley, ETH, MIT, Stanford, and Washington–adjacent work emphasizes bridging sim-to-real gaps, long-horizon memory, and unified SE(3) representations for motion.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Reconstruct, Practice, Go Real: Guided Self-Improvement for Embodied Agents</td><td>UC Berkeley</td><td>RPG is a practice-in-simulation framework that improves a robot’s manipulation stack without updating network weights. It mines skills from offline data, constructs simulated practice tasks, diagnoses failures using privileged state and videos, then revises symbolic skills and prompts; on 22 manipulation tasks, success rises from 28.6% to 95.0%, and the frozen system transfers to 30/30 successes on real hardware.</td><td><a href="https://arxiv.org/abs/2610.02204">Link</a></td></tr>
+<tr><td>GlassGuard: Verified Glass Plane Mapping for Robot Navigation</td><td>Carnegie Mellon University</td><td>GlassGuard fuses LiDAR and vision to explicitly reconstruct planar glass surfaces that standard LiDAR SLAM misses, emphasizing both high glass coverage and low free-space contamination. On 2.1 km of real-robot traversal, it achieves up to 82–85% glass coverage while producing 5–17× fewer false voxels than baselines, enabling planners to correctly treat glass as collision boundaries.</td><td><a href="https://arxiv.org/abs/2610.02110">Link</a></td></tr>
+<tr><td>ECoMEM: Explicit Concept Memory for Memory-Dependent Robot Control</td><td>Stanford University</td><td>ECoMEM separates ‘what to remember’ from ‘how to act’ by maintaining an explicit library of grounded task concepts updated by an evidence-based Writer and consumed by a Reader that conditions a vision-language-action policy. On 16 RoboMME tasks, it wins on 15 and boosts real-robot memory-dependent task success from 8.6% (no memory) to 86.1% with reusable concept memories.</td><td><a href="https://arxiv.org/abs/2610.00801">Link</a></td></tr>
+<tr><td>World Motion Models: Flexible Sequence Modeling of SE(3) Trajectories</td><td>UC Berkeley</td><td>World Motion Models treat dynamic scenes as sets of rigid SE(3) trajectories and learn a unified flow-matching model over these pose sequences. A context-token mechanism supports any-to-any conditioning, enabling future prediction, motion infilling, MPC, inverse kinematics, cross-embodiment retargeting, and policy learning within a single architecture across diverse 3D vision and robotics tasks.</td><td><a href="https://arxiv.org/abs/2610.01742">Link</a></td></tr>
+<tr><td>Continual Learning for 6-DoF Grasp Synthesis via Experience and Demonstrations</td><td>ETH Zurich</td><td>This work introduces a continual-learning 6-DoF grasping framework that adapts via a non-parametric memory in embedding space rather than by finetuning the network. Grasp outcomes reweight future candidates and user demonstrations are stored and transferred across scenes, enabling over 90% success on challenging object categories after ~50 online trials while limiting catastrophic forgetting.</td><td><a href="https://arxiv.org/abs/2610.01301">Link</a></td></tr>
+<tr><td>OrbitTAMP: Grounding Language Models for Task and Motion Planning in Spacecraft Rendezvous</td><td>Stanford University</td><td>OrbitTAMP grounds LLM-based mission specification for spacecraft rendezvous in a library of reusable behaviors plus domain planners and trajectory optimization. The LLM maps natural-language intent to partial specs, while structured planners fill in admissible details, yielding 98% exact recovery of partial mission specifications and much higher reliability than direct free-form LLM planning.</td><td><a href="https://arxiv.org/abs/2610.01093">Link</a></td></tr>
+<tr><td>When Reasoning Helps Action: Monitoring and Steering Chain-of-Thought in Vision-Language-Action Policies</td><td>Stanford University</td><td>The authors define correctability and actionability for chain-of-thought (CoT) in VLA policies and propose TRUST, a value model that predicts reasoning correctness to steer CoT at inference. On a driving VLA, TRUST improves reasoning correctness to 90% and reduces collisions and trajectory error, while on a manipulation VLA it fixes reasoning without clear task gains, highlighting that better CoT does not always improve embodied performance.</td><td><a href="https://arxiv.org/abs/2610.00601">Link</a></td></tr>
+<tr><td>ScaffoldM3C: A Multimodal Sequential Monte Carlo Framework for Generative Stable Construction Planning</td><td>Stanford University</td><td>ScaffoldM3C frames block construction as probabilistic next-block generation conditioned on multimodal prompts (text, sketches, images) and explicitly models scaffold blocks for intermediate stability. A lightweight autoregressive model proposes candidates and SMC maintains multiple assembly hypotheses, achieving comparable or better structural stability than larger baselines with 4× fewer parameters and 5–20× faster inference.</td><td><a href="https://arxiv.org/abs/2610.00487">Link</a></td></tr>
+<tr><td>CLoSeR: Closing the Loop for Long-Context Streaming Reconstruction</td><td>ETH Zurich</td><td>CLoSeR augments feedforward 3D reconstruction foundation models with loop-closure by detecting loop candidates, estimating relative poses, and optimizing frame poses on SE(3) under sequential and loop constraints. Exploiting globally consistent scale from the backbone, it achieves markedly reduced drift and consistent kilometer-scale reconstructions, outperforming prior long-range mapping methods.</td><td><a href="https://arxiv.org/abs/2610.01927">Link</a></td></tr>
+<tr><td>Extreme Length Generalization in a Compact Recurrent Architecture for One-Shot Exploration</td><td>UC Berkeley</td><td>FRANK is a 507k-parameter recurrent architecture combining gated recurrence, content-addressable memory, and a reflex pathway, trained on short sequences yet generalizing to sequences 100,000× longer with perfect accuracy in most seeds. A sim-trained FRANK policy also controls a physical ground vehicle to waypoints through obstacles, illustrating its potential for long-horizon onboard policies under tight compute budgets.</td><td><a href="https://arxiv.org/abs/2610.01105">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation</td><td></td><td>InterEvolve enables a humanoid controller to solve unseen loco-manipulation tasks at test time by evolving structured “reward programs” and tuning their parameters in simulation. An object-aware behavioral foundation model plus an LLM-based program editor reuse and recombine existing skills, uncovering novel strategies and producing policies that transfer to a Unitree G1 with onboard perception.</td><td><a href="https://arxiv.org/abs/2610.02196">Link</a></td></tr>
+<tr><td>HumanoidToolBench: Benchmarking Humanoid Tool Use from Selection to Mobile Execution</td><td>Google Research; Seoul National University; University of Massachusetts Amherst</td><td>HumanoidToolBench offers 18 tasks that test humanoids on tool selection, manipulation, and mobile execution, accompanied by ToolBook with 3.1k demonstrations in sim and on a Unitree G1. Evaluations of seven policies in simulation and three on hardware reveal large gaps between choosing the right tool and successfully completing tasks, underscoring current limitations in integrated loco-manipulation.</td><td><a href="https://arxiv.org/abs/2610.02089">Link</a></td></tr>
+<tr><td>BLT*: Informed Belief Localization Trees for Uncertainty-Aware Planning on Digital Twins</td><td>University of Toronto</td><td>Informed BLT* extends RRT*/Informed RRT* into belief space using the 2-Wasserstein metric under isotropic Gaussian beliefs, enabling efficient connection of sampled belief states with reused measurement information. A semantic digital-twin framework plus point-cloud localization allow large-scale outdoor planning under uncertainty, yielding faster initial solutions and competitive cost convergence versus baselines.</td><td><a href="https://arxiv.org/abs/2610.01972">Link</a></td></tr>
+<tr><td>Training-Free Diffusion Planning with Analytical Local Scores</td><td>University of Virginia</td><td>This work replaces learned trajectory-score networks in diffusion planners with analytical local scores derived from smoothness, collision, and inter-agent constraints, eliminating training data requirements. The resulting decomposed denoising process retains classical trajectory-optimization structure while enabling fast generation of smooth, feasible paths for 300+ agents among 100+ obstacles in under 6 seconds.</td><td><a href="https://arxiv.org/abs/2610.01959">Link</a></td></tr>
+<tr><td>Robot Learning on Discrete Surfaces: Theory and Applications</td><td></td><td>The authors develop a discrete Riemannian framework for learning motions directly on polyhedral surface meshes, defining logarithmic/exponential maps, parallel transport, and projections that work across faces, edges, and vertices. Applied to DMPs, Gaussian Processes, and flow matching, the approach improves generalization and stability in mesh-constrained motion generation, including polishing on reconstructed surfaces.</td><td><a href="https://arxiv.org/abs/2610.01910">Link</a></td></tr>
+<tr><td>FlashDexRetarget: Accelerating Dexterous Manipulation Data Generation through Multi-Motion Retargeting</td><td>Korea Advanced Institute of Science and Technology</td><td>FlashDexRetarget is an RL-based framework that retargets human hand–object demonstrations to dexterous robot hands using rich point-cloud, distance, and trajectory features plus tailored rewards. On 50 diverse motions it attains 90% success—about 2.5× higher than sampling-based baselines—while using up to 100× less compute than prior RL approaches, and scales smoothly to hundreds of motions.</td><td><a href="https://arxiv.org/abs/2610.01849">Link</a></td></tr>
+<tr><td>Learning a Resolution-Consistent Jacobian Field for Bio-Inspired Rigid-Soft Finger</td><td>National University of Defense Technology; University of Science and Technology of China</td><td>Jacobian Flow Matching (JFM) learns a continuous-time Jacobian field for tendon-driven rigid–soft fingers, modeling actuation-to-motion as a dynamical flow consistent across sampling rates. On a bio-inspired finger, JFM cuts single-step prediction RMSE by over 53% versus discrete Jacobian learning and significantly improves long-horizon trajectory prediction under sparse sensing—key for dexterous fingertip control.</td><td><a href="https://arxiv.org/abs/2610.01668">Link</a></td></tr>
+<tr><td>ReCo: Response-Consistent Locomotion with Policy-Aware MPC for Legged Manipulation</td><td>National University of Singapore</td><td>ReCo trains a quadruped locomotion policy to have consistent command response, then identifies its closed-loop dynamics so an MPC can jointly plan base motion and arm trajectories for legged manipulation. The policy-aware MPC reduces end-effector position and orientation RMSE by about 29% and 27% versus the best baselines, and enables continuous onboard loco-manipulation on real hardware.</td><td><a href="https://arxiv.org/abs/2610.01612">Link</a></td></tr>
+<tr><td>LiDARFlow: Real-Time Panel-Based MAV Guidance in Unknown Environments</td><td></td><td>LiDARFlow adapts panel methods from potential-flow theory to generate smooth collision-avoidance vector fields for micro aerial vehicles using only onboard LiDAR in unknown cluttered spaces. Local obstacle panels are updated online and merged with a nominal guidance field, yielding real-time, fully onboard waypoint following and directional guidance validated in indoor flight tests.</td><td><a href="https://arxiv.org/abs/2610.01573">Link</a></td></tr>
+<tr><td>OpenSpace Lab Solution to the IROS 2026 Indoor Exploration Competition</td><td>University of Mining and Technology-Beijing</td><td>The OpenSpace Lab system combines pretrained map-completion for global frontier prioritization with remaining-time-aware exploration and homing constraints for single robots, plus utility-based multi-robot target selection with shared maps and intent. In the IROS 2026 exploration competition it achieved 1st in the single-robot public track and top-3 finishes in both private tracks, with up to 61% area coverage.</td><td><a href="https://arxiv.org/abs/2610.01505">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
