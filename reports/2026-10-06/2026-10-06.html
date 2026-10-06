@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-10-05</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-10-05</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>80</strong></div>
+        <div class="card">Papers analyzed: <strong>80</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Humanoid and quadruped control advance with safer whole-body tracking, unified high-dynamic motion and recovery, and sub-kilogram continuous-rotation locomotion policies.</li><li>Mobile navigation sees progress in construction-site blueprint-grounded routing, person-goal search using social context, and efficient geometry-aware VLN without runtime depth.</li><li>Dexterous/contact-rich manipulation is accelerated by visuotactile diffusion policies, tactile skins and encoders, reflexive execution layers, and simple tactile integration into VLAs.</li><li>World action models and VLAs evolve toward scalable data use and long-horizon reasoning via video/action priors, progressive subgoal planning, sparse imagination, and action-sketch conditioning.</li><li>Safety, reliability, and efficiency are addressed through filter-aware humanoid fine-tuning with CBFs, RUL-aware motion planning, safe streaming flow planners, and calibration of high-level safety monitors.</li><li>New simulation, benchmarking, and perception tools (Awomo-SimDataEngine, RoboChemGym, DexJoCo-X, ManiPhysicsBench, I2CD, CrowdOcc, RoboBridge) expand training and evaluation for manipulation and navigation in complex settings.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Filter-Aware Fine-Tuning for Safe Humanoid Whole-Body Tracking</td><td>Stanford University</td><td>Analyzes mismatches between learned humanoid whole-body trackers and runtime safety filters such as CBFs, then introduces CoFiT, a filter-aware fine-tuning method that adapts pretrained policies to the presence of the filter. CoFiT sharply reduces constraint violations and required interventions in simulation and on Unitree G1 hardware, offering practical design principles for safe whole-body control in unstructured environments.</td><td><a href="https://arxiv.org/abs/2610.02341">Link</a></td></tr>
+<tr><td>OpenRUA: Robot-Use Agents Are Zero-Shot Visuomotor Policies</td><td>Carnegie Mellon University</td><td>Shows that off-the-shelf coding agents given only terminal access to ROS 2 can function as zero-shot visuomotor policies without bespoke harnesses or task training. With a minimalist workspace, Claude Code (Opus 5) achieves near-perfect success on CaP-Bench and strong performance on LIBERO-PRO, while spontaneously building perception and closed-loop control programs from raw sensor interfaces.</td><td><a href="https://arxiv.org/abs/2610.02459">Link</a></td></tr>
+<tr><td>Keep the Effect, Drop the Actor: Programmable Effect-to-Execution World-Action Models</td><td>New York University</td><td>Introduces PEWAM, a world-action model that compiles demonstrations into editable &quot;effect programs&quot; describing object keypoint trajectories and grasps, then re-solves execution for new scenes and embodiments. Effect programs edit cleanly, transfer across four robot arms without retraining, and substantially outperform goal-image or language conditioning on LIBERO and Meta-World tasks and real Franka manipulation.</td><td><a href="https://arxiv.org/abs/2610.02398">Link</a></td></tr>
+<tr><td>NEEDLEWORK: Offline Rewriting of Robot Data with Verified Local Stitches</td><td>Stanford University</td><td>Presents NEEDLE, which augments high-dimensional robot demonstrations by inserting short, feasibility-verified action &quot;bridges&quot; between existing observations using only RGB, proprioception, and episode outcomes. A tailored sampling strategy incorporates these stitches during policy training without synthesizing images, yielding large success gains on real-robot manipulation tasks over prior trajectory-stitching baselines.</td><td><a href="https://arxiv.org/abs/2610.02339">Link</a></td></tr>
+<tr><td>Bidirectional Voronoi-biased Exploration Curriculum for Reinforcement Learning</td><td>ETH Zurich</td><td>Proposes BVER, a bidirectional curriculum that grows start states from the goal and goals from the initial distribution, inspired by bidirectional RRTs, to tackle long-horizon sparse-reward tasks. Across mazes, quadruped box climbing, and ring-on-peg transfer, it learns faster and solves harder settings than prior reference-free curricula, approaching demonstration-based efficiency without expert data.</td><td><a href="https://arxiv.org/abs/2610.03395">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>MobiAgent: Dual-Loop Recursive Policy Self-Improvement for Long-Horizon Mobile Manipulation</td><td>The University of Hong Kong</td><td>Introduces a dual-loop framework where an inner loop composes atomic skills via VLM-based receding-horizon planning for robust long-horizon mobile manipulation, while an outer loop autonomously discovers, verifies, and refines skills from deployment rollouts. On RoboCasa, BEHAVIOR-1K, and real Astribot S1, MobiAgent significantly improves success and recovery via continuous self-improvement without human annotations.</td><td><a href="https://arxiv.org/abs/2610.03476">Link</a></td></tr>
+<tr><td>CORNAV: Construction-Aware Reasoning for Robot Navigation on Active Worksites</td><td></td><td>Develops a navigation framework that grounds language queries in 2D architectural blueprints and evolving project schedules to route robots safely on active construction sites. CORNAV aligns blueprints to 3D scene graphs, encodes time-varying exclusion zones, and uses an LLM-based safety validator, achieving large gains in task success and eliminating hard-zone violations in office and real-site trials.</td><td><a href="https://arxiv.org/abs/2610.03622">Link</a></td></tr>
+<tr><td>DR-IPC: Disturbance-Resilient Integrated Planning and Control for LiDAR-Based Quadrotor Navigation</td><td></td><td>Presents an integrated path-guidance and NMPC scheme for LiDAR-guided quadrotor flight that explicitly models disturbances via EKF and nonlinear disturbance observers. The unified formulation handles dynamics, constraints, and safe-flight corridors without separate trajectory optimization, markedly improving mission completion and tracking accuracy under wind, payloads, impacts, and dynamic obstacles.</td><td><a href="https://arxiv.org/abs/2610.03530">Link</a></td></tr>
+<tr><td>From Language Priors to Field Adaptation: Preference Learning for Traversability Estimation</td><td></td><td>Proposes a traversability estimator that embeds images into a frozen vision-language space and represents terrain via von Mises-Fisher prototype mixtures, initialized with natural-language rules. Sparse pairwise image preferences then efficiently adapt prototype directions and utilities to new robots or domains, matching end-to-end baselines on WayFAST while enabling low-shot preference-based field tuning.</td><td><a href="https://arxiv.org/abs/2610.02974">Link</a></td></tr>
+<tr><td>CSIR: Contextually and Socially Informed Robots for Efficient Person Goal Navigation</td><td>University of Waterloo</td><td>Addresses person-goal navigation by combining spatial distance with semantic models of recipient habits, intent, and language uncertainty in a planning framework. A synthetic benchmark and real-robot tests show informed search outperforms distance-only and purely semantic baselines, enabling more human-like, efficient person-finding for service robots.</td><td><a href="https://arxiv.org/abs/2610.02750">Link</a></td></tr>
+<tr><td>GeoScaffold: Learning Compact Geometric Latents via Reconstruction for Efficient Vision-Language Navigation</td><td>Chinese Academy of Sciences</td><td>Introduces a training-time scaffolding scheme that learns compact depth and connectivity latents via reconstruction objectives on depth maps from VLN trajectories, then discards geometric heads at test time. The resulting Video-LLM navigator internalizes 3D structure and outperforms leading vision-only VLN systems on continuous benchmarks without requiring runtime depth sensing or 3D tools.</td><td><a href="https://arxiv.org/abs/2610.02697">Link</a></td></tr>
+<tr><td>HexVIO: Towards All-Day Stereo-Inertial Tracking Through Commodity DSPs</td><td></td><td>Optimizes a stereo VIO frontend for Qualcomm Hexagon DSPs while keeping back-end optimization on CPU, offloading feature extraction and matching to reduce power and latency. On a commodity smartphone, HexVIO cuts power by 67% or boosts throughput by 86%, enabling ~18 hours of 30 fps tracking and making long-duration localization practical for mobile robots and XR devices.</td><td><a href="https://arxiv.org/abs/2610.03283">Link</a></td></tr>
+<tr><td>Real-time Event-camera Stereo Visual Odometry via Keytime Gaussian Process Regression</td><td>Queen&#x27;s University</td><td>Implements a continuous-time GP-based stereo VO for event cameras that maintains microsecond timing of events while only estimating sparse keytime states, interpolating trajectories with a white-noise-on-acceleration prior. The system runs in real time on MVSEC and DSEC, offering order-of-magnitude accuracy gains over ES-PTAM and demonstrating precise, low-latency odometry for high-speed navigation.</td><td><a href="https://arxiv.org/abs/2610.02601">Link</a></td></tr>
+<tr><td>Safe Streaming Flow Planning by Aligning Sampling Dynamics with Execution Dynamics</td><td>Nanyang Technological University; National Taiwan University</td><td>Proposes SafeStreamingFlow, a flow-matching planner that generates trajectories sequentially by integrating a learned state vector field aligned with the system’s execution dynamics, rather than sampling full paths. Safety is enforced only on the executed step via high-order CBFs, reducing latency and improving safety-performance trade-offs on navigation, racing, and locomotion tasks.</td><td><a href="https://arxiv.org/abs/2610.03132">Link</a></td></tr>
+<tr><td>RUL-Aware RRT*: Degradation-Balanced Motion Planning for Robotic Manipulators</td><td></td><td>Extends RRT* to incorporate joint remaining useful life estimates so that motion plans balance load across actuators over long deployments. Across multiple degradation scenarios, the RUL-aware planner suppresses imbalance, delays bottleneck joint failures, and improves long-term manipulator reliability without sacrificing task feasibility.</td><td><a href="https://arxiv.org/abs/2610.02469">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
