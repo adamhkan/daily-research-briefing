@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-10-08</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-10-08</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>121</strong></div>
+        <div class="card">Papers analyzed: <strong>121</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Whole-body humanoid control and loco-manipulation see several advances, from precise SE(3) end-effector tracking and robust human-data-driven skills to forceful object handling and learned locomotion styles.</li><li>Navigation and motion planning are strongly represented, with new benchmarks for collaborative air–ground VLN and lifelong small-object search, faster lattice planning and multi-robot braid MPC, and risk-aware dynamic replanning.</li><li>Dexterous and contact-rich manipulation work spans visuo-tactile grasp stability, contact-factorized imitation, sim-to-real tactile control, and robust timing/retiming layers for action-chunk and VLA policies.</li><li>Tooling and infrastructure for planning and control improve via geodesic motion-planning libraries, fast learned contact dynamics, belief-space planning with estimator error, and GPU-accelerated parallel simulations for adaptive MPC.</li><li>Multiple benchmarks and datasets target higher-level embodied intelligence, including RobotWorld and RoboQuest for multimodal agents, OpenViTac for visuo-tactile policies, and new datasets for sign-based navigation and manipulation localization.</li><li>Institution-matched work from CMU, MIT, UC Berkeley, UC San Diego, and ETH Zurich focuses on deformable-object manipulation, precise humanoid tracking, generalist locomotion/manipulation policies, diffusion-policy multimodality, multi-robot task admission, offline RL, and geometry-aware robotic assembly.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Point It, Strike It: Direction-Conditioned Dynamic Manipulation of Deformable Linear Objects</td><td>Carnegie Mellon University</td><td>Introduces DeformX2.0, a massively accelerated Cosserat-rod simulator with aerodynamics, and TRACE, a sampling method for generating reliable rope-strike data. A conditional flow-matching policy plus a residual calibration policy (RECAP) adapts sim parameters and actions to real ropes, achieving high-accuracy, direction-conditioned rope striking across multiple ropes on hardware.</td><td><a href="https://arxiv.org/abs/2610.09573">Link</a></td></tr>
+<tr><td>Precise SE(3) End-Effector Tracking in Whole-Body Humanoid Control</td><td>UC Berkeley</td><td>Proposes ResGAC, combining geometric admittance control with residual RL for precise end-effector SE(3) tracking on a floating-base humanoid. A ground-attached heading frame reduces pelvis-induced motion in the manipulation reference, yielding markedly better tracking and success in peg-in-hole tasks compared with SONIC on the Unitree G1.</td><td><a href="https://arxiv.org/abs/2610.09479">Link</a></td></tr>
+<tr><td>Workhorse: Learning Robust Whole-Body Humanoid Loco-Manipulation from Human Data</td><td>UC Berkeley</td><td>Learns a visual planner and a whole-body tracking controller for humanoid loco-manipulation directly from human demonstrations without robot-in-the-loop retargeting. The system executes tasks like box sorting, catching thrown objects, and climbing a suitcase on a Unitree G1, and shows robustness to human disturbances and across different humanoid embodiments.</td><td><a href="https://arxiv.org/abs/2610.09117">Link</a></td></tr>
+<tr><td>On-Demand Robotic Assembly via Differentiable Geometric Part Repair</td><td>ETH Zurich</td><td>Presents an end-to-end pipeline that converts language prompts into bespoke wooden assemblies and automatically repairs part geometries for robotic assemblability via differentiable optimization. A graph-attention surrogate enables gradient-based geometric corrections, achieving high screwdriving feasibility and demonstrating dual-UR5e assembly for a variety of AI-generated designs.</td><td><a href="https://arxiv.org/abs/2610.09777">Link</a></td></tr>
+<tr><td>Making Task Abstractions Executable: Control-Aware Layout Repair for a Fixed Controller</td><td>Carnegie Mellon University</td><td>Formulates control-aware repair of task layouts as affine constraint satisfaction that preserves event structure while modifying only continuous coordinates. A most-violated-row update with a separate quadratic projector yields certified layout repairs enabling fixed controllers to execute entire task sequences successfully in simulation.</td><td><a href="https://arxiv.org/abs/2610.10281">Link</a></td></tr>
+<tr><td>Immiscible Diffusion Policy: Preserving Multimodal Robot Actions through Label-Free Noise Assignment</td><td>UC Berkeley</td><td>Analyzes why diffusion policies often collapse to a single action mode and attributes this to noisy mixing of diffusion paths. Proposes a label-free noise-assignment strategy that preserves distinct noise-to-action routes, substantially improving recovery of minority action modes across simulated and real humanoid manipulation tasks without changing inference-time architecture.</td><td><a href="https://arxiv.org/abs/2610.09369">Link</a></td></tr>
+<tr><td>Embedded Evaluation of Task Admission Coalescing in Decentralized Multi-Robot Systems</td><td>UC San Diego</td><td>Empirically studies batching of task admissions for several decentralized MRTA algorithms on embedded and desktop hardware. Shows that coalescing can greatly reduce computation and even latency on constrained processors, with tradeoffs depending on task arrival rate, allocator design, and platform capabilities.</td><td><a href="https://arxiv.org/abs/2610.09187">Link</a></td></tr>
+<tr><td>LASER: Latent Space Adjoint Matching for Support-Constrained Entropy-Regularized Offline RL</td><td>Massachusetts Institute of Technology</td><td>Introduces LASER, an offline RL algorithm that performs entropy-regularized policy optimization in the latent space of a flow-matched behavior model, avoiding backpropagation through time via latent adjoint matching. On 40 OGBench tasks, it attains state-of-the-art performance with fixed hyperparameters, improving robustness to dataset quality variations.</td><td><a href="https://arxiv.org/abs/2610.08989">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>LLA-MPPI: Rapidly Adaptive Whole-body Control of Legged Robots with GPU-Accelerated Parallel Simulations</td><td></td><td>Proposes LLA-MPPI, which adapts legged-robot whole-body control online by selecting among a bank of GPU-parallel contact simulators with differing dynamics hypotheses. A prediction-error-based selector chooses the best-fit model for MPPI planning, enabling rapid adaptation to payloads, disabled legs, and changing interaction dynamics on a Unitree Go2.</td><td><a href="https://arxiv.org/abs/2610.10465">Link</a></td></tr>
+<tr><td>AirGroundVLN: A Large-Scale Benchmark for Goal-Oriented Air-Ground Collaborative Vision-and-Language Navigation</td><td></td><td>Introduces AirGroundVLN, a large Unreal-based benchmark for goal-directed air–ground vision-language navigation with over 10k episodes and an aerial-visibility protocol. Proposes AG-CoNAV, combining a collaborative memory across platforms and regional-to-local planning, demonstrating the importance of coordinated aerial and ground perception for language-guided navigation.</td><td><a href="https://arxiv.org/abs/2610.10421">Link</a></td></tr>
+<tr><td>Semantic-Aware Predictive Mapping for Exploration and Navigation</td><td></td><td>Studies how adding semantic door cues to occupancy-based predictive mapping influences inference of unseen layouts around ambiguous regions. On modified CogniPlan maps, a door-aware model dramatically improves occupancy prediction near doors, indicating value for exploration and navigation when geometry alone is insufficient.</td><td><a href="https://arxiv.org/abs/2610.10382">Link</a></td></tr>
+<tr><td>Temporal Visuo-Tactile Learning for Dexterous Grasp Stability</td><td>Lab, Faculty of Computer Science, TU Dresden, Germany.; SR Lab, Faculty of Computer Science, TU Dresden, Germany.; SR Lab, Faculty of Computer Science, TU Dresden, Germany. {knakahara</td><td>Presents a 10k-trial visuo-tactile dataset collected with a multi-fingered hand and four high-resolution tactile sensors, and trains temporal multimodal models to predict grasp stability before lift. Incorporating dynamic tactile signals significantly boosts prediction accuracy and enables an online stability gate that improves real-robot grasp success via regrasping.</td><td><a href="https://arxiv.org/abs/2610.10283">Link</a></td></tr>
+<tr><td>Lifelong small-object navigation in changing object layouts: a benchmark and method</td><td>Harbin Institute of Technology</td><td>Defines LiSoNav-COL, a benchmark for lifelong navigation to small, movable household objects under changing layouts and partial observability. Proposes IVAM-Nav, which performs multi-view inspections and builds viewpoint-anchored memory, outperforming baselines in locating small objects and adapting to relocations without prior scene scans.</td><td><a href="https://arxiv.org/abs/2610.10125">Link</a></td></tr>
+<tr><td>Distributed Motion Planning for Multi-Robot Systems under Topological Constraints</td><td></td><td>Develops a distributed MPC framework that enforces braid-specified coordination patterns by tracking winding-number invariants instead of explicit braid generators. This converts qualitative topological requirements into continuous costs and decomposes them into pairwise constraints, enabling faster, lower-effort multi-robot coordination in simulations and hardware.</td><td><a href="https://arxiv.org/abs/2610.10065">Link</a></td></tr>
+<tr><td>Borrowed Eyes: Markerless Nano-UAV Flight with an Active Quadruped Observer</td><td>University of Copenhagen</td><td>Demonstrates cooperative navigation where a quadruped with an arm-mounted camera localizes a nano-UAV purely from external vision and broadcasts pose estimates. A perception-aware NMPC keeps the drone in view, allowing the UAV to follow trajectories with centimeter-scale error and gracefully fall back to inertial control during brief occlusions.</td><td><a href="https://arxiv.org/abs/2610.09967">Link</a></td></tr>
+<tr><td>RoboPace: Contact-Aware Time-Optimal Retiming for Action-Chunk Policies</td><td></td><td>Introduces RoboPace, an online retiming layer that adjusts execution speed of action-chunk or VLA policies to respect contact-aware speed limits and robot dynamics without retraining. On dual-arm contact-rich tasks, it nearly halves execution time relative to conservative timing while maintaining success rates comparable to slow execution.</td><td><a href="https://arxiv.org/abs/2610.09696">Link</a></td></tr>
+<tr><td>Fast and Robust Teach-and-Repeat Navigation Using MixVPR Visual Place Recognition*</td><td>Czech Technical University in Prague</td><td>Builds a computationally efficient teach-and-repeat navigation system leveraging the MixVPR visual place recognition model for localization. Real-world indoor and outdoor tests show state-of-the-art robustness and precision with lower hardware demands, making long-term visual navigation feasible on modest platforms.</td><td><a href="https://arxiv.org/abs/2610.09631">Link</a></td></tr>
+<tr><td>Contact-Aware Imitation Learning Through Contact Factorization</td><td></td><td>Proposes FACE, which factorizes contact-rich demonstrations into task behavior and environment-dependent contact factors via normalized, contact-relative force coordinates and online friction/normal estimation. This enables a single policy to adapt motion and forces to new surface geometries and friction conditions without retraining, improving robustness in real-robot manipulation.</td><td><a href="https://arxiv.org/abs/2610.09533">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
