@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-10-09</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-10-09</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>105</strong></div>
+        <div class="card">Papers analyzed: <strong>105</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>University-linked work spans mega-scale RL for control, microscopic-language-to-motion mapping, execution safety gates, cross-embodiment world models, and high-dimensional safe RL.</li><li>Mega-scale parallel RL with adaptive sampling (SGS) enables previously unsolved quadruped locomotion and contact-rich manipulation, with sim-to-real transfer via RGB policies.</li><li>Microscale task-conditioned trajectory integration from language substantially improves geometric accuracy and coverage for microscopic robots with minimal new labels.</li><li>Safety and reliability at the control interface are addressed through execution gates (PIER) and feasibility-aware safety filtering (FAITH) that separate task performance from safety constraints.</li><li>Cross-embodiment latent action spaces (LAC-WM) and world models unify control priors across heterogeneous robots, improving adaptation to unseen embodiments without action-space redesign.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>A Balanced Data Diet: Addressing the Exploration Bottleneck in Mega-Scale RL for Robot Control</td><td>University of Washington</td><td>Introduces Success Guided Sampling (SGS), an adaptive reset-sampling strategy that concentrates mega-scale parallel RL on task configurations at the frontier of current capability. This drastically improves exploration efficiency, enabling solutions to challenging multi-terrain quadruped locomotion and contact-rich assembly tasks, with RGB policy distillation for zero-shot sim-to-real transfer on real assembly hardware.</td><td><a href="https://arxiv.org/abs/2610.12465">Link</a></td></tr>
+<tr><td>From Language to Motion: Task-Conditioned Focal-Stack Trajectory Integration for Microscopic Robots</td><td>Carnegie Mellon University</td><td>Maps natural-language instructions for microscopic robots into geometric operators and integrates multiple focal-plane trajectories via confidence-weighted dynamic programming. The method cuts trajectory RMSE by over 50% versus image-first fusion and improves physical coverage in dispensing experiments while requiring no new part-specific labels beyond an existing open-vocabulary perception stack.</td><td><a href="https://arxiv.org/abs/2610.12241">Link</a></td></tr>
+<tr><td>PIER: An Evidence-Gated Execution Interface for Robotic Manipulation</td><td>University of Washington</td><td>Defines PIER, a deterministic execution-authorization gate that separates evidence checks and provenance tracking from low-level hardware control in manipulation tasks. Through synthetic traces it characterizes how re-observation budgets and thresholding affect rates of valid denials and unsafe proceeds, exposing contracts and limitations of evidence-based gating without claiming superiority over calibrated rule logic.</td><td><a href="https://arxiv.org/abs/2610.12123">Link</a></td></tr>
+<tr><td>FAITH: Feasibility-Aware Safety-Filtered RL for High-Dimensional Systems</td><td>Massachusetts Institute of Technology</td><td>Proposes FAITH, a model-free safety filter that learns a state–action safety value function and amortizes minimal-intervention filtering via a neural network, removing safety terms from the task-policy gradient. It achieves high safety rates with near-unfiltered return on a 29-DoF humanoid and handles infeasible states by steering toward actions with minimum predicted peak harm, with policies validated on a real Unitree G1.</td><td><a href="https://arxiv.org/abs/2610.12432">Link</a></td></tr>
+<tr><td>Cross-Embodiment Robot Foundation World Models with Latent Actions</td><td>Stanford University</td><td>Introduces LAC-WM, a robot world model that operates in a unified latent action space shared across heterogeneous embodiments to support cross-robot generalization. Compared to explicit action conditioning, LAC-WM improves downstream performance by up to 46.7% on dexterous manipulation and scales positively with the number of pretraining embodiments instead of degrading.</td><td><a href="https://arxiv.org/abs/2610.10846">Link</a></td></tr>
+<tr><td>Scalable LEO Conjunction Screening using Adaptive Synthetic-Covariance Thresholds</td><td>Stanford University</td><td>Presents an uncertainty-aware conjunction-screening sieve for large LEO catalogs, using object-specific, time-varying altitude thresholds derived from propagated radial covariance plus a binary-search altitude sweep. On 33k tracked objects it reduces candidate pairs by ~29% over a fixed-threshold filter and &gt;70% over brute-force all-pairs, while retaining all close approaches in reference sets.</td><td><a href="https://arxiv.org/abs/2610.11645">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Dex-One2Many: Learning Dexterous Manipulation from a Single Human Demonstration</td><td>Seoul National University; University of Maryland, College Park</td><td>Proposes a real-to-sim-to-real pipeline that converts a single human video into sequential scene graphs used to guide RL for dexterous multi-stage tasks. The relation-based graphs generate diverse reset states and dense rewards, enabling broad generalization to unseen poses and grasps and zero-shot transfer to a real multi-fingered hand with large gains in unseen configurations.</td><td><a href="https://arxiv.org/abs/2610.12470">Link</a></td></tr>
+<tr><td>Generative Neural Retargeting for Human-to-Robot Dexterous Manipulation</td><td></td><td>Introduces Generative Neural Retargeting, a flow-matching model that samples dynamically feasible robot trajectories conditioned on human demonstrations, instead of solving per-trajectory MPC or RL optimizations. It attains higher success than MPC with under 10% of its samples and scales to a 223k-demo dexterous dataset with dense contact-force labels.</td><td><a href="https://arxiv.org/abs/2610.12440">Link</a></td></tr>
+<tr><td>SkillWeave: Weaving Heterogeneous Demonstrations into Long-Horizon Manipulation Skills</td><td></td><td>Combines teleoperation for coarse motion with kinesthetic teaching for contact-rich segments to build long-horizon dexterous skills. An object-mask-conditioned diffusion policy and successor-aware terminal steering address visual mismatch and distribution shift between sub-policies, yielding strong real-world performance on multi-stage dexterous tasks.</td><td><a href="https://arxiv.org/abs/2610.12046">Link</a></td></tr>
+<tr><td>TACROSS: An Efficient and Low-Cost Scalable Human Touch System Across Heterogeneous Tactile Sensors for Dexterous Robot Learning</td><td>The University of Hong Kong; University of Hong Kong ffiliation:</td><td>Presents a USD 10.86, 285-taxel human tactile glove plus canonicalizers and residual adapters that align heterogeneous human and robot tactile streams at the event level. A robot-grounded policy learning scheme uses robot demos for action supervision and human data for tactile representation learning, cutting demo collection time by 3.5× and hardware cost by ~96% on contact-rich tasks.</td><td><a href="https://arxiv.org/abs/2610.11945">Link</a></td></tr>
+<tr><td>OmniDex: Scaling Dexterous Hand Grasping to Diverse Cluttered Scenes</td><td></td><td>Constructs a large-scale dexterous grasping benchmark with 2.6M cluttered scenes and 0.4B scene-specific grasp labels via a seed-and-filter strategy that avoids expensive scene optimization. The OmniDex model tackles multimodal grasps and precision via Soft WTA learning and physics-driven ranking, achieving state-of-the-art grasp success and generalization without slow post-optimization.</td><td><a href="https://arxiv.org/abs/2610.11194">Link</a></td></tr>
+<tr><td>LiteNWM: Efficient Latent World Models for Onboard Visual Navigation in the Wild</td><td></td><td>Introduces LiteNWM, a latent navigation world model that jointly predicts future representations for multiple candidate trajectories and scores them for selection. It significantly reduces trajectory error and yields a 128× speedup over a prior NWM while more than doubling real-robot navigation success in unseen indoor and outdoor environments.</td><td><a href="https://arxiv.org/abs/2610.12368">Link</a></td></tr>
+<tr><td>ManiUnit: A Manipulation Skill Dataset and Benchmark for Long-Horizon Tasks</td><td></td><td>Re-factors 50 BEHAVIOR-1K activities into 137k skill segments with explicit subtask labels, perturbation robustness tests, and local success criteria to diagnose long-horizon mobile manipulation. Skill policies trained on ManiUnit improve local success and, when coordinated with a planner, quadruple full-task success compared to monolithic task policies.</td><td><a href="https://arxiv.org/abs/2610.12089">Link</a></td></tr>
+<tr><td>SimVLA: Zero-Shot Sim-to-Real VLA Learning for Mobile Manipulation</td><td>Yonsei University</td><td>Develops SimVLA, a VLA policy trained entirely in simulation from composed atomic skills (SimAction) and rich spatial and subtask-level supervision (SimVQA, SimDeploy) without teleoperation. The resulting model transfers zero-shot to real mobile manipulation tasks such as restocking and cleaning and outperforms policies trained on 50 in-domain real demos.</td><td><a href="https://arxiv.org/abs/2610.11248">Link</a></td></tr>
+<tr><td>UNITAS: A 3D-Native World Action Model for Embodied Manipulation</td><td>Chinese University of Hong Kong, Shenzhen; Chinese University of Hong Kong, Shenzhen ffiliation:; The Chinese University of Hong Kong</td><td>Presents UNITAS, a 3D-native world-action model that represents both human hands and robot grippers as 3D point trajectories and predicts action-conditioned 3D scene flow in a shared metric frame. It achieves large reductions in displacement error versus 3D baselines on RoboTwin and near-perfect success on LIBERO, with strong real-world manipulation performance.</td><td><a href="https://arxiv.org/abs/2610.12099">Link</a></td></tr>
+<tr><td>A Physics-Informed Collision Learning Framework for Collaborative Robot Motion Generation</td><td></td><td>Introduces PI-UDF, a unified differentiable distance predictor for body-to-body collision between articulated arms, combining analytical kinematics with learned link-geometry embeddings and boundary-focused training. Integrated into nonlinear MPC on dual Frankas, it supports fast, close-proximity collision-aware motion such as dynamic dual-arm swapping and evasion.</td><td><a href="https://arxiv.org/abs/2610.12404">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
