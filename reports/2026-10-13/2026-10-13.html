@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-10-12</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-10-12</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>87</strong></div>
+        <div class="card">Papers analyzed: <strong>87</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Humanoid control sees rapid advances in whole-body dexterity, interactive skills from video, and reactive sports-like behaviors, with multiple groups deploying on Unitree G1 hardware.</li><li>Generalist manipulation and VLA/WAM-style policies are being scaled and specialized through new representations (effects, optical flow, action tokens), world models, and efficient edge deployments.</li><li>Navigation and motion planning progress includes anticipatory 3D reconstruction from a single image, mapless ESDF queries for fast collision avoidance, GPU-parallel constrained RRT, and cross-embodiment/mapless nav frameworks.</li><li>New benchmarks and supervisory layers target long-horizon, memory-intensive, and failure-prone manipulation, including dexterous lab tasks, revisable embodied memory, motion-quality replay, and spatial grounding on real robots.</li><li>Adaptation and continual learning methods (e.g., retrieval-anchored fine-tuning, noise-space steering with world-model rehearsal) focus on safely reusing priors while avoiding representation drift and catastrophic forgetting.</li><li>Institutional teams (Stanford, UC Berkeley, UW, CMU, ETH, UCSD, NYU) contribute strongly across humanoids, world models, timing-robust policies, and memory/agent benchmarks.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>VICAR: Video Imitation with Contact-Aware Retargeting for Humanoid Interactive Skills</td><td>UC Berkeley</td><td>VICAR builds a pipeline that converts third-person human videos into contact-rich humanoid interactive skills by explicitly prioritizing world-frame contact poses, timing, and collision clearance in the retargeting optimization. The retargeted motions train a contact-conditioned generator that adapts to new contact configurations at runtime, enabling hardware demonstrations on tasks such as table-tennis serves, object pickup, and ladder climbing.</td><td><a href="https://arxiv.org/abs/2610.13079">Link</a></td></tr>
+<tr><td>Reflex: Visually Grounded Reactive Humanoid Control</td><td>Stanford University; University of Washington</td><td>Reflex factors visually grounded whole-body catching into three learned stages: an RL-trained state-based catching policy, dynamics inference from partial observations, and an egocentric RGB-D encoder that recovers object dynamics. The resulting controller reacts to thrown boxes in under a second and transfers from simulation to a Unitree G1, achieving high catch rates at several meter distances.</td><td><a href="https://arxiv.org/abs/2610.12772">Link</a></td></tr>
+<tr><td>PanTact: Teaching Whole-Body Dexterity with a Wearable Contact Interface</td><td>Stanford University</td><td>PanTact introduces a robot-free wearable system that records whole-body contact locations and states alongside egocentric video and bimanual actions to teach humanoids manipulation beyond the hands. A learned visuomotor policy predicts whole-body contact goals that are realized via contact-aware whole-body control, enabling a Unitree G1 to perform tasks involving support, pushing, sweeping, and load sharing without additional body sensors.</td><td><a href="https://arxiv.org/abs/2610.12558">Link</a></td></tr>
+<tr><td>AlphaNIST: Emergent Assembly Skills from Binary Task Rewards</td><td>University of Washington</td><td>AlphaNIST trains a single RL policy on all 20 NIST Assembly Task Board #1 operations using only sparse binary completion rewards, without demonstrations or shaped progress signals. The policy achieves over 98% training success and discovers strategies such as grasp selection for future assembly and opportunistic sequencing, revealing that large-scale RL can learn complex assembly planning and dexterous manipulation from task-agnostic rewards.</td><td><a href="https://arxiv.org/abs/2610.13354">Link</a></td></tr>
+<tr><td>Chronos Policy: Learning Robot Policies on Physical Time</td><td>Stanford University</td><td>Chronos Policy conditions diffusion-transformer robot policies on explicit observation and desired action execution times, using time-aware rotary positional encodings to bind attention to physical time rather than sequence index. Temporal randomization during training yields policies that handle varying sensor rates, delays, and asynchronous multimodal inputs, improving robustness on dynamic and multisensory tasks without degrading quasi-static performance.</td><td><a href="https://arxiv.org/abs/2610.13929">Link</a></td></tr>
+<tr><td>BT-Agent: Deploying Onboard Robot Agents with Behavior Trees and Multi-Fidelity Evaluation</td><td>Stanford University</td><td>BT-Agent couples an onboard LLM with a library of behavior-tree skills whose preconditions and failure codes provide structured execution feedback. Running fully on a 9B model, the system improves task success over ReAct-style baselines on a quadruped and a multi-fidelity benchmark shows that structured tool interfaces and feedback are key to robust, interruptible navigation-style task execution.</td><td><a href="https://arxiv.org/abs/2610.13862">Link</a></td></tr>
+<tr><td>LeWAM: End-to-End World and Action Modeling with JEPAs</td><td>ETH Zurich; UC San Diego</td><td>LeWAM integrates a JEPA-style latent world model with action flow matching in a single end-to-end objective, constraining the latent space to an isotropic Gaussian to support both direct policy execution and efficient planning. Compared to prior JEPA planners it dramatically improves success on contact-rich and long-horizon control tasks while being over 30× faster in planning, and remains competitive on behavior cloning benchmarks and real robots.</td><td><a href="https://arxiv.org/abs/2610.12818">Link</a></td></tr>
+<tr><td>REMM: Revisable Embodied Memory for Manipulation</td><td>Carnegie Mellon University</td><td>REMM adds a symbolic memory layer atop a frozen G0.5 VLA executor, separating append-only evidence from revisable task state and maintaining explicit dependency links. When new observations invalidate prior facts, REMM retracts derived conditions and triggers targeted recovery at skill boundaries, substantially improving progress and recall on long-horizon physical manipulation tasks without retraining the underlying policy.</td><td><a href="https://arxiv.org/abs/2610.12710">Link</a></td></tr>
+<tr><td>Trajectory Prediction for Autonomous Driving in Road Construction Zones Using Human-in-the-Loop Driving Data</td><td>New York University</td><td>This work introduces WZDrive-Data, a human-in-the-loop simulated dataset of over a thousand work-zone segments with driver control, gaze, and full scene state, and proposes WZDrive, a multimodal ego-trajectory predictor. The model leverages human signals and scene context to outperform state-of-the-art baselines on minADE/FDE in complex, changing work-zone layouts.</td><td><a href="https://arxiv.org/abs/2610.12747">Link</a></td></tr>
+<tr><td>What Should Embodied Agents Remember? Benchmarking and Evaluating Memory Modality for Embodied Agents</td><td>Carnegie Mellon University</td><td>MeMoREval benchmarks how different memory modalities—raw frames, text descriptions, and scene graphs—affect embodied agents that must answer questions and plan actions from past experience alone. Experiments show that storing visual frames outperforms purely textual logs at lower write-time cost, and augmenting frames with scene graphs yields the best overall performance across diverse indoor tasks.</td><td><a href="https://arxiv.org/abs/2610.12561">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>HorizonNav: Geometry-Guided Video Diffusion for Anticipatory 3D Robot Navigation</td><td></td><td>HorizonNav uses prompted video diffusion to hallucinate plausible future views from a single RGB image and text, then aligns multi-view depth with SLAM-estimated poses and triangulated landmarks to reconstruct a consistent 3D environment. The resulting &quot;imagined&quot; ESDF supports sampling-based navigation planning in previously unseen spaces without lidar, with quantitative studies revealing both feasible-planning gains and explicit failure modes.</td><td><a href="https://arxiv.org/abs/2610.13849">Link</a></td></tr>
+<tr><td>Low-Latency Mapless ESDF Queries for MAV Reactive Collision Avoidance</td><td></td><td>This work introduces a GPU-accelerated ESDF query that operates directly on posed depth images, avoiding explicit voxel maps and their preprocessing overhead. Integrated into an MPC for high-speed MAV flight in cluttered forests, the method offers lower latency and higher accuracy than tuned voxel grids, cutting collision rates by an order of magnitude in simulation and enabling 4 m/s flights in real forests.</td><td><a href="https://arxiv.org/abs/2610.13158">Link</a></td></tr>
+<tr><td>PATACON: GPU-Parallel Tangent-Bundle RRT-Connect for Constrained Motion Planning</td><td></td><td>PATACON accelerates constrained whole-body planning by exploring in the tangent spaces of the constraint manifold rather than the ambient configuration space, reducing expensive projection steps. A GPU-parallel bidirectional RRT-Connect formulation achieves up to 11× speedups on dual-arm closed chains and humanoid whole-body problems as dimensionality and codimension grow, pushing constrained planners closer to real-time use.</td><td><a href="https://arxiv.org/abs/2610.13195">Link</a></td></tr>
+<tr><td>Belief-Overlap Partial Inversion: Object-Centric Flow Replanning for Humanoid Loco-Manipulation</td><td>Northwestern University</td><td>For humanoids pushing carts with unknown dynamics, this paper proposes Belief-Overlap Partial Inversion, which only rewinds and reconstructs portions of an object-centric flow plan where updated parameter beliefs disagree with earlier ones. This belief-aware replanning lowers final pose errors by roughly one-third versus fixed-depth replanning over 18 simulated goals and transfers to hardware cart pushing.</td><td><a href="https://arxiv.org/abs/2610.13087">Link</a></td></tr>
+<tr><td>CeDR-Nav: Cross-Embodiment Mapless Navigation via Offline Demonstration Recasting</td><td>The University of Hong Kong; University of Science and Technology of China</td><td>CeDR-Nav converts demonstrations from a source robot into training data for diverse target embodiments via geometry-consistent scaling and per-trajectory validity checks, then trains a target-specific Gaussian-mixture navigation policy without online data collection. Simulations and real-world runs show sizeable gains over DRL baselines in cross-embodiment mapless navigation success with fast per-target training.</td><td><a href="https://arxiv.org/abs/2610.13007">Link</a></td></tr>
+<tr><td>TAME-Nav: Temporal Asymmetric Mixture-of-Experts Distillation for Agile and Versatile Robot Navigation</td><td></td><td>TAME-Nav trains a navigation teacher with privileged dynamic-obstacle representations and distills it into a student that uses corrupted observation histories and a temporal soft Mixture-of-Experts. Procedural scenario generation and deployment-informed domain randomization yield a single policy that improves success, lowers collisions, and transfers to a real quadruped in dynamic, trap-filled environments.</td><td><a href="https://arxiv.org/abs/2610.12877">Link</a></td></tr>
+<tr><td>Visual-Wi-Fi Navigation to Signal-Emitting Devices</td><td></td><td>The authors extend Habitat to simulate ray-traced Wi-Fi sensing and propose ViFiNav, which fuses a bearing-based Wi-Fi source localizer with depth perception in a learned policy to reach emitting devices. Exploiting robot motion is shown to be critical for robust source estimates, and policies trained with simulated Wi-Fi transfer zero-shot to real robots equipped with commodity router-based sensors.</td><td><a href="https://arxiv.org/abs/2610.12733">Link</a></td></tr>
+<tr><td>Robust and Scalable UAV-UGV Planning for Aerial Monitoring under Energy and Precedence Constraints</td><td></td><td>This paper formulates a joint routing-and-timing problem for multiple UAV-UGV teams performing ordered aerial monitoring under UAV endurance limits and bounded travel-time disturbances. A polynomial-time algorithm co-designs UAV tours and UGV support routes with provable feasibility guarantees, and numerical studies indicate scalable performance on large monitoring instances.</td><td><a href="https://arxiv.org/abs/2610.12670">Link</a></td></tr>
+<tr><td>Graph-Based Heuristics for Minimum Constraint Removal in Cluttered Robot Motion Planning</td><td></td><td>Addressing NP-hard minimum constraint removal in cluttered environments, the authors propose a heuristic pipeline that generates candidate feasible object-removal sets and searches reduced graphs for near-optimal subsets. Across six benchmarks, it matches exact solutions in half the cases and in others selects at most 31% more obstacles while being 3–34× faster, significantly accelerating planning in manipulation among movable objects.</td><td><a href="https://arxiv.org/abs/2610.12609">Link</a></td></tr>
+<tr><td>Cubic Spline Interpolation for Smooth Trajectory Generation in Autonomous Motion Systems</td><td></td><td>This work describes an automated cubic-spline construction that enforces continuity of position, velocity, and acceleration across arbitrary waypoint sequences by solving a global linear system for spline coefficients. Demonstrated on drawing and signature tasks, the approach directly generalizes to multi-axis robot and drone trajectory generation, avoiding the infinite accelerations inherent to piecewise-linear profiles.</td><td><a href="https://arxiv.org/abs/2610.12826">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
