@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-10-16</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-10-16</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>102</strong></div>
+        <div class="card">Papers analyzed: <strong>102</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Strong motion-planning and control advances appear across domains: constrained optimal control (MAGMA, LEAP, A-SLS), safe multi-agent planning under legal and communication constraints, and robust delay-aware MPPI for manipulators.</li><li>Mobile manipulation and long-horizon control see new agentic frameworks and memory mechanisms (MoCaP, Mem4Act, LTM, VaM), plus neuromorphic and topological navigation systems for resource-limited or unmapped settings.</li><li>Dexterous and whole-body manipulation capabilities are pushed forward via large-scale tactile pretraining, supervised play, whole-body grasping on humanoids, contact-aware impedance control, and new generalization benchmarks.</li><li>Navigation safety and certification are emphasized from micro- to macro-scales: monocular collision cones, BubbleCBF for second-order systems, human-aware UAV navigation with onboard LLMs, and bio-inspired/ergodic search for aerial and marine robots.</li><li>Vision-language(-action) model tooling for robotics matures rapidly, including efficient token compression and one-shot task-context inference, causal/mechanistic analyses, verification and scheduling of slow modules, and instruction-following diagnostics.</li><li>New benchmarks and datasets (LIBERO-PeRM, Evo-DexBench, MuSTMM, CRIA, SparkArena, LIN-SLAM, OccEVT-Bench) target personalization, sound-triggered mobile manipulation, anomaly anticipation, tactile pretraining, and robust SLAM.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Safe and Fuel-Efficient Motion Planning for Lunar Propulsive Drones</td><td>Stanford University</td><td>Presents a vision-guided optimal-control framework for hopping drones on the Moon that plans parabolic hop trajectories between waypoints while checking landing safety via semantic segmentation and reachable-terrain analysis. A diversion maneuver and MPC tracking ensure safe, fuel-efficient hops in a high-fidelity lunar simulator.</td><td><a href="https://arxiv.org/abs/2610.22225">Link</a></td></tr>
+<tr><td>Whole-Body Dexterity</td><td>UC San Diego</td><td>Introduces a framework for humanoids to use the entire body as a manipulation surface, generating whole-body grasps in simulation and training RL experts on any-to-any object repositioning. A distilled policy transfers zero-shot to a Unitree G1, achieving 90% success on complex box and ball repositioning tasks, far outperforming baselines.</td><td><a href="https://arxiv.org/abs/2610.22184">Link</a></td></tr>
+<tr><td>CLIS-MPPI: Closed-Loop Model Predictive Path Integral Control With Initial-State Sampling Under Execution Delay</td><td>University of Washington</td><td>Addresses execution delay in MPPI by sampling a distribution over plausible execution-time initial states and adding rollout-based local feedback. On a UR5e performing a narrow-passage task, CLIS-MPPI eliminates collisions seen with standard MPPI and improves tracking smoothness and efficiency.</td><td><a href="https://arxiv.org/abs/2610.21239">Link</a></td></tr>
+<tr><td>Manifold Generative Annealing for Contact Constraint-aware Impedance Control with Reinforcement Learning Prior</td><td>Carnegie Mellon University</td><td>Proposes MGA, which organizes pretrained RL policies into structured proposal sequences and refines them via model-based rollouts on a contact-aware manifold. The method improves safety and success for contact-rich tasks like surface scanning, peg insertion, and humanoid pushing under changing contact conditions.</td><td><a href="https://arxiv.org/abs/2610.21140">Link</a></td></tr>
+<tr><td>MoCaP: Mobile Code-as-Policies for Zero-Shot Mobile Manipulation from Passive Human Videos</td><td>New York University</td><td>Introduces an agentic pipeline that extracts spatial memory and approach priors from passive human videos to guide a code-as-policy mobile manipulation controller. On a real mobile manipulator, MoCaP achieves 80% success on two indoor tasks and substantially boosts navigation and base-pose finding versus baselines.</td><td><a href="https://arxiv.org/abs/2610.20998">Link</a></td></tr>
+<tr><td>Perceive, Predict, and Plan: a Unified World Action Model for Egocentric Dexterous Manipulation</td><td>ETH Zurich</td><td>Presents P³-WAM, a unified video-diffusion-based model that jointly handles 3D perception, action-conditioned future prediction, and goal-directed planning for egocentric hand-object manipulation. Unified training across these modes improves 3D hand reconstruction, video prediction, and instruction-following manipulation over specialized baselines.</td><td><a href="https://arxiv.org/abs/2610.22363">Link</a></td></tr>
+<tr><td>Auditable and Deployable Multi-Agent Motion Planning via Posetal Games from Legal Guidelines</td><td>Massachusetts Institute of Technology</td><td>Formulates multi-agent motion planning under partially ordered legal guidelines as posetal games, allowing agents to reconcile private objectives with shared legal priorities. Belief play and a distributed best-response scheme recover equilibria without sharing private preferences, demonstrated on multi-vessel maritime navigation scenarios.</td><td><a href="https://arxiv.org/abs/2610.22277">Link</a></td></tr>
+<tr><td>Illumination-Aware Active Perception for Spacecraft Inspection</td><td>New York University</td><td>Replaces line-of-sight visibility metrics with a learned information measure from a classifier VAE to plan spacecraft inspection viewpoints under challenging orbital lighting. In simulation, the planner obtains significantly better-illuminated observations than geometric baselines while maximizing its own objective.</td><td><a href="https://arxiv.org/abs/2610.22335">Link</a></td></tr>
+<tr><td>Asking Smarter Questions: Targeted Active Preference Learning for Underspecified Rewards</td><td>Massachusetts Institute of Technology</td><td>Shows how robots can detect underspecified reward features from initial teaching data and then target preference queries toward them using an informed prior plus explanations. Simulation and user studies demonstrate up to 30.8% improved reward recovery in low-query regimes over standard active preference learning.</td><td><a href="https://arxiv.org/abs/2610.22285">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Spark-0: Scaling Spatially Aligned Tactile Pretraining for Robot Dexterous Manipulation</td><td></td><td>Introduces Spark-0, a large VTLA model that uses 1,000 hours of full-hand tactile human data to supervise visual tokens and a tactile pathway for contact-rich dexterous manipulation. It sets new state of the art on SparkArena and Ego Humanoid benchmarks and shows that tactile data significantly boosts even vision-only deployment performance.</td><td><a href="https://arxiv.org/abs/2610.22342">Link</a></td></tr>
+<tr><td>Dexterity from Supervised Play</td><td>University of Maryland, College Park</td><td>DSP trains a short human-play behavior-cloned policy to autonomously collect hours of contact-rich data, then uses a world model for MPC planning and self-play policy distillation. On multifingered hands, it achieves large success gains over hindsight BC and matches RL with orders-of-magnitude less interaction data.</td><td><a href="https://arxiv.org/abs/2610.22340">Link</a></td></tr>
+<tr><td>Evo-DexBench: Benchmarking Generalization across Related Tasks for Dexterous Manipulation</td><td>Shanghai Jiao Tong University</td><td>Defines the Core-Gen principle and releases Evo-DexBench, 30 dexterous tasks grouped into six functional families with 1,248 multimodal teleoperated demos. Existing methods achieve only 38.5% average success under few-shot Gen tasks, highlighting the difficulty of functional generalization even when source tasks are related.</td><td><a href="https://arxiv.org/abs/2610.21180">Link</a></td></tr>
+<tr><td>Mem4Act: Learning Effective Latent Memory for Long-Horizon Robotic Manipulation</td><td></td><td>Mem4Act learns a fixed-size latent memory optimized for long-horizon manipulation, combining multi-scale temporal aggregation, QA-style semantic supervision, and visual key-frame reconstruction. It attains state-of-the-art success on memory-dependent benchmarks and real tasks, with ablations validating each component.</td><td><a href="https://arxiv.org/abs/2610.22323">Link</a></td></tr>
+<tr><td>TS-WAM: Temporal Latent Actions and World-Action Coupling for Vision-Language Robot Control</td><td></td><td>TS-WAM couples a VLM-JEPA backbone with delta latent world modeling to jointly learn latent actions, visual dynamics, and control from both robot and action-free human videos. The EMA teacher is only used during training, yielding a lightweight deployed policy that shows strong manipulation performance and robustness in sim and on Franka/RevoTron.</td><td><a href="https://arxiv.org/abs/2610.21922">Link</a></td></tr>
+<tr><td>MOSS: Mode-Oriented Source Shaping for Robot Flow Matching Policies</td><td>Nanyang Technological University; Tsinghua University</td><td>MOSS exploits the mode-dependent structure of deterministic flow trajectories by constructing mode-specific Gaussian sources in the noise space, enabling explicit behavior selection at inference. Across simulated and real manipulation tasks, it achieves near-perfect guidance to desired modes and recovers minority behaviors under severe dataset imbalance.</td><td><a href="https://arxiv.org/abs/2610.22193">Link</a></td></tr>
+<tr><td>MAIA: Anticipating Interaction Anomalies in Contact-Rich Manipulation via Multimodal World Models</td><td>Shanghai Jiao Tong University</td><td>MAIA trains a multimodal vision-action-force world model with an anomaly head that predicts impending contact anomalies before they manifest. On the CRIA dataset and real tasks, it achieves earlier and more accurate anomaly detection than baselines and raises manipulation success by using predictions for anomaly-aware action selection.</td><td><a href="https://arxiv.org/abs/2610.21686">Link</a></td></tr>
+<tr><td>CQDC-Warp: GPU-Accelerated Differentiable Quasi-Dynamic Simulation for Contact-Rich Manipulation</td><td>Peking University; Tsinghua University</td><td>CQDC-Warp is a differentiable quasi-dynamic simulator on GPU tailored for batched MPC in contact-rich manipulation, encouraging intended contacts via soft costs without fixed contact schedules. It substantially improves success and reduces trajectory-generation time over prior planners on Allegro in-hand rotation and scales to multi-hand and whole-body cases.</td><td><a href="https://arxiv.org/abs/2610.21349">Link</a></td></tr>
+<tr><td>TGrasp6D: Task-Informed Vision-Language Priors and Pose Refinement enable Zero-Shot Task-Oriented 6DoF Grasping</td><td></td><td>TGrasp6D uses a VLM to infer task-specific affordances from an instruction and RGB-D input, then generates and refines 6DoF grasps that respect both object geometry and task semantics. It achieves 94% success on TaskGrasp, markedly surpassing prior task-oriented grasping baselines, and transfers zero-shot to a real Franka arm.</td><td><a href="https://arxiv.org/abs/2610.20901">Link</a></td></tr>
+<tr><td>MoCaP: Mobile Code-as-Policies for Zero-Shot Mobile Manipulation from Passive Human Videos</td><td>New York University</td><td>MoCaP converts passive human videos into spatial memory and approach priors that condition a code-as-policy mobile manipulation stack, coordinating navigation and tool-use primitives under the robot&#x27;s kinematics. On real indoor tasks, it dramatically improves object-finding navigation and base pose reachability, yielding 80% end-to-end success.</td><td><a href="https://arxiv.org/abs/2610.20998">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
