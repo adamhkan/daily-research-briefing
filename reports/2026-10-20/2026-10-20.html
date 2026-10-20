@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-10-19</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-10-19</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>68</strong></div>
+        <div class="card">Papers analyzed: <strong>68</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>New proprioception- and touch-centric methods substantially improve contact-rich and blind manipulation, from peg-in-hole assembly to dexterous Baoding ball rotation.</li><li>Foundation-model-driven perception and spatial memory are being tightly integrated with mobile manipulators and VLN agents for more robust navigation and rearrangement under occlusion and body constraints.</li><li>Multiple works advance world and dynamics modeling for planning, including object-centric rigid 3D world models, neural time fields, and structured off-road dynamics for aggressive navigation.</li><li>Generalist VLA/WAM ecosystems are rapidly maturing, with new frameworks for multi-arm coordination, long-horizon language-guided manipulation, event-triggered memory, and efficient or transferable action experts.</li><li>RL and control advances target safer, more sample-efficient planning and control, from sparsemax STL robustness and metareasoning about compute budgets to whole-body loco-manipulation and adaptive vehicle control.</li><li>Mapping, localization, and SLAM see notable progress, including microscopic-precision localization, sonar-based full 6-DoF SLAM, and dynamic-scene SLAM leveraging motion-derived uncertainty.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>EPFL</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Blind Precise Assembly: Proprioceptive Sim-to-Real Peg-in-Hole for Diverse Parts</td><td>Massachusetts Institute of Technology</td><td>Demonstrates blind, contact-rich assembly policies that rely solely on joint proprioception, without vision or tactile/force sensing. RL-trained in simulation over many randomized assemblies, the policies transfer zero-shot to real robots, achieving 73% success on diverse peg insertions and generalizing better to unseen parts than matched visual policies.</td><td><a href="https://arxiv.org/abs/2610.23849">Link</a></td></tr>
+<tr><td>Foundation-Model-Driven 3D Scene Graphs for Mobile Manipulation</td><td>Massachusetts Institute of Technology</td><td>Integrates a foundation-model-driven 3D scene-graph system (FOUND-IT) into a mobile manipulator to serve as spatial memory for navigation and manipulation. On-robot experiments show support for change detection, multi-session mapping, path determination, and direct grasp execution for scene rearrangement, along with a detailed analysis of monocular 3D scene-graph limitations.</td><td><a href="https://arxiv.org/abs/2610.23622">Link</a></td></tr>
+<tr><td>Ego2Contact: Predicting Touch from Egocentric Human Video for Contact-Rich Robot Manipulation</td><td>Carnegie Mellon University</td><td>Learns a visual–tactile prior from human egocentric video and transfers it to robot hands to predict dense bimanual contact fields from RGB alone. The predictor, aligned via anatomical region correspondences, outperforms prior tactile predictors and enables policies that recover part of the performance of true tactile sensing in both simulated RL and real-robot post-training.</td><td><a href="https://arxiv.org/abs/2610.22932">Link</a></td></tr>
+<tr><td>Structured Perception Representations for Off-road Dynamics Learning</td><td>Carnegie Mellon University</td><td>Introduces SpatialBEV, which conditions off-road vehicle dynamics on local bird&#x27;s-eye-view perception features queried around predicted states. Across seasonal datasets and high-speed hardware trials, it cuts prediction error by 17.1% and maximum cross-track error by 25.3% compared to physics-based and learned baselines, improving aggressive off-road navigation.</td><td><a href="https://arxiv.org/abs/2610.22900">Link</a></td></tr>
+<tr><td>What Makes a Good Symbol for Hybrid Discrete-Continuous Planning?</td><td>Carnegie Mellon University</td><td>Defines &quot;solver-sufficient&quot; symbolic abstractions that expose the discrete commitments needed for efficient hybrid planning and proposes a counterexample-guided symbol-invention algorithm. Extends the concept to neural energy-based objectives, showing learned symbols can cut solving cost while preserving solution quality and improving interpretability in simulated and real-robot tasks.</td><td><a href="https://arxiv.org/abs/2610.23010">Link</a></td></tr>
+<tr><td>FCTS: Failure-Guided Curriculum Tree Search Over Generated Terrain for Legged Parkour</td><td>Carnegie Mellon University</td><td>Presents a failure-conditioned terrain curriculum that synthesizes new training terrains directly from localized traversal failures for quadruped parkour. Using MCTS to explore curriculum trees under a fixed budget, it boosts success from 28.4% to 85.8% on medium and 14.9% to 44.7% on hard construction-site courses, with demonstrated real-world transfer.</td><td><a href="https://arxiv.org/abs/2610.22619">Link</a></td></tr>
+<tr><td>Embodiment-Classifier Guidance: Transferring Frozen VLAs Across Robot Dynamics without Demonstrations</td><td>UC Berkeley</td><td>Adapts a frozen flow-matching VLA ($\pi_0$) to new robot embodiments using a lightweight embodiment classifier trained on a few calibration tasks, without new demonstrations or policy updates. Classifier gradients guide each denoising step toward target-body-successful actions, yielding a 31% relative reduction in failures across 12 LIBERO suite–controller pairs and suggesting a promising sim-to-real transfer mechanism.</td><td><a href="https://arxiv.org/abs/2610.22576">Link</a></td></tr>
+<tr><td>EmbodiedMidtrain: Bridging the Gap between Vision-Language Models and Vision-Language-Action Models via Mid-training</td><td>Carnegie Mellon University</td><td>Quantifies the distribution gap between generic VLM data and VLA training data, then introduces a mid-training data engine to select VLA-aligned VLM samples and mid-train the backbone before action fine-tuning. Across multiple VLMs and VLA heads, this mid-training consistently improves manipulation and navigation performance, including on tasks not used to select the data.</td><td><a href="https://arxiv.org/abs/2604.20012">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>TransNav: Transformer-Based End-to-End Navigation Method for Static and Dynamic Quadrotor Obstacle Avoidance</td><td></td><td>Proposes TransNav, an end-to-end transformer policy for quadrotor navigation that encodes point clouds into compact patch features and directly predicts finite-horizon action sequences. An unsupervised training scheme optimizes trajectory-level costs through a point-mass dynamics model, yielding strong obstacle avoidance in dense static and dynamic environments with low onboard inference cost.</td><td><a href="https://arxiv.org/abs/2610.23635">Link</a></td></tr>
+<tr><td>Embodiment-Aware Planning for Heterogeneous Bimanual Manipulation</td><td></td><td>Formulates execution of a single human-demonstrated object motion on a dual-arm robot with heterogeneous grippers (e.g., suction and parallel-jaw) as a finite-horizon optimization over arm-trajectory and handover assignments. The planner reasons over grasp feasibility, constraints, manipulability, and switching regularization, enabling tasks that are infeasible for any single gripper alone.</td><td><a href="https://arxiv.org/abs/2610.23551">Link</a></td></tr>
+<tr><td>Reinforcement Learning Based Multi-Terrain Adaptive Whole-Body Control for a Quadruped Manipulator</td><td>University of Tokyo</td><td>Introduces a reinforcement-learning whole-body control framework for a small quadruped equipped with a manipulator, coordinating locomotion and end-effector tasks via a hybrid task representation and task-prioritized learning. Real-world trials on slopes, stairs, and deformable terrain show terrain-adaptive loco-manipulation while maintaining task-consistent end-effector behavior.</td><td><a href="https://arxiv.org/abs/2610.23548">Link</a></td></tr>
+<tr><td>No Eyes, No Problem: What Does Touch Contribute to Blind Baoding Ball Manipulation?</td><td>University of Edinburgh</td><td>Studies blind in-hand Baoding ball manipulation on a Shadow Dexterous Hand Lite using only proprioception and binary tactile feedback, with RL policies trained in carefully randomized simulation. Through embodiment-aligned sim design and novel domain randomizations, the policy transfers zero-shot and achieves 225 consecutive 180° rotations without vision, setting a new hardware benchmark.</td><td><a href="https://arxiv.org/abs/2610.23438">Link</a></td></tr>
+<tr><td>SimpleVLN: Towards Simple and Frontier Vision-Language Navigation</td><td></td><td>Shows that native multimodal LLMs can perform strong vision–language navigation when paired with an architecture-preserving framework that uses fixed-budget global–local memory and action chunking. A progressive IL–DAgger–RL pipeline and large-scale synthesized tasks enable success rates up to 80.1% on RxR-CE, surpassing prior VLN methods without task-specific model changes.</td><td><a href="https://arxiv.org/abs/2610.23203">Link</a></td></tr>
+<tr><td>ORD-WM: Learning Object-Centric Rigid Dynamics for 3D World Modeling in Robotic Manipulation</td><td>Harbin Institute of Technology</td><td>Proposes an object-centric 3D world model where a vector-neuron VAE encodes each rigid object and an action-conditioned dynamics module predicts object-wise SE(3) increments. By analytically applying predicted rigid transforms rather than regenerating latents, ORD-WM preserves geometry over long rollouts and supports real-time MPC replanning in simulated and real manipulation.</td><td><a href="https://arxiv.org/abs/2610.23156">Link</a></td></tr>
+<tr><td>BeJEPA: A Goal-Conditioned Humanoid Behavior World Model via Unsupervised RL</td><td></td><td>Introduces BeJEPA, a JEPA-based world-action model that jointly embeds humanoid posture and world pose, with separate dynamic and successor predictors for one-step physical grounding and long-horizon goal conditioning. It significantly reduces global position error in 20 s tracking tasks and enables a Unitree G1 to attain posture and world-heading goals with disturbance recovery.</td><td><a href="https://arxiv.org/abs/2610.23127">Link</a></td></tr>
+<tr><td>GRASP: Global-Local Representation Alignment and Spatial-Physical Grounding for Bimanual Robotic Manipulation</td><td>Hong Kong Polytechnic University, Hong Kong SAR, China.; OWARobot Co. Ltd; Robot Co. Ltd, China.; WARobot Co. Ltd, China.; WARobot Co. Ltd, China. ffiliation:</td><td>Presents GRASP, a VLA framework for bimanual manipulation that injects physics-grounded priors via differentiable forward kinematics in the loss and distills global and local visual queries from DINO teachers. The resulting joint-space flow policy better aligns errors with task-space consequences and focuses attention on hand–object regions, improving long-horizon bimanual performance in sim and on hardware.</td><td><a href="https://arxiv.org/abs/2610.23123">Link</a></td></tr>
+<tr><td>Bio-Inspired Magnetic Navigation Using Gradient Descent With Rao-Blackwellized Particle Filtering</td><td></td><td>Proposes a bio-inspired magnetic navigation method that forgoes pre-built magnetic maps, instead estimating local field gradients via a Rao-Blackwellized particle filter and following them to the goal. This yields a simple, memory-efficient navigation strategy suitable for GPS-denied environments where conventional magnetic mapping is impractical.</td><td><a href="https://arxiv.org/abs/2610.23097">Link</a></td></tr>
+<tr><td>VLA-Fabric: Learning Interaction for Composable Multi-Arm VLA Agents</td><td>Hong Kong University of Science and Technology</td><td>Introduces VLA-Fabric, which composes one full VLA policy per arm and enables explicit inter-policy interaction at shared-context, latent, and action stages. Experiments with 3–4-arm teams in simulation and on real robots show 16–40 percentage point gains over independently trained local policies, indicating that learned VLA-to-VLA coordination scales multi-arm manipulation.</td><td><a href="https://arxiv.org/abs/2610.23018">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
