@@ -1,0 +1,71 @@
+import json
+import tempfile
+import unittest
+from pathlib import Path
+from unittest.mock import patch
+
+import httpx2
+import yaml
+from bs4 import BeautifulSoup
+from openai import OpenAI
+
+from daily_robotics_briefing.collector import Paper
+from daily_robotics_briefing.main import main
+from daily_robotics_briefing.response_schemas import ClassificationOutput, ExecutiveOutput, OverviewOutput
+from test_briefing_agent import ModelStub
+
+
+class MainTests(unittest.TestCase):
+    def test_cli_writes_complete_reports_with_sdk_and_affiliation_statuses(self):
+        model = ModelStub()
+        schemas = {schema.__name__: schema for schema in (ClassificationOutput, OverviewOutput, ExecutiveOutput)}
+        def handler(request):
+            body = json.loads(request.content)
+            schema = schemas[body['text']['format']['name']]
+            payload = json.loads(body['input'][1]['content'])
+            text = model(None, body['model'], '', payload, 'low', schema, body['max_output_tokens'])
+            return httpx2.Response(200, json={
+                'id': 'resp_offline', 'object': 'response', 'created_at': 0,
+                'status': 'completed', 'model': body['model'],
+                'output': [{'id': 'msg_offline', 'type': 'message', 'role': 'assistant',
+                            'status': 'completed', 'content': [
+                                {'type': 'output_text', 'text': text, 'annotations': []}
+                            ]}],
+            })
+        client = OpenAI(api_key='offline-test', http_client=httpx2.Client(transport=httpx2.MockTransport(handler)))
+        papers = []
+        for pid, text, status in [('a-unknown', '', 'unknown'), ('nonmatch', 'Tsinghua University', 'extracted'),
+                                  ('late-match', 'EPFL', 'extracted')]:
+            papers.append(Paper(pid, 'Robotics paper', ['Jane Doe'], 'cs.RO',
+                                'The authors report 73% success on real robots for manipulation.',
+                                f'https://arxiv.org/abs/{pid}', f'https://arxiv.org/pdf/{pid}',
+                                affiliation_text=text, affiliation_status=status,
+                                affiliation_source='html' if text else 'none'))
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            config = root / 'filters.yaml'
+            config.write_text(yaml.safe_dump({'institutions': ['EPFL'], 'topics': ['manipulation'],
+                                             'max_papers_for_llm': 1, 'max_topic_matches': 1}))
+            paths = [root/'briefing.md', root/'briefing.json', root/'briefing.html', root/'index.html']
+            argv = ['briefing', '--filters', str(config), '--submission-date', '2026-10-20']
+            for flag, path in zip(['--out', '--out-json', '--out-html', '--dashboard-out'], paths):
+                argv += [flag, str(path)]
+            with patch('sys.argv', argv), patch('daily_robotics_briefing.main.fetch_csro_recent', return_value=papers), patch(
+                'daily_robotics_briefing.briefing_agent.OpenAI', return_value=client
+            ):
+                main()
+            self.assertTrue(all(p.stat().st_size > 100 for p in paths))
+            result = json.loads(paths[1].read_text())
+            self.assertEqual((result['papers_fetched'], result['papers_analyzed']), (3, 3))
+            self.assertEqual(result['affiliation_coverage'], {'matched': 1, 'no_match': 1, 'unknown': 1})
+            self.assertEqual([p['paper_id'] for p in result['briefing']['institution_matches']], ['late-match'])
+            self.assertEqual(result['briefing']['topic_matches'][0]['institution'], 'Unknown affiliation')
+            self.assertEqual(len([s for s, _ in model.calls if s is ClassificationOutput]), 3)
+            html = BeautifulSoup(paths[2].read_text(), 'html.parser')
+            self.assertIn('1 unknown', html.get_text())
+            self.assertTrue(html.select('li a[href="https://arxiv.org/abs/late-match"]'))
+            self.assertIn('[late-match](https://arxiv.org/abs/late-match)', paths[0].read_text())
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -57,7 +57,8 @@ topics:
   - visual navigation
   - SLAM
 
-# Optional hard limits to control token usage and runtime.
+# Collection limit, request batch sizes, and the final topic reading-list limit.
 max_papers: 400
-max_papers_for_llm: 120
+classification_batch_size: 25
+summary_batch_size: 10
 max_topic_matches: 10

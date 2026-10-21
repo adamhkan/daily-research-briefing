@@ -1,0 +1,44 @@
+"""Strict output contracts for the three model tasks."""
+
+from typing import Literal
+
+from pydantic import BaseModel, ConfigDict, Field
+
+
+class StrictOutput(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+
+
+class Classification(StrictOutput):
+    paper_id: str
+    topic_relevance: Literal[0, 1, 2, 3]
+    contribution_score: Literal[0, 1, 2, 3]
+    rationale: str
+    evidence_quote: str
+
+
+class ClassificationOutput(StrictOutput):
+    papers: list[Classification]
+
+
+class GroundedClaim(StrictOutput):
+    claim: str = Field(min_length=1)
+    evidence_quote: str = Field(min_length=1)
+
+
+class PaperOverview(StrictOutput):
+    paper_id: str
+    claims: list[GroundedClaim] = Field(min_length=1, max_length=3)
+
+
+class OverviewOutput(StrictOutput):
+    papers: list[PaperOverview]
+
+
+class SummaryBullet(StrictOutput):
+    text: str = Field(min_length=1)
+    paper_ids: list[str] = Field(min_length=1)
+
+
+class ExecutiveOutput(StrictOutput):
+    bullets: list[SummaryBullet] = Field(min_length=1, max_length=6)

@@ -6,13 +6,13 @@ This repository contains an AI agent that runs on GitHub Actions and produces a 
 
 1. Fetches papers from https://arxiv.org/list/cs.RO/recent?skip=0&show=2000.
 2. Selects only papers submitted on the day before the run date in US Eastern time (EST/EDT, "yesterday" by default).
-3. Collects title, authors, abstract, subjects, links, and first-page PDF text (locally scraped).
-4. Applies deterministic institution extraction on first-page PDF text to map author affiliations from your institution allow-list (including aliases).
-5. Calls the OpenAI API (default model: `gpt-5.1`) in two stages: first to classify topic relevance with structured JSON output, then to synthesize the final briefing from selected papers.
+3. Collects title, authors, full abstract, subjects, links, and HTML author affiliations, with a first-page PDF fallback when HTML affiliation data is missing.
+4. Applies deterministic institution matching, retaining extraction source, failures, and an explicit unknown status when affiliations cannot be extracted.
+5. Calls the OpenAI Responses API (default model: `gpt-5.1`) with strict JSON schemas: classify all fetched papers in batches, write evidence-backed overviews for the selected papers, then summarize only those displayed papers.
 6. Synthesizes:
    - only the filter-matched papers
    - key findings and trends
-   - a compact "what to read first" section
+   - ranked topic matches and an executive summary with links to supporting papers
 7. Saves outputs under `reports/` as:
    - structured JSON (`YYYY-MM-DD/YYYY-MM-DD.json`)
    - markdown report (`YYYY-MM-DD/YYYY-MM-DD.md`)
@@ -82,7 +82,27 @@ The daily workflow uploads `reports/` as the Pages artifact, so `reports/index.h
 
 ## Notes on institution filtering
 
-arXiv metadata often does not include author affiliation. This project now performs institution extraction deterministically from first-page PDF text. It parses affiliation lines, matches configured aliases to canonical institution names, records paper-level and author-level institutions, and forwards only structured institution results plus metadata/abstracts to the LLM for reporting.
+The collector first checks HTML author notes, affiliation elements, and citation metadata. When these do not identify an affiliation, it downloads up to 20 MiB of the PDF and extracts affiliation lines from the first-page header and explicit affiliation footnotes. Mentions in the abstract/body are excluded from the PDF fallback. This conservative extraction can still miss affiliations; scanned PDFs are not OCRed.
+
+Each paper records `affiliation_source`, `affiliation_status`, `affiliation_issues`, and `institution_match_status` (`matched`, `no_match`, or `unknown`). An unknown affiliation is not evidence that a paper is outside your institution filters. Reports show the extraction coverage, and missing affiliations are labeled explicitly. Network and extraction failures are logged rather than silently presented as confirmed nonmatches.
+
+## Selection, grounding, and cost controls
+
+Every fetched paper is classified using its full abstract. `classification_batch_size` (default 25) limits papers per classification request, not total coverage. The legacy `max_papers_for_llm` setting is accepted as a batch-size fallback capped at 25; it no longer drops papers. `max_papers` still caps collection (default 400), with a warning when the listing exceeds that limit.
+
+Code preserves all institution matches, then selects up to `max_topic_matches` additional papers (default 10). Topics are ranked by relevance (0–3), then an evidence-based contribution score (0–3), then paper ID for deterministic ties. The contribution score favors explicit comparative evaluation, real-robot validation, or demonstrated generalization; it is a model judgment, not an independent quality assessment. Overviews are generated only for that final reading list, in batches controlled by `summary_batch_size` (default 10). Institutions, titles, URLs, and section membership come from collected records.
+
+Each overview claim retains a verbatim abstract quote in the JSON report. Quotes are checked against the source, and numerical values must occur in the supporting quote. The executive summary is generated from displayed overviews only, retains supporting paper IDs, checks numbers against cited summaries, and renders links to those papers. Prompts require author-reported phrasing and preserve simulation/hardware distinctions and caveats. These checks improve grounding; they do not independently verify experimental claims or prove every paraphrase is correct.
+
+Missing, duplicate, or unexpected classification/overview IDs and malformed structured outputs trigger one repair attempt, then fail the run before reports are written. Requests have explicit output-token limits and low reasoning effort. Model pricing per token is unchanged, but total usage can vary with paper volume, full abstracts, evidence output, and repairs. No extra API calls are made for summaries when no papers qualify.
+
+Run the offline regression suite with:
+
+```bash
+PYTHONPATH=src python -m unittest discover -s tests -v
+```
+
+Tests exercise real SDK request serialization through a simulated HTTP transport, PDF parsing, ranking, grounding checks, and CLI report generation without paid API calls. The daily workflow runs these tests before generating the briefing.
 
 ## Example output sections
 

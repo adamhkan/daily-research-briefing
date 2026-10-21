@@ -1,7 +1,10 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+import logging
+import re
+from dataclasses import asdict, dataclass, field
 from datetime import date, datetime, timedelta
+from io import BytesIO
 from typing import Any
 from urllib.parse import urljoin
 
@@ -9,10 +12,14 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from bs4 import BeautifulSoup
+from pypdf import PdfReader
+from pypdf.errors import PyPdfError
 
 from .time_utils import eastern_today
 
 ARXIV_URL = "https://arxiv.org/list/cs.RO/recent?skip=0&show=2000"
+logger = logging.getLogger(__name__)
+MAX_PDF_BYTES = 20 * 1024 * 1024
 
 
 def _build_session() -> requests.Session:
@@ -41,6 +48,10 @@ class Paper:
     html_url: str = ""
     html_author_notes_text: str = ""
     html_author_institutions: list[str] | None = None
+    affiliation_text: str = ""
+    affiliation_source: str = "none"
+    affiliation_status: str = "unknown"
+    affiliation_issues: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -81,8 +92,8 @@ def _extract_html_url(soup: BeautifulSoup, abs_url: str) -> str:
 
 
 def _looks_like_affiliation_note(line: str) -> bool:
-    lowered = line.lower()
-    if "@" in line or "corresponding author" in lowered or "equal contribution" in lowered:
+    lowered = re.sub(r"\S+@\S+", "", line.lower())
+    if "corresponding author" in lowered or "equal contribution" in lowered:
         return False
     institution_markers = (
         "university",
@@ -99,8 +110,16 @@ def _looks_like_affiliation_note(line: str) -> bool:
         "corp",
         "inc",
         "ltd",
+        "école",
+        "ecole",
+        "polytechnique",
+        "université",
+        "universität",
+        "universidad",
     )
-    return any(marker in lowered for marker in institution_markers)
+    return any(re.search(rf"\b{marker}\b", lowered) for marker in institution_markers) or bool(
+        re.search(r"\b(epfl|eth|mit|cmu|ucsd|ucla|inria|nvidia|kaist)\b", lowered)
+    )
 
 
 def _parse_author_institutions_from_notes(notes_text: str) -> list[str]:
@@ -119,23 +138,90 @@ def _parse_author_institutions_from_notes(notes_text: str) -> list[str]:
     return unique
 
 
-def _fetch_html_author_metadata(html_url: str, timeout: int, session: requests.Session | None = None) -> tuple[str, list[str]]:
+def _fetch_html_author_metadata(
+    html_url: str, timeout: int, session: requests.Session,
+    issues: list[str],
+) -> str:
     if not html_url:
-        return "", []
+        issues.append("html_link_missing")
+        return ""
     try:
-        http = session or _build_session()
-        resp = http.get(html_url, timeout=timeout)
+        resp = session.get(html_url, timeout=timeout)
         resp.raise_for_status()
     except requests.RequestException:
-        return "", []
+        issues.append("html_fetch_failed")
+        return ""
 
     soup = BeautifulSoup(resp.text, "html.parser")
-    notes_node = soup.select_one(".ltx_author_notes")
-    if not notes_node:
-        return "", []
+    nodes = soup.select(".ltx_author_notes, .ltx_affiliation, .ltx_authors .ltx_role_affiliation")
+    texts = [node.get_text("\n", strip=True) for node in nodes]
+    texts.extend(str(node.get("content", "")) for node in soup.select('meta[name="citation_author_institution"]'))
+    notes_text = "\n".join(dict.fromkeys(text for text in texts if text))
+    if not _parse_author_institutions_from_notes(notes_text):
+        issues.append("html_affiliation_missing")
+    return notes_text
 
-    notes_text = notes_node.get_text("\n", strip=True)
-    return notes_text, _parse_author_institutions_from_notes(notes_text)
+
+def _pdf_affiliation_text(text: str) -> str:
+    # Keep the header and explicit affiliation footnotes, never a whole-page alias
+    # scan that could mistake a university mentioned in the abstract for an author.
+    lines = text.splitlines()
+    candidates: list[str] = []
+    in_body = False
+    for line in lines:
+        if re.match(r"\s*(?:abstract\b|(?:1\.?|I\.?)\s+introduction\b)", line, re.I):
+            in_body = True
+        if in_body:
+            if not _looks_like_affiliation_note(line):
+                continue
+            if re.search(r"\b(we|our|propose|present|supported|funded|acknowledg\w*)\b", line, re.I):
+                continue
+            if not re.search(r"(?:authors? (?:is|are) with|department of|^\s*[*†‡\d]+\s*\w)", line, re.I):
+                continue
+        if _looks_like_affiliation_note(line):
+            candidates.append(line.strip())
+    return "\n".join(candidates)
+
+
+def _fetch_pdf_affiliations(pdf_url: str, timeout: int, session: requests.Session, issues: list[str]) -> str:
+    try:
+        with session.get(pdf_url, timeout=timeout, stream=True) as resp:
+            resp.raise_for_status()
+            content = bytearray()
+            for chunk in resp.iter_content(chunk_size=65536):
+                content.extend(chunk)
+                if len(content) > MAX_PDF_BYTES:
+                    issues.append("pdf_too_large")
+                    return ""
+        reader = PdfReader(BytesIO(content))
+        text = reader.pages[0].extract_text() if reader.pages else ""
+        affiliations = _pdf_affiliation_text(text or "")
+        if not affiliations:
+            issues.append("pdf_affiliation_missing")
+        return affiliations
+    except requests.RequestException:
+        issues.append("pdf_fetch_failed")
+    except (PyPdfError, ValueError, OSError, IndexError, KeyError):
+        issues.append("pdf_unreadable")
+    return ""
+
+
+def _enrich_affiliations(paper: Paper, timeout: int, session: requests.Session) -> None:
+    issues = paper.affiliation_issues
+    notes = _fetch_html_author_metadata(paper.html_url, timeout, session, issues)
+    paper.html_author_notes_text = notes
+    paper.html_author_institutions = _parse_author_institutions_from_notes(notes)
+    if paper.html_author_institutions:
+        paper.affiliation_text = notes
+        paper.affiliation_source = "html"
+    else:
+        paper.affiliation_text = _fetch_pdf_affiliations(paper.pdf_url, timeout, session, issues)
+        if paper.affiliation_text:
+            paper.affiliation_source = "pdf"
+    if paper.affiliation_text:
+        paper.affiliation_status = "extracted"
+    else:
+        logger.warning("Affiliation unknown for %s (%s)", paper.arxiv_id, ", ".join(issues))
 
 
 def _parse_arxiv_list_header_date(header_text: str) -> date | None:
@@ -214,21 +300,19 @@ def fetch_csro_recent(
     session = _build_session()
     resp = session.get(ARXIV_URL, timeout=timeout)
     resp.raise_for_status()
-    paper_refs = _collect_abs_urls_for_date(resp.text, target_date=target_date)[:max_papers]
+    all_refs = _collect_abs_urls_for_date(resp.text, target_date=target_date)
+    if len(all_refs) > max_papers:
+        logger.warning("Collection capped at %s of %s listed papers", max_papers, len(all_refs))
+    paper_refs = all_refs[:max_papers]
 
     papers: list[Paper] = []
     for arxiv_id, abs_url, pdf_url in paper_refs:
         try:
             p = _fetch_abs_page(arxiv_id, abs_url, pdf_url, timeout=timeout, session=session)
-            notes_text, institutions = _fetch_html_author_metadata(
-                html_url=p.html_url,
-                timeout=timeout,
-                session=session,
-            )
-            p.html_author_notes_text = notes_text
-            p.html_author_institutions = institutions
+            _enrich_affiliations(p, timeout, session)
             papers.append(p)
         except requests.RequestException:
+            logger.warning("Could not collect abstract for %s", arxiv_id)
             continue
 
     return papers

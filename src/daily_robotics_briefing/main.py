@@ -77,8 +77,15 @@ def main() -> None:
     configured_institution_set = set(canonical_from_config)
     topics = _normalize_string_list(cfg.get("topics", []))
     max_papers = int(cfg.get("max_papers", 400))
-    max_papers_for_llm = int(cfg.get("max_papers_for_llm", 120))
+    # The old total LLM cap is now a batch-size fallback, never a coverage limit.
+    classification_batch_size = (
+        int(cfg["classification_batch_size"]) if "classification_batch_size" in cfg
+        else min(int(cfg.get("max_papers_for_llm", 25)), 25)
+    )
+    summary_batch_size = int(cfg.get("summary_batch_size", 10))
     max_topic_matches = int(cfg.get("max_topic_matches", 10))
+    if min(max_papers, classification_batch_size, summary_batch_size) < 1 or max_topic_matches < 0:
+        raise ValueError("Collection and batch limits must be positive; max_topic_matches must be nonnegative")
 
     papers = fetch_csro_recent(max_papers=max_papers, submission_date=submission_date)
 
@@ -94,7 +101,7 @@ def main() -> None:
         record = paper.to_dict()
         institution_result = extract_institutions_for_paper(
             author_names=record["authors"],
-            source_text=record.get("html_author_notes_text", ""),
+            source_text=record.get("affiliation_text", ""),
             institution_specs=institution_specs,
         )
         extraction_dict = institution_result.to_dict()
@@ -108,24 +115,32 @@ def main() -> None:
         extraction_dict["filter_match"] = bool(filtered_matches)
         extraction_dict["filter_match_institutions"] = filtered_matches
         record["manual_institution_extraction"] = extraction_dict
-        record["abstract_for_prompt"] = " ".join(record["abstract"].split())[:500]
+        record["institution_match_status"] = (
+            "matched" if filtered_matches else
+            "no_match" if record.get("affiliation_status") == "extracted" else "unknown"
+        )
         all_papers.append(record)
-    papers_for_llm = all_papers[:max_papers_for_llm]
 
     result = create_daily_briefing(
-        papers=papers_for_llm,
+        papers=all_papers,
         institutions=institutions,
         topics=topics,
         submission_date=submission_date,
         model=args.model,
         max_topic_matches=max_topic_matches,
+        classification_batch_size=classification_batch_size,
+        summary_batch_size=summary_batch_size,
     )
     result["filters"] = {
         "institutions": institutions,
         "topics": topics,
     }
     result["papers_fetched"] = len(all_papers)
-    result["papers_analyzed"] = len(papers_for_llm)
+    result["papers_analyzed"] = len(all_papers)
+    result["affiliation_coverage"] = {
+        status: sum(p["institution_match_status"] == status for p in all_papers)
+        for status in ("matched", "no_match", "unknown")
+    }
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out_json.parent.mkdir(parents=True, exist_ok=True)
@@ -138,6 +153,7 @@ def main() -> None:
         submission_date=submission_date,
         papers_fetched=int(result.get("papers_fetched", 0)),
         papers_analyzed=int(result.get("papers_analyzed", 0)),
+        affiliation_coverage=result["affiliation_coverage"],
     )
     html_output = render_html(
         briefing=result["briefing"],
@@ -146,6 +162,7 @@ def main() -> None:
         submission_date=submission_date,
         papers_fetched=int(result.get("papers_fetched", 0)),
         papers_analyzed=int(result.get("papers_analyzed", 0)),
+        affiliation_coverage=result["affiliation_coverage"],
     )
 
     args.out.write_text(markdown_output, encoding="utf-8")

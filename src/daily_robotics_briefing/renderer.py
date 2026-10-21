@@ -6,6 +6,29 @@ from pathlib import Path
 import json
 
 
+def _executive_items(briefing: dict, *, html: bool = False) -> list[str]:
+    rows = briefing.get("institution_matches", []) + briefing.get("topic_matches", [])
+    links = {row["paper_id"]: row["link"] for row in rows}
+    evidence = briefing.get("executive_summary_evidence", [])
+    items = []
+    for index, text in enumerate(briefing.get("executive_summary", [])):
+        citations = []
+        source = evidence[index] if index < len(evidence) else {}
+        paper_ids = source.get("paper_ids", []) if source.get("text") == text else []
+        for pid in paper_ids:
+            if pid not in links:
+                continue
+            if html:
+                citations.append(f'<a href="{escape(links[pid], quote=True)}">{escape(pid)}</a>')
+            else:
+                citations.append(f'[{pid}]({links[pid]})')
+        item = escape(text) if html else text
+        if citations:
+            item += " (" + "; ".join(citations) + ")"
+        items.append(item)
+    return items
+
+
 def _institution_table_rows(rows: list[dict[str, str]]) -> str:
     if not rows:
         return "| _No matches_ |  |  |  |"
@@ -45,8 +68,9 @@ def render_markdown(
     submission_date: date,
     papers_fetched: int,
     papers_analyzed: int,
+    affiliation_coverage: dict[str, int] | None = None,
 ) -> str:
-    summary = briefing.get("executive_summary", [])
+    summary = _executive_items(briefing)
     institution_rows = briefing.get("institution_matches", [])
     topic_rows = briefing.get("topic_matches", [])
 
@@ -54,11 +78,19 @@ def render_markdown(
     institution_filters = "; ".join(matched_institutions) if matched_institutions else "(none)"
     topic_filters = "; ".join(matched_topics) if matched_topics else "(none)"
 
+    coverage = ""
+    if affiliation_coverage is not None:
+        coverage = (
+            f"Affiliations: **{affiliation_coverage['matched']} matched**, "
+            f"**{affiliation_coverage['no_match']} extracted without a filter match**, "
+            f"**{affiliation_coverage['unknown']} unknown**.\n\n"
+        )
     return (
         "# Daily Robotics Briefing\n\n"
         f"Submission date covered: **{submission_date.isoformat()}**\n"
         f"Papers fetched: **{papers_fetched}**\n"
         f"Papers analyzed: **{papers_analyzed}**\n\n"
+        f"{coverage}"
         "## Filters Used\n\n"
         f"- Institution filters: {institution_filters}\n"
         f"- Topic filters: {topic_filters}\n\n"
@@ -116,15 +148,23 @@ def render_html(
     submission_date: date,
     papers_fetched: int,
     papers_analyzed: int,
+    affiliation_coverage: dict[str, int] | None = None,
 ) -> str:
-    summary = briefing.get("executive_summary", [])
-    summary_html = "".join(f"<li>{escape(str(line))}</li>" for line in summary) or "<li>No papers matched.</li>"
+    summary = _executive_items(briefing, html=True)
+    summary_html = "".join(f"<li>{line}</li>" for line in summary) or "<li>No papers matched.</li>"
     institution_filters = matched_institutions or ["(none)"]
     topic_filters = matched_topics or ["(none)"]
     institution_filter_html = "".join(f"<li>{escape(item)}</li>" for item in institution_filters)
     topic_filter_html = "".join(f"<li>{escape(item)}</li>" for item in topic_filters)
     institution_html = _render_html_rows(briefing.get("institution_matches", []))
     topic_html = _render_topic_html_rows(briefing.get("topic_matches", []))
+    coverage_html = ""
+    if affiliation_coverage is not None:
+        coverage_html = (
+            f"<p>Affiliations: {affiliation_coverage['matched']} matched; "
+            f"{affiliation_coverage['no_match']} extracted without a filter match; "
+            f"{affiliation_coverage['unknown']} unknown.</p>"
+        )
 
     return f"""<!doctype html>
 <html lang="en">
@@ -183,6 +223,7 @@ def render_html(
         <div class="card">Papers fetched: <strong>{papers_fetched}</strong></div>
         <div class="card">Papers analyzed: <strong>{papers_analyzed}</strong></div>
       </div>
+      {coverage_html}
     </section>
 
     <section class="section">
