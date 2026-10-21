@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-10-20</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-10-20</p>
+      <div class="stats">
+        <div class="card">Papers fetched: <strong>160</strong></div>
+        <div class="card">Papers analyzed: <strong>150</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>Long-horizon manipulation and rearrangement see multiple planning advances, from tree-search distillation in continuous action spaces (DISCO) to latent and visual-subgoal world models that reliably execute multi-step tasks in real and simulated settings.</li><li>Humanoid loco-manipulation and whole-body control are pushed forward via hierarchical VLA and latent-planning frameworks (SWAP, FIBER, HAF-VLA, DUET, Humanoid SRL), with several results validated on Unitree G1 hardware.</li><li>Vision-language(-action) foundations continue to expand in scale and robustness for manipulation and navigation, with structured reasoning primitives (PhysWord), temporal/action efficiency (PaceVLA, VLA-Rolling, SPAR, AutoPruner, CondenseVLA), and improved robustness to perturbations and depth noise (PICA-WAM, NISE, LIBERO-Pro2.0/Dynamic).</li><li>Dexterous and contact-rich manipulation gain new large-scale benchmarks (HandsOn, BiDex-100, T(R,O) Grasp++, ContactBench, HandsOn/Gen2Dex/DexOAK) and methods that leverage visuo-tactile feedback and human data for world modeling and retargeting.</li><li>Navigation, mapping, and motion planning receive GPU-accelerated, safety-certified, and monocular or egocentric solutions (FLASH-CBF-RRT, GOFusion, SpaRV, ESCAPE, InJEPA, ScaleNav, ChairNav), including multi-robot and social settings with uncertainty and reactivity (CoopUQ, RCRA, CAOS-SLAM).</li><li>Fleet and lifelong learning paradigms (CEL, SARAM, TILDE, PGPG) and value/feedback modeling benchmarks (RoboValue, PhysRSI-eval) target scalable deployment, alignment, and evaluation of foundation-model-based robot policies.</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>EPFL</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Long-Horizon Multi-Object Rearrangement via Distilled Tree Search over Continuous Actions</td><td>Carnegie Mellon University; Stanford University</td><td>DISCO combines progressive-widening MCTS in physics simulation with a learned continuous policy-value model, periodically distilling search-generated plans back into the network. The final policy executes long-horizon multi-object rearrangement without test-time search, outperforming behavior cloning, RL, and search baselines in simulation and on real robots.</td><td><a href="https://arxiv.org/abs/2610.25785">Link</a></td></tr>
+<tr><td>SWAP: Test-Time Steerable Humanoid Whole-Body Collision Avoidance</td><td>Carnegie Mellon University</td><td>SWAP uses a hierarchical architecture where a perception-conditioned diffusion policy proposes collision-aware whole-body motions for a humanoid, and a low-level RL controller maintains dynamic stability. Hindsight-labeled supervision and Monte Carlo test-time steering enable safe, customizable avoidance in clutter on a Unitree G1.</td><td><a href="https://arxiv.org/abs/2610.25711">Link</a></td></tr>
+<tr><td>Vector-Quantized World Model: Latent Feedback Motion Planning for Robot Manipulation</td><td>New York University</td><td>VQ-WM discretizes latent states with a vector-quantized world model and plans over them using a first-passage-time quasi-metric aligned with the controller&#x27;s capabilities. A continuous visual feedback controller then tracks the planned latent waypoints, achieving 100% success on physical Tower of Hanoi and large gains over prior world models in diverse benchmarks.</td><td><a href="https://arxiv.org/abs/2610.25600">Link</a></td></tr>
+<tr><td>CusADi2: Latency-Optimized Batch Computation of Robot Kinematics, Jacobians, and Hessians on the GPU</td><td>UC Berkeley</td><td>CusADi2 is a GPU library that parallelizes both across batch instances and within each instance to accelerate evaluations of forward kinematics, Jacobians, and Hessians. Benchmarks on 67 MuJoCo Menagerie robots show substantially lower batch-evaluation latency than MuJoCo XLA/Warp, frax, CusADi, and CasADi, enabling faster sampling-based control and trajectory optimization.</td><td><a href="https://arxiv.org/abs/2610.25476">Link</a></td></tr>
+<tr><td>Dream What I Can: Sparse Visual Planning for Long-Horizon Robot Manipulation</td><td>Stanford University</td><td>DreamCan turns pre-trained video models into high-level planners that output sparse visual subgoals, while a learned low-level visuomotor policy executes between them. Subgoal utilities and reachability are estimated from offline action-free videos via dynamic programming, yielding strong performance on LIBERO-Long and real bimanual tasks like box folding and packing.</td><td><a href="https://arxiv.org/abs/2610.24981">Link</a></td></tr>
+<tr><td>Action-Aligned Latent Planning for Versatile Humanoid Loco-Manipulation</td><td>Carnegie Mellon University; Stanford University</td><td>FIBER uses the executable latent space of a behavioral foundation model as a shared representation for diverse humanoid loco-manipulation skills, projecting task policies into latent commands that preserve local feedback. An adaptive-horizon BFM and offline training over aggregated latent rollouts yield a unified perceptive planner that substantially outperforms kinematic and latent-replay baselines.</td><td><a href="https://arxiv.org/abs/2610.24675">Link</a></td></tr>
+<tr><td>ACTS: Learning Visuo-Tactile World Models from Human Physical Interaction</td><td>Massachusetts Institute of Technology; University of Washington</td><td>ACTS trains a visuo-tactile world model solely on human-operated GelSight interactions, predicting future scene, wrist, and tactile observations from motion-plus-force actions. Without robot data, it transfers contact dynamics to robot teleoperation rollouts, suggesting that human-collected visuo-tactile data can supervise contact-rich manipulation models.</td><td><a href="https://arxiv.org/abs/2610.24285">Link</a></td></tr>
+<tr><td>FLASH-CBF-RRT: Fast Lipschitz-Adaptive Safe Horizon CBF Steering for Certified Motion Planning</td><td>UC San Diego</td><td>FLASH-CBF-RRT accelerates control-barrier-function-based steering within RRT-Connect by computing adaptive safe horizons that allow larger steps in free space and smaller ones near obstacles. Across 689 MotionBenchMaker problems and 17-DoF mobile-manipulator hardware, it matches RRT-Connect’s success while running up to ~3.8× faster than fixed-step CBF-RRT.</td><td><a href="https://arxiv.org/abs/2610.24149">Link</a></td></tr>
+<tr><td>Ropedia W0: Scaling Loco-Manipulation World Models across Embodiments with Human Experience</td><td>UC San Diego</td><td>Ropedia W0 is a foundation-scale egocentric loco-manipulation world model trained on 10k hours of human and 3k hours of robot data with unified annotations and kinematic representations. It achieves SOTA across five cross-embodiment benchmarks and, after distillation, enables real-time minute-long rollouts for tasks like policy evaluation and model-based planning.</td><td><a href="https://arxiv.org/abs/2610.26855">Link</a></td></tr>
+<tr><td>CLARO: Clutter Aware Robot Orchestrator for Open-Vocabulary Grasping using VLM Agents</td><td>New York University</td><td>CLARO is a VLM-based orchestrator that chains open-vocabulary detection, segmentation, grasping, and pushing skills to find and retrieve language-specified targets in heavy clutter. With action memory and skill-agnostic 6-DoF targets, it reaches ~89% success in simulation and ~89% on real arms, outperforming competing open-vocabulary grasping agents.</td><td><a href="https://arxiv.org/abs/2610.24016">Link</a></td></tr>
+<tr><td>CoopUQ: Robust Multi-Robot Social Navigation via Uncertainty-Aware Cooperative Forecasting</td><td>Georgia Institute of Technology; University of California, Riverside; University of Michigan</td><td>CoopUQ fuses spatiotemporal features across multiple robots to forecast occupancy maps with uncertainty estimates, then feeds these into a constrained multi-agent RL policy that avoids predicted or uncertain regions. In Unity simulations and real-robot trials, it improves safety and efficiency over single-robot and non-uncertainty-aware baselines, especially under occlusions and OOD conditions.</td><td><a href="https://arxiv.org/abs/2610.26852">Link</a></td></tr>
+<tr><td>HandsOn: A Large-Scale Simulation Benchmark for Generalizable Dexterous Manipulation</td><td>Tsinghua University</td><td>HandsOn provides a comprehensive dexterous manipulation benchmark with 5 arms, 6 hands, ~200 objects, and 66 tasks split across core execution and transfer/generalization settings. With 18k human demos and real-robot rollouts, it exposes significant gaps in current diffusion, VLA, and VLM-based methods, whose best multi-task success remains under 30% on Core-50.</td><td><a href="https://arxiv.org/abs/2610.26765">Link</a></td></tr>
+<tr><td>DexOAK: Object-Aware Kinematic Retargeting</td><td>INRIA</td><td>DexOAK retargets human-hand motion to robot hands by optimizing a joint hand–object graph to preserve interaction geometry, then amortizing this mapping with a neural network fine-tuned under contact and collision losses. It improves dynamic retargeting success and geometric accuracy on OakInk-v2 and ARCTIC and transfers zero-shot across datasets and to hardware.</td><td><a href="https://arxiv.org/abs/2610.26762">Link</a></td></tr>
+<tr><td>Robot Learning with Vision-Language-Action Models for Agricultural Manipulation</td><td></td><td>Using a MuJoCo-based tomato environment, this work adapts Octo and π₀.₅ VLA policies to agricultural reaching and grasping via joystick teleoperation in simulation, followed by fine-tuning with limited real-robot demos. π₀.₅ shows better robustness to viewpoint and spatial shifts, demonstrating the feasibility of leveraging generalist VLAs for agricultural manipulation tasks.</td><td><a href="https://arxiv.org/abs/2610.26717">Link</a></td></tr>
+<tr><td>HAF-VLA: Hierarchical Action Flow Framework for Humanoid Vision-Language-Action Control</td><td></td><td>HAF-VLA refactors a pretrained flow-matching VLA into staged whole-body action generation, first producing locomotion/head commands, then waist refinement, then manipulation, with cross-stage KV-cache conditioning. On real humanoid loco-manipulation tasks, this hierarchical refinement significantly improves stability and task success over monolithic VLA control.</td><td><a href="https://arxiv.org/abs/2610.26584">Link</a></td></tr>
+<tr><td>Learning Geometry-Aware Planning Representations for Monocular Flight with Cross-Modal Supervision</td><td></td><td>The authors distill planning-relevant features from a depth-based expert into a monocular RGB planner using paired RGB-D observations and cross-modal feature supervision. Combined with 3DGS-based data generation, the resulting monocular planner enables high-speed MAV obstacle avoidance up to 6.5 m/s in real environments without real-world fine-tuning.</td><td><a href="https://arxiv.org/abs/2610.26508">Link</a></td></tr>
+<tr><td>Vision as Proprioception: Estimating Humanoid Robot Pose from Video</td><td>ETH Zurich</td><td>HumanoidPose treats video as proprioception by fusing human-pose features with robot kinematics to predict full-body joint angles and positions in world space for multiple humanoid embodiments. Trained on synthetic retargeted data and adapted with self-training on online videos, it cuts joint-angle errors by 18–32% over baselines and enables recovery of robot motion from video-only data.</td><td><a href="https://arxiv.org/abs/2610.25288">Link</a></td></tr>
+<tr><td>GOFusion: Real-Time Gaussian-Occupancy Submap Fusion for Fisher-Informed Autonomous Robot Navigation</td><td>ETH Zurich</td><td>GOFusion anchors 3D Gaussians to local occupancy submaps to provide unified geometry and appearance for navigation, with Fisher-information-based sensitivity guiding Gaussian pruning and next-best-view exploration. It achieves real-time, uncertainty-aware mapping on drones and outperforms baselines in mapping quality and autonomous exploration efficiency.</td><td><a href="https://arxiv.org/abs/2610.25261">Link</a></td></tr>
+<tr><td>Simulation Priors for Rapid Adaptation in Model-Based RL for Autonomous Racing</td><td>UC San Diego</td><td>PIA pretrains world models on heterogeneous, biased simulation data and adapts them online with uncertainty-regularized planning, treating simulators as priors rather than ground truth. In high-speed autonomous racing, including on a full-size race car, it adapts to new tracks and surfaces with under an hour of interaction, outperforming strong baselines in lap time and reliability.</td><td><a href="https://arxiv.org/abs/2610.26757">Link</a></td></tr>
+<tr><td>VaDar: Implicit Goal Conditioning via Value Disaggregation</td><td>Carnegie Mellon University</td><td>VaDar trains separate critics per subgoal but a single policy that maximizes a linear combination of their values, eliminating goal conditioning at deployment. On long-horizon RoboCasa tasks, it outperforms goal-conditioned and multi-task baselines, solving problems even when starting from behavior-cloned policies with almost zero initial success.</td><td><a href="https://arxiv.org/abs/2610.26629">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>Solving a Giant Rubik&#x27;s Cube with a Quadruped Robot</td><td></td><td>This system integrates onboard RGB-D perception, planning, and RL-trained whole-body skills to let a quadruped reorient and rotate a large Rubik’s Cube solely with its feet while maintaining balance. Distilled pedipulation policies achieve robust, multi-step mobile manipulation, completing full cube solves in 8–9 minutes without external tracking.</td><td><a href="https://arxiv.org/abs/2610.24610">Link</a></td></tr>
+<tr><td>FLASH-CBF-RRT: Fast Lipschitz-Adaptive Safe Horizon CBF Steering for Certified Motion Planning</td><td>UC San Diego</td><td>FLASH-CBF-RRT accelerates CBF-based local steering in RRT by analytically computing horizons over which a constant, barrier-filtered velocity is safe, enabling variable step sizes tied to clearance. It achieves RRT-Connect-level completeness with substantially fewer evaluations and faster planning for high-DoF arms and a 17-DoF mobile manipulator.</td><td><a href="https://arxiv.org/abs/2610.24149">Link</a></td></tr>
+<tr><td>PrismPlan: A Shared GPU Substrate for Motion Planning Across Paradigms</td><td></td><td>PrismPlan implements batched per-sphere FK and collision checking once as a GPU substrate and builds sampling-, search-, and optimization-based planners atop it, enabling fair, backend-identical comparisons. Experiments on 1,800 MotionBenchMaker problems show sampling remains most reliable, while parallel search often offers lower latency, especially for 7-DoF arms.</td><td><a href="https://arxiv.org/abs/2610.23884">Link</a></td></tr>
+<tr><td>SkateNav: Learning Energy-Efficient Navigation through Adaptive Skating on Passive-Wheel Quadrupedal Robots</td><td></td><td>SkateNav uses RL with a time-budgeted goal objective and an adaptive push–glide cycle to teach a passive-wheel quadruped to combine propulsion and gliding for efficient navigation. Policies transfer zero-shot to hardware, achieving safer, more energy-efficient traversal in clutter, on slopes, and outdoors than planner–controller baselines.</td><td><a href="https://arxiv.org/abs/2610.25962">Link</a></td></tr>
+<tr><td>Learning Geometry-Aware Planning Representations for Monocular Flight with Cross-Modal Supervision</td><td></td><td>A depth-based geometric expert trains a monocular planner via feature-level distillation under paired RGB-D, encouraging depth-free planning features that still encode obstacle geometry. Deployed on real MAVs without real-world training, the monocular planner supports collision-free flight at speeds up to 6.5 m/s.</td><td><a href="https://arxiv.org/abs/2610.26508">Link</a></td></tr>
+<tr><td>ScaleNav: Scalable Internet Video Pretraining for Language-Conditioned Local Navigation</td><td>Zhejiang University</td><td>ScaleNav pretrains a world–action model on egocentric Internet videos with language, aligns it with simulated action data, then jointly fine-tunes for language-conditioned local navigation. It achieves &gt;86–94% success on two benchmarks and transfers to a physical quadruped, demonstrating that web video can seed navigation world models.</td><td><a href="https://arxiv.org/abs/2610.25690">Link</a></td></tr>
+<tr><td>ChairNav: Cross-Embodiment Pre-training and Personalization for Long-Horizon Wheelchair Navigation</td><td>University of California, Los Angeles</td><td>ChairNav adapts a general visual navigation model to an RGB-D–equipped electric wheelchair via cross-embodiment pretraining, small in-domain datasets, and post-training from user interventions. On kilometer-scale sidewalk trials it is autonomous for 93% of driving time, roughly doubling distance between user interventions after personalization.</td><td><a href="https://arxiv.org/abs/2610.24012">Link</a></td></tr>
+<tr><td>CAOS-SLAM: Class-Agnostic Object-Aware Real-Time vSLAM for Dynamic Environments</td><td></td><td>CAOS-SLAM augments ORB-SLAM3 with a hybrid perception pipeline that discovers, tracks, and filters both known and previously unseen moving objects using panoptic segmentation, depth clustering, and temporal propagation. By rejecting dynamic features, it cuts localization error by up to 59–88% over prior dynamic vSLAM methods while running near 30 FPS.</td><td><a href="https://arxiv.org/abs/2610.26633">Link</a></td></tr>
+<tr><td>ESCAPE: Egocentric Sensing for Collision Avoidance and Policy Execution</td><td>Shanghai Jiao Tong University</td><td>ESCAPE fuses sparse depth from multiple egocentric sensors into an obstacle-aware point cloud and uses a flow-matching policy trained on 100K safe trajectories to generate collision-free motions. Trained purely in simulation, it transfers zero-shot to hardware and outperforms external-camera and voxel-grid planning baselines in tight, cluttered spaces.</td><td><a href="https://arxiv.org/abs/2610.23943">Link</a></td></tr>
+<tr><td>Learning Wheel Motion Uncertainty for Degeneracy-Aware LiDAR-Inertial Odometry on Quadrupedal Wheel-Legged Robots</td><td>Chinese University of Hong Kong, Hong Kong SAR, China.; The Chinese University of Hong Kong</td><td>This LiDAR–inertial–kinematic odometry framework learns per-wheel, direction-dependent covariance for rolling predictions from proprioceptive history and integrates it with degeneracy-aware LiDAR projection. On highly degenerate indoor runs it reduces position RMSE by 31–66% versus FAST-LIO2 and fixed-covariance variants, enabling accurate navigation in corridors and sparse geometry.</td><td><a href="https://arxiv.org/abs/2610.26550">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
