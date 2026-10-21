@@ -292,15 +292,9 @@ def create_daily_briefing(
         effort="medium",
     )
     summary_json = _parse_json_response(stage2_text)
-    topic_rows = _clean_match_rows(summary_json.get("topic_matches", []))[:max_topic_matches]
-    institution_rows = _clean_match_rows(summary_json.get("institution_matches", []))
-
-    institutions_by_id = {paper["arxiv_id"]: _paper_institution_label(paper) for paper in selected}
-    for row in topic_rows:
-        if row.get("institution", "").strip():
-            continue
-        paper_id = row.get("paper_id", "").strip()
-        row["institution"] = institutions_by_id.get(paper_id, "")
+    institution_rows, topic_rows = _validated_match_rows(
+        summary_json, selected, max_topic_matches
+    )
     summary_rows = summary_json.get("executive_summary", [])
     if not isinstance(summary_rows, list):
         summary_rows = []
@@ -319,3 +313,40 @@ def create_daily_briefing(
             "topic_matches": topic_rows,
         },
     }
+
+
+def _validated_match_rows(
+    summary: dict[str, Any],
+    papers: list[dict[str, Any]],
+    max_topic_matches: int,
+) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+    """Keep model-written overviews, but determine membership from paper records."""
+    papers_by_id = {paper["arxiv_id"]: paper for paper in papers}
+    institution_rows: list[dict[str, str]] = []
+    topic_rows: list[dict[str, str]] = []
+    seen: set[str] = set()
+    rows = _clean_match_rows(summary.get("institution_matches", []))
+    rows.extend(_clean_match_rows(summary.get("topic_matches", [])))
+    for row in rows:
+        paper_id = row["paper_id"].strip()
+        paper = papers_by_id.get(paper_id)
+        if paper is None or paper_id in seen:
+            continue
+        if not paper["institution_match"] and not paper["topic_match"]:
+            continue
+        seen.add(paper_id)
+        row.update(
+            paper_id=paper_id,
+            title=paper["title"],
+            link=paper["abs_url"],
+            institution=_paper_institution_label(paper),
+        )
+        if paper["institution_match"]:
+            institution_rows.append(row)
+        else:
+            topic_rows.append(row)
+
+    topic_rows.sort(
+        key=lambda row: papers_by_id[row["paper_id"]]["topic_relevance"], reverse=True
+    )
+    return institution_rows, topic_rows[:max(0, max_topic_matches)]
