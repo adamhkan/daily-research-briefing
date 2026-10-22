@@ -1,0 +1,11 @@
+These are offline extraction examples, not gpt-5.1 responses or an accuracy benchmark.
+
+The three request bodies were captured from the real OpenAI SDK request serializer using a local mock transport. They use the production affiliation prompt, strict response schema, gpt-5.1 model setting, low reasoning setting, batch size 12, snippet limit 4,000 and source budget 120,000. Source blocks come from reports for 2026-10-21 and 2026-10-22. Empty mock replies were used only to collect requests; they are not the recorded response fixtures.
+
+Fresh subagents using gpt-6.1-sol at low reasoning received only a request file and instructions to execute its messages/schema, with no parent conversation, known bugs, suggested extraction, or other sources. Their returned JSON was saved unchanged. File-reading/output-storage instructions are orchestration mechanics; this does not reproduce OpenAI's model or system-message execution environment.
+
+Replay checks schema, source provenance, author references and paper coverage. Acceptance does not prove institutional identity, affiliation role, extraction completeness or real-world accuracy. Those are model judgments and need separate source review and eventual live validation. Do not update these fixtures silently when the production prompt changes; record a new emulation instead.
+
+Source review found a concrete semantic limitation: in REACT (arXiv:2610.28523), the response associates Carnegie Mellon University with Yoshimitsu Aoki and Mariko Isogawa. Supplied html-0/html-1 metadata associates all three listed institutions with each author, but pdf-4 explicitly assigns those authors only markers 2,3 (Keio AI Research Center and Keio University). The response's CMU author links are therefore contradicted by clearer source evidence. CMU is still a valid paper-level institution. The fixture intentionally preserves the original response; mechanical acceptance must not be presented as semantic accuracy.
+
+Some responses also set complete=false despite apparently retaining all organization names. Without a completeness rationale and gold labels, these are ambiguous coverage judgments rather than a quantified error rate. Source-quality improvements and live gpt-5.1 validation remain separate follow-up work.

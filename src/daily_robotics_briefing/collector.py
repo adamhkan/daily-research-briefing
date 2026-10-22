@@ -324,7 +324,7 @@ def _ocr_first_page(content: bytes, issues: list[str]) -> str:
 def _enrich_affiliations(paper: Paper, timeout: int, session: requests.Session, max_pdf_bytes: int | None = None) -> None:
     from .affiliations import deterministic_evidence
     from .common_robotics_institutions import COMMON_ROBOTICS_INSTITUTIONS
-    from .institution_filter import alias_hits, build_institution_specs
+    from .institution_filter import build_institution_specs, resolve_institution
 
     issues = paper.affiliation_issues
     notes, blocks = _fetch_html_author_metadata(paper.html_url, timeout, session, issues, paper.authors)
@@ -345,12 +345,9 @@ def _enrich_affiliations(paper: Paper, timeout: int, session: requests.Session, 
             specs = build_institution_specs(COMMON_ROBOTICS_INSTITUTIONS)
             for line in text.splitlines():
                 if _looks_like_affiliation_note(line):
-                    residue = line
-                    for raw, _ in alias_hits(line, specs):
-                        residue = residue.replace(raw, '')
-                    # A bare institutional header field is unambiguous. A
-                    # sentence/caption mentioning one needs relationship review.
-                    kind = 'affiliation' if not re.search(r'[A-Za-z]', residue) else 'pdf_header'
+                    # Only a whole known alias is a bare institutional field.
+                    # Interpretation of all other PDF text belongs to the model.
+                    kind = 'affiliation' if resolve_institution(line.strip(), specs) else 'pdf_header'
                     blocks.append(dict(id=f'pdf-{len(blocks)}', text=line.strip(), kind=kind,
                                        authors=[], source_url=paper.pdf_url, locator=f'first-page {method} affiliation line', page=1))
             blocks.append(dict(id=f'pdf-{len(blocks)}', text=text, kind='header_context', authors=[],

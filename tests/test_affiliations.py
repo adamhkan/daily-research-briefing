@@ -47,38 +47,30 @@ class SourceRegressionTests(unittest.TestCase):
         extraction = extraction_from_evidence(value['authors'], evidence, SPECS)
         return evidence, complete, extraction
 
-    def test_three_previously_missed_filter_matches(self):
+    def test_complex_real_sources_are_sent_to_model_without_guessed_matches(self):
         cases = [
-            ('2610.24512', ['Jingyi Xiang', 'Yixuan Wang', 'Jeannette Bohg', 'Wenzhen Yuan'], {'Stanford University'}),
-            ('2610.24267', ['Sebastian Sartor', 'Robert Seamans', 'Neil C. Thompson'],
-             {'Massachusetts Institute of Technology', 'New York University'}),
-            ('2610.24610', ['Lukas Amiet', 'Mayank Mittal'], {'ETH Zurich'}),
+            ('2610.24512', 'Stanford University'),
+            ('2610.24267', 'MIT'),
+            ('2610.24610', 'ETH Zürich'),
+            ('2610.26852', 'New York University'),
+            ('2610.26762', 'ETH Zürich'),
+            ('2610.26765', 'Tsinghua University'),
+            ('2610.26759', 'University of Bristol'),
         ]
-        for pid, authors, expected in cases:
+        for pid, institution_in_source in cases:
             with self.subTest(pid=pid):
-                value = fixture_record(pid, authors)
-                evidence, _, extraction = self.extract(value)
-                self.assertTrue(expected <= set(extraction.paper_level_institutions), extraction)
-                for item in evidence:
-                    self.assertIn(item['evidence_quote'], ' '.join(next(b['text'] for b in value['affiliation_blocks'] if b['id'] == item['block_id']).split()))
-                if pid == '2610.24512':
-                    mappings = {a.name: [i.canonical for i in a.institutions] for a in extraction.authors}
-                    self.assertIn('Stanford University', mappings['Jeannette Bohg'])
-                    self.assertNotIn('Stanford University', mappings['Jingyi Xiang'])
+                value = fixture_record(pid)
+                self.assertIn(institution_in_source, ' '.join(b['text'] for b in value['affiliation_blocks']))
+                evidence, complete = deterministic_evidence(value, SPECS)
+                self.assertEqual(evidence, [])
+                self.assertFalse(complete)
 
-    def test_later_author_groups_and_specific_author_mapping(self):
-        _, _, coop = self.extract(fixture_record('2610.26852'))
-        self.assertIn('New York University', coop.paper_level_institutions)
-        _, _, dex = self.extract(fixture_record('2610.26762', ['Federica Spinola', 'Robert Katzschmann', 'Cordelia Schmid']))
-        mappings = {a.name: [i.canonical for i in a.institutions] for a in dex.authors}
-        self.assertIn('ETH Zurich', mappings['Robert Katzschmann'])
-        self.assertNotIn('ETH Zurich', mappings['Federica Spinola'])
-
-    def test_nonmatch_and_bristol_footnote(self):
-        _, _, hands = self.extract(fixture_record('2610.26765'))
-        self.assertFalse(set(hands.paper_level_institutions) & set(FILTERS))
-        _, _, bristol = self.extract(fixture_record('2610.26759'))
-        self.assertIn('University of Bristol', bristol.paper_level_institutions)
+    def test_mixed_known_and_unfamiliar_organizations_are_not_silently_truncated(self):
+        for text in ['Stanford University; Novel Robotics Lab', 'Stanford University; Luma AI']:
+            with self.subTest(text=text):
+                evidence, complete = deterministic_evidence(record(text), SPECS)
+                self.assertEqual(evidence, [])
+                self.assertFalse(complete)
 
     def test_distinct_universities_are_never_merged(self):
         raw = 'University of Electronic Science and Technology of China'
@@ -93,21 +85,22 @@ class SourceRegressionTests(unittest.TestCase):
         soup = BeautifulSoup('<article class="ltx_document"><span class="ltx_role_affiliation">University of WashingtonProject page: <a href="https://example.org">example.org</a></span><section class="ltx_abstract"></section></article>', 'html.parser')
         blocks = _html_affiliation_blocks(soup, 'https://arxiv.org/html/pv1', [])
         self.assertEqual(blocks[0]['text'], 'University of Washington')
-        evidence, _ = deterministic_evidence(dict(authors=[], affiliation_blocks=blocks), SPECS)
-        self.assertIn('University of Washington', [e['institution'] for e in evidence])
+        evidence, complete = deterministic_evidence(dict(authors=[], affiliation_blocks=blocks), SPECS)
+        self.assertEqual(evidence, [])
+        self.assertFalse(complete)  # Header context is interpreted by the model.
 
-    def test_all_with_affiliation_survives_separate_funding_statement(self):
+    def test_model_role_keeps_affiliation_separate_from_funding(self):
         text = 'Authors are all with Massachusetts Institute of Technology. † thanks: Financial support: funded by Stanford University.'
         value = record(text, kind='author_note')
-        evidence, _, result = self.extract(value)
-        self.assertIn('Massachusetts Institute of Technology', result.paper_level_institutions)
-        self.assertNotIn('Stanford University', result.paper_level_institutions)
-        claim = AffiliationClaim(institution='Massachusetts Institute of Technology', authors=[],
-                                 block_id='b', evidence_quote='Massachusetts Institute of Technology', role='author_affiliation')
-        _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
-        claim = claim.model_copy(update={'institution': 'Stanford University', 'evidence_quote': 'Stanford University'})
-        with self.assertRaisesRegex(ValueError, 'Funding'):
+        self.assertEqual(deterministic_evidence(value, SPECS), ([], False))
+        current = AffiliationClaim(institution='Massachusetts Institute of Technology', authors=[],
+                                   block_id='b', evidence_quote='Massachusetts Institute of Technology', role='author_affiliation')
+        funder = AffiliationClaim(institution='Stanford University', authors=[], block_id='b',
+                                  evidence_quote='Stanford University', role='funder')
+        for claim in [current, funder]:
             _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
+        result = extraction_from_evidence([], [current.model_dump(), funder.model_dump()], SPECS)
+        self.assertEqual(result.paper_level_institutions, ['Massachusetts Institute of Technology'])
 
     def test_campus_affiliation_quote_is_not_rejected_by_later_funding(self):
         text = ('Authors are all with the Hong Kong University of Science and Technology (Guangzhou), China. '
@@ -144,21 +137,19 @@ class SourceRegressionTests(unittest.TestCase):
         self.assertEqual(result.unmapped_raw_institutions, ['Novel Robotics Laboratory'])
         self.assertEqual(claims[0].evidence_quote, text)
 
-    def test_clean_names_cannot_drop_campus_qualifiers_or_invent_expansions(self):
-        for source, shortened in [('Amazon Robotics', 'Amazon'),
-                                  ('Boston Dynamics AI Institute', 'Boston Dynamics'),
-                                  ('New York University Abu Dhabi', 'New York University'),
-                                  ('The Hong Kong University of Science and Technology (Guangzhou)',
-                                   'Hong Kong University of Science and Technology'),
-                                  ('The Chinese University of Hong Kong, Shenzhen',
-                                   'The Chinese University of Hong Kong')]:
+    def test_model_returned_qualified_names_remain_separate_from_parent_aliases(self):
+        for source in ['Amazon Robotics', 'Boston Dynamics AI Institute', 'New York University Abu Dhabi',
+                       'The Hong Kong University of Science and Technology (Guangzhou)',
+                       'The Chinese University of Hong Kong, Shenzhen']:
             value = record(source)
-            claim = AffiliationClaim(institution=shortened, authors=[], block_id='b',
+            claim = AffiliationClaim(institution=source, authors=[], block_id='b',
                                      evidence_quote=source, role='author_affiliation')
-            with self.subTest(source=source), self.assertRaisesRegex(ValueError, 'qualifier'):
+            with self.subTest(source=source):
                 _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
-            _validate_claim(claim.model_copy(update={'institution': source}),
-                            {'b': value['affiliation_blocks'][0]}, value['authors'])
+                result = extraction_from_evidence([], [claim.model_dump()], SPECS)
+                self.assertNotIn('New York University', result.paper_level_institutions)
+                self.assertNotIn('Hong Kong University of Science and Technology', result.paper_level_institutions)
+                self.assertNotIn('The Chinese University of Hong Kong', result.paper_level_institutions)
         value = record('MIT')
         claim = AffiliationClaim(institution='Massachusetts Institute of Technology', authors=[],
                                  block_id='b', evidence_quote='MIT', role='author_affiliation')
@@ -178,7 +169,7 @@ class SourceRegressionTests(unittest.TestCase):
         bristol = _pdf_affiliation_text((FIXTURES / '2610.26759-firstpage.txt').read_text())
         self.assertIn('University of Bristol', bristol)
 
-    def test_body_mentions_and_funders_cannot_create_matches(self):
+    def test_collector_excludes_body_mentions_and_leaves_front_matter_for_model(self):
         soup = BeautifulSoup('''<article class="ltx_document"><div class="ltx_authors">
           <div class="ltx_affiliation">Tsinghua University</div>
           <span class="ltx_note_content">This work was supported by Stanford University.</span>
@@ -186,9 +177,12 @@ class SourceRegressionTests(unittest.TestCase):
           <section class="ltx_section"><div class="ltx_affiliation">EPFL</div></section></article>''', 'html.parser')
         value = record()
         value['affiliation_blocks'] = _html_affiliation_blocks(soup, 'https://arxiv.org/html/pv1', value['authors'])
-        evidence, _, extraction = self.extract(value)
-        self.assertFalse(set(extraction.paper_level_institutions) & set(FILTERS))
-        self.assertTrue(any(e['role'] == 'funder' for e in evidence))
+        source = ' '.join(b['text'] for b in value['affiliation_blocks'])
+        self.assertIn('Tsinghua University', source)
+        self.assertIn('supported by Stanford University', source)
+        self.assertNotIn('dataset from MIT', source)
+        self.assertNotIn('EPFL', source)
+        self.assertEqual(deterministic_evidence(value, SPECS), ([], False))
 
     def test_no_author_assignment_from_sole_paper_institution(self):
         _, _, extraction = self.extract(record('EPFL'))
@@ -263,7 +257,7 @@ class FallbackTests(unittest.TestCase):
                              paper['manual_institution_extraction']['filter_match_institutions'])
         self.assertIn('affiliation_model_claim_rejected', papers[1]['affiliation_issues'])
 
-    def test_saved_diagnostic_author_mappings_and_funding_context_regression(self):
+    def test_saved_diagnostic_preserves_model_sources_and_filters_author_mappings(self):
         fixture = json.loads((FIXTURES / 'diagnostic-author-mappings.json').read_text())
         papers = []
         for row in fixture['input_papers']:
@@ -281,24 +275,26 @@ class FallbackTests(unittest.TestCase):
             self.assertNotIn('affiliation_model_fallback_failed', paper.get('affiliation_issues', []))
             self.assertNotIn('affiliation_model_claim_rejected', paper.get('affiliation_issues', []))
         dex = by_id['arXiv:2610.26762']['affiliation_evidence']
-        for author in ['Federica Spinola', 'Cordelia Schmid']:
-            self.assertTrue(any(e['institution'] == 'Inria' and e['authors'] == [author]
-                                and e['block_id'] != 'html-3' for e in dex))
+        self.assertTrue(any(e['institution'] == 'Inria' and not e['authors']
+                            and e['block_id'] == 'html-3' for e in dex))
+        self.assertTrue(any(e['institution'] == 'Soft Robotics Lab, ETH Zürich'
+                            and e['authors'] == ['Robert Katzschmann'] for e in dex))
         memphis = by_id['arXiv:2610.26717']['affiliation_evidence']
         self.assertTrue(any('University of Memphis' in e['institution']
-                            and e['role'] == 'author_affiliation' and e['block_id'] in {'html-0', 'html-2'}
-                            for e in memphis))
+                            and e['role'] == 'author_affiliation' and e['block_id'] == 'html-4'
+                            and not e['authors'] for e in memphis))
         self.assertTrue(any(e['role'] == 'funder' and 'National Science Foundation' in e['institution']
                             for e in memphis))
         numbered = by_id['arXiv:2610.26663']['affiliation_evidence']
         self.assertTrue(all(not e['authors'] for e in numbered if e['method'] == 'model_extraction'))
 
-    def test_funder_cannot_be_laundered_using_short_quote(self):
+    def test_model_funder_role_does_not_create_filter_match(self):
         block = record('This work was funded by Stanford University.', kind='author_note')['affiliation_blocks'][0]
         claim = AffiliationClaim(institution='Stanford University', authors=[], block_id='b',
-                                 evidence_quote='Stanford University', role='author_affiliation')
-        with self.assertRaises(ValueError):
-            _validate_claim(claim, {'b': block}, [])
+                                 evidence_quote='Stanford University', role='funder')
+        _validate_claim(claim, {'b': block}, [])
+        result = extraction_from_evidence([], [claim.model_dump()], SPECS)
+        self.assertEqual(result.paper_level_institutions, [])
 
     def test_cache_reuses_raw_evidence_and_refilters(self):
         value = record('Novel University')
@@ -316,11 +312,12 @@ class FallbackTests(unittest.TestCase):
             self.resolve(changed, self.model('Novel University'), cache_dir=Path(tmp))
             self.assertEqual(len(list(Path(tmp).glob('*.json'))), 2)
 
-    def test_partial_match_survives_failed_model_fallback(self):
+    def test_failed_model_fallback_does_not_guess_a_partial_match(self):
         value = record('EPFL and Novel University')
         with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING'):
             self.resolve(value, Mock(side_effect=ValueError('bad model result')))
-        self.assertEqual(value['institution_match_status'], 'matched')
+        self.assertEqual(value['institution_match_status'], 'unresolved')
+        self.assertFalse(value['manual_institution_extraction']['filter_match'])
         self.assertFalse(value['affiliation_complete'])
         self.assertIn('affiliation_model_fallback_failed', value['affiliation_issues'])
 

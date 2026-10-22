@@ -84,22 +84,20 @@ class InstitutionAliasTests(unittest.TestCase):
         self.assertEqual(result.authors[0].institutions, [])
         self.assertFalse(set(result.paper_level_institutions) & {spec.canonical for spec in self.specs})
 
-    def test_affiliation_wrappers_resolve_without_rewriting_source(self):
+    def test_full_affiliation_lines_are_not_interpreted_as_clean_names(self):
         raw = 'Department of Architecture, Massachusetts Institute of Technology, United States'
         result = extraction_from_evidence([], [dict(institution=raw, role='author_affiliation', authors=[])], self.specs)
-        self.assertEqual(result.paper_level_institutions, ['Massachusetts Institute of Technology'])
+        self.assertEqual(result.paper_level_institutions, [raw])
         self.assertEqual(result.paper_level_detected_institutions, [raw])
-        self.assertEqual(result.unmapped_raw_institutions, [])
+        self.assertEqual(result.unmapped_raw_institutions, [raw])
 
-    def test_compact_names_and_apostrophes_require_unique_whole_names(self):
+    def test_exact_aliases_normalize_apostrophes_but_do_not_reconstruct_names(self):
         from daily_robotics_briefing.institution_filter import resolve_institution
-        for raw, canonical in [('NanyangTechnologicalUniversity', 'Nanyang Technological University'),
-                               ('PekingUniversity', 'Peking University'),
-                               ('Xi’an Jiaotong University', "Xi'an Jiaotong University")]:
+        for raw in ['NanyangTechnologicalUniversity', 'PekingUniversity', 'AlphaBetaUniversity']:
             with self.subTest(raw=raw):
-                self.assertEqual(resolve_institution(raw, self.specs).canonical, canonical)
-        ambiguous = build_institution_specs(['Alpha Beta University', 'Alphabeta University'])
-        self.assertIsNone(resolve_institution('AlphaBetaUniversity', ambiguous))
+                self.assertIsNone(resolve_institution(raw, self.specs))
+        self.assertEqual(resolve_institution('Xi’an Jiaotong University', self.specs).canonical,
+                         "Xi'an Jiaotong University")
 
     def test_embedded_names_do_not_erase_campuses_or_other_identities(self):
         from daily_robotics_briefing.institution_filter import resolve_institution
@@ -112,10 +110,8 @@ class InstitutionAliasTests(unittest.TestCase):
                     'Department of Architecture, MIT, Unknown Campus']:
             with self.subTest(raw=raw):
                 self.assertIsNone(resolve_institution(raw, self.specs))
-        for raw in ['New York University Abu Dhabi', 'Stanford University Hospital']:
-            self.assertEqual(alias_hits(raw, self.specs), [])
 
-    def test_saved_report_replay_preserves_matches_and_adds_only_verified_identities(self):
+    def test_saved_report_replay_does_not_infer_new_matches_from_raw_fragments(self):
         report = json.loads(Path('tests/fixtures/institutions/2026-10-22-before-fixes.json').read_text())
         specs = build_institution_specs([*report['filters']['institutions'], *COMMON_ROBOTICS_INSTITUTIONS])
         changes = {}
@@ -126,11 +122,8 @@ class InstitutionAliasTests(unittest.TestCase):
             self.assertTrue(before <= after, paper['arxiv_id'])
             if after != before:
                 changes[paper['arxiv_id']] = after - before
-        self.assertEqual(changes, {
-            'arXiv:2610.27472': {'Massachusetts Institute of Technology'},
-            'arXiv:2610.27039': {'Stanford University'},
-        })
-        # Washington requires collector cleanup, covered by the HTML regression.
+        self.assertEqual(changes, {})
+        # The model, not alias matching, must return clean names from these fragments.
 
     def test_non_latin_institution_names_are_preserved_as_unresolved(self):
         raw = '北京大学'

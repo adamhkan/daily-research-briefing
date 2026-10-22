@@ -88,7 +88,8 @@ class CollectorTests(unittest.TestCase):
         session.get.side_effect = [response('<html></html>'), response(content=pdf_bytes())]
         p = paper()
         _enrich_affiliations(p, 10, session)
-        self.assertEqual((p.affiliation_status, p.affiliation_source), ('extracted', 'pdf'))
+        # PDF front matter is available; semantic extraction happens later.
+        self.assertEqual((p.affiliation_status, p.affiliation_source), ('unknown', 'pdf'))
         self.assertIn('EPFL', p.affiliation_text)
         self.assertNotIn('Massachusetts', p.affiliation_text)
         self.assertNotIn('Stanford', p.affiliation_text)
