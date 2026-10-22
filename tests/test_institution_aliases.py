@@ -1,4 +1,5 @@
 import unittest
+import json
 from pathlib import Path
 
 from daily_robotics_briefing.common_robotics_institutions import COMMON_ROBOTICS_INSTITUTIONS
@@ -82,6 +83,59 @@ class InstitutionAliasTests(unittest.TestCase):
         self.assertEqual(set(result.unmapped_raw_institutions), set(names))
         self.assertEqual(result.authors[0].institutions, [])
         self.assertFalse(set(result.paper_level_institutions) & {spec.canonical for spec in self.specs})
+
+    def test_affiliation_wrappers_resolve_without_rewriting_source(self):
+        raw = 'Department of Architecture, Massachusetts Institute of Technology, United States'
+        result = extraction_from_evidence([], [dict(institution=raw, role='author_affiliation', authors=[])], self.specs)
+        self.assertEqual(result.paper_level_institutions, ['Massachusetts Institute of Technology'])
+        self.assertEqual(result.paper_level_detected_institutions, [raw])
+        self.assertEqual(result.unmapped_raw_institutions, [])
+
+    def test_compact_names_and_apostrophes_require_unique_whole_names(self):
+        from daily_robotics_briefing.institution_filter import resolve_institution
+        for raw, canonical in [('NanyangTechnologicalUniversity', 'Nanyang Technological University'),
+                               ('PekingUniversity', 'Peking University'),
+                               ('Xi’an Jiaotong University', "Xi'an Jiaotong University")]:
+            with self.subTest(raw=raw):
+                self.assertEqual(resolve_institution(raw, self.specs).canonical, canonical)
+        ambiguous = build_institution_specs(['Alpha Beta University', 'Alphabeta University'])
+        self.assertIsNone(resolve_institution('AlphaBetaUniversity', ambiguous))
+
+    def test_embedded_names_do_not_erase_campuses_or_other_identities(self):
+        from daily_robotics_briefing.institution_filter import resolve_institution
+        for raw in ['The Chinese University of Hong Kong Shenzhen',
+                    'The Hong Kong University of Science and Technology (Guangzhou)',
+                    'New York University Abu Dhabi', 'Stanford University Hospital',
+                    'University of WashingtonProject page: example.org',
+                    'PekingUniversityResearch', 'MITPress',
+                    'Department of Architecture, MIT and Stanford University',
+                    'Department of Architecture, MIT, Unknown Campus']:
+            with self.subTest(raw=raw):
+                self.assertIsNone(resolve_institution(raw, self.specs))
+        for raw in ['New York University Abu Dhabi', 'Stanford University Hospital']:
+            self.assertEqual(alias_hits(raw, self.specs), [])
+
+    def test_saved_report_replay_preserves_matches_and_adds_only_verified_identities(self):
+        report = json.loads(Path('reports/2026-10-22/2026-10-22.json').read_text())
+        specs = build_institution_specs([*report['filters']['institutions'], *COMMON_ROBOTICS_INSTITUTIONS])
+        changes = {}
+        for paper in report['papers']:
+            result = extraction_from_evidence(paper['authors'], paper['affiliation_evidence'], specs)
+            before = set(paper['matched_institutions'])
+            after = set(result.paper_level_institutions) & set(report['filters']['institutions'])
+            self.assertTrue(before <= after, paper['arxiv_id'])
+            if after != before:
+                changes[paper['arxiv_id']] = after - before
+        self.assertEqual(changes, {
+            'arXiv:2610.27472': {'Massachusetts Institute of Technology'},
+            'arXiv:2610.27039': {'Stanford University'},
+        })
+        # Washington requires collector cleanup, covered by the HTML regression.
+
+    def test_non_latin_institution_names_are_preserved_as_unresolved(self):
+        raw = '北京大学'
+        result = extraction_from_evidence([], [dict(institution=raw, role='author_affiliation', authors=[])], self.specs)
+        self.assertEqual(result.unmapped_raw_institutions, [raw])
 
     def test_configured_and_common_aliases_do_not_reintroduce_removed_names(self):
         for path in ['config/filters.yaml', 'config/filters.example.yaml']:

@@ -67,6 +67,10 @@ class MainTests(unittest.TestCase):
             self.assertTrue(all(p.stat().st_size > 100 for p in paths))
             result = json.loads(paths[1].read_text())
             self.assertEqual(result['model'], 'gpt-5.1')
+            self.assertEqual(result['affiliation_resolution_counts'], {
+                'filter_match': 1, 'verified_nonmatch': 1, 'unresolved_identity': 1,
+                'incomplete_extraction': 0, 'no_usable_evidence': 1,
+            })
             self.assertEqual((result['papers_fetched'], result['papers_analyzed']), (4, 4))
             self.assertEqual(result['affiliation_coverage'], {'matched': 1, 'no_match': 1, 'unknown': 2})
             self.assertEqual(result['api_usage']['sdk_requests'], 7)

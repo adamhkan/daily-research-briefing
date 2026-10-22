@@ -159,6 +159,10 @@ def _html_affiliation_blocks(soup: BeautifulSoup, source_url: str, authors: list
         if id(node) not in front_nodes:
             return
         text = text if text is not None else node.get_text(' ', strip=True)
+        if kind == 'affiliation':
+            # Project links can be glued to the institution within one HTML text
+            # node. Keep them out of dedicated affiliation fields, not context.
+            text = re.split(r'Project\s+page\s*:', text, maxsplit=1, flags=re.I)[0]
         text = re.sub(r'^Affiliation:\s*', '', text).strip()
         creator = node.find_parent(class_='ltx_creator')
         linked = []

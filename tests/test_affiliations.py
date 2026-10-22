@@ -89,6 +89,46 @@ class SourceRegressionTests(unittest.TestCase):
         _, _, actual = self.extract(fixture_record('2610.23896'))
         self.assertNotIn('University of Science and Technology of China', actual.paper_level_institutions)
 
+    def test_project_page_is_not_part_of_html_affiliation(self):
+        soup = BeautifulSoup('<article class="ltx_document"><span class="ltx_role_affiliation">University of WashingtonProject page: <a href="https://example.org">example.org</a></span><section class="ltx_abstract"></section></article>', 'html.parser')
+        blocks = _html_affiliation_blocks(soup, 'https://arxiv.org/html/pv1', [])
+        self.assertEqual(blocks[0]['text'], 'University of Washington')
+        evidence, _ = deterministic_evidence(dict(authors=[], affiliation_blocks=blocks), SPECS)
+        self.assertIn('University of Washington', [e['institution'] for e in evidence])
+
+    def test_all_with_affiliation_survives_separate_funding_statement(self):
+        text = 'Authors are all with Massachusetts Institute of Technology. † thanks: Financial support: funded by Stanford University.'
+        value = record(text, kind='author_note')
+        evidence, _, result = self.extract(value)
+        self.assertIn('Massachusetts Institute of Technology', result.paper_level_institutions)
+        self.assertNotIn('Stanford University', result.paper_level_institutions)
+        claim = AffiliationClaim(institution='Massachusetts Institute of Technology', authors=[],
+                                 block_id='b', evidence_quote='Massachusetts Institute of Technology', role='author_affiliation')
+        _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
+        claim = claim.model_copy(update={'institution': 'Stanford University', 'evidence_quote': 'Stanford University'})
+        with self.assertRaisesRegex(ValueError, 'Funding'):
+            _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
+
+    def test_campus_affiliation_quote_is_not_rejected_by_later_funding(self):
+        text = ('Authors are all with the Hong Kong University of Science and Technology (Guangzhou), China. '
+                '(Emails: author@example.org). † thanks: Financial support: funded by a research grant.')
+        value = record(text, kind='header_context')
+        claim = AffiliationClaim(institution='Hong Kong University of Science and Technology (Guangzhou)',
+                                 authors=[], block_id='b', evidence_quote='Hong Kong University of Science and Technology (Guangzhou)',
+                                 role='author_affiliation')
+        _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
+        result = extraction_from_evidence([], [claim.model_dump()], SPECS)
+        self.assertEqual(result.unmapped_raw_institutions, [claim.institution])
+        self.assertNotIn('Hong Kong University of Science and Technology', result.paper_level_institutions)
+
+    def test_placeholder_and_punctuation_are_not_institution_evidence(self):
+        for raw in ['[', 'Your Institution', 'Your University']:
+            value = record(raw)
+            claim = AffiliationClaim(institution=raw, authors=[], block_id='b', evidence_quote=raw, role='author_affiliation')
+            with self.subTest(raw=raw), self.assertRaisesRegex(ValueError, 'placeholder'):
+                _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
+            self.assertEqual(extraction_from_evidence([], [claim.model_dump()], SPECS).paper_level_institutions, [])
+
     def test_cleanup_does_not_consume_name_letters(self):
         for name in ['Xi’an University of Architecture and Technology', 'Stanford University',
                      'Carnegie Mellon University', 'University of Electronic Science and Technology of China']:

@@ -41,6 +41,7 @@ class InstitutionExtractionResult:
 
 
 def normalize_text(value: str) -> str:
+    value = value.translate(str.maketrans({'’': "'", '‘': "'", 'ʼ': "'"}))
     value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode()
     return ' '.join(re.sub(r'[^a-z0-9]+', ' ', value.lower()).split())
 
@@ -90,6 +91,7 @@ def _cleanup_affiliation_fragment(text: str) -> str:
 def alias_hits(text: str, specs: list[InstitutionSpec]) -> list[tuple[str, InstitutionSpec]]:
     """Longest nonoverlapping explicit alias hits; no fuzzy/token-subset identities."""
     clean = re.sub(r'\S+@\S+|https?://\S+', lambda m: ' ' * len(m[0]), text)
+    clean = clean.translate(str.maketrans({'’': "'", '‘': "'", 'ʼ': "'"}))
     chars, offsets = [], []
     for index, char in enumerate(clean):
         if index and char.isupper() and clean[index - 1].isdigit():
@@ -113,6 +115,9 @@ def alias_hits(text: str, specs: list[InstitutionSpec]) -> list[tuple[str, Insti
                 if normalized.strip() != needle:
                     continue
             for match in re.finditer(r'(?<!\w)' + re.escape(needle) + r'(?!\w)', normalized):
+                tail = normalized[match.end():].strip()
+                if re.match(r'^(?:shenzhen|guangzhou|abu dhabi|shanghai|campus|hospital|press|foundation)\b', tail):
+                    continue
                 raw = text[offsets[match.start()]:offsets[match.end() - 1] + 1]
                 hits.append((match.start(), match.end(), raw, spec))
     accepted = []
@@ -128,17 +133,67 @@ def _match_institution(raw_affiliation: str, specs: list[InstitutionSpec]) -> Ma
     return MatchedInstitution(hits[0][1].canonical, raw_affiliation) if len(hits) == 1 else None
 
 
+def plausible_institution(value: str) -> bool:
+    normalized = normalize_text(value)
+    return any(char.isalpha() for char in value) and normalized not in {
+        'your institution', 'your university', 'institution name', 'affiliation',
+    }
+
+
+def resolve_institution(raw: str, specs: list[InstitutionSpec]) -> MatchedInstitution | None:
+    """Resolve evidence fields without guessing a parent from a qualified name."""
+    normalized = normalize_text(raw)
+    if not normalized:
+        return None
+    exact = [s for s in specs if normalized in {normalize_text(a) for a in s.aliases}]
+    if len(exact) == 1:
+        return MatchedInstitution(exact[0].canonical, raw)
+    # PDF fallback: whole-field equality only, full names only, unique identity.
+    compact = normalized.replace(' ', '')
+    candidates = {s.canonical for s in specs for a in s.aliases
+                  if len(normalize_text(a).split()) >= 2 and len(compact) >= 16
+                  and compact == normalize_text(a).replace(' ', '')}
+    if len(candidates) == 1:
+        return MatchedInstitution(next(iter(candidates)), raw, 'compact_full_name')
+    hits = alias_hits(raw, specs)
+    if len(hits) != 1:
+        return None
+    alias, spec = hits[0]
+    # Restrict embedded matching to a department/lab wrapper and an optional
+    # explicit country. Unknown suffixes (campuses, hospitals, companies) stay raw.
+    clean = _cleanup_affiliation_fragment(raw)
+    position = clean.find(alias)
+    if position < 0:
+        return None
+    prefix = clean[:position].strip(' ,')
+    remainder = clean[position + len(alias):]
+    suffix = remainder.strip(' ,.')
+    if prefix and not re.match(r'^(department|school|college|faculty|division|laboratory|lab|.*\blab)\b', prefix, re.I):
+        return None
+    if re.search(r'\b(university|institute|hospital|corporation)\b', prefix, re.I):
+        return None
+    if suffix and not remainder.lstrip().startswith(','):
+        return None
+    if suffix and normalize_text(suffix) not in {
+        'united states', 'usa', 'us', 'united kingdom', 'uk', 'china', 'japan',
+        'singapore', 'germany', 'italy', 'france', 'canada', 'switzerland',
+    }:
+        return None
+    if not prefix and not suffix:
+        return None
+    return MatchedInstitution(spec.canonical, raw, 'affiliation_wrapper')
+
+
 def extraction_from_evidence(
     author_names: list[str], evidence: list[dict], institution_specs: list[InstitutionSpec],
 ) -> InstitutionExtractionResult:
-    current = [e for e in evidence if e['role'] == 'author_affiliation']
+    current = [e for e in evidence if e['role'] == 'author_affiliation'
+               and plausible_institution(e['institution'])]
     resolved: list[tuple[dict, str, MatchedInstitution | None]] = []
     for item in current:
         raw = item['institution'].strip()
         # Model output is a verbatim name, not a proposed canonical identity.
-        normalized = normalize_text(raw)
-        exact = [s for s in institution_specs if normalized in {normalize_text(a) for a in s.aliases}]
-        match = MatchedInstitution(exact[0].canonical, raw) if len(exact) == 1 else None
+        match = resolve_institution(raw, institution_specs)
         resolved.append((item, raw, match))
     institutions = sorted({match.canonical if match else raw for _, raw, match in resolved})
     authors = []
