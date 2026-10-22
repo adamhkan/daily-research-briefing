@@ -210,7 +210,7 @@ def create_daily_briefing(
     submission_date: date, model: str = DEFAULT_MODEL, max_topic_matches: int = 10,
     classification_batch_size: int = 25, summary_batch_size: int = 10,
     institution_entries: list | None = None, affiliation_cache_dir: Path | None = None,
-    affiliation_batch_size: int = 12, affiliation_max_input_chars: int = 60000,
+    affiliation_batch_size: int = 12, affiliation_max_input_chars: int = 120000,
     affiliation_snippet_chars: int = 4000,
 ) -> dict[str, Any]:
     if classification_batch_size < 1 or summary_batch_size < 1 or max_topic_matches < 0:

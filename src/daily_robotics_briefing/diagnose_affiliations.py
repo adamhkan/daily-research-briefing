@@ -68,7 +68,7 @@ def diagnose(report_path: Path, filters_path: Path, output_dir: Path, sample_siz
             identify_institutions(
                 papers, entries, filters, client, chosen_model, _request_validated,
                 cache_dir=None, batch_size=12,
-                max_input_chars=int(cfg.get('affiliation_max_input_chars', 60000)),
+                max_input_chars=int(cfg.get('affiliation_max_input_chars', 120000)),
                 snippet_chars=int(cfg.get('affiliation_snippet_chars', 4000)),
             )
     except Exception as exc:

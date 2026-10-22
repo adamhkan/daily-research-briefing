@@ -87,7 +87,7 @@ def main() -> None:
         raise ValueError("Collection and batch limits must be positive; max_topic_matches must be nonnegative")
 
     affiliation_batch_size = int(cfg.get('affiliation_batch_size', 12))
-    affiliation_max_input_chars = int(cfg.get('affiliation_max_input_chars', 60000))
+    affiliation_max_input_chars = int(cfg.get('affiliation_max_input_chars', 120000))
     affiliation_snippet_chars = int(cfg.get('affiliation_snippet_chars', 4000))
     pdf_limit = int(cfg.get('max_pdf_megabytes', 32)) * 1024 * 1024
     if min(affiliation_batch_size, affiliation_snippet_chars, pdf_limit) < 1 or affiliation_max_input_chars < 0:
