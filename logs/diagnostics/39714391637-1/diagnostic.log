@@ -1,0 +1,5 @@
+Replaying 12 papers from reports/2026-10-21/2026-10-21.json; model=gpt-6.1-sol
+No collection, classification, summaries, report updates, or publishing.
+Affiliation model fallback failed for arXiv:2610.26852, arXiv:2610.26848, arXiv:2610.26846, arXiv:2610.26765, arXiv:2610.26762, arXiv:2610.26717, arXiv:2610.26663, arXiv:2610.26641, arXiv:2610.26633, arXiv:2610.26584, arXiv:2610.26550, arXiv:2610.26545; retaining supported evidence; model=gpt-6.1-sol; error=ValueError: AffiliationOutput failed validation after two attempts <- caused by ValueError: arXiv:2610.26762: Author mapping needs an explicit name or author association in the source <- caused by ValueError: Author mapping needs an explicit name or author association in the source
+Diagnostic failed; API usage: {'sdk_requests': 2, 'responses': [{'task': 'AffiliationOutput', 'status': 'completed', 'input_tokens': 9370, 'output_tokens': 2411, 'cached_input_tokens': 0, 'reasoning_tokens': 44}, {'task': 'AffiliationOutput', 'status': 'completed', 'input_tokens': 9399, 'output_tokens': 2411, 'cached_input_tokens': 0, 'reasoning_tokens': 49}]}
+Saved diagnostic evidence to logs/diagnostics/39714391637-1

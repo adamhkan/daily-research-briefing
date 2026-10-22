@@ -1,0 +1,807 @@
+{
+  "task": "AffiliationOutput",
+  "response_id": "resp_04da565b660864d3006ad97c2f84d487d2b062c08d6870e1c0",
+  "status": "completed",
+  "incomplete_details": null,
+  "output_text": "{\"papers\":[{\"paper_id\":\"arXiv:2610.26852\",\"complete\":false,\"affiliations\":[{\"institution\":\"Georgia Institute of Technology\",\"authors\":[],\"block_id\":\"html-0\",\"evidence_quote\":\"Georgia Institute of Technology\",\"role\":\"author_affiliation\"},{\"institution\":\"University of California, Riverside\",\"authors\":[],\"block_id\":\"html-1\",\"evidence_quote\":\"University of California, Riverside\",\"role\":\"author_affiliation\"},{\"institution\":\"University of Michigan, Ann Arbor\",\"authors\":[],\"block_id\":\"html-2\",\"evidence_quote\":\"University of Michigan, Ann Arbor\",\"role\":\"author_affiliation\"},{\"institution\":\"University of Georgia\",\"authors\":[],\"block_id\":\"html-3\",\"evidence_quote\":\"University of Georgia\",\"role\":\"author_affiliation\"},{\"institution\":\"New York University\",\"authors\":[],\"block_id\":\"html-4\",\"evidence_quote\":\"New York University\",\"role\":\"author_affiliation\"},{\"institution\":\"KAIST\",\"authors\":[],\"block_id\":\"html-5\",\"evidence_quote\":\"KAIST\",\"role\":\"author_affiliation\"}]},{\"paper_id\":\"arXiv:2610.26848\",\"complete\":true,\"affiliations\":[{\"institution\":\"Galbot Team\",\"authors\":[\"Zekai Li\",\"Jiayi Yu\",\"Jinlu Zhang\",\"Luyang Niu\",\"Zekun Qi\",\"Jun Zheng\",\"Xuchuan Chen\",\"Dairu Liu\",\"Yintianrun Zhang\",\"He Wang\",\"Li Yi\"],\"block_id\":\"pdf-2\",\"evidence_quote\":\"Zhang,HeWang                 †,LiYi   †\\nGalbotTeam\",\"role\":\"author_affiliation\"}]},{\"paper_id\":\"arXiv:2610.26846\",\"complete\":false,\"affiliations\":[{\"institution\":\"Tsinghua University\",\"authors\":[\"Chen Yang\",\"Jiansheng Fan\",\"Chen Wang\"],\"block_id\":\"html-0\",\"evidence_quote\":\"Chen Yang 1,2 Linzhe Shi 2 Hang Zhang 2 Mu Xu 2 Jiansheng Fan 1 Chen Wang 1,† 1 Tsinghua University 2 Amap, Alibaba Group\",\"role\":\"author_affiliation\"},{\"institution\":\"Amap, Alibaba Group\",\"authors\":[\"Chen Yang\",\"Linzhe Shi\",\"Hang Zhang\",\"Mu Xu\"],\"block_id\":\"html-0\",\"evidence_quote\":\"Chen Yang 1,2 Linzhe Shi 2 Hang Zhang 2 Mu Xu 2 Jiansheng Fan 1 Chen Wang 1,† 1 Tsinghua University 2 Amap, Alibaba Group\",\"role\":\"author_affiliation\"}]},{\"paper_id\":\"arXiv:2610.26765\",\"complete\":false,\"affiliations\":[{\"institution\":\"Tsinghua University\",\"authors\":[],\"block_id\":\"html-0\",\"evidence_quote\":\"Tsinghua University\",\"role\":\"author_affiliation\"},{\"institution\":\"Beijing University of Posts and Telecommunications\",\"authors\":[],\"block_id\":\"html-0\",\"evidence_quote\":\"Beijing University of Posts and Telecommunications\",\"role\":\"author_affiliation\"},{\"institution\":\"NatureWill\",\"authors\":[],\"block_id\":\"html-1\",\"evidence_quote\":\"NatureWill\",\"role\":\"author_affiliation\"},{\"institution\":\"Peking University\",\"authors\":[],\"block_id\":\"html-1\",\"evidence_quote\":\"Peking University\",\"role\":\"author_affiliation\"}]},{\"paper_id\":\"arXiv:2610.26762\",\"complete\":true,\"affiliations\":[{\"institution\":\"Inria\",\"authors\":[\"Federica Spinola\",\"Cordelia Schmid\"],\"block_id\":\"html-3\",\"evidence_quote\":\"Inria and the Departement d’Informatique of Ecole Normale Supérieure, PSL University\",\"role\":\"author_affiliation\"},{\"institution\":\"Departement d’Informatique of Ecole Normale Supérieure, PSL University\",\"authors\":[\"Federica Spinola\",\"Cordelia Schmid\"],\"block_id\":\"html-3\",\"evidence_quote\":\"Inria and the Departement d’Informatique of Ecole Normale Supérieure, PSL University\",\"role\":\"author_affiliation\"},{\"institution\":\"Soft Robotics Lab, ETH Zürich\",\"authors\":[\"Robert Katzschmann\"],\"block_id\":\"html-1\",\"evidence_quote\":\"Soft Robotics Lab, ETH Zürich\",\"role\":\"author_affiliation\"}]},{\"paper_id\":\"arXiv:2610.26717\",\"complete\":true,\"affiliations\":[{\"institution\":\"Department of Electrical and Computer Engineering, The University of Memphis\",\"authors\":[\"Hamid Hafezi\",\"Mohammadreza Davoodi\"],\"block_id\":\"html-4\",\"evidence_quote\":\"Department of Electrical and Computer Engineering, The University of Memphis\",\"role\":\"author_affiliation\"},{\"institution\":\"Department of Mechanical Engineering, Clemson University\",\"authors\":[\"Javad Mohammadpour Velni\"],\"block_id\":\"html-1\",\"evidence_quote\":\"Department of Mechanical Engineering, Clemson University\",\"role\":\"author_affiliation\"},{\"institution\":\"National Science Foundation (NSF)\",\"authors\":[],\"block_id\":\"html-3\",\"evidence_quote\":\"supported by the National Science Foundation (NSF) under award No. 2330216\",\"role\":\"funder\"}]},{\"paper_id\":\"arXiv:2610.26663\",\"complete\":true,\"affiliations\":[{\"institution\":\"Tsinghua University\",\"authors\":[\"Shengbang Liu\",\"Zhengye Du\",\"Zhilong Wan\",\"Chenxiang Xia\",\"Zhipeng Hu\",\"Huining Yuan\",\"Shu'ang Yu\",\"Wenbo Ding\",\"Yu Wang\",\"Chao Yu\"],\"block_id\":\"pdf-2\",\"evidence_quote\":\"1Tsinghua University\",\"role\":\"author_affiliation\"},{\"institution\":\"AgiBot\",\"authors\":[\"Shengbang Liu\",\"Zhengye Du\",\"Zhilong Wan\",\"Nan Wang\",\"Chuankang Li\",\"Maoqing Yao\",\"Guanghui Ren\"],\"block_id\":\"pdf-2\",\"evidence_quote\":\"2AgiBot\",\"role\":\"author_affiliation\"},{\"institution\":\"Xspark AI\",\"authors\":[\"Honghao Su\",\"Yue Chen\",\"Tianxing Chen\",\"Wenbo Ding\"],\"block_id\":\"pdf-2\",\"evidence_quote\":\"3Xspark AI\",\"role\":\"author_affiliation\"},{\"institution\":\"Sun Yat-sen University\",\"authors\":[\"Chang Ge\",\"Jinyang Xiao\"],\"block_id\":\"pdf-2\",\"evidence_quote\":\"4Sun Yat-sen University\",\"role\":\"author_affiliation\"},{\"institution\":\"Peking University\",\"authors\":[\"Yue Chen\"],\"block_id\":\"pdf-2\",\"evidence_quote\":\"5Peking University\",\"role\":\"author_affiliation\"},{\"institution\":\"The University of Hong Kong\",\"authors\":[\"Tianxing Chen\"],\"block_id\":\"pdf-2\",\"evidence_quote\":\"6The University of Hong Kong\",\"role\":\"author_affiliation\"}]},{\"paper_id\":\"arXiv:2610.26641\",\"complete\":true,\"affiliations\":[{\"institution\":\"Boden AI\",\"authors\":[\"Haozhe Wang\",\"Songyuan Wu\",\"Jihai Xu\",\"Jie Zhao\"],\"block_id\":\"pdf-3\",\"evidence_quote\":\"Haozhe Wang        Songyuan Wu        Jihai Xu        Jie Zhao\\n                                                                 Boden AI\",\"role\":\"author_affiliation\"}]},{\"paper_id\":\"arXiv:2610.26633\",\"complete\":true,\"affiliations\":[{\"institution\":\"Dynamic Legged Systems Lab (DLS), Istituto Italiano di Tecnologia\",\"authors\":[\"Gaia Borghi\",\"João Carlos Virgolino Soares\",\"Angelo Bratta\",\"Claudio Semini\"],\"block_id\":\"html-0\",\"evidence_quote\":\"$ˆ1$ Dynamic Legged Systems Lab (DLS), Istituto Italiano di Tecnologia\",\"role\":\"author_affiliation\"},{\"institution\":\"Section of Automation & Control, Department\\nof Electronic Systems, Aalborg University\",\"authors\":[\"Gaia Borghi\",\"Shahab Heshmati-Alamdari\"],\"block_id\":\"html-0\",\"evidence_quote\":\"$ˆ2$ Section of Automation & Control, Department\\nof Electronic Systems, Aalborg University\",\"role\":\"author_affiliation\"}]},{\"paper_id\":\"arXiv:2610.26584\",\"complete\":true,\"affiliations\":[{\"institution\":\"State Key Laboratory of Multimedia Information Processing, School of Computer Science, Peking University\",\"authors\":[\"Langzhe Gu\",\"Chengkai Hou\",\"Guangrun Li\",\"Jingyang He\",\"Kuan Cheng\",\"Shanghang Zhang\"],\"block_id\":\"html-3\",\"evidence_quote\":\"1 State Key Laboratory of Multimedia Information Processing, School of Computer Science, Peking University\",\"role\":\"author_affiliation\"},{\"institution\":\"Beijing Innovation Center of Humanoid Robotics\",\"authors\":[\"Langzhe Gu\",\"Chengkai Hou\",\"Meng Li\",\"Xinhua Wang\",\"Xinyuan Lv\",\"Shuanghao Bai\",\"Guangrun Li\",\"Jingyang He\",\"Ziluo Ding\",\"Zhiyuan Xu\",\"Jian Tang\",\"Zhengping Che\"],\"block_id\":\"html-3\",\"evidence_quote\":\"2 Beijing Innovation Center of Humanoid Robotics\",\"role\":\"author_affiliation\"},{\"institution\":\"Nankai University\",\"authors\":[\"Xinyuan Lv\"],\"block_id\":\"html-3\",\"evidence_quote\":\"3 Nankai University\",\"role\":\"author_affiliation\"},{\"institution\":\"Xi’an Jiaotong University\",\"authors\":[\"Shuanghao Bai\"],\"block_id\":\"html-3\",\"evidence_quote\":\"4 Xi’an Jiaotong University\",\"role\":\"author_affiliation\"},{\"institution\":\"Tsinghua University\",\"authors\":[\"Ning Ding\"],\"block_id\":\"html-3\",\"evidence_quote\":\"5 Tsinghua University\",\"role\":\"author_affiliation\"}]},{\"paper_id\":\"arXiv:2610.26550\",\"complete\":true,\"affiliations\":[{\"institution\":\"The Chinese University of Hong Kong\",\"authors\":[\"Hairuo Wei\",\"Zhongyu Li\"],\"block_id\":\"html-6\",\"evidence_quote\":\"The Chinese University of Hong Kong, Hong Kong SAR, China.\",\"role\":\"author_affiliation\"},{\"institution\":\"Tongji University\",\"authors\":[\"Yunfan Ren\"],\"block_id\":\"html-1\",\"evidence_quote\":\"Tongji University, Shanghai, China.\",\"role\":\"author_affiliation\"},{\"institution\":\"SEER Robotics\",\"authors\":[\"Renda Yang\",\"Qiangsheng Huang\"],\"block_id\":\"html-6\",\"evidence_quote\":\"Renda Yang Affiliation: SEER Robotics. Qiangsheng Huang Affiliation: SEER Robotics.\",\"role\":\"author_affiliation\"}]},{\"paper_id\":\"arXiv:2610.26545\",\"complete\":true,\"affiliations\":[{\"institution\":\"University of Science and Technology of China\",\"authors\":[\"Siwei Cheng\",\"Xinming Zhang\"],\"block_id\":\"html-17\",\"evidence_quote\":\"University of Science and Technology of China\",\"role\":\"author_affiliation\"},{\"institution\":\"Eastern Institute of Technology, Ningbo\",\"authors\":[\"Siwei Cheng\",\"Hao Wu\",\"Zitong Qi\",\"Xinming Zhang\",\"Haoyu Xi\",\"Peiran Yin\",\"Haozhe Hu\",\"Xudong Wang\",\"Xiaoyu Shen\",\"Wei Zhang\"],\"block_id\":\"html-17\",\"evidence_quote\":\"Eastern Institute of Technology, Ningbo\",\"role\":\"author_affiliation\"},{\"institution\":\"Shanghai Jiao Tong University\",\"authors\":[\"Hao Wu\",\"Haoyu Xi\",\"Peiran Yin\",\"Haozhe Hu\"],\"block_id\":\"html-17\",\"evidence_quote\":\"Shanghai Jiao Tong University\",\"role\":\"author_affiliation\"}]}]}",
+  "input_payload": {
+    "papers": [
+      {
+        "paper_id": "arXiv:2610.26852",
+        "authors": [
+          "Zehao Wang",
+          "Jianpeng Yao",
+          "Yuping Wang",
+          "Yiping Li",
+          "Jiaqi Li",
+          "Zhixu Li",
+          "Kanghoon Lee",
+          "Jinfeng Wang",
+          "Cong Liu",
+          "Zhaowei Tan",
+          "Jinkyoo Park",
+          "Jiachen Li"
+        ],
+        "blocks": [
+          {
+            "id": "html-0",
+            "text": "Georgia Institute of Technology",
+            "kind": "affiliation",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26852v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-1",
+            "text": "University of California, Riverside",
+            "kind": "affiliation",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26852v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-2",
+            "text": "University of Michigan, Ann Arbor",
+            "kind": "affiliation",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26852v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-3",
+            "text": "University of Georgia",
+            "kind": "affiliation",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26852v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-4",
+            "text": "New York University",
+            "kind": "affiliation",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26852v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-5",
+            "text": "KAIST",
+            "kind": "affiliation",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26852v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-6",
+            "text": "† thanks: Corresponding author: jiachen_li@gatech.edu",
+            "kind": "author_note",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26852v1",
+            "locator": "span.ltx_note_content"
+          },
+          {
+            "id": "html-7",
+            "text": "CoopUQ: Robust Multi-Robot Social Navigation via Uncertainty-Aware Cooperative Forecasting Zehao Wang   Jianpeng Yao   Yuping Wang   Yiping Li Affiliation: Georgia Institute of Technology Affiliation: University of California, Riverside Affiliation: University of Michigan, Ann Arbor Affiliation: University of Georgia Jiaqi Li   Zhixu Li   Kanghoon Lee   Jinfeng Wang Affiliation: University of California, Riverside Affiliation: New York University Affiliation: KAIST Cong Liu   Zhaowei Tan   Jinkyoo Park   Jiachen Li † † thanks: Corresponding author: jiachen_li@gatech.edu Affiliation: Georgia Institute of Technology Affiliation: University of California, Riverside Affiliation: KAIST",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26852v1",
+            "locator": "article front matter before abstract/sections"
+          }
+        ],
+        "truncated": false
+      },
+      {
+        "paper_id": "arXiv:2610.26848",
+        "authors": [
+          "Zekai Li",
+          "Jiayi Yu",
+          "Jinlu Zhang",
+          "Luyang Niu",
+          "Zekun Qi",
+          "Jun Zheng",
+          "Xuchuan Chen",
+          "Dairu Liu",
+          "Yintianrun Zhang",
+          "He Wang",
+          "Li Yi"
+        ],
+        "blocks": [
+          {
+            "id": "html-0",
+            "text": "Galbot Team",
+            "kind": "affiliation",
+            "authors": [
+              "Li Yi"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26848v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-1",
+            "text": "\\galbotdata [Project Page]https://physrsi-eval.github.io/ Where is Physical RSI capability from? An Observational Scaling Law of LLM-as-policy Zekai Li Jiayi Yu Jinlu Zhang Luyang Niu Zekun Qi Jun Zheng Xuchuan Chen Dairu Liu Yintianrun Zhang He Wang Li Yi Affiliation: Galbot Team October 19, 2026",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26848v1",
+            "locator": "article front matter before abstract/sections"
+          },
+          {
+            "id": "pdf-2",
+            "text": "WhereisPhysicalRSIcapabilityfrom?\nAnObservationalScalingLawofLLM-as-policy\n\nZekaiLi    ∗,JiayiYu     ∗,JinluZhang        ∗,LuyangNiu        ∗,ZekunQi       ∗,JunZheng,XuchuanChen,DairuLiu,Yintianrun\nZhang,HeWang                 †,LiYi   †\nGalbotTeam\n\n\n\n   Inthispaper,wesystematicallyinvestigatethemechanisms,scalingbehavior,andgeneralizationof\n   physicalRecursiveself-improvement.WeintroducePhysRSI-evaltoquantifyphysicalRSIthrougha\n   five-axismetric:First-AttemptPerformance,Efficiency,Success,BudgetandImprovementfromfailure.\n   DifferentVLMsareevaluatedon18manipulationtasksunderafixedinteractionbudget.Theanalysis\n   ofexperimentalresultsmotivatesthePhysicalBarrelHypothesis:differentcapabilitiesmayconstrain\n   differentpartsofimprovement.Systemswithsimilarpublicbenchmarkaveragescanstilldifferwidely\n   onthefiveaxes,andasystemthatreachesahighfinalscoremayimprovelateorconsumemoreofits\n   budget.Westudyobservationalscalingfromtwoperspectives:predictingtherelativeperformanceof\n   VLMagentsfromtheirpubliccapabilities,andforecastinglaterprogressfromearlyphysicalfeedback.\n   Together,theseanalysesaskhowquicklyandhowfaranagentcanimprove. Moreover,weconduct\n   workspaceinterventionsandthenanalyzewhatimprovementleavesbehind.Removinghistoryreduces\n   late-roundsuccess,frozenworkspacesremainusefulonunseenlayouts,andthreecross-taskcasesachieve\n   successearlier.Theresultssuggestthatscene-specificadaptationandreusableexperiencecancoexist.\n\n\nDate:October20,2026\nProjectPage:https://physrsi-eval.github.io/",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/pdf/2610.26848v1.pdf",
+            "locator": "first-page layout text header and author footnotes",
+            "page": 1
+          }
+        ],
+        "truncated": false
+      },
+      {
+        "paper_id": "arXiv:2610.26846",
+        "authors": [
+          "Chen Yang",
+          "Linzhe Shi",
+          "Hang Zhang",
+          "Mu Xu",
+          "Jiansheng Fan",
+          "Chen Wang"
+        ],
+        "blocks": [
+          {
+            "id": "pdf-1",
+            "text": "1Tsinghua University          2Amap, Alibaba Group",
+            "kind": "pdf_header",
+            "authors": [],
+            "source_url": "https://arxiv.org/pdf/2610.26846v1.pdf",
+            "locator": "first-page layout text affiliation line",
+            "page": 1
+          },
+          {
+            "id": "html-0",
+            "text": "GPT-6 Astra Is a Native Visuo-Tactile Policy for Contact-Rich Manipulation Chen Yang 1,2 Linzhe Shi 2 Hang Zhang 2 Mu Xu 2 Jiansheng Fan 1 Chen Wang 1,† 1 Tsinghua University 2 Amap, Alibaba Group † Corresponding author Recent advances in multimodal models have enabled GPT-6 Astra to perform robotic manipulation through in-context learning. Yet contact-rich control and tactile perception are often regarded as strengths of specialist policies, leaving open whether Astra can directly understand and use tactile observations. We provide, to our knowledge, the first demonstration that Astra directly interprets vision-based tactile images and uses their contact cues for manipulation. Tactile RGB images enter through its existing visual interface, enabling few-shot closed-loop control on nineteen simulated UniVTAC and OpenViTac tasks with 210 sampled scene seeds per setting. With visuo-tactile input, Astra achieves mean success rates of 93.8% and 81.8%, exceeding the strongest reported specialist baselines in our comparison by 22.9 and 13.1 percentage points, respectively. Vision-only performance also leads these baselines, reaching 76.3% and 80.6%. Trajectory analysis reveals active probing, cautious grasping, contact-guided alignment, and recovery, alongside difficulties with tangential loading and corrective execution. Our findings challenge the exclusivity of specialist policies in contact-rich manipulation and show that fine-grained vision can partially compensate for missing touch. They also identify vision-based tactile sensing as an interface for scaling contact understanding with foundation models and reveal signs of benchmark saturation. These results motivate joint visual–tactile pretraining, harder contact-rich evaluations, and physical-robot validation. Date: October 20, 2026 Code: https://github.com/ccyydd/TacTalent Project Page: https://tactalent.github.io/ Video Gallery: https://tactalent.github.io/gallery.html Figure 1: Benchmark-level results. Task-averaged success rates (%). Astra uses vision alone (blue) or vision with tactile RGB images (red). Grey bars show published specialist baselines. Models are ordered by their reported mean within each benchmark. Task-level results and evaluation scope appear in Section 5 .",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26846v1",
+            "locator": "article front matter before abstract/sections"
+          },
+          {
+            "id": "pdf-2",
+            "text": "GPT-6 Astra Is a Native Visuo-Tactile Policy\nfor Contact-Rich Manipulation\n\n\nChen Yang1,2        Linzhe Shi2        Hang Zhang2        Mu Xu2        Jiansheng Fan1        Chen Wang1,†\n\n1Tsinghua University          2Amap, Alibaba Group\n\n†Corresponding author\n\n   Recent advances in multimodal models have enabled GPT-6 Astra to perform robotic manipulation\n   through in-context learning.   Yet contact-rich control and tactile perception are often regarded as\n   strengths of specialist policies, leaving open whether Astra can directly understand and use tactile\n   observations. Weprovide,toourknowledge,theﬁrstdemonstrationthatAstradirectlyinterpretsvision-\n   based tactile images and uses their contact cues for manipulation. Tactile RGB images enter through\n   its existing visual interface, enabling few-shot closed-loop control on nineteen simulated UniVTAC and\n   OpenViTac tasks with 210 sampled scene seeds per setting.  With visuo-tactile input, Astra achieves\n   mean success rates of 93.8% and 81.8%, exceeding the strongest reported specialist baselines in our\n   comparison by 22.9 and 13.1 percentage points, respectively. Vision-only performance also leads these\n   baselines, reaching 76.3% and 80.6%.  Trajectory analysis reveals active probing, cautious grasping,\n   contact-guided alignment, and recovery, alongside diﬃculties with tangential loading and corrective\n   execution. Our ﬁndings challenge the exclusivity of specialist policies in contact-rich manipulation and\n   show that ﬁne-grained vision can partially compensate for missing touch.  They also identify vision-\n   based tactile sensing as an interface for scaling contact understanding with fo",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/pdf/2610.26846v1.pdf",
+            "locator": "first-page layout text header and author footnotes",
+            "page": 1
+          }
+        ],
+        "truncated": true
+      },
+      {
+        "paper_id": "arXiv:2610.26765",
+        "authors": [
+          "Tianwei Luo",
+          "Yiming He",
+          "Hongjin Wu",
+          "Ting Pan",
+          "Debin Ren",
+          "Haorui Guo",
+          "Junlin Yang",
+          "Yuxin Zuo",
+          "Zhehao Kou",
+          "Kaisen Yang",
+          "Zhuoqun Lai",
+          "Yi Ding",
+          "Jiale Yu",
+          "Yuchen Zhang",
+          "Zijie Qiu",
+          "Haozhan Li",
+          "Ning Ding"
+        ],
+        "blocks": [
+          {
+            "id": "html-0",
+            "text": "Tsinghua University Beijing University of Posts and Telecommunications",
+            "kind": "affiliation",
+            "authors": [
+              "Ting Pan"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26765v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-1",
+            "text": "NatureWill Peking University \\Resourcefont luotw23@mails.tsinghua.edu.cn, dingning@tsinghua.edu.cn Code: https://github.com/TsinghuaC3I/HandsOn",
+            "kind": "affiliation",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26765v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-2",
+            "text": "\\role [*]Equal contribution. \\role [†]Project lead. \\role [‡]Corresponding author. \\setheadertext HandsOn \\reportnumber HandsOn: A Large-Scale Simulation Benchmark\nfor Generalizable Dexterous Manipulation Tianwei Luo Yiming He Hongjin Wu Ting Pan Affiliation: Tsinghua University Beijing University of Posts and Telecommunications Debin Ren Haorui Guo Junlin Yang, Yuxin Zuo, Zhehao Kou, Kaisen Yang, Zhuoqun Lai, Yi Ding Jiale Yu, Yuchen Zhang, Zijie Qiu, Haozhan Li, Ning Ding Affiliation: NatureWill Peking University \\Resourcefont luotw23@mails.tsinghua.edu.cn, dingning@tsinghua.edu.cn Code: https://github.com/TsinghuaC3I/HandsOn",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26765v1",
+            "locator": "article front matter before abstract/sections"
+          }
+        ],
+        "truncated": false
+      },
+      {
+        "paper_id": "arXiv:2610.26762",
+        "authors": [
+          "Federica Spinola",
+          "Robert Katzschmann",
+          "Cordelia Schmid"
+        ],
+        "blocks": [
+          {
+            "id": "html-0",
+            "text": "Inria and the Departement d’Informatique of Ecole Normale Supérieure, PSL University, France federica.spinola@inria.fr, cordelia.schmid@inria.fr",
+            "kind": "affiliation",
+            "authors": [
+              "Federica Spinola"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26762v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-1",
+            "text": "Soft Robotics Lab, ETH Zürich, Switzerland rkk@ethz.ch",
+            "kind": "affiliation",
+            "authors": [
+              "Robert Katzschmann"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26762v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-2",
+            "text": "Inria and the Departement d’Informatique of Ecole Normale Supérieure, PSL University, France federica.spinola@inria.fr, cordelia.schmid@inria.fr",
+            "kind": "affiliation",
+            "authors": [
+              "Cordelia Schmid"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26762v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-3",
+            "text": "DexOAK : Object-Aware Kinematic Retargeting Federica Spinola Affiliation: Inria and the Departement d’Informatique of Ecole Normale Supérieure, PSL University, France federica.spinola@inria.fr, cordelia.schmid@inria.fr Robert Katzschmann Affiliation: Soft Robotics Lab, ETH Zürich, Switzerland rkk@ethz.ch Cordelia Schmid Affiliation: Inria and the Departement d’Informatique of Ecole Normale Supérieure, PSL University, France federica.spinola@inria.fr, cordelia.schmid@inria.fr https://fspinola.github.io/dexoak/",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26762v1",
+            "locator": "article front matter before abstract/sections"
+          }
+        ],
+        "truncated": false
+      },
+      {
+        "paper_id": "arXiv:2610.26717",
+        "authors": [
+          "Hamid Hafezi",
+          "Javad Mohammadpour Velni",
+          "Mohammadreza Davoodi"
+        ],
+        "blocks": [
+          {
+            "id": "html-0",
+            "text": "Department of Electrical and Computer Engineering, The University of Memphis, Memphis, TN, USA hhafezi@memphis.edu, mdavoodi@memphis.edu",
+            "kind": "affiliation",
+            "authors": [
+              "Hamid Hafezi"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26717v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-1",
+            "text": "Department of Mechanical Engineering, Clemson University, Clemson, SC 29634 USA javadm@clemson.edu",
+            "kind": "affiliation",
+            "authors": [
+              "Javad Mohammadpour Velni"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26717v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-2",
+            "text": "Department of Electrical and Computer Engineering, The University of Memphis, Memphis, TN, USA hhafezi@memphis.edu, mdavoodi@memphis.edu",
+            "kind": "affiliation",
+            "authors": [
+              "Mohammadreza Davoodi"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26717v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-3",
+            "text": "† thanks: *This material is based upon work supported by the National Science Foundation (NSF) under award No. 2330216.",
+            "kind": "author_note",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26717v1",
+            "locator": "span.ltx_note_content"
+          },
+          {
+            "id": "html-4",
+            "text": "Robot Learning with Vision-Language-Action Models for Agricultural Manipulation Hamid Hafezi Affiliation: Department of Electrical and Computer Engineering, The University of Memphis, Memphis, TN, USA hhafezi@memphis.edu, mdavoodi@memphis.edu Javad Mohammadpour Velni Affiliation: Department of Mechanical Engineering, Clemson University, Clemson, SC 29634 USA javadm@clemson.edu Mohammadreza Davoodi † † thanks: *This material is based upon work supported by the National Science Foundation (NSF) under award No. 2330216. Affiliation: Department of Electrical and Computer Engineering, The University of Memphis, Memphis, TN, USA hhafezi@memphis.edu, mdavoodi@memphis.edu",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26717v1",
+            "locator": "article front matter before abstract/sections"
+          }
+        ],
+        "truncated": false
+      },
+      {
+        "paper_id": "arXiv:2610.26663",
+        "authors": [
+          "Shengbang Liu",
+          "Zhengye Du",
+          "Zhilong Wan",
+          "Honghao Su",
+          "Chenxiang Xia",
+          "Chang Ge",
+          "Jinyang Xiao",
+          "Nan Wang",
+          "Zhipeng Hu",
+          "Huining Yuan",
+          "Shu'ang Yu",
+          "Yue Chen",
+          "Tianxing Chen",
+          "Chuankang Li",
+          "Maoqing Yao",
+          "Wenbo Ding",
+          "Yu Wang",
+          "Guanghui Ren",
+          "Chao Yu"
+        ],
+        "blocks": [
+          {
+            "id": "pdf-0",
+            "text": "1Tsinghua University       2AgiBot       3Xspark AI",
+            "kind": "pdf_header",
+            "authors": [],
+            "source_url": "https://arxiv.org/pdf/2610.26663v1.pdf",
+            "locator": "first-page layout text affiliation line",
+            "page": 1
+          },
+          {
+            "id": "pdf-1",
+            "text": "4Sun Yat-sen University       5Peking University       6The University of Hong Kong",
+            "kind": "pdf_header",
+            "authors": [],
+            "source_url": "https://arxiv.org/pdf/2610.26663v1.pdf",
+            "locator": "first-page layout text affiliation line",
+            "page": 1
+          },
+          {
+            "id": "pdf-2",
+            "text": "RoboValue: A Fine-Grained Sim-and-Real Benchmark for\n                 Unified Evaluation of Robotic Value Models\n\n\n              Shengbang Liu1,2,*     Zhengye Du1,2,*     Zhilong Wan1,2,*     Honghao Su3,*\n           Chenxiang Xia1     Chang Ge4     Jinyang Xiao4     Nan Wang2,†     Zhipeng Hu1\n        Huining Yuan1     Shu’ang Yu1     Yue Chen3,5     Tianxing Chen3,6     Chuankang Li2\n           Maoqing Yao2     Wenbo Ding1,3     Yu Wang1     Guanghui Ren2,‡     Chao Yu1,‡\n                                1Tsinghua University       2AgiBot       3Xspark AI\n             4Sun Yat-sen University       5Peking University       6The University of Hong Kong\n\n                            *Equal contribution.       †Project leader.       ‡Corresponding authors.\n\n  /gl⌢beProject Page           /githubCode             /da◎abaseDataset      /book-openDocument      Ἴ6Leaderboard\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure1:OverviewofRoboValue.RoboValueevaluatesthereliabilityofroboticvaluemodelsacross15simula-\ntion and 20 real-world tasks. Expert demonstrations, diagnostic trajectories, and instruction variations probe four\ncomplementary dimensions: task-state understanding, temporal progress monitoring, failure and recovery reason-\ning,andvalueconsistency. Jointevaluationrevealslimitationsthatoutcomeandforward-progressscorescanmiss.\nThe dataset and leaderboard support the development of reliable value models for policy improvement.",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/pdf/2610.26663v1.pdf",
+            "locator": "first-page layout text header and author footnotes",
+            "page": 1
+          }
+        ],
+        "truncated": false
+      },
+      {
+        "paper_id": "arXiv:2610.26641",
+        "authors": [
+          "Haozhe Wang",
+          "Songyuan Wu",
+          "Jihai Xu",
+          "Jie Zhao"
+        ],
+        "blocks": [
+          {
+            "id": "html-0",
+            "text": "Boden AI",
+            "kind": "affiliation",
+            "authors": [
+              "Jie Zhao"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26641v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-1",
+            "text": "{haozhe.wang, songyuan.wu, jihai.xu, jie.zhao}@bodenai.com",
+            "kind": "affiliation",
+            "authors": [
+              "Jie Zhao"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26641v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-2",
+            "text": "EgoRayFormer: Ray-Space Stereo Refinement for Egocentric 3D Human Pose Estimation Haozhe Wang Songyuan Wu Jihai Xu Jie Zhao Affiliation: Boden AI Affiliation: {haozhe.wang, songyuan.wu, jihai.xu, jie.zhao}@bodenai.com",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26641v1",
+            "locator": "article front matter before abstract/sections"
+          },
+          {
+            "id": "pdf-3",
+            "text": "EgoRayFormer: Ray-Space Stereo Refinement for\n                                     Egocentric 3D Human Pose Estimation\n\n\n                            Haozhe Wang        Songyuan Wu        Jihai Xu        Jie Zhao\n                                                                 Boden AI\n                          {haozhe.wang,  songyuan.wu,  jihai.xu,  jie.zhao}@bodenai.com\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1.Device-relative body pose from stereo fisheye images.Left: prediction and ground truth for an UnrealEgo-RW validation\nframe selected at the median error. Right: our local three-seed test MPJPE and published leaderboard values. These compare complete\nsystems; correspondence between the RW leaderboard split and the current public split remains unverified (Sec.4.2).",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/pdf/2610.26641v1.pdf",
+            "locator": "first-page layout text header and author footnotes",
+            "page": 1
+          }
+        ],
+        "truncated": false
+      },
+      {
+        "paper_id": "arXiv:2610.26633",
+        "authors": [
+          "Gaia Borghi",
+          "João Carlos Virgolino Soares",
+          "Angelo Bratta",
+          "Shahab Heshmati-Alamdari",
+          "Claudio Semini"
+        ],
+        "blocks": [
+          {
+            "id": "html-0",
+            "text": "† thanks: *Corresponding author: gaia.borghi@iit.it $ˆ1$ Dynamic Legged Systems Lab (DLS), Istituto Italiano di Tecnologia, Genoa, Italy $ˆ2$ Section of Automation & Control, Department\nof Electronic Systems, Aalborg University, Denmark",
+            "kind": "author_note",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26633v1",
+            "locator": "span.ltx_note_content"
+          },
+          {
+            "id": "html-1",
+            "text": "CAOS-SLAM: Class-Agnostic Object-Aware Real-Time vSLAM for Dynamic Environments Gaia Borghi João Carlos Virgolino Soares Angelo Bratta Shahab Heshmati-Alamdari Claudio Semini † † thanks: *Corresponding author: gaia.borghi@iit.it $ˆ1$ Dynamic Legged Systems Lab (DLS), Istituto Italiano di Tecnologia, Genoa, Italy $ˆ2$ Section of Automation & Control, Department\nof Electronic Systems, Aalborg University, Denmark",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26633v1",
+            "locator": "article front matter before abstract/sections"
+          },
+          {
+            "id": "pdf-2",
+            "text": "CAOS-SLAM: Class-Agnostic Object-Aware Real-Time vSLAM for\n                                                   Dynamic Environments\n\nGaia Borghi1,2∗    , Jo˜ao Carlos Virgolino Soares 1, Angelo Bratta 1, Shahab Heshmati-Alamdari 2, Claudio Semini 1",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/pdf/2610.26633v1.pdf",
+            "locator": "first-page layout text header and author footnotes",
+            "page": 1
+          }
+        ],
+        "truncated": false
+      },
+      {
+        "paper_id": "arXiv:2610.26584",
+        "authors": [
+          "Langzhe Gu",
+          "Chengkai Hou",
+          "Meng Li",
+          "Xinhua Wang",
+          "Xinyuan Lv",
+          "Shuanghao Bai",
+          "Guangrun Li",
+          "Jingyang He",
+          "Ziluo Ding",
+          "Zhiyuan Xu",
+          "Ning Ding",
+          "Kuan Cheng",
+          "Jian Tang",
+          "Shanghang Zhang",
+          "Zhengping Che"
+        ],
+        "blocks": [
+          {
+            "id": "html-0",
+            "text": "1 State Key Laboratory of Multimedia Information Processing, School of Computer Science, Peking University",
+            "kind": "affiliation",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26584v1",
+            "locator": "#id1.4.1.1.1"
+          },
+          {
+            "id": "html-1",
+            "text": "2 Beijing Innovation Center of Humanoid Robotics",
+            "kind": "affiliation",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26584v1",
+            "locator": "#id1.5.1.1.1"
+          },
+          {
+            "id": "html-2",
+            "text": "3 Nankai University 4 Xi’an Jiaotong University 5 Tsinghua University",
+            "kind": "affiliation",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26584v1",
+            "locator": "#id1.6.1.1.1"
+          },
+          {
+            "id": "html-3",
+            "text": "HAF-VLA: Hierarchical Action Flow Framework for\nHumanoid Vision-Language-Action Control Langzhe Gu 1,2,* , Chengkai Hou 1,2,* , Meng Li 2,* , Xinhua Wang 2 , Xinyuan Lv 2,3 , Shuanghao Bai 2,4 , Guangrun Li 1,2 , Jingyang He 1,2 , Ziluo Ding 2 , Zhiyuan Xu 2 , Ning Ding 5 , Kuan Cheng 1 , Jian Tang 2,🖂 , Shanghang Zhang 1,🖂 , Zhengping Che 2,🖂 1 State Key Laboratory of Multimedia Information Processing, School of Computer Science, Peking University 2 Beijing Innovation Center of Humanoid Robotics 3 Nankai University 4 Xi’an Jiaotong University 5 Tsinghua University * Equal contribution. 🖂 Corresponding author.",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26584v1",
+            "locator": "article front matter before abstract/sections"
+          }
+        ],
+        "truncated": false
+      },
+      {
+        "paper_id": "arXiv:2610.26550",
+        "authors": [
+          "Hairuo Wei",
+          "Yunfan Ren",
+          "Renda Yang",
+          "Qiangsheng Huang",
+          "Zhongyu Li"
+        ],
+        "blocks": [
+          {
+            "id": "html-0",
+            "text": "The Chinese University of Hong Kong, Hong Kong SAR, China.",
+            "kind": "affiliation",
+            "authors": [
+              "Hairuo Wei"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26550v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-1",
+            "text": "Tongji University, Shanghai, China.",
+            "kind": "affiliation",
+            "authors": [
+              "Yunfan Ren"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26550v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-2",
+            "text": "SEER Robotics.",
+            "kind": "affiliation",
+            "authors": [
+              "Renda Yang"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26550v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-3",
+            "text": "SEER Robotics.",
+            "kind": "affiliation",
+            "authors": [
+              "Qiangsheng Huang"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26550v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-4",
+            "text": "The Chinese University of Hong Kong, Hong Kong SAR, China.",
+            "kind": "affiliation",
+            "authors": [
+              "Zhongyu Li"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26550v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-5",
+            "text": "† thanks: * Corresponding authors: hairuo@connect.hku.hk; zhongyu_li@berkeley.edu.",
+            "kind": "author_note",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26550v1",
+            "locator": "span.ltx_note_content"
+          },
+          {
+            "id": "html-6",
+            "text": "Learning Wheel Motion Uncertainty for Degeneracy-Aware\nLiDAR-Inertial Odometry on Quadrupedal Wheel-Legged Robots Hairuo Wei Affiliation: The Chinese University of Hong Kong, Hong Kong SAR, China. Yunfan Ren Affiliation: Tongji University, Shanghai, China. Renda Yang Affiliation: SEER Robotics. Qiangsheng Huang Affiliation: SEER Robotics. Zhongyu Li † † thanks: * Corresponding authors: hairuo@connect.hku.hk; zhongyu_li@berkeley.edu. Affiliation: The Chinese University of Hong Kong, Hong Kong SAR, China.",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26550v1",
+            "locator": "article front matter before abstract/sections"
+          }
+        ],
+        "truncated": false
+      },
+      {
+        "paper_id": "arXiv:2610.26545",
+        "authors": [
+          "Siwei Cheng",
+          "Hao Wu",
+          "Zitong Qi",
+          "Xinming Zhang",
+          "Haoyu Xi",
+          "Peiran Yin",
+          "Haozhe Hu",
+          "Xudong Wang",
+          "Xiaoyu Shen",
+          "Wei Zhang"
+        ],
+        "blocks": [
+          {
+            "id": "html-0",
+            "text": "University of Science and Technology of China",
+            "kind": "affiliation",
+            "authors": [
+              "Siwei Cheng"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-1",
+            "text": "Eastern Institute of Technology, Ningbo",
+            "kind": "affiliation",
+            "authors": [
+              "Siwei Cheng"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-2",
+            "text": "Shanghai Jiao Tong University",
+            "kind": "affiliation",
+            "authors": [
+              "Hao Wu"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-3",
+            "text": "Eastern Institute of Technology, Ningbo",
+            "kind": "affiliation",
+            "authors": [
+              "Hao Wu"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-4",
+            "text": "Eastern Institute of Technology, Ningbo",
+            "kind": "affiliation",
+            "authors": [
+              "Zitong Qi"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-5",
+            "text": "University of Science and Technology of China",
+            "kind": "affiliation",
+            "authors": [
+              "Xinming Zhang"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-6",
+            "text": "Eastern Institute of Technology, Ningbo",
+            "kind": "affiliation",
+            "authors": [
+              "Xinming Zhang"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-7",
+            "text": "Shanghai Jiao Tong University",
+            "kind": "affiliation",
+            "authors": [
+              "Haoyu Xi"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-8",
+            "text": "Eastern Institute of Technology, Ningbo",
+            "kind": "affiliation",
+            "authors": [
+              "Haoyu Xi"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-9",
+            "text": "Shanghai Jiao Tong University",
+            "kind": "affiliation",
+            "authors": [
+              "Peiran Yin"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-10",
+            "text": "Eastern Institute of Technology, Ningbo",
+            "kind": "affiliation",
+            "authors": [
+              "Peiran Yin"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-11",
+            "text": "Shanghai Jiao Tong University",
+            "kind": "affiliation",
+            "authors": [
+              "Haozhe Hu"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-12",
+            "text": "Eastern Institute of Technology, Ningbo",
+            "kind": "affiliation",
+            "authors": [
+              "Haozhe Hu"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-13",
+            "text": "Eastern Institute of Technology, Ningbo",
+            "kind": "affiliation",
+            "authors": [
+              "Xudong Wang"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-14",
+            "text": "Eastern Institute of Technology, Ningbo",
+            "kind": "affiliation",
+            "authors": [
+              "Xiaoyu Shen"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-15",
+            "text": "Eastern Institute of Technology, Ningbo",
+            "kind": "affiliation",
+            "authors": [
+              "Wei Zhang"
+            ],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_contact.ltx_role_affiliation"
+          },
+          {
+            "id": "html-16",
+            "text": "† thanks: * Equal Contribution, † Corresponding Authors: Xiaoyu Shen, Wei Zhang (email: {xyshen, zhw}@eitech.edu.cn)",
+            "kind": "author_note",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "span.ltx_note_content"
+          },
+          {
+            "id": "html-17",
+            "text": "ReInsVLN: Revisiting Historical Evidence for Training-Free Vision-and-Language Navigation Siwei Cheng Affiliation: University of Science and Technology of China Affiliation: Eastern Institute of Technology, Ningbo Hao Wu Affiliation: Shanghai Jiao Tong University Affiliation: Eastern Institute of Technology, Ningbo Zitong Qi Affiliation: Eastern Institute of Technology, Ningbo Xinming Zhang Affiliation: University of Science and Technology of China Affiliation: Eastern Institute of Technology, Ningbo Haoyu Xi Affiliation: Shanghai Jiao Tong University Affiliation: Eastern Institute of Technology, Ningbo Peiran Yin Affiliation: Shanghai Jiao Tong University Affiliation: Eastern Institute of Technology, Ningbo Haozhe Hu Affiliation: Shanghai Jiao Tong University Affiliation: Eastern Institute of Technology, Ningbo Xudong Wang Affiliation: Eastern Institute of Technology, Ningbo Xiaoyu Shen Affiliation: Eastern Institute of Technology, Ningbo Wei Zhang † † thanks: * Equal Contribution, † Corresponding Authors: Xiaoyu Shen, Wei Zhang (email: {xyshen, zhw}@eitech.edu.cn) Affiliation: Eastern Institute of Technology, Ningbo",
+            "kind": "header_context",
+            "authors": [],
+            "source_url": "https://arxiv.org/html/2610.26545v1",
+            "locator": "article front matter before abstract/sections"
+          }
+        ],
+        "truncated": false
+      }
+    ]
+  }
+}
