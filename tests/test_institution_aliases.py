@@ -116,7 +116,7 @@ class InstitutionAliasTests(unittest.TestCase):
             self.assertEqual(alias_hits(raw, self.specs), [])
 
     def test_saved_report_replay_preserves_matches_and_adds_only_verified_identities(self):
-        report = json.loads(Path('reports/2026-10-22/2026-10-22.json').read_text())
+        report = json.loads(Path('tests/fixtures/institutions/2026-10-22-before-fixes.json').read_text())
         specs = build_institution_specs([*report['filters']['institutions'], *COMMON_ROBOTICS_INSTITUTIONS])
         changes = {}
         for paper in report['papers']:

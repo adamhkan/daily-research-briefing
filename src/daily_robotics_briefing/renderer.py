@@ -4,6 +4,35 @@ from datetime import date
 from html import escape
 from pathlib import Path
 import json
+import re
+
+
+def _display_text(text: str) -> str:
+    """Format supported inline notation without changing stored source evidence."""
+    text = re.sub(r'\s*\[reported result\]', '', text, flags=re.I)
+
+    def inline_math(match: re.Match) -> str:
+        value = match[1]
+        for command, symbol in [('times', '×'), ('pi', 'π'), ('pm', '±'),
+                                ('leq', '≤'), ('geq', '≥'), ('approx', '≈')]:
+            value = re.sub(r'\\' + command + r'(?![A-Za-z])', lambda _: symbol, value)
+        value = value.replace(r'\%', '%')
+        # Leave unsupported TeX intact rather than silently changing its meaning.
+        if '\\' in value:
+            return match[0]
+        value = re.sub(r'_\{([0-9.+−-]+)\}',
+                       lambda m: m[1].translate(str.maketrans('0123456789+-−', '₀₁₂₃₄₅₆₇₈₉₊₋₋')), value)
+        value = re.sub(r'\^\{([0-9+−-]+)\}',
+                       lambda m: m[1].translate(str.maketrans('0123456789+-−', '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁻')), value)
+        return value if value != match[1] else match[0]
+
+    return re.sub(r'\$([^$\n]+)\$', inline_math, text)
+
+
+def _overview_text(row: dict) -> str:
+    if row.get('summary_status') == 'evidence_validation_failed':
+        return 'Summary unavailable; see the paper for details.'
+    return _display_text(str(row.get('overview', '')))
 
 
 def _executive_items(briefing: dict, *, html: bool = False) -> list[str]:
@@ -22,7 +51,8 @@ def _executive_items(briefing: dict, *, html: bool = False) -> list[str]:
                 citations.append(f'<a href="{escape(links[pid], quote=True)}">{escape(pid)}</a>')
             else:
                 citations.append(f'[{pid}]({links[pid]})')
-        item = escape(text) if html else text
+        display = _display_text(text)
+        item = escape(display) if html else display
         if citations:
             item += " (" + "; ".join(citations) + ")"
         items.append(item)
@@ -38,7 +68,7 @@ def _institution_table_rows(rows: list[dict[str, str]]) -> str:
             "| {title} | {institution} | {overview} | {link} |".format(
                 title=row.get("title", "").replace("|", "\\|"),
                 institution=row.get("institution", "").replace("|", "\\|"),
-                overview=row.get("overview", "").replace("|", "\\|"),
+                overview=_overview_text(row).replace("|", "\\|"),
                 link=row.get("link", "").replace("|", "\\|"),
             )
         )
@@ -54,7 +84,7 @@ def _topic_table_rows(rows: list[dict[str, str]]) -> str:
             "| {title} | {institution} | {overview} | {link} |".format(
                 title=row.get("title", "").replace("|", "\\|"),
                 institution=row.get("institution", "").replace("|", "\\|"),
-                overview=row.get("overview", "").replace("|", "\\|"),
+                overview=_overview_text(row).replace("|", "\\|"),
                 link=row.get("link", "").replace("|", "\\|"),
             )
         )
@@ -78,19 +108,10 @@ def render_markdown(
     institution_filters = "; ".join(matched_institutions) if matched_institutions else "(none)"
     topic_filters = "; ".join(matched_topics) if matched_topics else "(none)"
 
-    coverage = ""
-    if affiliation_coverage is not None:
-        coverage = (
-            f"Affiliations: **{affiliation_coverage['matched']} matched**, "
-            f"**{affiliation_coverage['no_match']} extracted without a filter match**, "
-            f"**{affiliation_coverage['unknown']} unknown**.\n\n"
-        )
     return (
         "# Daily Robotics Briefing\n\n"
         f"Submission date covered: **{submission_date.isoformat()}**\n"
-        f"Papers fetched: **{papers_fetched}**\n"
-        f"Papers analyzed: **{papers_analyzed}**\n\n"
-        f"{coverage}"
+        f"Papers in this briefing: **{len(institution_rows) + len(topic_rows)}**\n\n"
         "## Filters Used\n\n"
         f"- Institution filters: {institution_filters}\n"
         f"- Topic filters: {topic_filters}\n\n"
@@ -117,7 +138,7 @@ def _render_html_rows(rows: list[dict[str, str]]) -> str:
             "<tr>"
             f"<td>{escape(str(row.get('title', '')))}</td>"
             f"<td>{escape(str(row.get('institution', '')))}</td>"
-            f"<td>{escape(str(row.get('overview', '')))}</td>"
+            f"<td>{escape(_overview_text(row))}</td>"
             f"<td><a href=\"{escape(str(row.get('link', '')))}\">Link</a></td>"
             "</tr>"
         )
@@ -134,7 +155,7 @@ def _render_topic_html_rows(rows: list[dict[str, str]]) -> str:
             "<tr>"
             f"<td>{escape(str(row.get('title', '')))}</td>"
             f"<td>{escape(str(row.get('institution', '')))}</td>"
-            f"<td>{escape(str(row.get('overview', '')))}</td>"
+            f"<td>{escape(_overview_text(row))}</td>"
             f"<td><a href=\"{escape(str(row.get('link', '')))}\">Link</a></td>"
             "</tr>"
         )
@@ -158,13 +179,7 @@ def render_html(
     topic_filter_html = "".join(f"<li>{escape(item)}</li>" for item in topic_filters)
     institution_html = _render_html_rows(briefing.get("institution_matches", []))
     topic_html = _render_topic_html_rows(briefing.get("topic_matches", []))
-    coverage_html = ""
-    if affiliation_coverage is not None:
-        coverage_html = (
-            f"<p>Affiliations: {affiliation_coverage['matched']} matched; "
-            f"{affiliation_coverage['no_match']} extracted without a filter match; "
-            f"{affiliation_coverage['unknown']} unknown.</p>"
-        )
+    paper_count = len(briefing.get('institution_matches', [])) + len(briefing.get('topic_matches', []))
 
     return f"""<!doctype html>
 <html lang="en">
@@ -220,10 +235,8 @@ def render_html(
       <h1>Daily Robotics Briefing</h1>
       <p><strong>Submission date covered:</strong> {submission_date.isoformat()}</p>
       <div class="stats">
-        <div class="card">Papers fetched: <strong>{papers_fetched}</strong></div>
-        <div class="card">Papers analyzed: <strong>{papers_analyzed}</strong></div>
+        <div class="card">Papers in this briefing: <strong>{paper_count}</strong></div>
       </div>
-      {coverage_html}
     </section>
 
     <section class="section">
@@ -287,7 +300,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
                     if not isinstance(row, dict):
                         continue
                     paper_id = str(row.get("paper_id", "")).strip()
-                    overview = str(row.get("overview", "")).strip()
+                    overview = _overview_text(row).strip()
                     if paper_id and overview and paper_id not in overview_by_paper_id:
                         overview_by_paper_id[paper_id] = overview
 

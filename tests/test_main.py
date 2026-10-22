@@ -80,7 +80,9 @@ class MainTests(unittest.TestCase):
             self.assertEqual(result['briefing']['topic_matches'][0]['institution'], 'Unknown affiliation')
             self.assertEqual(len([s for s, _ in model.calls if s is ClassificationOutput]), 4)
             html = BeautifulSoup(paths[2].read_text(), 'html.parser')
-            self.assertIn('2 unknown', html.get_text())
+            self.assertNotIn('2 unknown', html.get_text())
+            self.assertNotIn('Affiliations:', html.get_text())
+            self.assertIn('Papers in this briefing: 2', html.get_text())
             self.assertTrue(html.select('li a[href="https://arxiv.org/abs/late-match"]'))
             self.assertIn('[late-match](https://arxiv.org/abs/late-match)', paths[0].read_text())
 

@@ -1,0 +1,1747 @@
+{
+  "filters": {
+    "institutions": [
+      "Carnegie Mellon University",
+      "Massachusetts Institute of Technology",
+      "Stanford University",
+      "EPFL",
+      "ETH Zurich",
+      "UC Berkeley",
+      "New York University",
+      "UC San Diego",
+      "University of Washington"
+    ],
+    "topics": [
+      "mobile manipulation",
+      "navigation",
+      "motion planning",
+      "dextrous manipulation",
+      "whole-body control"
+    ]
+  },
+  "papers": [
+    {
+      "arxiv_id": "arXiv:2610.28628",
+      "authors": [],
+      "matched_institutions": [
+        "Carnegie Mellon University"
+      ],
+      "affiliation_evidence": [
+        {
+          "institution": "Carnegie Mellon University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "NVIDIA",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "NVIDIA * Equal Contributions † Equal Advising",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28626",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Amazon",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Brown University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Northeastern University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "UT Austin",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University of WashingtonProject page: rahulsajnani.github.io/projects/uniwalm/",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28624",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Idealworks",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "NVIDIA",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28613",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "1 Institute of Automation, Chinese Academy of Sciences",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "2 Anyverse Robotics",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "3 Open-Phoenix Team",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "4 National University of Singapore",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "5 Xi’an Jiaotong University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "6 Beijing Institute of Technology",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Chinese Academy of Sciences",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "National University of Singapore",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28589",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Michigan State University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University of Central Florida",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University of Southern California",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28585",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Cornell University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Luma AI",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "[",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28566",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": []
+    },
+    {
+      "arxiv_id": "arXiv:2610.28523",
+      "authors": [],
+      "matched_institutions": [
+        "Carnegie Mellon University"
+      ],
+      "affiliation_evidence": [
+        {
+          "institution": "Carnegie Mellon University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Carnegie Mellon University\tKeio AI Research Center\tKeio University * Equal contribution https://yutoshibata07.github.io/REACT/",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Keio AI Research Center",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Keio University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28480",
+      "authors": [],
+      "matched_institutions": [
+        "UC Berkeley"
+      ],
+      "affiliation_evidence": [
+        {
+          "institution": "UC Berkeley",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28470",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "College of Information and Computer Sciences, University of Massachusetts Amherst, MA, U.S.",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University of Massachusetts Amherst",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28465",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Space Robotics (SpaceR) Research Group, SnT, University of Luxembourg, Luxembourg",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28457",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Sun Yat-sen University, X-Era AI Lab, The Hong Kong Polytechnic University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Your Institution",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28432",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Idealworks",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "NVIDIA",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28431",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Ainoro",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Beijing Institute of Technology",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Hong Kong University of Science and Technology",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "King Abdullah University of Science and Technology",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Peng Cheng Laboratory",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Shenzhen Loop Area Institute",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Southern University of Science and Technology",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Sun Yat-sen University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "The Chinese University of Hong Kong",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "The Chinese University of Hong Kong Shenzhen",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "The Hong Kong University of Science and Technology (Guangzhou)",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Xi’an Jiaotong University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28381",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Cambridge Research Laboratory, Toshiba Europe Ltd, Cambridge, UK",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28362",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": []
+    },
+    {
+      "arxiv_id": "arXiv:2610.28329",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Centro di Ricerca “Enrico Piaggio”, Università di Pisa",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Dipartimento di Ingegneria dell’Informazione, Università di Pisa",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28259",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "IndependentResearcher",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "InstituteofAutomationoftheChineseAcademyofSciences",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "NanjingUniversity",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "NanyangTechnologicalUniversity",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "PekingUniversity",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28251",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Arizona State University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Harvard University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28184",
+      "authors": [],
+      "matched_institutions": [
+        "Stanford University"
+      ],
+      "affiliation_evidence": [
+        {
+          "institution": "NVIDIA",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Politecnico di Milano",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Stanford University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28166",
+      "authors": [],
+      "matched_institutions": [
+        "Stanford University"
+      ],
+      "affiliation_evidence": [
+        {
+          "institution": "Air Force Research Laboratory",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "NVIDIA",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Politecnico di Milano",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Stanford University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28164",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Beihang University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Shanghai Artificial Intelligence Laboratory",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28127",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "The Space Robotics Lab, Tohoku University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "ispace inc.",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28122",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": []
+    },
+    {
+      "arxiv_id": "arXiv:2610.28109",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Beijing Institute of Technology",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Lanzhou University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Northwest Normal University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Sun Yat-sen University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Zhejiang University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28106",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "LAAS-CNRS",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University of Trento",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28019",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Hong Kong University of Science and Technology",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28011",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Fudan University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Peking University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27998",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Dynamic Legged Systems Lab, Istituto Italiano di Tecnologia (IIT)",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Istituto Italiano di Tecnologia",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27995",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Electronics and Telecommunications\nResearch Institute (ETRI), Republic of Korea",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27917",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Beijing Academy of Artificial Intelligence",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Chinese Academy of Sciences",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Institute of Automation, Chinese Academy of Sciences",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Renmin University of China",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27907",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "OMRON SINIC X Corporation, Tokyo, Japan",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "The University of Tokyo, Tokyo, Japan",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27905",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Moorfields Eye Hospital, NHS Foundation Trust, London, UK.",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "School of Biomedical Engineering & Imaging Sciences, King’s College London, UK.",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27870",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "AIT Austrian Institute of Technology, Vienna, Austria",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "TU Wien, Vienna, Austria",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Università Politecnica delle Marche, Italy",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27865",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": []
+    },
+    {
+      "arxiv_id": "arXiv:2610.27861",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Fudan University.",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Shanghai Jiao Tong University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Shanghai Jiao Tong University.",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Shenzhen Loop Area Institute, Shenzhen, China.",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "The Chinese University of Hong Kong",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "The Chinese University of Hong Kong.",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University of Chinese Academy of Sciences",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University of Chinese Academy of Sciences.",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27836",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "College of Transportation Engineering & Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, 201804, China",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27794",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Learning Systems and Robotics Lab, Technical University of Munich",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Munich Institute of Robotics and Machine Intelligence",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Technical University of Munich",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University of Toronto",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27736",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Nanyang Technological University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Nanyang Technological University, Singapore",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Singapore Institute of Manufacturing Technology (SIMTech)Agency for Science, Technology and Research (A*STAR), Singapore",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27732",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": []
+    },
+    {
+      "arxiv_id": "arXiv:2610.27688",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": []
+    },
+    {
+      "arxiv_id": "arXiv:2610.27677",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Chinese Academy of Sciences",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Peking University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "School of Advanced Manufacturing and Robotics, Peking University, Beijing 100871, China",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "School of Engineering, Newcastle University, UK",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "State Key Laboratory of Multimodal Artificial Intelligence Systems, Institute of Automation, Chinese Academy of Sciences, Beijing 100190, China",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27657",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "School of Robotics and Automation, Nanjing University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27629",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Centro de Investigación Científica y de Educación Superior de Ensenada (CICESE), Ensenada, Baja California, Mexico",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27622",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Independent",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University of Hawaii at Manoa",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27618",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "A*STAR Institute of Advanced Intelligence and Computing",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Monash University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "National University of Singapore",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University of Utah",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27616",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "The Chinese University of Hong Kong",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "The University of Hong Kong",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27613",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Fudan University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Jilin University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Nanjing University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Shanghai Innovation Institute",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Tencent",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Zhejiang University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27586",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Department of Automotive Engineering (Automotive-Computer Convergence), Hanyang University, Seoul, South Korea",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Department of Automotive Engineering, Hanyang University, Seoul, South Korea",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27562",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Department of Otolaryngology–Head and Neck Surgery, The Johns Hopkins University School of Medicine, Baltimore, Maryland",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Department of Pathology, Johns Hopkins Hospital, Baltimore, Maryland",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Johns Hopkins University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Laboratory for Computational Sensing and Robotics, Johns Hopkins University, Baltimore, Maryland",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27504",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Hunter College and The Graduate Center, City University of New York (CUNY), New York, NY, USA",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "The Graduate Center, City University of New York (CUNY), New York, NY, USA",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27496",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Hunter College and The Graduate Center, City University of New York (CUNY), New York, NY, USA",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "The Graduate Center, City University of New York (CUNY), New York, NY, USA",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27485",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "University of Waterloo",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27472",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Centre for Tactile Internet with Human-in-the-Loop (CeTI), Dresden, Germany",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Department of Architecture, Massachusetts Institute of Technology, United States",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Deutsche Telekom Chair of Communication Networks, TU Dresden, Germany",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27414",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "California Institute of Technology",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Division of Engineering and Applied Science, California Institute of Technology, Pasadena, CA 91125, USA",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "𝚌𝚊𝚕𝚝𝚎𝚌𝚑",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27387",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Columbia University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Princeton University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27350",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Purdue University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27336",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Department of Radiation Oncology, University of California at Los Angeles, CA",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Department of Radiation Oncology, University of Pennsylvania, Philadelphia, PA",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Department of Radiation Oncology, Yale New Haven Hospital, Trumbull, CT",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University of Colorado, Anschutz Medical Campus,\nAurora, CO",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University of Pennsylvania",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27315",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Caltech",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Center for Autonomus Systems and Technologies, Caltech, Pasadena, CA.",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Northeastern University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Silicon Synapse Labs, Department of Electrical and Computer Engineering, Northeastern University, Boston, USA.",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27310",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "J. Mike Walker ’66 Department of Mechanical Engineering,\nTexas A&M University, College Station, TX 77840, USA",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27277",
+      "authors": [],
+      "matched_institutions": [
+        "Massachusetts Institute of Technology"
+      ],
+      "affiliation_evidence": [
+        {
+          "institution": "Massachusetts Institute of Technology",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27275",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Colorado School of Mines",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Department of Computer Science, Colorado School of Mines.",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27271",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Human Centered Robotics and Cybernetics Group, CSIR-Central Mechanical Engineering Research Institute, Durgapur 713209, India.",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27242",
+      "authors": [],
+      "matched_institutions": [
+        "Carnegie Mellon University"
+      ],
+      "affiliation_evidence": [
+        {
+          "institution": "Carnegie Mellon University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "United States",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27199",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "NODAR Inc.",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27194",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Harvard University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27162",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Department of Theoretical Computer Science and Mathematical Logic Charles University, Faculty of Mathematics and Physics Prague, Czech Republic",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27141",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Space Robotics Research Group (SpaceR) , Interdisciplinary Centre for Security, Reliability and Trust (SnT), University of Luxembourg",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27040",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": []
+    },
+    {
+      "arxiv_id": "arXiv:2610.27039",
+      "authors": [],
+      "matched_institutions": [
+        "Massachusetts Institute of Technology"
+      ],
+      "affiliation_evidence": [
+        {
+          "institution": "HKU",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "MIT",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Sharpa",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "StanfordUniversity",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "TsinghuaUniversity",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "UniversityofNorthCarolinaatChapelHill",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27003",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Beihang University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Engineering Research Center of Database and Business Intelligence, Beijing, China",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Key Laboratory of Data Engineering and Knowledge Engineering, Beijing, China",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "School of Information, Renmin University of China",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Zphyture",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.26962",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "MARS Lab, Nanyang Technological University, Singapore",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Nanyang Technological University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "ROKAE Robotics",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28632",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Bar-Ilan University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "NVIDIA",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Technion – Israel Institute of Technology",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28623",
+      "authors": [],
+      "matched_institutions": [
+        "New York University"
+      ],
+      "affiliation_evidence": [
+        {
+          "institution": "California Institute of Technology",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "New York University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28530",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Georgia Institute of Technology",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28476",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Peking University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28290",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Engineering and Technology Institute Groningen, University of Groningen, 9747 AG Groningen, The Netherlands",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.28121",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Centre for Assured and Connected Autonomy, Cranfield University, Bedford, UK",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27782",
+      "authors": [],
+      "matched_institutions": [
+        "UC San Diego"
+      ],
+      "affiliation_evidence": [
+        {
+          "institution": "Northeastern University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "The Chinese University of Hong Kong",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University of California San Diego",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Westlake University",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Zhejiang University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27756",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Independent Researcher",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27714",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Independent Researchers",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27696",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Zhejiang Humanoid Robot Innovation Center, Ningbo, China",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27547",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "College of Civil and Transportation Engineering, Shenzhen University, Shenzhen, Guangdong, 518060, China",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "College of Mechatronics and Control Engineering, Shenzhen University, Shenzhen, Guangdong, 518060, China",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Department of Electronic and Computer Engineering, Hong Kong University of Science and Technology, Hong Kong",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Hong Kong University of Science and Technology",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Robot Perception and Learning Lab, Intelligent Robotics, Department of Computer Science, University College London, Gower Street, WC1E 6BT, London, UK",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University College London",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27522",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "College of Artificial Intelligence, Xi’an Jiaotong University, Xi’an, Shaanxi, 710049, China",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "College of Computer Science and Software Engineering, Shenzhen University, Shenzhen, Guangdong, 518060, China",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "College of Mechatronics and Control Engineering, Shenzhen University, Shenzhen, Guangdong, 518060, China",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Department of Electronic and Computer Engineering, Hong Kong University of Science and Technology, Hong Kong",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Hong Kong University of Science and Technology",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Robot Perception and Learning Lab, Intelligent Robotics, Department of Computer Science, University College London, Gower Street, WC1E 6BT, London, UK",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "University College London",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.27045",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": []
+    },
+    {
+      "arxiv_id": "arXiv:2610.26979",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Stony Brook University",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.26914",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "KahlertSchoolofComputing,UniversityofUtah,SaltLakeCity,USA",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    },
+    {
+      "arxiv_id": "arXiv:2610.26003",
+      "authors": [],
+      "matched_institutions": [],
+      "affiliation_evidence": [
+        {
+          "institution": "Department of Otorhinolaryngology - Head and Neck Surgery, Daegu Catholic University, Daegu,\nRepublic of Korea",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "Department of Robotics and Mechatronics Engineering, DGIST, South Korea",
+          "role": "author_affiliation",
+          "authors": []
+        },
+        {
+          "institution": "R&D Center, A4LAB Inc., South Korea",
+          "role": "author_affiliation",
+          "authors": []
+        }
+      ]
+    }
+  ]
+}
