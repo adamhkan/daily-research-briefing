@@ -1,0 +1,77 @@
+Affiliation unresolved for arXiv:2610.28585 (front matter requires review)
+Affiliation unresolved for arXiv:2610.28566 (front matter requires review)
+Affiliation unresolved for arXiv:2610.28480 (html_link_missing)
+Affiliation unresolved for arXiv:2610.28465 (front matter requires review)
+Affiliation unresolved for arXiv:2610.28457 (front matter requires review)
+Affiliation unresolved for arXiv:2610.28381 (front matter requires review)
+Affiliation unresolved for arXiv:2610.28362 (front matter requires review)
+Affiliation unresolved for arXiv:2610.28329 (front matter requires review)
+Affiliation unresolved for arXiv:2610.28259 (front matter requires review)
+Affiliation unresolved for arXiv:2610.28166 (front matter requires review)
+Affiliation unresolved for arXiv:2610.28127 (html_link_missing)
+Affiliation unresolved for arXiv:2610.28122 (front matter requires review)
+Affiliation unresolved for arXiv:2610.28019 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27995 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27907 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27870 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27865 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27836 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27732 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27688 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27657 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27629 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27622 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27586 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27504 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27496 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27472 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27387 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27310 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27271 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27199 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27162 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27141 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27040 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27039 (front matter requires review)
+Affiliation unresolved for arXiv:2610.28290 (front matter requires review)
+Affiliation unresolved for arXiv:2610.28121 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27756 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27714 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27696 (front matter requires review)
+Affiliation unresolved for arXiv:2610.27045 (front matter requires review)
+Affiliation unresolved for arXiv:2610.26914 (front matter requires review)
+Affiliation unresolved for arXiv:2610.26003 (html_link_missing)
+Omitted 2 unsupported affiliation author mappings for arXiv:2610.28465; retaining verified institutions
+Affiliation batch repair failed for arXiv:2610.28431, arXiv:2610.28381, arXiv:2610.28362, arXiv:2610.28329, arXiv:2610.28259, arXiv:2610.28166, arXiv:2610.28164, arXiv:2610.28127, arXiv:2610.28122, arXiv:2610.28109, arXiv:2610.28019, arXiv:2610.28011; retaining supported evidence; model=gpt-5.1; error=ValueError: AffiliationOutput failed validation after two attempts <- caused by ValueError: arXiv:2610.28259: Affiliation quote must be verbatim supplied source text
+Affiliation claims rejected for arXiv:2610.28259; retaining verified claims; error=ValueError: Affiliation quote must be verbatim supplied source text
+Omitted 9 unsupported affiliation author mappings for arXiv:2610.28259; retaining verified institutions
+Affiliation batch repair failed for arXiv:2610.27998, arXiv:2610.27995, arXiv:2610.27917, arXiv:2610.27907, arXiv:2610.27905, arXiv:2610.27870, arXiv:2610.27865, arXiv:2610.27861, arXiv:2610.27836, arXiv:2610.27794, arXiv:2610.27736, arXiv:2610.27732; retaining supported evidence; model=gpt-5.1; error=ValueError: AffiliationOutput failed validation after two attempts <- caused by ValueError: arXiv:2610.27861: Institution name must retain the source campus or organization-unit qualifier; arXiv:2610.27861: Affiliation quote must be verbatim supplied source text; arXiv:2610.27836: Institution name must retain the source campus or organization-unit qualifier; arXiv:2610.27836: A complete extraction needs supported current affiliations; arXiv:2610.27732: Institution name must retain the source campus or organization-unit qualifier; arXiv:2610.27732: A complete extraction needs supported current affiliations
+Affiliation claims rejected for arXiv:2610.27861; retaining verified claims; error=ValueError: Institution name must retain the source campus or organization-unit qualifier; Affiliation quote must be verbatim supplied source text
+Affiliation claims rejected for arXiv:2610.27836; retaining verified claims; error=ValueError: Institution name must retain the source campus or organization-unit qualifier; A complete extraction needs supported current affiliations
+Affiliation claims rejected for arXiv:2610.27732; retaining verified claims; error=ValueError: Institution name must retain the source campus or organization-unit qualifier; A complete extraction needs supported current affiliations
+Omitted 3 unsupported affiliation author mappings for arXiv:2610.27995; retaining verified institutions
+Omitted 4 unsupported affiliation author mappings for arXiv:2610.27861; retaining verified institutions
+Omitted 1 unsupported affiliation author mappings for arXiv:2610.27794; retaining verified institutions
+Omitted 8 unsupported affiliation author mappings for arXiv:2610.27677; retaining verified institutions
+Omitted 1 unsupported affiliation author mappings for arXiv:2610.27629; retaining verified institutions
+Omitted 3 unsupported affiliation author mappings for arXiv:2610.27586; retaining verified institutions
+Omitted 3 unsupported affiliation author mappings for arXiv:2610.27472; retaining verified institutions
+Omitted 3 unsupported affiliation author mappings for arXiv:2610.27414; retaining verified institutions
+Omitted 4 unsupported affiliation author mappings for arXiv:2610.27336; retaining verified institutions
+Omitted 4 unsupported affiliation author mappings for arXiv:2610.27310; retaining verified institutions
+Omitted 3 unsupported affiliation author mappings for arXiv:2610.27271; retaining verified institutions
+Omitted 4 unsupported affiliation author mappings for arXiv:2610.27242; retaining verified institutions
+Affiliation batch repair failed for arXiv:2610.27039, arXiv:2610.27003, arXiv:2610.26962, arXiv:2610.28632, arXiv:2610.28290, arXiv:2610.28121, arXiv:2610.27782, arXiv:2610.27756, arXiv:2610.27714, arXiv:2610.27696, arXiv:2610.27547, arXiv:2610.27522; retaining supported evidence; model=gpt-5.1; error=ValueError: AffiliationOutput failed validation after two attempts <- caused by ValueError: arXiv:2610.27547: Institution name must retain the source campus or organization-unit qualifier; arXiv:2610.27547: Institution name must retain the source campus or organization-unit qualifier; arXiv:2610.27522: Institution name must retain the source campus or organization-unit qualifier; arXiv:2610.27522: Institution name must retain the source campus or organization-unit qualifier
+Affiliation claims rejected for arXiv:2610.27547; retaining verified claims; error=ValueError: Institution name must retain the source campus or organization-unit qualifier; Institution name must retain the source campus or organization-unit qualifier
+Affiliation claims rejected for arXiv:2610.27522; retaining verified claims; error=ValueError: Institution name must retain the source campus or organization-unit qualifier; Institution name must retain the source campus or organization-unit qualifier
+Omitted 8 unsupported affiliation author mappings for arXiv:2610.26962; retaining verified institutions
+Omitted 1 unsupported affiliation author mappings for arXiv:2610.27714; retaining verified institutions
+Omitted 2 unsupported affiliation author mappings for arXiv:2610.26003; retaining verified institutions
+Overview evidence repair failed; omitting unsupported claims: arXiv:2610.28432, claim 1: Evidence quote must be a nonempty verbatim substring of the source; arXiv:2610.28432, claim 2: Evidence quote must be a nonempty verbatim substring of the source; arXiv:2610.27310, claim 1: Evidence quote must be a nonempty verbatim substring of the source; arXiv:2610.27310, claim 2: Evidence quote must be a nonempty verbatim substring of the source
+Affiliation coverage: {'matched': 12, 'no_match': 14, 'unresolved': 62, 'source_unavailable': 0}
+Affiliation resolution: {'filter_match': 12, 'verified_nonmatch': 14, 'unresolved_identity': 42, 'incomplete_extraction': 12, 'no_usable_evidence': 8}
+API usage: {'sdk_requests': 23, 'input_tokens': 134184, 'output_tokens': 73354, 'cached_input_tokens': 0, 'reasoning_tokens': 22399}
+Wrote markdown briefing: reports/2026-10-22/2026-10-22.md
+Wrote structured briefing: reports/2026-10-22/2026-10-22.json
+Wrote HTML briefing: reports/2026-10-22/2026-10-22.html
+Wrote dashboard index: reports/index.html
