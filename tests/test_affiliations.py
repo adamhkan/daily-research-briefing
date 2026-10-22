@@ -129,6 +129,42 @@ class SourceRegressionTests(unittest.TestCase):
                 _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
             self.assertEqual(extraction_from_evidence([], [claim.model_dump()], SPECS).paper_level_institutions, [])
 
+    def test_clean_names_keep_separate_source_evidence_and_unknown_organizations(self):
+        text = ('Department of Architecture, Massachusetts Institute of Technology, United States; '
+                'Novel Robotics Laboratory, United Kingdom')
+        value = record(text)
+        claims = [AffiliationClaim(institution=name, authors=[], block_id='b',
+                                   evidence_quote=text, role='author_affiliation')
+                  for name in ['Massachusetts Institute of Technology', 'Novel Robotics Laboratory']]
+        for claim in claims:
+            _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
+        result = extraction_from_evidence([], [c.model_dump() for c in claims], SPECS)
+        self.assertEqual(result.paper_level_institutions,
+                         ['Massachusetts Institute of Technology', 'Novel Robotics Laboratory'])
+        self.assertEqual(result.unmapped_raw_institutions, ['Novel Robotics Laboratory'])
+        self.assertEqual(claims[0].evidence_quote, text)
+
+    def test_clean_names_cannot_drop_campus_qualifiers_or_invent_expansions(self):
+        for source, shortened in [('Amazon Robotics', 'Amazon'),
+                                  ('Boston Dynamics AI Institute', 'Boston Dynamics'),
+                                  ('New York University Abu Dhabi', 'New York University'),
+                                  ('The Hong Kong University of Science and Technology (Guangzhou)',
+                                   'Hong Kong University of Science and Technology'),
+                                  ('The Chinese University of Hong Kong, Shenzhen',
+                                   'The Chinese University of Hong Kong')]:
+            value = record(source)
+            claim = AffiliationClaim(institution=shortened, authors=[], block_id='b',
+                                     evidence_quote=source, role='author_affiliation')
+            with self.subTest(source=source), self.assertRaisesRegex(ValueError, 'qualifier'):
+                _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
+            _validate_claim(claim.model_copy(update={'institution': source}),
+                            {'b': value['affiliation_blocks'][0]}, value['authors'])
+        value = record('MIT')
+        claim = AffiliationClaim(institution='Massachusetts Institute of Technology', authors=[],
+                                 block_id='b', evidence_quote='MIT', role='author_affiliation')
+        with self.assertRaisesRegex(ValueError, 'verbatim'):
+            _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
+
     def test_cleanup_does_not_consume_name_letters(self):
         for name in ['Xi’an University of Architecture and Technology', 'Stanford University',
                      'Carnegie Mellon University', 'University of Electronic Science and Technology of China']:
