@@ -1,0 +1,4 @@
+Replaying 12 papers from reports/2026-10-21/2026-10-21.json; model=gpt-6.1-sol
+No collection, classification, summaries, report updates, or publishing.
+Diagnostic passed; API usage: {'sdk_requests': 1, 'responses': [{'task': 'AffiliationOutput', 'status': 'completed', 'input_tokens': 9404, 'output_tokens': 2598, 'cached_input_tokens': 0, 'reasoning_tokens': 56}]}
+Saved diagnostic evidence to logs/diagnostics/39715467846-1
