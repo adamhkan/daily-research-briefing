@@ -28,6 +28,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install first-page OCR tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends poppler-utils tesseract-ocr
+
+      - name: Restore affiliation evidence cache
+        uses: actions/cache@v4
+        with:
+          path: .cache/affiliations
+          key: ${{ runner.os }}-affiliations-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            ${{ runner.os }}-affiliations-v2-
+
       - name: Ensure filter file exists
         run: |
           if [ ! -f config/filters.yaml ]; then

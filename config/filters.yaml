@@ -57,3 +57,9 @@ max_papers: 400
 classification_batch_size: 25
 summary_batch_size: 10
 max_topic_matches: 10
+
+# Affiliation fallback: bounded author snippets, not full papers.
+affiliation_batch_size: 12
+affiliation_max_input_chars: 60000
+affiliation_snippet_chars: 4000
+max_pdf_megabytes: 32

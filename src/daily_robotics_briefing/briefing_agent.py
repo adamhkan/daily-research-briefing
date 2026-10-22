@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import re
 from datetime import date
+from pathlib import Path
 from collections.abc import Callable
 from typing import Any, TypeVar
 
@@ -74,6 +75,16 @@ def _responses_create(
         }},
         max_output_tokens=max_output_tokens,
     )
+    tracking = getattr(client, 'briefing_usage', None)
+    if isinstance(tracking, dict):
+        usage = response.usage
+        tracking['responses'].append({
+            'task': response_schema.__name__, 'status': response.status,
+            'input_tokens': usage.input_tokens if usage else 0,
+            'output_tokens': usage.output_tokens if usage else 0,
+            'cached_input_tokens': getattr(usage.input_tokens_details, 'cached_tokens', 0) if usage else 0,
+            'reasoning_tokens': getattr(usage.output_tokens_details, 'reasoning_tokens', 0) if usage else 0,
+        })
     if response.status != "completed" or not response.output_text:
         raise ValueError("Model response was incomplete, refused, or empty")
     return response.output_text
@@ -87,6 +98,9 @@ def _request_validated(
     error = ""
     for attempt in range(2):
         try:
+            tracking = getattr(client, 'briefing_usage', None)
+            if isinstance(tracking, dict):
+                tracking['sdk_requests'] += 1
             raw = _responses_create(
                 client, model, prompt + error, payload, "low", schema, max_output_tokens
             )
@@ -192,6 +206,9 @@ def create_daily_briefing(
     papers: list[dict[str, Any]], institutions: list[str], topics: list[str],
     submission_date: date, model: str = DEFAULT_MODEL, max_topic_matches: int = 10,
     classification_batch_size: int = 25, summary_batch_size: int = 10,
+    institution_entries: list | None = None, affiliation_cache_dir: Path | None = None,
+    affiliation_batch_size: int = 12, affiliation_max_input_chars: int = 60000,
+    affiliation_snippet_chars: int = 4000,
 ) -> dict[str, Any]:
     if classification_batch_size < 1 or summary_batch_size < 1 or max_topic_matches < 0:
         raise ValueError("Batch sizes must be positive and max_topic_matches nonnegative")
@@ -200,7 +217,16 @@ def create_daily_briefing(
     enriched: list[dict[str, Any]] = []
     rows_by_id: dict[str, dict[str, Any]] = {}
     executive_evidence: list[dict[str, Any]] = []
+    usage = {'sdk_requests': 0, 'responses': []}
     with OpenAI(timeout=120.0, max_retries=2) as client:
+        client.briefing_usage = usage
+        if institution_entries is not None:
+            from .affiliations import identify_institutions
+            identify_institutions(
+                papers, institution_entries, institutions, client, model, _request_validated,
+                cache_dir=affiliation_cache_dir, batch_size=affiliation_batch_size,
+                max_input_chars=affiliation_max_input_chars, snippet_chars=affiliation_snippet_chars,
+            )
         for offset in range(0, len(papers), classification_batch_size):
             batch = papers[offset:offset + classification_batch_size]
             by_id = {p["arxiv_id"]: p for p in batch}
@@ -292,6 +318,11 @@ def create_daily_briefing(
         "submission_date": submission_date.isoformat(),
         "filters": {"institutions": institutions, "topics": topics},
         "model": model, "paper_count": len(papers), "selected_paper_count": len(selected),
+        "api_usage": {
+            **usage,
+            **{field: sum(r[field] for r in usage['responses']) for field in
+               ('input_tokens', 'output_tokens', 'cached_input_tokens', 'reasoning_tokens')},
+        },
         "papers": enriched,
         "briefing": {
             "executive_summary": [bullet["text"] for bullet in executive_evidence] or (

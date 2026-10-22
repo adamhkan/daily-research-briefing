@@ -1,0 +1,58 @@
+              Tactile In-Hand Object Rotation: A Comparative Study of
+                         Hand Morphology in Simulation and Hardware
+
+            Wenhao He, Max Yang, Chenghua Lu, Yijiong Lin, David A.W. Barton, Nathan F. Lepora,
+
+
+   Abstract—Continuous in-hand rotation requires coordinated                  average loading change as more local contact information
+contact  maintenance  and  renewal,  linking  manipulation  per-              becomes available.
+formance to both hand geometry and tactile feedback. We in-                      We study anthropomorphic and symmetric configurations
+vestigate these relationships through rotational progress, finger             of the low-cost LEAP Hand [4], each with 16 actuated joints
+participation, and fingertip loading on two versions of the low-              and 4 integrated vision-based (TacTip) tactile fingertips [5].
+cost LEAP Hand with anthropomorphic and symmetric finger
+arrangements. Both hands are integrated with TacTip vision-                   We  adopt  the  task  and  reinforcement  learning  framework
+based tactile sensors and use a shared reinforcement learning                 of  AnyRotate  [3]  as  a  shared  experimental  protocol.  The
+framework. Simulation evaluates full tactile, binary touch, and               comparison uses a common tactile observation interface and
+proprioception-only observations on 12 unseen objects; hard-                  learning procedure to examine differences across finger ar-
+ware experiments evaluate full tactile policies on ten objects                rangements and observation conditions. Simulation evaluates
+under  multiple  hand  orientations.  In  simulation,  full  tactile
+observations  increase  mean  normalized  rotation  per  episode              the three observation conditions on 12 unseen objects with
+over proprioception alone by 94.8% for the anthropomorphic                    randomized hand orientations and rotation axes. Hardware
+hand and 66.9% for the symmetric hand, with longer mean                       experiments evaluate full tactile policies on ten objects under
+episode durations and lower mean total fingertip loads. Hard-                 multiple hand orientations, with additional force recordings
+ware contact measurements reveal more differentiated finger                   following the corresponding evaluation settings.
+participation in the anthropomorphic hand, while cumulative
+loading is more evenly distributed across the symmetric hand’s                   The results associate the two layouts with distinct patterns
+fingers. Overall, the symmetric hand achieves a 32.0% higher                  of finger participation and cumulative loading. On hardware,
+mean rotation count and a 25.8% higher aggregate rotation                     the  anthropomorphic  thumb  and  middle  finger  maintain
+rate, together with longer manipulation duration. Additional                  contact more persistently and contribute a larger share of
+hardware  force  recordings  show  a  19.9%  lower  mean  total               accumulated  load,  with  more  frequent  contact  changes  at
+fingertip  load  for  this  layout.  These  findings  relate  finger
+arrangement  to  contact  organization  and  load  sharing,  and              the index and little fingers. The symmetric hand distributes
+show  that  richer  tactile  information  supports  greater  task             participation more evenly, and its cumulative loads are more
+progress at lower mean loading in both simulated embodiments.                 uniformly shared in both simulation and hardware. In the
+                                                                              simulation comparison, richer tactile observations improve
+                       I.  INTRODUCTION                                       mean normalized rotation and manipulation duration while
+   A robotic hand’s geometry determines where its fingertips                  reducing mean fingertip loading in both hands.
+can reach and how they approach an object. During sustained                      The main contributions of this work are:
+rotation, these geometric constraints interact with the need                     1)Wecomparetwohandmorphologiesunderthreeobser-
+to  support  the  object,  permit  motion,  and  renew  contact                      vation conditions, quantifying changes in normalized
+under  different  gravity  directions.  The  forces  carried  by                     rotation,  manipulation  duration,  and  mean  fingertip
+the fingertips and the distribution of contact changes across                        loading on unseen simulated objects.
+fingers characterize how these interactions develop during                       2)Werelatefingertipworkspacearrangementtohardware
+manipulation. Learning-based controllers have enabled con-                           contact persistence and transitions, and to cumulative
+tinuous  fingertip  rotation  using  proprioceptive  and  tactile                    load sharing in simulation and hardware, identifying
+observations  [1]–[3],  providing  an  experimental  basis  for                      differentiated and more evenly distributed patterns of
+examining these relationships across hand layouts.                                   finger contribution.
+   The question considered here is how finger arrangement                        3)We implement two low-cost LEAP–TacTip hand con-
+changes both the organization of fingertip contact and load-                         figurations and evaluate their continuous fingertip ro-
+ing and the benefit obtained from tactile feedback. Similar                          tation  on  ten  physical  objects  under  multiple  hand
+task scores can arise from different distributions of persistent                     orientations, combining manipulation outcomes with
+contact,  contact-state  changes,  and  accumulated  fingertip                       complementary contact and loading measurements.
+load.Examiningthesequantitiestogetherprovidesabasisfor                                                II.  RELATEDWORK
+interpreting how each layout performs the task. Comparing
+full  tactile,  binary  touch,  and  proprioception-only  obser-                 Tactile  Feedback  for  Robotic  Manipulation.Tactile
+vations  then  establishes  how  task  progress,  duration,  and              manipulation  spans  explicit  feedback  control  and  learned
+  All authors are with Department of Engineering Mathematics and Bristol      policies.  Li  et  al.  use  pressure-array  features  for  tactile
+Robotics Laboratory, University of Bristol, Bristol BS8 1UB, U.K.             servoing  [6],  while  van  Hoof  et  al.  learn  object  rolling
+  ∗ Corresponding author: Nathan F. Lepora (n.lepora@bristol.ac.uk).          with distributed tactile feedback on the compliant ReFlex

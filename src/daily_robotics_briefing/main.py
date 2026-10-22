@@ -11,7 +11,7 @@ import yaml
 from .briefing_agent import DEFAULT_MODEL, create_daily_briefing
 from .collector import fetch_csro_recent
 from .common_robotics_institutions import COMMON_ROBOTICS_INSTITUTIONS
-from .institution_filter import build_institution_specs, extract_institutions_for_paper
+from .institution_filter import build_institution_specs
 from .renderer import build_dashboard, render_html, render_markdown
 from .time_utils import eastern_today
 
@@ -58,6 +58,7 @@ def main() -> None:
         default=Path("reports/index.html"),
     )
     parser.add_argument("--model", default=DEFAULT_MODEL)
+    parser.add_argument("--affiliation-cache-dir", type=Path, default=Path(".cache/affiliations"))
     parser.add_argument(
         "--submission-date",
         type=lambda s: date.fromisoformat(s),
@@ -72,9 +73,7 @@ def main() -> None:
     institution_entries = cfg.get("institutions", [])
     canonical_from_config = _canonical_names(institution_entries)
     combined_entries: list[object] = [*institution_entries, *COMMON_ROBOTICS_INSTITUTIONS]
-    institution_specs = build_institution_specs(combined_entries)
     institutions = canonical_from_config
-    configured_institution_set = set(canonical_from_config)
     topics = _normalize_string_list(cfg.get("topics", []))
     max_papers = int(cfg.get("max_papers", 400))
     # The old total LLM cap is now a batch-size fallback, never a coverage limit.
@@ -87,7 +86,13 @@ def main() -> None:
     if min(max_papers, classification_batch_size, summary_batch_size) < 1 or max_topic_matches < 0:
         raise ValueError("Collection and batch limits must be positive; max_topic_matches must be nonnegative")
 
-    papers = fetch_csro_recent(max_papers=max_papers, submission_date=submission_date)
+    affiliation_batch_size = int(cfg.get('affiliation_batch_size', 12))
+    affiliation_max_input_chars = int(cfg.get('affiliation_max_input_chars', 60000))
+    affiliation_snippet_chars = int(cfg.get('affiliation_snippet_chars', 4000))
+    pdf_limit = int(cfg.get('max_pdf_megabytes', 32)) * 1024 * 1024
+    if min(affiliation_batch_size, affiliation_snippet_chars, pdf_limit) < 1 or affiliation_max_input_chars < 0:
+        raise ValueError('Affiliation batch/snippet/PDF limits must be positive; input budget must be nonnegative')
+    papers = fetch_csro_recent(max_papers=max_papers, submission_date=submission_date, max_pdf_bytes=pdf_limit)
 
     if not papers:
         print(
@@ -96,30 +101,7 @@ def main() -> None:
         )
         return
 
-    all_papers = []
-    for paper in papers:
-        record = paper.to_dict()
-        institution_result = extract_institutions_for_paper(
-            author_names=record["authors"],
-            source_text=record.get("affiliation_text", ""),
-            institution_specs=institution_specs,
-        )
-        extraction_dict = institution_result.to_dict()
-        paper_level = extraction_dict.get("paper_level_institutions", [])
-        if isinstance(paper_level, list):
-            filtered_matches = sorted(
-                {str(name) for name in paper_level if str(name) in configured_institution_set}
-            )
-        else:
-            filtered_matches = []
-        extraction_dict["filter_match"] = bool(filtered_matches)
-        extraction_dict["filter_match_institutions"] = filtered_matches
-        record["manual_institution_extraction"] = extraction_dict
-        record["institution_match_status"] = (
-            "matched" if filtered_matches else
-            "no_match" if record.get("affiliation_status") == "extracted" else "unknown"
-        )
-        all_papers.append(record)
+    all_papers = [paper.to_dict() for paper in papers]
 
     result = create_daily_briefing(
         papers=all_papers,
@@ -130,6 +112,11 @@ def main() -> None:
         max_topic_matches=max_topic_matches,
         classification_batch_size=classification_batch_size,
         summary_batch_size=summary_batch_size,
+        institution_entries=combined_entries,
+        affiliation_cache_dir=args.affiliation_cache_dir,
+        affiliation_batch_size=affiliation_batch_size,
+        affiliation_max_input_chars=affiliation_max_input_chars,
+        affiliation_snippet_chars=affiliation_snippet_chars,
     )
     result["filters"] = {
         "institutions": institutions,
@@ -137,10 +124,17 @@ def main() -> None:
     }
     result["papers_fetched"] = len(all_papers)
     result["papers_analyzed"] = len(all_papers)
-    result["affiliation_coverage"] = {
-        status: sum(p["institution_match_status"] == status for p in all_papers)
-        for status in ("matched", "no_match", "unknown")
+    result['affiliation_coverage'] = {
+        'matched': sum(p['institution_match_status'] == 'matched' for p in result['papers']),
+        'no_match': sum(p['institution_match_status'] == 'no_match' for p in result['papers']),
+        'unknown': sum(p['institution_match_status'] in {'unresolved', 'source_unavailable'} for p in result['papers']),
     }
+    result['affiliation_status_counts'] = {
+        status: sum(p['institution_match_status'] == status for p in result['papers'])
+        for status in ('matched', 'no_match', 'unresolved', 'source_unavailable')
+    }
+    print('Affiliation coverage:', result['affiliation_status_counts'])
+    print('API usage:', {k: v for k, v in result['api_usage'].items() if k != 'responses'})
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out_json.parent.mkdir(parents=True, exist_ok=True)

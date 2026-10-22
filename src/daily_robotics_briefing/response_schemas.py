@@ -42,3 +42,21 @@ class SummaryBullet(StrictOutput):
 
 class ExecutiveOutput(StrictOutput):
     bullets: list[SummaryBullet] = Field(min_length=1, max_length=6)
+
+
+class AffiliationClaim(StrictOutput):
+    institution: str = Field(min_length=1)
+    authors: list[str]
+    block_id: str
+    evidence_quote: str = Field(min_length=1)
+    role: Literal['author_affiliation', 'work_done_at', 'former_affiliation', 'funder']
+
+
+class PaperAffiliations(StrictOutput):
+    paper_id: str
+    complete: bool
+    affiliations: list[AffiliationClaim]
+
+
+class AffiliationOutput(StrictOutput):
+    papers: list[PaperAffiliations]
