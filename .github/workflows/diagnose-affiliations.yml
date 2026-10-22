@@ -1,0 +1,72 @@
+name: Diagnose Affiliation Extraction
+
+on:
+  workflow_dispatch:
+    inputs:
+      report_path:
+        description: 'Saved report JSON path (blank = latest report)'
+        type: string
+        default: ''
+      sample_size:
+        description: 'Failed papers to replay (1–12; 12 reproduces the first failed batch)'
+        type: number
+        default: 12
+
+permissions:
+  contents: write
+
+concurrency:
+  group: diagnose-affiliations-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  diagnose-affiliations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Initialize log directory
+        run: |
+          echo "RUN_LOG_DIR=logs/diagnostics/$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_ENV"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Replay only affiliation extraction
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          REPORT_PATH: ${{ inputs.report_path }}
+          SAMPLE_SIZE: ${{ inputs.sample_size }}
+        shell: bash
+        run: |
+          set -o pipefail
+          report_args=()
+          if [[ -n "$REPORT_PATH" ]]; then
+            report_args+=(--report "$REPORT_PATH")
+          fi
+          PYTHONPATH=src python -u -m daily_robotics_briefing.diagnose_affiliations \
+            "${report_args[@]}" --sample-size "$SAMPLE_SIZE" --output-dir "$RUN_LOG_DIR" \
+            2>&1 | PYTHONPATH=src python -u -m daily_robotics_briefing.log_capture \
+              --out "$RUN_LOG_DIR/diagnostic.log"
+
+      - name: Upload diagnostic logs and evidence
+        if: ${{ always() && env.RUN_LOG_DIR != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: affiliation-diagnostic-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.RUN_LOG_DIR }}
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Commit diagnostic logs even if extraction failed
+        if: ${{ always() && env.RUN_LOG_DIR != '' }}
+        run: bash .github/scripts/persist-run-logs.sh

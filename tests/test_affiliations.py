@@ -3,13 +3,16 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
+import httpx2
 from bs4 import BeautifulSoup
+from openai import AuthenticationError
 
 from daily_robotics_briefing.affiliations import (
-    _validate_claim, deterministic_evidence, identify_institutions,
+    _exception_details, _validate_claim, deterministic_evidence, identify_institutions,
 )
+from daily_robotics_briefing.briefing_agent import _request_validated
 from daily_robotics_briefing.collector import _html_affiliation_blocks, _pdf_affiliation_text
 from daily_robotics_briefing.common_robotics_institutions import COMMON_ROBOTICS_INSTITUTIONS
 from daily_robotics_briefing.institution_filter import (
@@ -179,6 +182,52 @@ class FallbackTests(unittest.TestCase):
         self.assertEqual(value['institution_match_status'], 'matched')
         self.assertFalse(value['affiliation_complete'])
         self.assertIn('affiliation_model_fallback_failed', value['affiliation_issues'])
+
+    def test_fallback_logs_underlying_validation_failure_and_paper_id(self):
+        value = record('Novel University', pid='arXiv:example')
+        # Exercise the real two-attempt repair wrapper, which chains the cause.
+        invalid = json.dumps({'papers': [{
+            'paper_id': value['arxiv_id'], 'complete': True, 'affiliations': [{
+                'institution': 'Novel University', 'authors': [], 'block_id': 'b',
+                'evidence_quote': 'Fabricated evidence', 'role': 'author_affiliation',
+            }],
+        }]})
+        with patch('daily_robotics_briefing.briefing_agent._responses_create', return_value=invalid) as create:
+            with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING') as logs:
+                self.resolve(value, _request_validated)
+        message = '\n'.join(logs.output)
+        self.assertIn('AffiliationOutput failed validation after two attempts', message)
+        self.assertIn('arXiv:example: Affiliation quote must be verbatim supplied source text', message)
+        self.assertIn('model=model', message)
+        self.assertEqual(create.call_count, 2)
+        self.assertEqual(value['institution_match_status'], 'unresolved')
+
+    def test_api_error_logs_status_and_request_id_without_credentials(self):
+        key = 'custom-api-credential-for-test'
+        token = 'custom-github-credential-for-test'
+        response = httpx2.Response(401, request=httpx2.Request('POST', 'https://api.openai.com/v1/responses'),
+                                   headers={'x-request-id': 'req-test'})
+        error = AuthenticationError(f'Invalid API key: {key}; token={token}; Bearer unconfigured-token',
+                                    response=response, body={'code': 'invalid_api_key'})
+        with patch.dict('os.environ', {'OPENAI_API_KEY': key, 'GH_TOKEN': token}):
+            with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING') as logs:
+                self.resolve(record('EPFL and Novel University'), Mock(side_effect=error))
+        message = '\n'.join(logs.output)
+        self.assertIn('AuthenticationError', message)
+        self.assertIn('status_code=401', message)
+        self.assertIn('request_id=req-test', message)
+        self.assertIn('code=invalid_api_key', message)
+        for credential in [key, token, 'unconfigured-token']:
+            self.assertNotIn(credential, message)
+
+    def test_error_diagnostics_are_bounded_and_redact_client_and_prefixed_keys(self):
+        key = 'credential-only-on-the-client'
+        error = ValueError(f'{key}\nsk-proj-unconfigured-example-key ' + 'x' * 3000)
+        message = _exception_details(error, api_key=key)
+        self.assertNotIn(key, message)
+        self.assertNotIn('sk-proj-unconfigured-example-key', message)
+        self.assertNotIn('\n', message)
+        self.assertLessEqual(len(message), 2000)
 
     def test_input_budget_keeps_unresolved_evidence_without_model_call(self):
         request = Mock(side_effect=AssertionError('zero budget'))

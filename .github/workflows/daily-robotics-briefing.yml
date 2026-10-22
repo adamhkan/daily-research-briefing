@@ -38,6 +38,10 @@ jobs:
             core.setOutput('report_date', reportDate);
             core.setOutput('submission_date', submissionDate);
 
+      - name: Initialize log directory
+        run: |
+          echo "RUN_LOG_DIR=logs/briefings/$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_ENV"
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -68,22 +72,38 @@ jobs:
           fi
 
       - name: Run regression tests
+        shell: bash
         run: |
-          PYTHONPATH=src python -m unittest discover -s tests -v
-          node --test tests/test_briefing_recovery.cjs
+          set -o pipefail
+          PYTHONPATH=src python -u -m unittest discover -s tests -v \
+            2>&1 | PYTHONPATH=src python -u -m daily_robotics_briefing.log_capture --out "$RUN_LOG_DIR/python-tests.log"
+          node --test tests/test_briefing_recovery.cjs \
+            2>&1 | PYTHONPATH=src python -u -m daily_robotics_briefing.log_capture --out "$RUN_LOG_DIR/recovery-tests.log"
 
       - name: Generate briefing
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           REPORT_DATE: ${{ steps.report-date.outputs.report_date }}
           SUBMISSION_DATE: ${{ steps.report-date.outputs.submission_date }}
+        shell: bash
         run: |
-          PYTHONPATH=src python -m daily_robotics_briefing.main \
+          set -o pipefail
+          PYTHONPATH=src python -u -m daily_robotics_briefing.main \
             --filters config/filters.yaml \
             --submission-date "$SUBMISSION_DATE" \
             --out "reports/$REPORT_DATE/$REPORT_DATE.md" \
             --out-json "reports/$REPORT_DATE/$REPORT_DATE.json" \
-            --out-html "reports/$REPORT_DATE/$REPORT_DATE.html"
+            --out-html "reports/$REPORT_DATE/$REPORT_DATE.html" \
+            2>&1 | PYTHONPATH=src python -u -m daily_robotics_briefing.log_capture --out "$RUN_LOG_DIR/briefing.log"
+
+      - name: Upload application logs even if generation failed
+        if: ${{ always() && env.RUN_LOG_DIR != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: briefing-logs-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.RUN_LOG_DIR }}
+          retention-days: 30
+          if-no-files-found: warn
 
       - name: Ensure GitHub Pages static settings
         run: |
@@ -105,6 +125,10 @@ jobs:
             git commit -m "chore: add daily robotics briefing"
             git push
           fi
+
+      - name: Commit application logs even if generation failed
+        if: ${{ always() && env.RUN_LOG_DIR != '' }}
+        run: bash .github/scripts/persist-run-logs.sh
 
   deploy-pages:
     runs-on: ubuntu-latest

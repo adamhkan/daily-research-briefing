@@ -99,6 +99,22 @@ Clear institutional fields and explicit author-affiliation statements are handle
 
 Ambiguous front matter uses a strict-schema model extraction step in batches (`affiliation_batch_size`, default 12). It receives bounded snippets (`affiliation_snippet_chars`, default 4,000 characters per paper) under a run-wide source-text cap (`affiliation_max_input_chars`, default 60,000). Setting the run-wide cap to zero disables model affiliation fallback. Model output must quote supplied text verbatim, retain the original institution name, and support any author associations. A failed fallback preserves deterministic confirmations and marks the remaining extraction unresolved; it does not turn missing evidence into a nonmatch. The source-character cap excludes JSON/schema/prompt overhead and a possible repair request, so it is not a token billing cap.
 
+Fallback warnings include the model, exception type/message, chained validation cause with the affected paper ID, and API status/request ID when available. Warnings redact credentials, omit HTTP headers and full model responses, and bound the error detail to 2,000 characters.
+
+### Persistent logs and isolated diagnostics
+
+The daily job streams test output and briefing stdout/stderr (including exceptions) to credential-redacted files in `logs/briefings/<run-id>-<attempt>/`. These are committed to the run's branch even when generation fails, so they can be read through Git. A `briefing-logs-<run-id>-<attempt>` artifact also retains them for 30 days. Report files remain under `reports/`; logs are not published to Pages. Failures before the application starts may produce no application log, and saving logs still requires a working runner and GitHub service.
+
+To investigate affiliation failures without rebuilding the briefing, open **Actions → Diagnose Affiliation Extraction → Run workflow**. Leave `report_path` blank to use the latest saved report, or specify a report JSON path. The default `sample_size` of 12 replays the first failed batch; use 1 to inspect its first paper. This uses saved front matter without arXiv/PDF downloads, ignores the affiliation cache, and makes at most two affiliation model requests, with SDK network retries disabled. It skips classification, summaries, report writing, and deployment. It uses the report's model and institution filters, plus the current curated aliases and extraction limits.
+
+Diagnostic logs and JSON evidence are committed under `logs/diagnostics/<run-id>-<attempt>/`, even when validation fails, and attached as a 30-day artifact. Evidence includes the selected source records, exact request payloads, model output text for each completed response, validation warnings, results, and API usage. Credentials are redacted; HTTP headers are not saved. The diagnostic action fails when the replay fails or makes no model request. You can run it locally with:
+
+```bash
+PYTHONPATH=src python -u -m daily_robotics_briefing.diagnose_affiliations \
+  --report reports/2026-10-21/2026-10-21.json \
+  --output-dir /tmp/affiliation-diagnostic
+```
+
 Each paper records `affiliation_evidence`, `affiliation_complete`, `affiliation_identity_complete`, source/version metadata, and `institution_match_status`:
 
 - `matched`: at least one supported current-author institution matches a configured identity, even if additional affiliations remain unresolved.

@@ -75,6 +75,9 @@ def _responses_create(
         }},
         max_output_tokens=max_output_tokens,
     )
+    observer = getattr(client, 'briefing_response_observer', None)
+    if callable(observer):
+        observer(response_schema.__name__, payload, response)
     tracking = getattr(client, 'briefing_usage', None)
     if isinstance(tracking, dict):
         usage = response.usage

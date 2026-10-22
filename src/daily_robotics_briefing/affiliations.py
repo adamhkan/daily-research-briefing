@@ -11,6 +11,7 @@ from typing import Any, Callable
 from openai import OpenAIError
 
 from .institution_filter import alias_hits, build_institution_specs, extraction_from_evidence, normalize_text
+from .log_capture import redact_text
 from .response_schemas import AffiliationOutput
 
 logger = logging.getLogger(__name__)
@@ -29,6 +30,22 @@ when the association is unclear. A clear paper-level institution is useful even
 without per-author mappings. Set complete=false if any author affiliation remains
 unresolved or text is incomplete. Never claim a complete extraction with no
 supported current affiliations.'''
+
+
+def _exception_details(error: Exception, api_key: str | None = None) -> str:
+    """Keep bounded diagnostics, including chained validation failures, without credentials."""
+    details, seen = [], set()
+    current: BaseException | None = error
+    while current is not None and id(current) not in seen and len(details) < 4:
+        seen.add(id(current))
+        metadata = ', '.join(
+            f'{name}={value}' for name in ('status_code', 'code', 'param', 'request_id')
+            if isinstance(value := getattr(current, name, None), (str, int))
+        )
+        details.append(f'{type(current).__name__}: {current}' + (f' ({metadata})' if metadata else ''))
+        current = current.__cause__
+    message = ' <- caused by '.join(details)
+    return ' '.join(redact_text(message, [api_key]).split())[:2000]
 
 
 def normalized_quote(text: str) -> str:
@@ -198,16 +215,22 @@ def identify_institutions(
                 raise ValueError('Return each supplied affiliation paper_id exactly once')
             for row in result.papers:
                 blocks = {b['id']: b for b in supplied[row.paper_id]['blocks']}
-                for claim in row.affiliations:
-                    _validate_claim(claim, blocks, supplied[row.paper_id]['authors'])
-                if row.complete and not any(c.role == 'author_affiliation' for c in row.affiliations):
-                    raise ValueError('A complete extraction needs supported current affiliations')
+                try:
+                    for claim in row.affiliations:
+                        _validate_claim(claim, blocks, supplied[row.paper_id]['authors'])
+                    if row.complete and not any(c.role == 'author_affiliation' for c in row.affiliations):
+                        raise ValueError('A complete extraction needs supported current affiliations')
+                except ValueError as exc:
+                    raise ValueError(f'{row.paper_id}: {exc}') from exc
 
         try:
             output = request(client, model, AFFILIATION_PROMPT, {'papers': batch},
                              AffiliationOutput, validate, max_output_tokens=2000 + len(batch) * 700)
-        except (ValueError, OpenAIError):
-            logger.warning('Affiliation model fallback failed for %s; retaining supported evidence', ', '.join(supplied))
+        except (ValueError, OpenAIError) as exc:
+            logger.warning(
+                'Affiliation model fallback failed for %s; retaining supported evidence; model=%s; error=%s',
+                ', '.join(supplied), model, _exception_details(exc, getattr(client, 'api_key', None)),
+            )
             for pid in supplied:
                 by_id[pid].setdefault('affiliation_issues', []).append('affiliation_model_fallback_failed')
             continue
