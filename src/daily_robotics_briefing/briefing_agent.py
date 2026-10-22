@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import re
 from datetime import date
 from pathlib import Path
@@ -13,6 +14,15 @@ from pydantic import BaseModel
 from .response_schemas import ClassificationOutput, ExecutiveOutput, OverviewOutput
 
 DEFAULT_MODEL = "gpt-5.1"
+
+
+class _OverviewEvidenceError(ValueError):
+    """A complete overview response with claims that failed source validation."""
+
+    def __init__(self, result: OverviewOutput, errors: list[str]):
+        super().__init__("; ".join(errors))
+        self.result = result
+
 
 CLASSIFICATION_PROMPT = """
 Classify robotics papers against the supplied topic filters using their FULL abstracts.
@@ -269,23 +279,47 @@ def create_daily_briefing(
 
             def validate_overviews(result: OverviewOutput) -> None:
                 _check_ids(result.papers, batch)
+                errors = []
                 for row in result.papers:
-                    for claim in row.claims:
-                        _check_evidence(claim.claim, claim.evidence_quote, by_id[row.paper_id]["abstract"])
+                    for index, claim in enumerate(row.claims, 1):
+                        try:
+                            _check_evidence(claim.claim, claim.evidence_quote, by_id[row.paper_id]["abstract"])
+                        except ValueError as exc:
+                            errors.append(f"{row.paper_id}, claim {index}: {exc}")
+                if errors:
+                    raise _OverviewEvidenceError(result, errors)
 
-            result = _request_validated(
-                client, model, OVERVIEW_PROMPT,
-                {"papers": [
-                    {"paper_id": p["arxiv_id"], "title": p["title"], "abstract": p["abstract"]}
-                    for p in batch
-                ]}, OverviewOutput, validate_overviews,
-                max_output_tokens=2000 + len(batch) * 900,
-            )
+            try:
+                result = _request_validated(
+                    client, model, OVERVIEW_PROMPT,
+                    {"papers": [
+                        {"paper_id": p["arxiv_id"], "title": p["title"], "abstract": p["abstract"]}
+                        for p in batch
+                    ]}, OverviewOutput, validate_overviews,
+                    max_output_tokens=2000 + len(batch) * 900,
+                )
+            except ValueError as exc:
+                # Only source-validation failures are recoverable here. Malformed
+                # output, incomplete coverage, and API failures still fail the run.
+                if not isinstance(exc.__cause__, _OverviewEvidenceError):
+                    raise
+                result = exc.__cause__.result
+                logging.getLogger(__name__).warning(
+                    "Overview evidence repair failed; omitting unsupported claims: %s", exc.__cause__
+                )
             for row in result.papers:
+                valid_claims = []
+                for claim in row.claims:
+                    try:
+                        _check_evidence(claim.claim, claim.evidence_quote, by_id[row.paper_id]["abstract"])
+                    except ValueError:
+                        continue
+                    valid_claims.append(claim)
                 rows_by_id[row.paper_id].update(
-                    overview=" ".join(claim.claim for claim in row.claims),
-                    evidence=[claim.model_dump() for claim in row.claims],
-                    summary_status="grounded_in_abstract",
+                    overview=(" ".join(claim.claim for claim in valid_claims) or
+                              "Summary unavailable: source evidence could not be verified; consult the linked paper."),
+                    evidence=[claim.model_dump() for claim in valid_claims],
+                    summary_status=("grounded_in_abstract" if valid_claims else "evidence_validation_failed"),
                 )
 
         displayed = [rows_by_id[p["arxiv_id"]] for p in selected]
@@ -321,7 +355,7 @@ def create_daily_briefing(
         "papers": enriched,
         "briefing": {
             "executive_summary": [bullet["text"] for bullet in executive_evidence] or (
-                ["Matched papers have no available abstracts; consult the linked papers."] if selected else []
+                ["No verified paper summaries are available; consult the linked papers."] if selected else []
             ),
             "executive_summary_evidence": executive_evidence,
             "institution_matches": [rows_by_id[p["arxiv_id"]] for p in selected if p["institution_match"]],

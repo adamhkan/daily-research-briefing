@@ -154,15 +154,53 @@ class BriefingTests(unittest.TestCase):
             with self.subTest(bullet=bullet), self.assertRaises(ValueError):
                 self.generate([paper('p')], respond)
 
-    def test_overview_cannot_omit_a_paper_or_invent_supporting_evidence(self):
-        for rows in [[], [{'paper_id': 'p', 'claims': [
-            {'claim': 'Reported 99% success.', 'evidence_quote': 'Reported 99% success.'}
-        ]}]]:
+    def test_overview_cannot_omit_a_paper(self):
+        stub = ModelStub()
+        def respond(*args):
+            return '{"papers": []}' if args[5] is OverviewOutput else stub(*args)
+        with self.assertRaisesRegex(ValueError, 'after two attempts'):
+            self.generate([paper('p')], respond)
+
+    def test_bad_overview_evidence_does_not_abort_valid_papers_or_claims(self):
+        for quote in ['made up quote', '73% success']:
             stub = ModelStub()
             def respond(*args):
-                return json.dumps({'papers': rows}) if args[5] is OverviewOutput else stub(*args)
-            with self.subTest(rows=rows), self.assertRaises(ValueError):
-                self.generate([paper('p')], respond)
+                raw = stub(*args)
+                if args[5] is OverviewOutput:
+                    data = json.loads(raw)
+                    bad = {'claim': 'Reported 99% success.', 'evidence_quote': quote}
+                    data['papers'][0]['claims'] = [bad]
+                    data['papers'][1]['claims'].append(bad)
+                    return json.dumps(data)
+                return raw
+            with self.subTest(quote=quote), self.assertLogs(level='WARNING') as logs:
+                result, _ = self.generate([paper('a'), paper('b'), paper('c')], respond)
+            rows = {r['paper_id']: r for r in result['briefing']['topic_matches']}
+            self.assertEqual(rows['a']['summary_status'], 'evidence_validation_failed')
+            self.assertEqual(rows['a']['evidence'], [])
+            self.assertIn('Summary unavailable', rows['a']['overview'])
+            for pid in ['b', 'c']:
+                self.assertEqual(rows[pid]['summary_status'], 'grounded_in_abstract')
+                self.assertEqual(len(rows[pid]['evidence']), 1)
+                self.assertNotIn('99%', rows[pid]['overview'])
+            executive = [payload for schema, payload in stub.calls if schema is ExecutiveOutput][0]
+            self.assertEqual({p['paper_id'] for p in executive['papers']}, {'b', 'c'})
+            self.assertEqual(sum(schema is OverviewOutput for schema, _ in stub.calls), 2)
+            self.assertIn('a, claim 1', '\n'.join(logs.output))
+
+    def test_all_invalid_overviews_skip_executive_without_claiming_missing_abstracts(self):
+        stub = ModelStub()
+        def respond(*args):
+            raw = stub(*args)
+            if args[5] is OverviewOutput:
+                data = json.loads(raw)
+                data['papers'][0]['claims'][0]['evidence_quote'] = 'invented quote'
+                return json.dumps(data)
+            return raw
+        with self.assertLogs(level='WARNING'):
+            result, _ = self.generate([paper('p')], respond)
+        self.assertFalse(any(schema is ExecutiveOutput for schema, _ in stub.calls))
+        self.assertIn('No verified paper summaries', result['briefing']['executive_summary'][0])
 
     def test_missing_abstract_does_not_invent_a_summary(self):
         result, stub = self.generate([paper('inst', institution=True, abstract='')], ModelStub({'inst': (0, 0)}))
