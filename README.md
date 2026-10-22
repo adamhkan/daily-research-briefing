@@ -26,6 +26,7 @@ This repository contains an AI agent that runs on GitHub Actions and produces a 
 ```text
 .github/workflows/
   daily-robotics-briefing.yml   # Scheduled daily run
+  retry-robotics-briefing.yml   # Delayed recovery of a failed run
 config/
   filters.example.yaml          # Institution/topic filters
 reports/
@@ -80,6 +81,14 @@ In repository settings, set **Pages → Build and deployment → Source** to **G
 
 The daily workflow uploads `reports/` as the Pages artifact, so `reports/index.html` becomes the site homepage for each deployment.
 
+### Automatic recovery
+
+A separate recovery workflow checks every 15 minutes. If the latest daily briefing on `main` failed or timed out at least 30 minutes ago, it requests **one automatic retry** of failed jobs and their dependent jobs (at most two attempts total). This also covers hosted-runner allocation failures, which happen before any briefing steps execute. Successful jobs are not repeated; a failed build may repeat any API calls it completed before failing.
+
+Recovery only considers scheduled or manually dispatched runs that failed within the last 24 hours. It skips cancelled runs, runs already retried manually or automatically, and older failures superseded by a newer run. Briefing runs are serialized per branch. A rerun checks out the latest branch contents and retains the original run's report/submission dates in US Eastern time, including across midnight.
+
+Normally the retry is requested about 30–45 minutes after failure; GitHub can delay scheduled workflows or runner allocation further. The checker does not keep a runner waiting for 30 minutes. No additional secret is needed: it uses the repository's built-in `GITHUB_TOKEN` with `actions: write`. You can also manually run **Retry Failed Robotics Briefing** to perform the same eligibility check. Persistent failures need manual attention after the one retry.
+
 ## Notes on institution filtering
 
 The collector reads complete HTML front matter: explicit affiliation fields, author tables, and author/thanks footnotes, including notes before the author list. Abstract, body, and reference mentions are excluded. Each institution is backed by a short source quote, URL, and HTML locator or PDF page. HTML and PDF versions are pinned together when a version is available.
@@ -113,6 +122,7 @@ Run the offline regression suite with:
 
 ```bash
 PYTHONPATH=src python -m unittest discover -s tests -v
+node --test tests/test_briefing_recovery.cjs
 ```
 
 Tests include abbreviated real-paper front-matter fixtures (ContactBench, CoopUQ, DexOAK, the robotics-exposure paper, the giant Rubik’s Cube paper, InJePA, and others), real SDK request serialization through a simulated HTTP transport, PDF/OCR parsing, cache invalidation, ranking, grounding checks, and CLI report generation without paid API calls. The daily workflow runs these tests before generating the briefing.
