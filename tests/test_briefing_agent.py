@@ -179,18 +179,18 @@ class BriefingTests(unittest.TestCase):
             captured.append((request.url.path, json.loads(request.content)))
             return httpx2.Response(200, json={
                 'id': 'resp_offline', 'object': 'response', 'created_at': 0,
-                'status': 'completed', 'model': 'gpt-6.1-sol',
+                'status': 'completed', 'model': 'gpt-5.1',
                 'output': [{'id': 'msg_offline', 'type': 'message', 'role': 'assistant',
                             'status': 'completed', 'content': [
                                 {'type': 'output_text', 'text': '{"papers": []}', 'annotations': []}
                             ]}],
             })
         with OpenAI(api_key='offline-test', http_client=httpx2.Client(transport=httpx2.MockTransport(handler))) as client:
-            text = _responses_create(client, 'gpt-6.1-sol', 'Classify.', {}, 'low', ClassificationOutput, 2000)
+            text = _responses_create(client, 'gpt-5.1', 'Classify.', {}, 'low', ClassificationOutput, 2000)
         self.assertEqual(json.loads(text), {'papers': []})
         path, body = captured[0]
         self.assertEqual(path, '/v1/responses')
-        self.assertEqual(body['model'], 'gpt-6.1-sol')
+        self.assertEqual(body['model'], 'gpt-5.1')
         self.assertTrue(body['text']['format']['strict'])
         self.assertFalse(body['text']['format']['schema']['additionalProperties'])
         self.assertEqual(body['reasoning'], {'effort': 'low'})

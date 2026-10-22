@@ -41,7 +41,9 @@ def diagnose(report_path: Path, filters_path: Path, output_dir: Path, sample_siz
     # Use that report's filters rather than silently changing its institution decisions.
     filters = report['filters']['institutions']
     entries = [*cfg.get('institutions', []), *filters, *COMMON_ROBOTICS_INSTITUTIONS]
-    chosen_model = model or report.get('model') or DEFAULT_MODEL
+    # Replays use the current default unless explicitly overridden, rather than
+    # silently restoring a historical report's potentially more expensive model.
+    chosen_model = model or DEFAULT_MODEL
     usage = {'sdk_requests': 0, 'responses': []}
     output_dir.mkdir(parents=True, exist_ok=True)
     write_json(output_dir / 'input-papers.json', papers)

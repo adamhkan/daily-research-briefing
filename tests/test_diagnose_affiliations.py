@@ -11,7 +11,7 @@ from daily_robotics_briefing.diagnose_affiliations import diagnose
 
 
 class AffiliationDiagnosticTests(unittest.TestCase):
-    def exercise(self, *, valid, sample_size=12, api_error=False):
+    def exercise(self, *, valid, sample_size=12, api_error=False, model=None):
         calls = []
         def handler(request):
             body = json.loads(request.content)
@@ -26,7 +26,7 @@ class AffiliationDiagnosticTests(unittest.TestCase):
             ]) for p in payload['papers']]})
             return httpx2.Response(200, json={
                 'id': f'resp-{len(calls)}', 'object': 'response', 'created_at': 0,
-                'status': 'completed', 'model': 'offline-model',
+                'status': 'completed', 'model': body['model'],
                 'usage': {'input_tokens': 100, 'output_tokens': 20, 'total_tokens': 120,
                           'input_tokens_details': {'cached_tokens': 0},
                           'output_tokens_details': {'reasoning_tokens': 0}},
@@ -54,7 +54,7 @@ class AffiliationDiagnosticTests(unittest.TestCase):
             output = root / 'logs'
             with patch('daily_robotics_briefing.diagnose_affiliations.OpenAI', return_value=client):
                 with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING') if not valid else self.assertNoLogs('daily_robotics_briefing.affiliations'):
-                    passed = diagnose(report, config, output, sample_size=sample_size)
+                    passed = diagnose(report, config, output, sample_size=sample_size, model=model)
             result = json.loads((output / 'results.json').read_text())
             responses = [json.loads(p.read_text()) for p in sorted(output.glob('response-*.json'))]
             selected = json.loads((output / 'input-papers.json').read_text())
@@ -79,6 +79,14 @@ class AffiliationDiagnosticTests(unittest.TestCase):
         self.assertEqual(len(selected), 1)
         self.assertEqual(result['failed_paper_ids'], [])
         self.assertNotIn('affiliation_model_fallback_failed', result['papers'][0]['affiliation_issues'])
+        self.assertEqual(result['model'], 'gpt-5.1')
+        self.assertEqual(calls[0]['model'], 'gpt-5.1')
+
+    def test_explicit_diagnostic_model_override_is_respected(self):
+        passed, result, responses, selected, calls = self.exercise(valid=True, sample_size=1, model='explicit-model')
+        self.assertTrue(passed)
+        self.assertEqual(result['model'], 'explicit-model')
+        self.assertEqual(calls[0]['model'], 'explicit-model')
 
     def test_api_failure_has_no_automatic_network_retries_and_still_saves_results(self):
         passed, result, responses, selected, calls = self.exercise(valid=False, api_error=True)

@@ -12,7 +12,7 @@ from pydantic import BaseModel
 
 from .response_schemas import ClassificationOutput, ExecutiveOutput, OverviewOutput
 
-DEFAULT_MODEL = "gpt-6.1-sol"
+DEFAULT_MODEL = "gpt-5.1"
 
 CLASSIFICATION_PROMPT = """
 Classify robotics papers against the supplied topic filters using their FULL abstracts.
