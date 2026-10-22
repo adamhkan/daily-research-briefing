@@ -1,0 +1,136 @@
+TAP version 13
+# Subtest: retry a runner allocation failure at the 30-minute boundary
+ok 1 - retry a runner allocation failure at the 30-minute boundary
+  ---
+  duration_ms: 1.784501
+  type: 'test'
+  ...
+# Subtest: wait for 30 minutes after completion, not after the run started
+ok 2 - wait for 30 minutes after completion, not after the run started
+  ---
+  duration_ms: 0.809446
+  type: 'test'
+  ...
+# Subtest: a timed-out manually dispatched run is retried
+ok 3 - a timed-out manually dispatched run is retried
+  ---
+  duration_ms: 0.213611
+  type: 'test'
+  ...
+# Subtest: a long runner wait does not make a freshly recorded failure too old
+ok 4 - a long runner wait does not make a freshly recorded failure too old
+  ---
+  duration_ms: 0.157968
+  type: 'test'
+  ...
+# Subtest: skip a run that is successful
+ok 5 - skip a run that is successful
+  ---
+  duration_ms: 0.238648
+  type: 'test'
+  ...
+# Subtest: skip a run that is cancelled
+ok 6 - skip a run that is cancelled
+  ---
+  duration_ms: 0.115493
+  type: 'test'
+  ...
+# Subtest: skip a run that is running
+ok 7 - skip a run that is running
+  ---
+  duration_ms: 0.151077
+  type: 'test'
+  ...
+# Subtest: skip a run that is queued
+ok 8 - skip a run that is queued
+  ---
+  duration_ms: 0.081593
+  type: 'test'
+  ...
+# Subtest: skip a run that is already retried automatically or manually
+ok 9 - skip a run that is already retried automatically or manually
+  ---
+  duration_ms: 0.294353
+  type: 'test'
+  ...
+# Subtest: skip a run that is on a different branch
+ok 10 - skip a run that is on a different branch
+  ---
+  duration_ms: 0.35275
+  type: 'test'
+  ...
+# Subtest: skip a run that is triggered by a different event
+ok 11 - skip a run that is triggered by a different event
+  ---
+  duration_ms: 0.142083
+  type: 'test'
+  ...
+# Subtest: skip a run that is failed 24 hours ago
+ok 12 - skip a run that is failed 24 hours ago
+  ---
+  duration_ms: 0.076825
+  type: 'test'
+  ...
+# Subtest: a newer completed run supersedes an older failure
+ok 13 - a newer completed run supersedes an older failure
+  ---
+  duration_ms: 0.361213
+  type: 'test'
+  ...
+# Subtest: a newer in_progress run supersedes an older failure
+ok 14 - a newer in_progress run supersedes an older failure
+  ---
+  duration_ms: 0.074412
+  type: 'test'
+  ...
+# Subtest: a newer queued run supersedes an older failure
+ok 15 - a newer queued run supersedes an older failure
+  ---
+  duration_ms: 0.081021
+  type: 'test'
+  ...
+# Subtest: use run ID to disambiguate runs created in the same second
+ok 16 - use run ID to disambiguate runs created in the same second
+  ---
+  duration_ms: 0.180731
+  type: 'test'
+  ...
+# Subtest: skip when a manual rerun starts during the check
+ok 17 - skip when a manual rerun starts during the check
+  ---
+  duration_ms: 0.138859
+  type: 'test'
+  ...
+# Subtest: no previous daily run is a successful no-op
+ok 18 - no previous daily run is a successful no-op
+  ---
+  duration_ms: 0.106801
+  type: 'test'
+  ...
+# Subtest: surface a GitHub API rejection instead of reporting a successful retry
+ok 19 - surface a GitHub API rejection instead of reporting a successful retry
+  ---
+  duration_ms: 0.937318
+  type: 'test'
+  ...
+# Subtest: original run dates are stable across midnight and year boundaries
+ok 20 - original run dates are stable across midnight and year boundaries
+  ---
+  duration_ms: 27.330619
+  type: 'test'
+  ...
+# Subtest: Eastern daylight saving boundaries preserve the previous calendar day
+ok 21 - Eastern daylight saving boundaries preserve the previous calendar day
+  ---
+  duration_ms: 0.334152
+  type: 'test'
+  ...
+1..21
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 289.410469

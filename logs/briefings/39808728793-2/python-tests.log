@@ -1,0 +1,90 @@
+test_a_bad_claim_cannot_discard_other_papers_or_verified_claims_from_its_own_paper (test_affiliations.FallbackTests.test_a_bad_claim_cannot_discard_other_papers_or_verified_claims_from_its_own_paper) ... ok
+test_api_error_logs_status_and_request_id_without_credentials (test_affiliations.FallbackTests.test_api_error_logs_status_and_request_id_without_credentials) ... ok
+test_cache_reuses_raw_evidence_and_refilters (test_affiliations.FallbackTests.test_cache_reuses_raw_evidence_and_refilters) ... ok
+test_error_diagnostics_are_bounded_and_redact_client_and_prefixed_keys (test_affiliations.FallbackTests.test_error_diagnostics_are_bounded_and_redact_client_and_prefixed_keys) ... ok
+test_fallback_logs_underlying_validation_failure_and_paper_id (test_affiliations.FallbackTests.test_fallback_logs_underlying_validation_failure_and_paper_id) ... ok
+test_former_and_work_done_at_do_not_count (test_affiliations.FallbackTests.test_former_and_work_done_at_do_not_count) ... ok
+test_funder_cannot_be_laundered_using_short_quote (test_affiliations.FallbackTests.test_funder_cannot_be_laundered_using_short_quote) ... ok
+test_input_budget_keeps_unresolved_evidence_without_model_call (test_affiliations.FallbackTests.test_input_budget_keeps_unresolved_evidence_without_model_call) ... ok
+test_invalid_quote_and_unsupported_author_link_are_rejected (test_affiliations.FallbackTests.test_invalid_quote_and_unsupported_author_link_are_rejected) ... ok
+test_malformed_cache_is_ignored (test_affiliations.FallbackTests.test_malformed_cache_is_ignored) ... ok
+test_partial_match_survives_failed_model_fallback (test_affiliations.FallbackTests.test_partial_match_survives_failed_model_fallback) ... ok
+test_run_wide_budget_and_truncation_are_enforced (test_affiliations.FallbackTests.test_run_wide_budget_and_truncation_are_enforced) ... ok
+test_saved_diagnostic_author_mappings_and_funding_context_regression (test_affiliations.FallbackTests.test_saved_diagnostic_author_mappings_and_funding_context_regression) ... ok
+test_unknown_name_retained_without_fuzzy_identity (test_affiliations.FallbackTests.test_unknown_name_retained_without_fuzzy_identity) ... ok
+test_unproven_author_link_does_not_discard_a_verified_institution (test_affiliations.FallbackTests.test_unproven_author_link_does_not_discard_a_verified_institution) ... ok
+test_body_mentions_and_funders_cannot_create_matches (test_affiliations.SourceRegressionTests.test_body_mentions_and_funders_cannot_create_matches) ... ok
+test_cleanup_does_not_consume_name_letters (test_affiliations.SourceRegressionTests.test_cleanup_does_not_consume_name_letters) ... ok
+test_distinct_universities_are_never_merged (test_affiliations.SourceRegressionTests.test_distinct_universities_are_never_merged) ... ok
+test_later_author_groups_and_specific_author_mapping (test_affiliations.SourceRegressionTests.test_later_author_groups_and_specific_author_mapping) ... ok
+test_no_author_assignment_from_sole_paper_institution (test_affiliations.SourceRegressionTests.test_no_author_assignment_from_sole_paper_institution) ... ok
+test_nonmatch_and_bristol_footnote (test_affiliations.SourceRegressionTests.test_nonmatch_and_bristol_footnote) ... ok
+test_pdf_layout_and_wrapped_footnote (test_affiliations.SourceRegressionTests.test_pdf_layout_and_wrapped_footnote) ... ok
+test_three_previously_missed_filter_matches (test_affiliations.SourceRegressionTests.test_three_previously_missed_filter_matches) ... ok
+test_all_160_papers_classified_including_late_institution_match (test_briefing_agent.BriefingTests.test_all_160_papers_classified_including_late_institution_match) ... ok
+test_classification_needs_only_scores_and_a_short_rationale (test_briefing_agent.BriefingTests.test_classification_needs_only_scores_and_a_short_rationale) ... ok
+test_classification_uses_full_abstract (test_briefing_agent.BriefingTests.test_classification_uses_full_abstract) ... ok
+test_empty_selection_needs_no_overview_or_executive_request (test_briefing_agent.BriefingTests.test_empty_selection_needs_no_overview_or_executive_request) ... ok
+test_equal_scores_are_ordered_by_id_not_model_or_input_order (test_briefing_agent.BriefingTests.test_equal_scores_are_ordered_by_id_not_model_or_input_order) ... ok
+test_executive_cannot_cite_hidden_papers_or_invent_numbers (test_briefing_agent.BriefingTests.test_executive_cannot_cite_hidden_papers_or_invent_numbers) ... ok
+test_invalid_response_is_repaired_with_bounded_retry (test_briefing_agent.BriefingTests.test_invalid_response_is_repaired_with_bounded_retry) ... ok
+test_missing_abstract_does_not_invent_a_summary (test_briefing_agent.BriefingTests.test_missing_abstract_does_not_invent_a_summary) ... ok
+test_missing_unknown_or_duplicate_classifications_fail_after_one_repair (test_briefing_agent.BriefingTests.test_missing_unknown_or_duplicate_classifications_fail_after_one_repair) ... ok
+test_overview_cannot_omit_a_paper_or_invent_supporting_evidence (test_briefing_agent.BriefingTests.test_overview_cannot_omit_a_paper_or_invent_supporting_evidence) ... ok
+test_ranking_precedes_summarization_and_executive_sees_only_displayed_rows (test_briefing_agent.BriefingTests.test_ranking_precedes_summarization_and_executive_sees_only_displayed_rows) ... ok
+test_schema_rejects_string_scores_and_unexpected_fields (test_briefing_agent.BriefingTests.test_schema_rejects_string_scores_and_unexpected_fields) ... ok
+test_sdk_serializes_strict_schema_and_reasoning_on_responses_endpoint (test_briefing_agent.BriefingTests.test_sdk_serializes_strict_schema_and_reasoning_on_responses_endpoint) ... ok
+test_unquoted_evidence_and_unsupported_numbers_are_rejected (test_briefing_agent.BriefingTests.test_unquoted_evidence_and_unsupported_numbers_are_rejected) ... ok
+test_zero_topic_limit_preserves_institutions (test_briefing_agent.BriefingTests.test_zero_topic_limit_preserves_institutions) ... ok
+test_abs_author_links_and_pdf_version_are_preserved (test_collector.CollectorTests.test_abs_author_links_and_pdf_version_are_preserved) ... ok
+test_affiliation_footnotes_are_kept_without_scanning_body_mentions (test_collector.CollectorTests.test_affiliation_footnotes_are_kept_without_scanning_body_mentions) ... ok
+test_alternative_html_affiliation_metadata (test_collector.CollectorTests.test_alternative_html_affiliation_metadata) ... ok
+test_fetch_failure_remains_unknown_and_records_both_failures (test_collector.CollectorTests.test_fetch_failure_remains_unknown_and_records_both_failures) ... ok
+test_html_affiliation_skips_pdf (test_collector.CollectorTests.test_html_affiliation_skips_pdf) ... ok
+test_malformed_pdf_remains_unknown (test_collector.CollectorTests.test_malformed_pdf_remains_unknown) ... ok
+test_missing_html_uses_actual_first_page_pdf_extraction (test_collector.CollectorTests.test_missing_html_uses_actual_first_page_pdf_extraction) ... ok
+test_pdf_download_limit_is_enforced (test_collector.CollectorTests.test_pdf_download_limit_is_enforced) ... ok
+test_real_first_page_render_and_ocr (test_collector.CollectorTests.test_real_first_page_render_and_ocr) ... ok
+test_api_failure_has_no_automatic_network_retries_and_still_saves_results (test_diagnose_affiliations.AffiliationDiagnosticTests.test_api_failure_has_no_automatic_network_retries_and_still_saves_results) ... Replaying 12 papers from /tmp/tmp3jy9tgmv/report.json; model=gpt-5.1
+No collection, classification, summaries, report updates, or publishing.
+Diagnostic failed; API usage: {'sdk_requests': 1, 'responses': []}
+Saved diagnostic evidence to /tmp/tmp3jy9tgmv/logs
+ok
+test_explicit_diagnostic_model_override_is_respected (test_diagnose_affiliations.AffiliationDiagnosticTests.test_explicit_diagnostic_model_override_is_respected) ... Replaying 1 papers from /tmp/tmpxo6l0uxl/report.json; model=explicit-model
+No collection, classification, summaries, report updates, or publishing.
+Diagnostic passed; API usage: {'sdk_requests': 1, 'responses': [{'task': 'AffiliationOutput', 'status': 'completed', 'input_tokens': 100, 'output_tokens': 20, 'cached_input_tokens': 0, 'reasoning_tokens': 0}]}
+Saved diagnostic evidence to /tmp/tmpxo6l0uxl/logs
+ok
+test_failure_reproduces_only_one_batch_and_persists_both_model_responses (test_diagnose_affiliations.AffiliationDiagnosticTests.test_failure_reproduces_only_one_batch_and_persists_both_model_responses) ... Replaying 12 papers from /tmp/tmp81gn9umq/report.json; model=gpt-5.1
+No collection, classification, summaries, report updates, or publishing.
+Diagnostic failed; API usage: {'sdk_requests': 2, 'responses': [{'task': 'AffiliationOutput', 'status': 'completed', 'input_tokens': 100, 'output_tokens': 20, 'cached_input_tokens': 0, 'reasoning_tokens': 0}, {'task': 'AffiliationOutput', 'status': 'completed', 'input_tokens': 100, 'output_tokens': 20, 'cached_input_tokens': 0, 'reasoning_tokens': 0}]}
+Saved diagnostic evidence to /tmp/tmp81gn9umq/logs
+ok
+test_sample_limit_prevents_accidental_full_report_replay (test_diagnose_affiliations.AffiliationDiagnosticTests.test_sample_limit_prevents_accidental_full_report_replay) ... ok
+test_successful_single_paper_replay_clears_previous_failure (test_diagnose_affiliations.AffiliationDiagnosticTests.test_successful_single_paper_replay_clears_previous_failure) ... Replaying 1 papers from /tmp/tmpc_zit938/report.json; model=gpt-5.1
+No collection, classification, summaries, report updates, or publishing.
+Diagnostic passed; API usage: {'sdk_requests': 1, 'responses': [{'task': 'AffiliationOutput', 'status': 'completed', 'input_tokens': 100, 'output_tokens': 20, 'cached_input_tokens': 0, 'reasoning_tokens': 0}]}
+Saved diagnostic evidence to /tmp/tmpc_zit938/logs
+ok
+test_configured_and_common_aliases_do_not_reintroduce_removed_names (test_institution_aliases.InstitutionAliasTests.test_configured_and_common_aliases_do_not_reintroduce_removed_names) ... ok
+test_distinct_universities_and_company_units_are_not_merged (test_institution_aliases.InstitutionAliasTests.test_distinct_universities_and_company_units_are_not_merged) ... ok
+test_full_names_and_specific_aliases_still_work (test_institution_aliases.InstitutionAliasTests.test_full_names_and_specific_aliases_still_work) ... ok
+test_generic_max_planck_name_does_not_identify_a_specific_institute (test_institution_aliases.InstitutionAliasTests.test_generic_max_planck_name_does_not_identify_a_specific_institute) ... ok
+test_model_extracted_ambiguous_names_stay_unmapped (test_institution_aliases.InstitutionAliasTests.test_model_extracted_ambiguous_names_stay_unmapped) ... ok
+test_ordinary_words_and_ambiguous_acronyms_do_not_identify_institutions (test_institution_aliases.InstitutionAliasTests.test_ordinary_words_and_ambiguous_acronyms_do_not_identify_institutions) ... ok
+test_console_and_persistent_file_receive_the_same_redacted_output (test_log_capture.LogCaptureTests.test_console_and_persistent_file_receive_the_same_redacted_output) ... ok
+test_log_commit_rebases_over_a_concurrent_code_push (test_log_capture.LogCaptureTests.test_log_commit_rebases_over_a_concurrent_code_push) ... ok
+test_redaction_preserves_multiline_traceback_structure (test_log_capture.LogCaptureTests.test_redaction_preserves_multiline_traceback_structure) ... ok
+test_shell_pipeline_keeps_failure_status_and_saves_stderr (test_log_capture.LogCaptureTests.test_shell_pipeline_keeps_failure_status_and_saves_stderr) ... ok
+test_cli_writes_complete_reports_with_sdk_and_affiliation_statuses (test_main.MainTests.test_cli_writes_complete_reports_with_sdk_and_affiliation_statuses) ... Affiliation coverage: {'matched': 1, 'no_match': 1, 'unresolved': 1, 'source_unavailable': 1}
+API usage: {'sdk_requests': 7, 'input_tokens': 700, 'output_tokens': 140, 'cached_input_tokens': 70, 'reasoning_tokens': 35}
+Wrote markdown briefing: /tmp/tmpfhk1989l/briefing.md
+Wrote structured briefing: /tmp/tmpfhk1989l/briefing.json
+Wrote HTML briefing: /tmp/tmpfhk1989l/briefing.html
+Wrote dashboard index: /tmp/tmpfhk1989l/index.html
+ok
+
+----------------------------------------------------------------------
+Ran 63 tests in 10.327s
+
+OK
