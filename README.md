@@ -8,7 +8,7 @@ This repository contains an AI agent that runs on GitHub Actions and produces a 
 2. Selects only papers submitted on the day before the run date in US Eastern time (EST/EDT, "yesterday" by default).
 3. Collects title, authors, full abstract, subjects, links, and HTML author affiliations, with a first-page PDF fallback when HTML affiliation data is missing.
 4. Applies deterministic institution matching, retaining extraction source, failures, and an explicit unknown status when affiliations cannot be extracted.
-5. Calls the OpenAI Responses API (default model: `gpt-5.1`) with strict JSON schemas: classify all fetched papers in batches, write evidence-backed overviews for the selected papers, then summarize only those displayed papers.
+5. Calls the OpenAI Responses API (default model: `gpt-6.1-sol`) with strict JSON schemas: classify all fetched papers in batches, write evidence-backed overviews for the selected papers, then summarize only those displayed papers.
 6. Synthesizes:
    - only the filter-matched papers
    - key findings and trends
@@ -94,7 +94,7 @@ Code preserves all institution matches, then selects up to `max_topic_matches` a
 
 Each overview claim retains a verbatim abstract quote in the JSON report. Quotes are checked against the source, and numerical values must occur in the supporting quote. The executive summary is generated from displayed overviews only, retains supporting paper IDs, checks numbers against cited summaries, and renders links to those papers. Prompts require author-reported phrasing and preserve simulation/hardware distinctions and caveats. These checks improve grounding; they do not independently verify experimental claims or prove every paraphrase is correct.
 
-Missing, duplicate, or unexpected classification/overview IDs and malformed structured outputs trigger one repair attempt, then fail the run before reports are written. Requests have explicit output-token limits and low reasoning effort. Model pricing per token is unchanged, but total usage can vary with paper volume, full abstracts, evidence output, and repairs. No extra API calls are made for summaries when no papers qualify.
+Missing, duplicate, or unexpected classification/overview IDs and malformed structured outputs trigger one repair attempt, then fail the run before reports are written. Requests have explicit output-token limits and low reasoning effort. The default is `gpt-6.1-sol`; use `--model` to override it. Confirm access and current pricing for your API account before a live run. Total usage can vary with paper volume, full abstracts, evidence output, and repairs. No extra API calls are made for summaries when no papers qualify.
 
 Run the offline regression suite with:
 

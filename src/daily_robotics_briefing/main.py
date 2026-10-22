@@ -8,7 +8,7 @@ from typing import Any
 
 import yaml
 
-from .briefing_agent import create_daily_briefing
+from .briefing_agent import DEFAULT_MODEL, create_daily_briefing
 from .collector import fetch_csro_recent
 from .common_robotics_institutions import COMMON_ROBOTICS_INSTITUTIONS
 from .institution_filter import build_institution_specs, extract_institutions_for_paper
@@ -57,7 +57,7 @@ def main() -> None:
         type=Path,
         default=Path("reports/index.html"),
     )
-    parser.add_argument("--model", default="gpt-5.1")
+    parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument(
         "--submission-date",
         type=lambda s: date.fromisoformat(s),

@@ -56,6 +56,7 @@ class MainTests(unittest.TestCase):
                 main()
             self.assertTrue(all(p.stat().st_size > 100 for p in paths))
             result = json.loads(paths[1].read_text())
+            self.assertEqual(result['model'], 'gpt-6.1-sol')
             self.assertEqual((result['papers_fetched'], result['papers_analyzed']), (3, 3))
             self.assertEqual(result['affiliation_coverage'], {'matched': 1, 'no_match': 1, 'unknown': 1})
             self.assertEqual([p['paper_id'] for p in result['briefing']['institution_matches']], ['late-match'])
