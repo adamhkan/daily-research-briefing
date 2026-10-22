@@ -61,9 +61,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .cache/affiliations
-          key: ${{ runner.os }}-affiliations-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          key: ${{ runner.os }}-affiliations-v3-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            ${{ runner.os }}-affiliations-v2-
+            ${{ runner.os }}-affiliations-v3-
 
       - name: Ensure filter file exists
         run: |

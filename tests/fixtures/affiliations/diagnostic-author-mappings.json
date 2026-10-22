@@ -1,0 +1,315 @@
+{
+  "source": "logs/diagnostics/39714391637-1/response-2.json",
+  "input_papers": [
+    {
+      "paper_id": "arXiv:2610.26762",
+      "authors": [
+        "Federica Spinola",
+        "Robert Katzschmann",
+        "Cordelia Schmid"
+      ],
+      "blocks": [
+        {
+          "id": "html-0",
+          "text": "Inria and the Departement d’Informatique of Ecole Normale Supérieure, PSL University, France federica.spinola@inria.fr, cordelia.schmid@inria.fr",
+          "kind": "affiliation",
+          "authors": [
+            "Federica Spinola"
+          ],
+          "source_url": "https://arxiv.org/html/2610.26762v1",
+          "locator": "span.ltx_contact.ltx_role_affiliation"
+        },
+        {
+          "id": "html-1",
+          "text": "Soft Robotics Lab, ETH Zürich, Switzerland rkk@ethz.ch",
+          "kind": "affiliation",
+          "authors": [
+            "Robert Katzschmann"
+          ],
+          "source_url": "https://arxiv.org/html/2610.26762v1",
+          "locator": "span.ltx_contact.ltx_role_affiliation"
+        },
+        {
+          "id": "html-2",
+          "text": "Inria and the Departement d’Informatique of Ecole Normale Supérieure, PSL University, France federica.spinola@inria.fr, cordelia.schmid@inria.fr",
+          "kind": "affiliation",
+          "authors": [
+            "Cordelia Schmid"
+          ],
+          "source_url": "https://arxiv.org/html/2610.26762v1",
+          "locator": "span.ltx_contact.ltx_role_affiliation"
+        },
+        {
+          "id": "html-3",
+          "text": "DexOAK : Object-Aware Kinematic Retargeting Federica Spinola Affiliation: Inria and the Departement d’Informatique of Ecole Normale Supérieure, PSL University, France federica.spinola@inria.fr, cordelia.schmid@inria.fr Robert Katzschmann Affiliation: Soft Robotics Lab, ETH Zürich, Switzerland rkk@ethz.ch Cordelia Schmid Affiliation: Inria and the Departement d’Informatique of Ecole Normale Supérieure, PSL University, France federica.spinola@inria.fr, cordelia.schmid@inria.fr https://fspinola.github.io/dexoak/",
+          "kind": "header_context",
+          "authors": [],
+          "source_url": "https://arxiv.org/html/2610.26762v1",
+          "locator": "article front matter before abstract/sections"
+        }
+      ],
+      "truncated": false
+    },
+    {
+      "paper_id": "arXiv:2610.26717",
+      "authors": [
+        "Hamid Hafezi",
+        "Javad Mohammadpour Velni",
+        "Mohammadreza Davoodi"
+      ],
+      "blocks": [
+        {
+          "id": "html-0",
+          "text": "Department of Electrical and Computer Engineering, The University of Memphis, Memphis, TN, USA hhafezi@memphis.edu, mdavoodi@memphis.edu",
+          "kind": "affiliation",
+          "authors": [
+            "Hamid Hafezi"
+          ],
+          "source_url": "https://arxiv.org/html/2610.26717v1",
+          "locator": "span.ltx_contact.ltx_role_affiliation"
+        },
+        {
+          "id": "html-1",
+          "text": "Department of Mechanical Engineering, Clemson University, Clemson, SC 29634 USA javadm@clemson.edu",
+          "kind": "affiliation",
+          "authors": [
+            "Javad Mohammadpour Velni"
+          ],
+          "source_url": "https://arxiv.org/html/2610.26717v1",
+          "locator": "span.ltx_contact.ltx_role_affiliation"
+        },
+        {
+          "id": "html-2",
+          "text": "Department of Electrical and Computer Engineering, The University of Memphis, Memphis, TN, USA hhafezi@memphis.edu, mdavoodi@memphis.edu",
+          "kind": "affiliation",
+          "authors": [
+            "Mohammadreza Davoodi"
+          ],
+          "source_url": "https://arxiv.org/html/2610.26717v1",
+          "locator": "span.ltx_contact.ltx_role_affiliation"
+        },
+        {
+          "id": "html-3",
+          "text": "† thanks: *This material is based upon work supported by the National Science Foundation (NSF) under award No. 2330216.",
+          "kind": "author_note",
+          "authors": [],
+          "source_url": "https://arxiv.org/html/2610.26717v1",
+          "locator": "span.ltx_note_content"
+        },
+        {
+          "id": "html-4",
+          "text": "Robot Learning with Vision-Language-Action Models for Agricultural Manipulation Hamid Hafezi Affiliation: Department of Electrical and Computer Engineering, The University of Memphis, Memphis, TN, USA hhafezi@memphis.edu, mdavoodi@memphis.edu Javad Mohammadpour Velni Affiliation: Department of Mechanical Engineering, Clemson University, Clemson, SC 29634 USA javadm@clemson.edu Mohammadreza Davoodi † † thanks: *This material is based upon work supported by the National Science Foundation (NSF) under award No. 2330216. Affiliation: Department of Electrical and Computer Engineering, The University of Memphis, Memphis, TN, USA hhafezi@memphis.edu, mdavoodi@memphis.edu",
+          "kind": "header_context",
+          "authors": [],
+          "source_url": "https://arxiv.org/html/2610.26717v1",
+          "locator": "article front matter before abstract/sections"
+        }
+      ],
+      "truncated": false
+    },
+    {
+      "paper_id": "arXiv:2610.26663",
+      "authors": [
+        "Shengbang Liu",
+        "Zhengye Du",
+        "Zhilong Wan",
+        "Honghao Su",
+        "Chenxiang Xia",
+        "Chang Ge",
+        "Jinyang Xiao",
+        "Nan Wang",
+        "Zhipeng Hu",
+        "Huining Yuan",
+        "Shu'ang Yu",
+        "Yue Chen",
+        "Tianxing Chen",
+        "Chuankang Li",
+        "Maoqing Yao",
+        "Wenbo Ding",
+        "Yu Wang",
+        "Guanghui Ren",
+        "Chao Yu"
+      ],
+      "blocks": [
+        {
+          "id": "pdf-0",
+          "text": "1Tsinghua University       2AgiBot       3Xspark AI",
+          "kind": "pdf_header",
+          "authors": [],
+          "source_url": "https://arxiv.org/pdf/2610.26663v1.pdf",
+          "locator": "first-page layout text affiliation line",
+          "page": 1
+        },
+        {
+          "id": "pdf-1",
+          "text": "4Sun Yat-sen University       5Peking University       6The University of Hong Kong",
+          "kind": "pdf_header",
+          "authors": [],
+          "source_url": "https://arxiv.org/pdf/2610.26663v1.pdf",
+          "locator": "first-page layout text affiliation line",
+          "page": 1
+        },
+        {
+          "id": "pdf-2",
+          "text": "RoboValue: A Fine-Grained Sim-and-Real Benchmark for\n                 Unified Evaluation of Robotic Value Models\n\n\n              Shengbang Liu1,2,*     Zhengye Du1,2,*     Zhilong Wan1,2,*     Honghao Su3,*\n           Chenxiang Xia1     Chang Ge4     Jinyang Xiao4     Nan Wang2,†     Zhipeng Hu1\n        Huining Yuan1     Shu’ang Yu1     Yue Chen3,5     Tianxing Chen3,6     Chuankang Li2\n           Maoqing Yao2     Wenbo Ding1,3     Yu Wang1     Guanghui Ren2,‡     Chao Yu1,‡\n                                1Tsinghua University       2AgiBot       3Xspark AI\n             4Sun Yat-sen University       5Peking University       6The University of Hong Kong\n\n                            *Equal contribution.       †Project leader.       ‡Corresponding authors.\n\n  /gl⌢beProject Page           /githubCode             /da◎abaseDataset      /book-openDocument      Ἴ6Leaderboard\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure1:OverviewofRoboValue.RoboValueevaluatesthereliabilityofroboticvaluemodelsacross15simula-\ntion and 20 real-world tasks. Expert demonstrations, diagnostic trajectories, and instruction variations probe four\ncomplementary dimensions: task-state understanding, temporal progress monitoring, failure and recovery reason-\ning,andvalueconsistency. Jointevaluationrevealslimitationsthatoutcomeandforward-progressscorescanmiss.\nThe dataset and leaderboard support the development of reliable value models for policy improvement.",
+          "kind": "header_context",
+          "authors": [],
+          "source_url": "https://arxiv.org/pdf/2610.26663v1.pdf",
+          "locator": "first-page layout text header and author footnotes",
+          "page": 1
+        }
+      ],
+      "truncated": false
+    }
+  ],
+  "model_response": {
+    "papers": [
+      {
+        "paper_id": "arXiv:2610.26762",
+        "complete": true,
+        "affiliations": [
+          {
+            "institution": "Inria",
+            "authors": [
+              "Federica Spinola",
+              "Cordelia Schmid"
+            ],
+            "block_id": "html-3",
+            "evidence_quote": "Inria and the Departement d’Informatique of Ecole Normale Supérieure, PSL University",
+            "role": "author_affiliation"
+          },
+          {
+            "institution": "Departement d’Informatique of Ecole Normale Supérieure, PSL University",
+            "authors": [
+              "Federica Spinola",
+              "Cordelia Schmid"
+            ],
+            "block_id": "html-3",
+            "evidence_quote": "Departement d’Informatique of Ecole Normale Supérieure, PSL University",
+            "role": "author_affiliation"
+          },
+          {
+            "institution": "Soft Robotics Lab, ETH Zürich",
+            "authors": [
+              "Robert Katzschmann"
+            ],
+            "block_id": "html-1",
+            "evidence_quote": "Soft Robotics Lab, ETH Zürich",
+            "role": "author_affiliation"
+          }
+        ]
+      },
+      {
+        "paper_id": "arXiv:2610.26717",
+        "complete": true,
+        "affiliations": [
+          {
+            "institution": "Department of Electrical and Computer Engineering, The University of Memphis",
+            "authors": [
+              "Hamid Hafezi",
+              "Mohammadreza Davoodi"
+            ],
+            "block_id": "html-4",
+            "evidence_quote": "Department of Electrical and Computer Engineering, The University of Memphis",
+            "role": "author_affiliation"
+          },
+          {
+            "institution": "Department of Mechanical Engineering, Clemson University",
+            "authors": [
+              "Javad Mohammadpour Velni"
+            ],
+            "block_id": "html-1",
+            "evidence_quote": "Department of Mechanical Engineering, Clemson University",
+            "role": "author_affiliation"
+          },
+          {
+            "institution": "National Science Foundation (NSF)",
+            "authors": [],
+            "block_id": "html-3",
+            "evidence_quote": "supported by the National Science Foundation (NSF) under award No. 2330216.",
+            "role": "funder"
+          }
+        ]
+      },
+      {
+        "paper_id": "arXiv:2610.26663",
+        "complete": true,
+        "affiliations": [
+          {
+            "institution": "Tsinghua University",
+            "authors": [
+              "Shengbang Liu",
+              "Zhengye Du",
+              "Zhilong Wan",
+              "Chenxiang Xia",
+              "Zhipeng Hu",
+              "Huining Yuan",
+              "Shu'ang Yu",
+              "Wenbo Ding",
+              "Yu Wang",
+              "Chao Yu"
+            ],
+            "block_id": "pdf-2",
+            "evidence_quote": "1Tsinghua University",
+            "role": "author_affiliation"
+          },
+          {
+            "institution": "AgiBot",
+            "authors": [
+              "Shengbang Liu",
+              "Zhengye Du",
+              "Zhilong Wan",
+              "Nan Wang",
+              "Chuankang Li",
+              "Maoqing Yao",
+              "Guanghui Ren"
+            ],
+            "block_id": "pdf-2",
+            "evidence_quote": "2AgiBot",
+            "role": "author_affiliation"
+          },
+          {
+            "institution": "Xspark AI",
+            "authors": [
+              "Honghao Su",
+              "Yue Chen",
+              "Tianxing Chen",
+              "Wenbo Ding"
+            ],
+            "block_id": "pdf-2",
+            "evidence_quote": "3Xspark AI",
+            "role": "author_affiliation"
+          },
+          {
+            "institution": "Sun Yat-sen University",
+            "authors": [
+              "Chang Ge",
+              "Jinyang Xiao"
+            ],
+            "block_id": "pdf-2",
+            "evidence_quote": "4Sun Yat-sen University",
+            "role": "author_affiliation"
+          },
+          {
+            "institution": "Peking University",
+            "authors": [
+              "Yue Chen"
+            ],
+            "block_id": "pdf-2",
+            "evidence_quote": "5Peking University",
+            "role": "author_affiliation"
+          },
+          {
+            "institution": "The University of Hong Kong",
+            "authors": [
+              "Tianxing Chen"
+            ],
+            "block_id": "pdf-2",
+            "evidence_quote": "6The University of Hong Kong",
+            "role": "author_affiliation"
+          }
+        ]
+      }
+    ]
+  }
+}

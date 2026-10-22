@@ -152,6 +152,71 @@ class FallbackTests(unittest.TestCase):
             with self.subTest(changes=changes), self.assertRaises(ValueError):
                 _validate_claim(claim, {'b': block}, ['Jane Doe'])
 
+    def test_unproven_author_link_does_not_discard_a_verified_institution(self):
+        value = record('Stanford University', kind='header_context')
+        with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING'):
+            self.resolve(value, self.model('Stanford University', authors=['Jane Doe', 'Invented Author']))
+        self.assertEqual(value['institution_match_status'], 'matched')
+        self.assertTrue(value['affiliation_complete'])
+        self.assertIn('affiliation_author_mappings_omitted', value['affiliation_issues'])
+        self.assertTrue(all(e['authors'] == [] for e in value['affiliation_evidence']))
+
+    def test_a_bad_claim_cannot_discard_other_papers_or_verified_claims_from_its_own_paper(self):
+        papers = [record('Stanford University', kind='header_context', pid='good'),
+                  record('ETH Zurich', kind='header_context', pid='mixed')]
+        rows = []
+        for paper in papers:
+            institution = 'Stanford University' if paper['arxiv_id'] == 'good' else 'ETH Zurich'
+            claims = [dict(institution=institution, authors=[], block_id='b',
+                           evidence_quote=institution, role='author_affiliation')]
+            if paper['arxiv_id'] == 'mixed':
+                claims.append(dict(institution='MIT', authors=[], block_id='b',
+                                   evidence_quote='invented MIT source', role='author_affiliation'))
+            rows.append(dict(paper_id=paper['arxiv_id'], complete=True, affiliations=claims))
+        raw = json.dumps({'papers': rows})
+        with patch('daily_robotics_briefing.briefing_agent._responses_create', return_value=raw) as create:
+            with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING'):
+                identify_institutions(papers, ENTRIES, FILTERS, None, 'model', _request_validated)
+        self.assertEqual(create.call_count, 2)
+        self.assertTrue(papers[0]['affiliation_complete'])
+        self.assertFalse(papers[1]['affiliation_complete'])
+        for paper in papers:
+            self.assertEqual(paper['institution_match_status'], 'matched')
+            self.assertNotIn('affiliation_model_fallback_failed', paper.get('affiliation_issues', []))
+            self.assertNotIn('Massachusetts Institute of Technology',
+                             paper['manual_institution_extraction']['filter_match_institutions'])
+        self.assertIn('affiliation_model_claim_rejected', papers[1]['affiliation_issues'])
+
+    def test_saved_diagnostic_author_mappings_and_funding_context_regression(self):
+        fixture = json.loads((FIXTURES / 'diagnostic-author-mappings.json').read_text())
+        papers = []
+        for row in fixture['input_papers']:
+            paper = record(pid=row['paper_id'], authors=row['authors'])
+            paper['affiliation_blocks'] = row['blocks']
+            papers.append(paper)
+        with patch('daily_robotics_briefing.briefing_agent._responses_create',
+                   return_value=json.dumps(fixture['model_response'])) as create:
+            with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING'):
+                identify_institutions(papers, ENTRIES, FILTERS, None, 'model', _request_validated)
+        self.assertEqual(create.call_count, 1)
+        by_id = {p['arxiv_id']: p for p in papers}
+        for paper in papers:
+            self.assertTrue(paper['affiliation_complete'])
+            self.assertNotIn('affiliation_model_fallback_failed', paper.get('affiliation_issues', []))
+            self.assertNotIn('affiliation_model_claim_rejected', paper.get('affiliation_issues', []))
+        dex = by_id['arXiv:2610.26762']['affiliation_evidence']
+        for author in ['Federica Spinola', 'Cordelia Schmid']:
+            self.assertTrue(any(e['institution'] == 'Inria' and e['authors'] == [author]
+                                and e['block_id'] != 'html-3' for e in dex))
+        memphis = by_id['arXiv:2610.26717']['affiliation_evidence']
+        self.assertTrue(any('University of Memphis' in e['institution']
+                            and e['role'] == 'author_affiliation' and e['block_id'] in {'html-0', 'html-2'}
+                            for e in memphis))
+        self.assertTrue(any(e['role'] == 'funder' and 'National Science Foundation' in e['institution']
+                            for e in memphis))
+        numbered = by_id['arXiv:2610.26663']['affiliation_evidence']
+        self.assertTrue(all(not e['authors'] for e in numbered if e['method'] == 'model_extraction'))
+
     def test_funder_cannot_be_laundered_using_short_quote(self):
         block = record('This work was funded by Stanford University.', kind='author_note')['affiliation_blocks'][0]
         claim = AffiliationClaim(institution='Stanford University', authors=[], block_id='b',
