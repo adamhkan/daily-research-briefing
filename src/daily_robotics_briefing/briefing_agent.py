@@ -24,9 +24,7 @@ Contribution score breaks ties: 0=no described evaluation, 1=limited or unclear
 validation, 2=comparative simulation/dataset evaluation, 3=comparative real-robot
 validation or explicitly demonstrated generalization. Score only stated evidence;
 do not infer missing experiments or promise quality from a title or institution.
-Provide a <=25-word rationale. For relevance >=2 copy a short verbatim evidence_quote
-from the abstract supporting relevance and the evaluation score. For other scores
-the quote may be empty.
+Provide a <=25-word rationale explaining the relevance and contribution scores.
 """.strip()
 
 OVERVIEW_PROMPT = """
@@ -232,13 +230,8 @@ def create_daily_briefing(
             )
         for offset in range(0, len(papers), classification_batch_size):
             batch = papers[offset:offset + classification_batch_size]
-            by_id = {p["arxiv_id"]: p for p in batch}
-
             def validate_classifications(result: ClassificationOutput) -> None:
                 _check_ids(result.papers, batch)
-                for row in result.papers:
-                    if row.topic_relevance >= 2:
-                        _check_evidence("", row.evidence_quote, by_id[row.paper_id]["abstract"])
 
             result = _request_validated(
                 client, model, CLASSIFICATION_PROMPT,
@@ -257,7 +250,6 @@ def create_daily_briefing(
                     "topic_match": score.topic_relevance >= 2,
                     "contribution_score": score.contribution_score,
                     "topic_rationale": score.rationale,
-                    "topic_evidence_quote": score.evidence_quote,
                     "institution_match": bool(extraction.get("filter_match", False)),
                     "matched_institutions": extraction.get("filter_match_institutions", []),
                 })

@@ -40,8 +40,7 @@ class ModelStub:
             for p in payload['papers']:
                 relevance, contribution = self.scores.get(p['paper_id'], (3, 2))
                 rows.append(dict(paper_id=p['paper_id'], topic_relevance=relevance,
-                                 contribution_score=contribution, rationale='Relevant robotics work.',
-                                 evidence_quote=p['abstract'] if relevance >= 2 else ''))
+                                 contribution_score=contribution, rationale='Relevant robotics work.'))
             return json.dumps({'papers': rows})
         if schema is OverviewOutput:
             return json.dumps({'papers': [
@@ -94,6 +93,16 @@ class BriefingTests(unittest.TestCase):
         result, stub = self.generate([paper('p', abstract=abstract)])
         self.assertEqual(stub.calls[0][1]['papers'][0]['abstract'], abstract)
         self.assertIn('73%', result['briefing']['topic_matches'][0]['overview'])
+
+    def test_classification_needs_only_scores_and_a_short_rationale(self):
+        result, stub = self.generate([paper('p')])
+        row = result['papers'][0]
+        self.assertEqual(row['topic_relevance'], 3)
+        self.assertEqual(row['contribution_score'], 2)
+        self.assertEqual(row['topic_rationale'], 'Relevant robotics work.')
+        self.assertNotIn(row['topic_rationale'], paper('p')['abstract'])
+        self.assertNotIn('topic_evidence_quote', row)
+        self.assertEqual(sum(schema is ClassificationOutput for schema, _ in stub.calls), 1)
 
     def test_equal_scores_are_ordered_by_id_not_model_or_input_order(self):
         first, _ = self.generate([paper('b'), paper('a')], max_topic_matches=1)
@@ -168,8 +177,8 @@ class BriefingTests(unittest.TestCase):
         self.assertEqual(len(stub.calls), 1)
 
     def test_schema_rejects_string_scores_and_unexpected_fields(self):
-        for rows in [[dict(paper_id='p', topic_relevance='3', contribution_score=2, rationale='r', evidence_quote='e')],
-                     [dict(paper_id='p', topic_relevance=3, contribution_score=2, rationale='r', evidence_quote='e', extra=True)]]:
+        for rows in [[dict(paper_id='p', topic_relevance='3', contribution_score=2, rationale='r')],
+                     [dict(paper_id='p', topic_relevance=3, contribution_score=2, rationale='r', extra=True)]]:
             with self.subTest(rows=rows), self.assertRaises(ValueError):
                 ClassificationOutput.model_validate_json(json.dumps({'papers': rows}))
 
@@ -193,6 +202,9 @@ class BriefingTests(unittest.TestCase):
         self.assertEqual(body['model'], 'gpt-5.1')
         self.assertTrue(body['text']['format']['strict'])
         self.assertFalse(body['text']['format']['schema']['additionalProperties'])
+        classification = body['text']['format']['schema']['$defs']['Classification']
+        self.assertEqual(set(classification['properties']),
+                         {'paper_id', 'topic_relevance', 'contribution_score', 'rationale'})
         self.assertEqual(body['reasoning'], {'effort': 'low'})
         self.assertEqual(body['max_output_tokens'], 2000)
 

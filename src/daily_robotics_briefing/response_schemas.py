@@ -14,7 +14,6 @@ class Classification(StrictOutput):
     topic_relevance: Literal[0, 1, 2, 3]
     contribution_score: Literal[0, 1, 2, 3]
     rationale: str
-    evidence_quote: str
 
 
 class ClassificationOutput(StrictOutput):

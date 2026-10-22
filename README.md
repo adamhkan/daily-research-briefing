@@ -130,7 +130,7 @@ Reports aggregate the last two states as unknown, with separate counts in `affil
 
 ## Selection, grounding, and cost controls
 
-Every fetched paper is classified using its full abstract. `classification_batch_size` (default 25) limits papers per classification request, not total coverage. The legacy `max_papers_for_llm` setting is accepted as a batch-size fallback capped at 25; it no longer drops papers. `max_papers` still caps collection (default 400), with a warning when the listing exceeds that limit.
+Every fetched paper is classified using its full abstract. Topic classification returns relevance and contribution scores with a short rationale; it does not require a verbatim evidence quote. Scientific overview claims and affiliation identification retain their separate evidence requirements. `classification_batch_size` (default 25) limits papers per classification request, not total coverage. The legacy `max_papers_for_llm` setting is accepted as a batch-size fallback capped at 25; it no longer drops papers. `max_papers` still caps collection (default 400), with a warning when the listing exceeds that limit.
 
 Code preserves all institution matches, then selects up to `max_topic_matches` additional papers (default 10). Topics are ranked by relevance (0–3), then an evidence-based contribution score (0–3), then paper ID for deterministic ties. The contribution score favors explicit comparative evaluation, real-robot validation, or demonstrated generalization; it is a model judgment, not an independent quality assessment. Overviews are generated only for that final reading list, in batches controlled by `summary_batch_size` (default 10). Institutions, titles, URLs, and section membership come from collected records.
 
