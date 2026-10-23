@@ -1,0 +1,154 @@
+{
+  "papers": [
+    {
+      "paper_id": "arXiv:2610.27504",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "Robot suitability allocation does not directly address specified topics; twelve methods are compared across common scenarios and robustness conditions."
+    },
+    {
+      "paper_id": "arXiv:2610.27496",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "Social reasoning is outside the filters; evaluation compares a robotics VLM against published baselines on real interaction data."
+    },
+    {
+      "paper_id": "arXiv:2610.27485",
+      "topic_relevance": 1,
+      "contribution_score": 0,
+      "rationale": "General manipulation benchmarking has only incidental connection to specific manipulation filters; abstract describes specifications without evaluated results."
+    },
+    {
+      "paper_id": "arXiv:2610.27472",
+      "topic_relevance": 3,
+      "contribution_score": 1,
+      "rationale": "Mobile manipulation and navigation enable autonomous brick stacking; repeated hardware assemblies and outdoor tests validate a proof of concept without comparative evaluation."
+    },
+    {
+      "paper_id": "arXiv:2610.27414",
+      "topic_relevance": 2,
+      "contribution_score": 3,
+      "rationale": "Disturbance-aware predictive flight control supports navigation; hardware experiments demonstrate improved prediction and trajectory tracking through online adaptation."
+    },
+    {
+      "paper_id": "arXiv:2610.27387",
+      "topic_relevance": 2,
+      "contribution_score": 2,
+      "rationale": "Action-influence data collection directly improves navigation world models; comparative simulated navigation and manipulation experiments quantify controllability and data efficiency."
+    },
+    {
+      "paper_id": "arXiv:2610.27350",
+      "topic_relevance": 0,
+      "contribution_score": 3,
+      "rationale": "Robot instruction safety does not address the specified filters; comparative arm trials evaluate harmful instructions and harmless controls with runtime checking."
+    },
+    {
+      "paper_id": "arXiv:2610.27336",
+      "topic_relevance": 0,
+      "contribution_score": 1,
+      "rationale": "Head stabilization workspace characterization falls outside the filters; a human volunteer investigation is described without comparative results."
+    },
+    {
+      "paper_id": "arXiv:2610.27315",
+      "topic_relevance": 3,
+      "contribution_score": 2,
+      "rationale": "Unified leg and thruster allocation centrally addresses whole-body control; simulations demonstrate allocation, while hardware validates mechanical viability and assisted trotting."
+    },
+    {
+      "paper_id": "arXiv:2610.27310",
+      "topic_relevance": 3,
+      "contribution_score": 3,
+      "rationale": "Radar geolocalization directly enables navigation; evaluation spans eight datasets, urban and offroad routes, and weather changes over thirteen months."
+    },
+    {
+      "paper_id": "arXiv:2610.27277",
+      "topic_relevance": 0,
+      "contribution_score": 3,
+      "rationale": "Visual corruption attribution for general arm manipulation does not directly address filters; comparative simulation and Franka experiments demonstrate attribution improvements."
+    },
+    {
+      "paper_id": "arXiv:2610.27275",
+      "topic_relevance": 1,
+      "contribution_score": 0,
+      "rationale": "Point cloud registration is an enabling perception technique with incidental navigation relevance; contribution is theoretical, with no described empirical evaluation."
+    },
+    {
+      "paper_id": "arXiv:2610.27271",
+      "topic_relevance": 3,
+      "contribution_score": 3,
+      "rationale": "Personalized exoskeleton guidance centrally addresses assisted navigation; human trials demonstrate path following and gait classification generalizes to unseen users."
+    },
+    {
+      "paper_id": "arXiv:2610.27242",
+      "topic_relevance": 3,
+      "contribution_score": 3,
+      "rationale": "Embodiment-aware trajectory generation centrally targets dexterous manipulation; comparative simulation demonstrates improved policies and transfer across two humanoid embodiments without generator retraining."
+    },
+    {
+      "paper_id": "arXiv:2610.27199",
+      "topic_relevance": 1,
+      "contribution_score": 2,
+      "rationale": "Depth estimation is broadly enabling for navigation but does not directly contribute navigation methods; nine model families receive comparative dataset benchmarking."
+    },
+    {
+      "paper_id": "arXiv:2610.27194",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "General compositional diffusion policies do not explicitly target any filter; multiple benchmark comparisons demonstrate specialization while preserving multitask performance."
+    },
+    {
+      "paper_id": "arXiv:2610.27162",
+      "topic_relevance": 1,
+      "contribution_score": 1,
+      "rationale": "Symbolic educational task planning has incidental relation to motion planning; implemented Nao execution is described without comparative or quantitative evaluation."
+    },
+    {
+      "paper_id": "arXiv:2610.27141",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "Adhesive contact-state sensing does not target dexterous manipulation or other filters; six models and an online state-machine enhancement are compared experimentally."
+    },
+    {
+      "paper_id": "arXiv:2610.27040",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "General spatial grounding does not directly address specified filters; seven public grounding benchmarks and controlled scaling comparisons evaluate performance."
+    },
+    {
+      "paper_id": "arXiv:2610.27039",
+      "topic_relevance": 1,
+      "contribution_score": 0,
+      "rationale": "Long-horizon task reasoning and geometric constraints are incidentally related to motion planning; benchmark specifications are provided without reported evaluation results."
+    },
+    {
+      "paper_id": "arXiv:2610.27003",
+      "topic_relevance": 1,
+      "contribution_score": 3,
+      "rationale": "High-level manipulation recovery replanning is incidentally related to motion planning; comparative benchmarks, ablations, and zero-shot transfer validate recovery improvements."
+    },
+    {
+      "paper_id": "arXiv:2610.26962",
+      "topic_relevance": 3,
+      "contribution_score": 3,
+      "rationale": "Dexterous grasp generation centrally addresses dexterous manipulation; comparative simulation, zero-shot finger-removal transfer, and one hundred real-robot trials validate the method."
+    },
+    {
+      "paper_id": "arXiv:2610.28632",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "Rig animation and video generation do not address robot motion planning or control; evaluations compare motion faithfulness against video-first pipelines."
+    },
+    {
+      "paper_id": "arXiv:2610.28623",
+      "topic_relevance": 3,
+      "contribution_score": 3,
+      "rationale": "Noise-aware planning centrally addresses navigation and motion planning; comparative multidimensional benchmarks show success and runtime gains in unseen geometries."
+    },
+    {
+      "paper_id": "arXiv:2610.28530",
+      "topic_relevance": 1,
+      "contribution_score": 2,
+      "rationale": "Collaborative scene understanding is an enabling perception component for navigation; benchmark comparisons show improvements over open-vocabulary single-agent approaches."
+    }
+  ]
+}

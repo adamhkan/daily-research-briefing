@@ -1,0 +1,82 @@
+{
+  "papers": [
+    {
+      "paper_id": "arXiv:2610.28476",
+      "topic_relevance": 3,
+      "contribution_score": 2,
+      "rationale": "Central ObjectNav verification contribution improves success and path efficiency in comparative Gibson and Habitat-Matterport 3D evaluations."
+    },
+    {
+      "paper_id": "arXiv:2610.28290",
+      "topic_relevance": 3,
+      "contribution_score": 1,
+      "rationale": "Safe intersection traversal directly addresses vehicle navigation; stability proofs and CARLA demonstrations are stated, but comparative evaluation is unspecified."
+    },
+    {
+      "paper_id": "arXiv:2610.28121",
+      "topic_relevance": 3,
+      "contribution_score": 2,
+      "rationale": "Interruption-aware UAS navigation is central; comparative simulations quantify collision and mission-failure reductions against recurrent baselines."
+    },
+    {
+      "paper_id": "arXiv:2610.27782",
+      "topic_relevance": 1,
+      "contribution_score": 3,
+      "rationale": "Dexterous hands appear within a video-judging benchmark, without manipulation control contributions; comparative evaluation demonstrates transfer to external benchmarks."
+    },
+    {
+      "paper_id": "arXiv:2610.27756",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "Visual counting audits do not address the topic filters; nine-model comparisons across images and harness conditions provide dataset evaluation."
+    },
+    {
+      "paper_id": "arXiv:2610.27714",
+      "topic_relevance": 3,
+      "contribution_score": 2,
+      "rationale": "Controlled evaluation of closed-loop driving navigation compares memory designs and audited baselines in HighwayEnv with resampled pools and token-matched controls."
+    },
+    {
+      "paper_id": "arXiv:2610.27696",
+      "topic_relevance": 2,
+      "contribution_score": 2,
+      "rationale": "Hierarchical scene maps directly support language-guided navigation; comparative dataset evaluations establish scene-graph and segmentation gains, without navigation trials."
+    },
+    {
+      "paper_id": "arXiv:2610.27547",
+      "topic_relevance": 0,
+      "contribution_score": 3,
+      "rationale": "Sensor calibration addresses none of the specified topics directly; real-world evaluations explicitly validate zero-shot transfer across camera-LiDAR configurations."
+    },
+    {
+      "paper_id": "arXiv:2610.27522",
+      "topic_relevance": 2,
+      "contribution_score": 2,
+      "rationale": "Topo-metric visual localization contributes directly to navigation capability; public and custom dataset experiments report comparative accuracy and reliability."
+    },
+    {
+      "paper_id": "arXiv:2610.27045",
+      "topic_relevance": 1,
+      "contribution_score": 0,
+      "rationale": "Broad physical-AI review covers motor control and robotics incidentally relative to specific filters; no original empirical evaluation is described."
+    },
+    {
+      "paper_id": "arXiv:2610.26979",
+      "topic_relevance": 3,
+      "contribution_score": 2,
+      "rationale": "Latent planning costs centrally improve navigation planning; comparative evaluation across six environments reports substantial navigation success gains."
+    },
+    {
+      "paper_id": "arXiv:2610.26914",
+      "topic_relevance": 0,
+      "contribution_score": 3,
+      "rationale": "Generic preference alignment for embodied control specifies none of the topic filters; experiments explicitly demonstrate generalization to out-of-distribution users."
+    },
+    {
+      "paper_id": "arXiv:2610.26003",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "Cylindrical-object pose measurement does not directly address the filters; Monte Carlo comparisons validate analytical bounds across marker geometries."
+    }
+  ]
+}

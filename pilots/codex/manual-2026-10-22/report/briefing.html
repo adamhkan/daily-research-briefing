@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Robotics Briefing - 2026-10-21</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f6f3;
+      --panel: #fffefd;
+      --panel-muted: #f5f2ec;
+      --ink: #253044;
+      --ink-soft: #5b6578;
+      --line: #ddd5ca;
+      --accent-soft: #dfe6f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfaf8 0%, var(--bg) 45%, #f2f0eb 100%);
+    }
+    main { max-width: 1080px; margin: 0 auto; padding: 2.25rem 1.25rem 3rem; }
+    .hero { margin-bottom: 1.5rem; padding: 1.5rem; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-bottom: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid #bcc9da; border-radius: 999px; text-decoration: none; color: #24456f; background: #f7fbff; font-weight: 600; }
+    .back-link:hover { background: #e9f2ff; }
+    .back-link:focus-visible { outline: 2px solid #5a88c2; outline-offset: 2px; }
+    h1, h2, h3 { font-family: 'Merriweather', Georgia, 'Times New Roman', serif; line-height: 1.3; color: #1f2a3d; }
+    h1 { margin: 0; font-size: clamp(1.5rem, 2.3vw, 2.1rem); }
+    h2 { margin: 0; font-size: 1.35rem; }
+    h3 { margin: 1rem 0 0.5rem; font-size: 1.05rem; color: #344158; }
+    p { margin: 0.45rem 0; color: var(--ink-soft); }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.85rem; margin: 1rem 0 0.3rem; }
+    .card { background: var(--panel-muted); border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .card strong { color: #2b3850; }
+    .section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.2rem; margin-top: 1rem; }
+    ul { margin: 0.55rem 0 0; padding-left: 1.2rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.65rem; font-size: 0.95rem; }
+    th, td { border: 1px solid var(--line); text-align: left; padding: 0.58rem 0.62rem; vertical-align: top; }
+    th { background: var(--accent-soft); color: #22304a; font-weight: 600; }
+    tbody tr:nth-child(even) { background: #fcfbf8; }
+    a { color: #3d5f89; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back-link" href="../index.html" aria-label="Return to dashboard">← Back to dashboard</a>
+    <section class="hero">
+      <h1>Daily Robotics Briefing</h1>
+      <p><strong>Submission date covered:</strong> 2026-10-21</p>
+      <div class="stats">
+        <div class="card">Papers in this briefing: <strong>22</strong></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Executive Summary</h2>
+      <ul><li>For humanoid motion, one study reports exceeding a state-of-the-art tracker’s return after 3 hours on a single GPU, versus baseline training for 7 days on 128 GPUs, with physical G1 transfer. EmbodyHOI reports wrist error dropping from 8.9 cm to 0.6 cm and task success rising from 68% to 79% on 50 random G1 tasks; its results are simulation-only. (<a href="https://arxiv.org/abs/2610.28480">arXiv:2610.28480</a>; <a href="https://arxiv.org/abs/2610.27242">arXiv:2610.27242</a>)</li><li>DexGraspFlow reports 95.33% average simulation grasp success and 91% success over 100 real-robot trials using a model trained on demonstrations for the deployed hand. SPAR Policy reports 37/40 real-robot pushing successes versus 27/40 for Random Search, without a physics-based digital twin. (<a href="https://arxiv.org/abs/2610.26962">arXiv:2610.26962</a>; <a href="https://arxiv.org/abs/2610.28362">arXiv:2610.28362</a>)</li><li>Navigation studies report hardware gains under their evaluated settings: evidential BEV navigation achieves 73.3% success versus 33.3% for its strongest evaluated baseline across 60 trials in 20 scenes; digital-twin training with Cosmos augmentation raises learned-navigation success from 65.3% to 91.7% across four scenarios. (<a href="https://arxiv.org/abs/2610.27616">arXiv:2610.27616</a>; <a href="https://arxiv.org/abs/2610.28432">arXiv:2610.28432</a>)</li><li>A driving-plan analysis reports that encoded hazards weakly influence longitudinal plans relative to ego-speed history. Guidance using exact obstacle geometry reduces footprint intrusion from 58.1% to 14.5% and eliminates collisions in the evaluated braking-relevant closed-loop battery, with safe braking restored when sufficient stopping distance remains. (<a href="https://arxiv.org/abs/2610.28184">arXiv:2610.28184</a>)</li><li>Explicit plan and memory representations show reported benefits: Generative Plan Latents raises requested-plan adherence from 0.48 to 0.94 through steering, while UniWALM’s textual memory raises real-world Find-the-Item success from 11.1% to 61.1%. (<a href="https://arxiv.org/abs/2610.28166">arXiv:2610.28166</a>; <a href="https://arxiv.org/abs/2610.28626">arXiv:2610.28626</a>)</li><li>New evaluation resources include Embodied Playground’s 410 task environments and EP-100’s 100 tasks, plus a physical-adherence and instruction-alignment benchmark of 800 human-annotated videos. On the latter, the authors report RoboJudge-9B has the highest agreement among evaluated judges, with Pearson correlation 0.719. (<a href="https://arxiv.org/abs/2610.27039">arXiv:2610.27039</a>; <a href="https://arxiv.org/abs/2610.27782">arXiv:2610.27782</a>)</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Filters Used</h2>
+      <h3>Institution filters</h3>
+      <ul><li>Carnegie Mellon University</li><li>Massachusetts Institute of Technology</li><li>Stanford University</li><li>EPFL</li><li>ETH Zurich</li><li>UC Berkeley</li><li>New York University</li><li>UC San Diego</li><li>University of Washington</li></ul>
+      <h3>Topic filters</h3>
+      <ul><li>mobile manipulation</li><li>navigation</li><li>motion planning</li><li>dextrous manipulation</li><li>whole-body control</li></ul>
+    </section>
+
+    <section class="section">
+      <h2>Institution Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>EmbodyHOI: Embodiment-Aware Generation of Hand-Object Interactions for Humanoid Dexterous Manipulation</td><td>Carnegie Mellon University</td><td>The authors introduce EmbodyHOI, which places embodiment-specific differentiable inverse kinematics inside a frozen flow-matching interaction generator&#x27;s sampling loop. On ARCTIC trajectories, the authors report retargeted wrist error falling from 8.9 cm to 0.6 cm, with generation quality preserved, and task success increasing from 68% to 79% on 50 random G1 tasks and from 62% to 76% on a four-task H1-2 suite; the abstract identifies these as simulation results.</td><td><a href="https://arxiv.org/abs/2610.27242">Link</a></td></tr>
+<tr><td>SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model</td><td>UC Berkeley</td><td>The authors train a tracking policy jointly with a differentiable world model fitted to logged rigid-body simulator transitions, using analytic gradients from short imagined rollouts. The authors report surpassing a state-of-the-art motion tracker&#x27;s return in 3 hours on a single GPU, compared with baseline training for 7 days on 128 GPUs. The authors report physical Unitree G1 transfer across diverse and acrobatic motions.</td><td><a href="https://arxiv.org/abs/2610.28480">Link</a></td></tr>
+<tr><td>Planning under Noise with Neural Operators</td><td>New York University</td><td>The authors introduce PUN to learn noise-aware planning value fields for unseen geometries from partially converged Monte Carlo labels. Across four noise levels, the authors report matching or outperforming compared planners with 95-100% success on the 4D replanning benchmark and the lowest runtime.</td><td><a href="https://arxiv.org/abs/2610.28623">Link</a></td></tr>
+<tr><td>Learning Adaptable Dexterous Skills via Hybrid Dexterous Mimicking</td><td>Carnegie Mellon University</td><td>The authors introduce AdaDex, a goal-conditioned reinforcement learning framework that turns a short hand-object trajectory into an adaptable skill by combining motion tracking and generalization environments. The authors report better generalization and functionality than baselines and demonstrate transfer across simulators and to the real world.</td><td><a href="https://arxiv.org/abs/2610.28628">Link</a></td></tr>
+<tr><td>Perceives but Doesn&#x27;t Brake: A Perception-Action Binding Gap in Reasoning Driving VLAs</td><td>Stanford University</td><td>Using matched simulated counterfactuals and logged replay, the authors report that encoded hazards weakly influence longitudinal plans, which are dominated by ego-speed history. With exact obstacle geometry, the authors report guidance reducing footprint intrusion from 58.1% to 14.5%, restoring safe braking when sufficient stopping distance remains, and eliminating collisions in their braking-relevant closed-loop battery.</td><td><a href="https://arxiv.org/abs/2610.28184">Link</a></td></tr>
+<tr><td>VLM-Guided Contact Retargeting and Generative Partner Modeling for Humanoid-Human Interaction</td><td>Carnegie Mellon University</td><td>The authors introduce REACT, using semantic contact supervision to connect demonstration processing, interaction learning, and onboard control. The authors report that generative partner-state modeling improves contact recall on four of five interactions, particularly under heavy occlusion, and that the robot performs all five interactions on hardware with onboard sensing alone.</td><td><a href="https://arxiv.org/abs/2610.28523">Link</a></td></tr>
+<tr><td>Towards Autonomous Bricklaying Using Boston Dynamics Spot</td><td>Massachusetts Institute of Technology</td><td>The authors present a proof-of-concept autonomous brick-stacking system using a Spot robot and manipulator, with AprilTags for localization and autowalk for navigation. Across ten repeated assemblies of a curved four-layer wall of 14 wooden bricks, the authors report mean translation errors below 10 mm and mean yaw errors below 1.5 degrees; overall RMSE is 27.72 mm for translation and 2.06 degrees for rotation.</td><td><a href="https://arxiv.org/abs/2610.27472">Link</a></td></tr>
+<tr><td>RoboJudge: Multimodal Language Models as Judges for Embodied Video Generation</td><td>UC San Diego</td><td>The authors introduce a benchmark assessing physical adherence and instruction alignment across 800 human-annotated videos from 8 source corpora and 10 video generators. The authors fine-tune a 9B multimodal model with supervised learning followed by reinforcement learning. Among evaluated judges, the authors report the highest overall agreement for RoboJudge-9B, with Pearson correlation 0.719 and a statistically significant 0.089 gain over Gemini-3.7-Flash, the best proprietary baseline in their evaluation.</td><td><a href="https://arxiv.org/abs/2610.27782">Link</a></td></tr>
+<tr><td>Reasoning as a Distribution: Generative Plan Latents for Vision-Language-Action Models</td><td>Stanford University</td><td>The authors introduce Generative Plan Latents to represent reasoning as a conditional distribution over plans, enabling sampling, steering, and outcome adaptation without retraining the policy. The authors report that plan steering increases requested-plan adherence from 0.48 to 0.94, while equivalent guidance on the native action distribution produces no reliable gain.</td><td><a href="https://arxiv.org/abs/2610.28166">Link</a></td></tr>
+<tr><td>Embodied Playground: A Long-Horizon Agentic Robotics Benchmark for Physical, Strategic, and Spatial Reasoning</td><td>Massachusetts Institute of Technology; Stanford University</td><td>The authors introduce Embodied Playground to evaluate foundation-model agents&#x27; physical, strategic, and spatial reasoning in long-horizon tasks. The authors report 410 task environments and curate EP-100 with 100 tasks across five suites and 16 task types, alongside difficulty splits and EP-20.</td><td><a href="https://arxiv.org/abs/2610.27039">Link</a></td></tr>
+<tr><td>What Would Removing This Corruption Change? Failure Attribution for Vision-Language-Action Models</td><td>Massachusetts Institute of Technology</td><td>The authors introduce a factorized risk model that estimates corruption-removal benefits through latent intervention without paired clean images or additional counterfactual rollouts. Across evaluations in simulation and on a Franka robot, the authors report outperforming monolithic and VLM baselines, including approximately 3x lower attribution error than frontier VLMs.</td><td><a href="https://arxiv.org/abs/2610.27277">Link</a></td></tr>
+<tr><td>UniWALM: Unified World Action Language Model for Embodied Robot Control</td><td>University of Washington</td><td>The authors introduce UniWALM, which jointly generates video, action, and language in a shared backbone and reuses generated language as memory. The authors report 34.5% on the memory-dependent subset of RMBench without a pretrained language or reasoning model, exceeding Mem-0&#x27;s keyframe-equipped setup using a single anchor frame. On the real-world Find-the-Item task, the authors report that textual memory increases success from 11.1% to 61.1%.</td><td><a href="https://arxiv.org/abs/2610.28626">Link</a></td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>Topic Matches</h2>
+      <table>
+        <thead><tr><th>Title</th><th>Institution</th><th>Overview</th><th>Link</th></tr></thead>
+        <tbody><tr><td>DexGraspFlow: Topology-Aware SE(3) Flow Matching for Cross-Embodiment Dexterous Grasp Generation</td><td>Nanyang Technological University; ROKAE Robotics</td><td>The authors propose DexGraspFlow, a conditional link-level flow-matching framework integrating geometric relations and kinematic topology. Across three hands and 30 object–hand pairs, the authors report an average simulation success rate of 95.33% and generation latency, including inverse kinematics, approximately 49% below a state-of-the-art baseline. For a model trained on demonstrations for the deployed hand, the authors report 91% success over 100 real-robot grasping trials.</td><td><a href="https://arxiv.org/abs/2610.26962">Link</a></td></tr>
+<tr><td>XoNav: An Exoskeleton as a Personalized Haptic Interface for Assisted Navigation</td><td>CSIR-Central Mechanical Engineering Research Institute</td><td>The authors present XoNav, a hip exoskeleton that delivers gait-coordinated guidance using a bilateral LSTM classifier and two thigh-mounted IMUs. The authors report classifier recalls of 95.2-97.9% for unseen users, with mean transition-detection delays of 38.6 and 63.1 ms. In blindfolded Wizard-of-Oz trials on three paths, the authors report 98.8% of walked distance within a 0.75 m passage and a 4.9% increase in mean progression speed per trial.</td><td><a href="https://arxiv.org/abs/2610.27271">Link</a></td></tr>
+<tr><td>RadGeoLoc: Radar Geolocalization via Particle Filtering</td><td>Texas A&amp;M University</td><td>The authors localize spinning radar measurements against overhead RGB imagery using learned observation likelihoods and a particle filter propagated by radar odometry. The authors report evaluation over 31 routes in 8 urban and offroad datasets using ground radar and a coarse local prior, plus weather-robustness examination using repeated traversals over 13 months; the abstract gives no quantitative localization result.</td><td><a href="https://arxiv.org/abs/2610.27310">Link</a></td></tr>
+<tr><td>EchoNav: Evidential BEV Completion from Historical Observations for Visual Navigation</td><td>The Chinese University of Hong Kong; The University of Hong Kong</td><td>The authors combine temporal aggregation and occupancy completion in an evidential BEV representation predicted from short RGB sequences. In simulated sequential two-goal navigation, the authors report 89.6% success, exceeding the strongest evaluated baseline by 32.5 percentage points. Across 60 wheeled-robot trials in 20 scenes, the authors report 73.3% success versus 33.3% for the strongest evaluated baseline.</td><td><a href="https://arxiv.org/abs/2610.27616">Link</a></td></tr>
+<tr><td>CovNav: Conformal Prediction-Guided Adaptive Inference for Object Goal Navigation</td><td>Institute of Automation, Chinese Academy of Sciences; Newcastle University; Peking University</td><td>The authors propose training-free CovNav, which uses conformal prediction to escalate ambiguous local-LLM spatial decisions from fast inference to slow reasoning. The authors report success-rate gains over the strongest zero-shot baseline of 0.8 and 1.7 percentage points on HM3D v1 and v2, while invoking slow reasoning for only 12.4% of queries.</td><td><a href="https://arxiv.org/abs/2610.27677">Link</a></td></tr>
+<tr><td>SPAR: Search-trained Push Action Ranker for Efficient Navigation Among Movable Obstacles</td><td>Unknown affiliation</td><td>The authors introduce SPAR, which learns to rank push primitives from simulated search outcomes, including setup pushes that enable later openings. Across successful runs on 300 simulated two-push keyhole problems, the authors report median simulator-call and planning-time reductions of 7.0 times and 3.8 times relative to Random Search. In real-robot experiments, the authors report SPAR Policy success in 37/40 trials without a physics-based digital twin, versus 33/40 for SPAR Search and 27/40 for Random Search.</td><td><a href="https://arxiv.org/abs/2610.28362">Link</a></td></tr>
+<tr><td>Physical AI for Intralogistics: Benchmarking the NVIDIA Sim-to-Real Ecosystem for Cosmos-Enhanced COMPASS Navigation on Industrial Mobile Robots</td><td>Idealworks; NVIDIA</td><td>The authors fine-tune X-Mobility using digital-twin data with and without Cosmos-generated sim-to-real variants, then train COMPASS in the digital twin. Across four scenarios, the authors report that digital-twin training with Cosmos augmentation raises real-world learned-navigation success from 65.3% to 91.7% and nearly halves weighted travel time compared with simulation-only training.</td><td><a href="https://arxiv.org/abs/2610.28432">Link</a></td></tr>
+<tr><td>Fast Motion Retargeting Pipeline for Scalable Humanoid Robot Learning</td><td>University of Massachusetts Amherst</td><td>The authors present FRDV, combining rapid constrained kinematic retargeting with an additional dynamics validation pipeline. The authors report kinematic retargeting throughput of up to 9,156 frames per second, approximately up to 136 times faster than GMR and ProtoMotions. The authors report that dynamics validation identifies dynamically infeasible motions and refines foot floating and foot skating artifacts.</td><td><a href="https://arxiv.org/abs/2610.28470">Link</a></td></tr>
+<tr><td>Latent Projection for Latent Planning</td><td>Stony Brook University</td><td>The authors describe a post hoc planning-cost correction that fits a single constrained dynamics matrix while leaving the encoder, predictor, rollout, and planner untouched. The authors restrict the planning cost to latent directions that the state dynamics carry forward with the least uncertainty. Across six environments, the authors report large gains on TwoRoom and PointMaze, with success-rate improvements over the plain latent-distance cost of up to $+54.7$ points under a harder planning setting.</td><td><a href="https://arxiv.org/abs/2610.26979">Link</a></td></tr>
+<tr><td>Design and Control of a Multimodal Legged-Aerial Robot Through Separate Control Contraction Metrics</td><td>California Institute of Technology; Northeastern University</td><td>The authors describe independently finding walking and flight contraction metrics offline and unifying them online through an energy-based CLF QP. The authors report optimal cross-domain control allocation in simulations. The authors report hardware experiments validating mechanical viability and thruster-assisted trotting; experimental stability motivates deployment of the multimodal control framework.</td><td><a href="https://arxiv.org/abs/2610.27315">Link</a></td></tr></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

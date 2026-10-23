@@ -1,0 +1,18 @@
+{
+  "result": "passed",
+  "source_hash_matches_manifest": true,
+  "request_content_hashes_valid": 17,
+  "request_response_pairs": 17,
+  "selected_unique_ids": 22,
+  "topic_rows": 10,
+  "paper_count": 88,
+  "nonempty_report_formats": [
+    "json",
+    "markdown",
+    "html",
+    "dashboard_html"
+  ],
+  "selected_ids_present_in_rendered_outputs": true,
+  "browser_visual_review": false,
+  "full_regression_suite_run": false
+}

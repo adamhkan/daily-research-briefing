@@ -1,0 +1,38 @@
+{
+  "papers": [
+    {
+      "paper_id": "arXiv:2610.26979",
+      "claims": [
+        {
+          "claim": "The authors describe a post hoc planning-cost correction that fits a single constrained dynamics matrix while leaving the encoder, predictor, rollout, and planner untouched.",
+          "evidence_quote": "The correction is post hoc: the encoder, the predictor, the rollout, and the planner are all left untouched, and only a single constrained matrix, $A$, is fit."
+        },
+        {
+          "claim": "The authors restrict the planning cost to latent directions that the state dynamics carry forward with the least uncertainty.",
+          "evidence_quote": "We then restrict the $\\ell_2$ cost to the $k$-dimensional subspace the state dynamics carry forward with the least uncertainty."
+        },
+        {
+          "claim": "Across six environments, the authors report large gains on TwoRoom and PointMaze, with success-rate improvements over the plain latent-distance cost of up to $+54.7$ points under a harder planning setting.",
+          "evidence_quote": "We evaluate across six environments and show large gains on the 2D navigation tasks, TwoRoom and PointMaze, raising success rate over the plain $\\ell_2$ cost by up to $+54.7$ points under a harder planning setting."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27315",
+      "claims": [
+        {
+          "claim": "The authors describe independently finding walking and flight contraction metrics offline and unifying them online through an energy-based CLF QP.",
+          "evidence_quote": "We search for separate domain-specific contraction metrics for walking and flight independently offline and unify them using an online energy-based Control Lyapunov Function Quadratic Program (CLF QP)."
+        },
+        {
+          "claim": "The authors report optimal cross-domain control allocation in simulations.",
+          "evidence_quote": "This enables optimal, cross-domain control allocation, which we show using simulations."
+        },
+        {
+          "claim": "The authors report hardware experiments validating mechanical viability and thruster-assisted trotting; experimental stability motivates deployment of the multimodal control framework.",
+          "evidence_quote": "We also show experimental results that validate the mechanical viability of our hardware and the paradigm of thruster-assisted trotting. The stability of said experiments motivates the deployment of the control framework for multimodal operations."
+        }
+      ]
+    }
+  ]
+}

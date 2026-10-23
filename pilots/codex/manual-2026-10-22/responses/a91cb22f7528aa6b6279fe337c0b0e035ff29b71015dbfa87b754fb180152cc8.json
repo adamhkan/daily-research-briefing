@@ -1,0 +1,142 @@
+{
+  "papers": [
+    {
+      "paper_id": "arXiv:2610.27242",
+      "claims": [
+        {
+          "claim": "The authors introduce EmbodyHOI, which places embodiment-specific differentiable inverse kinematics inside a frozen flow-matching interaction generator's sampling loop.",
+          "evidence_quote": "We present EmbodyHOI, which runs a differentiable inverse-kinematics (IK) solver for a specific humanoid embodiment inside the sampling loop of a frozen flow-matching HOI trajectory generator."
+        },
+        {
+          "claim": "On ARCTIC trajectories, the authors report retargeted wrist error falling from 8.9 cm to 0.6 cm, with generation quality preserved, and task success increasing from 68% to 79% on 50 random G1 tasks and from 62% to 76% on a four-task H1-2 suite; the abstract identifies these as simulation results.",
+          "evidence_quote": "On ARCTIC trajectories with two contrasting humanoids (Unitree G1 and H1-2), our proposed guidance-based method cuts the retargeted wrist error from 8.9 cm to 0.6 cm while leaving text-to-HOI generation quality intact, and raises task success from 68% to 79% on 50 random G1 tasks and from 62% to 76% on a four-task H1-2 suite. Critically, cheaper alternatives for bridging the embodiment gap fail to beat EmbodyHOI. Post-hoc wrist refinement and compute-matched best-of-N selection both reach lower IK energy than our guidance yet train worse policies. For simulation results, see our website: this https URL"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28480",
+      "claims": [
+        {
+          "claim": "The authors train a tracking policy jointly with a differentiable world model fitted to logged rigid-body simulator transitions, using analytic gradients from short imagined rollouts.",
+          "evidence_quote": "SuperMimic amortizes learning across all motions with one differentiable world model of their shared dynamics, fit from logged transitions of a standard rigid-body simulator. The world model and the tracking policy train together in one loop, and backpropagation-through-time over short imagined rollouts gives the policy analytic gradients."
+        },
+        {
+          "claim": "The authors report surpassing a state-of-the-art motion tracker's return in 3 hours on a single GPU, compared with baseline training for 7 days on 128 GPUs.",
+          "evidence_quote": "In 3 hours on a single GPU, SuperMimic surpasses the return of a state-of-the-art motion tracker baseline trained for 7 days on 128 GPUs."
+        },
+        {
+          "claim": "The authors report physical Unitree G1 transfer across diverse and acrobatic motions.",
+          "evidence_quote": "Our policy transfers to a physical Unitree G1 across diverse and acrobatic motions."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28623",
+      "claims": [
+        {
+          "claim": "The authors introduce PUN to learn noise-aware planning value fields for unseen geometries from partially converged Monte Carlo labels.",
+          "evidence_quote": "PUN amortizes this computation by learning geometry-to-field mappings from noisy, partially converged Monte Carlo labels, avoiding expensive convergence for every training example."
+        },
+        {
+          "claim": "Across four noise levels, the authors report matching or outperforming compared planners with 95-100% success on the 4D replanning benchmark and the lowest runtime.",
+          "evidence_quote": "Across four noise levels, PUN matches or outperforms all compared planners, achieving 95-100% success on the 4D replanning benchmark while maintaining the lowest runtime."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28628",
+      "claims": [
+        {
+          "claim": "The authors introduce AdaDex, a goal-conditioned reinforcement learning framework that turns a short hand-object trajectory into an adaptable skill by combining motion tracking and generalization environments.",
+          "evidence_quote": "At the core of AdaDex is Hybrid Dexterous Mimicking: a shared policy is trained on two populations of massively parallel environments: motion tracking environments trained with dense motion tracking objective, which instill the human prior from human motion; and generalization environments with noised initial states and goals and a sparse object-success reward, which force the skill to work far off the reference."
+        },
+        {
+          "claim": "The authors report better generalization and functionality than baselines and demonstrate transfer across simulators and to the real world.",
+          "evidence_quote": "Our method outperforms baselines in terms of generalization and functionality, and we demonstrate transfer across simulators and to the real world."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28184",
+      "claims": [
+        {
+          "claim": "Using matched simulated counterfactuals and logged replay, the authors report that encoded hazards weakly influence longitudinal plans, which are dominated by ego-speed history.",
+          "evidence_quote": "Using matched simulated counterfactuals and logged driving replay, we show that in-path hazards are actually encoded in the visual representation, but longitudinal plans are dominated by ego-speed history and respond only weakly to hazard proximity or the model's own reasoning trace."
+        },
+        {
+          "claim": "With exact obstacle geometry, the authors report guidance reducing footprint intrusion from 58.1% to 14.5%, restoring safe braking when sufficient stopping distance remains, and eliminating collisions in their braking-relevant closed-loop battery.",
+          "evidence_quote": "With exact obstacle geometry, guidance cuts footprint intrusion from 58.1% to 14.5% and recovers safe braking whenever sufficient stopping distance remains, eliminating collisions entirely in our braking-relevant closed-loop battery."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28523",
+      "claims": [
+        {
+          "claim": "The authors introduce REACT, using semantic contact supervision to connect demonstration processing, interaction learning, and onboard control.",
+          "evidence_quote": "We present REACT, a framework for learning deployable humanoid-human interaction policies from human-human demonstrations. REACT treats semantic contact structure as the key supervisory signal connecting demonstration processing, interaction learning, and onboard control."
+        },
+        {
+          "claim": "The authors report that generative partner-state modeling improves contact recall on four of five interactions, particularly under heavy occlusion, and that the robot performs all five interactions on hardware with onboard sensing alone.",
+          "evidence_quote": "Semantic contact modeling substantially improves preservation of demonstrated interactions, while generative partner-state modeling improves contact recall on four of five interactions, most under heavy occlusion. On real hardware, REACT performs all five interactions using onboard sensing alone."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27472",
+      "claims": [
+        {
+          "claim": "The authors present a proof-of-concept autonomous brick-stacking system using a Spot robot and manipulator, with AprilTags for localization and autowalk for navigation.",
+          "evidence_quote": "This paper presents a proof-of-concept system for autonomous brick stacking using a Boston Dynamics Spot quadrupedal robot equipped with a manipulator arm. The system operates between a supply area and an assembly area, using AprilTag fiducials for localization and autowalk missions for navigation."
+        },
+        {
+          "claim": "Across ten repeated assemblies of a curved four-layer wall of 14 wooden bricks, the authors report mean translation errors below 10 mm and mean yaw errors below 1.5 degrees; overall RMSE is 27.72 mm for translation and 2.06 degrees for rotation.",
+          "evidence_quote": "We evaluate placement accuracy through ten repeated assemblies of a curved four-layer wall comprising 14 wooden bricks. Results show mean translation errors below 10 mm and mean yaw errors below 1.5 degrees, while the overall RMSE across all runs is 27.72 mm (translation) and 2.06 degrees (rotation)."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27782",
+      "claims": [
+        {
+          "claim": "The authors introduce a benchmark assessing physical adherence and instruction alignment across 800 human-annotated videos from 8 source corpora and 10 video generators.",
+          "evidence_quote": "The benchmark measures two fundamental dimensions, Physical Adherence and Instruction Alignment, across 800 human-annotated videos from 8 source corpora and 10 video generators, spanning grippers, human hands, and dexterous hands."
+        },
+        {
+          "claim": "The authors fine-tune a 9B multimodal model with supervised learning followed by reinforcement learning.",
+          "evidence_quote": "We fine-tune a 9B MLLM on this dataset with supervised learning followed by reinforcement learning, yielding RoboJudge-9B."
+        },
+        {
+          "claim": "Among evaluated judges, the authors report the highest overall agreement for RoboJudge-9B, with Pearson correlation 0.719 and a statistically significant 0.089 gain over Gemini-3.7-Flash, the best proprietary baseline in their evaluation.",
+          "evidence_quote": "Among the model judges evaluated on RoboJudge-Bench, RoboJudge-9B achieves the highest overall agreement, reaching a Pearson correlation of 0.719 with a statistically significant 0.089 gain over Gemini-3.7-Flash, the best-performing proprietary baseline in our evaluation."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28166",
+      "claims": [
+        {
+          "claim": "The authors introduce Generative Plan Latents to represent reasoning as a conditional distribution over plans, enabling sampling, steering, and outcome adaptation without retraining the policy.",
+          "evidence_quote": "We introduce the Generative Plan Latent (GPL), which represents the reasoning state as a low-dimensional conditional distribution over plans, such as which object, grasp, or route to use. This makes the reasoning state addressable: without retraining the VLA, plans can be sampled (coverage), selected on request (steering), and reweighted by deployment outcomes (outcome adaptation)."
+        },
+        {
+          "claim": "The authors report that plan steering increases requested-plan adherence from 0.48 to 0.94, while equivalent guidance on the native action distribution produces no reliable gain.",
+          "evidence_quote": "Steering the plan raises the fraction of executions that follow the request from 0.48 to 0.94, while the same guidance on the native action distribution shows no reliable gain."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27039",
+      "claims": [
+        {
+          "claim": "The authors introduce Embodied Playground to evaluate foundation-model agents' physical, strategic, and spatial reasoning in long-horizon tasks.",
+          "evidence_quote": "We introduce Embodied Playground, a benchmark for evaluating how foundation-model agents coordinate physical, strategic, and spatial reasoning throughout such tasks."
+        },
+        {
+          "claim": "The authors report 410 task environments and curate EP-100 with 100 tasks across five suites and 16 task types, alongside difficulty splits and EP-20.",
+          "evidence_quote": "The playground comprises 410 task environments spanning basic manipulation, sequential puzzles, and multi-stage household activities, with variations in planning depth, geometric constraints, and physical execution demands. We curate EP-100, a representative selection of 100 tasks across five suites and 16 task types, together with the EP-Easy and EP-Hard difficulty splits and the compact EP-20 selection."
+        }
+      ]
+    }
+  ]
+}

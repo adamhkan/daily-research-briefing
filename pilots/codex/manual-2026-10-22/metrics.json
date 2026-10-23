@@ -1,0 +1,23 @@
+{
+  "status": "complete",
+  "paper_count": 88,
+  "request_count": 17,
+  "requests_by_stage": {
+    "AffiliationOutput": 8,
+    "OverviewOutput": 4,
+    "ClassificationOutput": 4,
+    "ExecutiveOutput": 1
+  },
+  "repair_request_count": 1,
+  "api_requests": 0,
+  "codex_token_usage": null,
+  "selected_paper_count": 22,
+  "affiliation_extraction_counts": {
+    "complete": 69,
+    "incomplete": 11,
+    "no_usable_evidence": 8
+  },
+  "summaries_without_evidence": 0,
+  "created_at": "2026-10-23T02:26:57.938974+00:00",
+  "completed_at": "2026-10-23T02:49:12.356543+00:00"
+}

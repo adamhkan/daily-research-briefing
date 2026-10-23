@@ -1,0 +1,81 @@
+{
+  "papers": [
+    {
+      "paper_id": "arXiv:2610.27045",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Shanghai AI Laboratory",
+          "authors": [],
+          "block_id": "html-1",
+          "evidence_quote": "Physical Intelligence Team Shanghai AI Laboratory",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.26979",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Stony Brook University",
+          "authors": [
+            "Yoo Sung Jang"
+          ],
+          "block_id": "html-0",
+          "evidence_quote": "Stony Brook University",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.26914",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "University of Utah",
+          "authors": [],
+          "block_id": "pdf-1",
+          "evidence_quote": "1KahlertSchoolofComputing,UniversityofUtah,SaltLakeCity,USA",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "U.S. Army DEVCOM Army Research Laboratory",
+          "authors": [],
+          "block_id": "pdf-1",
+          "evidence_quote": "2U.S.ArmyDEVCOMArmyResearchLaboratory,AberdeenProvingGround,MD,USA",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.26003",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "A4LAB Inc.",
+          "authors": [],
+          "block_id": "pdf-0",
+          "evidence_quote": "¹ R&D Center, A4LAB Inc., South Korea",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Daegu Catholic University",
+          "authors": [],
+          "block_id": "pdf-1",
+          "evidence_quote": "³ Department of Otorhinolaryngology - Head and Neck Surgery, Daegu Catholic University, Daegu,",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "DGIST",
+          "authors": [
+            "Jaesung Hong"
+          ],
+          "block_id": "pdf-2",
+          "evidence_quote": "Jaesung Hong¹˒² and Dong Won Lee³\n¹ R&D Center, A4LAB Inc., South Korea\n² Department of Robotics and Mechatronics Engineering, DGIST, South Korea",
+          "role": "author_affiliation"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,574 @@
+{
+  "papers": [
+    {
+      "paper_id": "arXiv:2610.28432",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Idealworks",
+          "authors": [
+            "Charbel Abi Hana"
+          ],
+          "block_id": "html-0",
+          "evidence_quote": "Idealworks",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Idealworks",
+          "authors": [
+            "Rayan Zaitouni"
+          ],
+          "block_id": "html-1",
+          "evidence_quote": "Idealworks",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Idealworks",
+          "authors": [
+            "Kameel Amareen"
+          ],
+          "block_id": "html-2",
+          "evidence_quote": "Idealworks",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Idealworks",
+          "authors": [
+            "Mohamad Mostafa"
+          ],
+          "block_id": "html-3",
+          "evidence_quote": "Idealworks",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Idealworks",
+          "authors": [
+            "Hasan Sayour"
+          ],
+          "block_id": "html-4",
+          "evidence_quote": "Idealworks",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "NVIDIA",
+          "authors": [
+            "Wei Liu"
+          ],
+          "block_id": "html-5",
+          "evidence_quote": "NVIDIA",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "NVIDIA",
+          "authors": [
+            "Yan Chang"
+          ],
+          "block_id": "html-6",
+          "evidence_quote": "NVIDIA",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "NVIDIA",
+          "authors": [
+            "Mihir Acharya"
+          ],
+          "block_id": "html-7",
+          "evidence_quote": "NVIDIA",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Idealworks",
+          "authors": [
+            "Anthony Rizk"
+          ],
+          "block_id": "html-8",
+          "evidence_quote": "Idealworks",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28431",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Sun Yat-sen University",
+          "authors": [
+            "Zhuohao Li"
+          ],
+          "block_id": "html-0",
+          "evidence_quote": "Sun Yat-sen University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shenzhen Loop Area Institute",
+          "authors": [
+            "Zhuohao Li"
+          ],
+          "block_id": "html-1",
+          "evidence_quote": "Shenzhen Loop Area Institute",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "The Hong Kong University of Science and Technology (Guangzhou)",
+          "authors": [
+            "Jiawei He"
+          ],
+          "block_id": "html-2",
+          "evidence_quote": "The Hong Kong University of Science and Technology (Guangzhou)",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shenzhen Loop Area Institute",
+          "authors": [
+            "Yuxuan Yan"
+          ],
+          "block_id": "html-3",
+          "evidence_quote": "Shenzhen Loop Area Institute",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Xi’an Jiaotong University",
+          "authors": [
+            "Yuxuan Yan"
+          ],
+          "block_id": "html-4",
+          "evidence_quote": "Xi’an Jiaotong University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Sun Yat-sen University",
+          "authors": [
+            "Lang Zhou"
+          ],
+          "block_id": "html-5",
+          "evidence_quote": "Sun Yat-sen University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shenzhen Loop Area Institute",
+          "authors": [
+            "Lang Zhou"
+          ],
+          "block_id": "html-6",
+          "evidence_quote": "Shenzhen Loop Area Institute",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Sun Yat-sen University",
+          "authors": [
+            "Yinghao Li"
+          ],
+          "block_id": "html-7",
+          "evidence_quote": "Sun Yat-sen University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shenzhen Loop Area Institute",
+          "authors": [
+            "Yinghao Li"
+          ],
+          "block_id": "html-8",
+          "evidence_quote": "Shenzhen Loop Area Institute",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Southern University of Science and Technology",
+          "authors": [
+            "Yanrui Li"
+          ],
+          "block_id": "html-9",
+          "evidence_quote": "Southern University of Science and Technology",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shenzhen Loop Area Institute",
+          "authors": [
+            "Tianyu Zhang"
+          ],
+          "block_id": "html-10",
+          "evidence_quote": "Shenzhen Loop Area Institute",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Beijing Institute of Technology",
+          "authors": [
+            "Tianyu Zhang"
+          ],
+          "block_id": "html-11",
+          "evidence_quote": "Beijing Institute of Technology",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Sun Yat-sen University",
+          "authors": [
+            "Yi-Yang Song"
+          ],
+          "block_id": "html-12",
+          "evidence_quote": "Sun Yat-sen University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Peng Cheng Laboratory",
+          "authors": [
+            "Yi-Yang Song"
+          ],
+          "block_id": "html-13",
+          "evidence_quote": "Peng Cheng Laboratory",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "The Chinese University of Hong Kong Shenzhen",
+          "authors": [],
+          "block_id": "html-14",
+          "evidence_quote": "The Chinese University of Hong Kong Shenzhen",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Sun Yat-sen University",
+          "authors": [],
+          "block_id": "html-15",
+          "evidence_quote": "Sun Yat-sen University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Ainoro",
+          "authors": [],
+          "block_id": "html-16",
+          "evidence_quote": "Ainoro",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "King Abdullah University of Science and Technology",
+          "authors": [
+            "Fating Hong"
+          ],
+          "block_id": "html-17",
+          "evidence_quote": "King Abdullah University of Science and Technology",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Sun Yat-sen University",
+          "authors": [
+            "Qing Zhang"
+          ],
+          "block_id": "html-18",
+          "evidence_quote": "Sun Yat-sen University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shenzhen Loop Area Institute",
+          "authors": [],
+          "block_id": "html-19",
+          "evidence_quote": "Shenzhen Loop Area Institute",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Sun Yat-sen University",
+          "authors": [
+            "Wei-Shi Zheng"
+          ],
+          "block_id": "html-20",
+          "evidence_quote": "Sun Yat-sen University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shenzhen Loop Area Institute",
+          "authors": [
+            "Wei-Shi Zheng"
+          ],
+          "block_id": "html-21",
+          "evidence_quote": "Shenzhen Loop Area Institute",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Peng Cheng Laboratory",
+          "authors": [
+            "Wei-Shi Zheng"
+          ],
+          "block_id": "html-22",
+          "evidence_quote": "Peng Cheng Laboratory",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28381",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Toshiba Europe Ltd",
+          "authors": [
+            "Rama Doddipatla"
+          ],
+          "block_id": "html-0",
+          "evidence_quote": "Cambridge Research Laboratory, Toshiba Europe Ltd",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28362",
+      "complete": false,
+      "affiliations": []
+    },
+    {
+      "paper_id": "arXiv:2610.28329",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Università di Pisa",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Centro di Ricerca “Enrico Piaggio”, Università di Pisa",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Università di Pisa",
+          "authors": [],
+          "block_id": "html-1",
+          "evidence_quote": "Dipartimento di Ingegneria dell’Informazione, Università di Pisa",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28259",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Nanjing University",
+          "authors": [],
+          "block_id": "html-1",
+          "evidence_quote": "Nanjing University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Nanyang Technological University",
+          "authors": [],
+          "block_id": "html-1",
+          "evidence_quote": "Nanyang Technological University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Peking University",
+          "authors": [],
+          "block_id": "html-1",
+          "evidence_quote": "Peking University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Institute of Automation of the Chinese Academy of Sciences",
+          "authors": [],
+          "block_id": "html-1",
+          "evidence_quote": "Institute of Automation of the Chinese Academy of Sciences",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28251",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Harvard University",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Harvard University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Arizona State University",
+          "authors": [],
+          "block_id": "html-1",
+          "evidence_quote": "Arizona State University",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28184",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Politecnico di Milano",
+          "authors": [
+            "Matteo Cercola"
+          ],
+          "block_id": "html-0",
+          "evidence_quote": "Politecnico di Milano.",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Stanford University",
+          "authors": [
+            "Katie Z Luo"
+          ],
+          "block_id": "html-1",
+          "evidence_quote": "Stanford University.",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Politecnico di Milano",
+          "authors": [
+            "Simone Formentin"
+          ],
+          "block_id": "html-2",
+          "evidence_quote": "Politecnico di Milano.",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Stanford University",
+          "authors": [
+            "Marco Pavone"
+          ],
+          "block_id": "html-3",
+          "evidence_quote": "Stanford University.",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "NVIDIA",
+          "authors": [
+            "Marco Pavone"
+          ],
+          "block_id": "html-4",
+          "evidence_quote": "NVIDIA.",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28166",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Politecnico di Milano",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Politecnico di Milano",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Stanford University",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Stanford University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Air Force Research Laboratory",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Air Force Research Laboratory",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "NVIDIA",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "NVIDIA",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28164",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Beihang University",
+          "authors": [
+            "Xiaoxu Xu"
+          ],
+          "block_id": "html-0",
+          "evidence_quote": "Beihang University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shanghai Artificial Intelligence Laboratory",
+          "authors": [
+            "Xiaoxu Xu"
+          ],
+          "block_id": "html-1",
+          "evidence_quote": "Shanghai Artificial Intelligence Laboratory",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shanghai Artificial Intelligence Laboratory",
+          "authors": [
+            "Hao Li"
+          ],
+          "block_id": "html-2",
+          "evidence_quote": "Shanghai Artificial Intelligence Laboratory",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shanghai Artificial Intelligence Laboratory",
+          "authors": [
+            "Hongtao Zhang"
+          ],
+          "block_id": "html-3",
+          "evidence_quote": "Shanghai Artificial Intelligence Laboratory",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shanghai Artificial Intelligence Laboratory",
+          "authors": [
+            "Yili Tang"
+          ],
+          "block_id": "html-4",
+          "evidence_quote": "Shanghai Artificial Intelligence Laboratory",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shanghai Artificial Intelligence Laboratory",
+          "authors": [
+            "Jiafei Cao"
+          ],
+          "block_id": "html-5",
+          "evidence_quote": "Shanghai Artificial Intelligence Laboratory",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Beihang University",
+          "authors": [],
+          "block_id": "html-6",
+          "evidence_quote": "Beihang University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shanghai Artificial Intelligence Laboratory",
+          "authors": [],
+          "block_id": "html-7",
+          "evidence_quote": "Shanghai Artificial Intelligence Laboratory",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28127",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "ispace inc.",
+          "authors": [],
+          "block_id": "pdf-0",
+          "evidence_quote": "ispace inc.",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Tohoku University",
+          "authors": [],
+          "block_id": "pdf-1",
+          "evidence_quote": "The Space Robotics Lab, Tohoku University",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28122",
+      "complete": false,
+      "affiliations": []
+    }
+  ]
+}

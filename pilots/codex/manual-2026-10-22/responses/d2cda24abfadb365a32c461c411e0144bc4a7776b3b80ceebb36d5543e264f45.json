@@ -1,0 +1,154 @@
+{
+  "papers": [
+    {
+      "paper_id": "arXiv:2610.28106",
+      "topic_relevance": 2,
+      "contribution_score": 2,
+      "rationale": "Probabilistic reach-avoid estimation supports safe motion planning; comparisons against HJR baselines include simulated Hopper locomotion."
+    },
+    {
+      "paper_id": "arXiv:2610.28019",
+      "topic_relevance": 0,
+      "contribution_score": 3,
+      "rationale": "Addresses inference delays in generic manipulation policies without a specified filter connection; comparative real-robot tasks improve success from 60% to 82%."
+    },
+    {
+      "paper_id": "arXiv:2610.28011",
+      "topic_relevance": 2,
+      "contribution_score": 2,
+      "rationale": "Studies computation allocation for world-model action planning; comparative task experiments evaluate scoring, stopping, and predictor updates without stated hardware validation."
+    },
+    {
+      "paper_id": "arXiv:2610.27998",
+      "topic_relevance": 3,
+      "contribution_score": 1,
+      "rationale": "Centrally enables coordinated mobile manipulation and body control; physical deployment is demonstrated, but comparative experimental validation is not described."
+    },
+    {
+      "paper_id": "arXiv:2610.27995",
+      "topic_relevance": 3,
+      "contribution_score": 2,
+      "rationale": "Learns tactile representations explicitly for dexterous manipulation; comparative downstream evaluations demonstrate improved data efficiency, without clearly stated comparative hardware trials."
+    },
+    {
+      "paper_id": "arXiv:2610.27917",
+      "topic_relevance": 0,
+      "contribution_score": 3,
+      "rationale": "Focuses on memory for generic manipulation rather than a specified filter; benchmark comparisons and four real-robot tasks validate effectiveness."
+    },
+    {
+      "paper_id": "arXiv:2610.27907",
+      "topic_relevance": 3,
+      "contribution_score": 2,
+      "rationale": "Studies multi-fingered hand demonstrations and learned manipulation policies; comparative simulation experiments include novice operators and five policy seeds."
+    },
+    {
+      "paper_id": "arXiv:2610.27905",
+      "topic_relevance": 3,
+      "contribution_score": 2,
+      "rationale": "Centrally develops singularity-recovery motion planning; comparative kinematic evaluation and physical execution are described, but no comparative hardware results are stated."
+    },
+    {
+      "paper_id": "arXiv:2610.27870",
+      "topic_relevance": 2,
+      "contribution_score": 3,
+      "rationale": "Safety certificates and shielding directly support autonomous navigation; simulation and real-world racing comparisons report zero safety violations."
+    },
+    {
+      "paper_id": "arXiv:2610.27865",
+      "topic_relevance": 2,
+      "contribution_score": 2,
+      "rationale": "Includes whole-body coordination and dexterous-hand case studies within a broader evaluation; comparative benchmark results are stated, but hardware case-study comparisons are unspecified."
+    },
+    {
+      "paper_id": "arXiv:2610.27861",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "Evaluates generic household manipulation robustness without explicitly addressing a listed filter; matched simulated rollouts quantify perturbation effects and failure stages."
+    },
+    {
+      "paper_id": "arXiv:2610.27836",
+      "topic_relevance": 1,
+      "contribution_score": 3,
+      "rationale": "Car-following modeling is adjacent to navigation rather than navigation planning; comparative trajectory evaluations explicitly demonstrate transfer across multiple independent datasets."
+    },
+    {
+      "paper_id": "arXiv:2610.27794",
+      "topic_relevance": 0,
+      "contribution_score": 3,
+      "rationale": "Develops generic cross-embodiment action learning without a specified filter connection; comparative hardware experiments and explicit cross-embodiment transfer demonstrate generalization."
+    },
+    {
+      "paper_id": "arXiv:2610.27736",
+      "topic_relevance": 0,
+      "contribution_score": 3,
+      "rationale": "Improves generic manipulation policies without an explicit listed-filter contribution; comparative simulated and real-world experiments show gains over frozen policies."
+    },
+    {
+      "paper_id": "arXiv:2610.27732",
+      "topic_relevance": 3,
+      "contribution_score": 2,
+      "rationale": "Centrally addresses safe roundabout navigation and trajectory planning; MetaDrive comparisons report improved success and passenger comfort."
+    },
+    {
+      "paper_id": "arXiv:2610.27688",
+      "topic_relevance": 3,
+      "contribution_score": 1,
+      "rationale": "Centrally addresses posture-aware humanoid navigation; simulation and hardware demos exist, but quantitative evaluation is explicitly deferred."
+    },
+    {
+      "paper_id": "arXiv:2610.27677",
+      "topic_relevance": 3,
+      "contribution_score": 3,
+      "rationale": "Centrally improves object-goal navigation using uncertainty-guided inference; comparative simulation benchmarks and TurtleBot experiments support effectiveness across unseen environments."
+    },
+    {
+      "paper_id": "arXiv:2610.27657",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "Models future changes for generic manipulation, without a specified filter connection; comparative LIBERO-Long and CALVIN evaluations report improved performance."
+    },
+    {
+      "paper_id": "arXiv:2610.27629",
+      "topic_relevance": 3,
+      "contribution_score": 2,
+      "rationale": "Centrally solves optimal pursuit-evasion motion planning; analytical results are checked against an independent level-set solver at tested parameters."
+    },
+    {
+      "paper_id": "arXiv:2610.27622",
+      "topic_relevance": 0,
+      "contribution_score": 3,
+      "rationale": "Develops demonstrations for gripper manipulation without an explicit listed-filter contribution; physical rollout comparisons quantify benefits over teleoperation and camera alternatives."
+    },
+    {
+      "paper_id": "arXiv:2610.27618",
+      "topic_relevance": 1,
+      "contribution_score": 2,
+      "rationale": "Assembly execution composes robot primitives, incidentally involving action planning; comparative evaluation across nine models reports assembly scores without stated physical validation."
+    },
+    {
+      "paper_id": "arXiv:2610.27616",
+      "topic_relevance": 3,
+      "contribution_score": 3,
+      "rationale": "Centrally improves visual navigation through historical occupancy completion; comparative simulation and 60 wheeled-robot trials demonstrate substantial success gains."
+    },
+    {
+      "paper_id": "arXiv:2610.27613",
+      "topic_relevance": 2,
+      "contribution_score": 3,
+      "rationale": "Tactile experience directly enables fine contact manipulation relevant to dexterity; comparative simulated and real-robot experiments report improved task success."
+    },
+    {
+      "paper_id": "arXiv:2610.27586",
+      "topic_relevance": 1,
+      "contribution_score": 2,
+      "rationale": "Vehicle sideslip estimation is an enabling component adjacent to navigation; comparative simulation and public vehicle-data evaluations assess adaptation and estimation error."
+    },
+    {
+      "paper_id": "arXiv:2610.27562",
+      "topic_relevance": 2,
+      "contribution_score": 3,
+      "rationale": "Optimizes robotic cutting velocity, directly contributing to task-specific motion planning; comparative physical tissue experiments quantify injury and accuracy improvements."
+    }
+  ]
+}

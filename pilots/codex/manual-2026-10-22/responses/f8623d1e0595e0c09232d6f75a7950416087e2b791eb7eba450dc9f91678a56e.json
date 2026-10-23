@@ -1,0 +1,158 @@
+{
+  "papers": [
+    {
+      "paper_id": "arXiv:2610.27277",
+      "claims": [
+        {
+          "claim": "The authors introduce a factorized risk model that estimates corruption-removal benefits through latent intervention without paired clean images or additional counterfactual rollouts.",
+          "evidence_quote": "a factorized risk model that learns separate representations of the scene and corruptions, allowing us to estimate removal benefits through latent intervention from the current image and task instruction, without paired clean images or additional counterfactual rollouts"
+        },
+        {
+          "claim": "Across evaluations in simulation and on a Franka robot, the authors report outperforming monolithic and VLM baselines, including approximately 3x lower attribution error than frontier VLMs.",
+          "evidence_quote": "We evaluate our approach on OpenVLA and $\\pi_{0.5}$ in simulation and $\\pi_{0.5}$-DROID on a Franka robot. Our method outperforms monolithic and vision-language-model (VLM) baselines, including achieving approximately 3x lower attribution error than frontier VLMs."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28626",
+      "claims": [
+        {
+          "claim": "The authors introduce UniWALM, which jointly generates video, action, and language in a shared backbone and reuses generated language as memory.",
+          "evidence_quote": "UniWALM unifies all three modalities inside a single mixture-of-transformers backbone whose per-modality diffusion heads co-denoise synchronously, decoding subtask and textual memory in the same pass as action with no separate planning stage; the generated language is re-consumed on the next step"
+        },
+        {
+          "claim": "The authors report 34.5% on the memory-dependent subset of RMBench without a pretrained language or reasoning model, exceeding Mem-0's keyframe-equipped setup using a single anchor frame.",
+          "evidence_quote": "across the memory-dependent subset of RMBench, where it reaches 34.5% without any pretrained language or reasoning model and exceeds Mem-0's keyframe-equipped setup (28.5%) using only a single anchor frame"
+        },
+        {
+          "claim": "On the real-world Find-the-Item task, the authors report that textual memory increases success from 11.1% to 61.1%.",
+          "evidence_quote": "On a real-world Find-the-Item task, generating textual memory lifts success from 11.1% to 61.1%"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.26962",
+      "claims": [
+        {
+          "claim": "The authors propose DexGraspFlow, a conditional link-level flow-matching framework integrating geometric relations and kinematic topology.",
+          "evidence_quote": "We propose DexGraspFlow, a conditional link-level $\\mathrm{SE}(3)$ flow-matching framework integrating geometric relations and kinematic topology."
+        },
+        {
+          "claim": "Across three hands and 30 object–hand pairs, the authors report an average simulation success rate of 95.33% and generation latency, including inverse kinematics, approximately 49% below a state-of-the-art baseline.",
+          "evidence_quote": "Across three robotic hands and 30 object--hand pairs, DexGraspFlow achieves a 95.33\\% average simulation success rate, with an average generation latency, including inverse kinematics, approximately 49\\% lower than that of a state-of-the-art baseline."
+        },
+        {
+          "claim": "For a model trained on demonstrations for the deployed hand, the authors report 91% success over 100 real-robot grasping trials.",
+          "evidence_quote": "A model trained on demonstrations for the deployed hand achieves a 91\\% success rate over 100 real-robot grasping trials"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27271",
+      "claims": [
+        {
+          "claim": "The authors present XoNav, a hip exoskeleton that delivers gait-coordinated guidance using a bilateral LSTM classifier and two thigh-mounted IMUs.",
+          "evidence_quote": "A bilateral LSTM-based gait-state classifier uses two thigh-mounted IMUs to identify gait states, enabling haptic cues to be delivered in coordination with the wearer's gait while suppressing them during standing."
+        },
+        {
+          "claim": "The authors report classifier recalls of 95.2-97.9% for unseen users, with mean transition-detection delays of 38.6 and 63.1 ms.",
+          "evidence_quote": "The classifier generalized to unseen users with recalls of 95.2-97.9%, with mean detection delays of 38.6 and 63.1 ms for stance-to-swing and swing-to-stance transitions, respectively."
+        },
+        {
+          "claim": "In blindfolded Wizard-of-Oz trials on three paths, the authors report 98.8% of walked distance within a 0.75 m passage and a 4.9% increase in mean progression speed per trial.",
+          "evidence_quote": "In blindfolded Wizard-of-Oz navigation trials along three paths, the participants kept 98.8% of the walked distance within a 0.75 m wide passage, with a 4.9% increase in mean progression speed per trial."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27310",
+      "claims": [
+        {
+          "claim": "The authors localize spinning radar measurements against overhead RGB imagery using learned observation likelihoods and a particle filter propagated by radar odometry.",
+          "evidence_quote": "A particle filter propagated by radar odometry proposes candidate poses, and our observation model provides a likelihood over these poses."
+        },
+        {
+          "claim": "The authors report evaluation over 31 routes in 8 urban and offroad datasets using ground radar and a coarse local prior, plus weather-robustness examination using repeated traversals over 13 months; the abstract gives no quantitative localization result.",
+          "evidence_quote": "We evaluate our method over 31 distinct routes, over 8 datasets spanning both urban and offroad conditions using only ground radar and a coarse local prior. We also examine the robustness over changing weather using repeated traversals over the same route over 13 months, in both urban and offroad conditions."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27616",
+      "claims": [
+        {
+          "claim": "The authors combine temporal aggregation and occupancy completion in an evidential BEV representation predicted from short RGB sequences.",
+          "evidence_quote": "We present a framework that combines temporal aggregation and occupancy completion in an evidential bird's-eye-view (BEV) representation predicted from short RGB sequences."
+        },
+        {
+          "claim": "In simulated sequential two-goal navigation, the authors report 89.6% success, exceeding the strongest evaluated baseline by 32.5 percentage points.",
+          "evidence_quote": "In simulated sequential two-goal navigation, our system achieves 89.6% success, outperforming the strongest evaluated baseline by 32.5 percentage points."
+        },
+        {
+          "claim": "Across 60 wheeled-robot trials in 20 scenes, the authors report 73.3% success versus 33.3% for the strongest evaluated baseline.",
+          "evidence_quote": "Across 60 wheeled-robot trials in 20 scenes, it achieves 73.3% success, compared with 33.3% for the strongest evaluated baseline."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27677",
+      "claims": [
+        {
+          "claim": "The authors propose training-free CovNav, which uses conformal prediction to escalate ambiguous local-LLM spatial decisions from fast inference to slow reasoning.",
+          "evidence_quote": "a local LLM in fast mode judges whether the target is likely near an observed object, CP converts its token probabilities into a prediction set, and only ambiguous queries are escalated to slow chain-of-thought reasoning"
+        },
+        {
+          "claim": "The authors report success-rate gains over the strongest zero-shot baseline of 0.8 and 1.7 percentage points on HM3D v1 and v2, while invoking slow reasoning for only 12.4% of queries.",
+          "evidence_quote": "CovNav surpasses the strongest zero-shot baseline by 0.8 and 1.7 percentage points in success rate on HM3D v1 and v2, while invoking slow reasoning for only 12.4% of queries"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28362",
+      "claims": [
+        {
+          "claim": "The authors introduce SPAR, which learns to rank push primitives from simulated search outcomes, including setup pushes that enable later openings.",
+          "evidence_quote": "We introduce the Search-trained Push Action Ranker (SPAR), which learns to prioritize push primitives from simulated search outcomes. Searches over sequences of up to two pushes per object provide supervision that distinguishes immediate openings from setup pushes."
+        },
+        {
+          "claim": "Across successful runs on 300 simulated two-push keyhole problems, the authors report median simulator-call and planning-time reductions of 7.0 times and 3.8 times relative to Random Search.",
+          "evidence_quote": "Across successful runs on $300$ simulated two-push keyhole problems, SPAR Search reduces median simulator calls by $7.0\\times$, leading to a $3.8\\times$ reduction in planning time relative to Random Search."
+        },
+        {
+          "claim": "In real-robot experiments, the authors report SPAR Policy success in 37/40 trials without a physics-based digital twin, versus 33/40 for SPAR Search and 27/40 for Random Search.",
+          "evidence_quote": "In real-robot experiments, SPAR Policy succeeds in $37/40$ trials without a physics-based digital twin, compared with $33/40$ for SPAR Search and $27/40$ for Random Search."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28432",
+      "claims": [
+        {
+          "claim": "The authors fine-tune X-Mobility using digital-twin data with and without Cosmos-generated sim-to-real variants, then train COMPASS in the digital twin.",
+          "evidence_quote": "we fine-tune X-Mobility on data from this digital twin, with and without sim-to-real variants generated by NVIDIA Cosmos, train COMPASS on top of it from scratch in the digital twin"
+        },
+        {
+          "claim": "Across four scenarios, the authors report that digital-twin training with Cosmos augmentation raises real-world learned-navigation success from 65.3% to 91.7% and nearly halves weighted travel time compared with simulation-only training.",
+          "evidence_quote": "Training in the digital twin with Cosmos sim-to-real augmentation raises the real-world success rate of learned navigation from 65.3% to 91.7% across four scenarios and nearly halves its weighted travel time compared with simulation-only training"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28470",
+      "claims": [
+        {
+          "claim": "The authors present FRDV, combining rapid constrained kinematic retargeting with an additional dynamics validation pipeline.",
+          "evidence_quote": "We present FRDV (Fast Retargeting with Dynamics Validation), a scalable framework consisting of rapid constrained kinematic retargeting and an additional dynamics validation pipeline."
+        },
+        {
+          "claim": "The authors report kinematic retargeting throughput of up to 9,156 frames per second, approximately up to 136 times faster than GMR and ProtoMotions.",
+          "evidence_quote": "achieving up to 9,156 frames per second, approximately up to 136 times faster than GMR and ProtoMotions"
+        },
+        {
+          "claim": "The authors report that dynamics validation identifies dynamically infeasible motions and refines foot floating and foot skating artifacts.",
+          "evidence_quote": "This dynamics-based validation identifies dynamically infeasible motions and refines contact-related artifacts such as foot floating and foot skating."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "papers": [
+    {
+      "paper_id": "arXiv:2610.27242",
+      "claims": [
+        {
+          "claim": "The authors present EmbodyHOI, which uses embodiment-specific differentiable inverse kinematics within a frozen HOI generator's sampling loop.",
+          "evidence_quote": "runs a differentiable inverse-kinematics (IK) solver for a specific humanoid embodiment inside the sampling loop of a frozen flow-matching HOI trajectory generator"
+        },
+        {
+          "claim": "On ARCTIC trajectories with Unitree G1 and H1-2, the authors report reducing retargeted wrist error from 8.9 cm to 0.6 cm while preserving text-to-HOI generation quality.",
+          "evidence_quote": "cuts the retargeted wrist error from 8.9 cm to 0.6 cm while leaving text-to-HOI generation quality intact"
+        },
+        {
+          "claim": "The authors report task success rising from 68% to 79% on 50 random G1 tasks and from 62% to 76% on a four-task H1-2 suite; the abstract identifies these as simulation results.",
+          "evidence_quote": "raises task success from 68% to 79% on 50 random G1 tasks and from 62% to 76% on a four-task H1-2 suite. For simulation results, see our website: this https URL"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28480",
+      "claims": [
+        {
+          "claim": "The authors train a shared differentiable world model and tracking policy together, using analytic gradients from short imagined rollouts.",
+          "evidence_quote": "The world model and the tracking policy train together in one loop, and backpropagation-through-time over short imagined rollouts gives the policy analytic gradients."
+        },
+        {
+          "claim": "The authors report that SuperMimic exceeds a state-of-the-art tracker baseline's return after 3 hours on a single GPU, compared with the baseline's 7 days on 128 GPUs.",
+          "evidence_quote": "In 3 hours on a single GPU, SuperMimic surpasses the return of a state-of-the-art motion tracker baseline trained for 7 days on 128 GPUs."
+        },
+        {
+          "claim": "The authors report zero benchmark failures after 9.8 hours on two GPUs.",
+          "evidence_quote": "After 9.8 hours on two GPUs, SuperMimic achieves zero failures."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28623",
+      "claims": [
+        {
+          "claim": "The authors introduce PUN, a neural operator trained to map geometry to noise-aware planning fields using noisy, partially converged Monte Carlo labels.",
+          "evidence_quote": "PUN amortizes this computation by learning geometry-to-field mappings from noisy, partially converged Monte Carlo labels"
+        },
+        {
+          "claim": "Across four noise levels, the authors report 95-100% success on the 4D replanning benchmark, matching or outperforming compared planners while maintaining the lowest runtime.",
+          "evidence_quote": "Across four noise levels, PUN matches or outperforms all compared planners, achieving 95-100% success on the 4D replanning benchmark while maintaining the lowest runtime."
+        },
+        {
+          "claim": "At the highest tested noise level in 4D, the authors report 10.7-60.6% relative success-rate gains over other methods and 3.29-32.15 times faster execution.",
+          "evidence_quote": "At the highest tested noise level in 4D, PUN achieves 10.7-60.6% relative gains in success rate over other methods while running 3.29-32.15 times faster."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28628",
+      "claims": [
+        {
+          "claim": "The authors present AdaDex, a goal-conditioned RL framework that adapts a single brief hand-object trajectory into a dexterous skill.",
+          "evidence_quote": "a goal-conditioned RL framework that turns a single hand-object trajectory of a few seconds---from mocap data or HOI reconstruction from in-the-wild RGB(D) video---into an adaptable dexterous skill"
+        },
+        {
+          "claim": "The authors report improved generalization and functionality over baselines, with transfer across simulators and to the real world.",
+          "evidence_quote": "Our method outperforms baselines in terms of generalization and functionality, and we demonstrate transfer across simulators and to the real world."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28184",
+      "claims": [
+        {
+          "claim": "Using simulated counterfactuals and logged replay, the authors report that hazard information is encoded visually but influences longitudinal plans weakly relative to ego-speed history.",
+          "evidence_quote": "Using matched simulated counterfactuals and logged driving replay, we show that in-path hazards are actually encoded in the visual representation, but longitudinal plans are dominated by ego-speed history"
+        },
+        {
+          "claim": "The authors inject hazard-conditioned energy into Alpamayo-1.5's frozen flow-matching sampler without retraining or changing weights.",
+          "evidence_quote": "Without retraining or modifying any weights, we inject a hazard-conditioned energy into the frozen flow-matching sampler of Alpamayo-1.5"
+        },
+        {
+          "claim": "With exact obstacle geometry, the authors report footprint intrusion falling from 58.1% to 14.5%, safe braking when sufficient stopping distance remains, and no collisions in their braking-relevant closed-loop battery.",
+          "evidence_quote": "With exact obstacle geometry, guidance cuts footprint intrusion from 58.1% to 14.5% and recovers safe braking whenever sufficient stopping distance remains, eliminating collisions entirely in our braking-relevant closed-loop battery."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28523",
+      "claims": [
+        {
+          "claim": "The authors present REACT, using semantic contact supervision to connect human-human demonstration processing, interaction learning, and onboard control.",
+          "evidence_quote": "REACT treats semantic contact structure as the key supervisory signal connecting demonstration processing, interaction learning, and onboard control."
+        },
+        {
+          "claim": "The authors report that generative partner-state modeling improves contact recall on four of five interactions, especially under heavy occlusion.",
+          "evidence_quote": "generative partner-state modeling improves contact recall on four of five interactions, most under heavy occlusion"
+        },
+        {
+          "claim": "The authors report performing all five interactions on real hardware using onboard sensing alone.",
+          "evidence_quote": "On real hardware, REACT performs all five interactions using onboard sensing alone."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27472",
+      "claims": [
+        {
+          "claim": "The authors present a proof-of-concept autonomous brick-stacking system using a Boston Dynamics Spot robot with a manipulator arm.",
+          "evidence_quote": "This paper presents a proof-of-concept system for autonomous brick stacking using a Boston Dynamics Spot quadrupedal robot equipped with a manipulator arm."
+        },
+        {
+          "claim": "The authors report mean translation errors below 10 mm and mean yaw errors below 1.5 degrees in their placement evaluation.",
+          "evidence_quote": "Results show mean translation errors below 10 mm and mean yaw errors below 1.5 degrees"
+        },
+        {
+          "claim": "The authors report overall RMSE across all runs of 27.72 mm for translation and 2.06 degrees for rotation, and an outdoor test with stairs between areas.",
+          "evidence_quote": "the overall RMSE across all runs is 27.72 mm (translation) and 2.06 degrees (rotation). The system was also tested outdoors with stairs between the two areas."
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27782",
+      "claims": [
+        {
+          "claim": "The authors introduce RoboJudge-Bench to assess physical adherence and instruction alignment across 800 human-annotated embodied videos from 8 corpora and 10 generators.",
+          "evidence_quote": "across 800 human-annotated videos from 8 source corpora and 10 video generators"
+        },
+        {
+          "claim": "The authors train RoboJudge-9B by supervised learning followed by reinforcement learning on RoboJudge-Train.",
+          "evidence_quote": "We fine-tune a 9B MLLM on this dataset with supervised learning followed by reinforcement learning, yielding RoboJudge-9B."
+        },
+        {
+          "claim": "Among evaluated judges, the authors report the highest overall agreement for RoboJudge-9B, with Pearson correlation 0.719 and a statistically significant 0.089 gain over the best proprietary baseline in their evaluation, Gemini-3.7-Flash.",
+          "evidence_quote": "reaching a Pearson correlation of 0.719 with a statistically significant 0.089 gain over Gemini-3.7-Flash, the best-performing proprietary baseline in our evaluation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28166",
+      "claims": [
+        {
+          "claim": "The authors introduce Generative Plan Latent to represent reasoning as a low-dimensional conditional distribution over alternative plans.",
+          "evidence_quote": "represents the reasoning state as a low-dimensional conditional distribution over plans, such as which object, grasp, or route to use"
+        },
+        {
+          "claim": "In their plan-steering evaluation, the authors report increasing request-following executions from 0.48 to 0.94, while equivalent guidance on the native action distribution gives no reliable gain.",
+          "evidence_quote": "Steering the plan raises the fraction of executions that follow the request from 0.48 to 0.94, while the same guidance on the native action distribution shows no reliable gain."
+        },
+        {
+          "claim": "The authors find an explicit plan most useful when it contains decision information not already determined by the observation.",
+          "evidence_quote": "an explicit plan is most useful when it carries decision information not already determined by the observation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27039",
+      "claims": [
+        {
+          "claim": "The authors introduce Embodied Playground to evaluate foundation-model agents' physical, strategic, and spatial reasoning over long-horizon tasks.",
+          "evidence_quote": "a benchmark for evaluating how foundation-model agents coordinate physical, strategic, and spatial reasoning throughout such tasks"
+        },
+        {
+          "claim": "The authors curate EP-100 with 100 tasks across five suites and 16 task types, alongside difficulty splits and EP-20.",
+          "evidence_quote": "We curate EP-100, a representative selection of 100 tasks across five suites and 16 task types, together with the EP-Easy and EP-Hard difficulty splits and the compact EP-20 selection."
+        },
+        {
+          "claim": "The authors specify a shared evaluation protocol covering access, budgets, repeated trials, and independent checks of completion, rule compliance, and physical validity.",
+          "evidence_quote": "A shared protocol specifies observation and tool access, resource budgets, repeated trials, and independent checks of goal completion, task-rule compliance, and physical validity."
+        }
+      ]
+    }
+  ]
+}

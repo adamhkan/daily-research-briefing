@@ -1,0 +1,45 @@
+{
+  "bullets": [
+    {
+      "text": "For humanoid motion, one study reports exceeding a state-of-the-art tracker’s return after 3 hours on a single GPU, versus baseline training for 7 days on 128 GPUs, with physical G1 transfer. EmbodyHOI reports wrist error dropping from 8.9 cm to 0.6 cm and task success rising from 68% to 79% on 50 random G1 tasks; its results are simulation-only.",
+      "paper_ids": [
+        "arXiv:2610.28480",
+        "arXiv:2610.27242"
+      ]
+    },
+    {
+      "text": "DexGraspFlow reports 95.33% average simulation grasp success and 91% success over 100 real-robot trials using a model trained on demonstrations for the deployed hand. SPAR Policy reports 37/40 real-robot pushing successes versus 27/40 for Random Search, without a physics-based digital twin.",
+      "paper_ids": [
+        "arXiv:2610.26962",
+        "arXiv:2610.28362"
+      ]
+    },
+    {
+      "text": "Navigation studies report hardware gains under their evaluated settings: evidential BEV navigation achieves 73.3% success versus 33.3% for its strongest evaluated baseline across 60 trials in 20 scenes; digital-twin training with Cosmos augmentation raises learned-navigation success from 65.3% to 91.7% across four scenarios.",
+      "paper_ids": [
+        "arXiv:2610.27616",
+        "arXiv:2610.28432"
+      ]
+    },
+    {
+      "text": "A driving-plan analysis reports that encoded hazards weakly influence longitudinal plans relative to ego-speed history. Guidance using exact obstacle geometry reduces footprint intrusion from 58.1% to 14.5% and eliminates collisions in the evaluated braking-relevant closed-loop battery, with safe braking restored when sufficient stopping distance remains.",
+      "paper_ids": [
+        "arXiv:2610.28184"
+      ]
+    },
+    {
+      "text": "Explicit plan and memory representations show reported benefits: Generative Plan Latents raises requested-plan adherence from 0.48 to 0.94 through steering, while UniWALM’s textual memory raises real-world Find-the-Item success from 11.1% to 61.1%.",
+      "paper_ids": [
+        "arXiv:2610.28166",
+        "arXiv:2610.28626"
+      ]
+    },
+    {
+      "text": "New evaluation resources include Embodied Playground’s 410 task environments and EP-100’s 100 tasks, plus a physical-adherence and instruction-alignment benchmark of 800 human-annotated videos. On the latter, the authors report RoboJudge-9B has the highest agreement among evaluated judges, with Pearson correlation 0.719.",
+      "paper_ids": [
+        "arXiv:2610.27039",
+        "arXiv:2610.27782"
+      ]
+    }
+  ]
+}

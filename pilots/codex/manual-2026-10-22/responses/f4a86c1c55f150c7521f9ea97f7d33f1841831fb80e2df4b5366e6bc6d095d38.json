@@ -1,0 +1,452 @@
+{
+  "papers": [
+    {
+      "paper_id": "arXiv:2610.28109",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Lanzhou University",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Lanzhou University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Northwest Normal University",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Northwest Normal University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Sun Yat-sen University",
+          "authors": [],
+          "block_id": "html-1",
+          "evidence_quote": "Sun Yat-sen University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Zhejiang University",
+          "authors": [],
+          "block_id": "html-1",
+          "evidence_quote": "Zhejiang University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Beijing Institute of Technology",
+          "authors": [],
+          "block_id": "html-1",
+          "evidence_quote": "Beijing Institute of Technology",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28106",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "University of Trento",
+          "authors": [
+            "Elias Fontanari"
+          ],
+          "block_id": "html-0",
+          "evidence_quote": "University of Trento",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "University of Trento",
+          "authors": [
+            "Pietro Noah Crestaz"
+          ],
+          "block_id": "html-1",
+          "evidence_quote": "University of Trento",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "LAAS-CNRS",
+          "authors": [
+            "Pietro Noah Crestaz"
+          ],
+          "block_id": "html-2",
+          "evidence_quote": "LAAS-CNRS",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Université de Toulouse",
+          "authors": [
+            "Pietro Noah Crestaz"
+          ],
+          "block_id": "html-2",
+          "evidence_quote": "Université de Toulouse",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "CNRS",
+          "authors": [
+            "Pietro Noah Crestaz"
+          ],
+          "block_id": "html-2",
+          "evidence_quote": "CNRS",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "University of Trento",
+          "authors": [
+            "Matteo Saveriano"
+          ],
+          "block_id": "html-3",
+          "evidence_quote": "University of Trento",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "University of Trento",
+          "authors": [
+            "Andrea Del Prete"
+          ],
+          "block_id": "html-4",
+          "evidence_quote": "University of Trento",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28019",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "The Hong Kong University of Science and Technology (Guangzhou)",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "The Hong Kong University of Science and Technology (Guangzhou)",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "One Robotics",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "One Robotics",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28011",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Fudan University",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Fudan University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Fudan University",
+          "authors": [
+            "Yun Peng"
+          ],
+          "block_id": "html-1",
+          "evidence_quote": "Fudan University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Peking University",
+          "authors": [
+            "Tao Xie"
+          ],
+          "block_id": "html-2",
+          "evidence_quote": "Peking University",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27998",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Istituto Italiano di Tecnologia (IIT)",
+          "authors": [
+            "Antonio Langella"
+          ],
+          "block_id": "html-0",
+          "evidence_quote": "Istituto Italiano di Tecnologia (IIT)",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Istituto Italiano di Tecnologia (IIT)",
+          "authors": [
+            "Giovanni Minelli"
+          ],
+          "block_id": "html-1",
+          "evidence_quote": "Istituto Italiano di Tecnologia (IIT)",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Istituto Italiano di Tecnologia (IIT)",
+          "authors": [
+            "Giovanni B. Dessy"
+          ],
+          "block_id": "html-2",
+          "evidence_quote": "Istituto Italiano di Tecnologia (IIT)",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Istituto Italiano di Tecnologia (IIT)",
+          "authors": [
+            "Lorenzo Amatucci"
+          ],
+          "block_id": "html-3",
+          "evidence_quote": "Istituto Italiano di Tecnologia (IIT)",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Istituto Italiano di Tecnologia (IIT)",
+          "authors": [
+            "Giulio Turrisi"
+          ],
+          "block_id": "html-4",
+          "evidence_quote": "Istituto Italiano di Tecnologia (IIT)",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Istituto Italiano di Tecnologia (IIT)",
+          "authors": [
+            "Victor Barasuol"
+          ],
+          "block_id": "html-5",
+          "evidence_quote": "Istituto Italiano di Tecnologia (IIT)",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Istituto Italiano di Tecnologia (IIT)",
+          "authors": [
+            "Claudio Semini"
+          ],
+          "block_id": "html-6",
+          "evidence_quote": "Istituto Italiano di Tecnologia (IIT)",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27995",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Electronics and Telecommunications Research Institute (ETRI)",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Electronics and Telecommunications\nResearch Institute (ETRI)",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27917",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Renmin University of China",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Renmin University of China",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Beijing Academy of Artificial Intelligence",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Beijing Academy of Artificial Intelligence",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Institute of Automation, Chinese Academy of Sciences",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Institute of Automation, Chinese Academy of Sciences",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27907",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "OMRON SINIC X Corporation",
+          "authors": [],
+          "block_id": "html-1",
+          "evidence_quote": "OMRON SINIC X Corporation",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "The University of Tokyo",
+          "authors": [],
+          "block_id": "html-2",
+          "evidence_quote": "The University of Tokyo",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "OMRON SINIC X",
+          "authors": [],
+          "block_id": "html-3",
+          "evidence_quote": "Work done during internships at OMRON SINIC X.",
+          "role": "work_done_at"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27905",
+      "complete": false,
+      "affiliations": [
+        {
+          "institution": "King’s College London",
+          "authors": [
+            "Huanyu Tian"
+          ],
+          "block_id": "html-0",
+          "evidence_quote": "King’s College London",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "King’s College London",
+          "authors": [
+            "Adriana Namour"
+          ],
+          "block_id": "html-1",
+          "evidence_quote": "King’s College London",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "King’s College London",
+          "authors": [
+            "Lingyun Zeng"
+          ],
+          "block_id": "html-2",
+          "evidence_quote": "King’s College London",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "King’s College London",
+          "authors": [
+            "Zicong Wu"
+          ],
+          "block_id": "html-3",
+          "evidence_quote": "King’s College London",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "King’s College London",
+          "authors": [
+            "Sebastien Ourselin"
+          ],
+          "block_id": "html-4",
+          "evidence_quote": "King’s College London",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "King’s College London",
+          "authors": [
+            "Christos Bergeles"
+          ],
+          "block_id": "html-6",
+          "evidence_quote": "King’s College London",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Moorfields Eye Hospital, NHS Foundation Trust",
+          "authors": [
+            "Lyndon da Cruz"
+          ],
+          "block_id": "html-5",
+          "evidence_quote": "Moorfields Eye Hospital, NHS Foundation Trust",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27870",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "TU Wien",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "TU Wien",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "AIT Austrian Institute of Technology",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "AIT Austrian Institute of Technology",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Università Politecnica delle Marche",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Università Politecnica delle Marche",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27865",
+      "complete": false,
+      "affiliations": []
+    },
+    {
+      "paper_id": "arXiv:2610.27861",
+      "complete": false,
+      "affiliations": [
+        {
+          "institution": "Fudan University",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Fudan University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shenzhen Loop Area Institute",
+          "authors": [],
+          "block_id": "html-1",
+          "evidence_quote": "Shenzhen Loop Area Institute",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "The Chinese University of Hong Kong",
+          "authors": [],
+          "block_id": "html-2",
+          "evidence_quote": "The Chinese University of Hong Kong",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "University of Chinese Academy of Sciences",
+          "authors": [],
+          "block_id": "html-3",
+          "evidence_quote": "University of Chinese Academy of Sciences",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shanghai Jiao Tong University",
+          "authors": [],
+          "block_id": "html-4",
+          "evidence_quote": "Shanghai Jiao Tong University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "The Chinese University of Hong Kong",
+          "authors": [
+            "Sha Zhang"
+          ],
+          "block_id": "html-5",
+          "evidence_quote": "The Chinese University of Hong Kong",
+          "role": "author_affiliation"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "note": "Differences for source review; neither run is ground truth.",
+  "baseline_paper_count": 88,
+  "pilot_paper_count": 88,
+  "selected_added": [
+    "arXiv:2610.26979",
+    "arXiv:2610.28470"
+  ],
+  "selected_removed": [
+    "arXiv:2610.27613",
+    "arXiv:2610.27998"
+  ],
+  "institution_changes": [
+    {
+      "paper_id": "arXiv:2610.28613",
+      "baseline": [
+        "Anyverse Robotics",
+        "Beijing Institute of Technology",
+        "Chinese Academy of Sciences",
+        "Institute of Automation, Chinese Academy of Sciences",
+        "National University of Singapore",
+        "Open-Phoenix Team",
+        "Xi'an Jiaotong University"
+      ],
+      "pilot": [
+        "Anyverse Robotics",
+        "Beijing Institute of Technology",
+        "Institute of Automation, Chinese Academy of Sciences",
+        "National University of Singapore",
+        "Open-Phoenix Team",
+        "Xi'an Jiaotong University"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28465",
+      "baseline": [
+        "Space Robotics (SpaceR) Research Group, SnT, University of Luxembourg"
+      ],
+      "pilot": [
+        "University of Luxembourg"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28381",
+      "baseline": [
+        "Cambridge Research Laboratory, Toshiba Europe Ltd"
+      ],
+      "pilot": [
+        "Toshiba Europe Ltd"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28329",
+      "baseline": [
+        "Centro di Ricerca “Enrico Piaggio”",
+        "Università di Pisa"
+      ],
+      "pilot": [
+        "Università di Pisa"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28259",
+      "baseline": [
+        "IndependentResearcher",
+        "InstituteofAutomationoftheChineseAcademyofSciences",
+        "NanjingUniversity",
+        "Nanyang Technological University"
+      ],
+      "pilot": [
+        "Institute of Automation of the Chinese Academy of Sciences",
+        "Nanjing University",
+        "Nanyang Technological University",
+        "Peking University"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28106",
+      "baseline": [
+        "LAAS-CNRS",
+        "University of Trento"
+      ],
+      "pilot": [
+        "CNRS",
+        "LAAS-CNRS",
+        "University of Trento",
+        "Université de Toulouse"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27998",
+      "baseline": [
+        "Dynamic Legged Systems Lab",
+        "Istituto Italiano di Tecnologia",
+        "Istituto Italiano di Tecnologia (IIT)"
+      ],
+      "pilot": [
+        "Istituto Italiano di Tecnologia (IIT)"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27917",
+      "baseline": [
+        "Beijing Academy of Artificial Intelligence",
+        "Chinese Academy of Sciences",
+        "Institute of Automation, Chinese Academy of Sciences",
+        "Renmin University of China"
+      ],
+      "pilot": [
+        "Beijing Academy of Artificial Intelligence",
+        "Institute of Automation, Chinese Academy of Sciences",
+        "Renmin University of China"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27861",
+      "baseline": [
+        "Fudan University",
+        "Shanghai Jiao Tong University",
+        "The Chinese University of Hong Kong",
+        "University of Chinese Academy of Sciences"
+      ],
+      "pilot": [
+        "Fudan University",
+        "Shanghai Jiao Tong University",
+        "Shenzhen Loop Area Institute",
+        "The Chinese University of Hong Kong",
+        "University of Chinese Academy of Sciences"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27836",
+      "baseline": [],
+      "pilot": [
+        "Tongji University"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27794",
+      "baseline": [
+        "Learning Systems and Robotics Lab",
+        "Munich Institute of Robotics and Machine Intelligence",
+        "Technical University of Munich",
+        "University of Toronto"
+      ],
+      "pilot": [
+        "Munich Institute of Robotics and Machine Intelligence",
+        "Technical University of Munich",
+        "University of Toronto"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27732",
+      "baseline": [],
+      "pilot": [
+        "Hong Kong University of Science and Technology (Guangzhou)"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27677",
+      "baseline": [
+        "Chinese Academy of Sciences",
+        "Institute of Automation, Chinese Academy of Sciences",
+        "Newcastle University",
+        "Peking University"
+      ],
+      "pilot": [
+        "Institute of Automation, Chinese Academy of Sciences",
+        "Newcastle University",
+        "Peking University"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27622",
+      "baseline": [
+        "Independent",
+        "University of Hawaii at Manoa"
+      ],
+      "pilot": [
+        "University of Hawaii at Manoa"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27485",
+      "baseline": [
+        "University of Waterloo"
+      ],
+      "pilot": [
+        "Midas Robotics Inc.",
+        "University of Waterloo"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27315",
+      "baseline": [
+        "California Institute of Technology",
+        "Center for Autonomus Systems and Technologies",
+        "Northeastern University",
+        "Silicon Synapse Labs"
+      ],
+      "pilot": [
+        "California Institute of Technology",
+        "Northeastern University"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27271",
+      "baseline": [
+        "CSIR-Central Mechanical Engineering Research Institute",
+        "Human Centered Robotics and Cybernetics Group"
+      ],
+      "pilot": [
+        "CSIR-Central Mechanical Engineering Research Institute"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27141",
+      "baseline": [
+        "Interdisciplinary Centre for Security, Reliability and Trust (SnT)",
+        "Space Robotics Research Group (SpaceR)",
+        "University of Luxembourg"
+      ],
+      "pilot": [
+        "University of Luxembourg"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27003",
+      "baseline": [
+        "Beihang University",
+        "Engineering Research Center of Database and Business Intelligence",
+        "Key Laboratory of Data Engineering and Knowledge Engineering",
+        "School of Information, Renmin University of China",
+        "Zphyture"
+      ],
+      "pilot": [
+        "Beihang University",
+        "Engineering Research Center of Database and Business Intelligence",
+        "Key Laboratory of Data Engineering and Knowledge Engineering",
+        "Renmin University of China",
+        "Zphyture"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28290",
+      "baseline": [
+        "Engineering and Technology Institute Groningen, University of Groningen"
+      ],
+      "pilot": [
+        "University of Groningen"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28121",
+      "baseline": [
+        "Centre for Assured and Connected Autonomy, Cranfield University"
+      ],
+      "pilot": [
+        "Cranfield University"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27756",
+      "baseline": [
+        "Independent Researcher"
+      ],
+      "pilot": []
+    },
+    {
+      "paper_id": "arXiv:2610.27714",
+      "baseline": [
+        "Independent Researchers"
+      ],
+      "pilot": []
+    },
+    {
+      "paper_id": "arXiv:2610.27547",
+      "baseline": [
+        "Hong Kong University of Science and Technology",
+        "University College London"
+      ],
+      "pilot": [
+        "Hong Kong University of Science and Technology",
+        "Shenzhen University",
+        "University College London"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27522",
+      "baseline": [
+        "Hong Kong University of Science and Technology",
+        "University College London",
+        "Xi'an Jiaotong University"
+      ],
+      "pilot": [
+        "Hong Kong University of Science and Technology",
+        "Shenzhen University",
+        "University College London",
+        "Xi'an Jiaotong University"
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.26914",
+      "baseline": [
+        "U.S.ArmyDEVCOMArmyResearchLaboratory",
+        "University of Utah"
+      ],
+      "pilot": [
+        "U.S. Army DEVCOM Army Research Laboratory",
+        "University of Utah"
+      ]
+    }
+  ]
+}

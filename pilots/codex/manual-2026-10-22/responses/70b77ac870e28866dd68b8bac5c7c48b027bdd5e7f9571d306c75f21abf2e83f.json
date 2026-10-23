@@ -1,0 +1,154 @@
+{
+  "papers": [
+    {
+      "paper_id": "arXiv:2610.28628",
+      "topic_relevance": 3,
+      "contribution_score": 3,
+      "rationale": "Adaptable dexterous skill learning is central; baseline comparisons, generalization, cross-simulator transfer, and real-world deployment are demonstrated."
+    },
+    {
+      "paper_id": "arXiv:2610.28626",
+      "topic_relevance": 0,
+      "contribution_score": 3,
+      "rationale": "Studies general manipulation and textual memory rather than specified filters; comparative benchmarks and real-world task improvements are reported."
+    },
+    {
+      "paper_id": "arXiv:2610.28624",
+      "topic_relevance": 1,
+      "contribution_score": 1,
+      "rationale": "Fleet memory supports operational understanding incidentally related to navigation; validation establishes decoder equivalence, without comparative autonomy evaluation."
+    },
+    {
+      "paper_id": "arXiv:2610.28613",
+      "topic_relevance": 0,
+      "contribution_score": 3,
+      "rationale": "Visuotactile world modeling targets general manipulation rather than specified filters; comparative real-world policy improvements are measured across four tasks."
+    },
+    {
+      "paper_id": "arXiv:2610.28589",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "Post-trains high-level task planners rather than motion planners; comparative LIBERO-PRO simulation results show substantial success improvements."
+    },
+    {
+      "paper_id": "arXiv:2610.28585",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "Scene reconstruction supports general manipulation simulation rather than specified filters; comparative reconstruction and policy-outcome prediction evaluations are described."
+    },
+    {
+      "paper_id": "arXiv:2610.28566",
+      "topic_relevance": 3,
+      "contribution_score": 2,
+      "rationale": "Predictive indoor exploration directly addresses navigation; comparative floor-plan and real-SLAM environment evaluations demonstrate exploration improvements."
+    },
+    {
+      "paper_id": "arXiv:2610.28523",
+      "topic_relevance": 3,
+      "contribution_score": 2,
+      "rationale": "Humanoid contact interaction policies centrally address whole-body control; comparative modeling evaluations and onboard hardware demonstrations are reported."
+    },
+    {
+      "paper_id": "arXiv:2610.28480",
+      "topic_relevance": 3,
+      "contribution_score": 3,
+      "rationale": "Humanoid whole-body tracking is central; extensive comparative benchmarks, scaling across motions, and physical humanoid transfer demonstrate generalization."
+    },
+    {
+      "paper_id": "arXiv:2610.28470",
+      "topic_relevance": 3,
+      "contribution_score": 3,
+      "rationale": "Dynamics-aware humanoid retargeting directly supports whole-body control; comparative tracking evaluations and sim-to-real transfer are demonstrated."
+    },
+    {
+      "paper_id": "arXiv:2610.28465",
+      "topic_relevance": 2,
+      "contribution_score": 1,
+      "rationale": "Lunar rover simulation directly supports navigation development; shadow and stereo validation are reported without comparative navigation evaluation."
+    },
+    {
+      "paper_id": "arXiv:2610.28457",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "Tactile control addresses general contact-rich manipulation, without dexterous-hand or other filter contributions; comparative task success and tactile ablations are reported."
+    },
+    {
+      "paper_id": "arXiv:2610.28432",
+      "topic_relevance": 3,
+      "contribution_score": 3,
+      "rationale": "Industrial mobile robot navigation is central; comparative onboard real-world benchmarks quantify success, efficiency, and sim-to-real improvements."
+    },
+    {
+      "paper_id": "arXiv:2610.28431",
+      "topic_relevance": 2,
+      "contribution_score": 3,
+      "rationale": "Stage-aware manipulation includes dexterous-hand and humanoid embodiments; comparative experiments and explicit transfer across architectures and embodiments support generalization."
+    },
+    {
+      "paper_id": "arXiv:2610.28381",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "Benchmarks contextual task-plan safety rather than robot motion planning; comparative dataset evaluation covers nine language models."
+    },
+    {
+      "paper_id": "arXiv:2610.28362",
+      "topic_relevance": 3,
+      "contribution_score": 3,
+      "rationale": "Navigation among movable obstacles is central; comparative simulation and real-robot trials demonstrate faster planning and higher success."
+    },
+    {
+      "paper_id": "arXiv:2610.28329",
+      "topic_relevance": 0,
+      "contribution_score": 3,
+      "rationale": "Elastic-arm trajectory tracking does not directly address specified filters; simulations and hardware experiments explicitly demonstrate cross-trajectory adaptation under modeling mismatches."
+    },
+    {
+      "paper_id": "arXiv:2610.28259",
+      "topic_relevance": 2,
+      "contribution_score": 2,
+      "rationale": "Direct robot control evaluation examines motion feasibility and coordinated motion; comparative simulation benchmarks and qualitative hardware corroboration are reported."
+    },
+    {
+      "paper_id": "arXiv:2610.28251",
+      "topic_relevance": 1,
+      "contribution_score": 1,
+      "rationale": "Secure communication supports mapping and heading consensus incidentally related to navigation; hardware and scaling demonstrations lack stated comparative evaluation."
+    },
+    {
+      "paper_id": "arXiv:2610.28184",
+      "topic_relevance": 3,
+      "contribution_score": 2,
+      "rationale": "Hazard-responsive driving trajectory generation directly addresses motion planning; comparative simulated counterfactuals, replay, and closed-loop braking evaluations demonstrate improvements."
+    },
+    {
+      "paper_id": "arXiv:2610.28166",
+      "topic_relevance": 1,
+      "contribution_score": 2,
+      "rationale": "Latent task-plan selection incidentally covers routes, without explicit motion-planning contribution; comparative simulation experiments quantify steering improvements."
+    },
+    {
+      "paper_id": "arXiv:2610.28164",
+      "topic_relevance": 0,
+      "contribution_score": 3,
+      "rationale": "Predictive representations target general manipulation rather than specified filters; comparative real-world results and transfer across policy architectures are demonstrated."
+    },
+    {
+      "paper_id": "arXiv:2610.28127",
+      "topic_relevance": 0,
+      "contribution_score": 1,
+      "rationale": "Rover thermal engineering is unrelated to specified autonomy filters; thermal simulations are verified by a vacuum thermal-balance experiment."
+    },
+    {
+      "paper_id": "arXiv:2610.28122",
+      "topic_relevance": 0,
+      "contribution_score": 3,
+      "rationale": "Single-step world-action prediction targets general manipulation rather than specified filters; comparative simulation and real-world task advantages are reported."
+    },
+    {
+      "paper_id": "arXiv:2610.28109",
+      "topic_relevance": 0,
+      "contribution_score": 2,
+      "rationale": "Runtime task grounding and grasp recovery address general manipulation rather than specified filters; comparative LIBERO-PRO evaluation covers multiple policy backbones."
+    }
+  ]
+}
