@@ -100,6 +100,18 @@ that reached a cloud shell but exited 127: `.venv/bin/python` was resolved from
 `/workspace`, rather than the repository directory. The module never started.
 No task URL was supplied by the service, so none has been inferred. The corrected
 command has passed locally when launched from `/workspace`, and regression tests
-cover selecting the checkout and stopping on missing environment setup. A fresh
-remote retry and GitHub-hosted smoke execution remain unverified. The existing
-paid-workflow pause is unchanged.
+cover selecting the checkout and stopping on missing environment setup.
+
+The user subsequently reported a successful Dot-native cloud retry, task ID
+`01a16684-e2fe-7517-a3bf-025bec31e0ec`. The help command ran and exited 0 after
+changing to `/workspace/daily-research-briefing`. The captured output combines
+stdout and stderr; the service supplied no task URL. This is user-reported remote
+evidence, separate from the local tests. It verifies cloud execution of the help
+command, not arXiv collection, the complete model-response loop, or durable daily
+operation. Three nonfatal renderer string-escape warnings were also reported;
+the literal escapes have been corrected without changing their runtime values.
+
+The Dot-native route does not depend on exporting this chat's credentials to a
+GitHub runner. GitHub-hosted smoke execution remains unverified and is an
+alternative, not a prerequisite for using Dot's native cloud delegation. The
+existing paid-workflow pause is unchanged.

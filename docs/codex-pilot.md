@@ -6,17 +6,22 @@ The default pilot dates are **October 23–25, 2026**, inclusive, with a wake-up
 
 ## Schedule activation
 
-An external scheduler can submit cloud tasks through the experimental Codex CLI.
-The [manual GitHub Actions smoke test](codex-cloud-smoke.md) checks that route;
-it has no daily trigger and must pass before adopting it as the recurring wake-up.
+The user's Dot-native help-command smoke test completed in the prepared cloud
+environment with exit code 0 (task ID `01a16684-e2fe-7517-a3bf-025bec31e0ec`;
+the service supplied no URL). Dot's native scheduling/delegation is the preferred
+pilot route. The complete briefing still needs to be exercised in a fresh cloud
+task; the help test alone does not establish daily reliability.
+
+An external scheduler can alternatively submit tasks through the experimental
+Codex CLI. The [manual GitHub Actions smoke test](codex-cloud-smoke.md) checks that
+separate route; GitHub credentials are not a prerequisite for Dot-native execution.
 
 The repository contains the runnable harness and exact recurring instructions below. **No recurring Codex task has been registered by this change.** The current chat exposes no tool to create a durable scheduled Codex task. A cron process in this disposable cloud machine would not be a durable substitute.
 
-The prompt below describes the intended recurring task; it does not establish
-that the browser has a native scheduling interface. An external scheduler must
-first pass the cloud-dispatch test and have a verified authentication strategy.
-If a supported scheduling interface is available, use this repository on `main`
-and the prepared cloud environment, with these schedule values:
+Use the user's Dot to save the schedule and delegate cloud execution, using this
+repository on `main` and the same prepared environment as the successful smoke
+test. This cloud coding chat cannot register the schedule itself. The intended
+schedule values are:
 
 ```text
 Timezone: America/New_York
@@ -32,7 +37,33 @@ DTSTART;TZID=America/New_York:20261023T083000
 RRULE:FREQ=DAILY;COUNT=3;BYHOUR=8;BYMINUTE=30;BYSECOND=0
 ```
 
-If the scheduling interface cannot express a three-occurrence end, configure a daily task and disable it after October 25. The harness independently refuses to prepare a new daily pilot outside the configured date window, so an extra wake-up should stop without model work. Scheduling remains subject to the account's actual scheduling and cloud-execution capabilities.
+If the scheduling interface cannot express a three-occurrence end, use three
+one-time schedules or report the limitation and leave recurrence inactive. Do not
+create an indefinite schedule. The harness independently refuses to prepare a new
+daily pilot outside the configured window, but this does not delete a saved
+schedule. Scheduling remains subject to the account's actual capabilities.
+
+### Dot scheduling prompt
+
+Give this to the Dot that ran the successful smoke test:
+
+```text
+Create a daily pilot schedule at 08:30 America/New_York on October 23, 24, and 25,
+2026 only, for three occurrences total. At each wake-up, launch a Codex CLOUD task
+for adamhkan/daily-research-briefing, branch main, using the same prepared cloud
+environment as successful test 01a16684-e2fe-7517-a3bf-025bec31e0ec. Do not use my Mac.
+
+In each cloud task, locate /workspace/daily-research-briefing, explicitly select
+that working directory, read docs/codex-pilot.md, and execute the instructions in
+its "Recurring task prompt" section for today's run. Do not create other schedules.
+Use Codex-generated response files, never paid OpenAI API calls. Keep pilot output
+separate from the website and persist the run's artifacts as those instructions
+require. Return actual completion/failure results and verified persistence state.
+
+Confirm the saved schedule ID, next-run time, timezone, and finite end date or
+occurrence count. Report any unsupported scheduling or delegation requirement
+instead of claiming activation. No schedule should run after October 25.
+```
 
 ### Recurring task prompt
 

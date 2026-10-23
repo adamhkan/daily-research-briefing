@@ -347,8 +347,8 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
                 }
             )
 
-    search_index_json = json.dumps(search_index, ensure_ascii=False).replace("</", "<\/")
-    briefing_index_json = json.dumps(briefing_index, ensure_ascii=False).replace("</", "<\/")
+    search_index_json = json.dumps(search_index, ensure_ascii=False).replace("</", "<\\/")
+    briefing_index_json = json.dumps(briefing_index, ensure_ascii=False).replace("</", "<\\/")
 
     dashboard_html = """<!doctype html>
 <html lang="en">
@@ -566,7 +566,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
     const resultsEl = document.getElementById('search-results');
     const statusEl = document.getElementById('search-status');
 
-    const normalize = (value) => value.toLowerCase().replace(/\s+/g, ' ').trim();
+    const normalize = (value) => value.toLowerCase().replace(/\\s+/g, ' ').trim();
     const escapeHtml = (value) => value
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
