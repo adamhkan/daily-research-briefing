@@ -48,6 +48,8 @@ class AffiliationClaim(StrictOutput):
         'One organization name copied from the source, without department prefixes or addresses; '
         'retain identity-defining campus, branch, and organization-unit qualifiers. '
         'Keep unfamiliar names and source abbreviations; do not invent a parent or canonical name.'
+        ' Restore unambiguous missing word spaces and normalize line breaks in the name only; '
+        'keep evidence_quote verbatim.'
     ))
     authors: list[str]
     block_id: str

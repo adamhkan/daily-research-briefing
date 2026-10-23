@@ -1,0 +1,317 @@
+{
+  "papers": [
+    {
+      "paper_id": "arXiv:2610.28632",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "NVIDIA",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "NVIDIA",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Technion – Israel Institute of Technology",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Technion – Israel Institute of Technology",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Bar-Ilan University",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Bar-Ilan University",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28623",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "California Institute of Technology",
+          "authors": [
+            "Michael Chen"
+          ],
+          "block_id": "html-0",
+          "evidence_quote": "Computing and Mathematical Sciences, California Institute of Technology",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "New York University",
+          "authors": [
+            "Hong Chul Nam"
+          ],
+          "block_id": "html-1",
+          "evidence_quote": "Center for Data Science, New York University * Equal contribution",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "California Institute of Technology",
+          "authors": [
+            "Xi Deng"
+          ],
+          "block_id": "html-2",
+          "evidence_quote": "Computing and Mathematical Sciences, California Institute of Technology",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "California Institute of Technology",
+          "authors": [
+            "Anima Anandkumar"
+          ],
+          "block_id": "html-3",
+          "evidence_quote": "Computing and Mathematical Sciences, California Institute of Technology",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28530",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Georgia Institute of Technology",
+          "authors": [
+            "Lingjun Zhao"
+          ],
+          "block_id": "html-0",
+          "evidence_quote": "Lunar Lab, Georgia Institute of Technology, Atlanta.",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Georgia Institute of Technology",
+          "authors": [
+            "Lu Gan"
+          ],
+          "block_id": "html-1",
+          "evidence_quote": "Lunar Lab, Georgia Institute of Technology, Atlanta.",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28476",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Peking University",
+          "authors": [
+            "Pengying Wu",
+            "Mingye Jiang",
+            "Yunze Hu",
+            "Zhejia Wen",
+            "Kangjie Zhou",
+            "Zongru Yang",
+            "Zhe Peng",
+            "Chang Liu"
+          ],
+          "block_id": "html-0",
+          "evidence_quote": "† thanks: Pengying Wu, Mingye Jiang, Yunze Hu, Zhejia Wen, Kangjie Zhou, Zongru Yang, Zhe Peng, and Chang Liu are with the School of Advanced Manufacturing and Robotics, Peking University, Beijing 100871, China",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28290",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "University of Groningen",
+          "authors": [
+            "Bin-Bin Hu",
+            "Shuwei Pei",
+            "Saeed Ahmed",
+            "Bayu Jayawardhana"
+          ],
+          "block_id": "html-1",
+          "evidence_quote": "Thanks: Bin-Bin Hu, Shuwei Pei, Saeed Ahmed and Bayu Jayawardhana are with the Engineering and Technology Institute Groningen, University of Groningen, 9747 AG Groningen, The Netherlands",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.28121",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Cranfield University",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "† thanks: All authors are with the Centre for Assured and Connected Autonomy, Cranfield University,\nBedford, UK.",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27782",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Westlake University",
+          "authors": [],
+          "block_id": "html-0",
+          "evidence_quote": "Westlake University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Northeastern University",
+          "authors": [],
+          "block_id": "html-1",
+          "evidence_quote": "Northeastern University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Zhejiang University",
+          "authors": [],
+          "block_id": "html-2",
+          "evidence_quote": "Zhejiang University",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "The Chinese University of Hong Kong",
+          "authors": [],
+          "block_id": "html-6",
+          "evidence_quote": "The Chinese University of Hong Kong",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "University of California San Diego",
+          "authors": [],
+          "block_id": "html-6",
+          "evidence_quote": "University of California San Diego",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27756",
+      "complete": false,
+      "affiliations": []
+    },
+    {
+      "paper_id": "arXiv:2610.27714",
+      "complete": false,
+      "affiliations": []
+    },
+    {
+      "paper_id": "arXiv:2610.27696",
+      "complete": true,
+      "affiliations": [
+        {
+          "institution": "Zhejiang Humanoid Robot Innovation Center",
+          "authors": [],
+          "block_id": "html-1",
+          "evidence_quote": "† thanks: All authors are with the Zhejiang Humanoid Robot Innovation Center, Ningbo, China.",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27547",
+      "complete": false,
+      "affiliations": [
+        {
+          "institution": "Shenzhen University",
+          "authors": [
+            "Huihua Zhu",
+            "Shuyang Zhang",
+            "Dongqing Chen",
+            "Zhuo Yu",
+            "Xiaopin Zhong",
+            "Zongze Wu"
+          ],
+          "block_id": "html-0",
+          "evidence_quote": "Huihua Zhu, Shuyang Zhang, Dongqing Chen, Zhuo Yu, Xiaopin Zhong, and Zongze Wu are with the College of Mechatronics and Control Engineering, Shenzhen University, Shenzhen, Guangdong, 518060, China.",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "University College London",
+          "authors": [
+            "Jianhao Jiao"
+          ],
+          "block_id": "html-4",
+          "evidence_quote": "Jianhao Jiao is with the Robot Perception and Learning Lab, Intelligent Robotics, Department of Computer Science, University College London, Gower Street, WC1E 6BT, London, UK.",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Hong Kong University of Science and Technology",
+          "authors": [
+            "Yilong Zhu"
+          ],
+          "block_id": "html-5",
+          "evidence_quote": "Yilong Zhu is with the Department of Electronic and Computer Engineering, Hong Kong University of Science and Technology, Hong Kong.",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shenzhen University",
+          "authors": [
+            "Siyu Teng"
+          ],
+          "block_id": "html-6",
+          "evidence_quote": "Siyu Teng is with the College of Civil and Transportation Engineering, Shenzhen University, Shenzhen, Guangdong, 518060, China.",
+          "role": "author_affiliation"
+        }
+      ]
+    },
+    {
+      "paper_id": "arXiv:2610.27522",
+      "complete": false,
+      "affiliations": [
+        {
+          "institution": "Shenzhen University",
+          "authors": [
+            "Zhuo Yu",
+            "Shuyang Zhang",
+            "Huihua Zhu",
+            "Wenjia Ouyang",
+            "Xiaopin Zhong",
+            "Zongze Wu"
+          ],
+          "block_id": "html-0",
+          "evidence_quote": "Zhuo Yu, Shuyang Zhang, Huihua Zhu, Wenjia Ouyang, Xiaopin Zhong, and Zongze Wu are with the College of Mechatronics and Control Engineering, Shenzhen University, Shenzhen, Guangdong, 518060, China.",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Shenzhen University",
+          "authors": [
+            "Wenjia Ouyang"
+          ],
+          "block_id": "html-4",
+          "evidence_quote": "Wenjia Ouyang is with the College of Computer Science and Software Engineering, Shenzhen University, Shenzhen, Guangdong, 518060, China.",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Xi’an Jiaotong University",
+          "authors": [
+            "Zuo Zuo"
+          ],
+          "block_id": "html-5",
+          "evidence_quote": "Zuo Zuo is with College of Artificial Intelligence, Xi’an Jiaotong University, Xi’an, Shaanxi, 710049, China.",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "University College London",
+          "authors": [
+            "Jianhao Jiao"
+          ],
+          "block_id": "html-6",
+          "evidence_quote": "Jianhao Jiao is with the Robot Perception and Learning Lab, Intelligent Robotics, Department of Computer Science, University College London, Gower Street, WC1E 6BT, London, UK.",
+          "role": "author_affiliation"
+        },
+        {
+          "institution": "Hong Kong University of Science and Technology",
+          "authors": [
+            "Yilong Zhu"
+          ],
+          "block_id": "html-7",
+          "evidence_quote": "Yilong Zhu is with the Department of Electronic and Computer Engineering, Hong Kong University of Science and Technology, Hong Kong.",
+          "role": "author_affiliation"
+        }
+      ]
+    }
+  ]
+}
