@@ -33,6 +33,33 @@ class CodexCloudSmokeTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.output = Path(self.tmp.name) / 'output'
 
+    def test_command_selects_checkout_when_shell_starts_at_workspace(self):
+        workspace = Path(self.tmp.name)
+        checkout = workspace / 'checkout with spaces'
+        module = checkout / 'src/daily_robotics_briefing/codex_pilot.py'
+        module.parent.mkdir(parents=True)
+        module.touch()
+        python = checkout / '.venv/bin/python'
+        python.parent.mkdir(parents=True)
+        python.write_text('#!/bin/sh\npwd\nprintf "%s\\n" "$PYTHONPATH" "$@"\n')
+        python.chmod(0o700)
+        result = subprocess.run(['bash', '-c', smoke.smoke_command(str(checkout))],
+                                cwd=workspace, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(result.stdout.splitlines(), [str(checkout), 'src', '-m',
+                         'daily_robotics_briefing.codex_pilot', '--help'])
+
+    def test_missing_environment_is_reported_before_module_launch(self):
+        checkout = Path(self.tmp.name) / 'checkout'
+        module = checkout / 'src/daily_robotics_briefing/codex_pilot.py'
+        module.parent.mkdir(parents=True)
+        module.touch()
+        result = subprocess.run(['bash', '-c', smoke.smoke_command(str(checkout))],
+                                cwd=self.tmp.name, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 78)
+        self.assertIn('Prepared Python missing or unusable', result.stderr)
+        self.assertEqual(result.stdout, '')
+
     def test_submits_once_waits_and_verifies_completed_task_diff(self):
         responses = [reply(TASK_URL), reply('[PENDING] Smoke\n', 1),
                      reply('[READY] Smoke\n'), reply(result_diff())]

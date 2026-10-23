@@ -45,10 +45,13 @@ Use the existing isolated checkout under /workspace/daily-research-briefing and
 branch main. Do not create a worktree or another checkout. Read any AGENTS.md,
 docs/codex-pilot.md, and config/codex-pilot.json. Preserve existing user changes.
 If the checkout is clean, fetch origin/main and fast-forward only; do not reset,
-force-push, or discard changes. Use the installed .venv/bin/python and PYTHONPATH=src.
+force-push, or discard changes. Set every shell tool's working directory to the
+verified repository root. The default /workspace is not necessarily that root,
+and cd does not persist across separate shell-tool calls. Use the installed
+.venv/bin/python and PYTHONPATH=src; stop with a setup error if it is unavailable.
 
 Run:
-PYTHONPATH=src .venv/bin/python -m daily_robotics_briefing.codex_pilot wake --config config/codex-pilot.json
+cd /workspace/daily-research-briefing && PYTHONPATH=src .venv/bin/python -m daily_robotics_briefing.codex_pilot wake --config config/codex-pilot.json
 
 Inspect its JSON result. If status is inactive, report the status and stop without
 model work. If ready or waiting, use the returned run_dir and enter the advance
@@ -59,7 +62,7 @@ retry a failed run. Source input is frozen for this date; do not recollect or
 overwrite it on a retry.
 
 Run:
-PYTHONPATH=src .venv/bin/python -m daily_robotics_briefing.codex_pilot advance --run-dir RUN_DIR
+cd /workspace/daily-research-briefing && PYTHONPATH=src .venv/bin/python -m daily_robotics_briefing.codex_pilot advance --run-dir RUN_DIR
 
 While status is waiting, read the returned request_path. Have a fresh subagent
 with no parent conversation and low reasoning process only that request's system
@@ -68,7 +71,7 @@ known bugs, hints, or invented data. Use an available low-reasoning Codex model;
 record actual model identity if available rather than calling it gpt-5.1. The
 request's model field is a workflow label, not an instruction to call an API.
 Save only the structured response JSON to a temporary file, then run:
-PYTHONPATH=src .venv/bin/python -m daily_robotics_briefing.codex_pilot submit --run-dir RUN_DIR --request-id REQUEST_ID --response-file RESPONSE_FILE
+cd /workspace/daily-research-briefing && PYTHONPATH=src .venv/bin/python -m daily_robotics_briefing.codex_pilot submit --run-dir RUN_DIR --request-id REQUEST_ID --response-file RESPONSE_FILE
 
 Call advance again after successful submission. Stored responses are reused on
 replay; never request another model answer for an existing accepted response.

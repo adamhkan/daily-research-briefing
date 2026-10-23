@@ -11,6 +11,25 @@ task checks the existing harness's help command and creates only
 `pilots/cloud-dispatch-smoke.json` in its isolated checkout. The workflow checks
 that exact result and does **not** apply its diff to this repository.
 
+Cloud shells can start at `/workspace`, outside the checkout. The submitted
+prompt locates the repository, selects it in the same shell invocation, and
+checks the module and virtual environment before launch. A missing or broken
+`.venv/bin/python` is a setup failure; the smoke test does not install packages or
+silently choose a different interpreter. `cd` in a previous shell call does not
+change the working directory of a later call.
+
+For a Dot-native, help-only retry in the standard prepared checkout, use:
+
+```bash
+cd /workspace/daily-research-briefing && \
+  test -x .venv/bin/python && \
+  PYTHONPATH=src .venv/bin/python -m daily_robotics_briefing.codex_pilot --help
+```
+
+If `cd` or the executable check fails, have Dot report the actual checkout root
+and environment state. Do not count that as a successful module test or fabricate
+a task URL when the service returns only a task ID.
+
 ## Credentials and environment
 
 The GitHub runner needs its own ChatGPT-authenticated Codex CLI credentials.
@@ -66,15 +85,21 @@ the original secret again, not the previous runner's updated login state. CLI
 support is experimental, and a successful manual test is not proof of a durable
 recurring service. No `schedule` trigger is present in this workflow.
 
-## Current cloud-chat network blocker
+## Live checks and remaining blockers
 
-The current development environment allows the required Git operations, but its
-proxy blocks `chatgpt.com` and `api.github.com` before authentication. An environment
-draft adds those domains and `developers.openai.com`, preserving `api.openai.com`
-and `arxiv.org` and the existing package-manager preset. Review and save that draft
-in environment settings, then publish it before retrying this chat's connectivity
-checks. Saving a draft alone does not apply it. These settings affect this cloud
-environment, not GitHub-hosted runners.
+Initial cloud-chat requests to `chatgpt.com` and `api.github.com` were blocked by
+the proxy before authentication. A saved environment draft adds the required
+domains while preserving existing rules and presets; draft saving alone does not
+apply or publish it. Subsequent CLI access reached the cloud service but returned
+HTTP 401 (`Could not parse your authentication token`). A local `codex login status`
+message is therefore not proof that this cloud session can use the cloud-task API.
+These environment settings and credentials are separate from GitHub-hosted runners.
 
-No live cloud-task submission or GitHub-hosted smoke execution has yet been
-verified. The existing paid-workflow pause is unchanged.
+The user reported a Dot-native task, ID `01a16672-eb54-73e0-9555-ede894a0e0f7`,
+that reached a cloud shell but exited 127: `.venv/bin/python` was resolved from
+`/workspace`, rather than the repository directory. The module never started.
+No task URL was supplied by the service, so none has been inferred. The corrected
+command has passed locally when launched from `/workspace`, and regression tests
+cover selecting the checkout and stopping on missing environment setup. A fresh
+remote retry and GitHub-hosted smoke execution remain unverified. The existing
+paid-workflow pause is unchanged.

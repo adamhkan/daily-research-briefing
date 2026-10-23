@@ -5,6 +5,7 @@ import argparse
 import json
 from pathlib import Path
 import re
+import shlex
 import subprocess
 import time
 from urllib.parse import urlparse
@@ -12,13 +13,35 @@ from urllib.parse import urlparse
 RESULT_PATH = 'pilots/cloud-dispatch-smoke.json'
 EXPECTED = dict(marker='CODEX_CLOUD_SMOKE_OK',
                 repository='adamhkan/daily-research-briefing', harness_import=True)
+
+
+def smoke_command(repo_root: str = '/workspace/daily-research-briefing') -> str:
+    """Select the checkout within the same shell invocation as the command."""
+    return f'''set -eu
+cd {shlex.quote(repo_root)}
+if [ ! -f src/daily_robotics_briefing/codex_pilot.py ]; then
+  echo 'Pilot module missing: verify the checkout and main branch' >&2
+  exit 78
+fi
+if [ ! -x .venv/bin/python ]; then
+  echo 'Prepared Python missing or unusable in repository .venv; environment setup is required' >&2
+  exit 78
+fi
+PYTHONPATH=src .venv/bin/python -m daily_robotics_briefing.codex_pilot --help
+'''
+
+
 PROMPT = f'''Test Codex Cloud execution in adamhkan/daily-research-briefing on main.
 This is a dispatch smoke test, not a daily briefing. Do not collect papers, call
 the OpenAI API, read credentials, commit, push, deploy, or start other cloud tasks.
 Use the existing checkout; do not create another checkout or worktree.
-Confirm the repository is adamhkan/daily-research-briefing without displaying
-credential-bearing URLs. Run this command from its root and require exit code 0:
-PYTHONPATH=src .venv/bin/python -m daily_robotics_briefing.codex_pilot --help
+Locate the checkout and confirm it is adamhkan/daily-research-briefing without
+displaying credential-bearing URLs. Do not assume the initial /workspace directory
+is its root. The prepared checkout is normally /workspace/daily-research-briefing;
+if it is elsewhere, use its verified root in the cd command below.
+Run this whole block in one shell invocation and require exit code 0:
+{smoke_command()}
+Do not install dependencies or silently switch interpreters if the check fails.
 Only after those checks succeed, create {RESULT_PATH} containing this exact JSON:
 {json.dumps(EXPECTED)}
 Do not modify any other tracked files. Leave the new file uncommitted so the
