@@ -3,9 +3,11 @@ from __future__ import annotations
 import json
 import logging
 import re
+from contextlib import nullcontext
 from datetime import date
 from pathlib import Path
 from collections.abc import Callable
+from types import SimpleNamespace
 from typing import Any, TypeVar
 
 from openai import OpenAI
@@ -70,6 +72,9 @@ def _responses_create(
     response_schema: type[BaseModel],
     max_output_tokens: int,
 ) -> str:
+    provider = getattr(client, 'briefing_response_provider', None)
+    if callable(provider):
+        return provider(model, system_prompt, payload, effort, response_schema, max_output_tokens)
     response = client.responses.create(
         model=model,
         input=[
@@ -220,6 +225,7 @@ def create_daily_briefing(
     institution_entries: list | None = None, affiliation_cache_dir: Path | None = None,
     affiliation_batch_size: int = 12, affiliation_max_input_chars: int = 120000,
     affiliation_snippet_chars: int = 4000,
+    response_provider: Callable | None = None,
 ) -> dict[str, Any]:
     if classification_batch_size < 1 or summary_batch_size < 1 or max_topic_matches < 0:
         raise ValueError("Batch sizes must be positive and max_topic_matches nonnegative")
@@ -229,7 +235,9 @@ def create_daily_briefing(
     rows_by_id: dict[str, dict[str, Any]] = {}
     executive_evidence: list[dict[str, Any]] = []
     usage = {'sdk_requests': 0, 'responses': []}
-    with OpenAI(timeout=120.0, max_retries=2) as client:
+    context = (nullcontext(SimpleNamespace(briefing_response_provider=response_provider))
+               if response_provider is not None else OpenAI(timeout=120.0, max_retries=2))
+    with context as client:
         client.briefing_usage = usage
         if institution_entries is not None:
             from .affiliations import identify_institutions

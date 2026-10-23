@@ -144,10 +144,17 @@ Run the offline regression suite with:
 
 ```bash
 PYTHONPATH=src python -m unittest discover -s tests -v
-node --test tests/test_briefing_recovery.cjs
+node --test tests/test_briefing_recovery.cjs tests/test_codex_pilot_window.cjs
 ```
 
 Tests include abbreviated real-paper front-matter fixtures (ContactBench, CoopUQ, DexOAK, the robotics-exposure paper, the giant Rubik’s Cube paper, InJePA, and others), real SDK request serialization through a simulated HTTP transport, PDF/OCR parsing, cache invalidation, ranking, grounding checks, and CLI report generation without paid API calls. The daily workflow runs these tests before generating the briefing.
+
+## Codex pilot
+
+The October 23–25 pilot uses resumable JSON requests and Codex responses with the
+existing briefing validators. Paid daily generation pauses for those dates and
+resumes October 26. Pilot output stays separate from the public site. The recurring
+Codex task still requires activation; see [the setup and exact task prompt](docs/codex-pilot.md).
 
 ## Example output sections
 
