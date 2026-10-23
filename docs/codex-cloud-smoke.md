@@ -1,5 +1,9 @@
 # Test externally triggered Codex Cloud execution
 
+**Experiment discontinued:** normal daily generation has returned to GitHub
+Actions/OpenAI API execution. These smoke-test instructions and results remain
+for reference; they do not activate a schedule. See [pilot status](codex-pilot.md).
+
 This is a **manual smoke test**, not an activated daily scheduler. It uses the
 experimental `codex cloud exec` CLI command to submit one small cloud task, waits
 for completion, then checks its diff. Your Mac can be asleep once the GitHub

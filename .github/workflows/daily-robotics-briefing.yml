@@ -16,34 +16,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  pilot-window:
-    runs-on: ubuntu-latest
-    outputs:
-      api_enabled: ${{ steps.pilot.outputs.api_enabled }}
-    steps:
-      - name: Checkout pilot configuration
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref }}
-
-      - name: Check bounded Codex pilot pause
-        id: pilot
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('node:fs');
-            const { apiRunDecision } = require('./.github/scripts/codex-pilot-window.cjs');
-            const config = JSON.parse(fs.readFileSync('config/codex-pilot.json', 'utf8'));
-            const { data: run } = await github.rest.actions.getWorkflowRun({
-              ...context.repo, run_id: context.runId,
-            });
-            const decision = apiRunDecision(run.created_at, config);
-            core.setOutput('api_enabled', String(decision.apiEnabled));
-            core.info(`${decision.reportDate}: ${decision.reason}`);
-
   build-briefing:
-    needs: pilot-window
-    if: ${{ needs.pilot-window.outputs.api_enabled == 'true' }}
     runs-on: ubuntu-latest
 
     steps:

@@ -1,5 +1,12 @@
 # Three-day Codex briefing pilot
 
+**Status: discontinued.** The user chose to return to the GitHub Actions/OpenAI
+API workflow because the Dot run took over half an hour. The daily workflow no
+longer has a pilot gate, and `pause_paid_api` is false. The instructions below are
+retained for reference, not a request to activate or continue the experiment.
+Any recurring schedule created in Dot must be disabled there; this cloud coding
+session cannot inspect or cancel Dot-owned schedules.
+
 The pilot uses Codex to answer saved structured requests while retaining the existing paper collector, validation, selection, and report renderer. It does not send requests to the OpenAI API or require an API key. Codex work still consumes the account's Codex allowance; the harness cannot measure that allowance or claim the model work is free.
 
 The default pilot dates are **October 23–25, 2026**, inclusive, with a wake-up at **8:30 a.m. America/New_York** each day. Each report covers the previous Eastern calendar day's submissions. `config/codex-pilot.json` is the shared configuration for the wake-up harness and paid-workflow pause.
@@ -184,12 +191,15 @@ PYTHONPATH=src .venv/bin/python -m daily_robotics_briefing.codex_pilot prepare \
 
 Use a separate run directory for experiments. Never overwrite a frozen pilot input or accepted response to hide a failure.
 
-## Paid workflow pause and automatic resumption
+## API workflow restored
 
-The user chose to pause the paid daily API run during the pilot. The GitHub Actions daily workflow now checks `config/codex-pilot.json` in a separate gate job before dependency installation or API-key injection. For runs using the new gated workflow definition, scheduled runs and manual dispatches skip paid generation and its dependent deployment when **either** their original run creation time maps to a pilot report date **or** the current Eastern calendar date is October 23, 24, or 25. Original report/submission dates are preserved, and invalid or unreadable configuration fails the gate instead of enabling paid work.
+The normal daily GitHub Actions workflow is restored immediately. Its original
+`15 11 * * *` UTC cron, API generation, report persistence, recovery behavior,
+and website deployment remain in place. The pilot gate was removed entirely, so
+daily generation no longer depends on this experiment's configuration or dates.
+`pause_paid_api` is false, and the pilot source, responses, and reports are retained.
 
-GitHub reruns use their original workflow definition. A run created before this gate was added can therefore bypass it, and the separate affiliation-diagnostic workflow is not covered by this pause. Do not rerun pre-change daily runs or launch paid diagnostic actions during the pilot. Live GitHub API run-list access was forbidden in this environment, so existing run state and absence of in-flight paid runs have not been verified.
-
-The original daily cron remains in place. Normal paid generation automatically resumes for report dates beginning **October 26, 2026**, unless configuration is deliberately changed. The workflow pause does not itself start Codex: the recurring task must be activated separately. While pilot output is review-only and paid generation is paused, the public site keeps its last published report.
-
-To end the pause early, set `pause_paid_api` to `false` in the reviewed configuration. To change dates, keep a finite inclusive `start_date`/`end_date` and update the recurring schedule to match. Publishing pilot outputs is a separate explicit decision; changing a calendar schedule alone must not publish them.
+The repository change does not cancel tasks independently saved in Dot. Disable
+any such recurring schedules in Dot to avoid duplicate experimental runs. Existing
+GitHub runs use their original workflow definitions on rerun; a new dispatch or
+scheduled run on `main` uses the restored definition.

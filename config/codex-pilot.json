@@ -4,7 +4,7 @@
   "timezone": "America/New_York",
   "hour": 8,
   "minute": 30,
-  "pause_paid_api": true,
+  "pause_paid_api": false,
   "output_root": "pilots/codex",
   "max_requests": 64,
   "publish": false

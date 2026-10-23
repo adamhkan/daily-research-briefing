@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const test = require('node:test');
-const config = require('../config/codex-pilot.json');
+// Exercise the archived pause behavior explicitly; the repository pilot is off.
+const config = { ...require('../config/codex-pilot.json'), pause_paid_api: true };
 const { apiRunDecision, validatePilotConfig } = require('../.github/scripts/codex-pilot-window.cjs');
 
 function decision(at, candidate = config, now = at) {

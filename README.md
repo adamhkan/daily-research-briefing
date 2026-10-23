@@ -151,10 +151,10 @@ Tests include abbreviated real-paper front-matter fixtures (ContactBench, CoopUQ
 
 ## Codex pilot
 
-The October 23–25 pilot uses resumable JSON requests and Codex responses with the
-existing briefing validators. Paid daily generation pauses for those dates and
-resumes October 26. Pilot output stays separate from the public site. The recurring
-Codex task still requires activation; see [the setup and exact task prompt](docs/codex-pilot.md).
+The Codex pilot was discontinued after the manual run took over half an hour.
+Daily generation uses the normal GitHub Actions/OpenAI API workflow, with no pilot
+pause. The experimental harness and review outputs remain available separately
+from the public site; see [the archived pilot instructions](docs/codex-pilot.md).
 
 ## Example output sections
 
