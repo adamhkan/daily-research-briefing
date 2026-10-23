@@ -1,0 +1,80 @@
+name: Test Codex Cloud Dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Codex cloud environment ID or unique label for this repository'
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: test-codex-cloud
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Require separate ChatGPT CLI authentication
+        env:
+          CLOUD_AUTH_JSON: ${{ secrets.CODEX_CLOUD_AUTH_JSON }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          raw = os.environ.get('CLOUD_AUTH_JSON', '')
+          if not raw:
+              raise SystemExit('Missing CODEX_CLOUD_AUTH_JSON repository secret; see docs/codex-cloud-smoke.md')
+          data = json.loads(raw)
+          if not data.get('tokens', {}).get('access_token'):
+              raise SystemExit('The secret must contain ChatGPT CLI authentication, not an API key')
+          target = Path.home() / '.codex' / 'auth.json'
+          target.parent.mkdir(mode=0o700, exist_ok=True)
+          fd = os.open(target, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+          with os.fdopen(fd, 'w') as handle:
+              handle.write(raw)
+          PY
+
+      - name: Install pinned Codex CLI
+        run: npm install --global @openai/codex@0.163.0
+
+      - name: Submit one cloud task and verify completion
+        env:
+          CLOUD_ENVIRONMENT: ${{ inputs.environment }}
+        run: |
+          python .github/scripts/codex-cloud-smoke.py \
+            --environment "$CLOUD_ENVIRONMENT" \
+            --output "$RUNNER_TEMP/codex-cloud-smoke"
+
+      - name: Remove runner authentication
+        if: ${{ always() }}
+        run: rm -f "$HOME/.codex/auth.json"
+
+      - name: Retain result without credentials or CLI debug logs
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: codex-cloud-smoke-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/codex-cloud-smoke/result.json
+            ${{ runner.temp }}/codex-cloud-smoke/cloud-task.diff
+          if-no-files-found: ignore
+          retention-days: 7

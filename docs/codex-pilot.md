@@ -6,9 +6,17 @@ The default pilot dates are **October 23–25, 2026**, inclusive, with a wake-up
 
 ## Schedule activation
 
+An external scheduler can submit cloud tasks through the experimental Codex CLI.
+The [manual GitHub Actions smoke test](codex-cloud-smoke.md) checks that route;
+it has no daily trigger and must pass before adopting it as the recurring wake-up.
+
 The repository contains the runnable harness and exact recurring instructions below. **No recurring Codex task has been registered by this change.** The current chat exposes no tool to create a durable scheduled Codex task. A cron process in this disposable cloud machine would not be a durable substitute.
 
-In your account's Codex scheduling interface, create a task for this repository on `main`, using this existing prepared cloud environment if that option is available. Use the task prompt below and these schedule values:
+The prompt below describes the intended recurring task; it does not establish
+that the browser has a native scheduling interface. An external scheduler must
+first pass the cloud-dispatch test and have a verified authentication strategy.
+If a supported scheduling interface is available, use this repository on `main`
+and the prepared cloud environment, with these schedule values:
 
 ```text
 Timezone: America/New_York
