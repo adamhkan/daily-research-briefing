@@ -284,22 +284,26 @@ def identify_institutions(
         paper['affiliation_evidence'] = evidence
         paper['affiliation_status'] = 'extracted' if any(e['role'] == 'author_affiliation' for e in evidence) else 'unknown'
         paper['affiliation_complete'] = state['complete']
+        paper['affiliation_extraction_status'] = (
+            'no_usable_evidence' if paper['affiliation_status'] == 'unknown' else
+            'complete' if state['complete'] else 'incomplete'
+        )
         paper['affiliation_extractor_version'] = EXTRACTION_VERSION
         extraction = extraction_from_evidence(paper['authors'], evidence, specs).to_dict()
+        # Legacy diagnostic: catalog coverage only, not extraction validity.
         paper['affiliation_identity_complete'] = not extraction['unmapped_raw_institutions']
         matches = sorted(set(extraction['paper_level_institutions']) & set(filters))
         extraction.update(filter_match=bool(matches), filter_match_institutions=matches)
         paper['manual_institution_extraction'] = extraction
         paper['institution_match_status'] = (
-            'matched' if matches else 'no_match' if state['complete'] and paper['affiliation_identity_complete']
+            'matched' if matches else 'no_match' if state['complete']
             else 'unresolved' if paper.get('affiliation_blocks') else 'source_unavailable'
         )
         paper['affiliation_resolution_status'] = (
             'filter_match' if matches else
             'no_usable_evidence' if paper['affiliation_status'] == 'unknown' else
             'incomplete_extraction' if not state['complete'] else
-            'unresolved_identity' if not paper['affiliation_identity_complete'] else
-            'verified_nonmatch'
+            'no_recognized_filter_match'
         )
         if state['complete'] and state['path'] and not paper.get('affiliation_cache_hit'):
             path = state['path']

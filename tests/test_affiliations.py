@@ -301,6 +301,10 @@ class FallbackTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             first = self.resolve(copy.deepcopy(value), self.model('Novel University'), cache_dir=Path(tmp))
             self.assertFalse(first.get('affiliation_cache_hit', False))
+            self.assertEqual(first['institution_match_status'], 'no_match')
+            self.assertEqual(first['affiliation_extraction_status'], 'complete')
+            self.assertEqual(first['affiliation_resolution_status'], 'no_recognized_filter_match')
+            self.assertFalse(first['affiliation_identity_complete'])
             request = Mock(side_effect=AssertionError('cache should avoid model call'))
             changed = copy.deepcopy(value)
             identify_institutions([changed], [*ENTRIES, 'Novel University'], ['Novel University'], None,

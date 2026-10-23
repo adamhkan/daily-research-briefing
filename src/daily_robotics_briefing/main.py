@@ -135,11 +135,16 @@ def main() -> None:
     }
     result['affiliation_resolution_counts'] = {
         status: sum(p['affiliation_resolution_status'] == status for p in result['papers'])
-        for status in ('filter_match', 'verified_nonmatch', 'unresolved_identity',
+        for status in ('filter_match', 'no_recognized_filter_match',
                        'incomplete_extraction', 'no_usable_evidence')
+    }
+    result['affiliation_extraction_counts'] = {
+        status: sum(p['affiliation_extraction_status'] == status for p in result['papers'])
+        for status in ('complete', 'incomplete', 'no_usable_evidence')
     }
     print('Affiliation coverage:', result['affiliation_status_counts'])
     print('Affiliation resolution:', result['affiliation_resolution_counts'])
+    print('Affiliation extraction:', result['affiliation_extraction_counts'])
     print('API usage:', {k: v for k, v in result['api_usage'].items() if k != 'responses'})
 
     args.out.parent.mkdir(parents=True, exist_ok=True)

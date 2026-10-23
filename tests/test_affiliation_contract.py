@@ -115,6 +115,36 @@ class AffiliationContractTests(unittest.TestCase):
             _validate_claim(claim('MIT', 'Jane Doe is with MIT.', authors=['Unknown Author']),
                             {'b': block('Jane Doe is with MIT.')}, ['Jane Doe'])
 
+    def test_extraction_completeness_is_independent_of_catalog_and_filter_matches(self):
+        cases = [
+            ('Idealworks', True, 'no_match', 'complete', 'no_recognized_filter_match'),
+            ('Idealworks', False, 'unresolved', 'incomplete', 'incomplete_extraction'),
+            ('MIT', False, 'matched', 'incomplete', 'filter_match'),
+            ('', False, 'unresolved', 'no_usable_evidence', 'no_usable_evidence'),
+        ]
+        for name, complete, match_status, extraction_status, resolution_status in cases:
+            with self.subTest(name=name, complete=complete):
+                text = name or 'Title and authors only'
+                paper = dict(arxiv_id='p', authors=[], abs_url='https://example.org/p',
+                             affiliation_blocks=[block(text, kind='header_context')])
+                rows = [claim(name, text).model_dump()] if name else []
+                response = dict(papers=[dict(paper_id='p', complete=complete, affiliations=rows)])
+                with patch('daily_robotics_briefing.briefing_agent._responses_create',
+                           return_value=json.dumps(response)) as request:
+                    identify_institutions([paper], [dict(canonical='Massachusetts Institute of Technology',
+                                                        aliases=['MIT'])],
+                                          ['Massachusetts Institute of Technology'], None, 'offline',
+                                          _request_validated)
+                self.assertEqual(request.call_count, 1)
+                self.assertEqual(paper['institution_match_status'], match_status)
+                self.assertEqual(paper['affiliation_extraction_status'], extraction_status)
+                self.assertEqual(paper['affiliation_resolution_status'], resolution_status)
+                self.assertEqual(paper['affiliation_complete'], complete)
+                if name == 'Idealworks':
+                    self.assertEqual(paper['manual_institution_extraction']['paper_level_institutions'], [name])
+                    self.assertFalse(paper['affiliation_identity_complete'])
+                    self.assertEqual(paper['manual_institution_extraction']['filter_match_institutions'], [])
+
     def test_affiliation_paper_coverage_remains_strict_after_two_responses(self):
         paper = dict(arxiv_id='paper-1', authors=[], abs_url='https://example.org/paper',
                      affiliation_blocks=[block('Novel Robotics Laboratory', kind='header_context')])
