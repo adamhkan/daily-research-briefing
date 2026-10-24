@@ -1,7 +1,9 @@
 """The model owns content; code checks response structure and references only."""
 import json
+import tempfile
 import unittest
 from datetime import date
+from pathlib import Path
 from unittest.mock import patch
 
 from openai import OpenAIError
@@ -92,6 +94,27 @@ class ModelOutputContractTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, 'after two attempts'):
                     identify_institutions([source_record()], [], [], None, 'offline', _request_validated)
                 self.assertEqual(request.call_count, 2)
+
+    def test_model_can_complete_truncated_duplicate_text_without_caching_partial_input(self):
+        seen = []
+        def respond(*args):
+            seen.append(args[3]['papers'][0])
+            return affiliation_response(args[3], complete=True)
+        with tempfile.TemporaryDirectory() as tmp, patch(
+                'daily_robotics_briefing.briefing_agent._responses_create', side_effect=respond) as request:
+            for _ in range(2):
+                record = source_record()
+                record['affiliation_blocks'][0]['text'] = 'MIT repeated header text'
+                identify_institutions([record], ['Massachusetts Institute of Technology'],
+                                      ['Massachusetts Institute of Technology'], None, 'offline',
+                                      _request_validated, cache_dir=Path(tmp), snippet_chars=3)
+                self.assertTrue(record['affiliation_complete'])
+                self.assertEqual(record['affiliation_extraction_status'], 'complete')
+                self.assertEqual(record['institution_match_status'], 'matched')
+                self.assertFalse(record['affiliation_cache_hit'])
+            self.assertEqual(request.call_count, 2)
+            self.assertTrue(all(p['truncated'] for p in seen))
+            self.assertEqual(list(Path(tmp).glob('*.json')), [])
 
     def test_executive_citation_errors_fail_without_substitute_bullets(self):
         for ids in [['hidden'], ['p', 'p']]:
