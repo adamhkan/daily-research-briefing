@@ -4,7 +4,7 @@ from datetime import date
 from unittest.mock import patch
 
 import httpx2
-from openai import OpenAI
+from openai import OpenAI, OpenAIError
 
 from daily_robotics_briefing.briefing_agent import (
     _check_evidence, _responses_create, create_daily_briefing,
@@ -145,14 +145,117 @@ class BriefingTests(unittest.TestCase):
                     _check_evidence(claim, quote, 'The authors report 73% success.')
         _check_evidence('Reported 73% success.', '73% success', 'The authors report 73% success.')
 
-    def test_executive_cannot_cite_hidden_papers_or_invent_numbers(self):
+    def test_executive_cannot_cite_hidden_papers_or_duplicate_citations(self):
         for bullet in [dict(text='A finding.', paper_ids=['hidden']),
-                       dict(text='Reported 99% success.', paper_ids=['p'])]:
+                       dict(text='Reported 73% success.', paper_ids=['p', 'p'])]:
             stub = ModelStub()
+            attempts = []
             def respond(*args):
-                return json.dumps({'bullets': [bullet]}) if args[5] is ExecutiveOutput else stub(*args)
-            with self.subTest(bullet=bullet), self.assertRaises(ValueError):
-                self.generate([paper('p')], respond)
+                if args[5] is ExecutiveOutput:
+                    attempts.append(args[2])
+                    return json.dumps({'bullets': [bullet]})
+                return stub(*args)
+            with self.subTest(bullet=bullet), self.assertLogs(level='WARNING'):
+                result, _ = self.generate([paper('p')], respond)
+            briefing = result['briefing']
+            self.assertEqual(len(attempts), 2)
+            self.assertEqual(briefing['executive_summary_evidence'], [dict(
+                text=briefing['topic_matches'][0]['overview'], paper_ids=['p'])])
+
+    def test_executive_repair_retains_bullets_with_valid_citations(self):
+        stub = ModelStub()
+        prompts = []
+        valid = dict(text='The authors report 73% success.', paper_ids=['p'])
+        invalid = dict(text='A finding from another paper.', paper_ids=['hidden'])
+        def respond(*args):
+            if args[5] is ExecutiveOutput:
+                prompts.append(args[2])
+                return json.dumps({'bullets': [valid, invalid]})
+            return stub(*args)
+        with self.assertLogs(level='WARNING') as logs:
+            result, _ = self.generate([paper('p')], respond)
+        self.assertEqual(len(prompts), 2)
+        self.assertIn('bullet 2 (hidden)', prompts[1])
+        self.assertIn('hidden', '\n'.join(logs.output))
+        self.assertEqual(result['briefing']['executive_summary_evidence'], [valid])
+
+    def test_executive_repair_can_succeed_without_using_fallback(self):
+        stub = ModelStub()
+        prompts = []
+        def respond(*args):
+            if args[5] is ExecutiveOutput:
+                prompts.append(args[2])
+                pid = 'hidden' if len(prompts) == 1 else 'p'
+                return json.dumps({'bullets': [dict(text='Reported 73% success.', paper_ids=[pid])]})
+            return stub(*args)
+        with self.assertNoLogs(level='WARNING'):
+            result, _ = self.generate([paper('p')], respond)
+        self.assertEqual(len(prompts), 2)
+        self.assertEqual(result['briefing']['executive_summary'], ['Reported 73% success.'])
+
+    def test_executive_fallback_excludes_papers_with_rejected_overviews(self):
+        stub = ModelStub()
+        executive_payloads = []
+        def respond(*args):
+            if args[5] is ExecutiveOutput:
+                executive_payloads.append(args[3])
+                return json.dumps({'bullets': [dict(text='A finding.', paper_ids=['a'])]})
+            raw = stub(*args)
+            if args[5] is OverviewOutput:
+                data = json.loads(raw)
+                next(p for p in data['papers'] if p['paper_id'] == 'a')['claims'][0]['evidence_quote'] = 'invented quote'
+                return json.dumps(data)
+            return raw
+        with self.assertLogs(level='WARNING'):
+            result, _ = self.generate([paper('a'), paper('b')], respond)
+        for payload in executive_payloads:
+            self.assertEqual([p['paper_id'] for p in payload['papers']], ['b'])
+        self.assertEqual(len(executive_payloads), 2)
+        self.assertEqual(result['briefing']['executive_summary_evidence'], [dict(
+            text=paper('b')['abstract'], paper_ids=['b'])])
+
+    def test_executive_numeric_presentation_does_not_trigger_literal_token_filtering(self):
+        stub = ModelStub()
+        attempts = []
+        def respond(*args):
+            if args[5] is ExecutiveOutput:
+                attempts.append(args[2])
+                return json.dumps({'bullets': [dict(text='The authors report 73% success.', paper_ids=['p'])]})
+            return stub(*args)
+        with self.assertNoLogs(level='WARNING'):
+            result, _ = self.generate([paper('p', abstract='The authors report success probability 0.73.')], respond)
+        self.assertEqual(len(attempts), 1)
+        self.assertEqual(result['briefing']['executive_summary'], ['The authors report 73% success.'])
+
+    def test_malformed_or_incomplete_executive_responses_use_verified_overviews(self):
+        for response in ['{', '{"bullets": []}', ValueError('Model response was incomplete, refused, or empty')]:
+            stub = ModelStub()
+            attempts = []
+            def respond(*args):
+                if args[5] is ExecutiveOutput:
+                    attempts.append(args[2])
+                    if isinstance(response, Exception):
+                        raise response
+                    return response
+                return stub(*args)
+            with self.subTest(response=response), self.assertLogs(level='WARNING'):
+                result, _ = self.generate([paper('p')], respond)
+            self.assertEqual(len(attempts), 2)
+            self.assertEqual(result['briefing']['executive_summary_evidence'], [dict(
+                text=paper('p')['abstract'], paper_ids=['p'])])
+
+    def test_executive_service_error_falls_back_without_extra_model_requests(self):
+        stub = ModelStub()
+        attempts = []
+        def respond(*args):
+            if args[5] is ExecutiveOutput:
+                attempts.append(args[2])
+                raise OpenAIError('Service unavailable')
+            return stub(*args)
+        with self.assertLogs(level='WARNING'):
+            result, _ = self.generate([paper('p')], respond)
+        self.assertEqual(len(attempts), 1)
+        self.assertEqual(result['briefing']['executive_summary'], [paper('p')['abstract']])
 
     def test_overview_cannot_omit_a_paper(self):
         stub = ModelStub()
