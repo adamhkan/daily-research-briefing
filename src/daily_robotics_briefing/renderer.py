@@ -24,6 +24,11 @@ def _display_text(text: str) -> str:
                        lambda m: m[1].translate(str.maketrans('0123456789+-−', '₀₁₂₃₄₅₆₇₈₉₊₋₋')), value)
         value = re.sub(r'\^\{([0-9+−-]+)\}',
                        lambda m: m[1].translate(str.maketrans('0123456789+-−', '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁻')), value)
+        # TeX allows a single digit without braces: P^2 and H_2.
+        value = re.sub(r'_([0-9])',
+                       lambda m: m[1].translate(str.maketrans('0123456789', '₀₁₂₃₄₅₆₇₈₉')), value)
+        value = re.sub(r'\^([0-9])',
+                       lambda m: m[1].translate(str.maketrans('0123456789', '⁰¹²³⁴⁵⁶⁷⁸⁹')), value)
         return value if value != match[1] else match[0]
 
     return re.sub(r'\$([^$\n]+)\$', inline_math, text)
@@ -66,7 +71,7 @@ def _institution_table_rows(rows: list[dict[str, str]]) -> str:
     for row in rows:
         lines.append(
             "| {title} | {institution} | {overview} | {link} |".format(
-                title=row.get("title", "").replace("|", "\\|"),
+                title=_display_text(str(row.get("title", ""))).replace("|", "\\|"),
                 institution=row.get("institution", "").replace("|", "\\|"),
                 overview=_overview_text(row).replace("|", "\\|"),
                 link=row.get("link", "").replace("|", "\\|"),
@@ -82,7 +87,7 @@ def _topic_table_rows(rows: list[dict[str, str]]) -> str:
     for row in rows:
         lines.append(
             "| {title} | {institution} | {overview} | {link} |".format(
-                title=row.get("title", "").replace("|", "\\|"),
+                title=_display_text(str(row.get("title", ""))).replace("|", "\\|"),
                 institution=row.get("institution", "").replace("|", "\\|"),
                 overview=_overview_text(row).replace("|", "\\|"),
                 link=row.get("link", "").replace("|", "\\|"),
@@ -136,7 +141,7 @@ def _render_html_rows(rows: list[dict[str, str]]) -> str:
     for row in rows:
         rendered.append(
             "<tr>"
-            f"<td>{escape(str(row.get('title', '')))}</td>"
+            f"<td>{escape(_display_text(str(row.get('title', ''))))}</td>"
             f"<td>{escape(str(row.get('institution', '')))}</td>"
             f"<td>{escape(_overview_text(row))}</td>"
             f"<td><a href=\"{escape(str(row.get('link', '')))}\">Link</a></td>"
@@ -153,7 +158,7 @@ def _render_topic_html_rows(rows: list[dict[str, str]]) -> str:
     for row in rows:
         rendered.append(
             "<tr>"
-            f"<td>{escape(str(row.get('title', '')))}</td>"
+            f"<td>{escape(_display_text(str(row.get('title', ''))))}</td>"
             f"<td>{escape(str(row.get('institution', '')))}</td>"
             f"<td>{escape(_overview_text(row))}</td>"
             f"<td><a href=\"{escape(str(row.get('link', '')))}\">Link</a></td>"
@@ -335,7 +340,7 @@ def build_dashboard(reports_dir: Path, dashboard_out: Path) -> None:
                 {
                     "paper_id": paper_id,
                     "submission_date": str(submission_date),
-                    "title": title,
+                    "title": _display_text(title),
                     "abstract": abstract,
                     "overview": overview,
                     "institution_tags": normalized_institution_tags,

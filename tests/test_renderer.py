@@ -1,10 +1,13 @@
 import copy
+import json
+from pathlib import Path
+import tempfile
 import unittest
 from datetime import date
 
 from bs4 import BeautifulSoup
 
-from daily_robotics_briefing.renderer import _display_text, render_html, render_markdown
+from daily_robotics_briefing.renderer import _display_text, build_dashboard, render_html, render_markdown
 
 
 class RendererTests(unittest.TestCase):
@@ -60,3 +63,30 @@ class RendererTests(unittest.TestCase):
         self.assertNotIn('<script>', html)
         self.assertIn('&lt;script&gt;', html)
         self.assertIn('1000×.', html)
+
+    def test_title_math_in_both_tables_and_dashboard_preserves_source(self):
+        title = r'Progress Probes $P^2$: <Runtime> with $\pi_{0.5}$'
+        row = dict(paper_id='arXiv:example', title=title, institution='MIT',
+                   overview='A runtime monitor.', link='https://arxiv.org/abs/example')
+        briefing = dict(institution_matches=[row], topic_matches=[dict(row)])
+        original = copy.deepcopy(briefing)
+        args = (briefing, [], [], date(2026, 10, 24), 1, 1)
+        html = render_html(*args)
+        markdown = render_markdown(*args)
+        cells = BeautifulSoup(html, 'html.parser').select('tbody tr td:first-child')
+        self.assertEqual([cell.get_text() for cell in cells],
+                         ['Progress Probes P²: <Runtime> with π₀.₅'] * 2)
+        self.assertEqual(markdown.count('Progress Probes P²: <Runtime> with π₀.₅'), 2)
+        self.assertIn('&lt;Runtime&gt;', html)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            payload = dict(submission_date='2026-10-24', briefing=briefing,
+                           papers=[dict(arxiv_id='arXiv:example', title=title,
+                                        abstract='A runtime monitor.', topic_match=True)])
+            (root / '2026-10-24.json').write_text(json.dumps(payload), encoding='utf-8')
+            build_dashboard(root, root / 'index.html')
+            self.assertIn('Progress Probes P²:', (root / 'index.html').read_text())
+            self.assertEqual(payload['papers'][0]['title'], title)
+        self.assertEqual(briefing, original)
+        self.assertEqual(_display_text(r'$P^12$ and $H_2$'), 'P¹2 and H₂')
+        self.assertEqual(_display_text(r'$\frac{1}{2}$'), r'$\frac{1}{2}$')
