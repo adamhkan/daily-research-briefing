@@ -21,8 +21,8 @@ class AffiliationDiagnosticTests(unittest.TestCase):
             if api_error:
                 return httpx2.Response(429, json={'error': {'message': 'rate limited', 'type': 'rate_limit_error'}})
             text = json.dumps({'papers': [dict(paper_id=p['paper_id'], complete=True, affiliations=[
-                dict(institution='Novel University', authors=[], block_id='b',
-                     evidence_quote='Novel University' if valid else 'fabricated source', role='author_affiliation')
+                dict(institution='Novel University', authors=[], block_id='b' if valid else 'missing',
+                      role='author_affiliation')
             ]) for p in payload['papers']]})
             return httpx2.Response(200, json={
                 'id': f'resp-{len(calls)}', 'object': 'response', 'created_at': 0,
@@ -53,8 +53,7 @@ class AffiliationDiagnosticTests(unittest.TestCase):
             config.write_text('institutions: [EPFL]\n')
             output = root / 'logs'
             with patch('daily_robotics_briefing.diagnose_affiliations.OpenAI', return_value=client):
-                with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING') if not valid else self.assertNoLogs('daily_robotics_briefing.affiliations'):
-                    passed = diagnose(report, config, output, sample_size=sample_size, model=model)
+                passed = diagnose(report, config, output, sample_size=sample_size, model=model)
             result = json.loads((output / 'results.json').read_text())
             responses = [json.loads(p.read_text()) for p in sorted(output.glob('response-*.json'))]
             selected = json.loads((output / 'input-papers.json').read_text())
@@ -68,7 +67,7 @@ class AffiliationDiagnosticTests(unittest.TestCase):
         self.assertEqual(len(selected), 12)
         self.assertEqual(len(result['failed_paper_ids']), 12)
         self.assertEqual(len(responses), 2)
-        self.assertIn('fabricated source', responses[0]['output_text'])
+        self.assertIn('missing', responses[0]['output_text'])
         self.assertEqual(responses[0]['input_payload']['papers'][0]['blocks'][0]['text'], 'Novel University')
         self.assertEqual(result['api_usage']['sdk_requests'], 2)
 

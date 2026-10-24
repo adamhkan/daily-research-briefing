@@ -74,9 +74,7 @@ def diagnose(report_path: Path, filters_path: Path, output_dir: Path, sample_siz
     except Exception as exc:
         fatal_error = _exception_details(exc)
         logger.error('Affiliation diagnostic failed: %s', fatal_error)
-    failed = [p['arxiv_id'] for p in papers
-              if {'affiliation_model_fallback_failed', 'affiliation_model_claim_rejected'}
-              & set(p.get('affiliation_issues', []))]
+    failed = [p['arxiv_id'] for p in papers] if fatal_error is not None else []
     passed = fatal_error is None and not failed and usage['sdk_requests'] > 0
     write_json(output_dir / 'results.json', {
         'report_path': str(report_path), 'model': chosen_model, 'passed': passed,

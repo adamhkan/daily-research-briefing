@@ -20,14 +20,13 @@ class ClassificationOutput(StrictOutput):
     papers: list[Classification]
 
 
-class GroundedClaim(StrictOutput):
+class SummaryClaim(StrictOutput):
     claim: str = Field(min_length=1)
-    evidence_quote: str = Field(min_length=1)
 
 
 class PaperOverview(StrictOutput):
     paper_id: str
-    claims: list[GroundedClaim] = Field(min_length=1, max_length=3)
+    claims: list[SummaryClaim] = Field(min_length=1, max_length=3)
 
 
 class OverviewOutput(StrictOutput):
@@ -45,18 +44,13 @@ class ExecutiveOutput(StrictOutput):
 
 class AffiliationClaim(StrictOutput):
     institution: str = Field(min_length=1, description=(
-        'One organization name copied from the source, without department prefixes or addresses; '
+        'One clean organization name identified from supplied front matter, without department prefixes or addresses; '
         'retain identity-defining campus, branch, and organization-unit qualifiers. '
         'Keep unfamiliar names and source abbreviations; do not invent a parent or canonical name.'
-        ' Restore unambiguous missing word spaces and normalize line breaks in the name only; '
-        'keep evidence_quote verbatim.'
+        ' Restore unambiguous missing word spaces and normalize line breaks.'
     ))
     authors: list[str]
     block_id: str
-    evidence_quote: str = Field(min_length=1, description=(
-        'Verbatim source text supporting this organization and affiliation role; '
-        'may include surrounding department and address text excluded from institution.'
-    ))
     role: Literal['author_affiliation', 'work_done_at', 'former_affiliation', 'funder']
 
 

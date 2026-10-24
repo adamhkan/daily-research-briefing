@@ -113,8 +113,7 @@ cd /workspace/daily-research-briefing && PYTHONPATH=src .venv/bin/python -m dail
 
 Call advance again after successful submission. Stored responses are reused on
 replay; never request another model answer for an existing accepted response.
-Follow repair requests emitted by the harness as separate requests. Do not repair
-source evidence or suppress a failed assertion by editing code, the request, or
+Follow repair requests emitted by the harness as separate requests. Do not rewrite source inputs or suppress a failed assertion by editing code, the request, or
 an already accepted response. If submit or advance fails, inspect the error; make
 at most one structural-output correction, then stop and report the blocker rather
 than loop. Respect max_requests and stop if the Codex task allowance is exhausted.
@@ -203,3 +202,8 @@ The repository change does not cancel tasks independently saved in Dot. Disable
 any such recurring schedules in Dot to avoid duplicate experimental runs. Existing
 GitHub runs use their original workflow definitions on rerun; a new dispatch or
 scheduled run on `main` uses the restored definition.
+
+Current-schema note: model outputs no longer request or validate evidence quotes.
+New paper rows contain `claims` with `summary_status: model_generated`; pilot metrics
+use `summaries_unavailable` instead of `summaries_without_evidence`. Historical
+pilot artifacts retain their original schemas and have not been rewritten.

@@ -269,7 +269,7 @@ def advance(run_dir: Path, retry_failed: bool = False) -> dict:
         metrics = dict(status='complete', paper_count=len(source['papers']), **request_metrics,
                        selected_paper_count=len({r['paper_id'] for r in rows}),
                        affiliation_extraction_counts=result['affiliation_extraction_counts'],
-                       summaries_without_evidence=sum(not r.get('evidence') for r in rows),
+                       summaries_unavailable=sum(r.get('summary_status') == 'abstract_unavailable' for r in rows),
                        created_at=manifest['created_at'], completed_at=_now())
         _write(run_dir / 'metrics.json', metrics)
         if (run_dir / 'baseline.json').exists():

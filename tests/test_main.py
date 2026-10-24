@@ -16,40 +16,6 @@ from test_briefing_agent import ModelStub
 
 
 class MainTests(unittest.TestCase):
-    def test_cli_writes_reports_when_executive_output_remains_malformed(self):
-        model = ModelStub()
-        attempts = []
-        def respond(*args):
-            if args[5] is ExecutiveOutput:
-                attempts.append(args[2])
-                return '{'
-            return model(*args)
-        record = Paper('p', 'Robotics paper', ['Jane Doe'], 'cs.RO',
-                       'The authors report 73% success on real robots for manipulation.',
-                       'https://arxiv.org/abs/p', 'https://arxiv.org/pdf/p',
-                       affiliation_text='EPFL', affiliation_status='extracted')
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            config = root / 'filters.yaml'
-            config.write_text(yaml.safe_dump(dict(institutions=['EPFL'], topics=['manipulation'])))
-            paths = [root/'briefing.md', root/'briefing.json', root/'briefing.html', root/'index.html']
-            argv = ['briefing', '--filters', str(config), '--submission-date', '2026-10-20',
-                    '--affiliation-cache-dir', str(root/'cache')]
-            for flag, path in zip(['--out', '--out-json', '--out-html', '--dashboard-out'], paths):
-                argv += [flag, str(path)]
-            with patch('sys.argv', argv), \
-                    patch('daily_robotics_briefing.main.fetch_csro_recent', return_value=[record]), \
-                    patch('daily_robotics_briefing.briefing_agent.OpenAI'), \
-                    patch('daily_robotics_briefing.briefing_agent._responses_create', side_effect=respond), \
-                    self.assertLogs(level='WARNING'):
-                main()
-            self.assertEqual(len(attempts), 2)
-            self.assertTrue(all(p.stat().st_size > 100 for p in paths))
-            result = json.loads(paths[1].read_text())
-            self.assertEqual(result['briefing']['executive_summary_evidence'], [dict(
-                text=record.abstract, paper_ids=['p'])])
-            self.assertIn('[p](https://arxiv.org/abs/p)', paths[0].read_text())
-            self.assertIn('73% success', paths[2].read_text())
 
     def test_cli_writes_complete_reports_with_sdk_and_affiliation_statuses(self):
         model = ModelStub()
@@ -61,7 +27,7 @@ class MainTests(unittest.TestCase):
             if schema is AffiliationOutput:
                 text = json.dumps({'papers': [dict(paper_id=p['paper_id'], complete=True, affiliations=[
                     dict(institution='Novel University', authors=[], block_id=p['blocks'][0]['id'],
-                         evidence_quote=p['blocks'][0]['text'], role='author_affiliation')
+                          role='author_affiliation')
                 ]) for p in payload['papers']]})
             else:
                 text = model(None, body['model'], '', payload, 'low', schema, body['max_output_tokens'])

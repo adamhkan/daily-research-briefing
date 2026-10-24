@@ -105,7 +105,7 @@ class FileResponseProviderTests(unittest.TestCase):
                 return json.dumps({'papers': [dict(
                     paper_id=p['paper_id'], complete=True,
                     affiliations=[dict(institution='EPFL', authors=[], block_id=p['blocks'][0]['id'],
-                                       evidence_quote='EPFL', role='author_affiliation')],
+                                        role='author_affiliation')],
                 ) for p in payload['papers']]})
             return stub(None, model, prompt, payload, effort, schema, limit)
         record = paper('p')

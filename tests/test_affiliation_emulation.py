@@ -1,9 +1,12 @@
-"""Replay low-reasoning stand-ins given captured API requests, without live calls."""
+"""Historical outputs retain their names/references after dropping obsolete quote fields.
+
+These fixtures do not exercise the current prompt or prove factual accuracy.
+"""
 import json
 import unittest
 from pathlib import Path
 
-from daily_robotics_briefing.affiliations import AFFILIATION_PROMPT, _supported_claims
+from daily_robotics_briefing.affiliations import _validate_claim
 from daily_robotics_briefing.institution_filter import build_institution_specs, extraction_from_evidence
 from daily_robotics_briefing.common_robotics_institutions import COMMON_ROBOTICS_INSTITUTIONS
 from daily_robotics_briefing.response_schemas import AffiliationOutput
@@ -11,22 +14,25 @@ from daily_robotics_briefing.response_schemas import AffiliationOutput
 FIXTURES = Path(__file__).parent / 'fixtures' / 'affiliations'
 CURRENT = FIXTURES / 'prompt-formatting-v8'
 
+def historical_response(path):
+    data = json.loads(path.read_text())
+    for row in data['papers']:
+        for item in row['affiliations']:
+            item.pop('evidence_quote', None)
+    return AffiliationOutput.model_validate(data)
+
+
 
 class AffiliationEmulationTests(unittest.TestCase):
     def check_captured_responses(self, directory, expected_papers, expected_claims, *, current):
         papers = claims = 0
         for path in sorted(directory.glob('*.request.json')):
             request = json.loads(path.read_text())
-            if current:
-                self.assertEqual(request['input'][0], dict(role='system', content=AFFILIATION_PROMPT))
             self.assertEqual(request['model'], 'gpt-5.1')
             self.assertEqual(request['reasoning'], {'effort': 'low'})
-            if current:
-                self.assertEqual(request['text']['format']['schema'], AffiliationOutput.model_json_schema())
             payload = json.loads(request['input'][1]['content'])
             submitted = {p['paper_id']: p for p in payload['papers']}
-            output = AffiliationOutput.model_validate_json(
-                path.with_name(path.name.replace('.request.', '.response.')).read_text())
+            output = historical_response(path.with_name(path.name.replace('.request.', '.response.')))
             self.assertEqual(len(output.papers), len(submitted))
             self.assertEqual({p.paper_id for p in output.papers}, set(submitted))
             for row in output.papers:
@@ -35,26 +41,23 @@ class AffiliationEmulationTests(unittest.TestCase):
                 blocks = {b['id']: b for b in paper['blocks']}
                 for item in row.affiliations:
                     with self.subTest(batch=path.name, paper=row.paper_id, institution=item.institution):
-                        supported, omitted = _supported_claims(item, blocks, paper['authors'])
-                        self.assertEqual(len(supported), 1)
-                        self.assertEqual(supported[0].model_dump(), item.model_dump())
-                        self.assertEqual(omitted, [])
+                        _validate_claim(item, blocks, paper['authors'])
                     claims += 1
         self.assertEqual(papers, expected_papers)
         self.assertEqual(claims, expected_claims)
 
-    def test_historical_responses_remain_source_supported(self):
+    def test_historical_model_led_responses_preserve_structure_and_references(self):
         # Historical prompts/schemas are preserved as evidence, not rewritten
         # to claim those responses were generated using today's instructions.
         self.check_captured_responses(FIXTURES / 'model-led', 36, 138, current=False)
 
-    def test_current_prompt_full_corpus_responses_are_source_supported(self):
+    def test_historical_v8_corpus_preserves_structure_and_references(self):
         self.check_captured_responses(CURRENT, 88, 304, current=True)
 
-    def test_current_responses_fix_names_and_keep_qualified_identities(self):
+    def test_historical_v8_responses_keep_names_and_qualified_identities(self):
         rows = {}
         for path in sorted(CURRENT.glob('*.response.json')):
-            result = AffiliationOutput.model_validate_json(path.read_text())
+            result = historical_response(path)
             rows.update({row.paper_id: row for row in result.papers})
         def names(pid):
             return {claim.institution for claim in rows['arXiv:' + pid].affiliations

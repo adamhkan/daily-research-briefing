@@ -52,13 +52,13 @@ class CodexPilotTests(unittest.TestCase):
         if schema == 'AffiliationOutput':
             return dict(papers=[dict(paper_id=p['paper_id'], complete=True, affiliations=[dict(
                 institution=p['blocks'][0]['text'], authors=[], block_id=p['blocks'][0]['id'],
-                evidence_quote=p['blocks'][0]['text'], role='author_affiliation')]) for p in payload['papers']])
+                 role='author_affiliation')]) for p in payload['papers']])
         if schema == 'ClassificationOutput':
             return dict(papers=[dict(paper_id=p['paper_id'], topic_relevance=3,
                 contribution_score=2, rationale='Direct manipulation contribution.') for p in payload['papers']])
         if schema == 'OverviewOutput':
             return dict(papers=[dict(paper_id=p['paper_id'], claims=[dict(
-                claim=p['abstract'], evidence_quote=p['abstract'])]) for p in payload['papers']])
+                claim=p['abstract'])]) for p in payload['papers']])
         if schema == 'ExecutiveOutput':
             return dict(bullets=[dict(text=p['overview'], paper_ids=[p['paper_id']]) for p in payload['papers']])
         self.fail('Unexpected schema: ' + schema)
@@ -104,7 +104,7 @@ class CodexPilotTests(unittest.TestCase):
         self.assertEqual(metrics['api_requests'], 0)
         self.assertEqual(metrics['paper_count'], 2)
         self.assertEqual(metrics['selected_paper_count'], 2)
-        self.assertEqual(metrics['summaries_without_evidence'], 0)
+        self.assertEqual(metrics['summaries_unavailable'], 0)
         self.assertEqual(metrics['repair_request_count'], 0)
         self.assertEqual(metrics['requests_by_stage']['AffiliationOutput'], 1)
         self.assertIsNone(metrics['codex_token_usage'])

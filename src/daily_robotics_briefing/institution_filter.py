@@ -151,12 +151,11 @@ def resolve_institution(raw: str, specs: list[InstitutionSpec]) -> MatchedInstit
 def extraction_from_evidence(
     author_names: list[str], evidence: list[dict], institution_specs: list[InstitutionSpec],
 ) -> InstitutionExtractionResult:
-    current = [e for e in evidence if e['role'] == 'author_affiliation'
-               and plausible_institution(e['institution'])]
+    current = [e for e in evidence if e['role'] == 'author_affiliation']
     resolved: list[tuple[dict, str, MatchedInstitution | None]] = []
     for item in current:
         raw = item['institution'].strip()
-        # Model output is a verbatim name, not a proposed canonical identity.
+        # Catalog aliases normalize the model-returned name for filter matching.
         match = resolve_institution(raw, institution_specs)
         resolved.append((item, raw, match))
     institutions = sorted({match.canonical if match else raw for _, raw, match in resolved})

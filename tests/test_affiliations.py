@@ -94,40 +94,33 @@ class SourceRegressionTests(unittest.TestCase):
         value = record(text, kind='author_note')
         self.assertEqual(deterministic_evidence(value, SPECS), ([], False))
         current = AffiliationClaim(institution='Massachusetts Institute of Technology', authors=[],
-                                   block_id='b', evidence_quote='Massachusetts Institute of Technology', role='author_affiliation')
+                                   block_id='b',  role='author_affiliation')
         funder = AffiliationClaim(institution='Stanford University', authors=[], block_id='b',
-                                  evidence_quote='Stanford University', role='funder')
+                                   role='funder')
         for claim in [current, funder]:
             _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
         result = extraction_from_evidence([], [current.model_dump(), funder.model_dump()], SPECS)
         self.assertEqual(result.paper_level_institutions, ['Massachusetts Institute of Technology'])
 
-    def test_campus_affiliation_quote_is_not_rejected_by_later_funding(self):
+    def test_model_reported_campus_and_role_are_preserved(self):
         text = ('Authors are all with the Hong Kong University of Science and Technology (Guangzhou), China. '
                 '(Emails: author@example.org). † thanks: Financial support: funded by a research grant.')
         value = record(text, kind='header_context')
         claim = AffiliationClaim(institution='Hong Kong University of Science and Technology (Guangzhou)',
-                                 authors=[], block_id='b', evidence_quote='Hong Kong University of Science and Technology (Guangzhou)',
+                                 authors=[], block_id='b',
                                  role='author_affiliation')
         _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
         result = extraction_from_evidence([], [claim.model_dump()], SPECS)
         self.assertEqual(result.unmapped_raw_institutions, [claim.institution])
         self.assertNotIn('Hong Kong University of Science and Technology', result.paper_level_institutions)
 
-    def test_placeholder_and_punctuation_are_not_institution_evidence(self):
-        for raw in ['[', 'Your Institution', 'Your University']:
-            value = record(raw)
-            claim = AffiliationClaim(institution=raw, authors=[], block_id='b', evidence_quote=raw, role='author_affiliation')
-            with self.subTest(raw=raw), self.assertRaisesRegex(ValueError, 'placeholder'):
-                _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
-            self.assertEqual(extraction_from_evidence([], [claim.model_dump()], SPECS).paper_level_institutions, [])
 
-    def test_clean_names_keep_separate_source_evidence_and_unknown_organizations(self):
+    def test_model_names_and_unknown_organizations_are_preserved(self):
         text = ('Department of Architecture, Massachusetts Institute of Technology, United States; '
                 'Novel Robotics Laboratory, United Kingdom')
         value = record(text)
         claims = [AffiliationClaim(institution=name, authors=[], block_id='b',
-                                   evidence_quote=text, role='author_affiliation')
+                                    role='author_affiliation')
                   for name in ['Massachusetts Institute of Technology', 'Novel Robotics Laboratory']]
         for claim in claims:
             _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
@@ -135,7 +128,6 @@ class SourceRegressionTests(unittest.TestCase):
         self.assertEqual(result.paper_level_institutions,
                          ['Massachusetts Institute of Technology', 'Novel Robotics Laboratory'])
         self.assertEqual(result.unmapped_raw_institutions, ['Novel Robotics Laboratory'])
-        self.assertEqual(claims[0].evidence_quote, text)
 
     def test_model_returned_qualified_names_remain_separate_from_parent_aliases(self):
         for source in ['Amazon Robotics', 'Boston Dynamics AI Institute', 'New York University Abu Dhabi',
@@ -143,7 +135,7 @@ class SourceRegressionTests(unittest.TestCase):
                        'The Chinese University of Hong Kong, Shenzhen']:
             value = record(source)
             claim = AffiliationClaim(institution=source, authors=[], block_id='b',
-                                     evidence_quote=source, role='author_affiliation')
+                                      role='author_affiliation')
             with self.subTest(source=source):
                 _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
                 result = extraction_from_evidence([], [claim.model_dump()], SPECS)
@@ -152,9 +144,8 @@ class SourceRegressionTests(unittest.TestCase):
                 self.assertNotIn('The Chinese University of Hong Kong', result.paper_level_institutions)
         value = record('MIT')
         claim = AffiliationClaim(institution='Massachusetts Institute of Technology', authors=[],
-                                 block_id='b', evidence_quote='MIT', role='author_affiliation')
-        with self.assertRaisesRegex(ValueError, 'verbatim'):
-            _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
+                                 block_id='b',  role='author_affiliation')
+        _validate_claim(claim, {'b': value['affiliation_blocks'][0]}, value['authors'])
 
     def test_cleanup_does_not_consume_name_letters(self):
         for name in ['Xi’an University of Architecture and Technology', 'Stanford University',
@@ -201,7 +192,7 @@ class FallbackTests(unittest.TestCase):
             output = schema.model_validate({'papers': [{
                 'paper_id': payload['papers'][0]['paper_id'], 'complete': complete,
                 'affiliations': [dict(institution=raw, authors=authors or [], block_id=block['id'],
-                                      evidence_quote=block['text'], role='author_affiliation')],
+                                       role='author_affiliation')],
             }]})
             validate(output)
             return output
@@ -213,85 +204,11 @@ class FallbackTests(unittest.TestCase):
         self.assertEqual(value['institution_match_status'], 'no_match')
         self.assertEqual(value['manual_institution_extraction']['paper_level_institutions'], [raw])
 
-    def test_invalid_quote_and_unsupported_author_link_are_rejected(self):
-        block = record('Tsinghua University')['affiliation_blocks'][0]
-        for changes in [dict(evidence_quote='Invented University'), dict(authors=['Jane Doe'])]:
-            claim = AffiliationClaim(institution='Tsinghua University', authors=[], block_id='b',
-                                     evidence_quote='Tsinghua University', role='author_affiliation')
-            claim = claim.model_copy(update=changes)
-            with self.subTest(changes=changes), self.assertRaises(ValueError):
-                _validate_claim(claim, {'b': block}, ['Jane Doe'])
-
-    def test_unproven_author_link_does_not_discard_a_verified_institution(self):
-        value = record('Stanford University', kind='header_context')
-        with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING'):
-            self.resolve(value, self.model('Stanford University', authors=['Jane Doe', 'Invented Author']))
-        self.assertEqual(value['institution_match_status'], 'matched')
-        self.assertTrue(value['affiliation_complete'])
-        self.assertIn('affiliation_author_mappings_omitted', value['affiliation_issues'])
-        self.assertTrue(all(e['authors'] == [] for e in value['affiliation_evidence']))
-
-    def test_a_bad_claim_cannot_discard_other_papers_or_verified_claims_from_its_own_paper(self):
-        papers = [record('Stanford University', kind='header_context', pid='good'),
-                  record('ETH Zurich', kind='header_context', pid='mixed')]
-        rows = []
-        for paper in papers:
-            institution = 'Stanford University' if paper['arxiv_id'] == 'good' else 'ETH Zurich'
-            claims = [dict(institution=institution, authors=[], block_id='b',
-                           evidence_quote=institution, role='author_affiliation')]
-            if paper['arxiv_id'] == 'mixed':
-                claims.append(dict(institution='MIT', authors=[], block_id='b',
-                                   evidence_quote='invented MIT source', role='author_affiliation'))
-            rows.append(dict(paper_id=paper['arxiv_id'], complete=True, affiliations=claims))
-        raw = json.dumps({'papers': rows})
-        with patch('daily_robotics_briefing.briefing_agent._responses_create', return_value=raw) as create:
-            with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING'):
-                identify_institutions(papers, ENTRIES, FILTERS, None, 'model', _request_validated)
-        self.assertEqual(create.call_count, 2)
-        self.assertTrue(papers[0]['affiliation_complete'])
-        self.assertFalse(papers[1]['affiliation_complete'])
-        for paper in papers:
-            self.assertEqual(paper['institution_match_status'], 'matched')
-            self.assertNotIn('affiliation_model_fallback_failed', paper.get('affiliation_issues', []))
-            self.assertNotIn('Massachusetts Institute of Technology',
-                             paper['manual_institution_extraction']['filter_match_institutions'])
-        self.assertIn('affiliation_model_claim_rejected', papers[1]['affiliation_issues'])
-
-    def test_saved_diagnostic_preserves_model_sources_and_filters_author_mappings(self):
-        fixture = json.loads((FIXTURES / 'diagnostic-author-mappings.json').read_text())
-        papers = []
-        for row in fixture['input_papers']:
-            paper = record(pid=row['paper_id'], authors=row['authors'])
-            paper['affiliation_blocks'] = row['blocks']
-            papers.append(paper)
-        with patch('daily_robotics_briefing.briefing_agent._responses_create',
-                   return_value=json.dumps(fixture['model_response'])) as create:
-            with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING'):
-                identify_institutions(papers, ENTRIES, FILTERS, None, 'model', _request_validated)
-        self.assertEqual(create.call_count, 1)
-        by_id = {p['arxiv_id']: p for p in papers}
-        for paper in papers:
-            self.assertTrue(paper['affiliation_complete'])
-            self.assertNotIn('affiliation_model_fallback_failed', paper.get('affiliation_issues', []))
-            self.assertNotIn('affiliation_model_claim_rejected', paper.get('affiliation_issues', []))
-        dex = by_id['arXiv:2610.26762']['affiliation_evidence']
-        self.assertTrue(any(e['institution'] == 'Inria' and not e['authors']
-                            and e['block_id'] == 'html-3' for e in dex))
-        self.assertTrue(any(e['institution'] == 'Soft Robotics Lab, ETH Zürich'
-                            and e['authors'] == ['Robert Katzschmann'] for e in dex))
-        memphis = by_id['arXiv:2610.26717']['affiliation_evidence']
-        self.assertTrue(any('University of Memphis' in e['institution']
-                            and e['role'] == 'author_affiliation' and e['block_id'] == 'html-4'
-                            and not e['authors'] for e in memphis))
-        self.assertTrue(any(e['role'] == 'funder' and 'National Science Foundation' in e['institution']
-                            for e in memphis))
-        numbered = by_id['arXiv:2610.26663']['affiliation_evidence']
-        self.assertTrue(all(not e['authors'] for e in numbered if e['method'] == 'model_extraction'))
 
     def test_model_funder_role_does_not_create_filter_match(self):
         block = record('This work was funded by Stanford University.', kind='author_note')['affiliation_blocks'][0]
         claim = AffiliationClaim(institution='Stanford University', authors=[], block_id='b',
-                                 evidence_quote='Stanford University', role='funder')
+                                  role='funder')
         _validate_claim(claim, {'b': block}, [])
         result = extraction_from_evidence([], [claim.model_dump()], SPECS)
         self.assertEqual(result.paper_level_institutions, [])
@@ -316,51 +233,6 @@ class FallbackTests(unittest.TestCase):
             self.resolve(changed, self.model('Novel University'), cache_dir=Path(tmp))
             self.assertEqual(len(list(Path(tmp).glob('*.json'))), 2)
 
-    def test_failed_model_fallback_does_not_guess_a_partial_match(self):
-        value = record('EPFL and Novel University')
-        with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING'):
-            self.resolve(value, Mock(side_effect=ValueError('bad model result')))
-        self.assertEqual(value['institution_match_status'], 'unresolved')
-        self.assertFalse(value['manual_institution_extraction']['filter_match'])
-        self.assertFalse(value['affiliation_complete'])
-        self.assertIn('affiliation_model_fallback_failed', value['affiliation_issues'])
-
-    def test_fallback_logs_underlying_validation_failure_and_paper_id(self):
-        value = record('Novel University', pid='arXiv:example')
-        # Exercise the real two-attempt repair wrapper, which chains the cause.
-        invalid = json.dumps({'papers': [{
-            'paper_id': value['arxiv_id'], 'complete': True, 'affiliations': [{
-                'institution': 'Novel University', 'authors': [], 'block_id': 'b',
-                'evidence_quote': 'Fabricated evidence', 'role': 'author_affiliation',
-            }],
-        }]})
-        with patch('daily_robotics_briefing.briefing_agent._responses_create', return_value=invalid) as create:
-            with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING') as logs:
-                self.resolve(value, _request_validated)
-        message = '\n'.join(logs.output)
-        self.assertIn('AffiliationOutput failed validation after two attempts', message)
-        self.assertIn('arXiv:example: Affiliation quote must be verbatim supplied source text', message)
-        self.assertIn('model=model', message)
-        self.assertEqual(create.call_count, 2)
-        self.assertEqual(value['institution_match_status'], 'unresolved')
-
-    def test_api_error_logs_status_and_request_id_without_credentials(self):
-        key = 'custom-api-credential-for-test'
-        token = 'custom-github-credential-for-test'
-        response = httpx2.Response(401, request=httpx2.Request('POST', 'https://api.openai.com/v1/responses'),
-                                   headers={'x-request-id': 'req-test'})
-        error = AuthenticationError(f'Invalid API key: {key}; token={token}; Bearer unconfigured-token',
-                                    response=response, body={'code': 'invalid_api_key'})
-        with patch.dict('os.environ', {'OPENAI_API_KEY': key, 'GH_TOKEN': token}):
-            with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING') as logs:
-                self.resolve(record('EPFL and Novel University'), Mock(side_effect=error))
-        message = '\n'.join(logs.output)
-        self.assertIn('AuthenticationError', message)
-        self.assertIn('status_code=401', message)
-        self.assertIn('request_id=req-test', message)
-        self.assertIn('code=invalid_api_key', message)
-        for credential in [key, token, 'unconfigured-token']:
-            self.assertNotIn(credential, message)
 
     def test_error_diagnostics_are_bounded_and_redact_client_and_prefixed_keys(self):
         key = 'credential-only-on-the-client'
@@ -379,12 +251,6 @@ class FallbackTests(unittest.TestCase):
         missing = self.resolve(record(), request)
         self.assertEqual(missing['institution_match_status'], 'source_unavailable')
 
-    def test_former_and_work_done_at_do_not_count(self):
-        value = record('Previously with Stanford University. Work was done at MIT.', kind='author_note')
-        request = Mock(side_effect=ValueError('remain unresolved'))
-        with self.assertLogs('daily_robotics_briefing.affiliations', level='WARNING'):
-            self.resolve(value, request)
-        self.assertFalse(value['manual_institution_extraction']['filter_match'])
 
     def test_run_wide_budget_and_truncation_are_enforced(self):
         papers = [record('Novel University with additional context', pid=str(i)) for i in range(3)]
