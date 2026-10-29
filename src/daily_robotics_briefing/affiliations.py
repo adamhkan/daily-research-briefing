@@ -10,7 +10,7 @@ from .institution_filter import build_institution_specs, extraction_from_evidenc
 from .log_capture import redact_text
 from .response_schemas import AffiliationClaim, AffiliationOutput
 
-EXTRACTION_VERSION = 'affiliations-v10-prompt-clarity'
+EXTRACTION_VERSION = 'affiliations-v11-shared-budget'
 AFFILIATION_PROMPT = '''Extract author affiliations from the supplied paper front-matter blocks.
 Return JSON matching the supplied schema, with every paper_id exactly once.
 For each organization return its institution name, a supplied block_id, its role,
@@ -42,7 +42,8 @@ email domains, project hosts, datasets, or postal locations.
 
 Resolve clear numbered/symbol affiliation markers across the supplied blocks.
 Prefer clear author-affiliation tables and footnotes when other markup conflicts.
-Use only supplied author names. If an author's association remains unclear, leave
+Copy associated names exactly from the supplied author list, even when the source
+uses initials, a different name order, or spelling. If the association remains unclear, leave
 the entry's authors empty; retain the organization at paper level.
 
 complete describes the current institution list, not whether every author has been
@@ -100,11 +101,19 @@ def _cache_key(record: dict, model: str) -> str:
 
 
 def _validate_claim(claim: Any, blocks: dict, authors: list[str]) -> None:
-    """Check references only; institution names, roles and mappings are model judgments."""
+    """Check source-block references; names, roles and mappings are model judgments."""
     if claim.block_id not in blocks:
         raise ValueError('Affiliation must reference a supplied block_id')
-    if any(author not in authors for author in claim.authors):
-        raise ValueError('Author mappings may only reference supplied author names')
+
+
+def _source_allocations(demands: list[int], budget: int) -> list[int]:
+    """Share the source cap fairly, redistributing unused room from short papers."""
+    allocations = [0] * len(demands)
+    remaining = max(0, budget)
+    for position, index in enumerate(sorted(range(len(demands)), key=demands.__getitem__)):
+        allocations[index] = min(demands[index], remaining // (len(demands) - position))
+        remaining -= allocations[index]
+    return allocations
 
 
 def identify_institutions(
@@ -113,7 +122,7 @@ def identify_institutions(
     max_input_chars: int = 120000, snippet_chars: int = 4000,
 ) -> None:
     specs = build_institution_specs(entries)
-    states, pending, remaining = {}, [], max_input_chars
+    states, pending, candidates = {}, [], []
     for paper in papers:
         paper['affiliation_cache_hit'] = False
         blocks = paper.get('affiliation_blocks', [])
@@ -143,7 +152,14 @@ def identify_institutions(
         states[paper['arxiv_id']] = dict(evidence=evidence, complete=complete, path=path, cacheable=True)
         if complete or not blocks:
             continue
-        selected, room = [], min(snippet_chars, remaining)
+        candidates.append(paper)
+
+    demands = [min(max(0, snippet_chars), sum(len(b['text']) for b in p['affiliation_blocks']))
+               for p in candidates]
+    allocations = _source_allocations(demands, max_input_chars)
+    for paper, room in zip(candidates, allocations):
+        blocks = paper['affiliation_blocks']
+        selected = []
         for block in sorted(blocks, key=lambda b: b['kind'] == 'header_context'):
             if room <= 0:
                 break
@@ -154,7 +170,6 @@ def identify_institutions(
         if not length:
             paper.setdefault('affiliation_issues', []).append('affiliation_input_budget_exceeded')
             continue
-        remaining -= length
         full_length = sum(len(b['text']) for b in blocks)
         pending.append(dict(paper_id=paper['arxiv_id'], authors=paper['authors'], blocks=selected,
                             truncated=length < full_length))

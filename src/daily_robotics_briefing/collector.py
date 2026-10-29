@@ -252,16 +252,17 @@ def _pdf_affiliation_text(text: str) -> str:
     footnotes = []
     lines = text.splitlines()
     for index, line in enumerate(lines):
-        if re.search(r'\bauthors? (?:is|are) (?:also )?with\b', line, re.I):
+        # Footnotes often name authors directly ("Qian Meng is with ..."),
+        # rather than using the literal phrase "the authors are with".
+        if re.search(r'\b(?:is|are) (?:also )?(?:with|affiliated with)\b', line, re.I):
             fragment = line.strip()
             for continuation in lines[index + 1:index + 4]:
-                if re.search(r'[.!?]\s*$', fragment):
-                    break
                 if not continuation.strip() or re.match(r'\s*(?:Abstract|Introduction)\b', continuation, re.I):
                     break
                 fragment += ' ' + continuation.strip()
-                if re.search(r'\.(?:\s|$)', continuation):
-                    break
+                # A period may end the right column while the institution in
+                # the left column continues onto the next line. Preserve the
+                # bounded note context and let the model distinguish roles.
             if fragment not in header:
                 footnotes.append(fragment)
     return header.strip() + ('\n' + '\n'.join(footnotes) if footnotes else '')
@@ -355,7 +356,11 @@ def _enrich_affiliations(paper: Paper, timeout: int, session: requests.Session, 
     evidence, _ = deterministic_evidence(paper.to_dict(), build_institution_specs(COMMON_ROBOTICS_INSTITUTIONS))
     paper.affiliation_status = 'extracted' if any(e['role'] == 'author_affiliation' for e in evidence) else 'unknown'
     if paper.affiliation_status == 'unknown':
-        logger.warning('Affiliation unresolved for %s (%s)', paper.arxiv_id, ', '.join(issues) or 'front matter requires review')
+        if blocks:
+            logger.info('Affiliation source collected for %s; model extraction pending', paper.arxiv_id)
+        else:
+            logger.warning('Affiliation source unavailable for %s (%s)', paper.arxiv_id,
+                           ', '.join(issues) or 'no front matter collected')
 
 
 def _parse_arxiv_list_header_date(header_text: str) -> date | None:

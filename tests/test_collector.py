@@ -135,7 +135,34 @@ This work was supported by MIT.
         self.assertIn('EPFL', result)
         self.assertNotIn('Stanford', result)
         self.assertNotIn('Washington', result)
-        self.assertNotIn('MIT', result)
+        # Nearby funding text is context, not a current-affiliation decision.
+        self.assertIn('This work was supported by MIT.', result)
+
+    def test_named_author_footnotes_below_abstract_in_two_columns(self):
+        # First-page footer from arXiv:2610.32259v1; the old literal
+        # "authors are with" rule omitted both institutions.
+        text = '''A GNSS paper
+Jiahao Hu, Xiangru Wang, Weisong Wen, and Qian Meng
+Abstract -- We compare to an unrelated Stanford University method.
+I. INTRODUCTION
+Body text.
+Jiahao Hu, Xiangru Wang, and Weisong Wen are with the Department of     Qian Meng is with the School of Instrument Science and Engineering,
+Aeronautical and Aviation Engineering, The Hong Kong Polytechnic Univer-     Southeast University, Nanjing 210096, China.
+sity, Hong Kong, China.     Corresponding author: Weisong Wen.
+'''
+        result = _pdf_affiliation_text(text)
+        self.assertIn('The Hong Kong Polytechnic Univer-', result)
+        self.assertIn('sity, Hong Kong', result)
+        self.assertIn('Southeast University', result)
+        self.assertNotIn('Stanford', result)
+
+    def test_collected_context_is_pending_rather_than_reported_unresolved(self):
+        session = Mock()
+        session.get.return_value = response('<div class="ltx_affiliation">Novel University</div>')
+        with self.assertLogs('daily_robotics_briefing.collector', level='INFO') as logs:
+            _enrich_affiliations(paper(), 10, session)
+        self.assertIn('model extraction pending', '\n'.join(logs.output))
+        self.assertNotIn('unresolved', '\n'.join(logs.output))
 
 
 if __name__ == '__main__':

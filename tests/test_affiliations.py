@@ -267,7 +267,27 @@ class FallbackTests(unittest.TestCase):
         self.assertEqual(sum(len(b['text']) for p in captured for b in p['blocks']), 30)
         self.assertTrue(all(p['truncated'] for p in captured))
         self.assertTrue(all(not p['affiliation_complete'] for p in papers))
-        self.assertIn('affiliation_input_budget_exceeded', papers[-1]['affiliation_issues'])
+        self.assertEqual([sum(len(b['text']) for b in p['blocks']) for p in captured], [10, 10, 10])
+        self.assertEqual({p['paper_id'] for p in captured}, {'0', '1', '2'})
+
+    def test_short_paper_after_large_sources_gets_full_input_with_same_cap(self):
+        papers = [record('x' * 100, pid=str(i)) for i in range(2)]
+        papers.append(record('Novel University', pid='short'))
+        captured = []
+        def request(client, model, prompt, payload, schema, validate, **kwargs):
+            captured.extend(payload['papers'])
+            result = schema.model_validate(dict(papers=[dict(
+                paper_id=p['paper_id'], complete=False, affiliations=[]
+            ) for p in payload['papers']]))
+            validate(result)
+            return result
+        identify_institutions(papers, ENTRIES, FILTERS, None, 'model', request,
+                              max_input_chars=60, snippet_chars=100)
+        self.assertEqual(sum(len(b['text']) for p in captured for b in p['blocks']), 60)
+        self.assertEqual([p['paper_id'] for p in captured], ['0', '1', 'short'])
+        self.assertEqual(captured[-1]['blocks'][0]['text'], 'Novel University')
+        self.assertFalse(captured[-1]['truncated'])
+        self.assertTrue(all(p['truncated'] for p in captured[:2]))
 
     def test_malformed_cache_is_ignored(self):
         value = record('Novel University')

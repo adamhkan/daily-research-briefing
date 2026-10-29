@@ -65,7 +65,7 @@ class ModelOutputContractTests(unittest.TestCase):
         self.assertEqual(record['institution_match_status'], 'matched')
 
     def test_wrong_affiliation_references_fail_without_salvage(self):
-        for change in [dict(block_id='missing'), dict(authors=['Unknown Author'])]:
+        for change in [dict(block_id='missing')]:
             record = source_record()
             data = json.loads(affiliation_response(dict(papers=[dict(paper_id='p')])))
             data['papers'][0]['affiliations'][0].update(change)
@@ -75,6 +75,20 @@ class ModelOutputContractTests(unittest.TestCase):
                     identify_institutions([record], [], [], None, 'offline', _request_validated)
                 self.assertEqual(request.call_count, 2)
                 self.assertNotIn('manual_institution_extraction', record)
+
+    def test_author_name_variation_does_not_block_institution_or_retry(self):
+        record = source_record()
+        data = json.loads(affiliation_response(dict(papers=[dict(paper_id='p')])))
+        data['papers'][0]['affiliations'][0]['authors'] = ['J. Doe']
+        with patch('daily_robotics_briefing.briefing_agent._responses_create',
+                   return_value=json.dumps(data)) as request:
+            identify_institutions([record], ['Massachusetts Institute of Technology'],
+                                  ['Massachusetts Institute of Technology'], None, 'offline', _request_validated)
+        self.assertEqual(request.call_count, 1)
+        self.assertEqual(record['institution_match_status'], 'matched')
+        self.assertEqual(record['affiliation_evidence'][0]['authors'], ['J. Doe'])
+        self.assertEqual(record['manual_institution_extraction']['paper_level_institutions'],
+                         ['Massachusetts Institute of Technology'])
 
     def test_independent_authors_can_have_complete_empty_institution_list(self):
         record = source_record()

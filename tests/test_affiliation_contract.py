@@ -89,10 +89,9 @@ class AffiliationContractTests(unittest.TestCase):
         self.assertNotIn('Massachusetts Institute of Technology', result.paper_level_institutions)
 
 
-    def test_author_references_must_belong_to_supplied_paper(self):
-        with self.assertRaises(ValueError):
-            _validate_claim(claim('MIT', 'Jane Doe is with MIT.', authors=['Unknown Author']),
-                            {'b': block('Jane Doe is with MIT.')}, ['Jane Doe'])
+    def test_author_name_spelling_is_not_a_fatal_reference_check(self):
+        _validate_claim(claim('MIT', 'Jane Doe is with MIT.', authors=['J. Doe']),
+                        {'b': block('Jane Doe is with MIT.')}, ['Jane Doe'])
 
     def test_extraction_completeness_is_independent_of_catalog_and_filter_matches(self):
         cases = [
