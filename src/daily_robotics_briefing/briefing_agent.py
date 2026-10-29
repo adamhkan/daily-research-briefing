@@ -226,7 +226,7 @@ def create_daily_briefing(
     submission_date: date, model: str = DEFAULT_MODEL, max_topic_matches: int = 10,
     classification_batch_size: int = 25, summary_batch_size: int = 10,
     institution_entries: list | None = None, affiliation_cache_dir: Path | None = None,
-    affiliation_batch_size: int = 12, affiliation_max_input_chars: int = 120000,
+    affiliation_batch_size: int = 12, affiliation_max_input_chars: int = 160000,
     affiliation_snippet_chars: int = 4000,
     response_provider: Callable | None = None,
 ) -> dict[str, Any]:

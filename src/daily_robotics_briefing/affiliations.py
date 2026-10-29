@@ -119,7 +119,7 @@ def _source_allocations(demands: list[int], budget: int) -> list[int]:
 def identify_institutions(
     papers: list[dict], entries: list, filters: list[str], client: Any, model: str,
     request: Callable, *, cache_dir: Path | None = None, batch_size: int = 12,
-    max_input_chars: int = 120000, snippet_chars: int = 4000,
+    max_input_chars: int = 160000, snippet_chars: int = 4000,
 ) -> None:
     specs = build_institution_specs(entries)
     states, pending, candidates = {}, [], []

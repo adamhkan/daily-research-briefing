@@ -81,7 +81,7 @@ def _settings(filters_path: Path) -> dict:
         summary_batch_size=int(cfg.get('summary_batch_size', 10)),
         max_topic_matches=int(cfg.get('max_topic_matches', 10)),
         affiliation_batch_size=int(cfg.get('affiliation_batch_size', 12)),
-        affiliation_max_input_chars=int(cfg.get('affiliation_max_input_chars', 120000)),
+        affiliation_max_input_chars=int(cfg.get('affiliation_max_input_chars', 160000)),
         affiliation_snippet_chars=int(cfg.get('affiliation_snippet_chars', 4000)),
         max_pdf_megabytes=int(cfg.get('max_pdf_megabytes', 32)),
     )

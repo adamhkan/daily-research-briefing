@@ -59,6 +59,6 @@ max_topic_matches: 10
 
 # Affiliation fallback: bounded author snippets, not full papers.
 affiliation_batch_size: 12
-affiliation_max_input_chars: 120000
+affiliation_max_input_chars: 160000
 affiliation_snippet_chars: 4000
 max_pdf_megabytes: 32
