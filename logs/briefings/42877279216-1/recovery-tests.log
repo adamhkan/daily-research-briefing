@@ -1,0 +1,35 @@
+✔ retry a runner allocation failure at the 30-minute boundary (5.502191ms)
+✔ wait for 30 minutes after completion, not after the run started (0.242162ms)
+✔ a timed-out manually dispatched run is retried (0.295082ms)
+✔ a long runner wait does not make a freshly recorded failure too old (0.327201ms)
+✔ skip a run that is successful (0.353751ms)
+✔ skip a run that is cancelled (0.171932ms)
+✔ skip a run that is running (0.179274ms)
+✔ skip a run that is queued (3.424398ms)
+✔ skip a run that is already retried automatically or manually (0.25164ms)
+✔ skip a run that is on a different branch (0.504744ms)
+✔ skip a run that is triggered by a different event (0.171841ms)
+✔ skip a run that is failed 24 hours ago (0.11804ms)
+✔ a newer completed run supersedes an older failure (0.327832ms)
+✔ a newer in_progress run supersedes an older failure (0.124603ms)
+✔ a newer queued run supersedes an older failure (0.097071ms)
+✔ use run ID to disambiguate runs created in the same second (0.184485ms)
+✔ skip when a manual rerun starts during the check (0.209422ms)
+✔ no previous daily run is a successful no-op (0.259515ms)
+✔ surface a GitHub API rejection instead of reporting a successful retry (0.530652ms)
+✔ original run dates are stable across midnight and year boundaries (315.571627ms)
+✔ Eastern daylight saving boundaries preserve the previous calendar day (0.393936ms)
+✔ pause all three pilot report dates and resume after the inclusive end (333.160202ms)
+✔ window boundaries use Eastern report date rather than UTC date (1.354601ms)
+✔ original pilot date remains paused on later reruns and preserves report dates (4.615072ms)
+✔ old failed runs cannot spend during current Eastern pilot dates (1.174274ms)
+✔ explicit pause opt-out enables the normal API workflow (0.876849ms)
+✔ invalid configuration fails instead of implicitly enabling paid generation (0.929446ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 432.838964
