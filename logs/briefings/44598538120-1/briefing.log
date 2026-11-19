@@ -1,0 +1,16 @@
+Ignoring wrong pointing object 6 0 (offset 0)
+Ignoring wrong pointing object 8 0 (offset 0)
+Ignoring wrong pointing object 10 0 (offset 0)
+Ignoring wrong pointing object 19 0 (offset 0)
+Ignoring wrong pointing object 21 0 (offset 0)
+Ignoring wrong pointing object 26 0 (offset 0)
+Ignoring wrong pointing object 28 0 (offset 0)
+Ignoring wrong pointing object 77 0 (offset 0)
+Affiliation coverage: {'matched': 4, 'no_match': 77, 'unresolved': 8, 'source_unavailable': 0}
+Affiliation resolution: {'filter_match': 4, 'no_recognized_filter_match': 75, 'incomplete_extraction': 4, 'no_usable_evidence': 6}
+Affiliation extraction: {'complete': 78, 'incomplete': 5, 'no_usable_evidence': 6}
+API usage: {'sdk_requests': 15, 'input_tokens': 93122, 'output_tokens': 35613, 'cached_input_tokens': 0, 'reasoning_tokens': 16889}
+Wrote markdown briefing: reports/2026-11-19/2026-11-19.md
+Wrote structured briefing: reports/2026-11-19/2026-11-19.json
+Wrote HTML briefing: reports/2026-11-19/2026-11-19.html
+Wrote dashboard index: reports/index.html
