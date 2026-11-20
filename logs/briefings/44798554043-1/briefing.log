@@ -1,0 +1,9 @@
+Affiliation source unavailable for arXiv:2611.23531 (html_link_missing, pdf_fetch_failed)
+Affiliation coverage: {'matched': 9, 'no_match': 86, 'unresolved': 8, 'source_unavailable': 1}
+Affiliation resolution: {'filter_match': 9, 'no_recognized_filter_match': 86, 'incomplete_extraction': 4, 'no_usable_evidence': 5}
+Affiliation extraction: {'complete': 94, 'incomplete': 5, 'no_usable_evidence': 5}
+API usage: {'sdk_requests': 18, 'input_tokens': 128350, 'output_tokens': 49753, 'cached_input_tokens': 0, 'reasoning_tokens': 23991}
+Wrote markdown briefing: reports/2026-11-20/2026-11-20.md
+Wrote structured briefing: reports/2026-11-20/2026-11-20.json
+Wrote HTML briefing: reports/2026-11-20/2026-11-20.html
+Wrote dashboard index: reports/index.html
