@@ -1,0 +1,36 @@
+Ignoring wrong pointing object 7 0 (offset 0)
+Ignoring wrong pointing object 9 0 (offset 0)
+Ignoring wrong pointing object 11 0 (offset 0)
+Ignoring wrong pointing object 13 0 (offset 0)
+Ignoring wrong pointing object 15 0 (offset 0)
+Ignoring wrong pointing object 17 0 (offset 0)
+Ignoring wrong pointing object 19 0 (offset 0)
+Ignoring wrong pointing object 21 0 (offset 0)
+Ignoring wrong pointing object 23 0 (offset 0)
+Ignoring wrong pointing object 28 0 (offset 0)
+Ignoring wrong pointing object 39 0 (offset 0)
+Ignoring wrong pointing object 43 0 (offset 0)
+Ignoring wrong pointing object 45 0 (offset 0)
+Ignoring wrong pointing object 56 0 (offset 0)
+Ignoring wrong pointing object 59 0 (offset 0)
+Ignoring wrong pointing object 64 0 (offset 0)
+Ignoring wrong pointing object 68 0 (offset 0)
+Ignoring wrong pointing object 111 0 (offset 0)
+Ignoring wrong pointing object 113 0 (offset 0)
+Ignoring wrong pointing object 120 0 (offset 0)
+Ignoring wrong pointing object 130 0 (offset 0)
+Ignoring wrong pointing object 137 0 (offset 0)
+Ignoring wrong pointing object 143 0 (offset 0)
+Ignoring wrong pointing object 172 0 (offset 0)
+Ignoring wrong pointing object 180 0 (offset 0)
+Ignoring wrong pointing object 186 0 (offset 0)
+Ignoring wrong pointing object 217 0 (offset 0)
+Ignoring wrong pointing object 259 0 (offset 0)
+Affiliation coverage: {'matched': 14, 'no_match': 67, 'unresolved': 11, 'source_unavailable': 0}
+Affiliation resolution: {'filter_match': 14, 'no_recognized_filter_match': 66, 'incomplete_extraction': 5, 'no_usable_evidence': 7}
+Affiliation extraction: {'complete': 77, 'incomplete': 8, 'no_usable_evidence': 7}
+API usage: {'sdk_requests': 17, 'input_tokens': 106707, 'output_tokens': 45465, 'cached_input_tokens': 0, 'reasoning_tokens': 19704}
+Wrote markdown briefing: reports/2026-11-21/2026-11-21.md
+Wrote structured briefing: reports/2026-11-21/2026-11-21.json
+Wrote HTML briefing: reports/2026-11-21/2026-11-21.html
+Wrote dashboard index: reports/index.html
