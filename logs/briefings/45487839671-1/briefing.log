@@ -1,0 +1,8 @@
+Affiliation coverage: {'matched': 2, 'no_match': 78, 'unresolved': 9, 'source_unavailable': 0}
+Affiliation resolution: {'filter_match': 2, 'no_recognized_filter_match': 76, 'incomplete_extraction': 3, 'no_usable_evidence': 8}
+Affiliation extraction: {'complete': 78, 'incomplete': 3, 'no_usable_evidence': 8}
+API usage: {'sdk_requests': 15, 'input_tokens': 98126, 'output_tokens': 39474, 'cached_input_tokens': 0, 'reasoning_tokens': 19550}
+Wrote markdown briefing: reports/2026-11-24/2026-11-24.md
+Wrote structured briefing: reports/2026-11-24/2026-11-24.json
+Wrote HTML briefing: reports/2026-11-24/2026-11-24.html
+Wrote dashboard index: reports/index.html
