@@ -1,0 +1,9 @@
+Affiliation source unavailable for arXiv:2611.29377 (html_link_missing, pdf_too_large)
+Affiliation coverage: {'matched': 19, 'no_match': 147, 'unresolved': 24, 'source_unavailable': 1}
+Affiliation resolution: {'filter_match': 19, 'no_recognized_filter_match': 145, 'incomplete_extraction': 12, 'no_usable_evidence': 15}
+Affiliation extraction: {'complete': 163, 'incomplete': 13, 'no_usable_evidence': 15}
+API usage: {'sdk_requests': 28, 'input_tokens': 199643, 'output_tokens': 81204, 'cached_input_tokens': 0, 'reasoning_tokens': 38797}
+Wrote markdown briefing: reports/2026-11-25/2026-11-25.md
+Wrote structured briefing: reports/2026-11-25/2026-11-25.json
+Wrote HTML briefing: reports/2026-11-25/2026-11-25.html
+Wrote dashboard index: reports/index.html
