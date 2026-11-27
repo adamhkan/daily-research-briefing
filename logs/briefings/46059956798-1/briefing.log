@@ -1,0 +1,9 @@
+Rotated text discovered. Output will be incomplete.
+Affiliation coverage: {'matched': 11, 'no_match': 83, 'unresolved': 15, 'source_unavailable': 0}
+Affiliation resolution: {'filter_match': 11, 'no_recognized_filter_match': 82, 'incomplete_extraction': 8, 'no_usable_evidence': 8}
+Affiliation extraction: {'complete': 93, 'incomplete': 8, 'no_usable_evidence': 8}
+API usage: {'sdk_requests': 20, 'input_tokens': 135914, 'output_tokens': 47994, 'cached_input_tokens': 0, 'reasoning_tokens': 19914}
+Wrote markdown briefing: reports/2026-11-27/2026-11-27.md
+Wrote structured briefing: reports/2026-11-27/2026-11-27.json
+Wrote HTML briefing: reports/2026-11-27/2026-11-27.html
+Wrote dashboard index: reports/index.html
